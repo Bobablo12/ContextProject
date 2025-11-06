@@ -1,0 +1,8 @@
+python javalang_callgraph_builder.py --input_file="Range.java" --text_output="Range_callgraph.txt" --csv_output="Range_methods.csv"     
+
+python javalang_callgraph_builder_TEST.py --input_path="C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\ICSE26_Artifact_New\ExampleToTest" --text_output="DEMO.txt" --csv_output="DEMO_callgraph.csv" --input_method_name="min" --text_output_single_method="DEMO_single_method.txt"
+
+//Remove previous .class and recursively compile
+rm -r .\CurrentAnalyzingCompiled -ErrorAction Ignore; mkdir CurrentAnalyzingCompiled; Get-ChildItem -Recurse -Filter *.java -Path .\CurrentAnalyzing | ForEach-Object { javac -d .\CurrentAnalyzingCompiled $_.FullName }; mvn exec:java "-Dexec.mainClass=BuildCG"
+mvn clean compile
+mvn exec:java "-Dexec.mainClass=BuildCG"
