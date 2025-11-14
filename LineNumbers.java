@@ -2,6 +2,7 @@ import sootup.core.inputlocation.AnalysisInputLocation;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
 import sootup.java.core.views.JavaView;
+// (removed unused imports LinePosition and Position)
 import sootup.core.model.SootMethod;
 import sootup.core.signatures.MethodSignature;
 import sootup.callgraph.CallGraph;
@@ -28,7 +29,7 @@ import sootup.core.jimple.common.expr.AbstractInvokeExpr;
 import sootup.core.jimple.common.stmt.JInvokeStmt;
 
 
-public class BuildCG {
+public class LineNumbers {
     private static Map<MethodSignature, SootMethod> methodMap = new HashMap<>();
     public static void main(String[] args) {
         try {
@@ -107,7 +108,7 @@ public class BuildCG {
             try {
                 FileWriter writerCHA = new FileWriter("output_CHA.txt");
                 FileWriter writerRTA = new FileWriter("output_RTA.txt");
-                FileWriter writer = new FileWriter("output.txt");
+                FileWriter writer = new FileWriter("output1.txt");
 
                 // Track all visited methods globally to avoid infinite recursion
                 System.out.println("Traversing all reachable methods...");
@@ -118,13 +119,8 @@ public class BuildCG {
                     for (SootMethod method : sootClass.getMethods()) {
                         MethodSignature methodSig = method.getSignature();
 
-                        int defLine = -1;
-                        if (method.hasBody() && method.getBody().getPosition() != null) {
-                            defLine = method.getBody().getPosition().getFirstLine() - 1;
-                        }
-                        System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + "()> (line " + defLine + ")");
-                        writer.write("CALL GRAPH for <" + className + ": " + method.getName() + "()> (line " + defLine + ")");
-                        // System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + ">");
+                        writer.write("<" + className + ": " + method.getName() + ">\n");
+                        System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + ">");
                          traverseCallGraph(methodSig, cg, writer, 1, new ArrayList<>());
                         // for (SootMethod target : cg.get(methodSig)) {
                         //     System.out.println("    from <" 
@@ -203,13 +199,19 @@ public class BuildCG {
                     java.util.Optional<AbstractInvokeExpr> invOpt = ((JInvokeStmt) stmt).getInvokeExpr();
                     if (invOpt != null && invOpt.isPresent()) {
                         MethodSignature calledSig = invOpt.get().getMethodSignature();
-                        
                         if (calledSig != null && cgTargets.contains(calledSig) && !emitted.contains(calledSig)) {
-                            int stmtLine = -1;
-                            if (stmt.getPositionInfo() != null && stmt.getPositionInfo().getStmtPosition() != null) {
-                                stmtLine = stmt.getPositionInfo().getStmtPosition().getFirstLine();
+                            // Get the target method's definition line
+                            int targetLine = -1;
+                            SootMethod targetMethod = methodMap.get(calledSig);
+                            if (targetMethod != null && targetMethod.hasBody()) {
+                                try {
+                                    if (targetMethod.getBody().getPosition() != null) {
+                                        targetLine = targetMethod.getBody().getPosition().getFirstLine();
+                                    }
+                                } catch (Throwable ignore) {
+                                }
                             }
-                            String callOutput = indent + "to <" + calledSig.getDeclClassType() + ": " + calledSig.getType() + " " + calledSig.getName() + ">" + " (line " + stmtLine + ")\n";
+                            String callOutput = indent + "to <" + calledSig.getDeclClassType() + ": " + calledSig.getType() + " " + calledSig.getName() + ">" + " (line " + targetLine + ")\n";
                             writer.write(callOutput);
                             System.out.print(callOutput);
                             emitted.add(calledSig);
@@ -224,11 +226,13 @@ public class BuildCG {
         // Emit any remaining targets that weren't found in source order
         for (MethodSignature callee : cgTargets) {
             if (emitted.contains(callee)) continue;
+            // Get the target method's definition line
             int line = -1;
-            if (method != null && method.hasBody()) {
+            SootMethod targetMethod = methodMap.get(callee);
+            if (targetMethod != null && targetMethod.hasBody()) {
                 try {
-                    if (method.getBody().getPosition() != null) {
-                        line = method.getBody().getPosition().getFirstLine();
+                    if (targetMethod.getBody().getPosition() != null) {
+                        line = targetMethod.getBody().getPosition().getFirstLine();
                     }
                 } catch (Throwable ignore) {
                 }
