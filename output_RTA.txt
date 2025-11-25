@@ -1,9 +1,11 @@
-GraphBasedCallGraph(7):
+GraphBasedCallGraph(11):
 <CallGraphExample: void <init>()>:
 	to <java.lang.Object: void <init>()>
 
 <CallGraphExample: void main(java.lang.String[])>:
 	to <CallGraphExample: void methodA()>
+	to <CallGraphExample: void methodB()>
+	from <CallGraphExample: void methodB()>
 
 <CallGraphExample: void methodA()>:
 	to <CallGraphExample: void methodB()>
@@ -11,12 +13,18 @@ GraphBasedCallGraph(7):
 	from <CallGraphExample: void main(java.lang.String[])>
 
 <CallGraphExample: void methodB()>:
+	to <CallGraphExample: void main(java.lang.String[])>
+	to <CallGraphExample: void methodC()>
+	to <CallGraphExample: void methodC()>
 	to <CallGraphExample: void methodC()>
 	to <java.io.PrintStream: void println(java.lang.String)>
+	from <CallGraphExample: void main(java.lang.String[])>
 	from <CallGraphExample: void methodA()>
 
 <CallGraphExample: void methodC()>:
 	to <java.io.PrintStream: void println(java.lang.String)>
+	from <CallGraphExample: void methodB()>
+	from <CallGraphExample: void methodB()>
 	from <CallGraphExample: void methodB()>
 
 <java.io.PrintStream: void println(java.lang.String)>:

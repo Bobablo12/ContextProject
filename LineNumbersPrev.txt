@@ -2,8 +2,6 @@ import sootup.core.inputlocation.AnalysisInputLocation;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
 import sootup.java.core.views.JavaView;
-import sootup.core.model.LinePosition;
-import sootup.core.model.Position;
 import sootup.core.model.SootMethod;
 import sootup.core.signatures.MethodSignature;
 import sootup.callgraph.CallGraph;
@@ -15,23 +13,23 @@ import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.stream.Collectors;
-
-import javax.sound.sampled.Line;
+import java.util.Set;
+import java.util.HashSet;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 import sootup.core.jimple.common.stmt.Stmt;
 import sootup.core.jimple.common.expr.AbstractInvokeExpr;
 import sootup.core.jimple.common.stmt.JInvokeStmt;
-import sootup.core.graph.BasicBlock;
-import sootup.apk.frontend.main.Tag;
 
 
-public class LineNumbers {
+public class BuildCG {
+    private static Map<MethodSignature, SootMethod> methodMap = new HashMap<>();
     public static void main(String[] args) {
         try {
             //given path
@@ -81,9 +79,9 @@ public class LineNumbers {
                 //get all the methods in each class
                 for (SootMethod method : sootClass.getMethods()) {
                     entryPoints.add(method.getSignature());
+                    methodMap.put(method.getSignature(), method);
                     totalMethods++;
                     methodCount++;
-                    //System.out.println("  " + methodCount + ". " + method.getName() + "()");
                 }
                 System.out.println("  Total methods: " + methodCount);
             }
@@ -109,9 +107,7 @@ public class LineNumbers {
             try {
                 FileWriter writerCHA = new FileWriter("output_CHA.txt");
                 FileWriter writerRTA = new FileWriter("output_RTA.txt");
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                FileWriter writer = new FileWriter("output1.txt");
+                FileWriter writer = new FileWriter("output.txt");
 
                 // Track all visited methods globally to avoid infinite recursion
                 System.out.println("Traversing all reachable methods...");
@@ -122,79 +118,39 @@ public class LineNumbers {
                     for (SootMethod method : sootClass.getMethods()) {
                         MethodSignature methodSig = method.getSignature();
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        // int line = -1;
-                        if (method.hasBody()) {
-                        //     System.out.println("  Inspecting method: " + method.getName());
-                        //     for (Stmt stmt : method.getBody().getStmts()) {
-                        //         if (stmt.getPosition() != null) {
-                        //             Tag tag = stmt.getTag("LineNumberTag");
-                        //             if (tag instanceof LineNumberTag) {
-                        //                 LineNumberTag lineNumberTag = (LineNumberTag) tag;
-                        //                 line = lineNumberTag.getLineNumber();
-                        //             }
-                        //             System.out.println("    " + stmt + " (line " + line + ")");
-                        //         } else {
-                        //             System.out.println("    " + stmt + " (no line info)");
-                        //         } 
-                             }
-                        // } else {
-                        //     System.out.println("  Method " + method.getName() + " has no body.");
+                        // int defLine = -1;
+                        // if (method.hasBody() && method.getBody().getPosition() != null) {
+                        //     defLine = method.getBody().getPosition().getFirstLine() - 1;
                         // }
-                        // if (method.hasBody()) {
-                        //     System.out.println("  Inspecting method: " + method.getName());
-                        //     for (Stmt stmt : method.getBody().getStmts()) {
-                        //         var pos = stmt.getPosition(); // Position object in SootUp
-                        //         if (pos != null) {
-                        //             int line = pos.getFirstLine();
-                        //             System.out.println("    " + stmt + " (line " + line + ")");
-                        //         } else {
-                        //             System.out.println("    " + stmt + " (no line info)");
-                        //         }
-                        //     }
-                        // } else {
-                        //     System.out.println("  Method " + method.getName() + " has no body.");
-                        // }
-                        ////////////////////////////////////////////////////////////////////////////////////////////////
-                        // if (method.hasBody()) {
-                        //     JimpleBody body = (JimpleBody) method.getBody();
-                        //     for (JimpleUnit unit : body.getUnits()) {
-                        //         LineNumberTag tag = unit.getTag(LineNumberTag.class);
-                        //         if (tag != null) {
-                        //             System.out.println("Unit: " + unit.toString() + " - Line Number: " + tag.getLineNumber());
-                        //         } else {
-                        //             System.out.println("Unit: " + unit.toString() + " - No Line Number Tag found.");
-                        //         }
-                        //     }
-                        // } else {
-                        //     System.out.println("Method " + method.getName() + " has no body.");
-                        // }
-
-                        // Skip methods that don't appear in the call graph
-                        //if (!cg.containsMethod(methodSig)) continue;\
-                        //Position posObj = method.getPosition();
-                        //int pos = posObj.getFirstLine();
-
-                        writer.write("<" + className + ": " + method.getName() + ">\n");
-                        System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + ">");
-                        //System.out.println(pos + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        // 🟢 New function call here
-                        //printMethodRelations(methodSig, cg, writer);
-                        
-                        if (method.hasBody()) {
-                            method.getBody().getStmts().forEach(stmt -> {
-                                var pos = stmt.getPositionInfo().getStmtPosition().getFirstLine();
-                                    //System.out.println( " (line " + pos + ")");
-                            });
+                        for (CallGraph.Call call : cg.callsFrom(methodSig)) {
+                            int line = call.getLineNumber();
+                            System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + "()> (line " + line + ")");
+                            writer.write("<" + className + ": " + method.getName() + "()> (line " + line + ")\n");
                         }
-
-                        // Optional: Keep your deep traversal
-                        traverseCallGraph(methodSig, cg, writer, 1, new ArrayList<>());
-                        writer.write("\n");
+                        // System.out.println("CALL GRAPH for <" + className + ": " + method.getName() + ">");
+                        //traverseCallGraph(methodSig, cg, writer, 1, new ArrayList<>());
+                        // for (SootMethod target : cg.get(methodSig)) {
+                        //     System.out.println("    from <" 
+                        //         + target.getDeclClassType() + ": " 
+                        //         + target.getType() + " " 
+                        //         + target.getName() + ">");
+                        // }
+                        for (CallGraph.Call call : cg.callsTo(methodSig)) {
+                            MethodSignature sig = call.sourceMethodSignature(); // or call.src(), depends on API
+                            int line = call.getLineNumber();
+                            System.out.println("    from <"
+                                + sig.getDeclClassType() + ": "
+                                + sig.getType() + " "
+                                + sig.getName() + ">" + " (line " + line + ")" );
+                            writer.write("    from <"
+                                + sig.getDeclClassType() + ": "
+                                + sig.getType() + " "
+                                + sig.getName() + ">" + " (line " + line + ")" );
+                            writer.write("\n");
+                        }
+                        
                     }
                 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
                 // Also build RTA call graph 
                 CallGraphAlgorithm rta = 
@@ -208,19 +164,6 @@ public class LineNumbers {
                 writerCHA.close();
                 writerRTA.close();
                 writer.close();
-
-                // Body body = method.getBody();
-                // for (Stmt stmt : body.getStmts()) {
-                //     if (stmt.containsInvokeExpr()) {
-                //         InvokeExpr invokeExpr = stmt.getInvokeExpr();
-                //         MethodSignature target = invokeExpr.getMethodSignature();
-                //         int line = stmt.getJavaSourceStartLineNumber();
-
-                //         System.out.println(methodSig + " may call:");
-                //         System.out.println("\t" + target + " (line " + line + ")");
-                //     }
-                // }
-
                 System.out.println("\nSuccessfully wrote filtered call graph to output.txt");
             } catch (IOException e) {
                 System.out.println("An error occurred: " + e.getMessage());
@@ -245,7 +188,6 @@ public class LineNumbers {
             CallGraph cg,
             FileWriter writer,
             int depth,
-            //SootMethod method,
             List<MethodSignature> visited) throws IOException {
 
         // Prevent infinite loops
@@ -256,68 +198,61 @@ public class LineNumbers {
 
         // Indentation for readability
         String indent = "    ".repeat(depth);
-        int n = 0;
-        for (MethodSignature callee : cg.callTargetsFrom(methodSig)) {
-            int line = method.getBody().getPosition().getFirstLine();
-            //var line = stmt.getPositionInfo().getStmtPosition().getLastLine();
-            String callOutput = indent + "-> <" + callee.getDeclClassType() + ": " + callee.getType() + " " + callee.getName() + ">" + " (line " + line + ")\n";
-            writer.write(callOutput);
-            System.out.print(callOutput);
-            // if (method.hasBody()) {
-            //                 method.getBody().getStmts().forEach(stmt -> {
-            //                     var pos = stmt.getPositionInfo().getStmtPosition().getFirstLine();
-            //                         System.out.println( " (line " + pos + ")");
-            //                 });
-            //             }
 
+        // Look up the SootMethod for this signature so we can inspect its statements
+        SootMethod method = methodMap.get(methodSig);
 
-            // Recursive call for deeper methods
-            traverseCallGraph(callee, cg, writer, depth + 1, visited);
+        // Gather all call targets from the call graph (may be unordered)
+        List<MethodSignature> cgTargets = new ArrayList<>();
+        for (MethodSignature t : cg.callTargetsFrom(methodSig)) {
+            cgTargets.add(t);
         }
 
-        // for (MethodSignature callee : cg.callTargetsFrom(methodSig)) {
-        //     if (method.hasBody()) {
-        //         for (Stmt stmt : method.getBody().getStmts()) {
-        //             if (stmt instanceof JInvokeStmt) {
-        //                 AbstractInvokeExpr inv = ((AbstractInvokeExpr) stmt);
-        //                 MethodSignature calledSig = inv.getMethodSignature();
+        // We'll print targets in source-order by scanning the caller's statements and
+        // emitting any invocation we find that matches a cg target. Track which
+        // targets we've already emitted so we can emit the remainder afterwards.
+        Set<MethodSignature> emitted = new HashSet<>();
+
+        if (method != null && method.hasBody()) {
+            for (Stmt stmt : method.getBody().getStmts()) {
+                if (stmt instanceof JInvokeStmt) {
+                    java.util.Optional<AbstractInvokeExpr> invOpt = ((JInvokeStmt) stmt).getInvokeExpr();
+                    if (invOpt != null && invOpt.isPresent()) {
+                        MethodSignature calledSig = invOpt.get().getMethodSignature();
                         
-        //                 if (calledSig.equals(callee)) {
-        //                     int line = -1;
-        //                     if (stmt.getPositionInfo() != null && stmt.getPositionInfo().getStmtPosition() != null) {
-        //                         line = stmt.getPositionInfo().getStmtPosition().getFirstLine();
-        //                     }
+                        if (calledSig != null && cgTargets.contains(calledSig) && !emitted.contains(calledSig)) {
+                            int stmtLine = -1;
+                            if (stmt.getPositionInfo() != null && stmt.getPositionInfo().getStmtPosition() != null) {
+                                stmtLine = stmt.getPositionInfo().getStmtPosition().getFirstLine();
+                            }
+                            String callOutput = indent + "to <" + calledSig.getDeclClassType() + ": " + calledSig.getType() + " " + calledSig.getName() + ">" + " (line " + stmtLine + ")\n";
+                            writer.write(callOutput);
+                            System.out.print(callOutput);
+                            emitted.add(calledSig);
+                            // Recurse immediately to preserve depth-first source ordering
+                            traverseCallGraph(calledSig, cg, writer, depth + 1, visited);
+                        }
+                    }
+                }
+            }
+        }
 
-        //                     String callOutput = indent + "-> <" + calledSig.getDeclClassType() + ": "
-        //                             + calledSig.getType() + " " + calledSig.getName() + "> (line " + line + ")\n";
-        //                     writer.write(callOutput);
-        //                     System.out.print(callOutput);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        // if (method.hasBody()) {
-        //     for (Stmt stmt : method.getBody().getStmts()) {
-        //     //for (MethodSignature callee : cg.callTargetsFrom(methodSig)) {
-        //             // Only look at invocation statements
-        //             MethodSignature targetSig = methodSig;
-        //                 var line = stmt.getPositionInfo().getStmtPosition().getFirstLine();
-
-        //                 // Print the call and line number together
-        //                 String callOutput = indent + "-> <" + targetSig.getDeclClassType() +
-        //                         ": " + targetSig.getType() + " " + targetSig.getName() +
-        //                         "> (line " + line + ")\n";
-        //                 writer.write(callOutput);
-        //                 System.out.print(callOutput);
-
-        //                 // Recurse deeper into the call graph if possible
-        //                 traverseCallGraph(targetSig, cg, writer, depth + 1, method, visited);
-        //             }
-        //         }
-            
-
+        // Emit any remaining targets that weren't found in source order
+        for (MethodSignature callee : cgTargets) {
+            if (emitted.contains(callee)) continue;
+            int line = -1;
+            if (method != null && method.hasBody()) {
+                try {
+                    if (method.getBody().getPosition() != null) {
+                        line = method.getBody().getPosition().getFirstLine();
+                    }
+                } catch (Throwable ignore) {
+                }
+            }
+            String callOutput = indent + "to <" + callee.getDeclClassType() + ": " + callee.getType() + " " + callee.getName() + ">" + " (line " + line + ")\n";
+            writer.write(callOutput);
+            System.out.print(callOutput);
+            traverseCallGraph(callee, cg, writer, depth + 1, visited);
+        }
     }
 }
