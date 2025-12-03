@@ -1,37 +1,51 @@
 GraphBasedCallGraph(11):
-<CallGraphExample: void <init>()>:
+<Stack: void <init>()>:
 	to <java.lang.Object: void <init>()>
+	to <java.util.ArrayList: void <init>()>
 
-<CallGraphExample: void main(java.lang.String[])>:
-	to <CallGraphExample: void methodA()>
-	to <CallGraphExample: void methodB()>
-	to <CallGraphExample: void methodC()>
-	from <CallGraphExample: void methodB()>
+<Stack: boolean isEmpty()>:
+	to <java.util.ArrayList: boolean isEmpty()>
 
-<CallGraphExample: void methodA()>:
-	to <CallGraphExample: void methodB()>
-	to <CallGraphExample: void methodC()>
-	to <java.io.PrintStream: void println(java.lang.String)>
-	from <CallGraphExample: void main(java.lang.String[])>
+<Stack: java.lang.Object peek()>:
+	to <java.lang.RuntimeException: void <init>(java.lang.String)>
+	to <java.util.ArrayList: java.lang.Object get(int)>
+	to <java.util.ArrayList: int size()>
 
-<CallGraphExample: void methodB()>:
-	to <CallGraphExample: void main(java.lang.String[])>
-	to <java.io.PrintStream: void println(java.lang.String)>
-	from <CallGraphExample: void main(java.lang.String[])>
-	from <CallGraphExample: void methodA()>
-	from <CallGraphExample: void methodC()>
+<Stack: java.lang.Object pop()>:
+	to <java.lang.RuntimeException: void <init>(java.lang.String)>
+	to <java.util.ArrayList: java.lang.Object remove(int)>
+	to <java.util.ArrayList: int size()>
 
-<CallGraphExample: void methodC()>:
-	to <CallGraphExample: void methodB()>
-	to <java.io.PrintStream: void println(java.lang.String)>
-	from <CallGraphExample: void main(java.lang.String[])>
-	from <CallGraphExample: void methodA()>
+<Stack: void push(java.lang.Object)>:
+	to <java.util.ArrayList: boolean add(java.lang.Object)>
 
-<java.io.PrintStream: void println(java.lang.String)>:
-	from <CallGraphExample: void methodA()>
-	from <CallGraphExample: void methodB()>
-	from <CallGraphExample: void methodC()>
+<Stack: int size()>:
+	to <java.util.ArrayList: int size()>
 
 <java.lang.Object: void <init>()>:
-	from <CallGraphExample: void <init>()>
+	from <Stack: void <init>()>
+
+<java.lang.RuntimeException: void <init>(java.lang.String)>:
+	from <Stack: java.lang.Object peek()>
+	from <Stack: java.lang.Object pop()>
+
+<java.util.ArrayList: void <init>()>:
+	from <Stack: void <init>()>
+
+<java.util.ArrayList: boolean add(java.lang.Object)>:
+	from <Stack: void push(java.lang.Object)>
+
+<java.util.ArrayList: java.lang.Object get(int)>:
+	from <Stack: java.lang.Object peek()>
+
+<java.util.ArrayList: boolean isEmpty()>:
+	from <Stack: boolean isEmpty()>
+
+<java.util.ArrayList: java.lang.Object remove(int)>:
+	from <Stack: java.lang.Object pop()>
+
+<java.util.ArrayList: int size()>:
+	from <Stack: java.lang.Object peek()>
+	from <Stack: java.lang.Object pop()>
+	from <Stack: int size()>
 

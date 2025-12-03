@@ -10,6 +10,7 @@ import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
 import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import sootup.java.core.JavaSootMethod;
+import sootup.core.jimple.common.stmt.Stmt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +20,29 @@ import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Optional;
+import java.util.Stack;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
-//TODO: 
+// TODO BEFORE NEXT MEETING:
+// Parse the input file (stack.java) directly to get body source 
+// Use the Queue implementation as input for callgraph - Queue implementation already in Example to test folder 
+// Remove the library calls from the call graph output 
+// Correct accuracy of line numbers when there is a comment right under method definition
+
+// TODO: 
 // Add comments to explain the code
 // How is extractMethodCG handling duplicate methods names like overloads? (e.g., methodA(int a), methodA(String b)) - can we maybe include line numbers as input to identify which method needs it or maybe parameter types?
-// Correct accuracy of line numbers when there is a comment right under method definition
-// Isolate the stack functionality into a separate class for better readability (PRIORITY!!!)
-// Convert the single_method_bs.txt(Jimple) to Java
+// Figure out why the methods are not being printed in order in the stack and how to fix it
 
-
-
+// REQUIRED OUTPUTS:
+// Caller source code
+// Caller java doc 
+// Callee source code 
+// Callee java doc 
+// Call graph without utility methods
+// List of utility methods called
 
 public class BuildCG {
     private static Map<MethodSignature, SootMethod> methodMap = new HashMap<>();
@@ -75,7 +86,7 @@ public class BuildCG {
 
             CallGraphAlgorithm cha = new ClassHierarchyAnalysisAlgorithm(view);
             CallGraph cg = cha.initialize(entryPoints);
-            String methodname = "methodA";
+            String methodname = "pop";
             SootMethod sootMethod = null;
             
             try {
@@ -102,11 +113,11 @@ public class BuildCG {
                             Body methodBody = sootMethod.getBody();
                             writer2.write(methodBody.getMethodSignature().getName()); 
                             writer2.write(methodBody.toString()); 
-                            extractMethodCG(view, sootClass, method, method.getSignature(), cg, className,
-                                    writer2);
+                            extractMethodCG(view, sootClass, method, method.getSignature(), cg, className, writer2);
+                            targetStack(methodSig, cg);
                         }
 
-                        int defLine = -1;
+                        int defLine = -1; //CHECK HERE FOR LINE NUMBER ACCURACY
                         if (method.hasBody() && method.getBody().getPosition() != null) {
                             defLine = method.getBody().getPosition().getFirstLine() - 1;
                         }
@@ -128,8 +139,7 @@ public class BuildCG {
                     }
                 }
                 if (!contains) {
-                    System.out
-                            .println("Method " + methodname + " not found in the project classes.");
+                    System.out.println("Method " + methodname + " not found in the project classes.");
                 }
 
                 CallGraphAlgorithm rta = 
@@ -225,9 +235,28 @@ public class BuildCG {
             if (calleeOpt.isPresent()) {
                 JavaSootMethod calleeMethod = calleeOpt.get();
                 Body calleeBody = calleeMethod.getBody();
+                writer2.write(calleeBody.getMethodSignature().getType().toString() + " ");
                 writer2.write(calleeBody.getMethodSignature().getName()); 
-                writer2.write(calleeBody.toString());
-                            
+                if (calleeBody.getMethodSignature().getParameterTypes().size() > 0){
+                    writer2.write("(");
+                    for (String paramType : calleeBody.getMethodSignature().getParameterTypes().toArray(new String[0])){
+                        writer2.write(paramType);
+                        writer2.write(", ");
+                    }
+                    writer2.write("){\n");
+
+                }
+                else{
+                    writer2.write("(");
+                    writer2.write("){\n");
+                }
+                for (Stmt stmt : calleeBody.getStmts()) {
+                    if (stmt.toString().contains("$stack0 ")) {
+                        continue;
+                    }
+
+                }
+                writer2.write("}\n");
                 writer.write("to <" 
                     + sootClass.getType() + ": "
                     + calleeSig.getName() + "()> (line " + (calleeBody.getPosition().getFirstLine() - 1) + ")\n");
@@ -258,6 +287,34 @@ public class BuildCG {
             printCallsRecursive(callerSig, cg, writer, 1, callers, methodsList);
         }
         writer.close();
+    }
+
+    private static void targetStack(MethodSignature methodSig, CallGraph cg) {
+        System.out.println("Calls From:" + methodSig);
+        System.out.println();
+        Stack<MethodSignature> stack = new Stack<>();
+        for (CallGraph.Call call : cg.callsFrom(methodSig)) {
+            MethodSignature calleeSig = call.targetMethodSignature();
+            stack.push(calleeSig);
+        }
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+        System.out.println();
+        
+        System.out.println("Calls to:" + methodSig);
+
+        System.out.println();
+        if (stack.isEmpty()) {
+            for (CallGraph.Call call : cg.callsTo(methodSig)) {
+                MethodSignature callerSig = call.sourceMethodSignature();
+                stack.push(callerSig);
+            }
+        }
+        while(!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+    
     }
 
 }
