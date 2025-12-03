@@ -1,0 +1,42 @@
+methodA{
+    java.io.PrintStream $stack0;
+
+
+    $stack0 = <java.lang.System: java.io.PrintStream out>;
+    virtualinvoke $stack0.<java.io.PrintStream: void println(java.lang.String)>("Inside methodA");
+    staticinvoke <CallGraphExample: void methodB()>();
+    staticinvoke <CallGraphExample: void methodC()>();
+
+    return;
+}
+methodB{
+    java.io.PrintStream $stack0;
+
+
+    $stack0 = <java.lang.System: java.io.PrintStream out>;
+    virtualinvoke $stack0.<java.io.PrintStream: void println(java.lang.String)>("Inside methodB");
+    staticinvoke <CallGraphExample: void main(java.lang.String[])>(null);
+
+    return;
+}
+methodC{
+    java.io.PrintStream $stack0;
+
+
+    staticinvoke <CallGraphExample: void methodB()>();
+    $stack0 = <java.lang.System: java.io.PrintStream out>;
+    virtualinvoke $stack0.<java.io.PrintStream: void println(java.lang.String)>("Inside methodC");
+
+    return;
+}
+main{
+    java.lang.String[] l0;
+
+
+    l0 := @parameter0: java.lang.String[];
+    staticinvoke <CallGraphExample: void methodA()>();
+    staticinvoke <CallGraphExample: void methodB()>();
+    staticinvoke <CallGraphExample: void methodC()>();
+
+    return;
+}

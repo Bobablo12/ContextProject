@@ -5,27 +5,27 @@ GraphBasedCallGraph(11):
 <CallGraphExample: void main(java.lang.String[])>:
 	to <CallGraphExample: void methodA()>
 	to <CallGraphExample: void methodB()>
+	to <CallGraphExample: void methodC()>
 	from <CallGraphExample: void methodB()>
 
 <CallGraphExample: void methodA()>:
 	to <CallGraphExample: void methodB()>
+	to <CallGraphExample: void methodC()>
 	to <java.io.PrintStream: void println(java.lang.String)>
 	from <CallGraphExample: void main(java.lang.String[])>
 
 <CallGraphExample: void methodB()>:
 	to <CallGraphExample: void main(java.lang.String[])>
-	to <CallGraphExample: void methodC()>
-	to <CallGraphExample: void methodC()>
-	to <CallGraphExample: void methodC()>
 	to <java.io.PrintStream: void println(java.lang.String)>
 	from <CallGraphExample: void main(java.lang.String[])>
 	from <CallGraphExample: void methodA()>
+	from <CallGraphExample: void methodC()>
 
 <CallGraphExample: void methodC()>:
+	to <CallGraphExample: void methodB()>
 	to <java.io.PrintStream: void println(java.lang.String)>
-	from <CallGraphExample: void methodB()>
-	from <CallGraphExample: void methodB()>
-	from <CallGraphExample: void methodB()>
+	from <CallGraphExample: void main(java.lang.String[])>
+	from <CallGraphExample: void methodA()>
 
 <java.io.PrintStream: void println(java.lang.String)>:
 	from <CallGraphExample: void methodA()>
