@@ -1,20 +1,20 @@
-public class CallGraphExample {
- 
-    public static void main(String[] args) {
-        methodA();
-    }
- 
+methodA:
     public static void methodA() {
         System.out.println("Inside methodA");
         methodB();
+        methodC();
+        methodC();
     }
- 
+
+methodB:
     public static void methodB() {
         System.out.println("Inside methodB");
         methodC();
+        methodA();
     }
- 
+
+methodC:
     public static void methodC() {
         System.out.println("Inside methodC");
     }
-}
+

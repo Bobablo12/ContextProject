@@ -1,8 +1,21 @@
+COMMANDS for the Original ICSE26_Artifact Folder with python callgraph builder
 python javalang_callgraph_builder.py --input_file="Range.java" --text_output="Range_callgraph.txt" --csv_output="Range_methods.csv"     
-
 python javalang_callgraph_builder_TEST.py --input_path="C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\ICSE26_Artifact_New\ExampleToTest" --text_output="DEMO.txt" --csv_output="DEMO_callgraph.csv" --input_method_name="min" --text_output_single_method="DEMO_single_method.txt"
 
-//Remove previous .class and recursively compile
-rm -r .\CurrentAnalyzingCompiled -ErrorAction Ignore; mkdir CurrentAnalyzingCompiled; Get-ChildItem -Recurse -Filter *.java -Path .\CurrentAnalyzing | ForEach-Object { javac -d .\CurrentAnalyzingCompiled $_.FullName }; mvn exec:java "-Dexec.mainClass=BuildCG"
-mvn clean compile
-mvn exec:java "-Dexec.mainClass=BuildCG"
+***************************************START HERE**********************************************************************
+COMMANDS TO DO IN THIS FOLDER 
+1. Compile the input file, Paste the following commands in the terminal
+rm -r .\CurrentAnalyzingCompiled -ErrorAction Ignore
+mkdir CurrentAnalyzingCompiled
+deps\*" -d .\CurrentAnalyzingCompiled `
+(Get-ChildItem -Recurse -Filter *.java -Path .\CurrentAnalyzing | ForEach-Object { $_.FullName })
+
+2. To compile and run the BuildCG.java to build callgraph
+mvn clean compile exec:java 
+
+OUTPUT FROM BuildCG.java
+1. Ouput_CallGraph.txt: The entire callgraph
+2. Output_Single_Method_BodySourceCode.txt: The source code of all the callers and callees of the a given method. Currently "methodA" is harcoded in the code on line 95 in BuildCG.java. 
+3. Output_Single_Method_CallGraph.txt: The callgraph of callees and callers of a given method.
+4. Ouput in the terminal: The Javadoc of the callers and callees of a given method. 
+

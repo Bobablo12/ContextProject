@@ -10,7 +10,6 @@ import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
 import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import sootup.java.core.JavaSootMethod;
-import sootup.core.jimple.common.stmt.Stmt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +19,20 @@ import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Stack;
-
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 // TODO BEFORE NEXT MEETING:
 // Parse the input file (stack.java) directly to get body source 
 // Use the Queue implementation as input for callgraph - Queue implementation already in Example to test folder 
-// Remove the library calls from the call graph output 
-// Correct accuracy of line numbers when there is a comment right under method definition
+// *********Remove the library calls from the call graph output (if start line is 0, don't print it)
+// *********Correct accuracy of line numbers when there is a comment right under method definition
+// Store the javadoc from the og source code file 
+// Ayush should work on generating the whole callgraph for the project 
+// Make a data structure that holds method name, caller list, callee list, source code, javadoc, start line, and end line.
+// Check what line numbers to use, the call ones or the definition ones?
+// UPDATE ON FRIDAY
 
 // TODO: 
 // Add comments to explain the code
@@ -63,6 +66,8 @@ public class BuildCG {
                 new JavaClassPathAnalysisInputLocation(projectPath);
 
             JavaView view = new JavaView(inputLocation);
+
+            String inFile = "CallGraphExample2.java";
             
             List<JavaSootClass> allClasses = view.getClasses().collect(Collectors.toList());
 
@@ -74,7 +79,7 @@ public class BuildCG {
             for (JavaSootClass sootClass : allClasses) {
                 String className = sootClass.getType().toString();
                                 
-                System.out.println("\nClass: " + className);
+                //System.out.println("\nClass: " + className);
                 int methodCount = 0;
                 for (SootMethod method : sootClass.getMethods()) {
                     entryPoints.add(method.getSignature());
@@ -86,13 +91,13 @@ public class BuildCG {
 
             CallGraphAlgorithm cha = new ClassHierarchyAnalysisAlgorithm(view);
             CallGraph cg = cha.initialize(entryPoints);
-            String methodname = "pop";
+            String methodname = "methodA";
             SootMethod sootMethod = null;
             
             try {
-                FileWriter writerCHA = new FileWriter("output_CHA.txt");
-                FileWriter writerRTA = new FileWriter("output_RTA.txt");
-                FileWriter writer = new FileWriter("output.txt");
+                // FileWriter writerCHA = new FileWriter("Output_CallGraph_CHA.txt");
+                // FileWriter writerRTA = new FileWriter("Output_CallGraph_RTA.txt");
+                FileWriter writer = new FileWriter("Output_CallGraph.txt");
                 boolean contains = false;
                 for (JavaSootClass sootClass : allClasses) {
                     String className = sootClass.getType().toString();
@@ -114,7 +119,7 @@ public class BuildCG {
                             writer2.write(methodBody.getMethodSignature().getName()); 
                             writer2.write(methodBody.toString()); 
                             extractMethodCG(view, sootClass, method, method.getSignature(), cg, className, writer2);
-                            targetStack(methodSig, cg);
+                            //targetStack(methodSig, cg);
                         }
 
                         int defLine = -1; //CHECK HERE FOR LINE NUMBER ACCURACY
@@ -148,10 +153,10 @@ public class BuildCG {
                 CallGraph cgrta = 
                         rta.initialize(entryPoints);
 
-                writerCHA.write(cg.toString());
-                writerRTA.write(cgrta.toString());
-                writerCHA.close();
-                writerRTA.close();
+                // writerCHA.write(cg.toString());
+                // writerRTA.write(cgrta.toString());
+                // writerCHA.close();
+                // writerRTA.close();
                 writer.close();
                 writer2.close();
                 System.out.println("\nSuccessfully wrote filtered call graph to output.txt");
@@ -162,7 +167,7 @@ public class BuildCG {
         } catch (Exception e) {
             System.err.println("Error building call graph:");
             e.printStackTrace();
-        }
+        }   
     }
     
     private static ArrayList<MethodSignature> printCallsRecursive(
@@ -220,66 +225,36 @@ public class BuildCG {
         String className, 
         FileWriter writer2) throws IOException {
 
-        FileWriter writer = new FileWriter("single_method_cg.txt");
-        
-
+        FileWriter writer = new FileWriter("Output_Single_Method_CallGraph.txt");
+    
         writer.write("<" 
                 + sootClass.getType() + ": "
                 + method.getName() + "()> (line " + (method.getBody().getPosition().getFirstLine() - 1) + ")\n");
         ArrayList<MethodSignature> methodsList = printCallsRecursive(methodSig, cg, writer, 1, new HashSet<>(), new ArrayList<MethodSignature>());
         
         ArrayList<MethodSignature> methodList2 = new ArrayList<>(methodsList);
-
+        int startLineNumbers[] = new int[methodList2.size() + 1];
         for (MethodSignature calleeSig : methodList2) {
             Optional<JavaSootMethod> calleeOpt = view.getMethod(calleeSig);
             if (calleeOpt.isPresent()) {
                 JavaSootMethod calleeMethod = calleeOpt.get();
                 Body calleeBody = calleeMethod.getBody();
-                writer2.write(calleeBody.getMethodSignature().getType().toString() + " ");
-                writer2.write(calleeBody.getMethodSignature().getName()); 
-                if (calleeBody.getMethodSignature().getParameterTypes().size() > 0){
-                    writer2.write("(");
-                    for (String paramType : calleeBody.getMethodSignature().getParameterTypes().toArray(new String[0])){
-                        writer2.write(paramType);
-                        writer2.write(", ");
-                    }
-                    writer2.write("){\n");
-
-                }
-                else{
-                    writer2.write("(");
-                    writer2.write("){\n");
-                }
-                for (Stmt stmt : calleeBody.getStmts()) {
-                    if (stmt.toString().contains("$stack0 ")) {
-                        continue;
-                    }
-
-                }
-                writer2.write("}\n");
+                int line = (calleeBody.getPosition().getFirstLine() - 1);
                 writer.write("to <" 
                     + sootClass.getType() + ": "
-                    + calleeSig.getName() + "()> (line " + (calleeBody.getPosition().getFirstLine() - 1) + ")\n");
+                    + calleeSig.getName() + "()> (line " + line + ")\n");
+                startLineNumbers[methodList2.indexOf(calleeSig) + 1] = line;
                 printCallsRecursive(calleeSig, cg, writer, 1, callers, methodsList);
             }
         }
         
         for (CallGraph.Call call : cg.callsTo(methodSig)) {
-
             MethodSignature callerSig = call.sourceMethodSignature();
-
-            if (!methodList2.contains(callerSig)) {
-                methodsList.add(callerSig);
-
-                Optional<JavaSootMethod> callerOpt = view.getMethod(callerSig);
-                if (callerOpt.isPresent()) {
-                    JavaSootMethod callerMethod = callerOpt.get();
-                    Body callerBody = callerMethod.getBody(); 
-                    writer2.write(callerBody.getMethodSignature().getName()); 
-                    writer2.write(callerBody.toString());
-                }
-            }
             int line = call.getLineNumber();
+            // if (!methodList2.contains(callerSig)) {
+            //     methodList2.add(callerSig);
+            //     startLineNumbers[methodList2.indexOf(callerSig)] = line;
+            // }
             writer.write("from <" 
                     + callerSig.getDeclClassType() + ": " 
                     + callerSig.getType() + " "
@@ -287,34 +262,142 @@ public class BuildCG {
             printCallsRecursive(callerSig, cg, writer, 1, callers, methodsList);
         }
         writer.close();
+        String [] methodsNames = new String[methodList2.size() + 1];
+        int endLineNumbers[] = new int[methodList2.size() + 1];
+        methodsNames[0] = method.getName();
+        startLineNumbers[0] = method.getBody().getPosition().getFirstLine() - 1;
+        endLineNumbers[0] = method.getBody().getPosition().getLastLine() ;
+         
+        for (int i = 0; i < methodList2.size(); i++) {
+            MethodSignature msig = methodList2.get(i);
+            methodsNames[i+1] = methodList2.get(i).getName();
+            Optional<JavaSootMethod> calleeOpt = view.getMethod(msig);
+            if (calleeOpt.isPresent()) {
+                JavaSootMethod calleeMethod = calleeOpt.get();
+                Body calleeBody = calleeMethod.getBody();
+                endLineNumbers[i+1] = calleeBody.getPosition().getLastLine();
+            }            
+        }
+        printMethodBody(System.getProperty("user.dir") + "\\CurrentAnalyzing\\CallGraphExample.java",
+                methodsNames,
+                startLineNumbers,
+                endLineNumbers);
     }
 
-    private static void targetStack(MethodSignature methodSig, CallGraph cg) {
-        System.out.println("Calls From:" + methodSig);
-        System.out.println();
-        Stack<MethodSignature> stack = new Stack<>();
-        for (CallGraph.Call call : cg.callsFrom(methodSig)) {
-            MethodSignature calleeSig = call.targetMethodSignature();
-            stack.push(calleeSig);
-        }
-        while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
-        }
-        System.out.println();
-        
-        System.out.println("Calls to:" + methodSig);
+    private static String[] printMethodBody(
+        String fileName,
+        String[] methodNames,
+        int[] startLineNumbers,
+        int[] endLineNumbers
+    ) {
+        String[] javadocs = new String[methodNames.length];
+        java.util.Arrays.fill(javadocs, "");
 
-        System.out.println();
-        if (stack.isEmpty()) {
-            for (CallGraph.Call call : cg.callsTo(methodSig)) {
-                MethodSignature callerSig = call.sourceMethodSignature();
-                stack.push(callerSig);
+        try {
+            List<String> allLines = java.nio.file.Files.readAllLines(Paths.get(fileName));
+            int lineCount = allLines.size();
+            FileWriter writer = new FileWriter("Output_Single_Method_BodySourceCode.txt");
+
+            Map<Integer, String> javadocForAll = new HashMap<>();
+
+            int i = 0;
+            while (i < lineCount) {
+                String line = allLines.get(i).trim();
+
+                if (line.startsWith("/**")) {
+                    StringBuilder jd = new StringBuilder();
+                    int j = i;
+                    jd.append(allLines.get(j)).append("\n");
+                    j++;
+
+                    while (j < lineCount) {
+                        String l = allLines.get(j);
+                        jd.append(l).append("\n");
+                        if (l.trim().endsWith("*/")) {
+                            j++;
+                            break;
+                        }
+                        j++;
+                    }
+
+                    int methodLineIndex = -1; 
+
+                    while (j < lineCount) {
+                        String sigLine = allLines.get(j).trim();
+
+                        if (sigLine.isEmpty() || sigLine.startsWith("//")) {
+                            j++;
+                            continue;
+                        }
+                        if (sigLine.startsWith("@")) {
+                            j++;
+                            continue;
+                        }
+
+                        int parenIdx = sigLine.indexOf('(');
+                        if (parenIdx != -1) {
+                            methodLineIndex = j; 
+                        }
+                        break;  
+                    }
+
+                    if (methodLineIndex != -1) {
+                        javadocForAll.put(methodLineIndex, jd.toString());
+                    }
+
+                    i = j; 
+                } else {
+                    i++;
+                }
             }
-        }
-        while(!stack.isEmpty()) {
-            System.out.println(stack.pop());
-        }
-    
-    }
 
+            for (int idx = 0; idx < methodNames.length; idx++) {
+                int start = startLineNumbers[idx];
+                int end = endLineNumbers[idx];
+
+                if (start < 1 || end <= start) {
+                    continue;
+                }
+
+                if (start > lineCount) {
+                    System.err.println("Start line " + start + " for method " +
+                        methodNames[idx] + " is beyond file length " + lineCount);
+                    continue;
+                }
+                if (end > lineCount) {
+                    end = lineCount;
+                }
+
+                int startIndex0 = start - 1;
+
+                String jd = javadocForAll.getOrDefault(startIndex0, "");
+                javadocs[idx] = jd; 
+
+                writer.write(methodNames[idx] + ":\n");
+
+                for (int k = start - 1; k < end && k < lineCount; k++) {
+                    writer.write(allLines.get(k) + "\n");
+                }
+                writer.write("\n");
+            }
+
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        System.out.println("\n\n\n\n*******************************************JAVADOCS for methods in file " + fileName + ":******************************************* \n");
+        for (int k = 0; k < javadocs.length; k++) {
+            System.out.println("Javadoc for method starting at line " + startLineNumbers[k]
+                    + " (" + methodNames[k] + ")");
+            if (javadocs[k] == null || javadocs[k].isEmpty()) {
+                System.out.println("No javadoc found\n");
+                continue;
+            }
+            System.out.println(javadocs[k]); 
+        }
+
+        return javadocs;
+    }
 }

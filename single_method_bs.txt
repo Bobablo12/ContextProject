@@ -1,36 +1,12 @@
-pop{
-    Stack this;
-    boolean $stack1;
-    int $stack4, $stack5;
-    java.lang.Object $stack6, $stack7;
-    java.lang.RuntimeException #l0;
-    java.lang.Throwable #l1;
-    java.util.ArrayList $stack2, $stack3;
+methodA{
+    java.io.PrintStream $stack0;
 
 
-    this := @this: Stack;
-    $stack1 = virtualinvoke this.<Stack: boolean isEmpty()>();
+    $stack0 = <java.lang.System: java.io.PrintStream out>;
+    virtualinvoke $stack0.<java.io.PrintStream: void println(java.lang.String)>("Inside methodA");
+    staticinvoke <CallGraphExample: void methodB()>();
+    staticinvoke <CallGraphExample: void methodC()>();
+    staticinvoke <CallGraphExample: void methodC()>();
 
-    if $stack1 == 0 goto label1;
-    $stack7 = new java.lang.RuntimeException;
-    #l0 = (java.lang.RuntimeException) $stack7;
-    specialinvoke #l0.<java.lang.RuntimeException: void <init>(java.lang.String)>("Pop from empty stack");
-    #l1 = (java.lang.Throwable) $stack7;
-
-    throw #l1;
-
-  label1:
-    $stack3 = this.<Stack: java.util.ArrayList items>;
-    $stack2 = this.<Stack: java.util.ArrayList items>;
-    $stack4 = virtualinvoke $stack2.<java.util.ArrayList: int size()>();
-    $stack5 = $stack4 - 1;
-    $stack6 = virtualinvoke $stack3.<java.util.ArrayList: java.lang.Object remove(int)>($stack5);
-
-    return $stack6;
-}
-boolean isEmpty(){
-   this := @this: Stack;
-    = this.<Stack: java.util.ArrayList items>;
-   =  .<java.util.ArrayList: boolean isEmpty()>();
-   return;
+    return;
 }
