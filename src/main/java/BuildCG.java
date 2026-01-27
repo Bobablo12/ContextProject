@@ -51,14 +51,6 @@ public class BuildCG {
             // System.out.println("Using classpath: " + projectPath);
             FileWriter writer2 = new FileWriter("single_method_bs.txt");
 
-
-            // String projectPath = Paths.get(
-            //         "commons-math-4.0-beta1-src",
-            //         "commons-math-legacy-core",
-            //         "target",
-            //         "commons-math4-legacy-core-4.0-beta1.jar"
-            //     ).toString();
-
             String projectPath = Paths.get(
                     System.getProperty("user.dir"),
                     "joda-time",
