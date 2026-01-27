@@ -1,20 +1,30 @@
-methodA:
-    public static void methodA() {
-        System.out.println("Inside methodA");
-        methodB();
-        methodC();
-        methodC();
+withFields:
+    public LocalTime withFields(ReadablePartial partial) {
+        if (partial == null) {
+            return this;
+        }
+        return withLocalMillis(getChronology().set(partial, getLocalMillis()));
     }
 
-methodB:
-    public static void methodB() {
-        System.out.println("Inside methodB");
-        methodC();
-        methodA();
+getChronology:
+    public Chronology getChronology() {
+        return iChronology;
     }
 
-methodC:
-    public static void methodC() {
-        System.out.println("Inside methodC");
+getLocalMillis:
+    protected long getLocalMillis() {
+        return iLocalMillis;
+    }
+
+set:
+     * using exactly the same field values.
+     * <p>
+     * Each field is queried from the Date and assigned to the LocalTime.
+     * This is useful if you have been using the Date as a local time,
+     * ignoring the zone.
+
+withLocalMillis:
+    LocalTime withLocalMillis(long newMillis) {
+        return (newMillis == getLocalMillis() ? this : new LocalTime(newMillis, getChronology()));
     }
 
