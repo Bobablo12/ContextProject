@@ -1,30 +1,453 @@
-withFields:
-    public LocalTime withFields(ReadablePartial partial) {
-        if (partial == null) {
-            return this;
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\BaseChronology.java =====
+set (lines 247-252)
+    public long set(ReadablePartial partial, long instant) {
+        for (int i = 0, isize = partial.size(); i < isize; i++) {
+            instant = partial.getFieldType(i).getField(this).set(instant, partial.getValue(i));
         }
-        return withLocalMillis(getChronology().set(partial, getLocalMillis()));
+        return instant;
     }
 
-getChronology:
-    public Chronology getChronology() {
-        return iChronology;
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\MonthDay.java =====
+size (lines 394-396)
+    public int size() {
+        return 2;
     }
 
-getLocalMillis:
-    protected long getLocalMillis() {
-        return iLocalMillis;
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalTime.java =====
+size (lines 534-536)
+    public int size() {
+        return 4;
     }
 
-set:
-     * using exactly the same field values.
-     * <p>
-     * Each field is queried from the Date and assigned to the LocalTime.
-     * This is useful if you have been using the Date as a local time,
-     * ignoring the zone.
 
-withLocalMillis:
-    LocalTime withLocalMillis(long newMillis) {
-        return (newMillis == getLocalMillis() ? this : new LocalTime(newMillis, getChronology()));
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalDateTime.java =====
+size (lines 538-540)
+    public int size() {
+        return 4;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\YearMonthDay.java =====
+size (lines 317-319)
+    public int size() {
+        return 3;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalDate.java =====
+size (lines 485-487)
+    public int size() {
+        return 3;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\TimeOfDay.java =====
+size (lines 428-430)
+    public int size() {
+        return 4;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\YearMonth.java =====
+size (lines 386-388)
+    public int size() {
+        return 2;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\Partial.java =====
+size (lines 333-335)
+    public int size() {
+        return iTypes.length;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\MonthDay.java =====
+getFieldType (lines 427-429)
+    public DateTimeFieldType getFieldType(int index) {
+        return FIELD_TYPES[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\YearMonthDay.java =====
+getFieldType (lines 352-354)
+    public DateTimeFieldType getFieldType(int index) {
+        return FIELD_TYPES[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\TimeOfDay.java =====
+getFieldType (lines 465-467)
+    public DateTimeFieldType getFieldType(int index) {
+        return FIELD_TYPES[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\YearMonth.java =====
+getFieldType (lines 419-421)
+    public DateTimeFieldType getFieldType(int index) {
+        return FIELD_TYPES[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\base\AbstractPartial.java =====
+getFieldType (lines 78-80)
+    public DateTimeFieldType getFieldType(int index) {
+        return getField(index, getChronology()).getType();
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\Partial.java =====
+getFieldType (lines 370-372)
+    public DateTimeFieldType getFieldType(int index) {
+        return iTypes[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalTime.java =====
+getValue (lines 574-587)
+    public int getValue(int index) {
+        switch (index) {
+            case HOUR_OF_DAY:
+                return getChronology().hourOfDay().get(getLocalMillis());
+            case MINUTE_OF_HOUR:
+                return getChronology().minuteOfHour().get(getLocalMillis());
+            case SECOND_OF_MINUTE:
+                return getChronology().secondOfMinute().get(getLocalMillis());
+            case MILLIS_OF_SECOND:
+                return getChronology().millisOfSecond().get(getLocalMillis());
+            default:
+                throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalDateTime.java =====
+getValue (lines 577-590)
+    public int getValue(int index) {
+        switch (index) {
+            case YEAR:
+                return getChronology().year().get(getLocalMillis());
+            case MONTH_OF_YEAR:
+                return getChronology().monthOfYear().get(getLocalMillis());
+            case DAY_OF_MONTH:
+                return getChronology().dayOfMonth().get(getLocalMillis());
+            case MILLIS_OF_DAY:
+                return getChronology().millisOfDay().get(getLocalMillis());
+            default:
+                throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\LocalDate.java =====
+getValue (lines 524-535)
+    public int getValue(int index) {
+        switch (index) {
+            case YEAR:
+                return getChronology().year().get(getLocalMillis());
+            case MONTH_OF_YEAR:
+                return getChronology().monthOfYear().get(getLocalMillis());
+            case DAY_OF_MONTH:
+                return getChronology().dayOfMonth().get(getLocalMillis());
+            default:
+                throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\base\BasePartial.java =====
+getValue (lines 224-226)
+    public int getValue(int index) {
+        return iValues[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\Partial.java =====
+getValue (lines 395-397)
+    public int getValue(int index) {
+        return iValues[index];
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\UnsupportedDateTimeField.java =====
+set (lines 320-322)
+    public long set(long instant, int value) {
+        throw unsupported();
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\DelegatedDateTimeField.java =====
+set (lines 209-211)
+    public long set(long instant, int value) {
+        return iField.set(instant, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\LenientDateTimeField.java =====
+set (lines 71-78)
+    public long set(long instant, int value) {
+        // lenient needs to handle time zone chronologies
+        // so we do the calculation using local milliseconds
+        long localInstant = iBase.getZone().convertUTCToLocal(instant);
+        long difference = FieldUtils.safeSubtract(value, get(instant));
+        localInstant = getType().getField(iBase.withUTC()).add(localInstant, difference);
+        return iBase.getZone().convertLocalToUTC(localInstant, false, instant);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\StrictDateTimeField.java =====
+set (lines 68-72)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds
+            (this, value, getMinimumValue(instant), getMaximumValue(instant));
+        return super.set(instant, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\SkipUndoDateTimeField.java =====
+set (lines 88-94)
+    public long set(long millis, int value) {
+        FieldUtils.verifyValueBounds(this, value, iMinValue, getMaximumValue());
+        if (value <= iSkip) {
+            value--;
+        }
+        return super.set(millis, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\SkipDateTimeField.java =====
+set (lines 89-99)
+    public long set(long millis, int value) {
+        FieldUtils.verifyValueBounds(this, value, iMinValue, getMaximumValue());
+        if (value <= iSkip) {
+            if (value == iSkip) {
+                throw new IllegalFieldValueException
+                    (DateTimeFieldType.year(), Integer.valueOf(value), null, null);
+            }
+            value++;
+        }
+        return super.set(millis, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\BasicSingleEraDateTimeField.java =====
+set (lines 69-72)
+    public long set(long instant, int era) {
+        FieldUtils.verifyValueBounds(this, era, ERA_VALUE, ERA_VALUE);
+        return instant;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\PreciseDurationDateTimeField.java =====
+set (lines 80-84)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds(this, value, getMinimumValue(),
+                                     getMaximumValueForSet(instant, value));
+        return instant + (value - get(instant)) * iUnitMillis;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\PreciseDateTimeField.java =====
+set (lines 114-117)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds(this, value, getMinimumValue(), getMaximumValue());
+        return instant + (value - get(instant)) * iUnitMillis;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\DecoratedDateTimeField.java =====
+set (lines 85-87)
+    public long set(long instant, int value) {
+        return iField.set(instant, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\DividedDateTimeField.java =====
+set (lines 208-212)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds(this, value, iMin, iMax);
+        int remainder = getRemainder(getWrappedField().get(instant));
+        return getWrappedField().set(instant, value * iDivisor + remainder);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\RemainderDateTimeField.java =====
+set (lines 168-172)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds(this, value, 0, iDivisor - 1);
+        int divided = getDivided(getWrappedField().get(instant));
+        return getWrappedField().set(instant, divided * iDivisor + value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\ISOYearOfEraDateTimeField.java =====
+set (lines 93-99)
+    public long set(long instant, int year) {
+        FieldUtils.verifyValueBounds(this, year, 0, getMaximumValue());
+        if (getWrappedField().get(instant) < 0) {
+            year = -year;
+        }
+        return super.set(instant, year);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\ZeroIsMaxDateTimeField.java =====
+set (lines 92-99)
+    public long set(long instant, int value) {
+        int max = getMaximumValue();
+        FieldUtils.verifyValueBounds(this, value, 1, max);
+        if (value == max) {
+            value = 0;
+        }
+        return getWrappedField().set(instant, value);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\GJYearOfEraDateTimeField.java =====
+set (lines 99-105)
+    public long set(long instant, int year) {
+        FieldUtils.verifyValueBounds(this, year, 1, getMaximumValue());
+        if (iChronology.getYear(instant) <= 0) {
+            year = 1 - year;
+        }
+        return super.set(instant, year);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\field\OffsetDateTimeField.java =====
+set (lines 157-160)
+    public long set(long instant, int value) {
+        FieldUtils.verifyValueBounds(this, value, iMin, iMax);
+        return super.set(instant, value - iOffset);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\GJEraDateTimeField.java =====
+set (lines 84-94)
+    public long set(long instant, int era) {
+        FieldUtils.verifyValueBounds(this, era, DateTimeConstants.BCE, DateTimeConstants.CE);
+            
+        int oldEra = get(instant);
+        if (oldEra != era) {
+            int year = iChronology.getYear(instant);
+            return iChronology.setYear(instant, -year);
+        } else {
+            return instant;
+        }
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\BasicWeekyearDateTimeField.java =====
+set (lines 135-213)
+    public long set(long instant, int year) {
+        FieldUtils.verifyValueBounds(this, Math.abs(year),
+                                     iChronology.getMinYear(), iChronology.getMaxYear());
+        //
+        // Do nothing if no real change is requested.
+        //
+        int thisWeekyear = get( instant );
+        if ( thisWeekyear == year ) {
+            return instant;
+        }
+        //
+        // Calculate the DayOfWeek (to be preserved).
+        //
+        int thisDow = iChronology.getDayOfWeek(instant);
+        //
+        // Calculate the maximum weeks in the target year.
+        //
+        int weeksInFromYear = iChronology.getWeeksInYear( thisWeekyear );
+        int weeksInToYear = iChronology.getWeeksInYear( year );
+        int maxOutWeeks = (weeksInToYear < weeksInFromYear) ?
+            weeksInToYear : weeksInFromYear;
+        //
+        // Get the current week of the year. This will be preserved in
+        // the output unless it is greater than the maximum possible
+        // for the target weekyear.  In that case it is adjusted
+        // to the maximum possible.
+        //
+        int setToWeek = iChronology.getWeekOfWeekyear(instant);
+        if ( setToWeek > maxOutWeeks ) {
+            setToWeek = maxOutWeeks;
+        }
+        //
+        // Get a wroking copy of the current date-time.
+        // This can be a convenience for debugging.
+        //
+        long workInstant = instant; // Get a copy
+        //
+        // Attempt to get close to the proper weekyear.
+        // Note - we cannot currently call ourself, so we just call
+        // set for the year.  This at least gets us close.
+        //
+        workInstant = iChronology.setYear( workInstant, year );
+        //
+        // Calculate the weekyear number for the get close to value
+        // (which might not be equal to the year just set).
+        //
+        int workWoyYear = get( workInstant );
+
+        //
+        // At most we are off by one year, which can be "fixed" by
+        // adding/subtracting a week.
+        //
+        if ( workWoyYear < year ) {
+            workInstant += DateTimeConstants.MILLIS_PER_WEEK;
+        } else if ( workWoyYear > year ) {
+            workInstant -= DateTimeConstants.MILLIS_PER_WEEK;
+        }
+        //
+        // Set the proper week in the current weekyear.
+        //
+
+        // BEGIN: possible set WeekOfWeekyear logic.
+        int currentWoyWeek = iChronology.getWeekOfWeekyear(workInstant);
+        // No range check required (we already know it is OK).
+        workInstant = workInstant + (setToWeek - currentWoyWeek)
+            * (long)DateTimeConstants.MILLIS_PER_WEEK;
+        // END: possible set WeekOfWeekyear logic.
+
+        //
+        // Reset DayOfWeek to previous value.
+        //
+        // Note: This works fine, but it ideally shouldn't invoke other
+        // fields from within a field.
+        workInstant = iChronology.dayOfWeek().set( workInstant, thisDow );
+        //
+        // Return result.
+        //
+        return workInstant;
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\BasicYearDateTimeField.java =====
+set (lines 88-92)
+    public long set(long instant, int year) {
+        FieldUtils.verifyValueBounds
+            (this, year, iChronology.getMinYear(), iChronology.getMaxYear());
+        return iChronology.setYear(instant, year);
+    }
+
+
+===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\SootUp\joda-time\src\main\java\org\joda\time\chrono\BasicMonthOfYearDateTimeField.java =====
+set (lines 316-330)
+    public long set(long instant, int month) {
+        FieldUtils.verifyValueBounds(this, month, MIN, iMax);
+        //
+        int thisYear = iChronology.getYear(instant);
+        //
+        int thisDom = iChronology.getDayOfMonth(instant, thisYear);
+        int maxDom = iChronology.getDaysInYearMonth(thisYear, month);
+        if (thisDom > maxDom) {
+            // Quietly force DOM to nearest sane value.
+            thisDom = maxDom;
+        }
+        // Return newly calculated millis value
+        return iChronology.getYearMonthDayMillis(thisYear, month, thisDom) +
+            iChronology.getMillisOfDay(instant);
     }
 

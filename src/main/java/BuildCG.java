@@ -10,7 +10,7 @@ import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
 import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import sootup.java.core.JavaSootMethod;
-
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -60,8 +60,6 @@ public class BuildCG {
 
             System.out.println("Using classpath: " + projectPath);
 
-
-
             AnalysisInputLocation inputLocation =
                 new JavaClassPathAnalysisInputLocation(projectPath);
 
@@ -91,9 +89,9 @@ public class BuildCG {
 
             CallGraphAlgorithm cha = new ClassHierarchyAnalysisAlgorithm(view); //ClassHierarchyAnalysisAlgorithm(view);
             CallGraph cg = cha.initialize(entryPoints);
-            String methodname = "withFields";
-            int methodline = 776;
-            String methodclassname = "org.joda.time.LocalTime";
+            String methodname = "set";
+            int methodline = 247;
+            String methodclassname = "org.joda.time.chrono.BaseChronology";
 
             //can we provide this information?
 
@@ -157,6 +155,9 @@ public class BuildCG {
                             for (CallGraph.Call call : cg.callsTo(methodSig)) {
                                 MethodSignature sig = call.sourceMethodSignature();
                                 int line = call.getLineNumber();
+                                if (line <= 0) {
+                                    continue;
+                                }
 
                                 writer.write("    from <"
                                     + sig.getDeclClassType() + ": "
@@ -303,7 +304,7 @@ public class BuildCG {
             // // Recursive descent
             // printCallsRecursive(callee, cg, writer, depth + 1, recursionStack, methodsList);
 
-            if (!single) {
+            if (!single && line != -1) {
             writer.write(indent + "to <"
                     + callee.getDeclClassType() + ": "
                     + callee.getType() + " "
@@ -342,7 +343,9 @@ public class BuildCG {
         
         ArrayList<MethodSignature> methodList2 = new ArrayList<>(methodsList);
         int startLineNumbers[] = new int[methodList2.size() + 1];
-
+        /************************************** */
+        String [] fileNameStrings = new String[methodList2.size() + 1];
+        /************************************** */
         for (MethodSignature calleeSig : methodList2) {
             Optional<JavaSootMethod> calleeOpt = view.getMethod(calleeSig);
             if (calleeOpt.isPresent() ) {
@@ -352,13 +355,14 @@ public class BuildCG {
                     continue;
                 }
                 Body calleeBody = calleeMethod.getBody();
-                System.out.println("Callee method: " + calleeSig.getName() + ", start line: " + calleeBody.getPosition().getFirstLine());
+                //System.out.println("Callee method: " + calleeSig.getName() + ", start line: " + calleeBody.getPosition().getFirstLine());
                 int line = (calleeBody.getPosition().getFirstLine() - 1);
                 writer.write("to <" 
                     + calleeMethod.getDeclClassType() + ": " + calleeSig.getType() + " "
                     + calleeSig.getName() + "> (line " + line + ")\n");
 //CHECK HERE
                 startLineNumbers[methodList2.indexOf(calleeSig) + 1] = line;
+                
                 // int line = calleeBody.getPosition().getFirstLine();   // keep 1-based
                 // writer.write("to <" 
                 //     + sootClass.getType() + ": "
@@ -369,7 +373,8 @@ public class BuildCG {
                 //printCallsRecursive(calleeSig, cg, writer, 2, new HashSet<>(), methodsList); //CALLERS
             }
         }
-        
+        Path sourceRoot = Paths.get(System.getProperty("user.dir"), "joda-time", "src", "main", "java", "org", "joda", "time");
+    
         for (CallGraph.Call call : cg.callsTo(methodSig)) {
             MethodSignature callerSig = call.sourceMethodSignature();
             int line = call.getLineNumber();
@@ -381,7 +386,7 @@ public class BuildCG {
                     + callerSig.getDeclClassType() + ": " 
                     + callerSig.getType() + " "
                     + callerSig.getName() + "> (line " + line + ")\n");
-            printCallsRecursive(view, callerSig, cg, writer, 1, new HashSet<>(), false, methodsList); //CALLERS
+            //printCallsRecursive(view, callerSig, cg, writer, 1, new HashSet<>(), false, methodsList); //CALLERS
         }
         writer.close();
         String [] methodsNames = new String[methodList2.size() + 1];
@@ -390,8 +395,12 @@ public class BuildCG {
         if (method.hasBody() && method.getBody().getPosition() != null) {
             startLineNumbers[0] = method.getBody().getPosition().getFirstLine(); //////////////////////////////////////////////////////////////////// -1
             endLineNumbers[0] = method.getBody().getPosition().getLastLine() ;
+            /************************************** */
+            Path sourceFile = findSourceFile(methodSig, sourceRoot);
+            fileNameStrings[0] = sourceFile.toString();
+            /************************************** */
         }
-         
+        
         for (int i = 0; i < methodList2.size(); i++) {
             MethodSignature msig = methodList2.get(i);
             methodsNames[i+1] = methodList2.get(i).getName();
@@ -404,13 +413,20 @@ public class BuildCG {
                 Body calleeBody = calleeMethod.getBody();
                 //startLineNumbers[i + 1] = calleeBody.getPosition().getFirstLine(); /////////////////////////////////////////// new line
                 endLineNumbers[i+1] = calleeBody.getPosition().getLastLine();
+                /************************************** */
+                Path sourceFile = findSourceFile(msig, sourceRoot);
+                if (sourceFile == null){
+                    continue;
+                }
+                fileNameStrings[i + 1] = sourceFile.toString();
+                //fileNameStrings[i + 1] = msig.getDeclClassType().getClassName().replace('.', '/') + ".java";
+                /************************************** */
             }            
         }
 
         //Path sourceRoot = Paths.get(System.getProperty("user.dir"), "CurrentAnalyzing");
         //Path sourceRoot = Paths.get(System.getProperty("user.dir"), "joda-time", "src", "main", "java", "org", "joda", "time");
-        Path sourceRoot = Paths.get(System.getProperty("user.dir"), "joda-time", "src", "main", "java", "org", "joda", "time");
-        Path sourceFile = findSourceFile(method, sourceRoot);
+        
 
         //DO SOMETHING HERE WITH THE SOURCE FILE PATH
 
@@ -422,66 +438,228 @@ public class BuildCG {
         // for (int i: startLineNumbers){
         //     System.out.println(i);
         // }
-        printMethodBody(sourceFile.toString(),
+
+        for (String s: fileNameStrings){
+            System.out.println(s);
+        }
+        System.out.println("source root: " + sourceRoot.toString());
+        printMethodBody(fileNameStrings,
                 methodsNames,
                 startLineNumbers,
                 endLineNumbers);
 
     }
 
-    private static String[] printMethodBody(
-        String fileName,
+    // private static String[] printMethodBody(
+    //     String [] fileName,
+    //     String[] methodNames,
+    //     int[] startLineNumbers,
+    //     int[] endLineNumbers
+    // ) {
+    //     String[] javadocs = new String[methodNames.length];
+    //     java.util.Arrays.fill(javadocs, "");
+
+    //     try {
+    //         List<String> allLines =
+    //         java.nio.file.Files.readAllLines(Paths.get(fileName));
+    //         int lineCount = allLines.size();
+    //         FileWriter writer =
+    //                 new FileWriter("Output_Single_Method_BodySourceCode.txt");
+
+    //         // for (int i : startLineNumbers){
+    //         //     System.out.println(i);
+    //         // }
+
+    //         for (int idx = 0; idx < startLineNumbers.length; idx++) {
+    //             startLineNumbers[idx] =
+    //                 normalizeSignatureLine(startLineNumbers[idx], allLines);
+    //         }
+
+
+    //         Map<Integer, String> javadocForAll = new HashMap<>();
+
+    //         int i = 0;
+    //         while (i < lineCount) {
+    //             String line = allLines.get(i).trim();
+
+    //             if (line.startsWith("/**")) {
+    //                 StringBuilder jd = new StringBuilder();
+    //                 int j = i;
+    //                 jd.append(allLines.get(j)).append("\n");
+    //                 j++;
+
+    //                 while (j < lineCount) {
+    //                     String l = allLines.get(j);
+    //                     jd.append(l).append("\n");
+    //                     if (l.trim().endsWith("*/")) {
+    //                         j++;
+    //                         break;
+    //                     }
+    //                     j++;
+    //                 }
+
+    //                 int methodLineIndex = -1; 
+
+    //                 while (j < lineCount) {
+    //                     String sigLine = allLines.get(j).trim();
+
+    //                     if (sigLine.isEmpty() || sigLine.startsWith("//")) {
+    //                         j++;
+    //                         continue;
+    //                     }
+    //                     if (sigLine.startsWith("@")) {
+    //                         j++;
+    //                         continue;
+    //                     }
+
+    //                     int parenIdx = sigLine.indexOf('(');
+    //                     if (parenIdx != -1) {
+    //                         methodLineIndex = j; 
+    //                     }
+    //                     break;  
+    //                 }
+
+    //                 if (methodLineIndex != -1) {
+    //                     javadocForAll.put(methodLineIndex, jd.toString());
+    //                 }
+    //                 i = j; 
+    //             } else {
+    //                 i++;
+    //             }
+    //         }
+
+    //         for (int idx = 0; idx < methodNames.length; idx++) {
+    //             int start = startLineNumbers[idx];
+    //             int end = endLineNumbers[idx];
+
+    //             if (start < 1 || end <= start) {
+    //                 continue;
+    //             }
+
+    //             if (start > lineCount) {
+    //                 System.err.println("Start line " + start + " for method " +
+    //                     methodNames[idx] + " is beyond file length " + lineCount);
+    //                 continue;
+    //             }
+    //             if (end > lineCount) {
+    //                 end = lineCount;
+    //             }
+
+    //             int openBraces = 0;
+    //             for (int k = start - 1; k < end && k < lineCount; k++) {
+    //                 String s = allLines.get(k);
+    //                 for (char c : s.toCharArray()) {
+    //                     if (c == '{') openBraces++;
+    //                     if (c == '}') openBraces--;
+    //                 }
+    //             }
+    //             int k2 = end - 1;
+    //             while (openBraces > 0 && k2 + 1 < lineCount) {
+    //                 k2++;
+    //                 String s = allLines.get(k2);
+    //                 for (char c : s.toCharArray()) {
+    //                     if (c == '{') openBraces++;
+    //                     if (c == '}') openBraces--;
+    //                 }
+    //                 end = k2 + 1;   
+    //             }
+
+    //             // System.out.println("Extracting method " + methodNames[idx] +
+    //             //     " from lines " + start + " to " + end);
+
+    //             int startIndex0 = start - 1;
+
+    //             String jd = javadocForAll.getOrDefault(startIndex0, "");
+    //             javadocs[idx] = jd; 
+
+    //             writer.write(methodNames[idx] + ":\n");
+
+    //             for (int k3 = start - 1; k3 < end && k3 < lineCount; k3++) {
+    //                 writer.write(allLines.get(k3) + "\n");
+    //             }
+    //             writer.write("\n");
+    //         }
+
+    //         writer.close();
+    //     } catch (IOException e) {
+    //         System.err.println("Error reading file: " + e.getMessage());
+    //         e.printStackTrace();
+    //     }
+    //     try {
+    //         FileWriter writer = new FileWriter("Output_Single_Method_Javadocs.txt");
+    //     //System.out.println("\n\n\n\n*******************************************JAVADOCS for methods in file " + fileName + ":******************************************* \n");
+    //     for (int k = 0; k < javadocs.length; k++) {
+    //         writer.write("Javadoc for method starting at line " + startLineNumbers[k]
+    //                 + " (" + methodNames[k] + ")\n");
+    //         if (javadocs[k] == null || javadocs[k].isEmpty()) {
+    //             writer.write("\n\tNo javadoc found\n");
+    //             continue;
+    //         }
+    //         writer.write(javadocs[k]); 
+    //     }
+    //     writer.close();
+    // } catch (IOException e) {
+    //     System.err.println("Error writing javadocs: " + e.getMessage());   
+    //     e.printStackTrace();
+    // }
+    //     return javadocs;
+    // }
+private static String[] printMethodBody(
+        String[] fileName,
         String[] methodNames,
         int[] startLineNumbers,
         int[] endLineNumbers
+) {
+    String[] javadocs = new String[methodNames.length];
+    java.util.Arrays.fill(javadocs, "");
+
+    try (
+        FileWriter bodyWriter =
+                new FileWriter("Output_Single_Method_BodySourceCode.txt");
+        FileWriter jdWriter =
+                new FileWriter("Output_Single_Method_Javadocs.txt");
     ) {
-        String[] javadocs = new String[methodNames.length];
-        java.util.Arrays.fill(javadocs, "");
 
-        try {
-            List<String> allLines =
-            java.nio.file.Files.readAllLines(Paths.get(fileName));
+        for (int idx = 0; idx < methodNames.length; idx++) {
+
+            if (fileName[idx] == null) continue;
+
+            Path file = Paths.get(fileName[idx]);
+            if (!Files.exists(file)) {
+                System.err.println("Source file not found: " + file);
+                continue;
+            }
+
+            List<String> allLines = Files.readAllLines(file);
             int lineCount = allLines.size();
-            FileWriter writer =
-                    new FileWriter("Output_Single_Method_BodySourceCode.txt");
 
-            for (int i : startLineNumbers){
-                System.out.println(i);
-            }
-
-            for (int idx = 0; idx < startLineNumbers.length; idx++) {
-                startLineNumbers[idx] =
+            // Normalize start line ONLY using this file
+            startLineNumbers[idx] =
                     normalizeSignatureLine(startLineNumbers[idx], allLines);
-            }
 
-
+            // ----------------- Build Javadoc map for THIS file -----------------
             Map<Integer, String> javadocForAll = new HashMap<>();
-
             int i = 0;
+
             while (i < lineCount) {
                 String line = allLines.get(i).trim();
 
                 if (line.startsWith("/**")) {
                     StringBuilder jd = new StringBuilder();
                     int j = i;
-                    jd.append(allLines.get(j)).append("\n");
-                    j++;
 
                     while (j < lineCount) {
-                        String l = allLines.get(j);
-                        jd.append(l).append("\n");
-                        if (l.trim().endsWith("*/")) {
+                        jd.append(allLines.get(j)).append("\n");
+                        if (allLines.get(j).trim().endsWith("*/")) {
                             j++;
                             break;
                         }
                         j++;
                     }
 
-                    int methodLineIndex = -1; 
-
+                    int methodLineIndex = -1;
                     while (j < lineCount) {
                         String sigLine = allLines.get(j).trim();
-
                         if (sigLine.isEmpty() || sigLine.startsWith("//")) {
                             j++;
                             continue;
@@ -490,107 +668,128 @@ public class BuildCG {
                             j++;
                             continue;
                         }
-
-                        int parenIdx = sigLine.indexOf('(');
-                        if (parenIdx != -1) {
-                            methodLineIndex = j; 
+                        if (sigLine.contains("(")) {
+                            methodLineIndex = j;
                         }
-                        break;  
+                        break;
                     }
 
                     if (methodLineIndex != -1) {
                         javadocForAll.put(methodLineIndex, jd.toString());
                     }
-                    i = j; 
+                    i = j;
                 } else {
                     i++;
                 }
             }
+            // -------------------------------------------------------------------
 
-            for (int idx = 0; idx < methodNames.length; idx++) {
-                int start = startLineNumbers[idx];
-                int end = endLineNumbers[idx];
+            int start = startLineNumbers[idx];
+            int end = endLineNumbers[idx];
 
-                if (start < 1 || end <= start) {
-                    continue;
+            if (start < 1 || start > lineCount || end <= start) continue;
+            if (end > lineCount) end = lineCount;
+
+            // -------- Expand method end using brace matching --------
+            int openBraces = 0;
+            for (int k = start - 1; k < end; k++) {
+                for (char c : allLines.get(k).toCharArray()) {
+                    if (c == '{') openBraces++;
+                    if (c == '}') openBraces--;
                 }
-
-                if (start > lineCount) {
-                    System.err.println("Start line " + start + " for method " +
-                        methodNames[idx] + " is beyond file length " + lineCount);
-                    continue;
-                }
-                if (end > lineCount) {
-                    end = lineCount;
-                }
-
-                int openBraces = 0;
-                for (int k = start - 1; k < end && k < lineCount; k++) {
-                    String s = allLines.get(k);
-                    for (char c : s.toCharArray()) {
-                        if (c == '{') openBraces++;
-                        if (c == '}') openBraces--;
-                    }
-                }
-                int k2 = end - 1;
-                while (openBraces > 0 && k2 + 1 < lineCount) {
-                    k2++;
-                    String s = allLines.get(k2);
-                    for (char c : s.toCharArray()) {
-                        if (c == '{') openBraces++;
-                        if (c == '}') openBraces--;
-                    }
-                    end = k2 + 1;   
-                }
-
-                // System.out.println("Extracting method " + methodNames[idx] +
-                //     " from lines " + start + " to " + end);
-
-                int startIndex0 = start - 1;
-
-                String jd = javadocForAll.getOrDefault(startIndex0, "");
-                javadocs[idx] = jd; 
-
-                writer.write(methodNames[idx] + ":\n");
-
-                for (int k3 = start - 1; k3 < end && k3 < lineCount; k3++) {
-                    writer.write(allLines.get(k3) + "\n");
-                }
-                writer.write("\n");
             }
 
-            writer.close();
-        } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
-            e.printStackTrace();
-        }
-        try {
-            FileWriter writer = new FileWriter("Output_Single_Method_Javadocs.txt");
-        //System.out.println("\n\n\n\n*******************************************JAVADOCS for methods in file " + fileName + ":******************************************* \n");
-        for (int k = 0; k < javadocs.length; k++) {
-            writer.write("Javadoc for method starting at line " + startLineNumbers[k]
-                    + " (" + methodNames[k] + ")");
-            if (javadocs[k] == null || javadocs[k].isEmpty()) {
-                writer.write("\n\tNo javadoc found\n");
-                continue;
+            int k2 = end - 1;
+            while (openBraces > 0 && k2 + 1 < lineCount) {
+                k2++;
+                for (char c : allLines.get(k2).toCharArray()) {
+                    if (c == '{') openBraces++;
+                    if (c == '}') openBraces--;
+                }
+                end = k2 + 1;
             }
-            writer.write(javadocs[k]); 
+            // --------------------------------------------------------
+
+            int startIndex0 = start - 1;
+            String jd = javadocForAll.getOrDefault(startIndex0, "");
+            javadocs[idx] = jd;
+
+            // ---------------- Write method body ----------------
+            bodyWriter.write("\n===== FILE: " + file + " =====\n");
+            bodyWriter.write(methodNames[idx]
+                    + " (lines " + start + "-" + end + ")\n");
+
+            for (int k = start - 1; k < end; k++) {
+                bodyWriter.write(allLines.get(k) + "\n");
+            }
+            bodyWriter.write("\n");
+
+            // ---------------- Write Javadoc ----------------
+            jdWriter.write("\n===== " + methodNames[idx]
+                    + " @ " + file + ":" + start + " =====\n");
+
+            if (jd.isEmpty()) {
+                jdWriter.write("No javadoc found\n");
+            } else {
+                jdWriter.write(jd);
+            }
         }
-        writer.close();
+
     } catch (IOException e) {
-        System.err.println("Error writing javadocs: " + e.getMessage());   
+        System.err.println("Error extracting method bodies or javadocs:");
         e.printStackTrace();
     }
-        return javadocs;
+
+    return javadocs;
+}
+
+
+    // static Path findSourceFile(SootMethod method, Path sourceRoot) {
+    //     String className = method.getDeclaringClassType().getClassName();
+
+    //     String relativePath = className.replace('.', '/') + ".java";
+    //     return sourceRoot.resolve(relativePath);
+    // }
+static Path findSourceFile(MethodSignature sig, Path sourceRoot) {
+    String className = sig.getDeclClassType().getClassName();
+
+    // Extract simple class name safely
+    String simpleName;
+    int lastDot = className.lastIndexOf('.');
+
+    if (lastDot == -1) {
+        // No package (or synthetic name)
+        simpleName = className + ".java";
+    } else {
+        simpleName = className.substring(lastDot + 1) + ".java";
     }
 
-
-    static Path findSourceFile(SootMethod method, Path sourceRoot) {
-        String className = method.getDeclaringClassType().getClassName();
-
-        String relativePath = className.replace('.', '/') + ".java";
-        return sourceRoot.resolve(relativePath);
+    // Extract package path safely
+    Path searchRoot = sourceRoot;
+    if (lastDot != -1) {
+        String pkgPath =
+            className.substring(0, lastDot).replace('.', '/');
+        searchRoot = sourceRoot.resolve(pkgPath);
     }
+
+    if (!Files.exists(searchRoot)) {
+        return null;
+    }
+
+    try (var paths = Files.walk(searchRoot)) {
+        return paths
+                .filter(Files::isRegularFile)
+                .filter(p -> p.getFileName().toString().equals(simpleName))
+                .findFirst()
+                .orElse(null);
+    } catch (IOException e) {
+        System.err.println("Error searching for source of " + className);
+        e.printStackTrace();
+        return null;
+    }
+}
+
+
 
     static int normalizeSignatureLine(int sootLine, List<String> lines) {
         int idx = Math.max(0, sootLine - 1);
@@ -636,7 +835,4 @@ public class BuildCG {
         String cls = sig.getDeclClassType().getClassName();
         return cls.startsWith("org.joda.time");
     }
-
-
-
 }
