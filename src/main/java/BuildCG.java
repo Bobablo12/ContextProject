@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 //Correct accuracy of line numbers when there is a comment right under method definition
 //Make sure the method body is being extracted by their method source file path
 //Try intputing methods from the meta.csv file 
-
+//method name, line number, full qualified name, callers, callees, javadoc, parameters, library calls (the one with -1 as line numbers)
 
 public class BuildCG {
     //private static Map<MethodSignature, SootMethod> methodMap = new HashMap<>();
