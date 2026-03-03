@@ -1,37 +1,14 @@
 
-===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\Context4DocuGen\commons-lang3-3.12.0-src\src\main\java\org\apache\commons\lang3\AnnotationUtils.java =====
-hashCode (lines 158-176)
-    public static int hashCode(final Annotation a) {
-        int result = 0;
-        final Class<? extends Annotation> type = a.annotationType();
-        for (final Method m : type.getDeclaredMethods()) {
-            try {
-                final Object value = m.invoke(a);
-                if (value == null) {
-                    throw new IllegalStateException(
-                            String.format("Annotation method %s returned null", m));
-                }
-                result += hashMember(m.getName(), value);
-            } catch (final RuntimeException ex) {
-                throw ex;
-            } catch (final Exception ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-        return result;
+===== FILE: /Users/shivengarisa/Context4DocuGen/commons-lang3-3.12.0-src/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java =====
+left (lines 84-86)
+    public static <L, R> Pair<L, R> left(final L left) {
+        return ImmutablePair.of(left, null);
     }
 
 
-===== FILE: C:\Users\jayav\OneDrive - The University of Texas at Dallas\Desktop\Context4DocuGen\commons-lang3-3.12.0-src\src\main\java\org\apache\commons\lang3\AnnotationUtils.java =====
-hashMember (lines 233-242)
-    private static int hashMember(final String name, final Object value) {
-        final int part1 = name.hashCode() * 127;
-        if (value.getClass().isArray()) {
-            return part1 ^ arrayMemberHash(value.getClass().getComponentType(), value);
-        }
-        if (value instanceof Annotation) {
-            return part1 ^ hashCode((Annotation) value);
-        }
-        return part1 ^ value.hashCode();
+===== FILE: /Users/shivengarisa/Context4DocuGen/commons-lang3-3.12.0-src/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java =====
+of (lines 112-114)
+    public static <L, R> ImmutablePair<L, R> of(final L left, final R right) {
+        return new ImmutablePair<>(left, right);
     }
 

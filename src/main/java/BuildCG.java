@@ -8,26 +8,23 @@ import sootup.core.signatures.MethodSignature;
 import sootup.callgraph.CallGraph;
 import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
-import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import sootup.java.core.JavaSootMethod;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedHashSet;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import com.opencsv.CSVParserBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.File;
@@ -82,6 +79,14 @@ public class BuildCG {
                 "target",
                 "classes"
             ).toString();
+            
+            String testClassesPath = Paths.get(
+                System.getProperty("user.dir"),
+                "commons-lang3-3.12.0-src",
+                "target",
+                "test-classes"
+            ).toString();
+            
             //Scanner scanner = new Scanner(System.in);
 
             //System.out.print("Enter Method ID: ");
@@ -90,23 +95,20 @@ public class BuildCG {
             MethodInfo info = loadRowById_OpenCSV("14916");
 
             System.out.println("Using classpath: " + projectPath);
+            System.out.println("Using test classpath: " + testClassesPath);
 
             AnalysisInputLocation inputLocation =
                 new JavaClassPathAnalysisInputLocation(projectPath);
+            
+            AnalysisInputLocation testInputLocation =
+                new JavaClassPathAnalysisInputLocation(testClassesPath);
 
-            JavaView view = new JavaView(inputLocation);
+            JavaView view = new JavaView(Arrays.asList(inputLocation, testInputLocation));
 
             List < JavaSootClass > allClasses = view.getClasses().collect(Collectors.toList());
 
-            int classCount = 1;
-
             List < MethodSignature > entryPoints = new ArrayList < > ();
-            int totalMethods = 0;
-
             for (JavaSootClass sootClass: allClasses) {
-                String className = sootClass.getType().toString();
-
-                int methodCount = 0;
                 for (SootMethod method: sootClass.getMethods()) {
 
                     // Entry-point filter
@@ -126,7 +128,6 @@ public class BuildCG {
             String methodParaString = info.parameterString;
             
             String methodclassname = info.className; //"org.apache.commons.lang3.AnnotationUtils"; //EXTRACT FROM CSV TOO
-;
             System.out.println("Target method: " + methodname + "(" + methodParaString + ") in file: " + methodclassname);
             //System.out.println("Method line number from Soot: " + methodline);
 
@@ -193,8 +194,8 @@ public class BuildCG {
                         // print FROM calls
                         if (hasFromCalls) {
                             for (CallGraph.Call call: cg.callsTo(methodSig)) {
-                                MethodSignature sig = call.sourceMethodSignature();
-                                int line = call.getLineNumber();
+                                MethodSignature sig = call.getSourceMethodSignature();
+                                int line = getCallLineNumber(call);
                                 if (line <= 0) {
                                     continue;
                                 }
@@ -256,7 +257,7 @@ public class BuildCG {
         ).toString();
         
         try (java.io.BufferedReader br = new java.io.BufferedReader(new FileReader(csvPath))) {
-            String headerLine = br.readLine(); // skip header
+            br.readLine(); // skip header
             String line;
             StringBuilder currentRow = new StringBuilder();
             
@@ -397,14 +398,14 @@ public class BuildCG {
     //     recursionStack.add(methodSig);
     //     if (depth == 1) {
     //         for (CallGraph.Call call: cg.callsFrom(methodSig)) {
-    //             methodsList.add(call.targetMethodSignature());
+    //             methodsList.add(call.getTargetMethodSignature());
     //         }
     //     }
 
     //     // Explore callees only if we haven't reached max depth
     //     if (depth < maxDepth) {
     //         for (CallGraph.Call call: cg.callsFrom(methodSig)) {
-    //             MethodSignature callee = call.targetMethodSignature();
+    //             MethodSignature callee = call.getTargetMethodSignature();
 
     //             if (isSpecialMethod(callee)) continue;
     //             int line = -1;
@@ -461,17 +462,17 @@ public class BuildCG {
         recursionStack.add(methodSig);
         if (depth == 1) {
             for (CallGraph.Call call: cg.callsFrom(methodSig)) {
-                if (isSpecialMethod(call.targetMethodSignature())) continue;
-                //if (!isProjectMethod(call.targetMethodSignature())) continue; //skip library callees
-                //if (methodsList.contains(call.targetMethodSignature())) continue; //avoid duplicates in first level
-                methodsList.add(call.targetMethodSignature());
+                if (isSpecialMethod(call.getTargetMethodSignature())) continue;
+                //if (!isProjectMethod(call.getTargetMethodSignature())) continue; //skip library callees
+                //if (methodsList.contains(call.getTargetMethodSignature())) continue; //avoid duplicates in first level
+                methodsList.add(call.getTargetMethodSignature());
             }
         }
 
         // Explore callees
         for (CallGraph.Call call: cg.callsFrom(methodSig)) {
             //isFirstLevel = false;
-            MethodSignature callee = call.targetMethodSignature();
+            MethodSignature callee = call.getTargetMethodSignature();
             
             if (isSpecialMethod(callee)) continue;
             int line = -1;
@@ -582,10 +583,10 @@ public class BuildCG {
 
         for (CallGraph.Call call: cg.callsTo(methodSig)) {
 
-            MethodSignature callerSig = call.sourceMethodSignature();
+            MethodSignature callerSig = call.getSourceMethodSignature();
             if (isSpecialMethod(callerSig)) continue;
 
-            int line = call.getLineNumber();
+            int line = getCallLineNumber(call);
             // if (!methodList2.contains(callerSig)) {
             //     methodList2.add(callerSig);
             //     startLineNumbers[methodList2.indexOf(callerSig)] = line;
@@ -602,7 +603,7 @@ public class BuildCG {
         /* FINALIZE methodList2 FIRST */
         for (CallGraph.Call call : cg.callsTo(methodSig)) {
 
-            MethodSignature callerSig = call.sourceMethodSignature();
+            MethodSignature callerSig = call.getSourceMethodSignature();
             if (isSpecialMethod(callerSig)) continue;
 
             if (!methodList2.contains(callerSig)) {
@@ -636,7 +637,7 @@ public class BuildCG {
          // Collect callers for JSON export
         List<SootMethod> callerMethods = new ArrayList<>();
         for (CallGraph.Call call : cg.callsTo(methodSig)) {
-            MethodSignature callerSig = call.sourceMethodSignature();
+            MethodSignature callerSig = call.getSourceMethodSignature();
             Optional<JavaSootMethod> callerOpt = view.getMethod(callerSig);
             if (callerOpt.isPresent()) {
                 callerMethods.add(callerOpt.get());
@@ -655,6 +656,9 @@ public class BuildCG {
         // Export to JSON
         String outputPath = "method_context_" + method.getName() + ".json";
         saveContextToJson(view, method, callerMethods, calleeMethods, outputPath);
+        
+        // Update CSV with JSON information
+        //updateCsvWithJsonInfo("14916", outputPath, view, method, callerMethods, calleeMethods);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         methodsNames[0] = method.getName();
 
@@ -955,6 +959,20 @@ public class BuildCG {
         String cls = sig.getDeclClassType().getClassName();
         return cls.startsWith("org.apache.commons.lang3");
     }
+    /** Returns the source line number of the call, or -1 if not available. */
+    private static int getCallLineNumber(CallGraph.Call call) {
+        try {
+            var posInfo = call.getInvokableStmt().getPositionInfo();
+            if (posInfo != null) {
+                var pos = posInfo.getStmtPosition();
+                if (pos != null) {
+                    return pos.getFirstLine();
+                }
+            }
+        } catch (Exception ignored) { }
+        return -1;
+    }
+
     private static boolean isSpecialMethod(MethodSignature sig) {
         String name = sig.getName();
         return name.equals("<clinit>") || name.equals("<init>");
@@ -1102,7 +1120,7 @@ public class BuildCG {
             // Convert to simple name while preserving arrays
             out.add(toSimpleTypeName(s));
         }
-        System.out.println("Normalized Soot parameter types: " + out);
+        
         return out;
     }
 
@@ -1124,9 +1142,14 @@ public class BuildCG {
             // If CSV includes annotations like @Nonnull String, strip leading annotations
             s = s.replaceAll("^@\\w+\\s+", "");
 
+            // Convert generic type variables (like L, R, T) to Object for matching
+            if (s.matches("^[A-Z]$")) {
+                s = "Object";
+            }
+
             out.add(toSimpleTypeName(s));
         }
-        System.out.println("Normalized CSV parameter types: " + out);
+        
         return out;
     }
     public static String extractClassNameFromCsvPath(String csvFilePath) {
@@ -1278,6 +1301,12 @@ public class BuildCG {
             mapper.writerWithDefaultPrettyPrinter().writeValue(outputFile, contextJson);
 
             System.out.println("\nJSON output saved to: " + outputFile.getAbsolutePath());
+            
+            // Print JSON content
+            System.out.println("\n===== JSON CONTENT =====");
+            String jsonContent = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(contextJson);
+            System.out.println(jsonContent);
+            System.out.println("========================\n");
 
         } catch (Exception e) {
             System.err.println("Error saving JSON: " + e.getMessage());
@@ -1363,7 +1392,276 @@ public class BuildCG {
         return fromClass + "." + fromName + " -> " + toClass + "." + toName;
     }
 
+    private static void updateCsvWithJsonInfo(String targetId, String jsonPath, 
+        JavaView view, SootMethod mutMethod, 
+        List<SootMethod> callers, List<SootMethod> callees) {
+    try {
+        String csvPath = Paths.get(
+            System.getProperty("user.dir"),
+            "commons-lang3-3.12.0-src", "inputs_with_id.csv"
+        ).toString();
+
+        // Read CSV using proper multi-line parsing like loadRowById_OpenCSV
+        List<String[]> allRows = new ArrayList<>();
+        String[] headerCols = null;
+        
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new FileReader(csvPath))) {
+            // Read header
+            String headerLine = br.readLine();
+            if (headerLine == null) return;
+            headerCols = parseCSVLine(headerLine);
+            
+            StringBuilder currentRow = new StringBuilder();
+            String line;
+            
+            while ((line = br.readLine()) != null) {
+                currentRow.append(line).append("\n");
+                
+                // Check if this line completes a full CSV row
+                if (isCompleteCSVRow(currentRow.toString())) {
+                    String[] row = parseCSVLine(currentRow.toString().trim());
+                    currentRow = new StringBuilder();
+                    allRows.add(row);
+                }
+            }
+            
+            if (allRows.isEmpty()) {
+                System.err.println("CSV is empty, no rows to update");
+                return;
+            }
+            
+            String[] requiredColumns = new String[] {
+                "json_file_path",
+                "mut_method_name",
+                "mut_signature",
+                "mut_line_number",
+                "mut_parameters",
+                "mut_code",
+                "mut_javadoc",
+                "callers_info",
+                "callees_info",
+                "callers_count",
+                "callees_count"
+            };
+
+            headerCols = ensureColumns(headerCols, allRows, requiredColumns);
+
+            // Update EACH row with its OWN method context
+            final String[] finalHeaderCols = headerCols;
+            int focalMethodColIdx = findColumnIndex(headerCols, "focal_method");
+            int filePathColIdx = findColumnIndex(headerCols, "file_path");
+            
+            for (int rowIdx = 0; rowIdx < allRows.size(); rowIdx++) {
+                String[] row = allRows.get(rowIdx);
+                String focalMethod = (focalMethodColIdx >= 0 && focalMethodColIdx < row.length) ? row[focalMethodColIdx] : "";
+                String filePath = (filePathColIdx >= 0 && filePathColIdx < row.length) ? row[filePathColIdx] : "";
+                
+                if (focalMethod.isEmpty()) continue;
+                
+                // Parse method info from focal_method and file_path
+                try {
+                    MethodInfo info = parseMethodAndPath(focalMethod, filePath);
+                    
+                    // Look up this specific method in the call graph
+                    SootMethod rowMethod = null;
+                    List<SootMethod> rowCallers = new ArrayList<>();
+                    List<SootMethod> rowCallees = new ArrayList<>();
+                    
+                    // Find the method by name and class
+                    for (JavaSootClass sootClass : view.getClasses().collect(Collectors.toList())) {
+                        String className = sootClass.getType().toString();
+                        if (className.equals(info.className)) {
+                            for (SootMethod m : sootClass.getMethods()) {
+                                if (m.getName().equals(info.methodName) && paramsMatch(m.getParameterTypes(), info.parameterTypes)) {
+                                    rowMethod = m;
+                                    break;
+                                }
+                            }
+                            if (rowMethod != null) break;
+                        }
+                    }
+                    
+                    if (rowMethod == null) {
+                        System.out.println("Row " + rowIdx + ": Method " + info.methodName + " not found in class graph");
+                        continue;
+                    }
+                    
+                    // Get callers and callees for this specific method
+                    CallGraph cg = new ClassHierarchyAnalysisAlgorithm(view).initialize(
+                        view.getClasses().flatMap(c -> c.getMethods().stream()).map(SootMethod::getSignature).collect(Collectors.toList())
+                    );
+                    
+                    for (CallGraph.Call call : cg.callsTo(rowMethod.getSignature())) {
+                        Optional<JavaSootMethod> opt = view.getMethod(call.getSourceMethodSignature());
+                        if (opt.isPresent()) rowCallers.add(opt.get());
+                    }
+                    for (CallGraph.Call call : cg.callsFrom(rowMethod.getSignature())) {
+                        Optional<JavaSootMethod> opt = view.getMethod(call.getTargetMethodSignature());
+                        if (opt.isPresent()) rowCallees.add(opt.get());
+                    }
+                    
+                    // Build JSON for this row's method
+                    ObjectMapper mapper = new ObjectMapper();
+                    
+                    ArrayNode callersArray = mapper.createArrayNode();
+                    for (SootMethod caller : rowCallers) {
+                        ObjectNode node = mapper.createObjectNode();
+                        node.put("method_name", caller.getName());
+                        node.put("signature", formatSignature(caller.getSignature().toString()));
+                        node.put("qualified_name", caller.getDeclaringClassType().getClassName() + "." + caller.getName());
+                        int callerLine = (caller.hasBody() && caller.getBody().getPosition() != null)
+                                ? caller.getBody().getPosition().getFirstLine() - 1 : -1;
+                        node.put("line_number", callerLine);
+                        ArrayNode params = mapper.createArrayNode();
+                        for (int i = 0; i < caller.getParameterCount(); i++) {
+                            params.add(caller.getParameterType(i).toString());
+                        }
+                        node.set("parameters", params);
+                        String callerCode = caller.getBody() != null ? caller.getBody().toString() : "";
+                        node.put("code", callerCode);
+                        String callerJavadoc = extractJavadoc(view, caller);
+                        node.put("javadoc", callerJavadoc);
+                        node.put("edge", formatEdge(caller, rowMethod));
+                        callersArray.add(node);
+                    }
+                    String callersJson = mapper.writeValueAsString(callersArray).replace("\"", "\"\"").replace("\n", "\\n").replace("\r", "\\r");
+                    
+                    ArrayNode calleesArray = mapper.createArrayNode();
+                    for (SootMethod callee : rowCallees) {
+                        ObjectNode node = mapper.createObjectNode();
+                        node.put("method_name", callee.getName());
+                        node.put("signature", formatSignature(callee.getSignature().toString()));
+                        node.put("qualified_name", callee.getDeclaringClassType().getClassName() + "." + callee.getName());
+                        int calleeLine = (callee.hasBody() && callee.getBody().getPosition() != null)
+                                ? callee.getBody().getPosition().getFirstLine() - 1 : -1;
+                        node.put("line_number", calleeLine);
+                        ArrayNode params = mapper.createArrayNode();
+                        for (int i = 0; i < callee.getParameterCount(); i++) {
+                            params.add(callee.getParameterType(i).toString());
+                        }
+                        node.set("parameters", params);
+                        String calleeCode = callee.getBody() != null ? callee.getBody().toString() : "";
+                        node.put("code", calleeCode);
+                        String calleeJavadoc = extractJavadoc(view, callee);
+                        node.put("javadoc", calleeJavadoc);
+                        node.put("edge", formatEdge(rowMethod, callee));
+                        calleesArray.add(node);
+                    }
+                    String calleesJson = mapper.writeValueAsString(calleesArray).replace("\"", "\"\"").replace("\n", "\\n").replace("\r", "\\r");
+                    
+                    // Update this specific row
+                    List<String> newRow = new ArrayList<>(Arrays.asList(row));
+                    while (newRow.size() < headerCols.length) {
+                        newRow.add("");
+                    }
+                    
+                    java.util.function.BiConsumer<String, String> setCol = (colName, value) -> {
+                        int idx = findColumnIndex(finalHeaderCols, colName);
+                        if (idx != -1) newRow.set(idx, value);
+                    };
+                    
+                    String code = rowMethod.getBody() != null ? rowMethod.getBody().toString() : "";
+                    code = code.replace("\"", "\"\"").replace("\n", "\\n").replace("\r", "\\r");
+                    String javadoc = extractJavadoc(view, rowMethod);
+                    javadoc = javadoc.replace("\"", "\"\"").replace("\n", "\\n").replace("\r", "\\r");
+                    int lineNum = (rowMethod.hasBody() && rowMethod.getBody().getPosition() != null)
+                            ? rowMethod.getBody().getPosition().getFirstLine() - 1 : -1;
+                    
+                    setCol.accept("json_file_path", jsonPath);
+                    setCol.accept("mut_method_name", info.methodName);
+                    setCol.accept("mut_signature", formatSignature(rowMethod.getSignature().toString()));
+                    setCol.accept("mut_line_number", String.valueOf(lineNum));
+                    setCol.accept("mut_parameters", String.join(";", info.parameterTypes));
+                    setCol.accept("mut_code", code);
+                    setCol.accept("mut_javadoc", javadoc);
+                    setCol.accept("callers_info", callersJson);
+                    setCol.accept("callees_info", calleesJson);
+                    setCol.accept("callers_count", String.valueOf(rowCallers.size()));
+                    setCol.accept("callees_count", String.valueOf(rowCallees.size()));
+                    
+                    allRows.set(rowIdx, newRow.toArray(new String[0]));
+                } catch (Exception e) {
+                    System.err.println("Error processing row " + rowIdx + ": " + e.getMessage());
+                }
+            }
+
+            // Write the entire CSV back
+            try (FileWriter writer = new FileWriter(csvPath)) {
+                // Write header
+                for (int i = 0; i < headerCols.length; i++) {
+                    if (i > 0) writer.write(",");
+                    String value = headerCols[i];
+                    if (value.contains(",") || value.contains("\"") || value.contains("\n")) {
+                        writer.write("\"" + value.replace("\"", "\"\"") + "\"");
+                    } else {
+                        writer.write(value);
+                    }
+                }
+                writer.write("\n");
+
+                // Write all rows
+                for (String[] csvRow : allRows) {
+                    for (int i = 0; i < csvRow.length; i++) {
+                        if (i > 0) writer.write(",");
+                        String value = csvRow[i];
+                        if (value == null) value = "";
+                        if (value.contains(",") || value.contains("\"") || value.contains("\n")) {
+                            writer.write("\"" + value.replace("\"", "\"\"") + "\"");
+                        } else {
+                            writer.write(value);
+                        }
+                    }
+                    writer.write("\n");
+                }
+            }
+            System.out.println("CSV updated with method context for " + allRows.size() + " rows");
+        }
+    } catch (Exception e) {
+        System.err.println("Error updating CSV: " + e.getMessage());
+        e.printStackTrace();
+    }
 }
 
+    private static String[] ensureColumns(String[] headerCols, List<String[]> allRows, String[] requiredColumns) {
+        LinkedHashSet<String> merged = new LinkedHashSet<>();
+        for (String col : headerCols) {
+            merged.add(col == null ? "" : col.trim());
+        }
+        for (String col : requiredColumns) {
+            merged.add(col);
+        }
+
+        String[] newHeader = merged.toArray(new String[0]);
+        if (newHeader.length == headerCols.length) {
+            return headerCols;
+        }
+
+        for (int i = 0; i < allRows.size(); i++) {
+            String[] oldRow = allRows.get(i);
+            String[] expanded = new String[newHeader.length];
+            int copyLen = Math.min(oldRow.length, expanded.length);
+            if (copyLen > 0) {
+                System.arraycopy(oldRow, 0, expanded, 0, copyLen);
+            }
+            for (int j = copyLen; j < expanded.length; j++) {
+                expanded[j] = "";
+            }
+            allRows.set(i, expanded);
+        }
+
+        System.out.println("Extended CSV header from " + headerCols.length + " to " + newHeader.length + " columns.");
+        return newHeader;
+    }
+    
+    private static int findColumnIndex(String[] columns, String columnName) {
+        for (int i = 0; i < columns.length; i++) {
+            if (columns[i].trim().equals(columnName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+}
 
 
