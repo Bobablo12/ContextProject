@@ -1397,12 +1397,25 @@ public class BuildCG {
     private static ObjectNode buildClassHierarchyNode(JavaView view, SootMethod method, ObjectMapper mapper) {
         ObjectNode node = mapper.createObjectNode();
 
-        String className = method.getDeclaringClassType().getClassName();
-        node.put("class_name", className);
-        node.put("simple_name", className.substring(className.lastIndexOf('.') + 1));
-
+        // Get fully qualified class name from the type's string representation
+        String className = method.getDeclaringClassType().toString();
+        
+        // Extract simple name from fully qualified name
+        String simpleName = className;
         int lastDot = className.lastIndexOf('.');
-        node.put("package_name", lastDot >= 0 ? className.substring(0, lastDot) : "");
+        if (lastDot >= 0) {
+            simpleName = className.substring(lastDot + 1);
+        }
+        
+        // Extract package name from fully qualified name
+        String packageName = "";
+        if (lastDot >= 0) {
+            packageName = className.substring(0, lastDot);
+        }
+        
+        node.put("class_name", className);
+        node.put("simple_name", simpleName);
+        node.put("package_name", packageName);
 
         ArrayNode superclasses = mapper.createArrayNode();
         ArrayNode interfaces = mapper.createArrayNode();
@@ -1473,12 +1486,18 @@ public class BuildCG {
         try {
             Object type = cls.getType();
             if (type == null) return "";
+            // Try toString() first for fully qualified name
+            String result = type.toString();
+            if (result != null && !result.isEmpty()) {
+                return result;
+            }
+            // Fallback to getClassName if toString fails
             try {
                 var m = type.getClass().getMethod("getClassName");
                 Object value = m.invoke(type);
                 return value == null ? "" : value.toString();
             } catch (Exception ignored) {
-                return type.toString();
+                return "";
             }
         } catch (Exception ignored) {
             return "";
@@ -1552,6 +1571,12 @@ public class BuildCG {
 
     private static String toClassName(Object value) {
         if (value == null) return "";
+        // Try toString() first for fully qualified name
+        String text = value.toString();
+        if (text != null && !text.isBlank()) {
+            return text;
+        }
+        // Fallback to getClassName if toString doesn't work
         try {
             var m = value.getClass().getMethod("getClassName");
             Object name = m.invoke(value);
@@ -1559,10 +1584,9 @@ public class BuildCG {
                 return name.toString();
             }
         } catch (Exception ignored) {
-            // Fall through to toString.
+            // Fall through to empty
         }
-        String text = value.toString();
-        return (text == null || text.isBlank()) ? "" : text;
+        return "";
     }
 
     private static String formatSignature(String sootSignature) {
@@ -1903,5 +1927,3 @@ public class BuildCG {
     }
 
 }
-
-
