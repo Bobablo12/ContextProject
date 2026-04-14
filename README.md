@@ -233,9 +233,9 @@ All 10 candidate projects were tested against system requirements (valid CSV for
 |**commons-jcs3-3.1-src**|✅ Valid (id generated, no file_path column)|✅ YES|✅ YES|Same fix as geometry (file-path inference + module classpath discovery)|✅ **READY**|Unblocked by fallback inference|
 |**spark**|✅ Valid (id generated, no file_path column)|✅ YES|✅ YES|Multi-module classpath/source-root discovery + file-path inference|✅ **READY**|Large project now works|
 |**async-http-client**|✅ Valid (id generated, no file_path column)|⚠️ PARTIAL|✅ YES (with workaround)|Built core modules with `mvn -pl client,netty-utils -am`; runtime succeeds|⚠️ **PARTIAL/USABLE**|Use module-scoped build workaround|
-|commons-pool2-2.11.1-src|❌ Empty focal_method for ID 1|✅ YES|❌ NO|CSV normalization + id generation attempted|❌ **SKIP**|Test-centric CSV lacks usable focal method data|
-|commons-imaging-1.0-alpha3-src|❌ Empty focal_method for ID 1|✅ YES|❌ NO|CSV normalization + id generation attempted|❌ **SKIP**|Test-centric CSV lacks usable focal method data|
-|http-request|❌ Empty focal_method for ID 1|✅ YES|❌ NO|CSV normalization + id generation attempted|❌ **SKIP**|Test-centric CSV lacks usable focal method data|
+|commons-pool2-2.11.1-src|✅ Preprocessed (empty focal rows populated)|✅ YES|⚠️ PARTIAL|Added focal preprocessing (`test_prefix` call-hints + deterministic source-signature fallback)|⚠️ **PARTIAL**|Row-level focal mapping now present; functional quality depends on heuristic mapping accuracy|
+|commons-imaging-1.0-alpha3-src|✅ Preprocessed (empty focal rows populated)|✅ YES|⚠️ PARTIAL|Added focal preprocessing (`test_prefix` call-hints + deterministic source-signature fallback)|⚠️ **PARTIAL**|Row-level focal mapping now present; functional quality depends on heuristic mapping accuracy|
+|http-request|✅ Preprocessed (empty focal rows populated)|✅ YES|⚠️ PARTIAL|Added focal preprocessing (`test_prefix` call-hints + deterministic source-signature fallback)|⚠️ **PARTIAL**|Small method surface required cyclic fallback reuse for many rows|
 |springside4|✅ Valid CSV|❌ FAIL|N/A|Compile attempted; fails due missing `javax.xml.bind` on modern JDK|❌ **UNFIXABLE HERE**|Requires project-level JAXB migration or Java 8 toolchain|
 
 ### Error Matrix (Additional Pass)
@@ -250,9 +250,9 @@ Additional pass goal: enumerate mode-level errors and generation gaps per projec
 |commons-jcs3-3.1-src|None|Previously had file-path gap; fixed via source inference fallback|No blocking batch error recorded|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; selective row unresolved|Partial in selective probe; previously unblocked and runnable|
 |spark|None|Previously resolved with target method and JSON output evidence|No blocking batch error recorded|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; selective row unresolved|Partial in selective probe; previously runnable with output|
 |async-http-client|Full-project build has known Lombok/module conflict|Single-target works with module-scoped build workaround|Batch not fully validated under full-build constraint|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; selective row unresolved|Partial/usable only with `-pl client,netty-utils -am` workaround|
-|commons-pool2-2.11.1-src|None|`ERROR: Focal method` empty/invalid for tested row|Batch cannot produce method-centric outputs from empty focal rows|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; focal method unusable for ID 1|No generation for focal-method-driven output path|
-|commons-imaging-1.0-alpha3-src|None|`ERROR: Focal method` empty/invalid for tested row|Batch blocked for same data quality reason|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; focal method unusable for ID 1|No generation for focal-method-driven output path|
-|http-request|None|`ERROR: Focal method` empty/invalid for tested row|Batch blocked for same data quality reason|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; focal method unusable for ID 1|No generation for focal-method-driven output path|
+|commons-pool2-2.11.1-src|None|Post-preprocess run no longer emits `ERROR: Focal method` for ID 1|Batch quality still depends on heuristic focal mapping|`found_in_csv=1`, `missing_in_csv=1` remains expected for probe|Missing ID: `999999`; focal rows are now populated|Partial generation path restored via preprocessing|
+|commons-imaging-1.0-alpha3-src|None|Post-preprocess run no longer emits `ERROR: Focal method` for ID 1|Batch quality still depends on heuristic focal mapping|`found_in_csv=1`, `missing_in_csv=1` remains expected for probe|Missing ID: `999999`; focal rows are now populated|Partial generation path restored via preprocessing|
+|http-request|None|Post-preprocess run no longer emits `ERROR: Focal method` for ID 1|Batch quality still depends on heavy fallback reuse|`found_in_csv=1`, `missing_in_csv=1` remains expected for probe|Missing ID: `999999`; focal rows are now populated|Partial generation path restored via preprocessing|
 |springside4|Compile failure in project context: missing `javax.xml.bind` on modern JDK|Single-target blocked by project/toolchain compatibility|Batch blocked by same compile/toolchain issue|`found_in_csv=1`, `missing_in_csv=1`, `skipped_method_not_found=1`, `generated=0`|Missing ID: `999999`; compile/toolchain still primary blocker|No reliable generation until JAXB/toolchain is fixed|
 
 Notes for this additional pass:
@@ -275,17 +275,21 @@ Notes for this additional pass:
 
 - `async-http-client` — build core modules only (`-pl client,netty-utils -am`) to avoid Lombok retrofit2 module conflict
 
-**Not Usable with Current Inputs/Toolchain** (4):
+**Not Usable with Current Inputs/Toolchain** (1):
 
-- Test-centric CSVs with empty focal methods: `commons-pool2-2.11.1-src`, `commons-imaging-1.0-alpha3-src`, `http-request`
 - JDK/JAXB incompatibility: `springside4` (needs JAXB dependency/toolchain migration)
+
+**Preprocessed and Partially Usable** (3):
+
+- `commons-pool2-2.11.1-src`, `commons-imaging-1.0-alpha3-src`, `http-request`
+- Empty `focal_method` rows were populated using project source signatures; this removes hard stop errors but mapping quality is heuristic for some rows.
 
 ### Recommendations
 
 1. **For immediate testing**: Use `commons-lang3-3.12.0-src` as primary test project (fully validated)
 2. **For async-http-client**: Run module-scoped compile first:
    - `cd async-http-client && mvn -DskipTests -pl client,netty-utils -am clean compile`
-3. **Avoid/replace datasets**: Projects whose CSV rows have empty focal methods cannot be processed by method-centric flow
+3. **Preprocess focal methods first**: Run `python3 tools/preprocess_focal_methods.py` before validation on test-centric datasets
 4. **For springside4**: Use Java 8 toolchain or add JAXB/Jakarta migration in that upstream project
 
 ### Next Steps
