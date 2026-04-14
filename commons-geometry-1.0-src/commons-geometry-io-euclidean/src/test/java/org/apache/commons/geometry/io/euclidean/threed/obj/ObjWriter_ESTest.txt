@@ -1,0 +1,610 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("+`^FUS72@ee=_4r ");
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int[] intArray0 = new int[9];
+      intArray0[0] = (int) 'h';
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Vertex index out of bounds: 104
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream((OutputStream) null);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int[] intArray0 = new int[7];
+      int[] intArray1 = new int[8];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, intArray1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Face normal index count must equal vertex index count; expected 7 but was 8
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream(pipedInputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(pipedOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.new MeshBuffer((-990));
+      // Undeclared exception!
+      try { 
+        objWriter_MeshBuffer0.add((PlaneConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter$MeshBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addNormal(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      assertEquals(0, objWriter0.getVertexNormalCount());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addNormal(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      assertNotNull(stringWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector<Vector3D> vector0 = new Vector<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      vector0.add((Vector3D) vector3D_Unit0);
+      vector0.setSize(1487);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(vector0);
+      // Undeclared exception!
+      try { 
+        objWriter_MeshBuffer0.add((FacetDefinition) simpleFacetDefinition0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      objWriter0.writeVertexNormal(vector3D_Unit0);
+      objWriter0.writeVertex(vector3D_Unit0);
+      int[] intArray0 = new int[6];
+      objWriter0.writeFace(intArray0, 0);
+      assertEquals(1, objWriter0.getVertexNormalCount());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      objWriter0.writeVertexNormal(vector3D_Unit0);
+      int int0 = objWriter0.writeVertexNormal(vector3D_Unit0);
+      assertEquals(1, objWriter0.getVertexNormalCount());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      objWriter0.writeVertexNormal(vector3D_Unit0);
+      int int0 = objWriter0.writeVertexNormal(vector3D_Unit0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addVertex(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      int int0 = objWriter0.writeVertex(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addVertex(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      int int0 = objWriter0.writeVertex(vector3D_Unit0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter0.writeVertexNormal(vector3D_Unit0);
+      int int0 = objWriter0.getVertexNormalCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      objWriter0.writeVertex(vector3D_Unit0);
+      int int0 = objWriter0.getVertexCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("?7YDvkz");
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeVertexNormal((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      AxisSequence axisSequence0 = AxisSequence.ZYX;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      // Undeclared exception!
+      try { 
+        objWriter0.writeVertex(vector3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeObjectName("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeGroupName("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      int[] intArray0 = new int[9];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace((int[]) null, (-681));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("Z'91Uj@<]N>p^%o}Ifh");
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int[] intArray0 = new int[0];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, (-1802));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Face must have more than 3 vertices; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      int[] intArray0 = new int[5];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      int[] intArray0 = new int[0];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Face must have more than 3 vertices; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeComment("9");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree");
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeBoundaries((BoundarySource3D) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("Q;5e!j");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0, 176);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(bufferedOutputStream0);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeBoundaries((BoundarySource3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      PlaneConvexSubset[] planeConvexSubsetArray0 = new PlaneConvexSubset[2];
+      BoundarySource3D boundarySource3D0 = BoundarySource3D.of(planeConvexSubsetArray0);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeBoundaries(boundarySource3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter$MeshBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector<Vector3D> vector0 = new Vector<Vector3D>();
+      vector0.setSize(1487);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(vector0);
+      vector0.clear();
+      objWriter_MeshBuffer0.add((FacetDefinition) simpleFacetDefinition0);
+      // Undeclared exception!
+      try { 
+        objWriter_MeshBuffer0.flush();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Face must have more than 3 vertices; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addVertex(vector3D_Unit0);
+      objWriter0.writeVertexNormal(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      int[] intArray0 = new int[6];
+      objWriter0.writeFace(intArray0, intArray0);
+      assertNotNull(objWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      File file0 = MockFile.createTempFile("iVA8>LH3Ap\"dQ-C", "iVA8>LH3Ap\"dQ-C", (File) null);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter0.writeVertex(vector3D_Unit0);
+      int[] intArray0 = new int[3];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, (-3309));
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Normal index out of bounds: -3309
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addVertex(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      int[] intArray0 = new int[6];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, intArray0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Normal index out of bounds: 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      int[] intArray0 = new int[6];
+      intArray0[0] = (-62);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0, intArray0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Vertex index out of bounds: -62
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objWriter_MeshBuffer0.addVertex(vector3D_Unit0);
+      objWriter_MeshBuffer0.flush();
+      int[] intArray0 = new int[6];
+      objWriter0.writeFace(intArray0);
+      assertEquals(1, objWriter0.getVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      DataOutputStream dataOutputStream0 = new DataOutputStream((OutputStream) null);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(dataOutputStream0);
+      int[] intArray0 = new int[4];
+      int[] intArray1 = new int[20];
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray1, intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Face normal index count must equal vertex index count; expected 20 but was 4
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ArrayList<PlaneConvexSubset> arrayList0 = new ArrayList<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      arrayList0.add((PlaneConvexSubset) null);
+      // Undeclared exception!
+      try { 
+        objWriter0.writeBoundaries((BoundarySource3D) boundaryList3D0, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter$MeshBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      File file0 = MockFile.createTempFile("iVA8>LH3Ap\"dQ-C", "iVA8>LH3Ap\"dQ-C", (File) null);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      objWriter0.writeComment("");
+      assertNotNull(objWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      HashSet<Plane> hashSet0 = new HashSet<Plane>();
+      TreeSet<Plane> treeSet0 = new TreeSet<Plane>(hashSet0);
+      ConvexVolume convexVolume0 = ConvexVolume.fromBounds((Iterable<? extends Plane>) treeSet0);
+      BoundaryList3D boundaryList3D0 = convexVolume0.toList();
+      objWriter0.writeBoundaries((BoundarySource3D) boundaryList3D0);
+      assertEquals(0, boundaryList3D0.count());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, true);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      objWriter0.writeObjectName("org.apache.commons.geometry.euclidean.threed.Vector3D$1");
+      assertEquals(1, objWriter0.getVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("+`^FUS72@ee=_4r ");
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int int0 = objWriter0.getVertexCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int[] intArray0 = new int[6];
+      // Undeclared exception!
+      try { 
+        objWriter0.writeFace(intArray0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Vertex index out of bounds: 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      ObjWriter objWriter0 = new ObjWriter(stringWriter0);
+      objWriter0.writeGroupName("|UQM");
+      assertNotNull(stringWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      File file0 = MockFile.createTempFile("iVA8>LH3Ap\"dQ-C", "iVA8>LH3Ap\"dQ-C", (File) null);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      int int0 = objWriter0.getVertexNormalCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      ObjWriter objWriter0 = new ObjWriter((Writer) null);
+      ObjWriter.MeshBuffer objWriter_MeshBuffer0 = objWriter0.meshBuffer((-15));
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      objWriter_MeshBuffer0.addNormal(vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        objWriter_MeshBuffer0.flush();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(filterOutputStream0, false);
+      ObjWriter objWriter0 = new ObjWriter(mockPrintWriter0);
+      ArrayList<PlaneConvexSubset> arrayList0 = new ArrayList<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      objWriter0.writeBoundaries((BoundarySource3D) boundaryList3D0, 0);
+      assertEquals(0, boundaryList3D0.count());
+}

@@ -1,0 +1,78 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TreeMap<String, String> treeMap0 = new TreeMap<String, String>();
+      Class<String> class0 = String.class;
+      InstantiateFactory<String> instantiateFactory0 = new InstantiateFactory<String>(class0);
+      LazySortedMap<String, String> lazySortedMap0 = new LazySortedMap<String, String>(treeMap0, instantiateFactory0);
+      FactoryTransformer<Object, String> factoryTransformer0 = new FactoryTransformer<Object, String>(instantiateFactory0);
+      LazySortedMap<String, String> lazySortedMap1 = new LazySortedMap<String, String>(lazySortedMap0, factoryTransformer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      Factory<Integer> factory0 = ConstantFactory.constantFactory(integer0);
+      // Undeclared exception!
+      try { 
+        LazySortedMap.lazySortedMap((SortedMap<Object, Integer>) null, (Factory<? extends Integer>) factory0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Map must not be null.
+         //
+         verifyException("org.apache.commons.collections4.map.AbstractMapDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LazySortedMap<Integer, String> lazySortedMap0 = null;
+      try {
+        lazySortedMap0 = new LazySortedMap<Integer, String>((SortedMap<Integer, String>) null, (Transformer<? super Integer, ? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Map must not be null.
+         //
+         verifyException("org.apache.commons.collections4.map.AbstractMapDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Factory<Object> factory0 = ConstantFactory.constantFactory((Object) null);
+      LazySortedMap<Object, Object> lazySortedMap0 = null;
+      try {
+        lazySortedMap0 = new LazySortedMap<Object, Object>((SortedMap<Object, Object>) null, factory0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Map must not be null.
+         //
+         verifyException("org.apache.commons.collections4.map.AbstractMapDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TreeMap<Integer, String> treeMap0 = new TreeMap<Integer, String>();
+      Class<String> class0 = String.class;
+      InstantiateFactory<String> instantiateFactory0 = new InstantiateFactory<String>(class0);
+      LazySortedMap<Integer, String> lazySortedMap0 = new LazySortedMap<Integer, String>(treeMap0, instantiateFactory0);
+      // Undeclared exception!
+      try { 
+        lazySortedMap0.firstKey();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.TreeMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TreeMap<String, Integer> treeMap0 = new TreeMap<String, Integer>();
+      Integer integer0 = new Integer((-1));
+      Factory<Integer> factory0 = ConstantFactory.constantFactory(integer0);
+      LazySortedMap<String, Integer> lazySortedMap0 = LazySortedMap.lazySortedMap((SortedMap<String, Integer>) treeMap0, (Factory<? extends Integer>) factory0);
+      SortedMap<String, Integer> sortedMap0 = lazySortedMap0.headMap("C:.qSDX5bNQUaoJSX3");
+      assertTrue(sortedMap0.isEmpty());
+}

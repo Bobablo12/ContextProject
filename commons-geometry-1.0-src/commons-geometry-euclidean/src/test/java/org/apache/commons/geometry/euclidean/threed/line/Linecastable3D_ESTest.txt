@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      AxisSequence axisSequence0 = AxisSequence.YZX;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, (Precision.DoubleEquivalence) null);
+      Segment3D segment3D0 = line3D0.segment(vector3D0, vector3D0);
+      LinecastPoint3D linecastPoint3D0 = regionBSPTree3D0.linecastFirst((LineConvexSubset3D) segment3D0);
+      assertNotNull(linecastPoint3D0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ConvexVolume convexVolume0 = ConvexVolume.full();
+      Line3D line3D0 = new Line3D((Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+      LinecastPoint3D linecastPoint3D0 = convexVolume0.linecastFirst(line3D0);
+      assertNotNull(linecastPoint3D0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = new RegionBSPTree3D(true);
+      List<LinecastPoint3D> list0 = regionBSPTree3D0.linecast((LineConvexSubset3D) null);
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PriorityQueue<Plane> priorityQueue0 = new PriorityQueue<Plane>();
+      ArrayList<Plane> arrayList0 = new ArrayList<Plane>(priorityQueue0);
+      ConvexVolume convexVolume0 = ConvexVolume.fromBounds((Iterable<? extends Plane>) arrayList0);
+      Line3D line3D0 = new Line3D((Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+      List<LinecastPoint3D> list0 = convexVolume0.linecast(line3D0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PriorityQueue<Plane> priorityQueue0 = new PriorityQueue<Plane>(542, (Comparator<? super Plane>) null);
+      ConvexVolume convexVolume0 = ConvexVolume.fromBounds((Iterable<? extends Plane>) priorityQueue0);
+      RegionBSPTree3D regionBSPTree3D0 = convexVolume0.toTree();
+      // Undeclared exception!
+      try { 
+        regionBSPTree3D0.linecastFirst((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.Linecastable3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<PlaneConvexSubset> linkedList0 = new LinkedList<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(linkedList0);
+      // Undeclared exception!
+      try { 
+        boundaryList3D0.linecast((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.Linecastable3D", e);
+      }
+  }

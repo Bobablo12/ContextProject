@@ -1,0 +1,256 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      File file0 = MockFile.createTempFile("54LC0Iq", "54LC0Iq");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, true);
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      long long0 = messageEndMultipartPart0.transferTo((WritableByteChannel) fileChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      File file0 = MockFile.createTempFile("54LC0Iq", "54LC0Iq");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, true);
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      long long0 = messageEndMultipartPart0.transferTo((WritableByteChannel) fileChannel0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = (PooledByteBufAllocator)ByteBufAllocator.DEFAULT;
+      UnpooledDirectByteBuf unpooledDirectByteBuf0 = new UnpooledDirectByteBuf(pooledByteBufAllocator0, 1437, 1437);
+      long long0 = messageEndMultipartPart0.transferTo((ByteBuf) unpooledDirectByteBuf0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      long long0 = messageEndMultipartPart0.getContentLength();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      int int0 = messageEndMultipartPart0.computePreContentLength();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      int int0 = messageEndMultipartPart0.computePostContentLength();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo((WritableByteChannel) socketChannel0);
+        fail("Expecting exception: NotYetConnectedException");
+      } catch(NotYetConnectedException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      File file0 = MockFile.createTempFile("L+m", "L+m");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo((WritableByteChannel) fileChannel0);
+        fail("Expecting exception: NonWritableChannelException");
+      } catch(NonWritableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      datagramChannel0.close();
+      try { 
+        messageEndMultipartPart0.transferTo((WritableByteChannel) datagramChannel0);
+        fail("Expecting exception: ClosedChannelException");
+      } catch(ClosedChannelException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart((byte[]) null);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo(writableByteChannel0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MessageEndMultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      doReturn((int)(byte)46).when(writableByteChannel0).write(any(java.nio.ByteBuffer.class));
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo(writableByteChannel0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // readerIndex: 46, writerIndex: 10 (expected: 0 <= readerIndex <= writerIndex <= capacity(10))
+         //
+         verifyException("io.netty.buffer.AbstractByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(false, false);
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(unpooledByteBufAllocator0);
+      ByteBuf byteBuf0 = emptyByteBuf0.asReadOnly();
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo(byteBuf0);
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.ReadOnlyByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart((byte[]) null);
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.getContentLength();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MessageEndMultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[44];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      ByteBuf byteBuf0 = messageEndMultipartPart0.computePostContentBytes((byte)0);
+      messageEndMultipartPart0.transferTo(byteBuf0);
+      messageEndMultipartPart0.close();
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo(writableByteChannel0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0
+         //
+         verifyException("io.netty.buffer.AbstractByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      byte[] byteArray0 = new byte[44];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      messageEndMultipartPart0.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[44];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      ByteBuf byteBuf0 = messageEndMultipartPart0.computePostContentBytes((byte)0);
+      long long0 = messageEndMultipartPart0.transferTo(byteBuf0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(writableByteChannel0).write(any(java.nio.ByteBuffer.class));
+      long long1 = messageEndMultipartPart0.transferTo(writableByteChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferContentTo((WritableByteChannel) null);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Not supposed to be called
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MessageEndMultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart((byte[]) null);
+      ByteBuf byteBuf0 = messageEndMultipartPart0.computePreContentBytes((-15));
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferContentTo(byteBuf0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Not supposed to be called
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MessageEndMultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      ByteBuf byteBuf0 = messageEndMultipartPart0.computePreContentBytes((byte)0);
+      messageEndMultipartPart0.transferTo(byteBuf0);
+      messageEndMultipartPart0.close();
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.close();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0, decrement: 1
+         //
+         verifyException("io.netty.util.internal.ReferenceCountUpdater", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      MessageEndMultipartPart messageEndMultipartPart0 = new MessageEndMultipartPart(byteArray0);
+      // Undeclared exception!
+      try { 
+        messageEndMultipartPart0.transferTo((ByteBuf) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MultipartPart", e);
+      }
+  }

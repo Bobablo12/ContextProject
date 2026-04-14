@@ -1,0 +1,793 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheAccess<Delayed, Callable<Object>> cacheAccess0 = new CacheAccess<Delayed, Callable<Object>>((CompositeCache<Delayed, Callable<Object>>) null);
+      Callable<Object> callable0 = (Callable<Object>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIdleTime(0L);
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.put((Delayed) null, callable0, iElementAttributes0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Key must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = null;
+      CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> compositeCache0 = new CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> cacheAccess0 = new CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCache0);
+      Integer integer0 = new Integer((-2313));
+      CacheElement<Integer, String> cacheElement0 = new CacheElement<Integer, String>("].  Remove first or use a non-safe put to override the value.", integer0, "].  Remove first or use a non-safe put to override the value.", (IElementAttributes) null);
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)11;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte) (-18);
+      byteArray0[3] = (byte)14;
+      byteArray0[4] = (byte)16;
+      byteArray0[5] = (byte) (-85);
+      byteArray0[6] = (byte) (-109);
+      byteArray0[7] = (byte)0;
+      CacheElementSerialized<String, Integer> cacheElementSerialized0 = new CacheElementSerialized<String, Integer>((String) null, "", byteArray0, (IElementAttributes) null);
+      cacheAccess0.put(cacheElement0, cacheElementSerialized0);
+      byte[] byteArray1 = new byte[8];
+      byteArray1[0] = (byte) (-128);
+      byteArray1[1] = (byte) (-2);
+      byteArray1[2] = (byte) (-97);
+      byteArray1[3] = (byte) (-27);
+      byteArray1[4] = (byte) (-118);
+      byteArray1[5] = (byte) (-71);
+      byteArray1[6] = (byte)62;
+      byteArray1[7] = (byte)0;
+      CacheElementSerialized<String, Integer> cacheElementSerialized1 = new CacheElementSerialized<String, Integer>("", "", byteArray1, (IElementAttributes) null);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.putSafe(cacheElement0, cacheElementSerialized1);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // putSafe failed.  Object exists in the cache for key [[CacheElement: cacheName [].  Remove first or use a non-safe put to override the value.], key [-2313], val [].  Remove first or use a non-safe put to override the value.], attr [null]].  Remove first or use a non-safe put to override the value.
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0);
+      compositeCacheManager0.registryAttrGet("m/t9Z+WYSfE{/*Ei");
+      KeyMatcherPatternImpl<Object> keyMatcherPatternImpl0 = new KeyMatcherPatternImpl<Object>();
+      CompositeCache<HashMap<Object, Object>, CacheElement<Object, Object>> compositeCache0 = compositeCacheManager0.getCache("m/t9Z+WYSfE{/*Ei");
+      compositeCache0.save();
+      CacheAccess<HashMap<Object, Object>, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<HashMap<Object, Object>, CacheElement<Object, Object>>(compositeCache0);
+      cacheAccess0.getMatching("org.apache.commons.jcs3:type=JCSAdminBean");
+      CompositeCache<Callable<Delayed>, Callable<Locale.LanguageRange>> compositeCache1 = compositeCacheManager0.getCache("e^KRs8c48akD:2ZR&T");
+      CacheAccess<Callable<Delayed>, Callable<Locale.LanguageRange>> cacheAccess1 = new CacheAccess<Callable<Delayed>, Callable<Locale.LanguageRange>>(compositeCache1);
+      Callable<Delayed> callable0 = (Callable<Delayed>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      cacheAccess1.getCacheElement(callable0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.clone();
+      CacheAccess<Delayed, Object> cacheAccess0 = new CacheAccess<Delayed, Object>((CompositeCache<Delayed, Object>) null);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.resetElementAttributes((Delayed) null, iElementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CompositeCacheManager.getUnconfiguredInstance();
+      String string0 = "OImJ[- {}Z^BKr*~`~";
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = null;
+      CacheAccess<Callable<Delayed>, Integer> cacheAccess0 = new CacheAccess<Callable<Delayed>, Integer>((CompositeCache<Callable<Delayed>, Integer>) null);
+      Callable<Delayed> callable0 = (Callable<Delayed>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getElementAttributes(callable0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("", "", "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)25;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)58;
+      byteArray0[3] = (byte)0;
+      CacheElementSerialized<CacheElement<Object, Object>, Integer> cacheElementSerialized0 = new CacheElementSerialized<CacheElement<Object, Object>, Integer>("", cacheElement0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Integer, CacheElement<Object, Object>> compositeCache0 = new CompositeCache<Integer, CacheElement<Object, Object>>(compositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Integer, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<Integer, CacheElement<Object, Object>>(compositeCache0);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>(2788, 1838.778F);
+      cacheAccess0.getCacheElements(linkedHashSet0);
+      CompositeCache<Object, String> compositeCache1 = new CompositeCache<Object, String>(compositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess1 = new CacheAccess<Object, String>(compositeCache1);
+      Supplier<String> supplier0 = (Supplier<String>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(supplier0).get();
+      cacheAccess1.get((Object) cacheAccess0, supplier0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Integer, HashMap<String, Integer>> cacheElementSerialized0 = new CacheElementSerialized<Integer, HashMap<String, Integer>>("B(/S=/CO\"D0};k0IF$p", (Integer) null, (byte[]) null, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Object, Integer> compositeCache0 = new CompositeCache<Object, Integer>(iCompositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Object, Integer> cacheAccess0 = new CacheAccess<Object, Integer>(compositeCache0);
+      Object object0 = new Object();
+      Integer integer0 = new Integer(1312);
+      cacheAccess0.put(object0, integer0, iElementAttributes0);
+      cacheAccess0.setDefaultElementAttributes(elementAttributes0);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getMatchingCacheElements("B(/S=/CO\"D0};k0IF$p");
+        fail("Expecting exception: PatternSyntaxException");
+      } catch(PatternSyntaxException e) {
+         //
+         // Unclosed group near index 19
+         // B(/S=/CO\"D0};k0IF$p
+         //
+         verifyException("java.util.regex.Pattern", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Integer, HashMap<String, Integer>> cacheElementSerialized0 = new CacheElementSerialized<Integer, HashMap<String, Integer>>("B(/S=/CO\"D0};k0IF$p", (Integer) null, (byte[]) null, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Object, Integer> compositeCache0 = new CompositeCache<Object, Integer>(iCompositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Object, Integer> cacheAccess0 = new CacheAccess<Object, Integer>(compositeCache0);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getMatchingCacheElements("B(/S=/CO\"D0};k0IF$p");
+        fail("Expecting exception: PatternSyntaxException");
+      } catch(PatternSyntaxException e) {
+         //
+         // Unclosed group near index 19
+         // B(/S=/CO\"D0};k0IF$p
+         //
+         verifyException("java.util.regex.Pattern", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsRemote(false);
+      CompositeCache<Object, String> compositeCache0 = new CompositeCache<Object, String>(iCompositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess0 = new CacheAccess<Object, String>(compositeCache0);
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)104;
+      byteArray0[1] = (byte)43;
+      byteArray0[2] = (byte) (-108);
+      byteArray0[3] = (byte) (-42);
+      byteArray0[4] = (byte) (-71);
+      byteArray0[5] = (byte)10;
+      byteArray0[6] = (byte) (-57);
+      byteArray0[7] = (byte) (-26);
+      CacheElementSerialized<Object, String> cacheElementSerialized0 = new CacheElementSerialized<Object, String>("", cacheAccess0, byteArray0, elementAttributes0);
+      compositeCache0.update(cacheElementSerialized0);
+      cacheAccess0.putSafe(compositeCacheAttributes0, ":");
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance(":");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CacheAccess<Object, String> cacheAccess0 = new CacheAccess<Object, String>((CompositeCache<Object, String>) null);
+      String string0 = null;
+      // Undeclared exception!
+      try { 
+        cacheAccess0.putSafe((Object) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CacheAccess<Object, RemoteCacheNoWait<String, Object>> cacheAccess0 = new CacheAccess<Object, RemoteCacheNoWait<String, Object>>((CompositeCache<Object, RemoteCacheNoWait<String, Object>>) null);
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      ZombieCacheServiceNonLocal<String, Object> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, Object>();
+      remoteCacheAttributes0.setCacheName("Ignoring message sent from self");
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      RemoteCache<String, Object> remoteCache0 = new RemoteCache<String, Object>(remoteCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, Object>) null, remoteCacheMonitor0);
+      RemoteCacheNoWait<String, Object> remoteCacheNoWait0 = new RemoteCacheNoWait<String, Object>(remoteCache0);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.putSafe((Object) null, remoteCacheNoWait0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CacheAccess<Integer, String> cacheAccess0 = new CacheAccess<Integer, String>((CompositeCache<Integer, String>) null);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getCacheElement((Integer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      CacheAccess<Object, CacheElementSerialized<String, String>> cacheAccess0 = new CacheAccess<Object, CacheElementSerialized<String, String>>((CompositeCache<Object, CacheElementSerialized<String, String>>) null);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getMatching("li:3");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      String string0 = "";
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      CompositeCache<Object, CacheElementSerialized<Delayed, String>> compositeCache0 = compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      compositeCache0.setElementAttributes(elementAttributes0);
+      CacheAccess<Object, CacheElementSerialized<Delayed, String>> cacheAccess0 = new CacheAccess<Object, CacheElementSerialized<Delayed, String>>(compositeCache0);
+      cacheAccess0.getStats();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.resetElementAttributes(compositeCacheManager0, iElementAttributes0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Object for name [org.apache.commons.jcs3.engine.control.CompositeCacheManager@4] is not in the cache
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<Integer, String> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      CacheAccess<Integer, String> cacheAccess0 = new CacheAccess<Integer, String>(compositeCache0);
+      Integer integer0 = new Integer((-1917));
+      cacheAccess0.put(integer0, "fTQRfYVoU(@\r@");
+      CompositeCache<String, Object> compositeCache1 = new CompositeCache<String, Object>(compositeCacheAttributes0, (IElementAttributes) null);
+      compositeCache1.getElementAttributes();
+      CompositeCache<Integer, HashMap<String, Object>> compositeCache2 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<Integer, HashMap<String, Object>> cacheAccess1 = new CacheAccess<Integer, HashMap<String, Object>>(compositeCache2);
+      Integer integer1 = new Integer((-1917));
+      cacheAccess1.remove(integer1);
+      CompositeCache<CacheElementSerialized<Object, String>, String> compositeCache3 = compositeCacheManager0.getCache("xob![TcV(lBKh>:vK>1");
+      CacheAccess<CacheElementSerialized<Object, String>, String> cacheAccess2 = new CacheAccess<CacheElementSerialized<Object, String>, String>(compositeCache3);
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)9;
+      byteArray0[1] = (byte) (-16);
+      byteArray0[2] = (byte)34;
+      byteArray0[3] = (byte) (-76);
+      byteArray0[4] = (byte) (-29);
+      byteArray0[5] = (byte)0;
+      byteArray0[6] = (byte)1;
+      byteArray0[7] = (byte)0;
+      CacheElementSerialized<Object, String> cacheElementSerialized0 = new CacheElementSerialized<Object, String>("fTQRfYVoU(@\r@", compositeCache1, byteArray0, (IElementAttributes) null);
+      Supplier<String> supplier0 = (Supplier<String>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(supplier0).get();
+      // Undeclared exception!
+      try { 
+        cacheAccess2.get(cacheElementSerialized0, supplier0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      CacheAccess<Integer, Object> cacheAccess0 = new CacheAccess<Integer, Object>((CompositeCache<Integer, Object>) null);
+      int int0 = 1;
+      Integer integer0 = new Integer(1);
+      Supplier<Object> supplier0 = (Supplier<Object>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        cacheAccess0.get(integer0, supplier0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CacheAccess<String, Integer> cacheAccess0 = new CacheAccess<String, Integer>((CompositeCache<String, Integer>) null);
+      String string0 = "";
+      // Undeclared exception!
+      try { 
+        cacheAccess0.remove("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      CacheAccess<String, Integer> cacheAccess0 = new CacheAccess<String, Integer>((CompositeCache<String, Integer>) null);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getMatchingCacheElements("i>_ao:eO8\"45$");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      String string0 = "putSafe failed.  Object exists in the cache for key [";
+      CompositeCache<CacheElement<String, Object>, Delayed> compositeCache0 = compositeCacheManager0.getCache("putSafe failed.  Object exists in the cache for key [");
+      CacheAccess<CacheElement<String, Object>, Delayed> cacheAccess0 = new CacheAccess<CacheElement<String, Object>, Delayed>(compositeCache0);
+      // Undeclared exception!
+      try { 
+        cacheAccess0.remove((CacheElement<String, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      CacheAccess<CacheElement<Integer, String>, HashMap<Object, String>> cacheAccess0 = new CacheAccess<CacheElement<Integer, String>, HashMap<Object, String>>((CompositeCache<CacheElement<Integer, String>, HashMap<Object, String>>) null);
+      String string0 = "hJ8YB7~#YC";
+      Integer integer0 = new Integer((-5820));
+      String string1 = ";Mb~";
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<CacheElementSerialized<Object, Object>, CacheElementSerialized<Object, String>> compositeCache0 = new CompositeCache<CacheElementSerialized<Object, Object>, CacheElementSerialized<Object, String>>(compositeCacheAttributes0, elementAttributes0);
+      CacheAccess<CacheElementSerialized<Object, Object>, CacheElementSerialized<Object, String>> cacheAccess1 = new CacheAccess<CacheElementSerialized<Object, Object>, CacheElementSerialized<Object, String>>(compositeCache0);
+      String string2 = null;
+      int int0 = (-1513);
+      Integer integer1 = new Integer((-1513));
+      byte[] byteArray0 = new byte[0];
+      CacheElementSerialized<Object, Object> cacheElementSerialized0 = new CacheElementSerialized<Object, Object>((String) null, integer1, byteArray0, elementAttributes0);
+      try { 
+        cacheAccess1.getElementAttributes(cacheElementSerialized0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // key 
+         //  CacheElementSerialized: 
+         //  CacheName = [null]
+         //  Key = [-1513]
+         //  SerializedValue = []
+         //  ElementAttributes = [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1392409281320, LastAccessTime = 1392409281320, getTimeToLiveSeconds() = -1, createTime = 1392409281320 ] is not found
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      CacheAccess<String, Integer> cacheAccess0 = new CacheAccess<String, Integer>((CompositeCache<String, Integer>) null);
+      Integer integer0 = new Integer((-1301));
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-103);
+      byteArray0[1] = (byte)40;
+      byteArray0[2] = (byte)46;
+      byteArray0[3] = (byte)0;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Integer, HashMap<String, Integer>> cacheElementSerialized0 = new CacheElementSerialized<Integer, HashMap<String, Integer>>("].  Remove first or use a non-safe put to override the value.", integer0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.put("Failure getting element attributes", integer0, iElementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+      CacheAccess<String, Object> cacheAccess0 = new CacheAccess<String, Object>(compositeCache0);
+      cacheAccess0.put("org.apache.commons.jcs3:type=JCSAdminBean", (Object) compositeCache0);
+      cacheAccess0.getMatching("");
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      CacheAccess<HashMap<Object, Object>, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<HashMap<Object, Object>, CacheElement<Object, Object>>((CompositeCache<HashMap<Object, Object>, CacheElement<Object, Object>>) null);
+      HashMap<Object, Object> hashMap0 = new HashMap<Object, Object>();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.get(hashMap0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds(169L);
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      CompositeCache<CacheElement<Integer, Object>, CacheElementSerialized<Integer, Object>> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<CacheElement<Integer, Object>, CacheElementSerialized<Integer, Object>> cacheAccess0 = new CacheAccess<CacheElement<Integer, Object>, CacheElementSerialized<Integer, Object>>(compositeCache0);
+      cacheAccess0.getMatchingCacheElements("Failure getting element attributes");
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getCacheElements((Set<CacheElement<Integer, Object>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      CompositeCache<Object, String> compositeCache0 = new CompositeCache<Object, String>(iCompositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Object, String> cacheAccess0 = new CacheAccess<Object, String>(compositeCache0);
+      cacheAccess0.get((Object) iElementAttributes0);
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = null;
+      CompositeCache<String, String> compositeCache0 = new CompositeCache<String, String>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<String, String> cacheAccess0 = new CacheAccess<String, String>(compositeCache0);
+      cacheAccess0.freeMemoryElements(597);
+      compositeCacheAttributes0.setUseRemote(false);
+      compositeCache0.removeAll();
+      String string0 = "/>{%#[U@Vcx]I";
+      // Undeclared exception!
+      try { 
+        cacheAccess0.getMatching("/>{%#[U@Vcx]I");
+        fail("Expecting exception: PatternSyntaxException");
+      } catch(PatternSyntaxException e) {
+         //
+         // Illegal repetition near index 1
+         // />{%#[U@Vcx]I
+         //  ^
+         //
+         verifyException("java.util.regex.Pattern", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      CompositeCache<Integer, Object> compositeCache0 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+      CacheAccess<Integer, Object> cacheAccess0 = new CacheAccess<Integer, Object>(compositeCache0);
+      cacheAccess0.getMatching("ix!evM^3Wg~JRe");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, Object> cacheElementSerialized0 = new CacheElementSerialized<Object, Object>("", "", (byte[]) null, elementAttributes0);
+      Integer integer0 = new Integer(1387);
+      CacheElement<CacheElement<Object, Object>, Integer> cacheElement0 = new CacheElement<CacheElement<Object, Object>, Integer>("org.apache.commons.jcs3:type=JCSAdminBean", cacheElementSerialized0, integer0);
+      IElementAttributes iElementAttributes0 = cacheElement0.getElementAttributes();
+      CompositeCache<String, Integer> compositeCache1 = new CompositeCache<String, Integer>(iCompositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<String, Integer> cacheAccess1 = new CacheAccess<String, Integer>(compositeCache1);
+      // Undeclared exception!
+      try { 
+        cacheAccess1.resetElementAttributes("", elementAttributes0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Object for name [] is not in the cache
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      CacheAccess<HashMap<Integer, Callable<Delayed>>, Object> cacheAccess0 = new CacheAccess<HashMap<Integer, Callable<Delayed>>, Object>((CompositeCache<HashMap<Integer, Callable<Delayed>>, Object>) null);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)0;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)63;
+      byteArray0[3] = (byte)87;
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte)0;
+      byteArray0[6] = (byte)1;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, Object> cacheElementSerialized0 = new CacheElementSerialized<Object, Object>("XMLRPC", "", byteArray0, elementAttributes0);
+      Integer integer0 = new Integer((-126));
+      CacheElement<CacheElement<Object, Object>, Integer> cacheElement0 = new CacheElement<CacheElement<Object, Object>, Integer>("", cacheElementSerialized0, integer0);
+      IElementAttributes iElementAttributes0 = cacheElement0.getElementAttributes();
+      // Undeclared exception!
+      try { 
+        cacheAccess0.resetElementAttributes((HashMap<Integer, Callable<Delayed>>) null, iElementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> compositeCache0 = new CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> cacheAccess0 = new CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCache0);
+      compositeCacheAttributes0.setUseDisk(true);
+      cacheAccess0.getMatching("org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator");
+      CompositeCache<CacheElementSerialized<String, Object>, ForkJoinTask<Object>> compositeCache1 = new CompositeCache<CacheElementSerialized<String, Object>, ForkJoinTask<Object>>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<CacheElementSerialized<String, Object>, ForkJoinTask<Object>> cacheAccess1 = new CacheAccess<CacheElementSerialized<String, Object>, ForkJoinTask<Object>>(compositeCache1);
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-95);
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("Value must not be null", (Object) null, (Object) null, (IElementAttributes) null);
+      Integer integer0 = new Integer((-1038));
+      CacheElement<CacheElement<Object, Object>, Integer> cacheElement1 = new CacheElement<CacheElement<Object, Object>, Integer>("Value must not be null", cacheElement0, integer0);
+      IElementAttributes iElementAttributes0 = cacheElement1.getElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>("org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator", "org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator", byteArray0, iElementAttributes0);
+      ForkJoinPool forkJoinPool0 = new ForkJoinPool();
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ForkJoinTask<Object> forkJoinTask0 = forkJoinPool0.submit((Runnable) remoteCacheMonitor0, (Object) null);
+      cacheAccess1.putSafe(cacheElementSerialized0, forkJoinTask0);
+      System.setCurrentTimeMillis(1042L);
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      Integer integer0 = new Integer((-4606));
+      HashMap<String, Integer> hashMap0 = new HashMap<String, Integer>();
+      DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+      delayQueue0.poll();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache((ICompositeCacheAttributes) compositeCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("", "", "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)0;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)58;
+      byteArray0[3] = (byte)0;
+      CacheElementSerialized<CacheElement<Object, Object>, Integer> cacheElementSerialized0 = new CacheElementSerialized<CacheElement<Object, Object>, Integer>("", cacheElement0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Integer, CacheElement<Object, Object>> compositeCache0 = new CompositeCache<Integer, CacheElement<Object, Object>>(iCompositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Integer, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<Integer, CacheElement<Object, Object>>(compositeCache0);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>(2788, 1838.778F);
+      cacheAccess0.getCacheElements(linkedHashSet0);
+      CompositeCache<Object, String> compositeCache1 = new CompositeCache<Object, String>(iCompositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess1 = new CacheAccess<Object, String>(compositeCache1);
+      Supplier<String> supplier0 = (Supplier<String>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(supplier0).get();
+      // Undeclared exception!
+      try { 
+        cacheAccess1.get((Object) cacheAccess0, supplier0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("G+p{)9V-QBA", "", "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)25;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)58;
+      byteArray0[3] = (byte)0;
+      CacheElementSerialized<CacheElement<Object, Object>, Integer> cacheElementSerialized0 = new CacheElementSerialized<CacheElement<Object, Object>, Integer>("", cacheElement0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Integer, CacheElement<Object, Object>> compositeCache0 = new CompositeCache<Integer, CacheElement<Object, Object>>(compositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Integer, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<Integer, CacheElement<Object, Object>>(compositeCache0);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>(2788, 1838.778F);
+      cacheAccess0.getCacheElements(linkedHashSet0);
+      CompositeCache<Object, String> compositeCache1 = new CompositeCache<Object, String>(compositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess1 = new CacheAccess<Object, String>(compositeCache1);
+      Supplier<String> supplier0 = (Supplier<String>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn("G+p{)9V-QBA").when(supplier0).get();
+      cacheAccess1.get((Object) cacheAccess0, supplier0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("G+p{)9V-QBA", "", "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)25;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)58;
+      byteArray0[3] = (byte)0;
+      CacheElementSerialized<CacheElement<Object, Object>, Integer> cacheElementSerialized0 = new CacheElementSerialized<CacheElement<Object, Object>, Integer>("", cacheElement0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Integer, CacheElement<Object, Object>> compositeCache0 = new CompositeCache<Integer, CacheElement<Object, Object>>(compositeCacheAttributes0, iElementAttributes0);
+      CacheAccess<Integer, CacheElement<Object, Object>> cacheAccess0 = new CacheAccess<Integer, CacheElement<Object, Object>>(compositeCache0);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>(2788, 1838.778F);
+      cacheAccess0.getCacheElements(linkedHashSet0);
+      CompositeCache<Object, String> compositeCache1 = new CompositeCache<Object, String>(compositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess1 = new CacheAccess<Object, String>(compositeCache1);
+      Supplier<String> supplier0 = (Supplier<String>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn("G+p{)9V-QBA").when(supplier0).get();
+      cacheAccess1.get((Object) cacheAccess0, supplier0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      String string0 = "";
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0);
+      ICompositeCacheAttributes iCompositeCacheAttributes1 = null;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<CacheElement<Object, Integer>, String> compositeCache0 = null;
+      try {
+        compositeCache0 = new CompositeCache<CacheElement<Object, Integer>, String>((ICompositeCacheAttributes) null, elementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsRemote(false);
+      CompositeCache<Object, String> compositeCache0 = new CompositeCache<Object, String>(iCompositeCacheAttributes0, elementAttributes0);
+      CacheAccess<Object, String> cacheAccess0 = new CacheAccess<Object, String>(compositeCache0);
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)104;
+      byteArray0[1] = (byte)43;
+      byteArray0[2] = (byte) (-108);
+      byteArray0[3] = (byte) (-42);
+      byteArray0[4] = (byte) (-71);
+      byteArray0[5] = (byte)10;
+      byteArray0[6] = (byte) (-57);
+      byteArray0[7] = (byte) (-26);
+      CacheElementSerialized<Object, String> cacheElementSerialized0 = new CacheElementSerialized<Object, String>("", cacheAccess0, byteArray0, elementAttributes0);
+      compositeCache0.update(cacheElementSerialized0);
+      cacheAccess0.putSafe(compositeCacheAttributes0, "XU");
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance("XU");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> compositeCache0 = new CompositeCache<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>> cacheAccess0 = new CacheAccess<CacheElement<Integer, String>, CacheElementSerialized<String, Integer>>(compositeCache0);
+      compositeCacheAttributes0.setUseDisk(true);
+      cacheAccess0.getMatching("fF%<$");
+      CompositeCache<String, CacheElementSerialized<Object, String>> compositeCache1 = new CompositeCache<String, CacheElementSerialized<Object, String>>(compositeCacheAttributes0, (IElementAttributes) null);
+      CacheAccess<String, CacheElementSerialized<Object, String>> cacheAccess1 = new CacheAccess<String, CacheElementSerialized<Object, String>>(compositeCache1);
+      Map<String, ICacheElement<String, CacheElementSerialized<Object, String>>> map0 = cacheAccess1.getMatchingCacheElements("fF%<$");
+      assertTrue(map0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheAttributes compositeCacheAttributes1 = new CompositeCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }

@@ -1,0 +1,54 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PamWriter pamWriter0 = new PamWriter();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(1620, 14, false);
+      MockFile mockFile0 = new MockFile("r6\f)ua", "DEPTH 4");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      pamWriter0.writeImage(bufferedImage0, mockFileOutputStream0, pnmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PamWriter pamWriter0 = new PamWriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("7|:??gK", true);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        pamWriter0.writeImage((BufferedImage) null, mockFileOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PamWriter pamWriter0 = new PamWriter();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(2780, 2780, true);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pamWriter0.writeImage(bufferedImage0, pipedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PamWriter pamWriter0 = new PamWriter();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(46, 46, true);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(24);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(byteArrayOutputStream0, 24);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      pamWriter0.writeImage(bufferedImage0, bufferedOutputStream0, pnmImagingParameters0);
+      ;
+}

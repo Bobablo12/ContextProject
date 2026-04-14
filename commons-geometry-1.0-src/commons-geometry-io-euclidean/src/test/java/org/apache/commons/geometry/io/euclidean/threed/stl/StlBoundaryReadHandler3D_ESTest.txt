@@ -1,0 +1,88 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, (String) null);
+      FacetDefinitionReader facetDefinitionReader0 = stlBoundaryReadHandler3D0.facetDefinitionReader(streamGeometryInput0);
+      assertNotNull(facetDefinitionReader0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facetDefinitionReader((GeometryInput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      URL uRL0 = MockURL.getFileExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facetDefinitionReader(urlGeometryInput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URL", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      MockFile mockFile0 = new MockFile("", "LH*i}ql6$");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facetDefinitionReader(fileGeometryInput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // NoSuchFileException: /LH*i}ql6$
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      Charset charset0 = stlBoundaryReadHandler3D0.getDefaultCharset();
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(sequenceInputStream0, "", charset0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facetDefinitionReader(streamGeometryInput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot determine STL format: attempted to read 5 bytes but found only -1 available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      stlBoundaryReadHandler3D0.setDefaultCharset((Charset) null);
+      Charset charset0 = stlBoundaryReadHandler3D0.getDefaultCharset();
+      assertNotNull(charset0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      GeometryFormat geometryFormat0 = stlBoundaryReadHandler3D0.getFormat();
+      ;
+}

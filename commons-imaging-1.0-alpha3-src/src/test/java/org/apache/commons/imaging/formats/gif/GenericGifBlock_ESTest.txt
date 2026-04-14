@@ -1,0 +1,58 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<byte[]> linkedList0 = new LinkedList<byte[]>();
+      byte[] byteArray0 = new byte[2];
+      linkedList0.add(byteArray0);
+      GenericGifBlock genericGifBlock0 = new GenericGifBlock((-1), linkedList0);
+      byte[] byteArray1 = genericGifBlock0.appendSubBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<byte[]> linkedList0 = new LinkedList<byte[]>();
+      GenericGifBlock genericGifBlock0 = new GenericGifBlock(2406, linkedList0);
+      linkedList0.add((byte[]) null);
+      // Undeclared exception!
+      try { 
+        genericGifBlock0.appendSubBlocks(true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<byte[]> linkedList0 = new LinkedList<byte[]>();
+      linkedList0.add((byte[]) null);
+      GenericGifBlock genericGifBlock0 = new GenericGifBlock((-1), linkedList0);
+      // Undeclared exception!
+      try { 
+        genericGifBlock0.appendSubBlocks();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<byte[]> linkedList0 = new LinkedList<byte[]>();
+      GenericGifBlock genericGifBlock0 = new GenericGifBlock(1199, linkedList0);
+      byte[] byteArray0 = genericGifBlock0.appendSubBlocks();
+      linkedList0.offerFirst(byteArray0);
+      byte[] byteArray1 = genericGifBlock0.appendSubBlocks(false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<byte[]> linkedList0 = new LinkedList<byte[]>();
+      GenericGifBlock genericGifBlock0 = new GenericGifBlock((-308), linkedList0);
+      byte[] byteArray0 = genericGifBlock0.appendSubBlocks();
+      linkedList0.add(byteArray0);
+      linkedList0.add(byteArray0);
+      byte[] byteArray1 = genericGifBlock0.appendSubBlocks(true);
+      ;
+}

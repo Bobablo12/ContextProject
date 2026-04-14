@@ -1,0 +1,48 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      JettyHandler jettyHandler0 = new JettyHandler(sparkFilter0);
+      InetSocketAddress inetSocketAddress0 = MockInetSocketAddress.createUnresolved("org.eclipse.jetty.servlet.CheckingRemoteSessionIdEncoding", 0);
+      Server server0 = new Server(inetSocketAddress0);
+      NetworkTrafficServerConnector networkTrafficServerConnector0 = new NetworkTrafficServerConnector(server0);
+      HttpConfiguration httpConfiguration0 = new HttpConfiguration();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      ScheduledExecutorScheduler scheduledExecutorScheduler0 = new ScheduledExecutorScheduler("RUNNING", true, classLoader0, threadGroup0);
+      ByteArrayEndPoint byteArrayEndPoint0 = new ByteArrayEndPoint(scheduledExecutorScheduler0, (-606L), "STOPPED", 0);
+      HttpChannelOverHttp httpChannelOverHttp0 = new HttpChannelOverHttp((HttpConnection) null, networkTrafficServerConnector0, httpConfiguration0, byteArrayEndPoint0, (HttpTransport) null);
+      Request request0 = new Request(httpChannelOverHttp0, (HttpInput) null);
+      HttpOutput httpOutput0 = new HttpOutput(httpChannelOverHttp0);
+      Response response0 = new Response(httpChannelOverHttp0, httpOutput0);
+      // Undeclared exception!
+      try { 
+        jettyHandler0.doHandle("applicationClass", request0, request0, response0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JettyHandler jettyHandler0 = new JettyHandler((Filter) null);
+      InetSocketAddress inetSocketAddress0 = MockInetSocketAddress.createUnresolved("g= ", 2319);
+      Server server0 = new Server(inetSocketAddress0);
+      SslConnectionFactory sslConnectionFactory0 = new SslConnectionFactory((SslContextFactory) null, "WGU]J+");
+      LocalConnector localConnector0 = new LocalConnector(server0, sslConnectionFactory0, (SslContextFactory) null);
+      HttpConfiguration httpConfiguration0 = new HttpConfiguration();
+      HttpChannel httpChannel0 = new HttpChannel(localConnector0, httpConfiguration0, (EndPoint) null, (HttpTransport) null);
+      Response response0 = httpChannel0.getResponse();
+      // Undeclared exception!
+      try { 
+        jettyHandler0.doHandle(")&Lvx&:#^S_KZ", (Request) null, (HttpServletRequest) null, response0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Request cannot be null
+         //
+         verifyException("javax.servlet.ServletRequestWrapper", e);
+      }
+  }

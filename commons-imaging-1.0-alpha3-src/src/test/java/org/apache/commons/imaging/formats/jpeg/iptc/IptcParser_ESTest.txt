@@ -1,0 +1,641 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[21];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock(65535, byteArray0, byteArray0);
+      linkedList0.add(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[4];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)0, byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      byte[] byteArray0 = new byte[6];
+      IptcBlock iptcBlock0 = new IptcBlock(1085, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[17] = (byte)1;
+      try { 
+        iptcParser0.parsePhotoshopSegment(byteArray1, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid Image Resource Block Signature
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[1];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      byte[] byteArray0 = new byte[6];
+      IptcBlock iptcBlock0 = new IptcBlock(1085, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[17] = (byte)1;
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[4];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      List<IptcBlock> list1 = iptcParser0.parseAllBlocks(byteArray1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      // Undeclared exception!
+      try { 
+        iptcParser0.writePhotoshopApp13Segment((PhotoshopApp13Data) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      // Undeclared exception!
+      try { 
+        iptcParser0.writeIPTCBlock((List<IptcRecord>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcRecord iptcRecord0 = new IptcRecord((IptcType) null, "s");
+      linkedList0.add(iptcRecord0);
+      // Undeclared exception!
+      try { 
+        iptcParser0.writeIPTCBlock(linkedList0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      // Undeclared exception!
+      try { 
+        iptcParser0.parsePhotoshopSegment((byte[]) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcTypes iptcTypes0 = IptcTypes.TIME_CREATED;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "<g33+/");
+      linkedList0.add(iptcRecord0);
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      try { 
+        iptcParser0.parsePhotoshopSegment(byteArray0, (ImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Photoshop App13 Segment
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      ImagingParameters imagingParameters0 = new ImagingParameters();
+      // Undeclared exception!
+      try { 
+        iptcParser0.parsePhotoshopSegment((byte[]) null, imagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      // Undeclared exception!
+      try { 
+        iptcParser0.parseIPTCBlock((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      byteArray0[4] = (byte)43;
+      // Undeclared exception!
+      try { 
+        iptcParser0.parseIPTCBlock(byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      // Undeclared exception!
+      try { 
+        iptcParser0.parseAllBlocks((byte[]) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      PhotoshopApp13Data photoshopApp13Data1 = iptcParser0.parsePhotoshopSegment(byteArray1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      IptcType iptcType0 = IptcTypes.getUnknown(3008);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcRecord iptcRecord0 = new IptcRecord(iptcType0, "\"]!a");
+      linkedList0.add(iptcRecord0);
+      try { 
+        iptcParser0.writeIPTCBlock(linkedList0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid record type: 3008
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      IptcType iptcType0 = IptcTypes.getUnknown((-1));
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcRecord iptcRecord0 = new IptcRecord(iptcType0, "\"R0a");
+      linkedList0.add(iptcRecord0);
+      try { 
+        iptcParser0.writeIPTCBlock(linkedList0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid record type: -1
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcTypes iptcTypes0 = IptcTypes.RECORD_VERSION;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "<g33+/");
+      linkedList0.add(iptcRecord0);
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcTypes iptcTypes0 = IptcTypes.RECORD_VERSION;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "<g33+/");
+      linkedList0.add(iptcRecord0);
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[256];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock(19, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      IptcParser iptcParser0 = new IptcParser();
+      try { 
+        iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // IPTC block name is too long: 256
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[21];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock(65554, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      try { 
+        iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid IPTC block type.
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[10];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock((-1497), byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      try { 
+        iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid IPTC block type.
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[10];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)14, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[35] = (byte)14;
+      try { 
+        iptcParser0.parseAllBlocks(byteArray1, true);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Invalid Image Resource Block data count: -1 read: 10 length: 14
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[10];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)14, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[35] = (byte)14;
+      PhotoshopApp13Data photoshopApp13Data1 = iptcParser0.parsePhotoshopSegment(byteArray1, (ImagingParameters) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[13];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)50, byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[35] = (byte)50;
+      try { 
+        iptcParser0.parseAllBlocks(byteArray1, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid Block Size : 3276813 > 52
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[13];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)50, byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[13];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)50, byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      List<IptcBlock> list1 = iptcParser0.parseAllBlocks(byteArray1, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[255];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock(12, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      try { 
+        iptcParser0.parsePhotoshopSegment(byteArray1, true);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Invalid Image Resource Block name, invalid length: -1
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[12];
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      IptcBlock iptcBlock0 = new IptcBlock((byte)17, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[20] = (byte) (-92);
+      ImagingParameters imagingParameters0 = new ImagingParameters();
+      iptcParser0.parsePhotoshopSegment(byteArray1, imagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      byte[] byteArray0 = new byte[5];
+      IptcBlock iptcBlock0 = new IptcBlock(1085, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      ImagingParameters imagingParameters0 = new ImagingParameters();
+      iptcParser0.parsePhotoshopSegment(byteArray1, imagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[17] = (byte) (-54);
+      try { 
+        iptcParser0.parsePhotoshopSegment(byteArray1, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid Image Resource Block Signature
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      IptcTypes iptcTypes0 = IptcTypes.OBJECT_NAME;
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "talid ilock Sie : ");
+      linkedList0.add(iptcRecord0);
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      IptcTypes iptcTypes0 = IptcTypes.OBJECT_NAME;
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "talid ilock Sie : ");
+      linkedList0.add(iptcRecord0);
+      byte[] byteArray0 = iptcParser0.writeIPTCBlock(linkedList0);
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)28;
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)28;
+      byteArray0[3] = (byte) (-64);
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[4];
+      List<IptcRecord> list0 = iptcParser0.parseIPTCBlock(byteArray0);
+      LinkedList<IptcBlock> linkedList0 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(list0, linkedList0);
+      IptcBlock iptcBlock0 = new IptcBlock(4, byteArray0, byteArray0);
+      linkedList0.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      PhotoshopApp13Data photoshopApp13Data1 = iptcParser0.parsePhotoshopSegment(byteArray1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      ImagingParameters imagingParameters0 = new ImagingParameters();
+      imagingParameters0.setStrict(true);
+      PhotoshopApp13Data photoshopApp13Data1 = iptcParser0.parsePhotoshopSegment(byteArray0, imagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[10];
+      try { 
+        iptcParser0.parsePhotoshopSegment(byteArray0, (ImagingParameters) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // App13 Segment missing identification string count: -1 read: 10 length: 14
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[17] = (byte) (-54);
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      byteArray1[17] = (byte) (-54);
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.offerFirst(iptcBlock0);
+      byte[] byteArray1 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      byte[] byteArray0 = new byte[12];
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      IptcParser iptcParser0 = new IptcParser();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = iptcParser0.writePhotoshopApp13Segment(photoshopApp13Data0);
+      boolean boolean0 = iptcParser0.isPhotoshopJpegSegment(byteArray0);
+      assertTrue(boolean0);
+}

@@ -1,0 +1,27 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Circle.from((Vector2D) null, 1590.608, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        Circle.from(vector2D0, (-1041.8427), (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal center point: (-Infinity, -Infinity)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }

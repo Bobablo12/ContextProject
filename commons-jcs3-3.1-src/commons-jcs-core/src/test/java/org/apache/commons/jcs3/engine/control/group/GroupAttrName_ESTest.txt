@@ -1,0 +1,58 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      GroupId groupId0 = new GroupId("", "");
+      GroupAttrName<String> groupAttrName0 = new GroupAttrName<String>(groupId0, "");
+      boolean boolean0 = groupAttrName0.equals(groupAttrName0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      GroupId groupId0 = new GroupId("cacheNam mu&t o be nl.", "cacheNam mu&t o be nl.");
+      GroupAttrName<Object> groupAttrName0 = new GroupAttrName<Object>(groupId0, groupId0);
+      GroupId groupId1 = new GroupId("[groupId=cacheNam mu&t o be nl., cacheNam mu&t o be nl.]", "cacheNam mu&t o be nl.");
+      GroupAttrName<String> groupAttrName1 = new GroupAttrName<String>(groupId1, "cacheNam mu&t o be nl.");
+      boolean boolean0 = groupAttrName0.equals(groupAttrName1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GroupId groupId0 = new GroupId("cacheNam mu&t o be nl.", "cacheNam mu&t o be nl.");
+      GroupAttrName<Object> groupAttrName0 = new GroupAttrName<Object>(groupId0, groupId0);
+      boolean boolean0 = groupAttrName0.equals("cacheNam mu&t o be nl.");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      GroupId groupId0 = new GroupId("cacheNam mu&t o be nl.", "cacheNam mu&t o be nl.");
+      GroupAttrName<Object> groupAttrName0 = new GroupAttrName<Object>(groupId0, groupId0);
+      GroupAttrName<String> groupAttrName1 = new GroupAttrName<String>(groupId0, "cacheNam mu&t o be nl.");
+      boolean boolean0 = groupAttrName0.equals(groupAttrName1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      GroupAttrName<String> groupAttrName0 = null;
+      try {
+        groupAttrName0 = new GroupAttrName<String>((GroupId) null, "");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // groupId must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupAttrName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      GroupId groupId0 = new GroupId("cacheNam mu&t o be nl.", "cacheNam mu&t o be nl.");
+      GroupAttrName<String> groupAttrName0 = new GroupAttrName<String>(groupId0, "cacheNam mu&t o be nl.");
+      String string0 = groupAttrName0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      GroupId groupId0 = new GroupId("", "");
+      Integer integer0 = new Integer(1);
+      GroupAttrName<Integer> groupAttrName0 = new GroupAttrName<Integer>(groupId0, integer0);
+      groupAttrName0.hashCode();
+  }

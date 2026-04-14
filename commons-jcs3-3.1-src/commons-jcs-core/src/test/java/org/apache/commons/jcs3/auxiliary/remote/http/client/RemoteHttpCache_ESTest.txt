@@ -1,0 +1,117 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      ZombieCacheServiceNonLocal<String, IOException> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, IOException>();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      remoteHttpCacheAttributes0.setReceive(false);
+      RemoteHttpCache<String, IOException> remoteHttpCache0 = new RemoteHttpCache<String, IOException>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, IOException>) null, remoteHttpCacheMonitor0);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes1 = remoteHttpCache0.getRemoteHttpCacheAttributes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      ZombieCacheServiceNonLocal<String, IOException> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, IOException>();
+      remoteHttpCacheAttributes0.setLocalClusterConsistency(true);
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<String, IOException> remoteHttpCache0 = new RemoteHttpCache<String, IOException>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, IOException>) null, remoteHttpCacheMonitor0);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes1 = remoteHttpCache0.getRemoteHttpCacheAttributes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      ZombieCacheServiceNonLocal<String, IOException> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, IOException>();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<String, IOException> remoteHttpCache0 = new RemoteHttpCache<String, IOException>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, IOException>) null, remoteHttpCacheMonitor0);
+      remoteHttpCacheAttributes0.setIncludeCacheNameAsParameter(false);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes1 = remoteHttpCache0.getRemoteHttpCacheAttributes();
+      assertNotNull(remoteHttpCacheAttributes1.getClusterServers());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      remoteHttpCacheAttributes0.setFailoverIndex(583);
+      ZombieCacheServiceNonLocal<String, IOException> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, IOException>();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<String, IOException> remoteHttpCache0 = new RemoteHttpCache<String, IOException>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, IOException>) null, remoteHttpCacheMonitor0);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes1 = remoteHttpCache0.getRemoteHttpCacheAttributes();
+      assertEquals(0, remoteHttpCacheAttributes1.getConnectionTimeoutMillis());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<Object, Integer> remoteHttpCache0 = new RemoteHttpCache<Object, Integer>(remoteHttpCacheAttributes0, (ICacheServiceNonLocal<Object, Integer>) null, (IRemoteCacheListener<Object, Integer>) null, remoteHttpCacheMonitor0);
+      // Undeclared exception!
+      try { 
+        remoteHttpCache0.handleException((Exception) null, "org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClient", "org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClient");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<Object, ZombieCacheServiceNonLocal<Object, Object>> remoteHttpCache0 = null;
+      try {
+        remoteHttpCache0 = new RemoteHttpCache<Object, ZombieCacheServiceNonLocal<Object, Object>>((RemoteHttpCacheAttributes) null, (ICacheServiceNonLocal<Object, ZombieCacheServiceNonLocal<Object, Object>>) null, (IRemoteCacheListener<Object, ZombieCacheServiceNonLocal<Object, Object>>) null, remoteHttpCacheMonitor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.AbstractRemoteAuxiliaryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<Object, Integer> remoteHttpCache0 = new RemoteHttpCache<Object, Integer>(remoteHttpCacheAttributes0, (ICacheServiceNonLocal<Object, Integer>) null, (IRemoteCacheListener<Object, Integer>) null, remoteHttpCacheMonitor0);
+      MockIOException mockIOException0 = new MockIOException();
+      try { 
+        remoteHttpCache0.handleException(mockIOException0, remoteHttpCacheAttributes0.DEFAULT_REMOTE_HTTP_CLIENT_CLASS_NAME, "%[6@REx/|");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      ZombieCacheServiceNonLocal<String, Object> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, Object>();
+      RemoteHttpCache<String, Object> remoteHttpCache0 = new RemoteHttpCache<String, Object>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, Object>) null, remoteHttpCacheMonitor0);
+      MockException mockException0 = new MockException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClient");
+      try { 
+        remoteHttpCache0.handleException(mockException0, (String) null, "Sx(Fmy#*9'UnU,w\"|");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClient
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      ZombieCacheServiceNonLocal<Integer, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Integer, String>();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCache<Integer, String> remoteHttpCache0 = new RemoteHttpCache<Integer, String>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<Integer, String>) null, remoteHttpCacheMonitor0);
+      String string0 = remoteHttpCache0.getEventLoggingExtraInfo();
+      assertNotNull(string0);
+}

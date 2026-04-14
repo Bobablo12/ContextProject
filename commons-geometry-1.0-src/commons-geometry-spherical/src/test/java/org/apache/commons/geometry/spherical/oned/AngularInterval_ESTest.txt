@@ -1,0 +1,1369 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      transform1S0.toString();
+      transform1S0.toString();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      angularInterval1.getCentroid();
+      angularInterval0.toTree();
+      // Undeclared exception!
+      try { 
+        angularInterval1.toConvex();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Interval is not convex: [-6.283, -6.283]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval$Convex", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-4077.0), (-4077.0), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        angularInterval0.toConvex();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Interval is not convex: [-4,077, -4,077]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval$Convex", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-2403.9785991955), 0.0, precision_DoubleEquivalence0);
+      Angle.Turn angle_Turn0 = Angle.Turn.of(4468.334926);
+      Point1S point1S0 = Point1S.of((Angle) angle_Turn0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-2403.9785991955), 0.0, precision_DoubleEquivalence0);
+      Angle.Turn angle_Turn0 = Angle.Turn.of(4468.334926);
+      Point1S point1S0 = Point1S.of((Angle) angle_Turn0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(3288.27279);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      assertTrue(angularInterval_Convex0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(cutAngle0, cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(4.8836057800053325);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.identity();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createNegation();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.9999, precision_DoubleEquivalence0);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createNegation();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.9999, precision_DoubleEquivalence0);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(4.71238898038469);
+      PolarCoordinates polarCoordinates0 = PolarCoordinates.fromCartesian((-1.5707963267948966), 0.5);
+      Point1S point1S1 = Point1S.from(polarCoordinates0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S1, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.of((-530.19));
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-4077.0), (-4077.0), precision_DoubleEquivalence0);
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence1);
+      CutAngle cutAngle1 = angularInterval0.getMaxBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(34.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle1, cutAngle0);
+      assertTrue(angularInterval1.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      AngularInterval angularInterval0 = AngularInterval.of(cutAngle1, cutAngle0);
+      assertTrue(angularInterval0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-4077.0), (-4077.0), precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getMidPoint();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence1);
+      CutAngle cutAngle1 = angularInterval0.getMaxBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.017453292519943295, 0.017453292519943295, precision_DoubleEquivalence0);
+      assertTrue(angularInterval0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-4077.0), (-4077.0), precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      CutAngle cutAngle0 = angularInterval_Convex0.getMinBoundary();
+      assertNotNull(cutAngle0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PolarCoordinates polarCoordinates0 = PolarCoordinates.of((-10.3575702160912), (-10.3575702160912));
+      Point1S point1S0 = Point1S.from(polarCoordinates0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      assertNotNull(point1S0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getMidPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getMidPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getMidPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(1527.0499);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Point1S point1S1 = angularInterval0.getMidPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      CutAngle cutAngle0 = angularInterval_Convex0.getMaxBoundary();
+      assertNotNull(cutAngle0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-2213.619886), (-2213.619886), precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      Point1S point1S0 = angularInterval_Convex0.getCentroid();
+      assertNotNull(point1S0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getCentroid();
+      Point1S point1S1 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      AngularInterval angularInterval1 = AngularInterval.of(point1S1, point1S0, precision_DoubleEquivalence1);
+      Point1S point1S2 = angularInterval1.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getCentroid();
+      Point1S point1S1 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      AngularInterval angularInterval1 = AngularInterval.of(point1S1, point1S0, precision_DoubleEquivalence1);
+      Point1S point1S2 = angularInterval1.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-1413.49474207571), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(913.0735, 913.0735, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        angularInterval0.transform((Transform<Point1S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      // Undeclared exception!
+      try { 
+        angularInterval_Convex0.split((Hyperplane<Point1S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.RegionBSPTree1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(57.29577951308232, 57.29577951308232, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        angularInterval0.project((Point1S) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        AngularInterval.of((Point1S) null, (Point1S) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Point1S point1S0 = Point1S.from(vector2D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [\uFFFD, \uFFFD]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AngularInterval.of((CutAngle) null, (CutAngle) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AngularInterval.of(6177.0849401831, (-471.7964287623), (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.Point1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AngularInterval.of(Double.NEGATIVE_INFINITY, (-111.0), (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [-\u221E, -111]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(414.183539, 0.0, precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.wrapsZero();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(414.183539, 0.0, precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.wrapsZero();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-137.64088644492), (-3310.7563504)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-137.64088644492), (-3310.7563504)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      assertTrue(angularInterval0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(1823.7, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(1823.7, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(646.39, (-3133.986755553727)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(646.39, 646.39, precision_DoubleEquivalence0);
+      Point1S point1S0 = Point1S.of(646.39);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(646.39, (-3133.986755553727)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(646.39, 646.39, precision_DoubleEquivalence0);
+      Point1S point1S0 = Point1S.of(646.39);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      boolean boolean0 = angularInterval_Convex0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      angularInterval0.isFull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      angularInterval0.isFull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      double double0 = angularInterval_Convex0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      double double0 = angularInterval_Convex0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      double double0 = angularInterval_Convex0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      assertNotNull(cutAngle0);
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      assertFalse(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      assertNotNull(cutAngle0);
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      CutAngle cutAngle0 = angularInterval1.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(52, (-1), (-1868), 52).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      angularInterval_Convex0.splitDiameter(cutAngle0);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      assertFalse(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(34.0, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(65, (-1)).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      assertTrue(angularInterval_Convex0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(65, (-1)).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(65, (-1)).when(precision_DoubleEquivalence1).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence1).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence1);
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      assertFalse(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(478, 478).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval_Convex0.getMinBoundary();
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(478, 478).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval_Convex0.getMinBoundary();
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-1243), (-1243)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval_Convex0.getMinBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      assertEquals(cutAngle1, split0.getLocation());
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-1243), (-1243)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval_Convex0.getMinBoundary();
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Split<AngularInterval.Convex> split0 = angularInterval_Convex0.splitDiameter(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        AngularInterval.Convex.of(479.87583980482697, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [479.876, -\u221E]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        AngularInterval.of(cutAngle0, cutAngle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [\uFFFD, \uFFFD]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      List<AngularInterval.Convex> list0 = angularInterval0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of(0.4959797159100223, 0.4959797159100223, precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval_Convex0.wrapsZero();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      Point1S point1S1 = angularInterval0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(2190.17559032829, 2190.17559032829, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      Point1S point1S0 = Point1S.of(2190.17559032829);
+      Point1S point1S1 = angularInterval1.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(2190.17559032829, 2190.17559032829, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      Point1S point1S0 = Point1S.of(2190.17559032829);
+      Point1S point1S1 = angularInterval1.project(point1S0);
+      assertFalse(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(2190.17559032829, 2190.17559032829, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      Point1S point1S0 = Point1S.of(2190.17559032829);
+      Point1S point1S1 = angularInterval1.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(2190.17559032829, 2190.17559032829, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      Point1S point1S0 = Point1S.of(2190.17559032829);
+      Point1S point1S1 = angularInterval1.project(point1S0);
+      assertTrue(angularInterval0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((-1444.385772), 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((-1444.385772), 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((-1444.385772), 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((double)478, (double)478).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      assertTrue(angularInterval_Convex0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((double)478, (double)478).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((double)478, (double)478).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      RegionLocation regionLocation0 = angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-1.0), 646.39).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(646.39, 646.39, precision_DoubleEquivalence0);
+      Point1S point1S0 = Point1S.of(646.39);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-1.0), 646.39).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(646.39, 646.39, precision_DoubleEquivalence0);
+      Point1S point1S0 = Point1S.of(646.39);
+      RegionLocation regionLocation0 = angularInterval0.classify(point1S0);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.contains(point1S0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.contains(point1S0);
+      assertTrue(angularInterval0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.contains(point1S0);
+      assertTrue(angularInterval0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1002.367689, (-228.3234396181), precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.contains(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      assertNotNull(point1S0);
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      angularInterval_Convex0.classify(point1S0);
+      assertTrue(angularInterval_Convex0.wrapsZero());
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.Convex.of((-1444.385772), 0.0, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval_Convex0.getMidPoint();
+      angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(4.8836057800053325);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        angularInterval0.classify((Point1S) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      String string0 = angularInterval1.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      String string0 = angularInterval1.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      AngularInterval angularInterval1 = AngularInterval.of(cutAngle0, cutAngle0);
+      String string0 = angularInterval1.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getCentroid();
+      assertNotNull(point1S0);
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Point1S point1S0 = angularInterval0.getCentroid();
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      angularInterval_Convex0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      assertNotNull(cutAngle0);
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      angularInterval0.split(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      angularInterval0.split(cutAngle0);
+      assertFalse(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      angularInterval0.split(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      boolean boolean0 = angularInterval1.isFinite();
+      assertTrue(angularInterval0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      boolean boolean0 = angularInterval1.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      boolean boolean0 = angularInterval1.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      boolean boolean0 = angularInterval1.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      double double0 = angularInterval0.getBoundarySize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      AngularInterval angularInterval1 = angularInterval0.transform(transform1S0);
+      double double0 = angularInterval1.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      boolean boolean0 = angularInterval0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      AngularInterval.Convex angularInterval_Convex1 = angularInterval_Convex0.transform(transform1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      List<AngularInterval.Convex> list0 = angularInterval_Convex0.toConvex();
+      ;
+}

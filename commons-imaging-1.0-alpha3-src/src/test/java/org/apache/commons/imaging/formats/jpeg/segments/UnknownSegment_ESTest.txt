@@ -1,0 +1,52 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UnknownSegment unknownSegment0 = null;
+      try {
+        unknownSegment0 = new UnknownSegment(65495, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.GenericSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UnknownSegment unknownSegment0 = null;
+      try {
+        unknownSegment0 = new UnknownSegment((-1), 519, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      UnknownSegment unknownSegment0 = new UnknownSegment(0, 0, (InputStream) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      UnknownSegment unknownSegment0 = new UnknownSegment((byte)5, byteArray0);
+      String string0 = unknownSegment0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(1074);
+      UnknownSegment unknownSegment0 = null;
+      try {
+        unknownSegment0 = new UnknownSegment(1074, 1074, pipedInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }

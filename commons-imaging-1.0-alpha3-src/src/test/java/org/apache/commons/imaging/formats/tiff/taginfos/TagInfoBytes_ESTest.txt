@@ -1,0 +1,49 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = FieldType.SRATIONAL;
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("o|", 2981, fieldTypeRational0, 2981, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = tagInfoBytes0.encodeValue(byteOrder0, (byte[]) null);
+      assertNotNull(byteArray0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoBytes tagInfoBytes0 = null;
+      try {
+        tagInfoBytes0 = new TagInfoBytes("", 0, (List<FieldType>) null, 0, tiffDirectoryType0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      List<FieldType> list0 = FieldType.SHORT_OR_RATIONAL;
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("]AV:?FL%;c^v>w+1rXw", 1, list0, 1, tiffDirectoryType0);
+      assertTrue(tagInfoBytes0.isOffset());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 128, 4212, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = tagInfoBytes0.encodeValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-115), "Pu3=g{vimYm");
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("Pu3=g{vimYm", (-115), fieldTypeDouble0, (-115), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = tagInfoBytes0.encodeValue(byteOrder0, byteArray0);
+      ;
+}

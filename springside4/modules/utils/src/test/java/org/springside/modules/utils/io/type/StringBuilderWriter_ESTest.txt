@@ -1,0 +1,117 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder(1);
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(stringBuilder0);
+      stringBuilderWriter0.append('v');
+      stringBuilderWriter0.append((CharSequence) stringBuilder0, 1, 1);
+      assertNotNull(stringBuilderWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter();
+      char[] charArray0 = new char[4];
+      // Undeclared exception!
+      try { 
+        stringBuilderWriter0.write(charArray0, (-3018), 1);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = null;
+      try {
+        stringBuilderWriter0 = new StringBuilderWriter((-711));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(35);
+      stringBuilderWriter0.write(35);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(945);
+      stringBuilderWriter0.write((char[]) null, 945, 945);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter();
+      stringBuilderWriter0.write("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter();
+      stringBuilderWriter0.write((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter((StringBuilder) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(1);
+      stringBuilderWriter0.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(1);
+      stringBuilderWriter0.append('m');
+      stringBuilderWriter0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(1);
+      // Undeclared exception!
+      try { 
+        stringBuilderWriter0.append((CharSequence) "m", (-1), (-3433));
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // start -1, end -3433, s.length() 1
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(1);
+      String string0 = stringBuilderWriter0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder(1);
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(stringBuilder0);
+      StringBuilder stringBuilder1 = stringBuilderWriter0.getBuilder();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter();
+      stringBuilderWriter0.flush();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StringBuilderWriter stringBuilderWriter0 = new StringBuilderWriter(1);
+      Writer writer0 = stringBuilderWriter0.append((CharSequence) "m");
+      ;
+}

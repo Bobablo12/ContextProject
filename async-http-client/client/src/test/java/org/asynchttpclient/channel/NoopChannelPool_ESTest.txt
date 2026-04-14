@@ -1,0 +1,54 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      NoopChannelPool[] noopChannelPoolArray0 = NoopChannelPool.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.valueOf("INSTANCE");
+      assertTrue(noopChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      noopChannelPool0.destroy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      boolean boolean0 = noopChannelPool0.offer((Channel) null, (Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      IncludeExclude<Object> includeExclude0 = new IncludeExclude<Object>();
+      Channel channel0 = noopChannelPool0.poll(includeExclude0);
+      assertNotNull(channel0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      IncludeExclude<Object> includeExclude0 = new IncludeExclude<Object>();
+      noopChannelPool0.flushPartitions(includeExclude0);
+      assertTrue(noopChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      Map<String, Long> map0 = noopChannelPool0.getIdleChannelCountPerHost();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      boolean boolean0 = noopChannelPool0.removeAll((Channel) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      NoopChannelPool noopChannelPool0 = NoopChannelPool.INSTANCE;
+      boolean boolean0 = noopChannelPool0.isOpen();
+      assertTrue(boolean0);
+}

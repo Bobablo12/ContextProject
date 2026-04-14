@@ -1,0 +1,275 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MutableConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>();
+      Class<TouchedExpiryPolicy> class0 = TouchedExpiryPolicy.class;
+      Class<CreatedExpiryPolicy> class1 = CreatedExpiryPolicy.class;
+      JCSConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      jCSConfiguration0.addListener((CacheEntryListenerConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>) null);
+      assertFalse(jCSConfiguration0.isStoreByValue());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MutableConfiguration<CreatedExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<CreatedExpiryPolicy, String>();
+      mutableConfiguration0.setWriteThrough(true);
+      Class<CreatedExpiryPolicy> class0 = CreatedExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<CreatedExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<CreatedExpiryPolicy, String>(mutableConfiguration0, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isWriteThrough();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MutableConfiguration<EternalExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, CreatedExpiryPolicy>();
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<CreatedExpiryPolicy> class1 = CreatedExpiryPolicy.class;
+      JCSConfiguration<EternalExpiryPolicy, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, CreatedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isWriteThrough();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MutableConfiguration<Delayed, AccessedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Delayed, AccessedExpiryPolicy>();
+      Class<Delayed> class0 = Delayed.class;
+      Class<AccessedExpiryPolicy> class1 = AccessedExpiryPolicy.class;
+      JCSConfiguration<Delayed, AccessedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Delayed, AccessedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isStoreByValue();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MutableConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy>();
+      Class<CreatedExpiryPolicy> class0 = CreatedExpiryPolicy.class;
+      MutableConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration1 = mutableConfiguration0.setStoreByValue(false);
+      JCSConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy>(mutableConfiguration1, class0, class0);
+      boolean boolean0 = jCSConfiguration0.isStoreByValue();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MutableConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy>();
+      Class<CreatedExpiryPolicy> class0 = CreatedExpiryPolicy.class;
+      JCSConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<CreatedExpiryPolicy, CreatedExpiryPolicy>(mutableConfiguration0, class0, class0);
+      jCSConfiguration0.statisticsEnabled();
+      boolean boolean0 = jCSConfiguration0.isStatisticsEnabled();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Class<StandardProtocolFamily> class0 = StandardProtocolFamily.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<StandardProtocolFamily, Object> jCSConfiguration0 = new JCSConfiguration<StandardProtocolFamily, Object>((Configuration<StandardProtocolFamily, Object>) null, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isStatisticsEnabled();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MutableConfiguration<Delayed, StandardProtocolFamily> mutableConfiguration0 = new MutableConfiguration<Delayed, StandardProtocolFamily>();
+      MutableConfiguration<Delayed, StandardProtocolFamily> mutableConfiguration1 = mutableConfiguration0.setReadThrough(true);
+      Class<Delayed> class0 = Delayed.class;
+      Class<StandardProtocolFamily> class1 = StandardProtocolFamily.class;
+      JCSConfiguration<Delayed, StandardProtocolFamily> jCSConfiguration0 = new JCSConfiguration<Delayed, StandardProtocolFamily>(mutableConfiguration1, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isReadThrough();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Class<StandardProtocolFamily> class0 = StandardProtocolFamily.class;
+      Class<Integer> class1 = Integer.class;
+      JCSConfiguration<StandardProtocolFamily, Integer> jCSConfiguration0 = new JCSConfiguration<StandardProtocolFamily, Integer>((Configuration<StandardProtocolFamily, Integer>) null, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isReadThrough();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MutableConfiguration<Integer, Delayed> mutableConfiguration0 = new MutableConfiguration<Integer, Delayed>();
+      Class<Integer> class0 = Integer.class;
+      Class<Delayed> class1 = Delayed.class;
+      mutableConfiguration0.setManagementEnabled(true);
+      JCSConfiguration<Integer, Delayed> jCSConfiguration0 = new JCSConfiguration<Integer, Delayed>(mutableConfiguration0, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isManagementEnabled();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Class<Delayed> class0 = Delayed.class;
+      Class<Integer> class1 = Integer.class;
+      JCSConfiguration<Delayed, Integer> jCSConfiguration0 = new JCSConfiguration<Delayed, Integer>((Configuration<Delayed, Integer>) null, class0, class1);
+      boolean boolean0 = jCSConfiguration0.isManagementEnabled();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MutableConfiguration<EternalExpiryPolicy, Delayed> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, Delayed>();
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<EternalExpiryPolicy, Delayed> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, Delayed>(mutableConfiguration0, class0, class1);
+      Class<Delayed> class2 = jCSConfiguration0.getValueType();
+      assertNotNull(class2.toString());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      MutableConfiguration<EternalExpiryPolicy, StandardProtocolFamily> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, StandardProtocolFamily>();
+      Class<StandardProtocolFamily> class1 = StandardProtocolFamily.class;
+      JCSConfiguration<EternalExpiryPolicy, StandardProtocolFamily> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, StandardProtocolFamily>(mutableConfiguration0, class0, class1);
+      Class<StandardProtocolFamily> class2 = jCSConfiguration0.getValueType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Class<Delayed> class0 = Delayed.class;
+      Class<Integer> class1 = Integer.class;
+      JCSConfiguration<Delayed, Integer> jCSConfiguration0 = new JCSConfiguration<Delayed, Integer>((Configuration<Delayed, Integer>) null, class0, class1);
+      Class<Delayed> class2 = jCSConfiguration0.getKeyType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MutableConfiguration<StandardProtocolFamily, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<StandardProtocolFamily, CreatedExpiryPolicy>();
+      Class<StandardProtocolFamily> class0 = StandardProtocolFamily.class;
+      Class<CreatedExpiryPolicy> class1 = CreatedExpiryPolicy.class;
+      JCSConfiguration<StandardProtocolFamily, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<StandardProtocolFamily, CreatedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      Class<StandardProtocolFamily> class2 = jCSConfiguration0.getKeyType();
+      assertNotNull(class2.toString());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MutableConfiguration<ModifiedExpiryPolicy, ModifiedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ModifiedExpiryPolicy, ModifiedExpiryPolicy>();
+      Class<ModifiedExpiryPolicy> class0 = ModifiedExpiryPolicy.class;
+      JCSConfiguration<ModifiedExpiryPolicy, ModifiedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ModifiedExpiryPolicy, ModifiedExpiryPolicy>(mutableConfiguration0, class0, class0);
+      Factory<ExpiryPolicy> factory0 = jCSConfiguration0.getExpiryPolicyFactory();
+      assertNotNull(factory0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MutableConfiguration<AccessedExpiryPolicy, Delayed> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, Delayed>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<AccessedExpiryPolicy, Delayed> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, Delayed>(mutableConfiguration0, class0, class1);
+      Factory<CacheWriter<? super AccessedExpiryPolicy, ? super Delayed>> factory0 = jCSConfiguration0.getCacheWriterFactory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MutableConfiguration<EternalExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, String>();
+      FactoryBuilder.ClassFactory<CacheWriter<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheWriter<Object, Object>>("");
+      MutableConfiguration<EternalExpiryPolicy, String> mutableConfiguration1 = mutableConfiguration0.setCacheWriterFactory(factoryBuilder_ClassFactory0);
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<EternalExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, String>(mutableConfiguration1, class0, class1);
+      Factory<CacheWriter<? super EternalExpiryPolicy, ? super String>> factory0 = jCSConfiguration0.getCacheWriterFactory();
+      assertNotNull(factory0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MutableConfiguration<AccessedExpiryPolicy, EternalExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, EternalExpiryPolicy>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<EternalExpiryPolicy> class1 = EternalExpiryPolicy.class;
+      JCSConfiguration<AccessedExpiryPolicy, EternalExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, EternalExpiryPolicy>(mutableConfiguration0, class0, class1);
+      Factory<CacheLoader<AccessedExpiryPolicy, EternalExpiryPolicy>> factory0 = jCSConfiguration0.getCacheLoaderFactory();
+      assertNotNull(factory0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MutableConfiguration<AccessedExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, String>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<AccessedExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, String>(mutableConfiguration0, class0, class1);
+      Iterable<CacheEntryListenerConfiguration<AccessedExpiryPolicy, String>> iterable0 = jCSConfiguration0.getCacheEntryListenerConfigurations();
+      assertNotNull(iterable0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MutableConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy>();
+      Class<ModifiedExpiryPolicy> class0 = ModifiedExpiryPolicy.class;
+      Class<CreatedExpiryPolicy> class1 = CreatedExpiryPolicy.class;
+      JCSConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy>(mutableConfiguration0, class1, class0);
+      FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>>((CacheEntryListener<Object, Object>) null);
+      FactoryBuilder.ClassFactory<CacheEntryEventFilter<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheEntryEventFilter<Object, Object>>("?(kLNY>[qS~s7.p");
+      MutableCacheEntryListenerConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<CreatedExpiryPolicy, ModifiedExpiryPolicy>(factoryBuilder_SingletonFactory0, factoryBuilder_ClassFactory0, false, false);
+      // Undeclared exception!
+      try { 
+        jCSConfiguration0.removeListener(mutableCacheEntryListenerConfiguration0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("javax.cache.configuration.FactoryBuilder$SingletonFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MutableConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy>();
+      JCSConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy>(mutableConfiguration0, (Class<ModifiedExpiryPolicy>) null, (Class<TouchedExpiryPolicy>) null);
+      MutableConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<ModifiedExpiryPolicy, TouchedExpiryPolicy>(jCSConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MutableConfiguration<Integer, AccessedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Integer, AccessedExpiryPolicy>();
+      Class<Integer> class0 = Integer.class;
+      Class<AccessedExpiryPolicy> class1 = AccessedExpiryPolicy.class;
+      CacheEntryListener<Object, Object> cacheEntryListener0 = (CacheEntryListener<Object, Object>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>>(cacheEntryListener0);
+      FactoryBuilder.ClassFactory<CacheEntryEventFilter<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheEntryEventFilter<Object, Object>>("+Z8J<21");
+      MutableCacheEntryListenerConfiguration<Integer, AccessedExpiryPolicy> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<Integer, AccessedExpiryPolicy>(factoryBuilder_SingletonFactory0, factoryBuilder_ClassFactory0, false, false);
+      mutableConfiguration0.addCacheEntryListenerConfiguration(mutableCacheEntryListenerConfiguration0);
+      JCSConfiguration<Integer, AccessedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Integer, AccessedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      assertTrue(jCSConfiguration0.isReadThrough());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MutableConfiguration<AccessedExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, String>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<AccessedExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, String>(mutableConfiguration0, class0, class1);
+      jCSConfiguration0.statisticsDisabled();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MutableConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>();
+      Class<TouchedExpiryPolicy> class0 = TouchedExpiryPolicy.class;
+      Class<CreatedExpiryPolicy> class1 = CreatedExpiryPolicy.class;
+      JCSConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>(mutableConfiguration0, class0, class1);
+      jCSConfiguration0.removeListener((CacheEntryListenerConfiguration<TouchedExpiryPolicy, CreatedExpiryPolicy>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      MutableConfiguration<CreatedExpiryPolicy, Delayed> mutableConfiguration0 = new MutableConfiguration<CreatedExpiryPolicy, Delayed>();
+      Class<CreatedExpiryPolicy> class0 = CreatedExpiryPolicy.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<CreatedExpiryPolicy, Delayed> jCSConfiguration0 = new JCSConfiguration<CreatedExpiryPolicy, Delayed>(mutableConfiguration0, class0, class1);
+      FactoryBuilder.ClassFactory<CacheEntryListener<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheEntryListener<Object, Object>>("");
+      FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>>((CacheEntryEventFilter<Object, Object>) null);
+      MutableCacheEntryListenerConfiguration<CreatedExpiryPolicy, Delayed> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<CreatedExpiryPolicy, Delayed>(factoryBuilder_ClassFactory0, factoryBuilder_SingletonFactory0, true, true);
+      // Undeclared exception!
+      try { 
+        jCSConfiguration0.addListener(mutableCacheEntryListenerConfiguration0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("javax.cache.configuration.FactoryBuilder$SingletonFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Class<ModifiedExpiryPolicy> class0 = ModifiedExpiryPolicy.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<ModifiedExpiryPolicy, Delayed> jCSConfiguration0 = new JCSConfiguration<ModifiedExpiryPolicy, Delayed>((Configuration<ModifiedExpiryPolicy, Delayed>) null, class0, class1);
+      jCSConfiguration0.managementEnabled();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MutableConfiguration<AccessedExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, String>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<AccessedExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, String>(mutableConfiguration0, class0, class1);
+      jCSConfiguration0.managementDisabled();
+      ;
+}

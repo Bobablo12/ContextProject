@@ -1,0 +1,80 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ImageDump imageDump0 = new ImageDump();
+      // Undeclared exception!
+      try { 
+        imageDump0.dumpColorSpace("bd#|lty>PC", (ColorSpace) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.ImageDump", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ImageDump imageDump0 = new ImageDump();
+      // Undeclared exception!
+      try { 
+        imageDump0.dumpBIProps("lxLdWFuZmiByP?i=", (BufferedImage) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.ImageDump", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ImageDump imageDump0 = new ImageDump();
+      // Undeclared exception!
+      try { 
+        imageDump0.dump("KV9k3|B:EH", (BufferedImage) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.ImageDump", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          ImageDump imageDump0 = new ImageDump();
+          ColorSpace colorSpace0 = ColorSpace.getInstance(1000);
+          // Undeclared exception!
+          try { 
+            imageDump0.dumpColorSpace("/m<`Q|", colorSpace0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(1, 1, 1);
+      ImageDump imageDump0 = new ImageDump();
+      imageDump0.dumpBIProps("str", bufferedImage0);
+      assertEquals(0, bufferedImage0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ImageDump imageDump0 = new ImageDump();
+      // Undeclared exception!
+      try { 
+        imageDump0.dump((BufferedImage) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.ImageDump", e);
+      }
+  }

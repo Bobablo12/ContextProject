@@ -1,0 +1,98 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 0);
+      JdkProxySource<Object> jdkProxySource0 = new JdkProxySource<Object>(classLoader0, classArray0);
+      KeyedPooledObjectFactory<JdkProxyHandler<Object>, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<JdkProxyHandler<Object>, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<JdkProxyHandler<Object>, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<JdkProxyHandler<Object>, Object>(keyedPooledObjectFactory0);
+      Object object0 = jdkProxySource0.createProxy(classLoader0, genericKeyedObjectPool0);
+      Object object1 = jdkProxySource0.resolveProxy(object0);
+      assertNotNull(object1);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 2);
+      JdkProxySource<Integer> jdkProxySource0 = new JdkProxySource<Integer>(classLoader0, classArray0);
+      // Undeclared exception!
+      try { 
+        jdkProxySource0.resolveProxy((Integer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 4);
+      Class<String> class0 = String.class;
+      classArray0[0] = class0;
+      classArray0[1] = classArray0[0];
+      classArray0[2] = class0;
+      classArray0[3] = class0;
+      JdkProxySource<JdkProxyHandler<Object>> jdkProxySource0 = new JdkProxySource<JdkProxyHandler<Object>>(classLoader0, classArray0);
+      // Undeclared exception!
+      try { 
+        jdkProxySource0.createProxy((JdkProxyHandler<Object>) null, (UsageTracking<JdkProxyHandler<Object>>) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.String is not an interface
+         //
+         verifyException("java.lang.reflect.Proxy$ProxyClassFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JdkProxySource<String> jdkProxySource0 = null;
+      try {
+        jdkProxySource0 = new JdkProxySource<String>((ClassLoader) null, (Class<?>[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.JdkProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 12);
+      JdkProxySource<String> jdkProxySource0 = new JdkProxySource<String>(classLoader0, classArray0);
+      String string0 = jdkProxySource0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 9);
+      JdkProxySource<String> jdkProxySource0 = new JdkProxySource<String>((ClassLoader) null, classArray0);
+      // Undeclared exception!
+      try { 
+        jdkProxySource0.resolveProxy("JdkProxySource [classLoader=");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // not a proxy instance
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 2);
+      JdkProxySource<String> jdkProxySource0 = new JdkProxySource<String>(classLoader0, classArray0);
+      // Undeclared exception!
+      try { 
+        jdkProxySource0.createProxy("T{Me6]a{s*S}:", (UsageTracking<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

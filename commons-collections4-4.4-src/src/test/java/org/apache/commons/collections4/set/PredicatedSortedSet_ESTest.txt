@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Predicate<Object> predicate0 = (Predicate<Object>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        PredicatedSortedSet.predicatedSortedSet((SortedSet<Object>) null, (Predicate<? super Object>) predicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Predicate<Object> predicate0 = (Predicate<Object>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      PredicatedSortedSet<String> predicatedSortedSet0 = null;
+      try {
+        predicatedSortedSet0 = new PredicatedSortedSet<String>((SortedSet<String>) null, predicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }

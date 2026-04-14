@@ -1,0 +1,401 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(pipedInputStream0, pipedInputStream0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(sequenceInputStream0);
+      Stream<FacetDefinition> stream0 = objBoundaryReadHandler3D0.facets(streamGeometryInput0);
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CsvBoundaryReadHandler3D csvBoundaryReadHandler3D0 = new CsvBoundaryReadHandler3D();
+      MockFile mockFile0 = new MockFile("");
+      Path path0 = mockFile0.toPath();
+      Charset charset0 = Charset.defaultCharset();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0, charset0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Stream<PlaneConvexSubset> stream0 = csvBoundaryReadHandler3D0.boundaries(fileGeometryInput0, precision_DoubleEquivalence0);
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        textBoundaryReadHandler3D0.readTriangleMesh((GeometryInput) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput((Path) null);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.readTriangleMesh(fileGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      Charset charset0 = objBoundaryReadHandler3D0.getDefaultCharset();
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, (String) null, charset0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.readTriangleMesh(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(mockFileInputStream0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.readTriangleMesh(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: null
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        objBoundaryReadHandler3D0.read((GeometryInput) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      Charset charset0 = objBoundaryReadHandler3D0.getDefaultCharset();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput((URL) null, charset0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.read(urlGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.net.MockURL", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CsvBoundaryReadHandler3D csvBoundaryReadHandler3D0 = new CsvBoundaryReadHandler3D();
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        csvBoundaryReadHandler3D0.read(streamGeometryInput0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected double but found empty token followed by [\u0000]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), (byte)4);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, "!>0kn'&8gUy", (Charset) null);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        objBoundaryReadHandler3D0.read(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      // Undeclared exception!
+      try { 
+        textBoundaryReadHandler3D0.facets((GeometryInput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      Charset charset0 = Charset.defaultCharset();
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(sequenceInputStream0, "org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3D", charset0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facets(streamGeometryInput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot determine STL format: attempted to read 5 bytes but found only -1 available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-12), (byte)78);
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      Charset charset0 = stlBoundaryReadHandler3D0.getDefaultCharset();
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, "", charset0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.facets(streamGeometryInput0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      MockFile mockFile0 = new MockFile((File) null, "p");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      // Undeclared exception!
+      try { 
+        textBoundaryReadHandler3D0.facets(fileGeometryInput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // NoSuchFileException: p
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      URL uRL0 = MockURL.getFileExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.boundaries(urlGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URL", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      Charset charset0 = stlBoundaryReadHandler3D0.getDefaultCharset();
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, "", charset0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.boundaries(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot determine STL format: attempted to read 5 bytes but found only 4 available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StlBoundaryReadHandler3D stlBoundaryReadHandler3D0 = new StlBoundaryReadHandler3D();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-77), 526);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stlBoundaryReadHandler3D0.boundaries(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      URL uRL0 = MockURL.getHttpExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        objBoundaryReadHandler3D0.boundaries(urlGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: Could not find: www.someFakeButWellFormedURL.org
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput((Path) null);
+      // Undeclared exception!
+      try { 
+        objBoundaryReadHandler3D0.facets(fileGeometryInput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("o[;$T815\"y@]mS6/$(t");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      AbstractBoundaryReadHandler3D.FacetDefinitionReaderIterator abstractBoundaryReadHandler3D_FacetDefinitionReaderIterator0 = new AbstractBoundaryReadHandler3D.FacetDefinitionReaderIterator(objFacetDefinitionReader0);
+      abstractBoundaryReadHandler3D_FacetDefinitionReaderIterator0.hasNext();
+      // Undeclared exception!
+      try { 
+        abstractBoundaryReadHandler3D_FacetDefinitionReaderIterator0.next();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3D$FacetDefinitionReaderIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      CsvBoundaryReadHandler3D csvBoundaryReadHandler3D0 = new CsvBoundaryReadHandler3D();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-12), (byte)78);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(byteArrayInputStream0, "P%0Qc=\"|");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        csvBoundaryReadHandler3D0.readTriangleMesh(streamGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(sequenceInputStream0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      TriangleMesh triangleMesh0 = textBoundaryReadHandler3D0.readTriangleMesh(streamGeometryInput0, precision_DoubleEquivalence0);
+      assertEquals(0, triangleMesh0.getVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjBoundaryReadHandler3D objBoundaryReadHandler3D0 = new ObjBoundaryReadHandler3D();
+      MockFile mockFile0 = new MockFile("");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      // Undeclared exception!
+      try { 
+        objBoundaryReadHandler3D0.read(fileGeometryInput0, precision_DoubleEquivalence0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Is a directory
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(sequenceInputStream0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      BoundaryList3D boundaryList3D0 = (BoundaryList3D)textBoundaryReadHandler3D0.read(streamGeometryInput0, precision_DoubleEquivalence0);
+      assertEquals(1, boundaryList3D0.count());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      CsvBoundaryReadHandler3D csvBoundaryReadHandler3D0 = new CsvBoundaryReadHandler3D();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        csvBoundaryReadHandler3D0.boundaries((GeometryInput) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3D", e);
+      }
+  }

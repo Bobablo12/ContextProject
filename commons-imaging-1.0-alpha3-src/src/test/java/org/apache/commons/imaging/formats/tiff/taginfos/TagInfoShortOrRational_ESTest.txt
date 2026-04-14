@@ -1,0 +1,71 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", (-402), (-402), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      short[] shortArray0 = new short[2];
+      byte[] byteArray0 = tagInfoShortOrRational0.encodeValue(byteOrder0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational((String) null, 0, (-358), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      RationalNumber rationalNumber0 = new RationalNumber((-1), 177);
+      rationalNumberArray0[0] = rationalNumber0;
+      rationalNumberArray0[1] = rationalNumberArray0[0];
+      byte[] byteArray0 = tagInfoShortOrRational0.encodeValue(byteOrder0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("y^amFOnlEY<q(,&k:", 65535, Integer.MAX_VALUE, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[0];
+      byte[] byteArray0 = tagInfoShortOrRational0.encodeValue(byteOrder0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", 2280, 2280, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      // Undeclared exception!
+      try { 
+        tagInfoShortOrRational0.encodeValue(byteOrder0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational((String) null, (-522), (-522), tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[4];
+      // Undeclared exception!
+      try { 
+        tagInfoShortOrRational0.encodeValue((ByteOrder) null, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoShortOrRational", (-155), 3115, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      short[] shortArray0 = new short[0];
+      byte[] byteArray0 = tagInfoShortOrRational0.encodeValue(byteOrder0, shortArray0);
+      ;
+}

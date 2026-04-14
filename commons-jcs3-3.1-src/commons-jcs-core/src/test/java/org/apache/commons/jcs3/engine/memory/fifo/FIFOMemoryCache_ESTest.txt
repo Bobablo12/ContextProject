@@ -1,0 +1,22 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FIFOMemoryCache<String, Object> fIFOMemoryCache0 = new FIFOMemoryCache<String, Object>();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("", "", "", elementAttributes0);
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<String, Object>(cacheElement0);
+      fIFOMemoryCache0.adjustListForGet(memoryElementDescriptor0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FIFOMemoryCache<Object, Object> fIFOMemoryCache0 = new FIFOMemoryCache<Object, Object>();
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.adjustListForUpdate((ICacheElement<Object, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }

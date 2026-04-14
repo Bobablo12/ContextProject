@@ -1,0 +1,850 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCache<String, LateralCacheAttributes> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, "org.apache.commons.jcs3:type=JCSAdminBean", "org.apache.commons.jcs3:type=JCSAdminBean", (ICompositeCacheAttributes) null, "org.apache.commons.jcs3:type=JCSAdminBean");
+      assertNotNull(compositeCache0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      Properties properties0 = new Properties((Properties) null);
+      compositeCacheConfigurator0.parseSystemRegions(properties0, compositeCacheManager0);
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      compositeCacheConfigurator0.parseRegions(properties0, compositeCacheManager0);
+      assertEquals(1, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Properties properties0 = new Properties();
+      CompositeCacheConfigurator.overrideWithSystemProperties(properties0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Properties properties0 = new Properties();
+      CompositeCacheConfigurator.overrideWithSystemProperties(properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<String, ForkJoinTask<LateralCacheAttributes>> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, "org.apache.commons.jcs3:type=JCSAdminBean", ", ", (ICompositeCacheAttributes) compositeCacheAttributes0, "/");
+      assertNotNull(compositeCache0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<CommonRemoteCacheAttributes, RemoteCacheAttributes> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, ".keymatcher", "org.apache.commons.jcs3:type=JCSAdminBean", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<CommonRemoteCacheAttributes, RemoteCacheAttributes> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, ".keymatcher", "org.apache.commons.jcs3:type=JCSAdminBean", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      assertNotNull(compositeCache0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCache<RemoteCacheNoWait<StandardOpenOption, String>, OpenOption> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, "/", ", ");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "kxI", (IElementAttributes) null, "Problem sending a Request Broadcast");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setTimeFactorForMilliseconds(0L);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "pF", elementAttributes0, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setTimeFactorForMilliseconds((-32L));
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "pF", elementAttributes0, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<Object, CommonRemoteCacheAttributes> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, "/", "'5zj?-", (ICompositeCacheAttributes) compositeCacheAttributes0, "s*,s*");
+      IElementAttributes iElementAttributes0 = compositeCache0.getElementAttributes();
+      iElementAttributes0.setSize(1);
+      compositeCacheConfigurator0.parseElementAttributes(properties0, ", ", iElementAttributes0, "jcsuser.dir");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setSize((-107));
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "jcsjava.specification.version", elementAttributes0, ".keymatcher");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setMaxLife(0L);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0, "org.apache.commons.jcs3:type=JCSAdminBean");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setMaxLife(2874L);
+      compositeCacheConfigurator0.parseElementAttributes(properties0, "Parsed regions {0}", elementAttributes0, "Parsed regions {0}");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsSpool(false);
+      compositeCacheConfigurator0.parseElementAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsRemote(false);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0, "PBKDF2WithHmacSHA256");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsRemote(false);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0, "PBKDF2WithHmacSHA256");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsLateral(false);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "nE&&O&}", elementAttributes0, "nE&&O&}");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIdleTime(0L);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, (String) null, elementAttributes0, " x..G#E.),K;8-");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIdleTime(2102L);
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "yT$/osDt]r|oU$aMFp@", elementAttributes0, "yT$/osDt]r|oU$aMFp@");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", elementAttributes0, "org.apache.commons.jcs3:type=JCSAdminBean");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      System.setCurrentTimeMillis((-4907L));
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheConfigurator0.parseElementAttributes(properties0, "sea", elementAttributes0, "No setter for property");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseRemote(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", compositeCacheAttributes0, "VQbafc>r{)vJB");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseMemoryShrinker(true);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseMemoryShrinker(true);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseLateral(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseLateral(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseDisk(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "4[Y+RPVCfbTR", compositeCacheAttributes0, "attributes");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", compositeCacheAttributes0, "");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize((-3274));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize((-3274));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0, "");
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "4[Y+RPVCfbTR", compositeCacheAttributes0, "4:BDN`m>q<joR.k");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds((-818));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "use", compositeCacheAttributes0, ".keymatcher");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxSpoolPerRun(150);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "4[Y+RPVCfbTR", compositeCacheAttributes0, "4:BDN`m>q<joR.k");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "K4=hHgsUQa&q/)_", compositeCacheAttributes0, "K4=hHgsUQa&q/)_");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "K4=hHgsUQa&q/)_", compositeCacheAttributes0, "K4=hHgsUQa&q/)_");
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects((-818));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "End of parsing for \"{0}\"", compositeCacheAttributes0, "org.apache.commons.jcs3:type=JCSAdminBean");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "\")Q*^eR2(7", compositeCacheAttributes0, (String) null);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds((-1610L));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", compositeCacheAttributes0, "DH");
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds((-1610L));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", compositeCacheAttributes0, "DH");
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseRemote(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      iCompositeCacheAttributes0.setUseMemoryShrinker(true);
+      ICompositeCacheAttributes iCompositeCacheAttributes1 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "", iCompositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes1.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseLateral(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseLateral(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseDisk(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setUseDisk(false);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize((-3274));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize((-3274));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Properties properties0 = new Properties();
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setShrinkerIntervalSeconds((-3556L));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxSpoolPerRun(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxSpoolPerRun(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      iCompositeCacheAttributes0.setMaxSpoolPerRun(2);
+      ICompositeCacheAttributes iCompositeCacheAttributes1 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", iCompositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes1.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects(0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects((-990));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxObjects((-990));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "org.apache.commons.jcs3:type=JCSAdminBean", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "jcswrite_junit_timeout", compositeCacheAttributes0);
+      assertEquals(0, properties0.size());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds(0L);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "jcswrite_junit_timeout", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds((-2037L));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheConfigurator0.parseCompositeCacheAttributes(properties0, "false", compositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      AuxiliaryCache<Integer, Integer> auxiliaryCache0 = compositeCacheConfigurator0.parseAuxiliary(properties0, compositeCacheManager0, "org.apache.commons.jcs3:type=JCSAdminBean", "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<Integer, CompositeCacheConfigurator> compositeCache0 = compositeCacheConfigurator0.newCache((ICompositeCacheAttributes) compositeCacheAttributes0, (IElementAttributes) null);
+      assertEquals(1, compositeCache0.getHitCountAux());
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseSystemRegions((Properties) null, compositeCacheManager0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseRegions((Properties) null, compositeCacheManager0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseRegion((Properties) null, compositeCacheManager0, "RH0sJWvbV \u0011`Ar9", (String) null, iCompositeCacheAttributes0, "RH0sJWvbV \u0011`Ar9");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseRegion((Properties) null, compositeCacheManager0, "org.apache.commons.jcs3:type=JCSAdminBean", "org.apache.commons.jcs3:type=JCSAdminBean", (ICompositeCacheAttributes) compositeCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseRegion((Properties) null, compositeCacheManager0, "", "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseKeyMatcher((Properties) null, "org.apache.commons.jcs3:type=JCSAdminBean");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      properties0.setProperty(".keymatcher", "org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal");
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseKeyMatcher(properties0, "");
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal cannot be cast to org.apache.commons.jcs3.engine.match.behavior.IKeyMatcher
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseElementAttributes((Properties) null, "0'jaR[FM!$(", iElementAttributes0, "org.apache.commons.jcs3:type=JCSAdminBean");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseCompositeCacheAttributes((Properties) null, "org.apache.commons.jcs3:type=JCSAdminBean", iCompositeCacheAttributes0, "org.apache.commons.jcs3:type=JCSAdminBean");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseCompositeCacheAttributes((Properties) null, "]3N5T<Hm<WQ,Ox", (ICompositeCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      Properties properties0 = new Properties();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.parseAuxiliary(properties0, compositeCacheManager0, (String) null, "*^Jt");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheConfigurator0.newCache((ICompositeCacheAttributes) null, (IElementAttributes) elementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      compositeCacheConfigurator0.parseKeyMatcher(properties0, "org.apache.commons.jcs3:type=JCSAdminBean");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("/");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<CommonRemoteCacheAttributes, AuxiliaryCache<String, LateralCacheAttributes>> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, "/", ", ", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<Object, String> compositeCache0 = compositeCacheManager0.getCache(".keymatcher", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, ".keymatcher", ".keymatcher");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      CompositeCacheConfigurator compositeCacheConfigurator0 = new CompositeCacheConfigurator();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheConfigurator0.parseRegion(properties0, compositeCacheManager0, ".keymatcher", ".keymatcher");
+      ;
+}

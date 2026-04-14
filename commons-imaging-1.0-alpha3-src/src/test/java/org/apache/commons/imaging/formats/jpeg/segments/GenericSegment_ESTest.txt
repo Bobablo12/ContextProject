@@ -1,0 +1,165 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      UnknownSegment unknownSegment0 = new UnknownSegment((-1027), byteArray0);
+      MockFile mockFile0 = new MockFile("c8@#.uO", "c8@#.uO");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      unknownSegment0.dump((PrintWriter) mockPrintWriter0, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)81;
+      UnknownSegment unknownSegment0 = new UnknownSegment((-1), byteArray0);
+      byte byte0 = unknownSegment0.getSegmentData((int) (byte)0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte) (-1);
+      UnknownSegment unknownSegment0 = new UnknownSegment(0, byteArray0);
+      byte byte0 = unknownSegment0.getSegmentData(0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      App13Segment app13Segment0 = new App13Segment(3091, byteArray0);
+      byte[] byteArray1 = app13Segment0.getSegmentData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      App13Segment app13Segment0 = new App13Segment((-2864), byteArray0);
+      // Undeclared exception!
+      try { 
+        app13Segment0.getSegmentDataAsString((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      App2Segment app2Segment0 = new App2Segment(0, byteArray0);
+      // Undeclared exception!
+      try { 
+        app2Segment0.getSegmentData(0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.GenericSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      App14Segment app14Segment0 = new App14Segment(0, byteArray0);
+      // Undeclared exception!
+      try { 
+        app14Segment0.dump((PrintWriter) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFileParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      App2Segment app2Segment0 = new App2Segment(3109, 0, pipedInputStream0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(",o6jPg-Y");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        app2Segment0.dump((PrintWriter) mockPrintWriter0, (-2264));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -2264
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.GenericSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      App13Segment app13Segment0 = new App13Segment(0, byteArray0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0, false);
+      app13Segment0.dump((PrintWriter) mockPrintWriter0, (int) (byte)0);
+      assertEquals(1, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      App13Segment app13Segment0 = new App13Segment(0, byteArray0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0, false);
+      app13Segment0.dump((PrintWriter) mockPrintWriter0, (int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      App13Segment app13Segment0 = new App13Segment(0, byteArray0);
+      try { 
+        app13Segment0.getSegmentDataAsString("j;Nw>LDv");
+        fail("Expecting exception: UnsupportedEncodingException");
+      } catch(UnsupportedEncodingException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      App2Segment app2Segment0 = new App2Segment(0, byteArray0);
+      byte[] byteArray1 = app2Segment0.getSegmentData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      UnknownSegment unknownSegment0 = new UnknownSegment((-1), byteArray0);
+      byte byte0 = unknownSegment0.getSegmentData((int) (byte)0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      App2Segment app2Segment0 = new App2Segment(1609, byteArray0);
+      CharArrayWriter charArrayWriter0 = new CharArrayWriter();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(charArrayWriter0, false);
+      app2Segment0.dump((PrintWriter) mockPrintWriter0);
+      assertEquals(1, charArrayWriter0.size());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      App2Segment app2Segment0 = new App2Segment(1609, byteArray0);
+      CharArrayWriter charArrayWriter0 = new CharArrayWriter();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(charArrayWriter0, false);
+      app2Segment0.dump((PrintWriter) mockPrintWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      App2Segment app2Segment0 = new App2Segment(1609, byteArray0);
+      // Undeclared exception!
+      try { 
+        app2Segment0.dump((PrintWriter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFileParser", e);
+      }
+  }

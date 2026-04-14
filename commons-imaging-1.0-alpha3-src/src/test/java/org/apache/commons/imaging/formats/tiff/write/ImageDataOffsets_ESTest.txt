@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      List<FieldType> list0 = FieldType.ASCII_OR_RATIONAL;
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfo tagInfo0 = new TagInfo("", (-1), list0, (-1863), tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.UNDEFINED;
+      byte[] byteArray0 = new byte[3];
+      TiffOutputField tiffOutputField0 = new TiffOutputField(1, tagInfo0, fieldTypeByte0, (-1863), byteArray0);
+      ImageDataOffsets imageDataOffsets0 = null;
+      try {
+        imageDataOffsets0 = new ImageDataOffsets((TiffElement.DataElement[]) null, intArray0, tiffOutputField0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.ImageDataOffsets", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[8];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data(2147483647L, 0, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      ImageDataOffsets imageDataOffsets0 = new ImageDataOffsets(tiffElement_DataElementArray0, (int[]) null, (TiffOutputField) null);
+  }

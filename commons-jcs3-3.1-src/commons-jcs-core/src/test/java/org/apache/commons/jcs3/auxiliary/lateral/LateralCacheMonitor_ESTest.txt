@@ -1,0 +1,35 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Object, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Object, String>();
+      LateralCache<Object, String> lateralCache0 = new LateralCache<Object, String>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<Object, String> lateralCacheNoWait0 = new LateralCacheNoWait<Object, String>(lateralCache0);
+      // Undeclared exception!
+      try { 
+        lateralCacheMonitor0.addCache(lateralCacheNoWait0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      lateralCacheMonitor0.dispose();
+      assertTrue(lateralCacheMonitor0.isInterrupted());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LateralCacheMonitor.forceShortIdlePeriod(0L);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      lateralCacheMonitor0.doWork();
+      assertEquals(1, lateralCacheMonitor0.countStackFrames());
+}

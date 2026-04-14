@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(asyncHttpClientConfig0).getMaxRedirects();
+      WebSocketHandler webSocketHandler0 = null;
+      try {
+        webSocketHandler0 = new WebSocketHandler(asyncHttpClientConfig0, (ChannelManager) null, (NettyRequestSender) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.evosuite.runtime.mock.java.lang.MockException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      WebSocketHandler webSocketHandler0 = null;
+      try {
+        webSocketHandler0 = new WebSocketHandler((AsyncHttpClientConfig) null, (ChannelManager) null, (NettyRequestSender) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.handler.intercept.Redirect30xInterceptor", e);
+      }
+  }

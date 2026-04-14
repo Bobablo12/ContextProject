@@ -1,0 +1,72 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = new SecurityManagerCallStack("R(?J,k", false);
+      securityManagerCallStack0.fillInStackTrace();
+      // Undeclared exception!
+      try { 
+        securityManagerCallStack0.printStackTrace((PrintWriter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.SecurityManagerCallStack", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = null;
+      try {
+        securityManagerCallStack0 = new SecurityManagerCallStack((String) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = null;
+      try {
+        securityManagerCallStack0 = new SecurityManagerCallStack("nf[%8RNO(n[{/`", true);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal pattern character 'n'
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = new SecurityManagerCallStack("org.apache.commons.pool2.impl.SecurityManagerCallStack$Snapshot", false);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("org.apache.commons.pool2.impl.SecurityManagerCallStack$Snapshot");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0);
+      securityManagerCallStack0.fillInStackTrace();
+      boolean boolean0 = securityManagerCallStack0.printStackTrace(mockPrintWriter0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = new SecurityManagerCallStack("", true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("kXcHV<");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0, false);
+      boolean boolean0 = securityManagerCallStack0.printStackTrace(mockPrintWriter0);
+      assertFalse(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = new SecurityManagerCallStack("", true);
+      securityManagerCallStack0.fillInStackTrace();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("kXcHV<");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0, false);
+      boolean boolean0 = securityManagerCallStack0.printStackTrace(mockPrintWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SecurityManagerCallStack securityManagerCallStack0 = new SecurityManagerCallStack("", false);
+      securityManagerCallStack0.clear();
+  }

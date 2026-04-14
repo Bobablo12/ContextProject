@@ -1,0 +1,19 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Closeables.close((Object[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.closeable.Closeables", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Object[] objectArray0 = new Object[19];
+      Closeables.close(objectArray0);
+      ;
+}

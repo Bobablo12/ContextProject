@@ -1,0 +1,89 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      byte[] byteArray0 = new byte[20];
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0);
+      ByteBuffer byteBuffer1 = byteBuffer0.asReadOnlyBuffer();
+      // Undeclared exception!
+      try { 
+        bytesSerializer0.process(byteArrayOutputStream0, byteBuffer1);
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("|>)+'?toN8YVK");
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect(1);
+      // Undeclared exception!
+      try { 
+        bytesSerializer0.process(mockPrintStream0, byteBuffer0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      byte[] byteArray0 = new byte[3];
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0, (int) (byte)0, 0);
+      try { 
+        bytesSerializer0.process(filterOutputStream0, byteBuffer0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      // Undeclared exception!
+      try { 
+        bytesSerializer0.process(byteArrayOutputStream0, byteArrayOutputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      byte[] byteArray0 = new byte[1];
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0);
+      bytesSerializer0.process(byteArrayOutputStream0, byteBuffer0);
+      assertEquals(1, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      byte[] byteArray0 = new byte[1];
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0);
+      boolean boolean0 = bytesSerializer0.canProcess(byteBuffer0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      Object object0 = new Object();
+      boolean boolean0 = bytesSerializer0.canProcess(object0);
+      assertTrue(boolean0);
+}

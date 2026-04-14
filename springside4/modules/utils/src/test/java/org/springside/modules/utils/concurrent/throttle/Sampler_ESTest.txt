@@ -1,0 +1,77 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Sampler.create((Double) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.concurrent.throttle.Sampler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Sampler.NeverSampler sampler_NeverSampler0 = new Sampler.NeverSampler();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Sampler.AlwaysSampler sampler_AlwaysSampler0 = new Sampler.AlwaysSampler();
+      boolean boolean0 = sampler_AlwaysSampler0.select();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Sampler sampler0 = new Sampler();
+      boolean boolean0 = sampler0.select();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Double double0 = new Double(5189.187);
+      // Undeclared exception!
+      try { 
+        Sampler.create(double0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid selectPercent value: 5189.187
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Sampler sampler0 = new Sampler(100.0);
+      boolean boolean0 = sampler0.select();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Sampler sampler0 = null;
+      try {
+        sampler0 = new Sampler((-11.016937692107309));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid selectPercent value: -11.016937692107309
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Double double0 = new Double(100.0);
+      Sampler sampler0 = Sampler.create(double0);
+      boolean boolean0 = sampler0.select();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Double double0 = Double.valueOf(0.0);
+      Sampler sampler0 = Sampler.create(double0);
+      boolean boolean0 = sampler0.select();
+      assertTrue(boolean0);
+}

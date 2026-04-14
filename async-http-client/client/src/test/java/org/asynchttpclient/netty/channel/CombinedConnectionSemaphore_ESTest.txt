@@ -1,0 +1,134 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(3300, 3300, 3300);
+      Object object0 = new Object();
+      System.setCurrentTimeMillis(0L);
+      combinedConnectionSemaphore0.acquireChannelLock(object0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1961, 1961, 0);
+      Object object0 = new Object();
+      long long0 = combinedConnectionSemaphore0.acquireGlobalTimed(object0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1961, 1961, 0);
+      long long0 = combinedConnectionSemaphore0.acquireGlobal("qDozxn!o<no'd1c0zw");
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+      // Undeclared exception!
+      try { 
+        combinedConnectionSemaphore0.releaseGlobal("Include Set");
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // Maximum permit count exceeded
+         //
+         verifyException("java.util.concurrent.Semaphore$Sync", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1961, 1961, 0);
+      // Undeclared exception!
+      try { 
+        combinedConnectionSemaphore0.releaseChannelLock((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(240, Integer.MAX_VALUE, (-705));
+      // Undeclared exception!
+      try { 
+        combinedConnectionSemaphore0.releaseChannelLock("AXpVT;<{_D");
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // Maximum permit count exceeded
+         //
+         verifyException("java.util.concurrent.Semaphore$Sync", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1, 1, 1);
+      Object object0 = new Object();
+      combinedConnectionSemaphore0.acquireGlobalTimed(object0);
+      try { 
+        combinedConnectionSemaphore0.acquireGlobalTimed("");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Too many connections: 1
+         //
+         verifyException("org.asynchttpclient.netty.channel.MaxConnectionSemaphore", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1, 1, 1);
+      Object object0 = new Object();
+      combinedConnectionSemaphore0.acquireGlobalTimed(object0);
+      combinedConnectionSemaphore0.releaseGlobal("n(FWlk]:_m4e");
+      combinedConnectionSemaphore0.acquireChannelLock(object0);
+      try { 
+        combinedConnectionSemaphore0.acquireGlobal(object0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Too many connections: 1
+         //
+         verifyException("org.asynchttpclient.netty.channel.MaxConnectionSemaphore", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(1792, 909, 1792);
+      // Undeclared exception!
+      try { 
+        combinedConnectionSemaphore0.acquireChannelLock((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(0, 1, 1);
+      Object object0 = new Object();
+      combinedConnectionSemaphore0.acquireChannelLock(object0);
+      try { 
+        combinedConnectionSemaphore0.acquireChannelLock(object0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Too many connections: 1
+         //
+         verifyException("org.asynchttpclient.netty.channel.PerHostConnectionSemaphore", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore(0, 1, 1);
+      Object object0 = new Object();
+      combinedConnectionSemaphore0.releaseChannelLock(object0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CombinedConnectionSemaphore combinedConnectionSemaphore0 = new CombinedConnectionSemaphore((-329), (-329), (-329));
+      combinedConnectionSemaphore0.acquireChannelLock("[");
+  }

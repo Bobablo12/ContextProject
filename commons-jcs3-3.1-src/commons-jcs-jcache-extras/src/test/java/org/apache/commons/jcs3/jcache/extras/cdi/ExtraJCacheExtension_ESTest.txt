@@ -1,0 +1,99 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      AnnotatedField<JCSCachingProvider> annotatedField0 = (AnnotatedField<JCSCachingProvider>) mock(AnnotatedField.class, new ViolatedAssumptionAnswer());
+      AnnotatedParameter<JCSCachingProvider> annotatedParameter0 = (AnnotatedParameter<JCSCachingProvider>) mock(AnnotatedParameter.class, new ViolatedAssumptionAnswer());
+      ProcessProducerFieldImpl<JCSCachingProvider, CacheManagerBean> processProducerFieldImpl0 = new ProcessProducerFieldImpl<JCSCachingProvider, CacheManagerBean>((ProducerFieldBean<CacheManagerBean>) null, annotatedField0, annotatedParameter0);
+      processProducerFieldImpl0.setStarted();
+      // Undeclared exception!
+      try { 
+        extraJCacheExtension0.processBean((ProcessBean<CacheManagerBean>) processProducerFieldImpl0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // only call container event methods in their correct lifecycle
+         //
+         verifyException("org.apache.webbeans.portable.events.EventBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      WebBeansContext webBeansContext0 = new WebBeansContext();
+      AfterBeanDiscoveryImpl afterBeanDiscoveryImpl0 = new AfterBeanDiscoveryImpl(webBeansContext0);
+      afterBeanDiscoveryImpl0.setStarted();
+      // Undeclared exception!
+      try { 
+        extraJCacheExtension0.addJCacheBeans(afterBeanDiscoveryImpl0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Don't call AfterBeanDiscovery.addBean(bean) after the event is fired
+         //
+         verifyException("org.apache.webbeans.portable.events.discovery.AfterBeanDiscoveryImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      WebBeansContext webBeansContext0 = new WebBeansContext();
+      WebBeansType webBeansType0 = WebBeansType.INJECTIONPOINT;
+      MakeJCacheCDIInterceptorFriendly makeJCacheCDIInterceptorFriendly0 = new MakeJCacheCDIInterceptorFriendly();
+      BeanManagerImpl beanManagerImpl0 = webBeansContext0.getBeanManagerImpl();
+      Class<JCSCachingProvider> class0 = JCSCachingProvider.class;
+      AnnotatedType<JCSCachingProvider> annotatedType0 = beanManagerImpl0.createAnnotatedType(class0);
+      AnnotatedTypeWrapper<JCSCachingProvider> annotatedTypeWrapper0 = new AnnotatedTypeWrapper<JCSCachingProvider>(makeJCacheCDIInterceptorFriendly0, annotatedType0);
+      ExtensionBean<JCSCachingProvider> extensionBean0 = new ExtensionBean<JCSCachingProvider>(webBeansContext0, class0);
+      NewManagedBean<JCSCachingProvider> newManagedBean0 = new NewManagedBean<JCSCachingProvider>(webBeansContext0, webBeansType0, annotatedTypeWrapper0, extensionBean0, class0, (Set<InjectionPoint>) null);
+      ProcessManagedBeanImpl<JCSCachingProvider> processManagedBeanImpl0 = new ProcessManagedBeanImpl<JCSCachingProvider>(newManagedBean0, annotatedType0);
+      extraJCacheExtension0.processBean((ProcessBean<JCSCachingProvider>) processManagedBeanImpl0);
+      AfterBeanDiscoveryImpl afterBeanDiscoveryImpl0 = new AfterBeanDiscoveryImpl(webBeansContext0);
+      extraJCacheExtension0.addJCacheBeans(afterBeanDiscoveryImpl0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      BeforeShutdownImpl beforeShutdownImpl0 = new BeforeShutdownImpl();
+      WebBeansContext webBeansContext0 = new WebBeansContext();
+      AfterBeanDiscoveryImpl afterBeanDiscoveryImpl0 = new AfterBeanDiscoveryImpl(webBeansContext0);
+      extraJCacheExtension0.addJCacheBeans(afterBeanDiscoveryImpl0);
+      extraJCacheExtension0.destroyIfCreated(beforeShutdownImpl0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      BeforeShutdownImpl beforeShutdownImpl0 = new BeforeShutdownImpl();
+      extraJCacheExtension0.destroyIfCreated(beforeShutdownImpl0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      WebBeansContext webBeansContext0 = WebBeansContext.getInstance();
+      WebBeansType webBeansType0 = WebBeansType.RESOURCEBEAN;
+      InjectableBeanManager injectableBeanManager0 = new InjectableBeanManager();
+      Class<JCSCachingManager> class0 = JCSCachingManager.class;
+      AnnotatedType<JCSCachingManager> annotatedType0 = injectableBeanManager0.createAnnotatedType(class0);
+      AnnotatedTypeWrapper<JCSCachingManager> annotatedTypeWrapper0 = new AnnotatedTypeWrapper<JCSCachingManager>(extraJCacheExtension0, annotatedType0);
+      ExtensionBean<JCSCachingManager> extensionBean0 = new ExtensionBean<JCSCachingManager>(webBeansContext0, class0);
+      ManagedBean<JCSCachingManager> managedBean0 = new ManagedBean<JCSCachingManager>(webBeansContext0, webBeansType0, annotatedTypeWrapper0, extensionBean0, class0);
+      ProcessManagedBeanImpl<JCSCachingManager> processManagedBeanImpl0 = new ProcessManagedBeanImpl<JCSCachingManager>(managedBean0, annotatedType0);
+      extraJCacheExtension0.processBean((ProcessBean<JCSCachingManager>) processManagedBeanImpl0);
+      extraJCacheExtension0.processBean((ProcessBean<JCSCachingManager>) processManagedBeanImpl0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ExtraJCacheExtension extraJCacheExtension0 = new ExtraJCacheExtension();
+      AnnotatedField<JCSCachingProvider> annotatedField0 = (AnnotatedField<JCSCachingProvider>) mock(AnnotatedField.class, new ViolatedAssumptionAnswer());
+      AnnotatedParameter<JCSCachingProvider> annotatedParameter0 = (AnnotatedParameter<JCSCachingProvider>) mock(AnnotatedParameter.class, new ViolatedAssumptionAnswer());
+      ProcessProducerFieldImpl<JCSCachingProvider, CacheManagerBean> processProducerFieldImpl0 = new ProcessProducerFieldImpl<JCSCachingProvider, CacheManagerBean>((ProducerFieldBean<CacheManagerBean>) null, annotatedField0, annotatedParameter0);
+      // Undeclared exception!
+      try { 
+        extraJCacheExtension0.processBean((ProcessBean<CacheManagerBean>) processProducerFieldImpl0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtension", e);
+      }
+  }

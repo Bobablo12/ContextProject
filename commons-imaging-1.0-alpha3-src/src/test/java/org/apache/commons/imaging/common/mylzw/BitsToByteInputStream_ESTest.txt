@@ -1,0 +1,267 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(sequenceInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 498);
+      bitsToByteInputStream0.readBitsArray((-1696), 0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(sequenceInputStream0, byteOrder0);
+      myBitInputStream0.setTiffLZWMode();
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 498);
+      bitsToByteInputStream0.readBits(498);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte) (-102);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(bufferedInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 529);
+      bitsToByteInputStream0.read();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1611, 637);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(byteArrayInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1611);
+      bitsToByteInputStream0.read();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MyBitInputStream myBitInputStream0 = mock(MyBitInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0, 0, 0, 0).when(myBitInputStream0).readBits(anyInt());
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 2776);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyBitInputStream myBitInputStream1 = new MyBitInputStream(bitsToByteInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream1 = new BitsToByteInputStream(myBitInputStream1, (-749));
+      // Undeclared exception!
+      bitsToByteInputStream1.readBitsArray(327, 3647);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream((MyBitInputStream) null, 1627);
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.readBitsArray(1, 1627);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      char[] charArray0 = new char[0];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(mockFileInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, (-774));
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.readBitsArray(0, (-3666));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.BitsToByteInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1), (byte)75);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(byteArrayInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, (-1));
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.readBitsArray(1, 1692);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      char[] charArray0 = new char[9];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(pipedInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1074);
+      try { 
+        bitsToByteInputStream0.readBitsArray(1074, 1074);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream((MyBitInputStream) null, (-1960));
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.readBits((-3427));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), 1);
+      CharBuffer charBuffer0 = CharBuffer.allocate(1526);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(byteArrayInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1526);
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.readBits(1526);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(8);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(bufferedInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 8);
+      try { 
+        bitsToByteInputStream0.readBits(257);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream((MyBitInputStream) null, 1059);
+      // Undeclared exception!
+      try { 
+        bitsToByteInputStream0.read();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(dataInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1);
+      try { 
+        bitsToByteInputStream0.read();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(sequenceInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 498);
+      int int0 = bitsToByteInputStream0.readBits(749);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      char[] charArray0 = new char[0];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream((InputStream) null, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, (-2835));
+      int int0 = bitsToByteInputStream0.readBits((-2835));
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(bufferedInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1238);
+      int int0 = bitsToByteInputStream0.readBits(0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyBitInputStream myBitInputStream0 = new MyBitInputStream(bufferedInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 1238);
+      int[] intArray0 = bitsToByteInputStream0.readBitsArray(1238, 1238);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MyBitInputStream myBitInputStream0 = mock(MyBitInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(myBitInputStream0).readBits(anyInt());
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 2776);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyBitInputStream myBitInputStream1 = new MyBitInputStream(bitsToByteInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream1 = new BitsToByteInputStream(myBitInputStream1, (-749));
+      int int0 = bitsToByteInputStream1.read();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MyBitInputStream myBitInputStream0 = mock(MyBitInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(myBitInputStream0).readBits(anyInt());
+      BitsToByteInputStream bitsToByteInputStream0 = new BitsToByteInputStream(myBitInputStream0, 2776);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyBitInputStream myBitInputStream1 = new MyBitInputStream(bitsToByteInputStream0, byteOrder0);
+      BitsToByteInputStream bitsToByteInputStream1 = new BitsToByteInputStream(myBitInputStream1, (-749));
+      int int0 = bitsToByteInputStream1.read();
+      ;
+}

@@ -1,0 +1,510 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      assertEquals(1, bufferedImage0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      assertEquals(0, bufferedImage0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      assertEquals(0, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 245, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(213, 0, 3, 213);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 245, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(213, 0, 3, 213);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 245, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(213, 0, 3, 213);
+      assertEquals(1, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 245, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(213, 0, 3, 213);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 245, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(213, 0, 3, 213);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(255, 54, 255, 45);
+      assertEquals(0, imageBuilder1.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(255, 54, 255, 45);
+      assertEquals(1, imageBuilder1.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(255, 54, 255, 45);
+      assertEquals(1, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(255, 54, 255, 45);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(49, 49, true, false);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(0, 0, 49, 49);
+      assertEquals(1, imageBuilder1.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(49, 49, true, false);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(0, 0, 49, 49);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(49, 49, true, false);
+      ImageBuilder imageBuilder1 = imageBuilder0.getSubset(0, 0, 49, 49);
+      assertEquals(1, imageBuilder1.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(314, 314, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(24, 1988, 24, 24);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage y is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(49, 49, true, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(3723, 2, 3723, 3723);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage x is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(5315, 1, true, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubset(4, 5315, 5315, (-3369));
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // negative or zero subimage height
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1000, 255, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(3, 3, (-2405), 1);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // negative or zero subimage width
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder(2, 0, false);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // zero or negative height value
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder(0, 0, false);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // zero or negative width value
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(174, 174, true);
+      imageBuilder0.setRGB((-2924), 174, 0);
+      assertEquals(0, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(174, 174, true);
+      imageBuilder0.setRGB((-2924), 174, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(1, 1, 1, 1);
+      assertEquals(1, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      assertEquals(1, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      assertEquals(1, bufferedImage0.getTileHeight());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true, true);
+      BufferedImage bufferedImage0 = imageBuilder0.getBufferedImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(16711680, 16711680, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(0, 0, 16711680, 16711680);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2908, 1, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getRGB(1, 3776);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 10980609
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(16711680, 16711680, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getBufferedImage();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Dimensions (width=16711680 height=16711680) are too large
+         //
+         verifyException("java.awt.image.SampleModel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder(65280, 65280, false, false);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder(16711680, 1000, true);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(0, 0, 324, 324);
+      assertEquals(1, bufferedImage0.getTileHeight());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(0, 0, 324, 324);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      BufferedImage bufferedImage0 = imageBuilder0.getSubimage(0, 0, 324, 324);
+      assertEquals(1, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1018, 269, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(269, 54, 54, 269);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage (y+height) is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(3539, 204, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubset(204, 204, 204, 204);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage y is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(984, 255, true, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(255, (-19), 255, 255);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage y is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1333, 277, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubset(277, 277, 1333, 1333);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage (x+width) is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubset(2, 2, 2, 2);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage x is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(4, 4, true, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage((-3701), 4, 4, 4);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage x is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubset(0, 324, 324, 0);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // negative or zero subimage height
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(255, 255, false, false);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.getSubimage(239, (-1029), 0, (-1029));
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // negative or zero subimage width
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder(278, (-2728), true);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // zero or negative height value
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      ImageBuilder imageBuilder0 = null;
+      try {
+        imageBuilder0 = new ImageBuilder((-1733), (-1733), false, false);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // zero or negative width value
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(714, 714, true);
+      // Undeclared exception!
+      try { 
+        imageBuilder0.setRGB(714, 714, 714);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 510510
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1333, 277, true);
+      int int0 = imageBuilder0.getWidth();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(1333, 277, true);
+      int int0 = imageBuilder0.getWidth();
+      assertEquals(0, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      imageBuilder0.getRGB(324, 0);
+      assertEquals(0, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(324, 324, false, false);
+      imageBuilder0.getRGB(324, 0);
+      assertEquals(0, imageBuilder0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true);
+      int int0 = imageBuilder0.getHeight();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 2, true);
+      int int0 = imageBuilder0.getHeight();
+      assertEquals(0, imageBuilder0.getWidth());
+}

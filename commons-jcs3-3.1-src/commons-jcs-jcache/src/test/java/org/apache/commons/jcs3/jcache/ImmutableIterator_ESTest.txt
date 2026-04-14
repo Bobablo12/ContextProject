@@ -1,0 +1,75 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Iterator<Object> iterator0 = (Iterator<Object>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(iterator0).next();
+      ImmutableIterator<Object> immutableIterator0 = new ImmutableIterator<Object>(iterator0);
+      Object object0 = immutableIterator0.next();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(iterator0).hasNext();
+      ImmutableIterator<String> immutableIterator0 = new ImmutableIterator<String>(iterator0);
+      boolean boolean0 = immutableIterator0.hasNext();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ImmutableIterator<String> immutableIterator0 = new ImmutableIterator<String>((Iterator<String>) null);
+      // Undeclared exception!
+      try { 
+        immutableIterator0.hasNext();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.ImmutableIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Iterator<Object> iterator0 = (Iterator<Object>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(iterator0).hasNext();
+      ImmutableIterator<Object> immutableIterator0 = new ImmutableIterator<Object>(iterator0);
+      boolean boolean0 = immutableIterator0.hasNext();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Iterator<Object> iterator0 = (Iterator<Object>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn("org.apache.commons.jcs3.jcache.ImmutableIterator").when(iterator0).next();
+      ImmutableIterator<Object> immutableIterator0 = new ImmutableIterator<Object>(iterator0);
+      Object object0 = immutableIterator0.next();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Iterator<Object> iterator0 = (Iterator<Object>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      ImmutableIterator<Object> immutableIterator0 = new ImmutableIterator<Object>(iterator0);
+      // Undeclared exception!
+      try { 
+        immutableIterator0.remove();
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // this iterator is immutable
+         //
+         verifyException("org.apache.commons.jcs3.jcache.ImmutableIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ImmutableIterator<Object> immutableIterator0 = new ImmutableIterator<Object>((Iterator<Object>) null);
+      // Undeclared exception!
+      try { 
+        immutableIterator0.next();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.ImmutableIterator", e);
+      }
+  }

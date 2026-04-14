@@ -1,0 +1,80 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      App14Segment app14Segment0 = new App14Segment(65475, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      App14Segment app14Segment0 = new App14Segment((-2657), byteArray0);
+      // Undeclared exception!
+      try { 
+        app14Segment0.getAdobeColorTransform();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 11
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.GenericSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      App14Segment app14Segment0 = null;
+      try {
+        app14Segment0 = new App14Segment(3214, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.App14Segment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      App14Segment app14Segment0 = null;
+      try {
+        app14Segment0 = new App14Segment(1323, 2, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      App14Segment app14Segment0 = null;
+      try {
+        app14Segment0 = new App14Segment((-2577), (-2577), (InputStream) null);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid Segment: insufficient data, invalid length: -2577
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(65478);
+      App14Segment app14Segment0 = new App14Segment(0, 0, pipedInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[13];
+      App14Segment app14Segment0 = new App14Segment(0, byteArray0);
+      boolean boolean0 = app14Segment0.isAdobeJpegSegment();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[13];
+      App14Segment app14Segment0 = new App14Segment(0, byteArray0);
+      int int0 = app14Segment0.getAdobeColorTransform();
+      assertEquals(1, int0);
+}

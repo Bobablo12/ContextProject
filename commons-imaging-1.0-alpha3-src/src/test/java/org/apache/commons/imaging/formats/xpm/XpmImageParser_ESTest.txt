@@ -1,0 +1,1128 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte) (-13);
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      bufferedImage0.getRGB((int) (byte)0, (int) (byte)9);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters0);
+      Random.setNextRandom(748);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters1);
+      Charset charset0 = Charset.defaultCharset();
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0, charset0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0);
+      xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      MockFile mockFile0 = new MockFile("delay in milliseconds");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "delay in milliseconds");
+      try { 
+        xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte) (-13);
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      bufferedImage0.getRGB((int) (byte)0, 10);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      XpmImagingParameters xpmImagingParameters2 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters2);
+      Charset charset0 = Charset.defaultCharset();
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0, charset0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0);
+      xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte) (-13);
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 18);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte) (-13);
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      XpmImagingParameters xpmImagingParameters2 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters2);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-84);
+      byteArray0[1] = (byte)67;
+      byteArray0[2] = (byte) (-29);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(dataInputStream0, (InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, "7be'x^KQO.~-");
+      byteSourceInputStream0.getDescription();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, (XpmImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)0;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(1);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0);
+      Object[] objectArray0 = new Object[2];
+      objectArray0[0] = (Object) imageFormats0;
+      Object object0 = new Object();
+      objectArray0[1] = object0;
+      PrintWriter printWriter0 = mockPrintWriter0.printf("X PixMap", objectArray0);
+      // Undeclared exception!
+      xpmImageParser0.dumpImageFile(printWriter0, (ByteSource) byteSourceFile0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      mockFileOutputStream0.write((int) (byte)42);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, no 'static' token
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[3] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      // Undeclared exception!
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      mockFile0.setWritable(true);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getImageSize((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      // Undeclared exception!
+      xpmImageParser0.getImageSize((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[3];
+      FileSystemHandling.shouldThrowIOException((EvoSuiteFile) null);
+      byteArray0[0] = (byte) (-84);
+      byteArray0[1] = (byte)67;
+      byteArray0[2] = (byte)0;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = null;
+      xpmImageParser0.getMetadata((ByteSource) byteSourceArray0, (XpmImagingParameters) null);
+      xpmImageParser0.getDefaultExtension();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-84), 21);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, (String) null);
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, (XpmImagingParameters) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getDefaultExtension();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)41;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("c", byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, xpmImagingParameters0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, true);
+      MockFile mockFile0 = new MockFile("xpm", "+&'+fsr3K=zkh;XD");
+      rgbBufferedImageFactory0.getGrayscaleBufferedImage(2129, 41, true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      try { 
+        xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockFileOutputStream0, xpmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error in writing to file
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      Random.setNextRandom(769);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getImageSize((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      // Undeclared exception!
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)48;
+      byteArray0[6] = (byte)9;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("c", byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, xpmImagingParameters0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)122, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "+&'+fsr3K=zkh;XD");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      // Undeclared exception!
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[0];
+      String string0 = null;
+      byte[] byteArray1 = null;
+      File file0 = null;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-2296), 2296);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(bufferedInputStream0, byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, "Parsing XPM file failed, no '*' token");
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceInputStream0, xpmImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getDefaultExtension();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("c", byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, xpmImagingParameters0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)6, false);
+      MockFile mockFile0 = new MockFile("xpm", "+&'+fsr3K=zkh;XD");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceArray0, xpmImagingParameters1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      FileSystemHandling.appendStringToFile((EvoSuiteFile) null, "*/Us%y<");
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)122;
+      byteArray0[1] = (byte) (-61);
+      byteArray0[2] = (byte) (-52);
+      byteArray0[3] = (byte)39;
+      byteArray0[4] = (byte)19;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1610612734), (byte)122);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "Parsing XPM file failed, file ended while reading palette");
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, xpmImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-106);
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)41;
+      byteArray0[6] = (byte)9;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("c", byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, xpmImagingParameters0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)122, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "+&'+fsr3K=zkh;XD");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      // Undeclared exception!
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getDefaultExtension();
+      String[] stringArray0 = xpmImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)99;
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getICCProfileBytes(byteArray0, xpmImagingParameters0);
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getGrayscaleBufferedImage(1075, (byte)99, true);
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) null, xpmImagingParameters1);
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)0;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      String string0 = "SYSTEM";
+      xpmImagingParameters1.setFileName("SYSTEM");
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "SYSTEM");
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, xpmImagingParameters1);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      String string0 = "";
+      FileSystemHandling.appendLineToFile((EvoSuiteFile) null, "");
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getDefaultExtension();
+      MockFile mockFile0 = new MockFile("xpm");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImagingParameters0.getBufferedImageFactory();
+      xpmImagingParameters0.setBufferedImageFactory((BufferedImageFactory) null);
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceFile0, xpmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      PrintWriter printWriter0 = null;
+      File file0 = MockFile.createTempFile("tE5b2[H\u0006^^", "tE5b2[H\u0006^^", (File) null);
+      xpmImageParser0.getDefaultParameters();
+      MockFile mockFile0 = new MockFile(file0, "tE5b2[H\u0006^^");
+      mockFile0.deleteOnExit();
+      mockFile0.getCanonicalPath();
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        xpmImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      String string0 = "55-:~ nlO-^(}";
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(1846);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0, true);
+      Object[] objectArray0 = new Object[5];
+      objectArray0[0] = (Object) xpmImageParser0;
+      objectArray0[1] = (Object) byteArrayOutputStream0;
+      objectArray0[2] = (Object) "55-:~ nlO-^(}";
+      objectArray0[3] = (Object) "55-:~ nlO-^(}";
+      objectArray0[4] = (Object) byteArrayOutputStream0;
+      PrintWriter printWriter0 = mockPrintWriter0.printf("55-:~ nlO-^(}", objectArray0);
+      File file0 = MockFile.createTempFile("8v-4:,", "No palette entry was defined for ", (File) null);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        xpmImageParser0.dumpImageFile(printWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      String string0 = "The wildcard list must not be null";
+      String string1 = "ed3V1\"Cj78.t~P8";
+      File file0 = MockFile.createTempFile("The wildcard list must not be null", "ed3V1\"Cj78.t~P8");
+      MockFile mockFile0 = new MockFile(file0, "The wildcard list must not be null");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      mockFile0.setExecutable(true);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageParser.getAllImageParsers();
+      MockFile mockFile0 = new MockFile("/0%<D'yui", "TIFF");
+      ImageFormats imageFormats0 = ImageFormats.WBMP;
+      File file0 = MockFile.createTempFile("/0%<D'yui", "/0%<D'yui", (File) mockFile0);
+      imageFormats0.getName();
+      xpmImageParser0.canAcceptType(imageFormats0);
+      mockFile0.setExecutable(true);
+      XpmImagingParameters xpmImagingParameters0 = null;
+      xpmImageParser0.getBufferedImage((File) mockFile0, (XpmImagingParameters) null);
+      xpmImageParser0.getName();
+      xpmImageParser0.getName();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(file0);
+      mockPrintStream0.flush();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.writeImage((BufferedImage) null, (OutputStream) mockPrintStream0, (XpmImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getDefaultExtension();
+      xpmImageParser0.getAcceptedExtensions();
+      MockFile mockFile0 = new MockFile("", ";");
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getBufferedImage((File) mockFile0, xpmImagingParameters0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      byte[] byteArray0 = new byte[3];
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)64;
+      byteArrayOutputStream0.write(byteArray0);
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.writeImage((BufferedImage) null, (OutputStream) byteArrayOutputStream0, xpmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      xpmImagingParameters0.getBufferedImageFactory();
+      xpmImagingParameters0.setStrict(false);
+      xpmImagingParameters0.setBufferedImageFactory((BufferedImageFactory) null);
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) null, xpmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)120;
+      byteArray0[1] = (byte)4;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte) (-91);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) byteSourceArray0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte) (-30);
+      byteArray0[1] = (byte)47;
+      byteArray0[2] = (byte)14;
+      byteArray0[3] = (byte)22;
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte)50;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceArray0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getName();
+      ByteSource byteSource0 = null;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) null, xpmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      PrintWriter printWriter0 = null;
+      ByteSource byteSource0 = null;
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getICCProfileBytes((byte[]) null, xpmImagingParameters0);
+      xpmImageParser0.canAcceptType(imageFormats0);
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)43;
+      byteArray0[1] = (byte)97;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)48;
+      byteArray0[4] = (byte) (-16);
+      try { 
+        xpmImageParser0.dumpImageFile(byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-84);
+      byteArray0[1] = (byte)67;
+      byteArray0[2] = (byte)0;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      xpmImageParser0.getMetadata((ByteSource) byteSourceArray0, (XpmImagingParameters) null);
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) null, xpmImagingParameters0);
+      xpmImageParser0.getName();
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) null, xpmImagingParameters1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)9;
+      byteArray0[1] = (byte)70;
+      byteArray0[2] = (byte) (-2);
+      byteArray0[3] = (byte) (-59);
+      byteArray0[4] = (byte)97;
+      byteArray0[5] = (byte)42;
+      byteArray0[6] = (byte)0;
+      byteArray0[7] = (byte)0;
+      byteArray0[8] = (byte)39;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceArray0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getICCProfileBytes((byte[]) null);
+      xpmImageParser0.getAcceptedTypes();
+      xpmImageParser0.getDefaultExtension();
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[0];
+      xpmImageParser0.getMetadata(byteArray0);
+      xpmImageParser0.getAcceptedTypes();
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      // Undeclared exception!
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) null, xpmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)0;
+      byteArray0[1] = (byte)91;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceArray0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(pipedInputStream0, 175);
+      PushbackInputStream pushbackInputStream1 = new PushbackInputStream(pushbackInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream1, (String) null);
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceInputStream0, xpmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      XpmImagingParameters xpmImagingParameters0 = xpmImageParser0.getDefaultParameters();
+      MockFile mockFile0 = new MockFile(".TV\"|sUce1s3f}y");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getAcceptedExtensions();
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getAcceptedTypes();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      xpmImageParser0.getMetadata((ByteSource) byteSourceArray0, (XpmImagingParameters) null);
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      xpmImageParser0.getDefaultParameters();
+      Charset charset0 = Charset.defaultCharset();
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0, charset0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0);
+      xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[10];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte) (-109);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      mockFileOutputStream0.write((int) (byte)42);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, no 'static' token
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      ImageFormats imageFormats0 = ImageFormats.TIFF;
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[2] = (byte) (-88);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)42;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)112, false);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      mockFile0.toPath();
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      XpmImagingParameters xpmImagingParameters1 = new XpmImagingParameters();
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters1);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getImageSize((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      // Undeclared exception!
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      bufferedImage0.getRGB((int) (byte)0, (int) (byte)9);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters1);
+      Charset charset0 = Charset.defaultCharset();
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0, charset0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0);
+      xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+      assertEquals(0, mockFile0.length());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      xpmImageParser0.getName();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)42;
+      byteArray0[1] = (byte)42;
+      byteArray0[2] = (byte) (-13);
+      byteArray0[4] = (byte)0;
+      byteArray0[6] = (byte)9;
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage((byte)42, (byte)42, true);
+      MockFile mockFile0 = new MockFile("X PixMap", "X PixMap");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockFileOutputStream0, 1);
+      bufferedImage0.getRGB((int) (byte)0, (int) (byte)9);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(bufferedOutputStream0);
+      xpmImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, xpmImagingParameters0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      xpmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, xpmImagingParameters0);
+      XpmImagingParameters xpmImagingParameters1 = xpmImageParser0.getDefaultParameters();
+      xpmImageParser0.getImageInfo((ByteSource) byteSourceFile0, xpmImagingParameters1);
+      Charset charset0 = Charset.defaultCharset();
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0, charset0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0);
+      xpmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      XpmImageParser xpmImageParser0 = new XpmImageParser();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[4] = (byte)0;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("c", byteArray0);
+      XpmImagingParameters xpmImagingParameters0 = new XpmImagingParameters();
+      xpmImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, xpmImagingParameters0);
+      try { 
+        xpmImageParser0.getImageSize((ByteSource) byteSourceArray0, xpmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Parsing XPM file failed, signature isn't '/* XPM *_/'
+         //
+         verifyException("org.apache.commons.imaging.formats.xpm.XpmImageParser", e);
+      }
+  }

@@ -1,0 +1,138 @@
+{
+  "MUT" : {
+    "method_name" : "getNormalizedAzimuth",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle.double getNormalizedAzimuth()",
+    "qualified_name" : "CutAngle.getNormalizedAzimuth",
+    "line_number" : 106,
+    "parameters" : [ ],
+    "code" : "        return point.getNormalizedAzimuth();\n    }\n\n    /** Return true if the hyperplane is oriented with its plus\n     * side pointing toward increasing angles.\n     * @return true if the hyperplane is facing in the direction\n     *      of increasing angles\n     */\n    public boolean isPositiveFacing() {\n        return positiveFacing;\n    }\n",
+    "javadoc" : "",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle",
+      "simple_name" : "CutAngle",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.core.partitioning.AbstractHyperplane", "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  },
+  "callers" : [ {
+    "method_name" : "getMinValue",
+    "signature" : "org.apache.commons.geometry.spherical.oned.RegionBSPTree1S$BoundaryPair.double getMinValue()",
+    "qualified_name" : "RegionBSPTree1S.BoundaryPair.getMinValue",
+    "line_number" : 485,
+    "code" : "        public double getMinValue() {\n            return (min != null) ? min.getNormalizedAzimuth() : 0;\n        }\n",
+    "javadoc" : "        /** Get the minimum value of the interval or zero if no minimum value exists.\n         * @return the minimum value of the interval or zero\n         *      if no minimum value exists.\n         */\n",
+    "edge" : "RegionBSPTree1S.BoundaryPair.double getMinValue -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.RegionBSPTree1S.BoundaryPair",
+      "simple_name" : "BoundaryPair",
+      "package_name" : "org.apache.commons.geometry.spherical.oned.RegionBSPTree1S",
+      "superclasses" : [ "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "test19",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest.test19()",
+    "qualified_name" : "CutAngle_ESTest.test19",
+    "line_number" : 217,
+    "code" : "  public void test19()  throws Throwable  {\n      Angle.Turn angle_Turn0 = Angle.Turn.ZERO;\n      Angle.Deg angle_Deg0 = angle_Turn0.toDeg();\n      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);\n      CutAngle cutAngle0 = new CutAngle(point1S0, true, (Precision.DoubleEquivalence) null);\n      cutAngle0.getNormalizedAzimuth();\n      assertTrue(cutAngle0.isPositiveFacing());\n}\n",
+    "javadoc" : "",
+    "edge" : "CutAngle_ESTest.void test19 -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest",
+      "simple_name" : "CutAngle_ESTest",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest_scaffolding" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "test28",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest.test28()",
+    "qualified_name" : "CutAngle_ESTest.test28",
+    "line_number" : 327,
+    "code" : "  public void test28()  throws Throwable  {\n      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());\n      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);\n      // Undeclared exception!\n      try { \n        cutAngle0.getNormalizedAzimuth();\n        fail(\"Expecting exception: NullPointerException\");\n      } catch(NullPointerException e) {\n         //\n         // no message in exception (getMessage() returned null)\n         //\n         verifyException(\"org.apache.commons.geometry.spherical.oned.CutAngle\", e);\n      }\n  }\n",
+    "javadoc" : "",
+    "edge" : "CutAngle_ESTest.void test28 -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest",
+      "simple_name" : "CutAngle_ESTest",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest_scaffolding" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "test62",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest.test62()",
+    "qualified_name" : "CutAngle_ESTest.test62",
+    "line_number" : 675,
+    "code" : "  public void test62()  throws Throwable  {\n      Point1S point1S0 = Point1S.PI;\n      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());\n      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);\n      cutAngle0.getNormalizedAzimuth();\n      assertTrue(cutAngle0.isPositiveFacing());\n}\n",
+    "javadoc" : "",
+    "edge" : "CutAngle_ESTest.void test62 -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest",
+      "simple_name" : "CutAngle_ESTest",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest_scaffolding" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "test20",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest.test20()",
+    "qualified_name" : "CutAngle_ESTest.test20",
+    "line_number" : 226,
+    "code" : "  public void test20()  throws Throwable  {\n      Transform1S transform1S0 = Transform1S.createNegation();\n      PolarCoordinates polarCoordinates0 = PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);\n      Point1S point1S0 = Point1S.from(polarCoordinates0);\n      Point1S point1S1 = transform1S0.apply(point1S0);\n      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());\n      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence0);\n      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);\n      cutAngle1.getNormalizedAzimuth();\n      assertTrue(cutAngle1.isPositiveFacing());\n}\n",
+    "javadoc" : "",
+    "edge" : "CutAngle_ESTest.void test20 -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest",
+      "simple_name" : "CutAngle_ESTest",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest_scaffolding" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "test21",
+    "signature" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest.test21()",
+    "qualified_name" : "CutAngle_ESTest.test21",
+    "line_number" : 238,
+    "code" : "  public void test21()  throws Throwable  {\n      Transform1S transform1S0 = Transform1S.createNegation();\n      PolarCoordinates polarCoordinates0 = PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);\n      Point1S point1S0 = Point1S.from(polarCoordinates0);\n      Point1S point1S1 = transform1S0.apply(point1S0);\n      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());\n      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence0);\n      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);\n      cutAngle1.getNormalizedAzimuth();\n      assertTrue(cutAngle0.isPositiveFacing());\n}\n",
+    "javadoc" : "",
+    "edge" : "CutAngle_ESTest.void test21 -> CutAngle.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest",
+      "simple_name" : "CutAngle_ESTest",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "org.apache.commons.geometry.spherical.oned.CutAngle_ESTest_scaffolding" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  } ],
+  "callees" : [ {
+    "method_name" : "getNormalizedAzimuth",
+    "signature" : "org.apache.commons.geometry.spherical.oned.Point1S.double getNormalizedAzimuth()",
+    "qualified_name" : "Point1S.getNormalizedAzimuth",
+    "line_number" : 97,
+    "code" : "    public double getNormalizedAzimuth() {\n        return normalizedAzimuth;\n    }\n",
+    "javadoc" : "    /** Get the azimuth angle normalized to the range {@code [0, 2pi)}.\n     * @return the azimuth angle normalized to the range {@code [0, 2pi)}.\n     */\n",
+    "edge" : "CutAngle.double getNormalizedAzimuth -> Point1S.double getNormalizedAzimuth",
+    "class_hierarchy" : {
+      "class_name" : "org.apache.commons.geometry.spherical.oned.Point1S",
+      "simple_name" : "Point1S",
+      "package_name" : "org.apache.commons.geometry.spherical.oned",
+      "superclasses" : [ "java.lang.Object" ],
+      "interfaces" : [ "org.apache.commons.geometry.core.Point" ],
+      "direct_subclasses" : [ ]
+    }
+  } ],
+  "metadata" : {
+    "call_graph_tool" : "SootUp",
+    "analysis_depth" : 1,
+    "class_hierarchy_included" : true
+  }
+}

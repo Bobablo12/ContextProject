@@ -1,0 +1,67 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      NioTransportFactory[] nioTransportFactoryArray0 = NioTransportFactory.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      NioTransportFactory.valueOf("INSTANCE");
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      NioTransportFactory nioTransportFactory0 = NioTransportFactory.INSTANCE;
+      // Undeclared exception!
+      nioTransportFactory0.newEventLoopGroup(1170, (ThreadFactory) null);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      NioTransportFactory nioTransportFactory0 = NioTransportFactory.INSTANCE;
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null, (Thread) null, (Thread) null, (Thread) null, (Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      // Undeclared exception!
+      try { 
+        nioTransportFactory0.newEventLoopGroup(3059, threadFactory0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // failed to create a child event loop
+         //
+         verifyException("io.netty.util.concurrent.MultithreadEventExecutorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      NioTransportFactory nioTransportFactory0 = NioTransportFactory.INSTANCE;
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        nioTransportFactory0.newEventLoopGroup((-1), threadFactory0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // nThreads: -1 (expected: > 0)
+         //
+         verifyException("io.netty.util.concurrent.MultithreadEventExecutorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      NioTransportFactory nioTransportFactory0 = NioTransportFactory.INSTANCE;
+      RxThreadFactory rxThreadFactory0 = new RxThreadFactory("_dkgI,|mNv\"HG-eK", 2870);
+      NioEventLoopGroup nioEventLoopGroup0 = nioTransportFactory0.newEventLoopGroup(0, rxThreadFactory0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      NioTransportFactory nioTransportFactory0 = NioTransportFactory.INSTANCE;
+      // Undeclared exception!
+      try { 
+        nioTransportFactory0.newChannel();
+        fail("Expecting exception: NoClassDefFoundError");
+      } catch(NoClassDefFoundError e) {
+         //
+         // Could not initialize class io.netty.channel.DefaultChannelId
+         //
+         verifyException("io.netty.channel.AbstractChannel", e);
+      }
+  }

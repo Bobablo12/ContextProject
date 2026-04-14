@@ -1,0 +1,35 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PooledObjectFactory<String> pooledObjectFactory0 = (PooledObjectFactory<String>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericObjectPoolConfig<String> genericObjectPoolConfig0 = new GenericObjectPoolConfig<String>();
+      GenericObjectPool<String> genericObjectPool0 = new GenericObjectPool<String>(pooledObjectFactory0, genericObjectPoolConfig0);
+      CglibProxyHandler<String> cglibProxyHandler0 = new CglibProxyHandler<String>("a-s/ -rp>MFWSAiU", genericObjectPool0);
+      cglibProxyHandler0.disableProxy();
+      Object[] objectArray0 = new Object[6];
+      try { 
+        cglibProxyHandler0.intercept("a-s/ -rp>MFWSAiU", (Method) null, objectArray0, (MethodProxy) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // This object may no longer be used as it has been returned to the Object Pool.
+         //
+         verifyException("org.apache.commons.pool2.proxy.BaseProxyHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CglibProxyHandler<String> cglibProxyHandler0 = new CglibProxyHandler<String>("38Bj_YF;{8P", (UsageTracking<String>) null);
+      Object[] objectArray0 = new Object[7];
+      Class<String> class0 = String.class;
+      Class<Object> class1 = Object.class;
+      MethodProxy methodProxy0 = MethodProxy.create(class0, class1, "", "`{SW-zq\u0005/bw", "");
+      try { 
+        cglibProxyHandler0.intercept("38Bj_YF;{8P", (Method) null, objectArray0, methodProxy0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.BaseProxyHandler", e);
+      }
+  }

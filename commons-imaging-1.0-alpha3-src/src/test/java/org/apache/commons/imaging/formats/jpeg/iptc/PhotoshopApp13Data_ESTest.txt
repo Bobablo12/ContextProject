@@ -1,0 +1,79 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      linkedList0.add((IptcRecord) null);
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      List<IptcRecord> list0 = photoshopApp13Data0.getRecords();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[8];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      List<IptcBlock> list0 = photoshopApp13Data0.getRawBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      linkedList1.add((IptcBlock) null);
+      // Undeclared exception!
+      try { 
+        photoshopApp13Data0.getNonIptcBlocks();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.PhotoshopApp13Data", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      byte[] byteArray0 = new byte[8];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      List<IptcBlock> list0 = photoshopApp13Data0.getNonIptcBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock((-500), byteArray0, byteArray0);
+      linkedList1.add(iptcBlock0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      List<IptcBlock> list0 = photoshopApp13Data0.getNonIptcBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data((List<IptcRecord>) null, (List<IptcBlock>) null);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      List<IptcBlock> list0 = photoshopApp13Data0.getRawBlocks();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      List<IptcRecord> list0 = photoshopApp13Data0.getRecords();
+      assertTrue(list0.isEmpty());
+}

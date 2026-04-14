@@ -1,0 +1,70 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      Body body0 = byteArrayBodyGenerator0.createBody();
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true);
+      UnpooledDirectByteBuf unpooledDirectByteBuf0 = new UnpooledDirectByteBuf(unpooledByteBufAllocator0, 0, 0);
+      Body.BodyState body_BodyState0 = body0.transferTo(unpooledDirectByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      ByteArrayBodyGenerator.ByteBody byteArrayBodyGenerator_ByteBody0 = byteArrayBodyGenerator0.new ByteBody();
+      PooledByteBufAllocator pooledByteBufAllocator0 = PooledByteBufAllocator.DEFAULT;
+      UnpooledDirectByteBuf unpooledDirectByteBuf0 = new UnpooledDirectByteBuf(pooledByteBufAllocator0, 1553, 1553);
+      byteArrayBodyGenerator_ByteBody0.transferTo(unpooledDirectByteBuf0);
+      Body.BodyState body_BodyState0 = byteArrayBodyGenerator_ByteBody0.transferTo(unpooledDirectByteBuf0);
+      assertFalse(unpooledDirectByteBuf0.isReadable());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      ByteArrayBodyGenerator.ByteBody byteArrayBodyGenerator_ByteBody0 = byteArrayBodyGenerator0.new ByteBody();
+      PooledByteBufAllocator pooledByteBufAllocator0 = PooledByteBufAllocator.DEFAULT;
+      UnpooledDirectByteBuf unpooledDirectByteBuf0 = new UnpooledDirectByteBuf(pooledByteBufAllocator0, 1553, 1553);
+      byteArrayBodyGenerator_ByteBody0.transferTo(unpooledDirectByteBuf0);
+      Body.BodyState body_BodyState0 = byteArrayBodyGenerator_ByteBody0.transferTo(unpooledDirectByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = UnpooledByteBufAllocator.DEFAULT;
+      Body body0 = byteArrayBodyGenerator0.createBody();
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(unpooledByteBufAllocator0, 2, 1531);
+      body0.transferTo(unpooledUnsafeDirectByteBuf0);
+      Body.BodyState body_BodyState0 = body0.transferTo(unpooledUnsafeDirectByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = UnpooledByteBufAllocator.DEFAULT;
+      Body body0 = byteArrayBodyGenerator0.createBody();
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(unpooledByteBufAllocator0, 2, 1531);
+      body0.transferTo(unpooledUnsafeDirectByteBuf0);
+      Body.BodyState body_BodyState0 = body0.transferTo(unpooledUnsafeDirectByteBuf0);
+      assertEquals(body0, body_BodyState0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      ByteArrayBodyGenerator.ByteBody byteArrayBodyGenerator_ByteBody0 = byteArrayBodyGenerator0.new ByteBody();
+      long long0 = byteArrayBodyGenerator_ByteBody0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[14];
+      ByteArrayBodyGenerator byteArrayBodyGenerator0 = new ByteArrayBodyGenerator(byteArray0);
+      ByteArrayBodyGenerator.ByteBody byteArrayBodyGenerator_ByteBody0 = byteArrayBodyGenerator0.new ByteBody();
+      byteArrayBodyGenerator_ByteBody0.close();
+      assertEquals(1, byteArrayBodyGenerator_ByteBody0.getContentLength());
+}

@@ -1,0 +1,13 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ConsoleReporter consoleReporter0 = new ConsoleReporter();
+      HashMap<String, Histogram> hashMap0 = new HashMap<String, Histogram>();
+      HashMap<String, Counter> hashMap1 = new HashMap<String, Counter>();
+      HashMap<String, Timer> hashMap2 = new HashMap<String, Timer>();
+      // Undeclared exception!
+      try { 
+        consoleReporter0.report((Map<String, Gauge>) null, hashMap1, hashMap0, hashMap2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }

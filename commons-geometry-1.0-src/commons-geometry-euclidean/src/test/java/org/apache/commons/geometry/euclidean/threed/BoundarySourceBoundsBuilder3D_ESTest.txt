@@ -1,0 +1,64 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BoundarySourceBoundsBuilder3D boundarySourceBoundsBuilder3D0 = new BoundarySourceBoundsBuilder3D();
+      // Undeclared exception!
+      try { 
+        boundarySourceBoundsBuilder3D0.getBounds((BoundarySource3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.BoundarySourceBoundsBuilder3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BoundarySourceBoundsBuilder3D boundarySourceBoundsBuilder3D0 = new BoundarySourceBoundsBuilder3D();
+      Stack<VertexListConvexPolygon3D> stack0 = new Stack<VertexListConvexPolygon3D>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(stack0);
+      stack0.add((VertexListConvexPolygon3D) null);
+      // Undeclared exception!
+      try { 
+        boundarySourceBoundsBuilder3D0.getBounds(boundaryList3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.BoundarySourceBoundsBuilder3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundarySourceBoundsBuilder3D boundarySourceBoundsBuilder3D0 = new BoundarySourceBoundsBuilder3D();
+      ArrayList<SimpleTriangle3D> arrayList0 = new ArrayList<SimpleTriangle3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(0.0, 1339.187635483226, 0.0);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1339.187635483226, (Precision.DoubleEquivalence) null);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      arrayList0.add(simpleTriangle3D0);
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      Bounds3D bounds3D0 = boundarySourceBoundsBuilder3D0.getBounds(boundaryList3D0);
+      assertNotNull(bounds3D0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BoundarySourceBoundsBuilder3D boundarySourceBoundsBuilder3D0 = new BoundarySourceBoundsBuilder3D();
+      ArrayList<SimpleTriangle3D> arrayList0 = new ArrayList<SimpleTriangle3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(0.0, 1339.187635483226, 0.0);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1339.187635483226, (Precision.DoubleEquivalence) null);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      arrayList0.add(simpleTriangle3D0);
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      RegionBSPTree3D regionBSPTree3D0 = boundaryList3D0.toTree();
+      Bounds3D bounds3D0 = boundarySourceBoundsBuilder3D0.getBounds(regionBSPTree3D0);
+      assertNotNull(bounds3D0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BoundarySourceBoundsBuilder3D boundarySourceBoundsBuilder3D0 = new BoundarySourceBoundsBuilder3D();
+      ArrayList<PlaneConvexSubset> arrayList0 = new ArrayList<PlaneConvexSubset>();
+      ConvexVolume convexVolume0 = new ConvexVolume(arrayList0);
+      Bounds3D bounds3D0 = boundarySourceBoundsBuilder3D0.getBounds(convexVolume0);
+      assertNotNull(bounds3D0);
+}

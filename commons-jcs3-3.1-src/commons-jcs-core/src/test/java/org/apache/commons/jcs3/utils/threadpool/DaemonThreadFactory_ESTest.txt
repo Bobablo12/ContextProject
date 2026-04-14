@@ -1,0 +1,21 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DaemonThreadFactory daemonThreadFactory0 = new DaemonThreadFactory("o.m9");
+      MockThread mockThread0 = new MockThread("o.m9");
+      Thread thread0 = daemonThreadFactory0.newThread(mockThread0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DaemonThreadFactory daemonThreadFactory0 = new DaemonThreadFactory("", (-1086));
+      // Undeclared exception!
+      try { 
+        daemonThreadFactory0.newThread((Runnable) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.Thread", e);
+      }
+  }

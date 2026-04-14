@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      // Undeclared exception!
+      try { 
+        remoteHttpCacheMonitor0.notifyError((RemoteHttpCache<?, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCache<String, String> remoteHttpCache0 = new RemoteHttpCache<String, String>(remoteHttpCacheAttributes0, (ICacheServiceNonLocal<String, String>) null, (IRemoteCacheListener<String, String>) null, remoteHttpCacheMonitor0);
+      remoteHttpCacheMonitor0.notifyError(remoteHttpCache0);
+      remoteHttpCacheMonitor0.doWork();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor((RemoteHttpCacheFactory) null);
+      remoteHttpCacheMonitor0.doWork();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheMonitor remoteHttpCacheMonitor0 = new RemoteHttpCacheMonitor(remoteHttpCacheFactory0);
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      ZombieCacheServiceNonLocal<String, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, String>(0);
+      RemoteHttpCache<String, String> remoteHttpCache0 = new RemoteHttpCache<String, String>(remoteHttpCacheAttributes0, zombieCacheServiceNonLocal0, (IRemoteCacheListener<String, String>) null, remoteHttpCacheMonitor0);
+      remoteHttpCacheMonitor0.notifyError(remoteHttpCache0);
+      // Undeclared exception!
+      remoteHttpCacheMonitor0.doWork();
+  }

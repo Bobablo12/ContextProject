@@ -1,0 +1,3823 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(2, 2, 0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(1, 1);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      tiffRasterDataInt0.getIntValue(1, 1);
+      float float0 = (-1356.2F);
+      int int0 = 1;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(2, (-1), 3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, -1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[0] = 4085;
+      intArray0[1] = 1257;
+      intArray0[1] = 4085;
+      intArray0[3] = 4085;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4085, 4085, 4085, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setValue(4075, 0, (float) 4085);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 4075
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      int int0 = 16;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      int int1 = 2;
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.setIntValue(2, 2, (-9));
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics((float) 0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.setIntValue(2, 2, (-9));
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(1, 1, 0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      int[] intArray0 = new int[0];
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1613, 1613, 1613, intArray0);
+      tiffRasterDataInt0.getIntData();
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(1613, (-1), (-1));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1613, -1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[0] = 4085;
+      intArray0[1] = 1257;
+      intArray0[1] = 4085;
+      intArray0[3] = 4085;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4085, 4085, 4085, intArray0);
+      tiffRasterDataInt0.getIntData();
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(193, 2706, 1257);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -487940452
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[0] = 4085;
+      intArray0[1] = 1257;
+      intArray0[1] = 4085;
+      intArray0[3] = 4085;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4085, 4085, 4085, intArray0);
+      tiffRasterDataInt0.getIntData();
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(1, 4062, 1257);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -482401384
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      int int0 = 1967;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1967, 1);
+      int int1 = 0;
+      int int2 = 1;
+      tiffRasterDataInt0.setValue(0, 1, 0, 0.0F);
+      tiffRasterDataInt0.setIntValue(0, 0, 0, 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(9, 9);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (9, 9)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 1967;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1967, 1);
+      int int2 = 0;
+      tiffRasterDataInt0.setValue(0, 0, 0, 0.0F);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(0, 0, 1, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Sample index out of range, value 1 where valid range is (0,0)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.setValue(2, 0, (-5765.0F));
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(0, 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      int int0 = 17;
+      int int1 = 1967;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(17, 1967, 17);
+      int int2 = 0;
+      int int3 = 1;
+      tiffRasterDataInt0.setValue(0, 1, 0, 0.0F);
+      int int4 = 2124;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(0, 0, 2124, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Sample index out of range, value 2124 where valid range is (0,16)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 9992;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[6] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 145, 4155, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(145, 0, 1659);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 145
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(0, 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      int int0 = 1967;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1967, 1);
+      int int1 = 0;
+      int int2 = 1;
+      tiffRasterDataInt0.setValue(0, 1, 0, 0.0F);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(0, 0, 2124, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Sample index out of range, value 2124 where valid range is (0,0)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 4157;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[6] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 4157, 4155, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(1020, 4147);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 17252540
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 4157;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[6] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 4157, 4155, intArray0);
+      float float0 = 1.0F;
+      tiffRasterDataInt0.getDataType();
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getSimpleStatistics((-1.0F));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      tiffRasterDataInt0.getSimpleStatistics(Float.NaN);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(1, 2848, 1, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 2848)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 4157;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[6] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 4157, 4155, intArray0);
+      int int2 = 501;
+      int int3 = 7977;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getData();
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      int int0 = 976;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(3621409, 976);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int int2 = 4157;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 4157;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[2] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 4157, 4155, intArray0);
+      int int3 = (-639);
+      int int4 = 0;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(4155, 4147);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 17255675
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      int int0 = 20;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(20, 20, 20);
+      tiffRasterDataInt0.setValue(1, 1, (float) 1);
+      tiffRasterDataInt0.setIntValue(2, 2, 20);
+      float float0 = 0.0F;
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(2, (-1), (-1));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, -1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      int int0 = (-1005);
+      int int1 = (-568);
+      int[] intArray0 = new int[7];
+      intArray0[0] = 4155;
+      intArray0[1] = (-568);
+      intArray0[2] = 4160;
+      intArray0[3] = 4157;
+      intArray0[4] = 4147;
+      intArray0[5] = 4155;
+      intArray0[6] = (-1005);
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4160, 4157, 4155, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(4155, 0, 3211, 1959);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -306362373
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[9];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      tiffRasterDataInt0.getIntValue(1, 1);
+      float float0 = (-1356.2F);
+      int int1 = 1;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(2, (-1), 3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, -1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      int int0 = 1;
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      float float0 = 2011.92F;
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      tiffRasterDataInt0.getSimpleStatistics((-2583.5127F));
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(2, 1, (-1473), 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, 1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      int int0 = 3228;
+      int[] intArray0 = new int[14];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      int int1 = 9992;
+      int int2 = (-1);
+      float float0 = 2676.0469F;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getSimpleStatistics();
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(1, 1, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 0;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(1, 696);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 696)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      tiffRasterDataInt0.getIntValue(1, 1);
+      float float0 = (-1356.2F);
+      int int0 = 1;
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(2, (-1), 3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, -1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(1, 4549, (-1), 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 4549)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      tiffRasterDataInt0.getSimpleStatistics(0.0F);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(1, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      int int0 = 20;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(20, 20, 20);
+      tiffRasterDataInt0.setIntValue(2, 2, 20);
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      // Undeclared exception!
+      tiffRasterDataInt0.getSimpleStatistics(0.0F);
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1968, 9);
+      // Undeclared exception!
+      tiffRasterDataInt0.getData();
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[9];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      int int1 = 0;
+      intArray0[8] = 0;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics((float) 2);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getIntValue(2, 696);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, 696)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      int int0 = 1928;
+      intArray0[2] = 1928;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.setIntValue(1, 1, 1928, 1928);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1, 1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      int int0 = 20;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(20, 20, 20);
+      tiffRasterDataInt0.setIntValue(2, 2, 20);
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getIntData();
+      // Undeclared exception!
+      tiffRasterDataInt0.getSimpleStatistics(0.0F);
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      int int0 = 3621409;
+      int int1 = 976;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(3621409, 3621409, 976, (int[]) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      int int0 = 1594;
+      int int1 = 914;
+      int[] intArray0 = new int[2];
+      intArray0[0] = 914;
+      intArray0[1] = 1594;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1594, 1594, 914, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      assertNotNull(tiffRasterDataType0);
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertNotNull(tiffRasterStatistics0);
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterStatistics0.getCountOfSamples());
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterStatistics0.getCountOfNulls());
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3037, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      int int0 = 494;
+      int int1 = (-687);
+      int int2 = (-1);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertFalse(tiffRasterStatistics0.isAnExcludedValueSet());
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertNotNull(tiffRasterStatistics0);
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterStatistics0.getCountOfSamples());
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      assertFalse(tiffRasterStatistics0.isAnExcludedValueSet());
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertEquals(0, tiffRasterStatistics1.getCountOfSamples());
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      assertFalse(tiffRasterStatistics1.isAnExcludedValueSet());
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      assertEquals(tiffRasterStatistics0, tiffRasterStatistics2);
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      intArray0[0] = 1;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      intArray0[7] = 2;
+      intArray0[8] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      TiffRasterStatistics tiffRasterStatistics0 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics1 = tiffRasterDataInt0.getSimpleStatistics();
+      TiffRasterStatistics tiffRasterStatistics2 = tiffRasterDataInt0.getSimpleStatistics((float) 1);
+      TiffRasterStatistics tiffRasterStatistics3 = tiffRasterDataInt0.getSimpleStatistics(2011.92F);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      int int0 = 2169;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(210, 2169);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      int int0 = 2169;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(210, 2169);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      int int0 = 2169;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(210, 2169);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      int int0 = 2169;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(210, 2169);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      int int0 = 2169;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(210, 2169);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      int int0 = 95;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(95, 95);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      int int0 = 95;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(95, 95);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      int int0 = 95;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(95, 95);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      int int0 = 95;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(95, 95);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      int int0 = 95;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(95, 95);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(867, 2, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(867, 2, 2);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(867, 2, 2);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(867, 2, 2);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(867, 2, 2);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      int int0 = 1;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test188()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 0;
+      intArray0[4] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, intArray0);
+      float[] floatArray0 = tiffRasterDataInt0.getData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test189()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test190()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test191()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test192()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test193()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test194()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test195()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test196()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test197()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test198()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test199()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test200()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test201()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test202()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test203()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      float float0 = 0.0F;
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test204()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      float float0 = 0.0F;
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test205()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      float float0 = 0.0F;
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test206()  throws Throwable  {
+      int int0 = 14;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(14, 14);
+      tiffRasterDataInt0.setIntValue(2, 2, 14);
+      float float0 = 0.0F;
+      tiffRasterDataInt0.setIntValue(2, 2, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test207()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 2457;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 2457);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test208()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 2457;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 2457);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test209()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 2457;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 2457);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test210()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 2457;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 2457);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test211()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 2457;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 2457);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test212()  throws Throwable  {
+      int int0 = 1;
+      int int1 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, (int[]) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test213()  throws Throwable  {
+      int int0 = 968;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(968, 968);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test214()  throws Throwable  {
+      int int0 = 968;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(968, 968);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test215()  throws Throwable  {
+      int int0 = 968;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(968, 968);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test216()  throws Throwable  {
+      int int0 = 968;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(968, 968);
+      assertEquals(0, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test217()  throws Throwable  {
+      int int0 = 968;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(968, 968);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test218()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test219()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test220()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test221()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test222()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test223()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test224()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test225()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(0, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test226()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test227()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test228()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(301, 301);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test229()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(301, 301);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test230()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(301, 301);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test231()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(301, 301);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test232()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(301, 301);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test233()  throws Throwable  {
+      int int0 = 1862;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(272, 1862);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test234()  throws Throwable  {
+      int int0 = 1862;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(272, 1862);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test235()  throws Throwable  {
+      int int0 = 1862;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(272, 1862);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test236()  throws Throwable  {
+      int int0 = 1862;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(272, 1862);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test237()  throws Throwable  {
+      int int0 = 1862;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(272, 1862);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test238()  throws Throwable  {
+      int int0 = 935;
+      int[] intArray0 = new int[1];
+      intArray0[0] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(935, 1, intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test239()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test240()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test241()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test242()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test243()  throws Throwable  {
+      int int0 = 712;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(712, 712);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test244()  throws Throwable  {
+      int int0 = 1910;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1910, 1475, 1475);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test245()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(331, 331);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test246()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(331, 331);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test247()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(331, 331);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test248()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(331, 331);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test249()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(331, 331);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test250()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test251()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test252()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test253()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test254()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test255()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test256()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test257()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test258()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test259()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test260()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test261()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = (-2086);
+      intArray0[1] = 1;
+      intArray0[2] = 1;
+      intArray0[3] = 1;
+      intArray0[4] = 1;
+      intArray0[5] = 1;
+      intArray0[6] = 1;
+      intArray0[7] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, 1, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test262()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test263()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test264()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test265()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test266()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test267()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test268()  throws Throwable  {
+      int int0 = 1340;
+      int[] intArray0 = new int[7];
+      intArray0[0] = 1340;
+      intArray0[1] = 1340;
+      intArray0[2] = 1340;
+      intArray0[3] = 1340;
+      intArray0[4] = 1340;
+      intArray0[5] = 1340;
+      intArray0[6] = 1340;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1340, 1340, 1340, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test269()  throws Throwable  {
+      int int0 = (-1651);
+      int[] intArray0 = new int[2];
+      intArray0[0] = (-1651);
+      intArray0[1] = (-1651);
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt((-1651), (-1651), intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test270()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test271()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test272()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(0, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test273()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test274()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test275()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test276()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test277()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test278()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test279()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test280()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test281()  throws Throwable  {
+      int int0 = 2;
+      int[] intArray0 = new int[8];
+      intArray0[0] = 2;
+      intArray0[1] = 2;
+      intArray0[2] = 2;
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 0;
+      intArray0[6] = 2;
+      intArray0[7] = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, 2, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test282()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      assertNotNull(tiffRasterDataInt0);
+}
+ @Test(timeout = 4000)
+  public void test283()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test284()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      assertNotNull(tiffRasterDataInt0.getDataType());
+}
+ @Test(timeout = 4000)
+  public void test285()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getSamplesPerPixel());
+}
+ @Test(timeout = 4000)
+  public void test286()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      assertEquals(1, tiffRasterDataInt0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test287()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test288()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[0] = 3228;
+      intArray0[1] = 3228;
+      intArray0[2] = 3228;
+      intArray0[3] = 3228;
+      intArray0[4] = 3228;
+      intArray0[5] = 3228;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(3228, 3228, 3228, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test289()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1;
+      intArray0[1] = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1, 516, 516, intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test290()  throws Throwable  {
+      int int0 = 0;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(0, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test291()  throws Throwable  {
+      int int0 = (-1239);
+      int[] intArray0 = new int[9];
+      intArray0[0] = (-1239);
+      intArray0[1] = 0;
+      intArray0[2] = 0;
+      intArray0[3] = 0;
+      intArray0[4] = 0;
+      intArray0[5] = 0;
+      intArray0[6] = (-1239);
+      intArray0[7] = 0;
+      intArray0[8] = 0;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt((-1239), 0, (-1239), intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test292()  throws Throwable  {
+      int int0 = (-1);
+      int int1 = (-1190);
+      int int2 = (-793);
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt((-1), (-1190), (-793));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test293()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(0, 0);
+      tiffRasterDataInt0.setIntValue(2, 0, (-1));
+      int[] intArray0 = tiffRasterDataInt0.getIntData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test294()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1770, 1770, intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test295()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1);
+      TiffRasterDataType tiffRasterDataType0 = tiffRasterDataInt0.getDataType();
+      assertNotNull(tiffRasterDataType0);
+}
+ @Test(timeout = 4000)
+  public void test296()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[1] = 4085;
+      intArray0[0] = 0;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(4085, 4085, 4085, intArray0);
+      int[] intArray1 = tiffRasterDataInt0.getIntData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test297()  throws Throwable  {
+      int int0 = 1967;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(1, 1967, 1);
+      int int1 = 1;
+      tiffRasterDataInt0.setValue(0, 1, 0, 0.0F);
+      tiffRasterDataInt0.setIntValue(0, 1, 0, 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(1967, 1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (1967, 1)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test298()  throws Throwable  {
+      int int0 = 1;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1, 1, (int[]) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test299()  throws Throwable  {
+      int int0 = 1382;
+      int int1 = 829;
+      int[] intArray0 = new int[0];
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(1382, 829, 1382, intArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test300()  throws Throwable  {
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(16, 16, 16);
+      tiffRasterDataInt0.setValue(2, 2, (float) 2);
+      tiffRasterDataInt0.setIntValue(2, 2, 16);
+      tiffRasterDataInt0.getIntValue(2, 2, 2);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getValue(1, 1, 0);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(16, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (16, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test301()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[3] = 2;
+      intArray0[4] = 2;
+      intArray0[5] = 2;
+      intArray0[6] = 63;
+      TiffRasterDataInt tiffRasterDataInt0 = new TiffRasterDataInt(2, 2, intArray0);
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics();
+      tiffRasterDataInt0.getSimpleStatistics(2010.4875F);
+      tiffRasterDataInt0.getIntValue(1, 1);
+      // Undeclared exception!
+      try { 
+        tiffRasterDataInt0.getValue(2, 2, 3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Coordinates out of range (2, 2)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test302()  throws Throwable  {
+      int int0 = 2;
+      TiffRasterDataInt tiffRasterDataInt0 = null;
+      try {
+        tiffRasterDataInt0 = new TiffRasterDataInt(2, 4075, 2, (int[]) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Specified data does not contain sufficient elements
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterDataInt", e);
+      }
+  }

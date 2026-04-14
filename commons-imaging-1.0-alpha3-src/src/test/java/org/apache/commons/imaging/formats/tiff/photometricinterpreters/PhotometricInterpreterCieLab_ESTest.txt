@@ -1,0 +1,49 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[1] = 1540;
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(1540, intArray0, 0, 2, 1540);
+      ImageBuilder imageBuilder0 = new ImageBuilder(1540, 1540, false);
+      photometricInterpreterCieLab0.interpretPixel(imageBuilder0, intArray0, 1540, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1540;
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(1540, intArray0, 0, 2, 1540);
+      ImageBuilder imageBuilder0 = new ImageBuilder(1540, 1540, false);
+      photometricInterpreterCieLab0.interpretPixel(imageBuilder0, intArray0, 1540, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(0, intArray0, 32, 0, 1339);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCieLab0.interpretPixel((ImageBuilder) null, intArray0, (-695), 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterCieLab", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(2, intArray0, 32, 2, 652);
+      ImageBuilder imageBuilder0 = new ImageBuilder(32, 32, false, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCieLab0.interpretPixel(imageBuilder0, intArray0, 65280, 32);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 66304
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }

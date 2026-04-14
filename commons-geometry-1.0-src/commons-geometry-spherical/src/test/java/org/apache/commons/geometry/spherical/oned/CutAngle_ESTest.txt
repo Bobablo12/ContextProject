@@ -1,0 +1,682 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1766.3328104022414), (-1766.3328104022414));
+      Point1S point1S0 = Point1S.from(vector2D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-1766.3328104022414), (double)(-864), Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      cutAngle0.contains(point1S0);
+      boolean boolean0 = cutAngle0.contains(point1S0);
+      boolean boolean1 = cutAngle0.contains(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1766.3328104022414), (-1766.3328104022414));
+      Point1S point1S0 = Point1S.from(vector2D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-1766.3328104022414), (double)(-864), Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      cutAngle0.contains(point1S0);
+      boolean boolean0 = cutAngle0.contains(point1S0);
+      boolean boolean1 = cutAngle0.contains(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1766.3328104022414), (-1766.3328104022414));
+      Point1S point1S0 = Point1S.from(vector2D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-1766.3328104022414), (double)(-864), Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      cutAngle0.contains(point1S0);
+      boolean boolean0 = cutAngle0.contains(point1S0);
+      boolean boolean1 = cutAngle0.contains(point1S0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.5707963267948966);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createNegation();
+      PolarCoordinates polarCoordinates0 = PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+      Point1S point1S0 = Point1S.from(polarCoordinates0);
+      Point1S point1S1 = transform1S0.apply(point1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      CutAngle cutAngle2 = cutAngle1.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);
+      cutAngle0.project((Point1S) null);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.project(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(802.44825820703);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(Double.NEGATIVE_INFINITY);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.project(point1S0);
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(802.44825820703);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(Double.NEGATIVE_INFINITY);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.project(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      cutAngle0.project(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Point1S point1S1 = Point1S.of(2679.6859180501187);
+      double double0 = cutAngle0.offset(point1S1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(1510.2752);
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, (Precision.DoubleEquivalence) null);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      CutAngle cutAngle2 = cutAngle1.reverse();
+      double double0 = cutAngle2.offset(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.isPositiveFacing();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, (Precision.DoubleEquivalence) null);
+      cutAngle0.getPoint();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(Double.POSITIVE_INFINITY);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.getPoint();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.getPoint();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(802.44825820703);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getPoint();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(802.44825820703);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getPoint();
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Angle.Turn angle_Turn0 = Angle.Turn.ZERO;
+      Angle.Deg angle_Deg0 = angle_Turn0.toDeg();
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, (Precision.DoubleEquivalence) null);
+      cutAngle0.getNormalizedAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createNegation();
+      PolarCoordinates polarCoordinates0 = PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+      Point1S point1S0 = Point1S.from(polarCoordinates0);
+      Point1S point1S1 = transform1S0.apply(point1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getNormalizedAzimuth();
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.createNegation();
+      PolarCoordinates polarCoordinates0 = PolarCoordinates.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+      Point1S point1S0 = Point1S.from(polarCoordinates0);
+      Point1S point1S1 = transform1S0.apply(point1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getNormalizedAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.getAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(2560.42699);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getAzimuth();
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Point1S point1S0 = Point1S.of(2560.42699);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      cutAngle1.getAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation(1.0);
+      // Undeclared exception!
+      try { 
+        cutAngle0.transform(transform1S0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.Transform1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Angle.Deg angle_Deg0 = Angle.Deg.ZERO;
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        cutAngle0.similarOrientation((Hyperplane<Point1S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        cutAngle0.offset((Point1S) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        cutAngle0.getNormalizedAzimuth();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        cutAngle0.getAzimuth();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.of(0.0);
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        cutAngle0.eq(cutAngle0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.Point1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Angle.Turn angle_Turn0 = Angle.Turn.ZERO;
+      Angle.Deg angle_Deg0 = angle_Turn0.toDeg();
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        cutAngle0.classify(point1S0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.Point1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = cutAngle0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = cutAngle0.classify(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.contains(point1S0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.PI;
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(6.283185307179586, 6.283185307179586).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.contains(point1S0);
+      cutAngle0.classify(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Angle.Turn angle_Turn0 = Angle.Turn.of(2917.6324024779);
+      Angle.Deg angle_Deg0 = angle_Turn0.toDeg();
+      Point1S point1S0 = Point1S.of((Angle) angle_Deg0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      double double0 = cutAngle0.offset(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      double double0 = cutAngle1.offset(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      double double0 = cutAngle1.offset(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation((-1568.679681));
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      boolean boolean0 = cutAngle1.equals(cutAngle0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation((-1568.679681));
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      boolean boolean0 = cutAngle1.equals(cutAngle0);
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.createRotation((-1568.679681));
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      boolean boolean0 = cutAngle1.equals(cutAngle0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = cutAngle0.equals(cutAngle1);
+      assertTrue(cutAngle1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = cutAngle0.equals(cutAngle1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      boolean boolean0 = cutAngle0.equals(cutAngle1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.equals(cutAngle0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.equals(cutAngle0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.ABSOLUTE;
+      boolean boolean0 = cutAngle0.equals(axisReferenceFrame0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.ABSOLUTE;
+      boolean boolean0 = cutAngle0.equals(axisReferenceFrame0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.similarOrientation(cutAngle0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      boolean boolean0 = cutAngle0.similarOrientation(cutAngle0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      boolean boolean0 = cutAngle0.similarOrientation(cutAngle1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Transform1S transform1S0 = Transform1S.identity();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      boolean boolean0 = cutAngle0.equals(cutAngle1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-0.9999999999)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = cutAngle0.classify(point1S0);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((-0.9999999999)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = cutAngle0.classify(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      boolean boolean0 = cutAngle0.eq(cutAngle1, precision_DoubleEquivalence1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      boolean boolean0 = cutAngle0.eq(cutAngle0, precision_DoubleEquivalence1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      boolean boolean0 = cutAngle0.eq(cutAngle0, precision_DoubleEquivalence1);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      boolean boolean0 = cutAngle0.eq(cutAngle0, precision_DoubleEquivalence1);
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eqZero(anyDouble());
+      boolean boolean0 = cutAngle0.eq(cutAngle0, precision_DoubleEquivalence1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Point1S point1S0 = Point1S.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.hashCode();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, true, precision_DoubleEquivalence0);
+      String string0 = cutAngle0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.getNormalizedAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.of(0.0);
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = cutAngle0.isPositiveFacing();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.of(0.0);
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      cutAngle0.getAzimuth();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Angle.Rad angle_Rad0 = Angle.Rad.of(0.0);
+      Point1S point1S0 = Point1S.of((Angle) angle_Rad0);
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, (Precision.DoubleEquivalence) null);
+      cutAngle0.getPoint();
+      assertTrue(cutAngle0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, precision_DoubleEquivalence0);
+      cutAngle0.span();
+      assertTrue(cutAngle0.isPositiveFacing());
+}

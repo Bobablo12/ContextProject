@@ -1,0 +1,142 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap0 = new HashSetValuedHashMap<String, Object>();
+      Map<String, Collection<Object>> map0 = hashSetValuedHashMap0.asMap();
+      hashSetValuedHashMap0.setMap(map0);
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap1 = null;
+      try {
+        hashSetValuedHashMap1 = new HashSetValuedHashMap<String, Object>(hashSetValuedHashMap0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HashSetValuedHashMap<Collection<Object>, Collection<Object>> hashSetValuedHashMap0 = new HashSetValuedHashMap<Collection<Object>, Collection<Object>>(0);
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap1 = new HashSetValuedHashMap<String, Object>(0);
+      Map<String, Collection<Object>> map0 = hashSetValuedHashMap1.asMap();
+      HashSetValuedHashMap<Object, Collection<Object>> hashSetValuedHashMap2 = new HashSetValuedHashMap<Object, Collection<Object>>(map0);
+      HashSet<Collection<Object>> hashSet0 = hashSetValuedHashMap2.createCollection();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap0 = null;
+      try {
+        hashSetValuedHashMap0 = new HashSetValuedHashMap<String, Object>((Map<? extends String, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.multimap.HashSetValuedHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HashSetValuedHashMap<Object, String> hashSetValuedHashMap0 = new HashSetValuedHashMap<Object, String>();
+      hashSetValuedHashMap0.keys();
+      HashSet<String> hashSet0 = hashSetValuedHashMap0.createCollection();
+      assertEquals(1, hashSet0.size());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HashSetValuedHashMap<Integer, Collection<Object>> hashSetValuedHashMap0 = new HashSetValuedHashMap<Integer, Collection<Object>>();
+      HashSetValuedHashMap<Object, Collection<Object>> hashSetValuedHashMap1 = new HashSetValuedHashMap<Object, Collection<Object>>();
+      hashSetValuedHashMap1.createCollection();
+      HashSetValuedHashMap<Object, Object> hashSetValuedHashMap2 = new HashSetValuedHashMap<Object, Object>();
+      hashSetValuedHashMap2.createCollection();
+      int int0 = 1272;
+      HashSetValuedHashMap<String, Integer> hashSetValuedHashMap3 = new HashSetValuedHashMap<String, Integer>(1272);
+      hashSetValuedHashMap3.keys();
+      HashSetValuedHashMap<Object, Integer> hashSetValuedHashMap4 = new HashSetValuedHashMap<Object, Integer>(hashSetValuedHashMap3);
+      hashSetValuedHashMap4.createCollection();
+      HashSetValuedHashMap<Object, String> hashSetValuedHashMap5 = new HashSetValuedHashMap<Object, String>();
+      hashSetValuedHashMap5.createCollection();
+      HashSetValuedHashMap<String, String> hashSetValuedHashMap6 = null;
+      try {
+        hashSetValuedHashMap6 = new HashSetValuedHashMap<String, String>((MultiValuedMap<? extends String, ? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.multimap.HashSetValuedHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      HashSetValuedHashMap<String, Integer> hashSetValuedHashMap0 = new HashSetValuedHashMap<String, Integer>();
+      hashSetValuedHashMap0.createCollection();
+      hashSetValuedHashMap0.wrappedCollection((String) null);
+      hashSetValuedHashMap0.keys();
+      HashSetValuedHashMap<Collection<Object>, Object> hashSetValuedHashMap1 = new HashSetValuedHashMap<Collection<Object>, Object>(1784, 1784);
+      hashSetValuedHashMap1.values();
+      hashSetValuedHashMap1.createCollection();
+      hashSetValuedHashMap0.createCollection();
+      HashSetValuedHashMap<Integer, Object> hashSetValuedHashMap2 = new HashSetValuedHashMap<Integer, Object>();
+      hashSetValuedHashMap2.createCollection();
+      HashSetValuedHashMap<Object, Object> hashSetValuedHashMap3 = new HashSetValuedHashMap<Object, Object>((-1450));
+      ObjectInputStream objectInputStream0 = mock(ObjectInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(objectInputStream0).readInt();
+      HashSetValuedHashMap<String, String> hashSetValuedHashMap4 = new HashSetValuedHashMap<String, String>();
+      HashSetValuedHashMap<String, String> hashSetValuedHashMap5 = new HashSetValuedHashMap<String, String>(hashSetValuedHashMap4);
+      hashSetValuedHashMap5.keys();
+      hashSetValuedHashMap3.putAll((MultiValuedMap<?, ?>) hashSetValuedHashMap5);
+      HashSet<Object> hashSet0 = hashSetValuedHashMap2.createCollection();
+      hashSetValuedHashMap5.removeMapping(hashSet0, "");
+      hashSetValuedHashMap3.doReadObject(objectInputStream0);
+      // Undeclared exception!
+      try { 
+        hashSetValuedHashMap3.createCollection();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal initial capacity: -1450
+         //
+         verifyException("java.util.HashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      HashSetValuedHashMap<Object, String> hashSetValuedHashMap0 = null;
+      try {
+        hashSetValuedHashMap0 = new HashSetValuedHashMap<Object, String>((-1598), (-1598));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal initial capacity: -1598
+         //
+         verifyException("java.util.HashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      HashSetValuedHashMap<String, String> hashSetValuedHashMap0 = new HashSetValuedHashMap<String, String>();
+      HashSetValuedHashMap<Object, String> hashSetValuedHashMap1 = new HashSetValuedHashMap<Object, String>(hashSetValuedHashMap0);
+      HashSet<String> hashSet0 = hashSetValuedHashMap1.createCollection();
+      assertEquals(1, hashSet0.size());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HashSetValuedHashMap<Object, Collection<Object>> hashSetValuedHashMap0 = new HashSetValuedHashMap<Object, Collection<Object>>((-1));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HashSetValuedHashMap<Collection<Object>, Integer> hashSetValuedHashMap0 = new HashSetValuedHashMap<Collection<Object>, Integer>();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap0 = new HashSetValuedHashMap<String, Object>();
+      HashSetValuedHashMap<String, Object> hashSetValuedHashMap1 = new HashSetValuedHashMap<String, Object>(hashSetValuedHashMap0);
+      HashSetValuedHashMap<Object, Object> hashSetValuedHashMap2 = new HashSetValuedHashMap<Object, Object>(0);
+      hashSetValuedHashMap2.createCollection();
+      Map<String, Collection<Object>> map0 = hashSetValuedHashMap0.asMap();
+      HashSetValuedHashMap<String, Collection<Object>> hashSetValuedHashMap3 = new HashSetValuedHashMap<String, Collection<Object>>(map0);
+      ;
+}

@@ -1,0 +1,76 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(true);
+      byte[] byteArray0 = new byte[7];
+      // Undeclared exception!
+      try { 
+        rleReader0.read((InputStream) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(false);
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      rleReader0.read(byteArrayInputStream0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(true);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[1] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      rleReader0.read(byteArrayInputStream0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(true);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[1] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      rleReader0.read(byteArrayInputStream0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(true);
+      Enumeration<ByteArrayInputStream> enumeration0 = (Enumeration<ByteArrayInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      byte[] byteArray0 = new byte[8];
+      try { 
+        rleReader0.read(sequenceInputStream0, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error reading image data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RleReader rleReader0 = new RleReader(false);
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(sequenceInputStream0);
+      byte[] byteArray0 = new byte[4];
+      try { 
+        rleReader0.read(pushbackInputStream0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Premature end of file reading image data
+         //
+         verifyException("org.apache.commons.imaging.formats.pcx.RleReader", e);
+      }
+  }

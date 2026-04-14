@@ -1,0 +1,57 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Predicate<Object> predicate0 = FalsePredicate.falsePredicate();
+      NullIsFalsePredicate<Object> nullIsFalsePredicate0 = new NullIsFalsePredicate<Object>(predicate0);
+      LinkedHashSet<String> linkedHashSet0 = new LinkedHashSet<String>();
+      PredicatedSet<String> predicatedSet0 = PredicatedSet.predicatedSet((Set<String>) linkedHashSet0, (Predicate<? super String>) nullIsFalsePredicate0);
+      Set<String> set0 = predicatedSet0.decorated();
+      assertTrue(set0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedHashSet<String> linkedHashSet0 = new LinkedHashSet<String>();
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(comparator0).compare(any() , any());
+      linkedHashSet0.add("b");
+      Predicate<Object> predicate0 = ComparatorPredicate.comparatorPredicate((Object) linkedHashSet0, comparator0);
+      PredicatedSet<String> predicatedSet0 = new PredicatedSet<String>(linkedHashSet0, predicate0);
+      Set<String> set0 = predicatedSet0.decorated();
+      assertTrue(set0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 4);
+      InvokerTransformer<Object, Boolean> invokerTransformer0 = new InvokerTransformer<Object, Boolean>("GREATER", classArray0, classArray0);
+      Integer integer0 = new Integer((-2751));
+      linkedHashSet0.add(integer0);
+      TransformerPredicate<Object> transformerPredicate0 = new TransformerPredicate<Object>(invokerTransformer0);
+      // Undeclared exception!
+      try { 
+        PredicatedSet.predicatedSet((Set<Integer>) linkedHashSet0, (Predicate<? super Integer>) transformerPredicate0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // InvokerTransformer: The method 'GREATER' on 'class java.lang.Integer' does not exist
+         //
+         verifyException("org.apache.commons.collections4.functors.InvokerTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EqualPredicate<Object> equalPredicate0 = new EqualPredicate<Object>((Object) null);
+      LinkedHashSet<Predicate<String>> linkedHashSet0 = new LinkedHashSet<Predicate<String>>();
+      DefaultEquator<String> defaultEquator0 = DefaultEquator.defaultEquator();
+      EqualPredicate<String> equalPredicate1 = new EqualPredicate<String>("", defaultEquator0);
+      linkedHashSet0.add(equalPredicate1);
+      // Undeclared exception!
+      try { 
+        PredicatedSet.predicatedSet((Set<Predicate<String>>) linkedHashSet0, (Predicate<? super Predicate<String>>) equalPredicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.functors.EqualPredicate", e);
+      }
+  }

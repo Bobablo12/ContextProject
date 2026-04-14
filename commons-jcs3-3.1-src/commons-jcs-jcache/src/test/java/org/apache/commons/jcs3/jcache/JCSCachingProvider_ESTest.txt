@@ -1,0 +1,241 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.resolve(jCSCachingProvider0.DEFAULT_URI, "");
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      CacheManager cacheManager0 = jCSCachingProvider0.getCacheManager(uRI0, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      CacheManager cacheManager0 = jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+      jCSCachingProvider0.remove(cacheManager0);
+      assertTrue(cacheManager0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.remove((CacheManager) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCachingProvider", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      URI uRI0 = MockURI.aFileURI;
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0, (Properties) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      URI uRI0 = MockURI.aHttpURI;
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0, properties0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // org.evosuite.runtime.mock.java.lang.MockThrowable: Could not find: foo.bar
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCachingManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.URI("t-BCrOVRGh/C", "7Xx:#", "");
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Properties properties0 = new Properties();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0, properties0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // URI is not absolute
+         //
+         verifyException("org.evosuite.runtime.mock.java.net.MockURI", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.aFTPURI;
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.aHttpURI;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // org.evosuite.runtime.mock.java.lang.MockThrowable: Could not find: foo.bar
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCachingManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      URI uRI0 = MockURI.URI("");
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.getCacheManager(uRI0, classLoader0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // URI is not absolute
+         //
+         verifyException("org.evosuite.runtime.mock.java.net.MockURI", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.close(jCSCachingProvider0.DEFAULT_URI, (ClassLoader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      // Undeclared exception!
+      try { 
+        jCSCachingProvider0.close((ClassLoader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      jCSCachingProvider0.getCacheManager();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      CacheManager cacheManager0 = jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      CacheManager cacheManager0 = jCSCachingProvider0.getCacheManager((URI) null, classLoader0, properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = jCSCachingProvider0.getDefaultURI();
+      assertEquals(1, uRI0.getPort());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      OptionalFeature optionalFeature0 = OptionalFeature.STORE_BY_REFERENCE;
+      boolean boolean0 = jCSCachingProvider0.isSupported(optionalFeature0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      boolean boolean0 = jCSCachingProvider0.isSupported((OptionalFeature) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      URI uRI0 = MockURI.aFTPURI;
+      jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+      jCSCachingProvider0.close(uRI0, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+      jCSCachingProvider0.close(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      jCSCachingProvider0.close(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, classLoader0);
+      jCSCachingProvider0.close(classLoader0);
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      jCSCachingProvider0.close(classLoader0);
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      jCSCachingProvider0.close();
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      CacheManager cacheManager0 = jCSCachingProvider0.getCacheManager(jCSCachingProvider0.DEFAULT_URI, (ClassLoader) null, properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      jCSCachingProvider0.getCacheManager();
+      jCSCachingProvider0.close();
+  }

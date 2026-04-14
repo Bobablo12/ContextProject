@@ -1,0 +1,81 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      Iterator<Integer> iterator0 = (Iterator<Integer>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(integer0).when(iterator0).next();
+      IteratorEnumeration<Integer> iteratorEnumeration0 = new IteratorEnumeration<Integer>(iterator0);
+      Integer integer1 = iteratorEnumeration0.nextElement();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(iterator0).hasNext();
+      IteratorEnumeration<String> iteratorEnumeration0 = new IteratorEnumeration<String>(iterator0);
+      boolean boolean0 = iteratorEnumeration0.hasMoreElements();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Iterator<Integer> iterator0 = (Iterator<Integer>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(iterator0).toString();
+      IteratorEnumeration<Integer> iteratorEnumeration0 = new IteratorEnumeration<Integer>(iterator0);
+      Iterator<? extends Integer> iterator1 = iteratorEnumeration0.getIterator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>((Iterator<?>) null);
+      // Undeclared exception!
+      try { 
+        iteratorEnumeration0.nextElement();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.IteratorEnumeration", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(iterator0).next();
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>(iterator0);
+      Object object0 = iteratorEnumeration0.nextElement();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>((Iterator<?>) null);
+      Iterator<?> iterator0 = iteratorEnumeration0.getIterator();
+      assertNotNull(iterator0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(iterator0).hasNext();
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>(iterator0);
+      boolean boolean0 = iteratorEnumeration0.hasMoreElements();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      IteratorEnumeration<Object> iteratorEnumeration0 = new IteratorEnumeration<Object>(iterator0);
+      iteratorEnumeration0.setIterator((Iterator<?>) null);
+      // Undeclared exception!
+      try { 
+        iteratorEnumeration0.hasMoreElements();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.IteratorEnumeration", e);
+      }
+  }

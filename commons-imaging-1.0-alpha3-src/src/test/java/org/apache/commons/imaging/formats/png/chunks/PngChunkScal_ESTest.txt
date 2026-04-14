@@ -1,0 +1,125 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      byteArray0[0] = (byte)1;
+      byteArray0[1] = (byte)48;
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal(3, 3, 206, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG sCAL chunk missing the y axis value.
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      byteArray0[0] = (byte)2;
+      byteArray0[1] = (byte)54;
+      byteArray0[4] = (byte)54;
+      PngChunkScal pngChunkScal0 = new PngChunkScal((byte)8, (-1837), (-1837), byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)1;
+      byteArray0[1] = (byte)48;
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal((byte)8, (-1780), (-4), byteArray0);
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal((-543), (-543), 8, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal(8, 1232, 0, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      byteArray0[0] = (byte)2;
+      byteArray0[1] = (byte)54;
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal(2, (byte)8, (byte)8, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG sCAL chunk missing the y axis value.
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      byteArray0[0] = (byte)2;
+      byteArray0[1] = (byte)54;
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal((byte)8, (-1837), (-1837), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG sCAL error reading axis value - \u0000\u0000\u0000\u0000\u0000
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)1;
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal((byte)1, (byte)1, (byte)1, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG sCAL x and y axis value separator not found.
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      PngChunkScal pngChunkScal0 = null;
+      try {
+        pngChunkScal0 = new PngChunkScal((-59), (-59), (-59), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG sCAL invalid unit specifier: 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkScal", e);
+      }
+  }

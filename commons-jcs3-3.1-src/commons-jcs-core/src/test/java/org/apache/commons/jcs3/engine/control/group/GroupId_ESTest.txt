@@ -1,0 +1,77 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      GroupId groupId0 = new GroupId("*", "+");
+      String string0 = groupId0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      GroupId groupId0 = new GroupId("*", "+");
+      groupId0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GroupId groupId0 = new GroupId("", "S(<Et9M32%;NQ");
+      boolean boolean0 = groupId0.equals(groupId0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      GroupId groupId0 = new GroupId("+", "+");
+      GroupId groupId1 = new GroupId("+", "*");
+      boolean boolean0 = groupId0.equals(groupId1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      GroupId groupId0 = new GroupId("+", "+");
+      GroupId groupId1 = new GroupId("+", "*");
+      boolean boolean0 = groupId0.equals(groupId1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      GroupId groupId0 = new GroupId("+", "+");
+      GroupId groupId1 = new GroupId("*", "+");
+      boolean boolean0 = groupId0.equals(groupId1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      GroupId groupId0 = new GroupId("+", "+");
+      GroupId groupId1 = new GroupId("*", "+");
+      boolean boolean0 = groupId0.equals(groupId1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      GroupId groupId0 = new GroupId("+", "+");
+      boolean boolean0 = groupId0.equals("+");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      GroupId groupId0 = null;
+      try {
+        groupId0 = new GroupId("l!. d!", (String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // groupName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      GroupId groupId0 = null;
+      try {
+        groupId0 = new GroupId((String) null, (String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cacheName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }

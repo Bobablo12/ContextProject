@@ -1,0 +1,271 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>[] cacheWriterArray0 = (CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>[]) Array.newInstance(CacheWriter.class, 4);
+      NoWriter<ExpiryPolicy, CacheLoader<Object, String>> noWriter0 = new NoWriter<ExpiryPolicy, CacheLoader<Object, String>>();
+      cacheWriterArray0[0] = (CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>) noWriter0;
+      CompositeCacheWriter<ExpiryPolicy, CacheLoader<Object, String>> compositeCacheWriter0 = new CompositeCacheWriter<ExpiryPolicy, CacheLoader<Object, String>>(cacheWriterArray0);
+      cacheWriterArray0[1] = (CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>) compositeCacheWriter0;
+      NoWriter<ExpiryPolicy, CacheLoader<Object, String>> noWriter1 = new NoWriter<ExpiryPolicy, CacheLoader<Object, String>>();
+      cacheWriterArray0[2] = (CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>) noWriter1;
+      NoWriter<ExpiryPolicy, CacheLoader<Object, String>> noWriter2 = new NoWriter<ExpiryPolicy, CacheLoader<Object, String>>();
+      cacheWriterArray0[3] = (CacheWriter<ExpiryPolicy, CacheLoader<Object, String>>) noWriter2;
+      CompositeCacheWriter<ExpiryPolicy, CacheLoader<Object, String>> compositeCacheWriter1 = new CompositeCacheWriter<ExpiryPolicy, CacheLoader<Object, String>>(cacheWriterArray0);
+      CompositeCacheWriter<String, Delayed> compositeCacheWriter2 = new CompositeCacheWriter<String, Delayed>((CacheWriter<String, Delayed>[]) null);
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(128);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "Dix~a+!oy_");
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      ScheduledFuture<?> scheduledFuture0 = scheduledThreadPoolExecutor0.scheduleAtFixedRate(mockThread0, (-1L), 128, timeUnit0);
+      JCSEntry<String, Delayed> jCSEntry0 = new JCSEntry<String, Delayed>("5Qq;4:,v9jhN+2", scheduledFuture0);
+      // Undeclared exception!
+      try { 
+        compositeCacheWriter2.write(jCSEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheWriter<Delayed, Object> compositeCacheWriter0 = new CompositeCacheWriter<Delayed, Object>((CacheWriter<Delayed, Object>[]) null);
+      CacheWriter<Object, CacheLoader<Object, Integer>>[] cacheWriterArray0 = (CacheWriter<Object, CacheLoader<Object, Integer>>[]) Array.newInstance(CacheWriter.class, 5);
+      NoWriter<Object, CacheLoader<Object, Integer>> noWriter0 = new NoWriter<Object, CacheLoader<Object, Integer>>();
+      cacheWriterArray0[0] = (CacheWriter<Object, CacheLoader<Object, Integer>>) noWriter0;
+      NoWriter<Object, CacheLoader<Object, Integer>> noWriter1 = new NoWriter<Object, CacheLoader<Object, Integer>>();
+      cacheWriterArray0[1] = (CacheWriter<Object, CacheLoader<Object, Integer>>) noWriter1;
+      NoWriter<Object, CacheLoader<Object, Integer>> noWriter2 = new NoWriter<Object, CacheLoader<Object, Integer>>();
+      cacheWriterArray0[2] = (CacheWriter<Object, CacheLoader<Object, Integer>>) noWriter2;
+      NoWriter<Object, CacheLoader<Object, Integer>> noWriter3 = new NoWriter<Object, CacheLoader<Object, Integer>>();
+      cacheWriterArray0[3] = (CacheWriter<Object, CacheLoader<Object, Integer>>) noWriter3;
+      NoWriter<Object, CacheLoader<Object, Integer>> noWriter4 = new NoWriter<Object, CacheLoader<Object, Integer>>();
+      cacheWriterArray0[4] = (CacheWriter<Object, CacheLoader<Object, Integer>>) noWriter4;
+      CompositeCacheWriter<Object, CacheLoader<Object, Integer>> compositeCacheWriter1 = new CompositeCacheWriter<Object, CacheLoader<Object, Integer>>(cacheWriterArray0);
+      Object object0 = new Object();
+      compositeCacheWriter1.delete(object0);
+      compositeCacheWriter1.delete(noWriter2);
+      CacheWriter<Cache.Entry<Object, Delayed>, Delayed>[] cacheWriterArray1 = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>[]) Array.newInstance(CacheWriter.class, 5);
+      NoWriter<Cache.Entry<Object, Delayed>, Delayed> noWriter5 = new NoWriter<Cache.Entry<Object, Delayed>, Delayed>();
+      cacheWriterArray1[0] = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>) noWriter5;
+      NoWriter<Cache.Entry<Object, Delayed>, Delayed> noWriter6 = new NoWriter<Cache.Entry<Object, Delayed>, Delayed>();
+      cacheWriterArray1[1] = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>) noWriter6;
+      NoWriter<Cache.Entry<Object, Delayed>, Delayed> noWriter7 = new NoWriter<Cache.Entry<Object, Delayed>, Delayed>();
+      cacheWriterArray1[2] = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>) noWriter7;
+      NoWriter<Cache.Entry<Object, Delayed>, Delayed> noWriter8 = new NoWriter<Cache.Entry<Object, Delayed>, Delayed>();
+      cacheWriterArray1[3] = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>) noWriter8;
+      NoWriter<Cache.Entry<Object, Delayed>, Delayed> noWriter9 = new NoWriter<Cache.Entry<Object, Delayed>, Delayed>();
+      cacheWriterArray1[4] = (CacheWriter<Cache.Entry<Object, Delayed>, Delayed>) noWriter9;
+      CompositeCacheWriter<Cache.Entry<Object, Delayed>, Delayed> compositeCacheWriter2 = new CompositeCacheWriter<Cache.Entry<Object, Delayed>, Delayed>(cacheWriterArray1);
+      CompositeCacheWriter<Integer, JCSEntry<Object, Integer>> compositeCacheWriter3 = new CompositeCacheWriter<Integer, JCSEntry<Object, Integer>>((CacheWriter<Integer, JCSEntry<Object, Integer>>[]) null);
+      // Undeclared exception!
+      try { 
+        compositeCacheWriter3.delete("t_dY");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheWriter<JCSEntry<Delayed, Integer>, Delayed> compositeCacheWriter0 = new CompositeCacheWriter<JCSEntry<Delayed, Integer>, Delayed>((CacheWriter<JCSEntry<Delayed, Integer>, Delayed>[]) null);
+      ArrayList<ExpiryPolicy> arrayList0 = new ArrayList<ExpiryPolicy>();
+      // Undeclared exception!
+      try { 
+        compositeCacheWriter0.deleteAll(arrayList0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CacheWriter<ForkJoinTask<Integer>, Object>[] cacheWriterArray0 = (CacheWriter<ForkJoinTask<Integer>, Object>[]) Array.newInstance(CacheWriter.class, 2);
+      NoWriter<ForkJoinTask<Integer>, Object> noWriter0 = new NoWriter<ForkJoinTask<Integer>, Object>();
+      cacheWriterArray0[0] = (CacheWriter<ForkJoinTask<Integer>, Object>) noWriter0;
+      NoWriter<ForkJoinTask<Integer>, Object> noWriter1 = new NoWriter<ForkJoinTask<Integer>, Object>();
+      cacheWriterArray0[1] = (CacheWriter<ForkJoinTask<Integer>, Object>) noWriter1;
+      CompositeCacheWriter<ForkJoinTask<Integer>, Object> compositeCacheWriter0 = new CompositeCacheWriter<ForkJoinTask<Integer>, Object>(cacheWriterArray0);
+      CompositeCacheWriter<ForkJoinTask<String>, JCSCacheEntryEvent<Integer, Object>> compositeCacheWriter1 = new CompositeCacheWriter<ForkJoinTask<String>, JCSCacheEntryEvent<Integer, Object>>((CacheWriter<ForkJoinTask<String>, JCSCacheEntryEvent<Integer, Object>>[]) null);
+      // Undeclared exception!
+      try { 
+        compositeCacheWriter1.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.closeable.Closeables", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CacheWriter<JCSCacheEntryEvent<String, Integer>, Integer>[] cacheWriterArray0 = (CacheWriter<JCSCacheEntryEvent<String, Integer>, Integer>[]) Array.newInstance(CacheWriter.class, 0);
+      CompositeCacheWriter<JCSCacheEntryEvent<String, Integer>, Integer> compositeCacheWriter0 = new CompositeCacheWriter<JCSCacheEntryEvent<String, Integer>, Integer>(cacheWriterArray0);
+      compositeCacheWriter0.close();
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheWriter<JCSMutableEntry<Integer, String>, JCSCacheEntryEvent<Delayed, Delayed>> compositeCacheWriter0 = new CompositeCacheWriter<JCSMutableEntry<Integer, String>, JCSCacheEntryEvent<Delayed, Delayed>>((CacheWriter<JCSMutableEntry<Integer, String>, JCSCacheEntryEvent<Delayed, Delayed>>[]) null);
+      // Undeclared exception!
+      try { 
+        compositeCacheWriter0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.closeable.Closeables", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>[] cacheWriterArray0 = (CacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>[]) Array.newInstance(CacheWriter.class, 2);
+      NoWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed> noWriter0 = new NoWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>();
+      cacheWriterArray0[0] = (CacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>) noWriter0;
+      NoWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed> noWriter1 = new NoWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>();
+      LinkedBlockingQueue<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>> linkedBlockingQueue0 = new LinkedBlockingQueue<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>();
+      LinkedHashSet<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>> linkedHashSet0 = new LinkedHashSet<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>(linkedBlockingQueue0);
+      noWriter0.deleteAll(linkedHashSet0);
+      cacheWriterArray0[1] = (CacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>) noWriter1;
+      CompositeCacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed> compositeCacheWriter0 = new CompositeCacheWriter<MutableConfiguration<RemoteCacheNoWait<ForkJoinTask<Integer>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, String>, Delayed>(cacheWriterArray0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CacheWriter<JCSEntry<Integer, Integer>, Delayed>[] cacheWriterArray0 = (CacheWriter<JCSEntry<Integer, Integer>, Delayed>[]) Array.newInstance(CacheWriter.class, 5);
+      NoWriter<JCSEntry<Integer, Integer>, Delayed> noWriter0 = new NoWriter<JCSEntry<Integer, Integer>, Delayed>();
+      cacheWriterArray0[0] = (CacheWriter<JCSEntry<Integer, Integer>, Delayed>) noWriter0;
+      ArrayList<Object> arrayList0 = new ArrayList<Object>();
+      noWriter0.deleteAll(arrayList0);
+      NoWriter<JCSEntry<Integer, Integer>, Delayed> noWriter1 = new NoWriter<JCSEntry<Integer, Integer>, Delayed>();
+      cacheWriterArray0[1] = (CacheWriter<JCSEntry<Integer, Integer>, Delayed>) noWriter1;
+      NoWriter<JCSEntry<Integer, Integer>, Delayed> noWriter2 = new NoWriter<JCSEntry<Integer, Integer>, Delayed>();
+      cacheWriterArray0[3] = (CacheWriter<JCSEntry<Integer, Integer>, Delayed>) noWriter2;
+      NoWriter<JCSEntry<Integer, Integer>, Delayed> noWriter3 = new NoWriter<JCSEntry<Integer, Integer>, Delayed>();
+      cacheWriterArray0[4] = (CacheWriter<JCSEntry<Integer, Integer>, Delayed>) noWriter3;
+      CacheWriter<Object, Object>[] cacheWriterArray1 = (CacheWriter<Object, Object>[]) Array.newInstance(CacheWriter.class, 2);
+      NoWriter<Object, Object> noWriter4 = new NoWriter<Object, Object>();
+      cacheWriterArray1[0] = (CacheWriter<Object, Object>) noWriter4;
+      NoWriter<Object, Object> noWriter5 = new NoWriter<Object, Object>();
+      cacheWriterArray1[1] = (CacheWriter<Object, Object>) noWriter5;
+      CompositeCacheWriter<Object, Object> compositeCacheWriter0 = new CompositeCacheWriter<Object, Object>(cacheWriterArray1);
+      Object object0 = new Object();
+      compositeCacheWriter0.delete(object0);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>[] cacheWriterArray0 = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>[]) Array.newInstance(CacheWriter.class, 11);
+      NoWriter<Cache.Entry<String, ExpiryPolicy>, Object> noWriter0 = new NoWriter<Cache.Entry<String, ExpiryPolicy>, Object>();
+      cacheWriterArray0[1] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter0;
+      NoWriter<Cache.Entry<String, ExpiryPolicy>, Object> noWriter1 = new NoWriter<Cache.Entry<String, ExpiryPolicy>, Object>();
+      cacheWriterArray0[2] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter1;
+      NoWriter<Cache.Entry<String, ExpiryPolicy>, Object> noWriter2 = new NoWriter<Cache.Entry<String, ExpiryPolicy>, Object>();
+      cacheWriterArray0[0] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter2;
+      NoWriter<Cache.Entry<String, ExpiryPolicy>, Object> noWriter3 = new NoWriter<Cache.Entry<String, ExpiryPolicy>, Object>();
+      cacheWriterArray0[4] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter3;
+      cacheWriterArray0[5] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter1;
+      NoWriter<Cache.Entry<String, ExpiryPolicy>, Object> noWriter4 = new NoWriter<Cache.Entry<String, ExpiryPolicy>, Object>();
+      cacheWriterArray0[6] = (CacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>) noWriter4;
+      CompositeCacheWriter<Cache.Entry<String, ExpiryPolicy>, Object> compositeCacheWriter0 = new CompositeCacheWriter<Cache.Entry<String, ExpiryPolicy>, Object>(cacheWriterArray0);
+      compositeCacheWriter0.close();
+      LinkedList<Delayed> linkedList0 = new LinkedList<Delayed>();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>[] cacheWriterArray0 = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>[]) Array.newInstance(CacheWriter.class, 7);
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter0 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[0] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter0;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter1 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[1] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter1;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter2 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[2] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter2;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter3 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[3] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter3;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter4 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[4] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter4;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter5 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[5] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter5;
+      NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>> noWriter6 = new NoWriter<Delayed, JCSEntry<ExpiryPolicy, String>>();
+      cacheWriterArray0[6] = (CacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>) noWriter6;
+      CompositeCacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>> compositeCacheWriter0 = new CompositeCacheWriter<Delayed, JCSEntry<ExpiryPolicy, String>>(cacheWriterArray0);
+      compositeCacheWriter0.delete(cacheWriterArray0[1]);
+      CacheWriter<Object, String>[] cacheWriterArray1 = (CacheWriter<Object, String>[]) Array.newInstance(CacheWriter.class, 1);
+      NoWriter<Object, String> noWriter7 = new NoWriter<Object, String>();
+      cacheWriterArray1[0] = (CacheWriter<Object, String>) noWriter7;
+      CompositeCacheWriter<Object, String> compositeCacheWriter1 = new CompositeCacheWriter<Object, String>(cacheWriterArray1);
+      JCSEntry<Delayed, String> jCSEntry0 = new JCSEntry<Delayed, String>((Delayed) null, "X[f,iSpb");
+      compositeCacheWriter1.write(jCSEntry0);
+      compositeCacheWriter1.create();
+      CacheWriter<ForkJoinTask<Integer>, Delayed>[] cacheWriterArray2 = (CacheWriter<ForkJoinTask<Integer>, Delayed>[]) Array.newInstance(CacheWriter.class, 9);
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter8 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[0] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter8;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter9 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[1] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter9;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter10 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[2] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter10;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter11 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[3] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter11;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter12 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[4] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter12;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter13 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[5] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter13;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter14 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[6] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter14;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter15 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[7] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter15;
+      NoWriter<ForkJoinTask<Integer>, Delayed> noWriter16 = new NoWriter<ForkJoinTask<Integer>, Delayed>();
+      cacheWriterArray2[8] = (CacheWriter<ForkJoinTask<Integer>, Delayed>) noWriter16;
+      CompositeCacheWriter<ForkJoinTask<Integer>, Delayed> compositeCacheWriter2 = new CompositeCacheWriter<ForkJoinTask<Integer>, Delayed>(cacheWriterArray2);
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      compositeCacheWriter2.deleteAll(linkedHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CacheWriter<JCSEntry<Delayed, Integer>, Object>[] cacheWriterArray0 = (CacheWriter<JCSEntry<Delayed, Integer>, Object>[]) Array.newInstance(CacheWriter.class, 5);
+      NoWriter<JCSEntry<Delayed, Integer>, Object> noWriter0 = new NoWriter<JCSEntry<Delayed, Integer>, Object>();
+      NoWriter<JCSEntry<Delayed, Integer>, Object> noWriter1 = new NoWriter<JCSEntry<Delayed, Integer>, Object>();
+      cacheWriterArray0[2] = (CacheWriter<JCSEntry<Delayed, Integer>, Object>) noWriter1;
+      NoWriter<JCSEntry<Delayed, Integer>, Object> noWriter2 = new NoWriter<JCSEntry<Delayed, Integer>, Object>();
+      cacheWriterArray0[3] = (CacheWriter<JCSEntry<Delayed, Integer>, Object>) noWriter2;
+      NoWriter<JCSEntry<Delayed, Integer>, Object> noWriter3 = new NoWriter<JCSEntry<Delayed, Integer>, Object>();
+      cacheWriterArray0[4] = (CacheWriter<JCSEntry<Delayed, Integer>, Object>) noWriter3;
+      CompositeCacheWriter<JCSEntry<Delayed, Integer>, Object> compositeCacheWriter0 = new CompositeCacheWriter<JCSEntry<Delayed, Integer>, Object>(cacheWriterArray0);
+      CacheWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy>[] cacheWriterArray1 = (CacheWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy>[]) Array.newInstance(CacheWriter.class, 1);
+      NoWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy> noWriter4 = new NoWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy>();
+      cacheWriterArray1[0] = (CacheWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy>) noWriter4;
+      CompositeCacheWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy> compositeCacheWriter1 = new CompositeCacheWriter<MutableConfiguration<Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>, Cache.Entry<JCSMutableEntry<Object, Object>, MutableConfiguration<Object, Object>>>, ExpiryPolicy>(cacheWriterArray1);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      compositeCacheWriter1.deleteAll(linkedHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CacheWriter<Delayed, Object>[] cacheWriterArray0 = (CacheWriter<Delayed, Object>[]) Array.newInstance(CacheWriter.class, 7);
+      NoWriter<Delayed, Object> noWriter0 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[0] = (CacheWriter<Delayed, Object>) noWriter0;
+      cacheWriterArray0[1] = (CacheWriter<Delayed, Object>) noWriter0;
+      NoWriter<Delayed, Object> noWriter1 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[2] = (CacheWriter<Delayed, Object>) noWriter1;
+      NoWriter<Delayed, Object> noWriter2 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[3] = (CacheWriter<Delayed, Object>) noWriter2;
+      NoWriter<Delayed, Object> noWriter3 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[4] = (CacheWriter<Delayed, Object>) noWriter3;
+      NoWriter<Delayed, Object> noWriter4 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[5] = (CacheWriter<Delayed, Object>) noWriter4;
+      NoWriter<Delayed, Object> noWriter5 = new NoWriter<Delayed, Object>();
+      cacheWriterArray0[6] = (CacheWriter<Delayed, Object>) noWriter5;
+      CompositeCacheWriter<Delayed, Object> compositeCacheWriter0 = new CompositeCacheWriter<Delayed, Object>(cacheWriterArray0);
+      DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      delayQueue0.poll((-1L), timeUnit0);
+      JCSEntry<Delayed, Delayed> jCSEntry0 = new JCSEntry<Delayed, Delayed>((Delayed) null, (Delayed) null);
+      compositeCacheWriter0.write(jCSEntry0);
+  }

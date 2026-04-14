@@ -1,0 +1,75 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      org.apache.logging.log4j.LogManager.setFactory((LoggerContextFactory) null);
+      // Undeclared exception!
+      try { 
+        log4j2Factory0.shutdown();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.logging.log4j.LogManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      LoggerContextFactory loggerContextFactory0 = mock(LoggerContextFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((LoggerContext) null).when(loggerContextFactory0).getContext(anyString() , any(java.lang.ClassLoader.class) , any() , anyBoolean() , any(java.net.URI.class) , anyString());
+      org.apache.logging.log4j.LogManager.setFactory(loggerContextFactory0);
+      // Undeclared exception!
+      try { 
+        log4j2Factory0.getLog("j<");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.logging.log4j.LogManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      LoggerContextFactory loggerContextFactory0 = mock(LoggerContextFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((LoggerContext) null).when(loggerContextFactory0).getContext(anyString() , any(java.lang.ClassLoader.class) , any() , anyBoolean());
+      org.apache.logging.log4j.LogManager.setFactory(loggerContextFactory0);
+      Class<Integer> class0 = Integer.class;
+      // Undeclared exception!
+      try { 
+        log4j2Factory0.getLog(class0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.logging.log4j.LogManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      Log log0 = log4j2Factory0.getLog("log4j2");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      String string0 = log4j2Factory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      log4j2Factory0.shutdown();
+      assertNotNull(log4j2Factory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Log4j2Factory log4j2Factory0 = new Log4j2Factory();
+      Class<Integer> class0 = Integer.class;
+      Log log0 = log4j2Factory0.getLog(class0);
+      ;
+}

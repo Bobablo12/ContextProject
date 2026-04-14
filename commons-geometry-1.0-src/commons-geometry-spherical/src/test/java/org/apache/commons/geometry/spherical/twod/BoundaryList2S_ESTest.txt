@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector<GreatArc> vector0 = new Vector<GreatArc>();
+      vector0.add((GreatArc) null);
+      BoundaryList2S boundaryList2S0 = new BoundaryList2S(vector0);
+      BoundaryList2S boundaryList2S1 = boundaryList2S0.toList();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Stack<GreatArc> stack0 = new Stack<GreatArc>();
+      BoundaryList2S boundaryList2S0 = new BoundaryList2S(stack0);
+      BoundaryList2S boundaryList2S1 = boundaryList2S0.toList();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundaryList2S boundaryList2S0 = null;
+      try {
+        boundaryList2S0 = new BoundaryList2S((List<? extends GreatArc>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections$UnmodifiableCollection", e);
+      }
+  }

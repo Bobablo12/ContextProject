@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AsyncHttpDeferredObject.promise((BoundRequestBuilder) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.jdeferred.AsyncHttpDeferredObject", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AsyncHttpDeferredObject asyncHttpDeferredObject0 = null;
+      try {
+        asyncHttpDeferredObject0 = new AsyncHttpDeferredObject((BoundRequestBuilder) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.jdeferred.AsyncHttpDeferredObject", e);
+      }
+  }

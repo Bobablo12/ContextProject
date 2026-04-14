@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-19);
+      PngChunkGama pngChunkGama0 = new PngChunkGama(0, 0, 0, byteArray0);
+      double double0 = pngChunkGama0.getGamma();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PngChunkGama pngChunkGama0 = null;
+      try {
+        pngChunkGama0 = new PngChunkGama(273, 273, 273, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkGama pngChunkGama0 = null;
+      try {
+        pngChunkGama0 = new PngChunkGama(775, 775, 775, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid Png File: gAMA Corrupt
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      PngChunkGama pngChunkGama0 = new PngChunkGama(0, 0, 0, byteArray0);
+      double double0 = pngChunkGama0.getGamma();
+      ;
+}

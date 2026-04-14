@@ -1,0 +1,17 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Slf4jReporter slf4jReporter0 = null;
+      try {
+        slf4jReporter0 = new Slf4jReporter((String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // name argument cannot be null
+         //
+         verifyException("ch.qos.logback.classic.LoggerContext", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Slf4jReporter slf4jReporter0 = new Slf4jReporter();
+  }

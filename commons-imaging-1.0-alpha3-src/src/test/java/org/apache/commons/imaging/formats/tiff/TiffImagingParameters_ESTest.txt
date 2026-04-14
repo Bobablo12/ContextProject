@@ -1,0 +1,412 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(1002, 0, 1002, 1196);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(4761, 4761, 1361, 431);
+      assertTrue(tiffImagingParameters0.isSubImageSet());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage(942, 942, 942, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification width and height must be greater than zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage(1933, 1933, 0, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification width and height must be greater than zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage(69, 0, (-558), 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification width and height must be greater than zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage(0, (-1275), 0, 1130);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification: negative x and y values not allowed
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setReadThumbnails(false);
+      boolean boolean0 = tiffImagingParameters0.isReadThumbnails();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(0);
+      tiffImagingParameters0.setT6Options(integer0);
+      tiffImagingParameters0.getT6Options();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setT6Options((Integer) 64);
+      tiffImagingParameters0.getT6Options();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer((-4876));
+      tiffImagingParameters0.setT6Options(integer0);
+      tiffImagingParameters0.getT6Options();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(0);
+      tiffImagingParameters0.setT4Options(integer0);
+      tiffImagingParameters0.getT4Options();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(1847);
+      tiffImagingParameters0.setT4Options(integer0);
+      tiffImagingParameters0.getT4Options();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer((-4876));
+      tiffImagingParameters0.setT4Options(integer0);
+      tiffImagingParameters0.getT4Options();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      int int0 = tiffImagingParameters0.getSubImageY();
+      assertEquals(1, tiffImagingParameters0.getSubImageWidth());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      int int0 = tiffImagingParameters0.getSubImageY();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      int int0 = tiffImagingParameters0.getSubImageX();
+      assertEquals(1, tiffImagingParameters0.getSubImageWidth());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      int int0 = tiffImagingParameters0.getSubImageX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      int int0 = tiffImagingParameters0.getSubImageWidth();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(1, 1, 1, 2322);
+      int int0 = tiffImagingParameters0.getSubImageHeight();
+      assertTrue(tiffImagingParameters0.isSubImageSet());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(1, 1, 1, 2322);
+      int int0 = tiffImagingParameters0.getSubImageHeight();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffImagingParameters0.setOutputSet(tiffOutputSet0);
+      tiffImagingParameters0.getOutputSet();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(0);
+      tiffImagingParameters0.setLzwCompressionBlockSize(integer0);
+      tiffImagingParameters0.getLzwCompressionBlockSize();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(39);
+      tiffImagingParameters0.setLzwCompressionBlockSize(integer0);
+      tiffImagingParameters0.getLzwCompressionBlockSize();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer((-4876));
+      tiffImagingParameters0.setLzwCompressionBlockSize(integer0);
+      tiffImagingParameters0.getLzwCompressionBlockSize();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(1, intArray0, 1, 1, 1726);
+      tiffImagingParameters0.setCustomPhotometricInterpreter(photometricInterpreterCmyk0);
+      tiffImagingParameters0.getCustomPhotometricInterpreter();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer((-238));
+      tiffImagingParameters0.setCompression(integer0);
+      tiffImagingParameters0.getCompression();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(0);
+      tiffImagingParameters0.setCompression(integer0);
+      tiffImagingParameters0.getCompression();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(1);
+      tiffImagingParameters0.setCompression(integer0);
+      tiffImagingParameters0.getCompression();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Integer integer0 = new Integer(942);
+      tiffImagingParameters0.setCompression(integer0);
+      tiffImagingParameters0.getCompression();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      boolean boolean0 = tiffImagingParameters0.isSubImageSet();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      boolean boolean0 = tiffImagingParameters0.isSubImageSet();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage(41423, 41423, 41423, (-1));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification width and height must be greater than zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      boolean boolean0 = tiffImagingParameters0.isSubImageSet();
+      assertEquals(0, tiffImagingParameters0.getSubImageY());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setSubImage(2539, 2539, 2539, 1);
+      boolean boolean0 = tiffImagingParameters0.isSubImageSet();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImagingParameters0.setSubImage((-237), 1934, 726, (-237));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid sub-image specification: negative x and y values not allowed
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getT4Options();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageHeight();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageHeight();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageX();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageWidth();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      int int0 = tiffImagingParameters0.getSubImageWidth();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.clearSubImage();
+      assertEquals(0, tiffImagingParameters0.getSubImageHeight());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.clearSubImage();
+      assertEquals(0, tiffImagingParameters0.getSubImageWidth());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.clearSubImage();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getCompression();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getCustomPhotometricInterpreter();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getLzwCompressionBlockSize();
+      assertTrue(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getOutputSet();
+      assertFalse(tiffImagingParameters0.isReadThumbnails());
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      boolean boolean0 = tiffImagingParameters0.isReadThumbnails();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.getT6Options();
+      ;
+}

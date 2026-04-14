@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("org.apache.commons.io.IOCase", 962, 508, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[1];
+      RationalNumber[] rationalNumberArray0 = tagInfoRationals0.getValue((ByteOrder) null, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-1813), (-1813), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[0];
+      byte[] byteArray0 = tagInfoRationals0.encodeValue(byteOrder0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoRationals", 1, 0, tiffDirectoryType0);
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) "org.apache.commons.imaging.formats.tiff.taginfos.TagInfoRationals", 0, 0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      // Undeclared exception!
+      try { 
+        tagInfoRationals0.encodeValue(byteOrder0, (RationalNumber[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("InCe9~Alac", (-6141), (-6141), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[41];
+      RationalNumber[] rationalNumberArray0 = tagInfoRationals0.getValue(byteOrder0, byteArray0);
+      byte[] byteArray1 = tagInfoRationals0.encodeValue(byteOrder0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("rDkBp4[pl\"\"EMH,(P", 0, 0, tiffDirectoryType0);
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) "rDkBp4[pl\"\"EMH,(P", 0, 0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      // Undeclared exception!
+      try { 
+        tagInfoRationals0.getValue(byteOrder0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

@@ -1,0 +1,142 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      EvoName evoName0 = new EvoName("jcs");
+      jdbcDataSource jdbcDataSource0 = new jdbcDataSource();
+      EvoNamingContext.add(evoName0, jdbcDataSource0);
+      jDBCDiskCacheAttributes0.setJndiPath("jcs");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      jndiDataSourceFactory0.getDataSource();
+      System.setCurrentTimeMillis(10);
+      DataSource dataSource0 = jndiDataSourceFactory0.getDataSource();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setConnectionPoolName("ZbS&_y\"6`i");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      String string0 = jndiDataSourceFactory0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setConnectionPoolName("");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      String string0 = jndiDataSourceFactory0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setJndiPath("InitialContext -------------------------------");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      DataSource dataSource0 = jndiDataSourceFactory0.getDataSource();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      // Undeclared exception!
+      try { 
+        jndiDataSourceFactory0.initialize((JDBCDiskCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.JndiDataSourceFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setJndiPath("@UVi3");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      EvoName evoName0 = new EvoName("@UVi3");
+      EvoNamingContext.add(evoName0, "@UVi3");
+      // Undeclared exception!
+      try { 
+        jndiDataSourceFactory0.getDataSource();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to javax.sql.DataSource
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.JndiDataSourceFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setJndiTTL((-1392409283412L));
+      EvoName evoName0 = new EvoName("jcs");
+      jdbcDataSource jdbcDataSource0 = new jdbcDataSource();
+      EvoNamingContext.add(evoName0, jdbcDataSource0);
+      jDBCDiskCacheAttributes0.setJndiPath("jcs");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      jndiDataSourceFactory0.getDataSource();
+      DataSource dataSource0 = jndiDataSourceFactory0.getDataSource();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      EvoName evoName0 = new EvoName("jcs");
+      jdbcDataSource jdbcDataSource0 = new jdbcDataSource();
+      EvoNamingContext.add(evoName0, jdbcDataSource0);
+      jDBCDiskCacheAttributes0.setJndiPath("jcs");
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      jndiDataSourceFactory0.getDataSource();
+      DataSource dataSource0 = jndiDataSourceFactory0.getDataSource();
+      assertEquals(0, dataSource0.getLoginTimeout());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      // Undeclared exception!
+      try { 
+        jndiDataSourceFactory0.getDataSource();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.JndiDataSourceFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      jndiDataSourceFactory0.close();
+      assertNotNull(jndiDataSourceFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jndiDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      try { 
+        jndiDataSourceFactory0.getDataSource();
+        fail("Expecting exception: SQLException");
+      } catch(SQLException e) {
+         //
+         // javax.naming.NamingException: Null name
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.JndiDataSourceFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JndiDataSourceFactory jndiDataSourceFactory0 = new JndiDataSourceFactory();
+      String string0 = jndiDataSourceFactory0.getName();
+      ;
+}

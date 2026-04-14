@@ -1,0 +1,150 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer("9~:u");
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0, encryptingSerializer0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"u\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender((ITCPLateralCacheAttributes) null, encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer(".C=~w~JL0:!5");
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"!5\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer("9/:5");
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0, standardSerializer0);
+        fail("Expecting exception: NoClassDefFoundError");
+      } catch(NoClassDefFoundError e) {
+         //
+         // Could not initialize class java.nio.channels.spi.AsynchronousChannelProvider$ProviderHolder
+         //
+         verifyException("java.nio.channels.spi.AsynchronousChannelProvider", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.toString();
+      tCPLateralCacheAttributes0.setTcpServer(":0");
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0, (IElementSerializer) null);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Cannot connect to invalid address [:0]
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer((String) null);
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0, (IElementSerializer) null);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid server (null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0, encryptingSerializer0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid address []
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer("9/:5");
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0);
+        fail("Expecting exception: NoClassDefFoundError");
+      } catch(NoClassDefFoundError e) {
+         //
+         // Could not initialize class java.nio.channels.spi.AsynchronousChannelProvider$ProviderHolder
+         //
+         verifyException("java.nio.channels.spi.AsynchronousChannelProvider", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer((String) null);
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender(tCPLateralCacheAttributes0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid server (null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LateralTCPSender lateralTCPSender0 = null;
+      try {
+        lateralTCPSender0 = new LateralTCPSender((ITCPLateralCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }

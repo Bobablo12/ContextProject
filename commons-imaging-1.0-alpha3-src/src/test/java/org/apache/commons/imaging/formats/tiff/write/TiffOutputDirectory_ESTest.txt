@@ -1,0 +1,2698 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational((String) null, (-1), 1, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("@x,saEB#TT", (-253), 45, tiffDirectoryType0);
+      String[] stringArray0 = new String[7];
+      stringArray0[0] = "@x,saEB#TT";
+      stringArray0[1] = "@x,saEB#TT";
+      stringArray0[2] = "@x,saEB#TT";
+      stringArray0[3] = "@x,saEB#TT";
+      stringArray0[4] = "@x,saEB#TT";
+      stringArray0[5] = "@x,saEB#TT";
+      stringArray0[6] = "@x,saEB#TT";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 45 byte(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("F", 513, tagInfoSBytes0.directoryType);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("F", (byte)0, (-1955), tagInfoFloat0.directoryType);
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("F", (-3278), (byte)0, tagInfoShortOrLong0.directoryType);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "F";
+      stringArray0[1] = "F";
+      tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("", 0, 4344, tiffDirectoryType0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "";
+      stringArray0[1] = "";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4344 byte(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary$OffsetItem", 2, 0, tiffDirectoryType0);
+      String[] stringArray0 = new String[3];
+      stringArray0[0] = "org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary$OffsetItem";
+      stringArray0[1] = "org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary$OffsetItem";
+      stringArray0[2] = "org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary$OffsetItem";
+      tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("H`}-dRBr_6!WuV|", 450, 2, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[8];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 value(s), not 8
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("REaM", (-3278), 4, tiffDirectoryType0);
+      short[] shortArray0 = new short[1];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort(")", (-160), (-160), tiffDirectoryType0);
+      short[] shortArray0 = new short[4];
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational(")", (short)0, (short) (-274), tagInfoByteOrShort0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShortOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("SShort", (-1296), 2, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[5];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 value(s), not 5
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", (-2164), (-2164), tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[0];
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      char[] charArray0 = new char[3];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte((String) null, (-3), tiffDirectoryType0);
+      int[] intArray0 = new int[5];
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("[TagInfo. tag: -3 (0xfffffffd, name: null]", 50719, 1207, tagInfoSByte0.directoryType);
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1207 value(s), not 5
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", 0, 0, tiffDirectoryType0);
+      int[] intArray0 = new int[9];
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-2459), byteOrder0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("BJW", (-1781), 808, tiffDirectoryType0);
+      short[] shortArray0 = new short[1];
+      try { 
+        tiffOutputSummary0.rootDirectory.add(tagInfoShortOrLongOrRational0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 808 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("?", 72, (-22), tiffDirectoryType0);
+      short[] shortArray0 = new short[8];
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("F", 513, tagInfoSBytes0.directoryType);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("F", (byte)0, 513, tagInfoFloat0.directoryType);
+      int[] intArray0 = new int[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLong0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 513 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs((String) null, 264, 2050, tiffDirectoryType0);
+      int[] intArray0 = new int[0];
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("-1482 (0xfffffa36: null): ", 2044, 0, tagInfoLongs0.directoryType, true);
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong((String) null, 2154, 602, tiffDirectoryType0, true);
+      short[] shortArray0 = new short[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLong0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 602 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      char[] charArray0 = new char[6];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-1392), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong(" byte(s), not ", (-1392), 0, tiffDirectoryType0);
+      short[] shortArray0 = new short[3];
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("", 12, 4, tiffDirectoryType0);
+      short[] shortArray0 = new short[7];
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4 value(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("TiffOutputSet {\nbyteOrder: null\n\tdirectory 0: Root (0)\n\tdirectory 1: Exif (-2)\n\tdirectory 2: Gps (-3)\n\t\tfield 2: [TagInfo. tag: 1 (0x1, name: null]\n\t\tfield 2: [TagInfo. tag: -3 (0xfffffffd, name: null]\n}\n", 324, 1, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[4];
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 4
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("M07M/0xAOOa/UdDKr@ ", 0, 0, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[2];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("9Y_o;NKc^dDKMKUk8sf", 2, 2, tiffDirectoryType0);
+      double[] doubleArray0 = new double[1];
+      try { 
+        tiffOutputDirectory0.add(tagInfoDoubles0, doubleArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("XMP", 0, (-3), tiffDirectoryType0);
+      double[] doubleArray0 = new double[4];
+      tiffOutputDirectory0.add(tagInfoDoubles0, doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("]", 4, 1, tiffDirectoryType0);
+      float[] floatArray0 = new float[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoFloats0, floatArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("Azy^$f~4G`&", (short)56, (-1), tiffDirectoryType0);
+      float[] floatArray0 = new float[0];
+      tiffOutputDirectory0.add(tagInfoFloats0, floatArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("|^/j3f~B|vq", (-7), 2361, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSRationals0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2361 value(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoBytes", (-3), (-3), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoSRationals0, (RationalNumber[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("JPEG image data", 0, 1538, tiffDirectoryType0);
+      int[] intArray0 = new int[0];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSLongs0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1538 value(s), not 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 0, 0, tiffDirectoryType0);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("OIiF\u0000TT4xx?A=+O", (short)2062, 0, tagInfoShorts0.directoryType);
+      int[] intArray0 = new int[1];
+      tiffOutputDirectory0.add(tagInfoSLongs0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("Cd2Twln:]u40X<KVzEa", 530, 4, tiffDirectoryType0);
+      short[] shortArray0 = new short[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSShorts0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("", 12, (byte)0, tiffDirectoryType0);
+      short[] shortArray0 = new short[8];
+      tiffOutputDirectory0.add(tagInfoSShorts0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[18];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 value(s), not 18
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      byte[] byteArray0 = new byte[7];
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("7V9&Ji':-H[^g_Z8\"", (byte)0, 0, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", 1, 5, tagInfoRational0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoRationals0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 5 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("[TagInfo. tag: 0 (0x0, name: org.apache.commons.io.filefilter.PathVisitorFileFilter]", 282, 1, tiffDirectoryType0);
+      int[] intArray0 = new int[3];
+      try { 
+        tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 3
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("", 0, 0, tiffDirectoryType0, true);
+      int[] intArray0 = new int[2];
+      tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("%by ", (-2), 21, tiffDirectoryType0);
+      short[] shortArray0 = new short[7];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShorts0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 21 value(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("", (-3), (-374), tiffDirectoryType0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", (-1008), (-1), tagInfoAsciiOrByte0.directoryType);
+      short[] shortArray0 = new short[5];
+      tiffOutputDirectory0.add(tagInfoShorts0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii(" value(s), not 1", 0, 4077, tiffDirectoryType0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = " value(s), not 1";
+      stringArray0[1] = "BnXShs0%:ArNcZ{";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4077 byte(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(0.0, 0.0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("SubSecTimeDigitized", (-423), 0, tiffDirectoryType0);
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = "SubSecTimeDigitized";
+      stringArray0[1] = "SubSecTimeDigitized";
+      stringArray0[2] = "SubSecTimeDigitized";
+      stringArray0[3] = "SubSecTimeDigitized";
+      stringArray0[4] = "SubSecTimeDigitized";
+      tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("'N{nR$@\"!|", (-4), 6, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoBytes0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 6 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte((String) null, 0, tiffDirectoryType0);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes((String) null, (-3278), tagInfoSByte0.dataTypes, (-1), tagInfoSByte0.directoryType);
+      byte[] byteArray0 = new byte[9];
+      tiffOutputDirectory0.add(tagInfoBytes0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffOutputDirectory tiffOutputDirectory1 = tiffOutputSet0.getExifDirectory();
+      tiffOutputDirectory0.setNextDirectory(tiffOutputDirectory1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-39), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("", (-39), (-39), tiffDirectoryType0, true);
+      tiffOutputDirectory0.removeField((TagInfo) tagInfoLongs0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals((String) null, 0, 0, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[0];
+      tiffOutputDirectory0.add(tagInfoRationals0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(2, byteOrder0);
+      byte[] byteArray0 = new byte[2];
+      JpegImageData jpegImageData0 = new JpegImageData(2073L, 2, byteArray0);
+      tiffOutputDirectory0.setJpegImageData(jpegImageData0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      tiffOutputDirectory0.getOutputItems(tiffOutputSummary0);
+      assertEquals(0, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("r-=b~]_g9PD0XmkX%R", (-3), (-3), tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      RationalNumber rationalNumber0 = new RationalNumber((-1), 1954, false);
+      rationalNumberArray0[0] = rationalNumber0;
+      rationalNumberArray0[1] = rationalNumber0;
+      tiffOutputDirectory0.add(tagInfoShortOrRational0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      RationalNumber rationalNumber0 = new RationalNumber(1941, 1);
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", (-732), 4, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[4];
+      rationalNumberArray0[0] = rationalNumber0;
+      rationalNumberArray0[1] = rationalNumber0;
+      rationalNumberArray0[2] = rationalNumber0;
+      rationalNumberArray0[3] = rationalNumber0;
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("F ", (-4), tiffDirectoryType0);
+      RationalNumber rationalNumber0 = new RationalNumber((-1), (-3), false);
+      tiffOutputDirectory0.add(tagInfoSRational0, rationalNumber0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("1'g`.Vp<{tD", (-1359), (byte)0, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      TagInfoRational tagInfoRational0 = new TagInfoRational("OpcodeList3", (-1359), tagInfoAsciiOrRational0.directoryType);
+      byte[] byteArray0 = new byte[9];
+      RationalNumber rationalNumber0 = tagInfoRational0.getValue(tiffOutputSet0.byteOrder, byteArray0);
+      rationalNumberArray0[0] = rationalNumber0;
+      rationalNumberArray0[1] = rationalNumber0;
+      tiffOutputDirectory0.add(tagInfoAsciiOrRational0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Strips tiffImageData_Strips0 = new TiffImageData.Strips(tiffElement_DataElementArray0, 927);
+      tiffOutputDirectory0.setTiffImageData(tiffImageData_Strips0);
+      tiffOutputDirectory0.getRawTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("", (-4), tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoFloat0, (float) 1);
+      tiffOutputDirectory0.getFields();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      tiffOutputDirectory0.findField((TagInfo) tagInfoSBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSummary0.rootDirectory.writeItem((BinaryOutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(pipedOutputStream0, byteOrder0);
+      try { 
+        tiffOutputDirectory0.writeItem(binaryOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(15, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.getItemDescription();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.findField((TagInfo) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString((String) null, 294, tiffDirectoryType0);
+      try { 
+        tiffOutputDirectory0.add(tagInfoXpString0, (String) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Text value not String: null (null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoXpString", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoXpString) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong((String) null, 2154, (-1003), tiffDirectoryType0, true);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts((String) null, (-23), 338, tagInfoShortOrLong0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoShorts0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", 9, 9, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      short[] shortArray0 = new short[5];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoShortOrLongOrRational) null, shortArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      int[] intArray0 = new int[2];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoShortOrLongOrRational) null, intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      short[] shortArray0 = new short[0];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoShortOrLong) null, shortArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      int[] intArray0 = new int[9];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoShortOrLong) null, intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoShort) null, (short)22);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSummary0.rootDirectory.add((TagInfoSShort) null, (short) (byte) (-78));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      int[] intArray0 = new int[4];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoSLongs) null, intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoSLong) null, (int) (byte)56);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      byte[] byteArray0 = new byte[1];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoSBytes) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoSByte) null, (byte)32);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-692), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("O/C,5mq$Mjcdht", 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoRational0, (RationalNumber) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      int[] intArray0 = new int[3];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoLongs) null, intArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoLong) null, 86);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-5608), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("; lLzc6D:K}^Ov&", (-2259), tiffDirectoryType0);
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("", (-215), tagInfoSByte0.directoryType);
+      try { 
+        tiffOutputDirectory0.add(tagInfoGpsText0, (String) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GPS text value not String: null (null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoGpsText", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoGpsText) null, "r<*q/S]s1l");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      float[] floatArray0 = new float[9];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoFloats) null, floatArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoFloat) null, (-1.0F));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoDoubles) null, (double[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoDouble) null, (double) (-1));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0, 2, 2);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      byte[] byteArray0 = new byte[7];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoBytes) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort((String) null, 12, 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong((String) null, 2154, 602, tiffDirectoryType0, true);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("", (short)12, 897, tagInfoShortOrLong0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-160), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add((TagInfoByte) null, (byte)1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("org.apache.commons.io.filefilter.PathVisitorFileFilter", 0, tiffDirectoryType0);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("org.apache.commons.io.filefilter.PathVisitorFileFilter", 0, tagInfoSShort0.directoryType);
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("0 (0x0: org.apache.commons.io.filefilter.PathVisitorFileFilter): ", 464, 464, tagInfoSByte0.directoryType);
+      String[] stringArray0 = new String[20];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAscii", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte((String) null, (-3), (-3), tiffDirectoryType0);
+      String[] stringArray0 = new String[3];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAscii", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals((String) null, 0, 0, tiffDirectoryType0);
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("zgL<HfuYIJ|L`pUV!x|", (-3), 12, tagInfoRationals0.directoryType);
+      String[] stringArray0 = new String[2];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAscii", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("raOhS+ZZD`", (-3591), (-3591), tiffDirectoryType0, true);
+      int[] intArray0 = new int[2];
+      tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField((-1));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("raOhS+ZZD`", (-3591), (-3591), tiffDirectoryType0, true);
+      int[] intArray0 = new int[2];
+      tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField((-1));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("org.apache.commons.io.filefilter.PathVisitorFileFilter", 0, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoSShort0, (short)56);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("org.apache.commons.io.filefilter.PathVisitorFileFilter", 0, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoSShort0, (short)56);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField(0);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("org.apache.commons.io.filefilter.PathVisitorFileFilter", 0, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoSShort0, (short)56);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("raOhS+ZZD`", (-3591), (-3591), tiffDirectoryType0, true);
+      int[] intArray0 = new int[2];
+      tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+      tiffOutputDirectory0.removeField(724);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", 1, 9, tagInfoRational0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[9];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoRationals0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = "d";
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"T8rb*-PuDf}QN]", 0, 2, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", 421, 421, tiffDirectoryType0);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", (-36), tagInfoShortOrLongOrRational0.dataTypes, 8, tagInfoShortOrLongOrRational0.directoryType);
+      byte[] byteArray0 = new byte[8];
+      tiffOutputDirectory0.add(tagInfoBytes0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      tiffOutputDirectory0.getFields();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      tiffOutputDirectory0.sortFields();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      tiffOutputDirectory0.add((TiffOutputField) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      String string0 = tiffOutputDirectory0.description();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[4];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data((-1), (-2), (byte[]) null);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      tiffElement_DataElementArray0[1] = (TiffElement.DataElement) tiffImageData_Data0;
+      MockFile mockFile0 = new MockFile("{1TrH/hc`Fz?83h3");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImageData.ByteSourceData tiffImageData_ByteSourceData0 = new TiffImageData.ByteSourceData((-4358L), (byte)0, byteSourceFile0);
+      tiffElement_DataElementArray0[2] = (TiffElement.DataElement) tiffImageData_ByteSourceData0;
+      JpegImageData jpegImageData0 = new JpegImageData((byte)99, (byte)57, (byte[]) null);
+      tiffElement_DataElementArray0[3] = (TiffElement.DataElement) jpegImageData0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, (-2), (byte)0);
+      tiffOutputDirectory0.setTiffImageData(tiffImageData_Tiles0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.getOutputItems(tiffOutputSummary0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffElement$DataElement", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("F", 513, tagInfoSBytes0.directoryType);
+      tiffOutputDirectory0.add(tagInfoFloat0, (float) 513);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      tiffOutputSet0.getOutputItems(tiffOutputSummary0);
+      assertEquals(0, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0, tiffOutputSet0.byteOrder);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("h", (-2), (-2), tiffDirectoryType0);
+      byte[] byteArray0 = new byte[7];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+      tiffOutputDirectory0.writeItem(binaryOutputStream0);
+      assertEquals(1, binaryOutputStream0.getByteCount());
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0, tiffOutputSet0.byteOrder);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("h", (-2), (-2), tiffDirectoryType0);
+      byte[] byteArray0 = new byte[7];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+      tiffOutputDirectory0.writeItem(binaryOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[2];
+      tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField((TagInfo) tagInfoSBytes0);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[2];
+      tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+      TiffOutputField tiffOutputField0 = tiffOutputDirectory0.findField((TagInfo) tagInfoSBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort(")", (-160), (-160), tiffDirectoryType0);
+      short[] shortArray0 = new short[4];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, shortArray0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      tiffOutputDirectory0.getOutputItems(tiffOutputSummary0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("", 41990, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoFloat0, (float) 41990);
+      tiffOutputDirectory0.removeField(41990);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("Directory:^ ", 0, 10, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("Directory:^ ", (-2164), 10, tagInfoShortOrLongOrRational0.directoryType);
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 10 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("Tiff image data: ", (-3), 1, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("pO\u0004b", (-1), (-512), tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("fYhOdFZi5", 0, tiffDirectoryType0);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("fYhOdFZi5", 0, tagInfoSShort0.directoryType);
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("Directory: IFD0 (0)", 450, 450, tagInfoSByte0.directoryType);
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = "Directory: IFD0 (0)";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 450 byte(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("d", 0, 2, tiffDirectoryType0);
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = "d";
+      tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("zIhW*C", (-2), (-2), tiffDirectoryType0);
+      String[] stringArray0 = new String[0];
+      tiffOutputDirectory0.add(tagInfoAsciiOrRational0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("F", 3083, 2, tiffDirectoryType0);
+      String[] stringArray0 = new String[7];
+      stringArray0[0] = "F";
+      stringArray0[1] = "F";
+      stringArray0[2] = "F";
+      stringArray0[3] = "F";
+      stringArray0[4] = "F";
+      stringArray0[5] = "F";
+      stringArray0[6] = "F";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 byte(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(4, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte(" yYQ32qBXcKzGHsg ", (-1124), 4, tiffDirectoryType0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "W";
+      stringArray0[1] = "W";
+      tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("-6", 0, tiffDirectoryType0);
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("REaM", 0, (-1), tagInfoSByte0.directoryType);
+      String[] stringArray0 = new String[7];
+      stringArray0[0] = "-6";
+      stringArray0[1] = "REaM";
+      stringArray0[2] = "-6";
+      stringArray0[3] = "REaM";
+      stringArray0[4] = "Q&6]kb";
+      stringArray0[5] = "-6";
+      stringArray0[6] = "Q&6]kb";
+      tiffOutputDirectory0.add(tagInfoAsciiOrByte0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("_Yr>1$A&", (-4), (-4), tiffDirectoryType0);
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", (short)0, (short)305, tagInfoSShorts0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 305 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("_Yr>1$A&", (-4), (-4), tiffDirectoryType0);
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", (short)0, (short)1, tagInfoSShorts0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort(")", (-160), (-160), tiffDirectoryType0);
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational(")", (short)0, (short)0, tagInfoByteOrShort0.directoryType);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      // Undeclared exception!
+      try { 
+        tiffOutputSummary0.rootDirectory.add(tagInfoShortOrRational0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-933), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("!T", 358, 5, tiffDirectoryType0);
+      short[] shortArray0 = new short[5];
+      tiffOutputDirectory0.add(tagInfoShortOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoAsciiOrByte tagInfoAsciiOrByte0 = new TagInfoAsciiOrByte("", (-4), (-1), tiffDirectoryType0);
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational("", (-4), 1, tagInfoAsciiOrByte0.directoryType);
+      short[] shortArray0 = new short[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrRational0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort(")", (-160), (-160), tiffDirectoryType0);
+      short[] shortArray0 = new short[4];
+      TagInfoShortOrRational tagInfoShortOrRational0 = new TagInfoShortOrRational(")", (short)0, (short)0, tagInfoByteOrShort0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShortOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", (-3), 4, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[4];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", 421, 421, tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[10];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 421 value(s), not 10
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational(")", (-4), 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, (RationalNumber[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      int[] intArray0 = new int[9];
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("'YyT|eb*^#", 0, 8, tiffDirectoryType0);
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 8 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("The list of suffixes must not be null", 1, 1, tagInfoRational0.directoryType);
+      int[] intArray0 = new int[1];
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", (-1), 1, tagInfoShortOrLong0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("{1TrH/hc`Fz?83h3", 1420, (-2), tiffDirectoryType0);
+      int[] intArray0 = new int[9];
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("'YyT|eb*^#", 0, 8, tiffDirectoryType0);
+      short[] shortArray0 = new short[8];
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational(" value(s), not 1", (-4835), 1, tiffDirectoryType0);
+      short[] shortArray0 = new short[2];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort(")", (-160), (-160), tiffDirectoryType0);
+      short[] shortArray0 = new short[4];
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational(")", (-160), 0, tagInfoByteOrShort0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShortOrLongOrRational0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("1'vP", (-4), 6, tiffDirectoryType0);
+      int[] intArray0 = new int[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShortOrLong0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 6 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("The list of suffixes must not be null", 1, 1, tagInfoRational0.directoryType);
+      int[] intArray0 = new int[1];
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("F", 2, 2, tiffDirectoryType0);
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("F", 513, tagInfoSBytes0.directoryType);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("F", (byte)0, (-1955), tagInfoFloat0.directoryType);
+      int[] intArray0 = new int[9];
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("`0o\"].UF:Iqiap,", 79, 1, tiffDirectoryType0, true);
+      short[] shortArray0 = new short[1];
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, (Map<Integer, TiffOutputDirectory>) null);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong((String) null, (-1883), 1, tiffDirectoryType0);
+      short[] shortArray0 = new short[5];
+      try { 
+        tiffOutputSummary0.rootDirectory.add(tagInfoShortOrLong0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 5
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes(")", 8, (-5947), tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong(")", (byte)103, (-1), tagInfoSBytes0.directoryType);
+      short[] shortArray0 = new short[4];
+      tiffOutputDirectory0.add(tagInfoShortOrLong0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("F,0T,eg=Enl75", (-3), tiffDirectoryType0);
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("F,0T,eg=Enl75", (-3), 4451, tagInfoDouble0.directoryType);
+      short[] shortArray0 = new short[0];
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4451 value(s), not 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(2, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("ISO-8859-1", 2, 2, tiffDirectoryType0);
+      short[] shortArray0 = new short[2];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, shortArray0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      int int0 = tiffOutputSummary0.rootDirectory.getItemLength();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(2, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("ISO-8859-1", 2, 2, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[2];
+      tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("SShort", 126, (short)56, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[7];
+      try { 
+        tiffOutputDirectory0.add(tagInfoByteOrShort0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 56 value(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-6110), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("$gNKht>{^^{5|", (-6110), 1, tiffDirectoryType0);
+      double[] doubleArray0 = new double[9];
+      try { 
+        tiffOutputDirectory0.add(tagInfoDoubles0, doubleArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 9
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-6110), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("$gNKht>{^^{5|", (-6110), 1, tiffDirectoryType0);
+      double[] doubleArray0 = new double[1];
+      tiffOutputDirectory0.add(tagInfoDoubles0, doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("7V9&Ji':-H[^g_Z8\"", 0, (byte)0, tiffDirectoryType0);
+      double[] doubleArray0 = new double[8];
+      tiffOutputDirectory0.add(tagInfoDoubles0, doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("", 515, tagInfoRational0.directoryType);
+      tiffOutputDirectory0.add(tagInfoDouble0, (double) 1L);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats(" &p<s", (-1), 1, tiffDirectoryType0);
+      float[] floatArray0 = new float[1];
+      tiffOutputDirectory0.add(tagInfoFloats0, floatArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("2tU}||(E^L1,n>", (-4), 15, tiffDirectoryType0);
+      float[] floatArray0 = new float[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoFloats0, floatArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 15 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("-6", (-3278), tiffDirectoryType0);
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("REaM", (-3278), 0, tagInfoSByte0.directoryType);
+      float[] floatArray0 = new float[0];
+      tiffOutputDirectory0.add(tagInfoFloats0, floatArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoShort tagInfoShort0 = new TagInfoShort((String) null, (-2138), tiffDirectoryType0);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[2];
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("pO\u0004b", (-1), 1, tagInfoShort0.directoryType);
+      try { 
+        tiffOutputDirectory0.add(tagInfoSRationals0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1 value(s), not 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", (-1), 1, tagInfoRational0.directoryType);
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("L|SEJ/", 1, 1, tagInfoShortOrLongOrRational0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoSRationals0, rationalNumberArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("Tag expects ", 433, tiffDirectoryType0);
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("Tag expects ", (-1), 0, tagInfoSByte0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[0];
+      tiffOutputDirectory0.add(tagInfoSRationals0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("", (-1), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoSRational0, (RationalNumber) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("AwV0nu_*#pncA(:b", (-2), 4, tiffDirectoryType0);
+      int[] intArray0 = new int[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSLongs0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      int[] intArray0 = new int[1];
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("", 1, 1, tagInfoRational0.directoryType);
+      tiffOutputDirectory0.add(tagInfoSLongs0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte((String) null, 264, tiffDirectoryType0);
+      int[] intArray0 = new int[0];
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs((String) null, (-1491), (-3), tagInfoSByte0.directoryType);
+      tiffOutputDirectory0.add(tagInfoSLongs0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("", 134, tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("The list of suffixes must not be null", 1, 1, tagInfoRational0.directoryType);
+      TagInfoSLong tagInfoSLong0 = new TagInfoSLong("", 50709, tagInfoShortOrLong0.directoryType);
+      tiffOutputDirectory0.add(tagInfoSLong0, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(2, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("JPEG image daa", 2, 2, tiffDirectoryType0);
+      short[] shortArray0 = new short[1];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSShorts0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(4, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("W", 434, 4, tiffDirectoryType0);
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("W", (-1), 4, tagInfoLongs0.directoryType);
+      short[] shortArray0 = new short[4];
+      tiffOutputDirectory0.add(tagInfoSShorts0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("InkSet", (-1203), (-1203), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoSShorts0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("WI", (-397), 12, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[1];
+      try { 
+        tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 12 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes(")", 8, (-5947), tiffDirectoryType0);
+      byte[] byteArray0 = new byte[7];
+      tiffOutputDirectory0.add(tagInfoSBytes0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("G<\"", (-946), tiffDirectoryType0);
+      TagInfoShort tagInfoShort0 = new TagInfoShort("Tag expects ", 12, tagInfoRational0.directoryType);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("", 18, tagInfoShort0.directoryType);
+      tiffOutputDirectory0.add(tagInfoSByte0, (byte) (-40));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("", (-4), tiffDirectoryType0);
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", 1, 1082, tagInfoFloat0.directoryType);
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoRationals0, rationalNumberArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 1082 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("F ", (-4), tiffDirectoryType0);
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("F ", (-1), (-2164), tagInfoSRational0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.add(tagInfoRationals0, (RationalNumber[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("G<\"", (-946), tiffDirectoryType0);
+      RationalNumber rationalNumber0 = RationalNumber.valueOf((-277.98308763));
+      tiffOutputDirectory0.add(tagInfoRational0, rationalNumber0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("2tU}||(E^L1,n>", 26, 26, tiffDirectoryType0);
+      int[] intArray0 = new int[4];
+      try { 
+        tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 26 value(s), not 4
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(4, byteOrder0);
+      int[] intArray0 = new int[4];
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("W", 434, 4, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoLongs0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      List<FieldType> list0 = FieldType.ANY;
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("C+wx", (-2), list0, (-2), tiffDirectoryType0, false);
+      try { 
+        tiffOutputDirectory0.add(tagInfoLong0, (-2));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects -2 value(s), not 1
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong((String) null, 41990, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoLong0, (int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("'YyT|eb*^#", 0, 8, tiffDirectoryType0);
+      short[] shortArray0 = new short[8];
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("'YyT|eb*^#", 8, 8, tagInfoShortOrLongOrRational0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShorts0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-2351), (ByteOrder) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("\"OlV1a*1SE%Q", (-2351), 5, tiffDirectoryType0);
+      short[] shortArray0 = new short[12];
+      try { 
+        tiffOutputDirectory0.add(tagInfoShorts0, shortArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 5 value(s), not 12
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 0, 0, tiffDirectoryType0);
+      short[] shortArray0 = new short[9];
+      tiffOutputDirectory0.add(tagInfoShorts0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("G<\"", (-946), tiffDirectoryType0);
+      TagInfoShort tagInfoShort0 = new TagInfoShort("Tag expects ", 12, tagInfoRational0.directoryType);
+      tiffOutputDirectory0.add(tagInfoShort0, (short) (byte) (-46));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("^:O5=>=s'hgG~lg|y", 4, 4, tiffDirectoryType0);
+      String[] stringArray0 = new String[7];
+      stringArray0[0] = "^:O5=>=s'hgG~lg|y";
+      stringArray0[1] = "p";
+      stringArray0[2] = "^:O5=>=s'hgG~lg|y";
+      stringArray0[3] = "^:O5=>=s'hgG~lg|y";
+      stringArray0[4] = "O,%mMdJ$;";
+      stringArray0[5] = " for: ";
+      stringArray0[6] = " for: ";
+      try { 
+        tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 4 byte(s), not 7
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("XiV '.k^7<$bh`8T", (-3), (-3), tiffDirectoryType0);
+      String[] stringArray0 = new String[0];
+      tiffOutputDirectory0.add(tagInfoAscii0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      List<FieldType> list0 = FieldType.SHORT_OR_LONG;
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("S[7|coQUi8(N3x4gX", 2078, list0, 2078, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[6];
+      try { 
+        tiffOutputDirectory0.add(tagInfoBytes0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tag expects 2078 value(s), not 6
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("", 405, 405, tiffDirectoryType0);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 405, tagInfoShortOrLongOrRational0.dataTypes, 0, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[8];
+      tiffOutputDirectory0.add(tagInfoBytes0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoByte tagInfoByte0 = new TagInfoByte(" for: ", (-2), tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoByte0, (byte)104);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      String string0 = tiffOutputDirectory0.getItemDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      String string0 = tiffOutputDirectory0.getItemDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(2, byteOrder0);
+      tiffOutputDirectory0.getRawTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addRootDirectory();
+      tiffOutputDirectory0.getRawJpegImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory(0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("fYhOdFZi5", 0, tiffDirectoryType0);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("fYhOdFZi5", 0, tagInfoSShort0.directoryType);
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("fYhOdFZi5", (byte)45, tagInfoSByte0.directoryType);
+      tiffOutputDirectory0.add(tagInfoXpString0, "7V9&Ji':-H[^g_Z8\"");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("MMjjHoMr,m9G", 2050, tiffDirectoryType0);
+      tiffOutputDirectory0.add(tagInfoGpsText0, "MMjjHoMr,m9G");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.removeField((TagInfo) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      int int0 = tiffOutputSummary0.rootDirectory.getItemLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      int int0 = tiffOutputSummary0.rootDirectory.getItemLength();
+      assertEquals(0, int0);
+}

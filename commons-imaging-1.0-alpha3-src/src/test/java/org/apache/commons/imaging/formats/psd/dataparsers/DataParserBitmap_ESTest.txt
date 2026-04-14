@@ -1,0 +1,68 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DataParserBitmap dataParserBitmap0 = new DataParserBitmap();
+      byte[] byteArray0 = new byte[3];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(2545, byteArray0, 0, 0, 5257, 5257, 392);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 1, (byte) (-27), 0, 392);
+      // Undeclared exception!
+      try { 
+        dataParserBitmap0.getRGB((int[][][]) null, 2545, 2, psdImageContents0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserBitmap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserBitmap dataParserBitmap0 = new DataParserBitmap();
+      int[][][] intArray0 = new int[4][1][7];
+      byte[] byteArray0 = new byte[3];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, 255, 4989, 0, 459, (-802));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte) (-1), 0, 0, (-1));
+      // Undeclared exception!
+      try { 
+        dataParserBitmap0.getRGB(intArray0, 8, (-1398), psdImageContents0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1398
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserBitmap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DataParserBitmap dataParserBitmap0 = new DataParserBitmap();
+      int[][][] intArray0 = new int[14][2][0];
+      int[][] intArray1 = new int[1][2];
+      intArray0[0] = intArray1;
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, (byte)0, 1, 0, 1, 1);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, 0, 1, (byte)0);
+      int int0 = dataParserBitmap0.getRGB(intArray0, 1, 0, psdImageContents0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DataParserBitmap dataParserBitmap0 = new DataParserBitmap();
+      int[][][] intArray0 = new int[14][2][0];
+      int[][] intArray1 = new int[1][2];
+      int[] intArray2 = new int[8];
+      intArray2[0] = 1;
+      intArray1[0] = intArray2;
+      intArray0[0] = intArray1;
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, (byte)0, 1, 0, 1, 1);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, 0, 1, (byte)0);
+      int int0 = dataParserBitmap0.getRGB(intArray0, 0, 0, psdImageContents0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DataParserBitmap dataParserBitmap0 = new DataParserBitmap();
+      int int0 = dataParserBitmap0.getBasicChannelsCount();
+      assertEquals(1, int0);
+}

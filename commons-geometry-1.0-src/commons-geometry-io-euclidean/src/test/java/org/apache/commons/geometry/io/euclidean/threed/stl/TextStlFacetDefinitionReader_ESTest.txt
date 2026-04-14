@@ -1,0 +1,97 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Parsing failed at line %d, column %d: %s");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        textStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2ExmK*'8skW}6C0U");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        textStlFacetDefinitionReader0.getSolidName();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = null;
+      try {
+        textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("solid");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      textStlFacetDefinitionReader0.getSolidName();
+      String string0 = textStlFacetDefinitionReader0.getSolidName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("solid");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      textStlFacetDefinitionReader0.getSolidName();
+      FacetDefinition facetDefinition0 = textStlFacetDefinitionReader0.readFacet();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("solid");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        textStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 6: expected one of [facet, endsolid] but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("solid");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      textStlFacetDefinitionReader0.close();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      TextStlFacetDefinitionReader textStlFacetDefinitionReader0 = new TextStlFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        textStlFacetDefinitionReader0.getSolidName();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected [solid] but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }

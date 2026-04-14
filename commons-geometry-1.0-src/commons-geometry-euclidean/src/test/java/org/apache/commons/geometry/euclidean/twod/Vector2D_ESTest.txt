@@ -1,0 +1,2918 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      // Undeclared exception!
+      try { 
+        Vector2D.Sum.of(vector2D0, vector2DArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.Unit.from(Double.POSITIVE_INFINITY, (-1.5707963267948966));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.Unit.from(3.141592653589793, Double.NEGATIVE_INFINITY);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      double[] doubleArray0 = new double[8];
+      // Undeclared exception!
+      try { 
+        Vector2D.of(doubleArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Dimension mismatch: 8 != 2
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.negate();
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.orthogonal();
+      Rotation2D rotation2D0 = Rotation2D.createVectorRotation(vector2D_Unit0, vector2D_Unit0);
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit3);
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.negate();
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.orthogonal();
+      Rotation2D rotation2D0 = Rotation2D.createVectorRotation(vector2D_Unit0, vector2D_Unit0);
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit3);
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.negate();
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.orthogonal();
+      Rotation2D rotation2D0 = Rotation2D.createVectorRotation(vector2D_Unit0, vector2D_Unit0);
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit3);
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.negate();
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.orthogonal();
+      Rotation2D rotation2D0 = Rotation2D.createVectorRotation(vector2D_Unit0, vector2D_Unit0);
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit3);
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      boolean boolean0 = vector2D_Unit1.equals(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      boolean boolean0 = vector2D_Unit1.equals(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      boolean boolean0 = vector2D_Unit1.equals(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      boolean boolean0 = vector2D_Unit1.equals(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      boolean boolean0 = vector2D_Unit1.equals(vector2D_Unit0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-4298.041421210678), (-4298.041421210678));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D_Unit0.NaN.isZero(precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-4298.041421210678), (-4298.041421210678));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D_Unit0.NaN.isZero(precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-4298.041421210678), (-4298.041421210678));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D_Unit0.NaN.isZero(precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-768.553926980015), 1376.76);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.fromColumnVectors(vector2D0, vector2D0, vector2D0);
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(202.86);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(202.86);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(202.86);
+      double double0 = vector2D_Unit0.angle(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(1232.9024906855714);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(1232.9024906855714);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(1232.9024906855714);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(1232.9024906855714);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-0.9999999999), (-0.9999999999));
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-0.9999999999), (-0.9999999999));
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      double double0 = vector2D_Unit0.normSq();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      double double0 = vector2D_Unit0.norm();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      boolean boolean0 = vector2D_Unit0.equals(vector2D_Unit0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.withNorm(Double.POSITIVE_INFINITY);
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(2261.3514725738705, 2261.3514725738705);
+      Vector2D vector2D1 = vector2D0.withNorm(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(2261.3514725738705, 2261.3514725738705);
+      Vector2D vector2D1 = vector2D0.withNorm(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(2261.3514725738705, 2261.3514725738705);
+      Vector2D vector2D1 = vector2D0.withNorm(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(2261.3514725738705, 2261.3514725738705);
+      Vector2D vector2D1 = vector2D0.withNorm(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.withNorm(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.NaN.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.NaN.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1261.56625), (-1261.56625));
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear((-1261.56625), (-1261.56625));
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Vector2D vector2D1 = vector2D_Unit0.NaN.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.vectorTo((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.vectorTo((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.vectorTo(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.vectorTo(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      vector2D0.POSITIVE_INFINITY.transform(rotation2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      vector2D0.POSITIVE_INFINITY.transform(rotation2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear(0.9999, 0.9999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.transform(affineTransformMatrix2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear(0.9999, 0.9999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.transform(affineTransformMatrix2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear(0.9999, 0.9999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.transform(affineTransformMatrix2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear(0.9999, 0.9999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.transform(affineTransformMatrix2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of(0.0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.transform(rotation2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of(0.0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.transform(rotation2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of(0.0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.transform(rotation2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D1 = vector2D0.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit2.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit2.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit2.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D1 = vector2D0.NaN.subtract((-2199.3664), (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract(3.273390607896142E150, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract(3.273390607896142E150, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.subtract(2485407.336504772, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.subtract(2485407.336504772, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.subtract(4.149515568880993E180, (Vector2D) vector2D_Unit0);
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.subtract(4.149515568880993E180, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.subtract(4.149515568880993E180, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      double double0 = vector2D_Unit0.signedArea(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      Vector2D[] vector2DArray0 = new Vector2D[8];
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      double double0 = vector2D0.signedArea(vector2DArray0[5]);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1628.1858910080105), (-222.817300036145));
+      Vector2D vector2D0 = Vector2D.of(1.0, (-222.817300036145));
+      double double0 = vector2D_Unit0.POSITIVE_INFINITY.signedArea(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1628.1858910080105), (-222.817300036145));
+      Vector2D vector2D0 = Vector2D.of(1.0, (-222.817300036145));
+      double double0 = vector2D_Unit0.POSITIVE_INFINITY.signedArea(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1628.1858910080105), (-222.817300036145));
+      Vector2D vector2D0 = Vector2D.of(1.0, (-222.817300036145));
+      double double0 = vector2D_Unit0.POSITIVE_INFINITY.signedArea(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      vector2D_Unit0.NaN.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.project((Vector2D) vector2D_Unit0);
+      vector2D_Unit0.NaN.add(672.7, vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.project((Vector2D) vector2D_Unit0);
+      vector2D_Unit0.NaN.add(672.7, vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.project(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = Vector2D.of(1233.02538775831, 0.9999999999);
+      Vector2D vector2D1 = vector2D_Unit0.NEGATIVE_INFINITY.project(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.parse("(-Infinity, -Infinity)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.parse("(-Infinity, -Infinity)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.parse("(0.0, 0.0)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.parse("(0.0, 0.0)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.parse("(NaN, NaN)");
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min((Vector2D) vector2D_Unit1, vector2DArray0);
+      Vector2D.Unit vector2D_Unit2 = vector2D0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min((Vector2D) vector2D_Unit1, vector2DArray0);
+      Vector2D.Unit vector2D_Unit2 = vector2D0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min((Vector2D) vector2D_Unit1, vector2DArray0);
+      Vector2D.Unit vector2D_Unit2 = vector2D0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((-1225.2606964338), (-1225.2606964338));
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.negate();
+      Vector2D.Unit vector2D_Unit4 = vector2D_Unit3.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.negate();
+      Vector2D.Unit vector2D_Unit4 = vector2D_Unit3.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.negate();
+      Vector2D.Unit vector2D_Unit4 = vector2D_Unit3.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit1);
+      Vector2D.Unit vector2D_Unit3 = vector2D_Unit2.negate();
+      Vector2D.Unit vector2D_Unit4 = vector2D_Unit3.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = Double.POSITIVE_INFINITY;
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = Double.POSITIVE_INFINITY;
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      double[] doubleArray0 = vector2D0.toArray();
+      Vector2D vector2D1 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      double[] doubleArray0 = vector2D0.toArray();
+      Vector2D vector2D1 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[1] = (-934.8430901601193);
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[1] = (-934.8430901601193);
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = (-0.9999999999);
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = (-0.9999999999);
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      assertTrue(vector2D_Unit1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.normalizeOrNull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.normalizeOrNull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.normalizeOrNull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.normalizeOrNull();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      assertEquals(1, vector2D_Unit1.getDimension());
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalize();
+      assertTrue(vector2D_Unit1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      double double0 = vector2D0.ZERO.normSq();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      double double0 = vector2D_Unit0.norm();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      Vector2D vector2D0 = vector2DArray0[0].NaN.negate();
+      assertTrue(vector2D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.negate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.negate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Vector2D vector2D1 = vector2D0.NEGATIVE_INFINITY.negate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Vector2D vector2D1 = vector2D0.NEGATIVE_INFINITY.negate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.multiply(Double.NEGATIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.multiply(Double.NEGATIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.POSITIVE_INFINITY.multiply((-1752.3859));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.POSITIVE_INFINITY.multiply((-1752.3859));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit1.multiply(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit1.multiply(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit1.multiply(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit1.multiply(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract((Vector2D) vector2D_Unit0);
+      Vector2D vector2D1 = vector2D0.multiply(202.86);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector2D[] vector2DArray0 = new Vector2D[0];
+      Vector2D vector2D1 = Vector2D.min(vector2D0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Vector2D[] vector2DArray0 = new Vector2D[4];
+      vector2DArray0[0] = vector2D0;
+      vector2DArray0[1] = vector2D0;
+      vector2DArray0[2] = vector2D0;
+      vector2DArray0[3] = vector2D0;
+      Vector2D vector2D1 = Vector2D.min(vector2D0, vector2DArray0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(Double.NaN, 2133.172304);
+      Stack<Vector2D> stack0 = new Stack<Vector2D>();
+      stack0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.min((Iterable<Vector2D>) stack0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(Double.NaN, 2133.172304);
+      Stack<Vector2D> stack0 = new Stack<Vector2D>();
+      stack0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.min((Iterable<Vector2D>) stack0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>(857, 857);
+      hashSet0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.min((Iterable<Vector2D>) hashSet0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>(857, 857);
+      hashSet0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.min((Iterable<Vector2D>) hashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      ArrayDeque<Vector2D> arrayDeque0 = new ArrayDeque<Vector2D>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      arrayDeque0.push(vector2D_Unit0);
+      Vector2D vector2D0 = Vector2D.min((Iterable<Vector2D>) arrayDeque0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D[] vector2DArray0 = new Vector2D[5];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = vector2D0;
+      vector2DArray0[4] = vector2D0;
+      Vector2D vector2D1 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max(vector2DArray0[4], vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max(vector2DArray0[4], vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-3092.41476807));
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm((-3092.41476807));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      Vector<Vector2D> vector0 = new Vector<Vector2D>(0);
+      Vector2D vector2D0 = Vector2D.NaN;
+      vector0.add(0, vector2D0);
+      Vector2D vector2D1 = Vector2D.max((Iterable<Vector2D>) vector0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      Vector<Vector2D> vector0 = new Vector<Vector2D>(0);
+      Vector2D vector2D0 = Vector2D.NaN;
+      vector0.add(0, vector2D0);
+      Vector2D vector2D1 = Vector2D.max((Iterable<Vector2D>) vector0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      Vector<Vector2D> vector0 = new Vector<Vector2D>(0);
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      vector0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.max((Iterable<Vector2D>) vector0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      Vector<Vector2D.Unit> vector0 = new Vector<Vector2D.Unit>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      vector0.add(vector2D_Unit0);
+      Vector<Vector2D> vector1 = new Vector<Vector2D>(vector0);
+      Vector2D vector2D0 = Vector2D.max((Iterable<Vector2D>) vector1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector<Vector2D> vector0 = new Vector<Vector2D>(0);
+      vector0.add((Vector2D) vector2D_Unit0);
+      Vector2D vector2D0 = Vector2D.max((Iterable<Vector2D>) vector0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(2.409919865102884E-181, 2.409919865102884E-181);
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.lerp((Vector2D) vector2D_Unit0, (-757.9));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(2.409919865102884E-181, 2.409919865102884E-181);
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.lerp((Vector2D) vector2D_Unit0, (-757.9));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(2.409919865102884E-181, 2.409919865102884E-181);
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.lerp((Vector2D) vector2D_Unit0, (-757.9));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(2.409919865102884E-181, 2.409919865102884E-181);
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.lerp((Vector2D) vector2D_Unit0, (-757.9));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D vector2D1 = vector2D0.lerp(vector2D0, 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      double double0 = vector2D0.getY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      double double0 = vector2D_Unit0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      double double0 = vector2D_Unit0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test188()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      double double0 = vector2D_Unit0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test189()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.9999, (-646.1));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      double double0 = vector2D_Unit0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test190()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of((-1250.62821272));
+      Rotation2D rotation2D1 = rotation2D0.inverse();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = rotation2D1.apply((Vector2D) vector2D_Unit0);
+      double double0 = vector2D0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test191()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of((-1250.62821272));
+      Rotation2D rotation2D1 = rotation2D0.inverse();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = rotation2D1.apply((Vector2D) vector2D_Unit0);
+      double double0 = vector2D0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test192()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract((Vector2D) vector2D_Unit0);
+      double double0 = vector2D_Unit0.dot(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test193()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract((Vector2D) vector2D_Unit0);
+      double double0 = vector2D_Unit0.dot(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test194()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.subtract((Vector2D) vector2D_Unit0);
+      double double0 = vector2D_Unit0.dot(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test195()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Rotation2D rotation2D0 = Rotation2D.of((-447.9));
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit0);
+      double double0 = vector2D0.dot((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test196()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Rotation2D rotation2D0 = Rotation2D.of((-447.9));
+      Vector2D vector2D0 = rotation2D0.apply((Vector2D) vector2D_Unit0);
+      double double0 = vector2D0.dot((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test197()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1.0), (-2036.3610847474615));
+      double double0 = vector2D0.ZERO.distanceSq(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test198()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1.0), (-2036.3610847474615));
+      double double0 = vector2D0.ZERO.distanceSq(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test199()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1.0), (-2036.3610847474615));
+      double double0 = vector2D0.ZERO.distanceSq(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test200()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      double double0 = vector2D0.ZERO.distance(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test201()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.directionTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test202()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit1.directionTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test203()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.directionTo((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test204()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.directionTo((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test205()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit2 = vector2D_Unit0.directionTo((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test206()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.directionTo(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test207()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.directionTo(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test208()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D[] vector2DArray0 = new Vector2D[4];
+      vector2DArray0[0] = vector2D0;
+      vector2DArray0[1] = vector2D0;
+      vector2DArray0[2] = vector2D0;
+      vector2DArray0[3] = vector2D0;
+      Vector2D vector2D1 = Vector2D.centroid(vector2D0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test209()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      vector2DArray0[0] = vector2D0;
+      Vector2D vector2D1 = Vector2D.centroid(vector2D0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test210()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[0];
+      Vector2D vector2D0 = Vector2D.centroid((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test211()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[0];
+      Vector2D vector2D0 = Vector2D.centroid((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test212()  throws Throwable  {
+      LinkedHashSet<Vector2D> linkedHashSet0 = new LinkedHashSet<Vector2D>();
+      Vector2D vector2D0 = Vector2D.NaN;
+      linkedHashSet0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.centroid((Iterable<Vector2D>) linkedHashSet0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test213()  throws Throwable  {
+      LinkedHashSet<Vector2D> linkedHashSet0 = new LinkedHashSet<Vector2D>();
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      linkedHashSet0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.centroid((Iterable<Vector2D>) linkedHashSet0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test214()  throws Throwable  {
+      LinkedHashSet<Vector2D> linkedHashSet0 = new LinkedHashSet<Vector2D>();
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      linkedHashSet0.add(vector2D0);
+      Vector2D vector2D1 = Vector2D.centroid((Iterable<Vector2D>) linkedHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test215()  throws Throwable  {
+      Vector<Vector2D.Unit> vector0 = new Vector<Vector2D.Unit>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      vector0.add(vector2D_Unit0);
+      Vector<Vector2D> vector1 = new Vector<Vector2D>(vector0);
+      Vector2D vector2D0 = Vector2D.centroid((Iterable<Vector2D>) vector1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test216()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.add(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test217()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.add(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test218()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.add(vector2D0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test219()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.add(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test220()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.add(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test221()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test222()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test223()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Vector2D vector2D0 = vector2D_Unit1.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test224()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector2D[] vector2DArray0 = new Vector2D[4];
+      vector2DArray0[0] = vector2D0;
+      vector2DArray0[1] = vector2D0;
+      vector2DArray0[2] = vector2D0;
+      Rotation2D rotation2D0 = Rotation2D.of(0.0);
+      Vector2D vector2D1 = rotation2D0.apply(vector2D0);
+      vector2DArray0[3] = vector2D1;
+      Vector2D vector2D2 = Vector2D.max(vector2D0, vector2DArray0);
+      Vector2D vector2D3 = vector2D0.add(vector2D2);
+      // Undeclared exception!
+      try { 
+        vector2D3.normalize();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test225()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit0.add((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test226()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit0.add((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test227()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Vector2D vector2D0 = vector2D_Unit0.add((Vector2D) vector2D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test228()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.add(1.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test229()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.add(1.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test230()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.add(0.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test231()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.add(0.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test232()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.NEGATIVE_INFINITY.add(0.0, (Vector2D) vector2D_Unit0);
+      assertTrue(vector2D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test233()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.NEGATIVE_INFINITY.withNorm(Double.NaN);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test234()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.ZERO.vectorTo((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test235()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.NEGATIVE_INFINITY.transform((UnaryOperator<Vector2D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test236()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.ZERO.subtract((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test237()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.subtract(0.25, (Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test238()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.NEGATIVE_INFINITY.signedArea((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test239()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.NEGATIVE_INFINITY.reject((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test240()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.reject(vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test241()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.project((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test242()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.parse((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test243()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.orthogonal((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test244()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.of((double[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test245()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        Vector2D.min((Vector2D) vector2D_Unit0, (Vector2D[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test246()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.min((Iterable<Vector2D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test247()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.max((Iterable<Vector2D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test248()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.lerp((Vector2D) null, 0.0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test249()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.eq((Vector2D) vector2D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test250()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.ZERO.normalizeOrNull();
+      // Undeclared exception!
+      try { 
+        vector2D_Unit1.ZERO.dot((Vector2D) vector2D_Unit1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test251()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.distanceSq((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test252()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.distance((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test253()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.POSITIVE_INFINITY.directionTo((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test254()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[4];
+      // Undeclared exception!
+      try { 
+        Vector2D.centroid((Vector2D) vector2D_Unit0, vector2DArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test255()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.centroid((Iterable<Vector2D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test256()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.angle(vector2DArray0[0]);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test257()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.NaN.add((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test258()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.add((-2207.8540374056), (Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test259()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      vector2D_Unit1.hashCode();
+      Vector2D.Unit vector2D_Unit2 = Vector2D.Unit.from((Vector2D) vector2D_Unit1);
+      UnaryOperator<Vector2D> unaryOperator0 = UnaryOperator.identity();
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D vector2D1 = vector2D_Unit2.transform(unaryOperator0);
+      int int0 = 54;
+      PriorityQueue<Vector2D> priorityQueue0 = new PriorityQueue<Vector2D>(54);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D1.eq((Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test260()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      vector2D_Unit1.hashCode();
+      Vector2D.Unit vector2D_Unit2 = Vector2D.Unit.from((Vector2D) vector2D_Unit1);
+      UnaryOperator<Vector2D> unaryOperator0 = UnaryOperator.identity();
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D vector2D1 = vector2D_Unit2.transform(unaryOperator0);
+      int int0 = 54;
+      PriorityQueue<Vector2D> priorityQueue0 = new PriorityQueue<Vector2D>(54);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D1.eq((Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test261()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.normalizeOrNull();
+      vector2D_Unit1.hashCode();
+      Vector2D.Unit vector2D_Unit2 = Vector2D.Unit.from((Vector2D) vector2D_Unit1);
+      UnaryOperator<Vector2D> unaryOperator0 = UnaryOperator.identity();
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D vector2D1 = vector2D_Unit2.transform(unaryOperator0);
+      int int0 = 54;
+      PriorityQueue<Vector2D> priorityQueue0 = new PriorityQueue<Vector2D>(54);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D1.eq((Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      assertTrue(vector2D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test262()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector2D_Unit0.eq((Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test263()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      boolean boolean0 = vector2D_Unit0.isNaN();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test264()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of(0.9999);
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D vector2D1 = rotation2D0.apply(vector2D0);
+      boolean boolean0 = vector2D1.isNaN();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test265()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.of(0.9999);
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D vector2D1 = rotation2D0.apply(vector2D0);
+      boolean boolean0 = vector2D1.isNaN();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test266()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1431.79160268805, 1431.79160268805);
+      Vector2D vector2D0 = rotation2D0.applyVector((Vector2D) vector2D_Unit0);
+      Vector2D.Unit vector2D_Unit1 = vector2D0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test267()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1431.79160268805, 1431.79160268805);
+      Vector2D vector2D0 = rotation2D0.applyVector((Vector2D) vector2D_Unit0);
+      Vector2D.Unit vector2D_Unit1 = vector2D0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test268()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1431.79160268805, 1431.79160268805);
+      Vector2D vector2D0 = rotation2D0.applyVector((Vector2D) vector2D_Unit0);
+      Vector2D.Unit vector2D_Unit1 = vector2D0.normalize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test269()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      double double0 = vector2D0.normSq();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test270()  throws Throwable  {
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.create();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test271()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      double double0 = vector2D_Unit0.getY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test272()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      double double0 = vector2D_Unit0.getX();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test273()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.POSITIVE_INFINITY.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test274()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.POSITIVE_INFINITY.vectorTo((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test275()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector2D.Sum vector2D_Sum0 = new Vector2D.Sum(vector2D0);
+      Vector2D.Sum vector2D_Sum1 = vector2D_Sum0.addScaled(0.0, vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test276()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-2992.5), 2525.3);
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.of(vector2D0);
+      Vector2D vector2D1 = vector2D_Sum0.get();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test277()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-2992.5), 2525.3);
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.of(vector2D0);
+      Vector2D vector2D1 = vector2D_Sum0.get();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test278()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-2992.5), 2525.3);
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.of(vector2D0);
+      Vector2D vector2D1 = vector2D_Sum0.get();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test279()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      double double0 = vector2D_Unit0.dot((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test280()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Sum vector2D_Sum0 = new Vector2D.Sum(vector2D_Unit0);
+      Vector2D.Sum vector2D_Sum1 = vector2D_Sum0.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test281()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-764.0), (-764.0));
+      vector2D_Unit0.NaN.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test282()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-764.0), (-764.0));
+      vector2D_Unit0.NaN.subtract((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test283()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      vector2D0.norm();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test284()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      vector2D0.norm();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test285()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[9];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[7] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[8] = (Vector2D) vector2D_Unit0;
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.of(vector2DArray0[4], vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test286()  throws Throwable  {
+      LinkedHashSet<Vector2D> linkedHashSet0 = new LinkedHashSet<Vector2D>();
+      // Undeclared exception!
+      try { 
+        Vector2D.centroid((Iterable<Vector2D>) linkedHashSet0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot compute centroid: no points given
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test287()  throws Throwable  {
+      Vector<Vector2D.Unit> vector0 = new Vector<Vector2D.Unit>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      vector0.add(vector2D_Unit0);
+      Vector<Vector2D> vector1 = new Vector<Vector2D>(vector0);
+      Vector2D vector2D0 = Vector2D.centroid((Iterable<Vector2D>) vector1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test288()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>(2167, 2167);
+      // Undeclared exception!
+      try { 
+        Vector2D.min((Iterable<Vector2D>) hashSet0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot compute vector min: no vectors given
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test289()  throws Throwable  {
+      Vector<Vector2D.Unit> vector0 = new Vector<Vector2D.Unit>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      vector0.add(vector2D_Unit0);
+      Vector<Vector2D> vector1 = new Vector<Vector2D>(vector0);
+      Vector2D vector2D0 = Vector2D.min((Iterable<Vector2D>) vector1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test290()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      // Undeclared exception!
+      try { 
+        Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test291()  throws Throwable  {
+      PriorityQueue<Vector2D> priorityQueue0 = new PriorityQueue<Vector2D>(28);
+      // Undeclared exception!
+      try { 
+        Vector2D.max((Iterable<Vector2D>) priorityQueue0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot compute vector max: no vectors given
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test292()  throws Throwable  {
+      Vector<Vector2D.Unit> vector0 = new Vector<Vector2D.Unit>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      vector0.add(vector2D_Unit0);
+      Vector<Vector2D> vector1 = new Vector<Vector2D>(vector0);
+      Vector2D vector2D0 = Vector2D.max((Iterable<Vector2D>) vector1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test293()  throws Throwable  {
+      double[] doubleArray0 = new double[1];
+      // Undeclared exception!
+      try { 
+        Vector2D.of(doubleArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Dimension mismatch: 1 != 2
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test294()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.project((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test295()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.project((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test296()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.ZERO.project((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test297()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = Vector2D.NaN;
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test298()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = Vector2D.NaN;
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test299()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      boolean boolean0 = vector2D0.equals((Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test300()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit1.reject((Vector2D) vector2D_Unit0);
+      boolean boolean0 = vector2D_Unit1.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test301()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit1.reject((Vector2D) vector2D_Unit0);
+      boolean boolean0 = vector2D_Unit1.equals(vector2D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test302()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit1.reject((Vector2D) vector2D_Unit0);
+      boolean boolean0 = vector2D_Unit1.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test303()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test304()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      boolean boolean0 = vector2D_Unit0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test305()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      boolean boolean0 = vector2D0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test306()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      boolean boolean0 = vector2D0.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test307()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      boolean boolean0 = vector2D0.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test308()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      boolean boolean0 = vector2D_Unit0.NaN.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test309()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      boolean boolean0 = vector2D0.isInfinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test310()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      boolean boolean0 = vector2D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test311()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      boolean boolean0 = vector2D0.isInfinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test312()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      boolean boolean0 = vector2D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test313()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      boolean boolean0 = vector2D_Unit0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test314()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      boolean boolean0 = vector2D_Unit0.isInfinite();
+      assertTrue(vector2D_Unit0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test315()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      boolean boolean0 = vector2D0.isInfinite();
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test316()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      boolean boolean0 = vector2D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test317()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      double double0 = vector2D_Unit1.getY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test318()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      double double0 = vector2D_Unit1.getY();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test319()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.orthogonal();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test320()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      int int0 = vector2D_Unit0.getDimension();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test321()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.getZero();
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test322()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.getZero();
+      boolean boolean0 = vector2D_Unit0.equals(vector2D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test323()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test324()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test325()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.add((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test326()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.add(0.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test327()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.add(0.0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test328()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Vector2D.parse("org.apache.commons.geometry.euclidean.twod.Vector2D");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"org.apache.commons.geometry.euclidean.twod.Vector2D\" at index 0: expected \"(\" but found \"o\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test329()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.negate();
+      Vector2D vector2D2 = vector2D0.lerp(vector2D1, 1576.4446084246456);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test330()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.negate();
+      Vector2D vector2D2 = vector2D0.lerp(vector2D1, 1576.4446084246456);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test331()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.negate();
+      Vector2D vector2D2 = vector2D0.lerp(vector2D1, 1576.4446084246456);
+      assertTrue(vector2D2.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test332()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.4446084246456, Double.NEGATIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.POSITIVE_INFINITY.negate();
+      Vector2D vector2D2 = vector2D0.lerp(vector2D1, 1576.4446084246456);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test333()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.25, 0.25);
+      String string0 = vector2D0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test334()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test335()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test336()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = vector2D_Unit0.reject((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test337()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test338()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test339()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test340()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test341()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test342()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.min(vector2DArray0[5], vector2DArray0);
+      Vector2D vector2D1 = vector2D0.withNorm(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test343()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      double double0 = vector2D_Unit0.distanceSq((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test344()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.centroid((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test345()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.centroid((Vector2D) vector2D_Unit0, vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test346()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.lerp(vector2D0, Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test347()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.lerp(vector2D0, Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test348()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1576.0, Double.POSITIVE_INFINITY);
+      Vector2D vector2D1 = vector2D0.lerp(vector2D0, Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test349()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      double double0 = vector2D_Unit0.distance((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test350()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector2D0.POSITIVE_INFINITY.project(vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test351()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.directionTo((Vector2D) vector2D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test352()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(0.25, 0.25);
+      // Undeclared exception!
+      try { 
+        vector2D0.ZERO.angle(vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }

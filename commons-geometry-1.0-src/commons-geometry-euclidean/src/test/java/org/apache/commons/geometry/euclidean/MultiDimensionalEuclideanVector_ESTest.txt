@@ -1,0 +1,139 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-296.6924278035967), (-296.6924278035967));
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-296.6924278035967), (-296.6924278035967));
+      Vector2D vector2D1 = vector2D0.reject(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D1 = vector2D0.reject(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D vector3D1 = vector3D0.project(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.project(vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1102.6197568781938), (-1102.6197568781938));
+      Vector2D.Unit vector2D_Unit1 = (Vector2D.Unit)vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Vector3D vector3D0 = vector3D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.of((-1.0), (-1.0), (-1.0));
+      // Undeclared exception!
+      try { 
+        vector3D0.reject((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = vector2D_Unit0.vectorTo((Vector2D) vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.reject(vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      // Undeclared exception!
+      try { 
+        vector2D0.project((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D vector2D0 = Vector2D.NaN;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.project(vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      // Undeclared exception!
+      try { 
+        vector2D0.orthogonal((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(0.0, 2.409919865102884E-181);
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.orthogonal((Vector2D) vector2D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NaN;
+      // Undeclared exception!
+      try { 
+        vector2D0.orthogonal();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }

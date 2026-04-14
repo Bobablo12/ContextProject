@@ -1,0 +1,66 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      InputStream inputStream0 = fileGeometryInput0.getInputStream();
+      assertNotNull(inputStream0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("", "aT%okBXgrqEEIR<M");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      Path path1 = fileGeometryInput0.getFile();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockFile mockFile0 = new MockFile(")");
+      Path path0 = mockFile0.toPath();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0);
+      // Undeclared exception!
+      try { 
+        fileGeometryInput0.getInputStream();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // NoSuchFileException: )
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput((Path) null);
+      Path path0 = fileGeometryInput0.getFile();
+      assertNotNull(path0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      Path path0 = mockFile0.toPath();
+      Charset charset0 = Charset.defaultCharset();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0, charset0);
+      assertNotNull(fileGeometryInput0.getFileName());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput((Path) null);
+      // Undeclared exception!
+      try { 
+        fileGeometryInput0.getInputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput((Path) null);
+      String string0 = fileGeometryInput0.toString();
+      ;
+}

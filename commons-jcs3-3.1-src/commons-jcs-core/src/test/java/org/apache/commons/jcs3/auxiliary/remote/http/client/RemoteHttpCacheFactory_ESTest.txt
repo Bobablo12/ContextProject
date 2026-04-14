@@ -1,0 +1,96 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      // Undeclared exception!
+      remoteHttpCacheFactory0.createRemoteHttpCacheClientForAttributes(remoteHttpCacheAttributes0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      // Undeclared exception!
+      try { 
+        remoteHttpCacheFactory0.createRemoteHttpCacheClientForAttributes((RemoteHttpCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      remoteHttpCacheAttributes0.setRemoteHttpClientClassName("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory");
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      // Undeclared exception!
+      try { 
+        remoteHttpCacheFactory0.createRemoteHttpCacheClientForAttributes(remoteHttpCacheAttributes0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory cannot be cast to org.apache.commons.jcs3.auxiliary.remote.http.client.behavior.IRemoteHttpCacheClient
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        remoteHttpCacheFactory0.createCache((AuxiliaryCacheAttributes) null, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      // Undeclared exception!
+      try { 
+        remoteHttpCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TCPLateralCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      remoteHttpCacheAttributes0.setRemoteHttpClientClassName("r?T+icKK");
+      // Undeclared exception!
+      remoteHttpCacheFactory0.createRemoteHttpCacheClientForAttributes(remoteHttpCacheAttributes0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      // Undeclared exception!
+      remoteHttpCacheFactory0.createCache((AuxiliaryCacheAttributes) remoteHttpCacheAttributes0, (ICompositeCacheManager) null, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) encryptingSerializer0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RemoteHttpCacheFactory remoteHttpCacheFactory0 = new RemoteHttpCacheFactory();
+      remoteHttpCacheFactory0.initialize();
+      remoteHttpCacheFactory0.dispose();
+      remoteHttpCacheFactory0.dispose();
+      assertNotNull(remoteHttpCacheFactory0.getName());
+}

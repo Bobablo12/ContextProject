@@ -1,0 +1,86 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byte[] byteArray1 = ZlibDeflate.decompress(byteArray0, (byte)1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byte[] byteArray1 = ZlibDeflate.decompress(byteArray0, (byte)1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = ZlibDeflate.decompress(byteArray0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = ZlibDeflate.decompress(byteArray0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ZlibDeflate.decompress((byte[]) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      // Undeclared exception!
+      try { 
+        ZlibDeflate.decompress(byteArray0, (-3735));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ZlibDeflate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ZlibDeflate.compress((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ZlibDeflate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byte[] byteArray1 = ZlibDeflate.compress(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ZlibDeflate zlibDeflate0 = new ZlibDeflate();
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      try { 
+        ZlibDeflate.decompress(byteArray0, 923);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unable to decompress image
+         //
+         verifyException("org.apache.commons.imaging.common.ZlibDeflate", e);
+      }
+  }

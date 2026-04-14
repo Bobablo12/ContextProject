@@ -1,0 +1,1632 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      plane1.eq(embeddingPlane0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, (-0.999999999999998), (Precision.DoubleEquivalence) null);
+      Line3D line3D0 = mock(Line3D.class, new ViolatedAssumptionAnswer());
+      doReturn(vector3D_Unit0).when(line3D0).getDirection();
+      doReturn((Vector3D) null).when(line3D0).getOrigin();
+      // Undeclared exception!
+      try { 
+        plane0.project(line3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Plane plane1 = plane0.translate(vector3D_Unit0);
+      double double0 = plane0.offset(plane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, precision_DoubleEquivalence0);
+      Plane plane1 = plane0.translate(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Plane plane1 = plane0.reverse();
+      Plane plane2 = plane1.translate(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Plane plane1 = plane0.reverse();
+      Plane plane2 = plane1.translate(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.RELATIVE;
+      AxisSequence axisSequence0 = AxisSequence.ZXY;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 0.0, 0.0, 1.0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Plane plane1 = embeddingPlane0.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.RELATIVE;
+      AxisSequence axisSequence0 = AxisSequence.ZXY;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 0.0, 0.0, 1.0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Plane plane1 = embeddingPlane0.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane1.contains(plane0);
+      Vector3D vector3D0 = plane0.intersection(line3D0);
+      plane1.project(vector3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane1.contains(plane0);
+      Vector3D vector3D0 = plane0.intersection(line3D0);
+      plane1.project(vector3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2815.689008), 0.25, (-130.449));
+      Plane plane0 = new Plane(vector3D_Unit0, (-130.449), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.project((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2815.689008), 0.25, (-130.449));
+      Plane plane0 = new Plane(vector3D_Unit0, (-130.449), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.project((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Y;
+      Vector3D vector3D0 = plane0.project((Vector3D) vector3D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      Vector3D vector3D0 = plane0.project((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      Line3D line3D0 = plane2.intersection(plane0);
+      Plane plane3 = plane2.transform(quaternionRotation0);
+      double double0 = plane3.offset(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Plane plane1 = plane0.translate(vector3D_Unit0);
+      double double0 = plane1.offset((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 1345.05, (Precision.DoubleEquivalence) null);
+      double double0 = plane0.offset((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane1.contains(plane0);
+      plane0.isParallel(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      plane1.intersection(plane0);
+      plane1.transform(quaternionRotation0);
+      boolean boolean0 = plane0.isParallel(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      plane0.isParallel(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-272.8028254), precision_DoubleEquivalence0);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.RELATIVE;
+      AxisSequence axisSequence0 = AxisSequence.XYX;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 0.0, 3517.0, 208.42999396);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      Plane plane1 = plane0.transform(quaternionRotation0);
+      EmbeddingPlane embeddingPlane0 = plane1.getEmbedding();
+      Line3D line3D0 = plane0.intersection(plane1);
+      Line3D line3D1 = embeddingPlane0.project(line3D0);
+      Vector3D vector3D0 = embeddingPlane0.intersection(line3D1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-272.8028254), precision_DoubleEquivalence0);
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.RELATIVE;
+      AxisSequence axisSequence0 = AxisSequence.XYX;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 0.0, 3517.0, 208.42999396);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      Plane plane1 = plane0.transform(quaternionRotation0);
+      EmbeddingPlane embeddingPlane0 = plane1.getEmbedding();
+      Line3D line3D0 = plane0.intersection(plane1);
+      Line3D line3D1 = embeddingPlane0.project(line3D0);
+      Vector3D vector3D0 = embeddingPlane0.intersection(line3D1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane1.contains(plane0);
+      Plane plane3 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence1);
+      Line3D line3D1 = plane3.project(line3D0);
+      Vector3D vector3D0 = plane1.intersection(line3D1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane0.transform(quaternionRotation0);
+      double double0 = plane2.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane0.transform(quaternionRotation0);
+      double double0 = plane2.offset(plane0);
+      Plane plane3 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = Plane.intersection(plane3, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane2 = plane0.transform(quaternionRotation0);
+      double double0 = plane2.offset(plane0);
+      Plane plane3 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = Plane.intersection(plane3, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane2, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane2, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane2, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane2, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      double double0 = plane0.getOriginOffset();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(957.52745443211, (-3214.562), 3625.9);
+      Plane plane0 = new Plane(vector3D_Unit0, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(957.52745443211, (-3214.562), 3625.9);
+      Plane plane0 = new Plane(vector3D_Unit0, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      Vector3D vector3D0 = plane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.9999, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.9999, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = embeddingPlane0.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D vector3D0 = plane2.getOrigin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, (-718.0), (Precision.DoubleEquivalence) null);
+      plane0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Vector3D.Unit vector3D_Unit1 = plane2.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 2392.0253141, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      embeddingPlane0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 2392.0253141, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      embeddingPlane0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1868.09176), (Precision.DoubleEquivalence) null);
+      plane0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-193.982), (Precision.DoubleEquivalence) null);
+      plane0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      boolean boolean0 = plane1.contains(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      boolean boolean0 = plane1.contains(plane0);
+      plane2.contains((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, 1.5707963267948966, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.translate((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((-1618.98114));
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.9999999999999998, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, (-3686.1), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, (-0.9999623328013688), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.span();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        plane0.similarOrientation((Hyperplane<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-2769.5397987508372), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.rotate(vector3D_Unit0, (QuaternionRotation) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, (-3318.2470822397), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      plane1.transform(quaternionRotation0);
+      // Undeclared exception!
+      try { 
+        plane1.project(line3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Line direction cannot be zero
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.Lines3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, 1303.842492026, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.project((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.offset((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        plane0.offset((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.offset(plane0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1608.76763), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.isParallel((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        plane0.intersection((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Plane.intersection((Plane) null, (Plane) null, (Plane) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-193.982), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.intersection(plane0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 1158.51268537929, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.intersection((Plane) embeddingPlane0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, (-1081.282676655188), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.getOrigin();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      Plane plane0 = new Plane((Vector3D.Unit) null, 3.141592653589793, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.getEmbedding();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 2.409919865102884E-181, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.eq(plane0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1868.09176), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.contains((Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 2804.3686008, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.contains((Vector3D) vector3D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1037.48063476), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.contains(plane0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane0, plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      Vector3D vector3D0 = Plane.intersection(plane0, plane0, plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane0.similarOrientation(plane1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane0.similarOrientation(plane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      boolean boolean0 = plane0.similarOrientation(plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      boolean boolean0 = plane0.similarOrientation(plane2);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-2068.333748260624), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      double double0 = embeddingPlane0.offset((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-2068.333748260624), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      double double0 = embeddingPlane0.offset((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      embeddingPlane0.project((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      embeddingPlane0.project((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 2459.95273567874, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        plane0.isParallel(plane0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1868.09176), (Precision.DoubleEquivalence) null);
+      double double0 = plane0.getOriginOffset();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 12.51452606972697, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(12.51452606972697, 12.51452606972697, 12.51452606972697, 12.51452606972697);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      Plane.intersection(plane0, plane1, plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Vector3D vector3D0 = plane0.getOrigin();
+      Plane plane2 = plane0.rotate(vector3D0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Vector3D vector3D0 = plane0.getOrigin();
+      Plane plane2 = plane0.rotate(vector3D0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Vector3D vector3D0 = plane0.getOrigin();
+      Plane plane2 = plane0.rotate(vector3D0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      boolean boolean0 = plane0.equals("Plane[origin= (0.0, 1024.24, 0.0), normal= (0.0, 1.0, 0.0)]");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      boolean boolean0 = plane0.equals("Plane[origin= (0.0, 1024.24, 0.0), normal= (0.0, 1.0, 0.0)]");
+      assertFalse(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      boolean boolean0 = plane1.equals(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.9999, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = plane0.equals(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.9999, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = plane0.equals(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      boolean boolean0 = plane0.equals((Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      boolean boolean0 = plane0.equals((Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      Line3D line3D0 = plane2.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      plane0.eq(plane2, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      Line3D line3D0 = plane2.intersection(plane0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      plane0.eq(plane2, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1012.7241701952687), precision_DoubleEquivalence0);
+      plane0.intersection(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane0.intersection(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      boolean boolean0 = plane1.contains(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      boolean boolean0 = plane1.contains(plane0);
+      Vector3D vector3D0 = plane0.intersection(line3D0);
+      Plane plane3 = plane0.rotate(vector3D0, quaternionRotation0);
+      plane1.equals(plane3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 12.51452606972697, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(12.51452606972697, 12.51452606972697, 12.51452606972697, 12.51452606972697);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      plane2.intersection(plane0);
+      Plane plane3 = plane2.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 12.51452606972697, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(12.51452606972697, 12.51452606972697, 12.51452606972697, 12.51452606972697);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Plane plane2 = plane1.reverse();
+      plane2.intersection(plane0);
+      Plane plane3 = plane2.transform(quaternionRotation0);
+      plane1.contains(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.0126544945764846, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.0126544945764846, 3.0126544945764846, 3.0126544945764846, 3.0126544945764846);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane2.contains(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 12.51452606972697, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(12.51452606972697, 12.51452606972697, 12.51452606972697, 12.51452606972697);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane1.transform(quaternionRotation0);
+      plane2.contains(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      boolean boolean0 = plane1.contains(plane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      boolean boolean0 = plane1.contains(plane0);
+      double double0 = plane1.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, 3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      boolean boolean0 = plane1.contains(plane0);
+      double double0 = plane1.offset(plane0);
+      plane1.contains(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1012.7241701952687), precision_DoubleEquivalence0);
+      double double0 = plane0.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1012.7241701952687), precision_DoubleEquivalence0);
+      double double0 = plane0.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-0.9999585567629317), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of((-0.9999585567629317), (-0.9999585567629317), (-0.9999585567629317), (-0.9999585567629317));
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      double double0 = plane1.offset(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-0.9999585567629317), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of((-0.9999585567629317), (-0.9999585567629317), (-0.9999585567629317), (-0.9999585567629317));
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      double double0 = plane1.offset(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      assertNotNull(line3D0);
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      Plane plane2 = plane0.transform(quaternionRotation0);
+      double double0 = plane2.offset(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(3.141592653589793, (-1024.24), 3.141592653589793, 3.141592653589793);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      Line3D line3D0 = plane1.intersection(plane0);
+      plane1.isParallel(line3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      plane0.span();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      double double0 = plane0.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      double double0 = plane0.offset(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      String string0 = plane0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      Plane plane1 = plane0.reverse();
+      double double0 = plane1.getOriginOffset();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      Plane plane1 = plane0.reverse();
+      double double0 = plane1.getOriginOffset();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1024.24), precision_DoubleEquivalence0);
+      plane0.contains((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 3.141592653589793, precision_DoubleEquivalence0);
+      plane0.hashCode();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        plane0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }

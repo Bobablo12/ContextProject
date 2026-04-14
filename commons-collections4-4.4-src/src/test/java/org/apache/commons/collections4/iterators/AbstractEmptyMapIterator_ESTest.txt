@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EmptyOrderedMapIterator<String, String> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<String, String>();
+      // Undeclared exception!
+      try { 
+        emptyOrderedMapIterator0.setValue("S");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmptyMapIterator<Object, Integer> emptyMapIterator0 = new EmptyMapIterator<Object, Integer>();
+      // Undeclared exception!
+      try { 
+        emptyMapIterator0.getValue();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EmptyMapIterator<Integer, Object> emptyMapIterator0 = new EmptyMapIterator<Integer, Object>();
+      // Undeclared exception!
+      try { 
+        emptyMapIterator0.getKey();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }

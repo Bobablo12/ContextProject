@@ -1,0 +1,244 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      StringPart stringPart0 = new StringPart("", "", "trn58ioP.", charset0, "");
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      long long0 = stringMultipartPart0.transferContentTo(fileChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("!E)i(:WiTi?", "!E)i(:WiTi?");
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("!E)i(:WiTi?");
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      long long0 = stringMultipartPart0.transferContentTo(fileChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("bRDJ70ut6dh]luO", "v%\u0007", "F>L2S!goEa#");
+      byte[] byteArray0 = new byte[0];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(false);
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(unpooledByteBufAllocator0);
+      long long0 = stringMultipartPart0.transferContentTo(emptyByteBuf0);
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("&O vwi8gcAJYh(", "&O vwi8gcAJYh(");
+      byte[] byteArray0 = new byte[0];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo(datagramChannel0);
+        fail("Expecting exception: NotYetConnectedException");
+      } catch(NotYetConnectedException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("!E)i(:WiTi?", "!E)i(:WiTi?");
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo(fileChannel0);
+        fail("Expecting exception: NonWritableChannelException");
+      } catch(NonWritableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("EG!qK&", "EG!qK&", "JB1C6(lUCf+1jG");
+      byte[] byteArray0 = new byte[0];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      datagramChannel0.close();
+      try { 
+        stringMultipartPart0.transferContentTo(datagramChannel0);
+        fail("Expecting exception: ClosedChannelException");
+      } catch(ClosedChannelException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("", "", "");
+      byte[] byteArray0 = new byte[7];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo((WritableByteChannel) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      Vector<Param> vector0 = new Vector<Param>();
+      StringPart stringPart0 = mock(StringPart.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0, charset0, charset0).when(stringPart0).getCharset();
+      doReturn("+Qu{sC&y`").when(stringPart0).getContentId();
+      doReturn("Wjwv").when(stringPart0).getContentType();
+      doReturn(vector0).when(stringPart0).getCustomHeaders();
+      doReturn("Wjwv", "").when(stringPart0).getDispositionType();
+      doReturn(" as capacity(", "org.asynchttpclient.request.body.multipart.part.StringMultipartPart").when(stringPart0).getName();
+      doReturn("b").when(stringPart0).getTransferEncoding();
+      doReturn(" as capacity(").when(stringPart0).getValue();
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      doReturn((int)(byte)107).when(writableByteChannel0).write(any(java.nio.ByteBuffer.class));
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo(writableByteChannel0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // readerIndex: 107, writerIndex: 13 (expected: 0 <= readerIndex <= writerIndex <= capacity(13))
+         //
+         verifyException("io.netty.buffer.AbstractByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("io.netty.util.internal.ReflectionUtil", "io.netty.util.internal.ReflectionUtil", "");
+      byte[] byteArray0 = new byte[6];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = (PooledByteBufAllocator)ByteBufAllocator.DEFAULT;
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      ByteBuf byteBuf0 = emptyByteBuf0.asReadOnly();
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo(byteBuf0);
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.ReadOnlyByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("", "hgt51/'FSF(MT0uEPI");
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo((ByteBuf) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringPart stringPart0 = new StringPart((String) null, "unpaused {}");
+      byte[] byteArray0 = new byte[2];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      stringMultipartPart0.close();
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator();
+      ByteBuf byteBuf0 = pooledByteBufAllocator0.directBuffer(2323);
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.transferContentTo(byteBuf0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // srcIndex: 0
+         //
+         verifyException("io.netty.buffer.UnsafeByteBufUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      StringPart stringPart0 = new StringPart("", "io.netty.allocation.cacheTrimIntervalMillis", "", charset0);
+      byte[] byteArray0 = new byte[8];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      stringMultipartPart0.close();
+      // Undeclared exception!
+      try { 
+        stringMultipartPart0.close();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0, decrement: 1
+         //
+         verifyException("io.netty.util.internal.ReferenceCountUpdater", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("org.asynchttpclient.request.body.multipart.part.StringMultipartPart", "org.asynchttpclient.request.body.multipart.part.StringMultipartPart", "hi?7>FiTUg}.G|u%Czb");
+      StringMultipartPart stringMultipartPart0 = null;
+      try {
+        stringMultipartPart0 = new StringMultipartPart(stringPart0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.PartVisitor$CounterPartVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("", "- 9/>$A");
+      byte[] byteArray0 = new byte[5];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      stringMultipartPart0.close();
+      long long0 = stringMultipartPart0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      Vector<Param> vector0 = new Vector<Param>();
+      StringPart stringPart0 = mock(StringPart.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0, charset0, charset0, charset0, charset0).when(stringPart0).getCharset();
+      doReturn("+Qu{sC&y`", "+Qu{sC&y`").when(stringPart0).getContentId();
+      doReturn("Wjwv", "").when(stringPart0).getContentType();
+      doReturn(vector0, vector0).when(stringPart0).getCustomHeaders();
+      doReturn("Wjwv", "", ".slice(", "Registering watch on {} {}").when(stringPart0).getDispositionType();
+      doReturn(" as capacity(", "org.asynchttpclient.request.body.multipart.part.StringMultipartPart", "", "").when(stringPart0).getName();
+      doReturn("b", "+Qu{sC&y`").when(stringPart0).getTransferEncoding();
+      doReturn(" as capacity(").when(stringPart0).getValue();
+      byte[] byteArray0 = new byte[3];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      ByteBuf byteBuf0 = stringMultipartPart0.computePreContentBytes((byte)10);
+      long long0 = stringMultipartPart0.transferContentTo(byteBuf0);
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringPart stringPart0 = new StringPart("", "- 9/>$A");
+      byte[] byteArray0 = new byte[5];
+      StringMultipartPart stringMultipartPart0 = new StringMultipartPart(stringPart0, byteArray0);
+      long long0 = stringMultipartPart0.getContentLength();
+      assertEquals(1, long0);
+}

@@ -1,0 +1,325 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("", "org.apache.commons.io.filefilter.IOFileFilter");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      long long0 = byteSourceFile0.getLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      long long0 = byteSourceArray0.getLength();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      InputStream inputStream0 = byteSourceArray0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      String string0 = byteSourceArray0.getFileName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("org.apache.commons.imaging.common.bytesource.ByteSource", byteArray0);
+      String string0 = byteSourceArray0.getFileName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("D9CDi6", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock(1L, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock(0L, (int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("org.apache.commons.io.file.AccumulatorPathVisitor", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock((int) (byte)0, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      byte[] byteArray0 = byteSourceArray0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0, 54);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "");
+      byte[] byteArray0 = byteSourceInputStream0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, (byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getLength();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, (String) null);
+      try { 
+        byteSourceInputStream0.getLength();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getInputStream((long) (byte) (-120));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("7K");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getInputStream();
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getBlock((-1740L), (-1777));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, (byte)1);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "org.apache.commons.io.filefilter.HiddenFileFilter");
+      try { 
+        byteSourceInputStream0.getBlock(1L, 1148);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: 1, block length: 1148, data length: 1).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("[ByI@f}BJIGh%");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getBlock((-373L), (-662));
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // File does not exist, and RandomAccessFile is not open in write mode
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockRandomAccessFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getBlock(450, 450);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      File file0 = MockFile.createTempFile("}Kyw#;v", "}Kyw#;v");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, (String) null);
+      try { 
+        byteSourceInputStream0.getBlock(37, 0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: 37, block length: 0, data length: 0).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MockFile mockFile0 = new MockFile((File) null, "C.kI[$#{\u0007(mW");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getBlock((-1430), (-1430));
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // File does not exist, and RandomAccessFile is not open in write mode
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockRandomAccessFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0, 1411);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "KH)");
+      try { 
+        byteSourceInputStream0.getAll();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("org.apache.commons.io.filefilter.SizeFileFilter", "org.apache.commons.io.filefilter.SizeFileFilter");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getAll();
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      String string0 = byteSourceArray0.getFileName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Enumeration<PipedInputStream> enumeration0 = (Enumeration<PipedInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, "4@PI&]r");
+      try { 
+        byteSourceInputStream0.getInputStream((-1992L));
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Couldn't skip bytes (0)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getInputStream(0L);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      File file0 = MockFile.createTempFile("m/)*V9R:-i", "m/)*V9R:-i");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      InputStream inputStream0 = byteSourceFile0.getInputStream(628L);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock((int) (byte)0, (int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0, 1411);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "KH)");
+      String string0 = byteSourceInputStream0.getDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("QOy:", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getInputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }

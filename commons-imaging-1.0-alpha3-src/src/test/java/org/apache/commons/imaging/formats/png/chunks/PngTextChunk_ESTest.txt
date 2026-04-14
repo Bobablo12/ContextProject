@@ -1,0 +1,39 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      PngChunkText pngChunkText0 = new PngChunkText(1, 0, 0, byteArray0);
+      String string0 = pngChunkText0.getText();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[3] = (byte) (-83);
+      byteArray0[5] = (byte)29;
+      byteArray0[6] = (byte)7;
+      PngChunkItxt pngChunkItxt0 = new PngChunkItxt(543, (-2054), (-168), byteArray0);
+      String string0 = pngChunkItxt0.getText();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-84);
+      PngChunkText pngChunkText0 = new PngChunkText((-368), (-368), 1, byteArray0);
+      String string0 = pngChunkText0.getKeyword();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      PngChunkText pngChunkText0 = new PngChunkText(1, 0, 0, byteArray0);
+      String string0 = pngChunkText0.getKeyword();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      PngChunkText pngChunkText0 = new PngChunkText(1, 0, 0, byteArray0);
+      PngText pngText0 = pngChunkText0.getContents();
+      assertNotNull(pngText0);
+}

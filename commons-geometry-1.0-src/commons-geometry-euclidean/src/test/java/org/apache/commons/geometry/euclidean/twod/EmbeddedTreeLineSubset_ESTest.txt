@@ -1,0 +1,485 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0, (Precision.DoubleEquivalence) null).when(line0).getPrecision();
+      doReturn(true).when(line0).eq(any(org.apache.commons.geometry.euclidean.twod.Line.class) , any(org.apache.commons.numbers.core.Precision.DoubleEquivalence.class));
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, false);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 1459.0488501917746, precision_DoubleEquivalence1);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line1);
+      embeddedTreeLineSubset0.add(embeddedTreeLineSubset1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, true);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.add((EmbeddedTreeLineSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 1459.0488501917746, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createTranslation((Vector2D) vector2D_Unit0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line1, true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset2 = embeddedTreeLineSubset1.transform(affineTransformMatrix2D0);
+      Split<EmbeddedTreeLineSubset> split0 = embeddedTreeLineSubset2.split(line1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, regionBSPTree1D0);
+      String string0 = embeddedTreeLineSubset0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      boolean boolean0 = embeddedTreeLineSubset0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      boolean boolean0 = embeddedTreeLineSubset0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      RegionBSPTree1D regionBSPTree1D0 = embeddedTreeLineSubset0.getSubspaceRegion();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      double double0 = embeddedTreeLineSubset0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, regionBSPTree1D0);
+      Vector2D vector2D0 = embeddedTreeLineSubset0.closest((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 752.7789971928333, (Precision.DoubleEquivalence) null);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Vector2D vector2D0 = embeddedTreeLineSubset0.closest((Vector2D) vector2D_Unit0);
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Vector2D vector2D0 = embeddedTreeLineSubset0.closest((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      RegionLocation regionLocation0 = embeddedTreeLineSubset0.classifyAbscissa(1917.7086);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.from((Vector2D) vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(4066).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit1, 1459.0488501917746, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation(2431.67028781684);
+      Line line2 = line1.transform(affineTransformMatrix2D0);
+      Line line3 = line2.reverse();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line3);
+      Ray ray0 = new Ray(line2, vector2D_Unit1);
+      embeddedTreeLineSubset1.createSplitResult(line2, ray0, ray0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset2 = embeddedTreeLineSubset1.transform(affineTransformMatrix2D0);
+      embeddedTreeLineSubset2.split(line3);
+      embeddedTreeLineSubset2.transform(affineTransformMatrix2D0);
+      embeddedTreeLineSubset2.getSize();
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset2.add(embeddedTreeLineSubset1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same line. Expected Line[origin= (225.4612765755593, -1441.5237632487574), direction= (0.9879886907551355, 0.15452620146743207)] but was Line[origin= (113.07068133193553, -1454.6609805274463), direction= (0.9969926506136162, 0.07749615875923122)].
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.toConvex();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.split(line0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Line", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.isFull();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.isEmpty();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.getSize();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.getCentroid();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.getBounds();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.closest((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.HyperplaneSubsets", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.add((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      RegionBSPTree1D regionBSPTree1D0 = embeddedTreeLineSubset0.getSubspaceRegion();
+      assertNotNull(regionBSPTree1D0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(7).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn((double)7, (double)7).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 1459.0488501917746, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation(2431.67028781684);
+      Line line2 = line1.transform(affineTransformMatrix2D0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line1);
+      Ray ray0 = new Ray(line2, vector2D_Unit0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset2 = embeddedTreeLineSubset1.transform(affineTransformMatrix2D0);
+      embeddedTreeLineSubset1.split(line2);
+      embeddedTreeLineSubset2.add((LineConvexSubset) ray0);
+      Split<EmbeddedTreeLineSubset> split0 = embeddedTreeLineSubset2.split(line1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(7).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false, true, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 1459.0488501917746, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation(2431.67028781684);
+      Line line2 = line1.transform(affineTransformMatrix2D0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line2);
+      Ray ray0 = new Ray(line2, vector2D_Unit0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset2 = embeddedTreeLineSubset1.transform(affineTransformMatrix2D0);
+      embeddedTreeLineSubset1.split(line2);
+      embeddedTreeLineSubset2.add((LineConvexSubset) ray0);
+      Split<EmbeddedTreeLineSubset> split0 = embeddedTreeLineSubset2.split(line1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(7).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 1459.0488501917746, precision_DoubleEquivalence1);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset1 = new EmbeddedTreeLineSubset(line1);
+      embeddedTreeLineSubset1.split(line1);
+      Split<EmbeddedTreeLineSubset> split0 = embeddedTreeLineSubset1.split(line1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 519.0411513317, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 519.0411513317, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, regionBSPTree1D0);
+      Interval interval0 = Interval.min(519.0411513317, (Precision.DoubleEquivalence) null);
+      OrientedPoint orientedPoint0 = interval0.getMinBoundary();
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      regionBSPTree1D0.insert((HyperplaneSubset<Vector1D>) hyperplaneConvexSubset0);
+      Bounds2D bounds2D0 = embeddedTreeLineSubset0.getBounds();
+      assertNotNull(bounds2D0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      Bounds2D bounds2D0 = embeddedTreeLineSubset0.getBounds();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      Vector2D vector2D0 = embeddedTreeLineSubset0.getCentroid();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-3882.0), precision_DoubleEquivalence0);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0);
+      Vector2D vector2D0 = embeddedTreeLineSubset0.closest((Vector2D) vector2D_Unit0);
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn((Line.SubspaceTransform) null).when(line0).subspaceTransform(nullable(org.apache.commons.geometry.core.Transform.class));
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation(2431.67028781684);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.transform(affineTransformMatrix2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, true);
+      double double0 = embeddedTreeLineSubset0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      boolean boolean0 = embeddedTreeLineSubset0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 519.0411513317, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, regionBSPTree1D0);
+      boolean boolean0 = embeddedTreeLineSubset0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, (RegionBSPTree1D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.classifyAbscissa((-489.2));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0, (Precision.DoubleEquivalence) null).when(line0).getPrecision();
+      doReturn(false).when(line0).eq(any(org.apache.commons.geometry.euclidean.twod.Line.class) , any(org.apache.commons.numbers.core.Precision.DoubleEquivalence.class));
+      doReturn((String) null).when(line0).toString();
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset(line0, false);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeLineSubset0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, (-265.692941), precision_DoubleEquivalence1);
+      Ray ray0 = new Ray(line1, vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.add((LineConvexSubset) ray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same line. Expected null but was Line[origin= (0.0, 265.692941), direction= (-1.0, 0.0)].
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeLineSubset0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubset", e);
+      }
+  }

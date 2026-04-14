@@ -1,0 +1,1576 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      jCSCachingProvider0.getDefaultProperties();
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Integer, ExpiryPolicy>();
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Integer, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Integer, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      TempStateCacheView<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer> tempStateCacheView0 = new TempStateCacheView<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer>((JCSCache<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer>) null);
+      LinkedHashSet<MutableConfiguration<CacheLoader<Object, Object>, Object>> linkedHashSet1 = new LinkedHashSet<MutableConfiguration<CacheLoader<Object, Object>, Object>>();
+      MutableConfiguration<CacheLoader<Object, Object>, Object> mutableConfiguration2 = new MutableConfiguration<CacheLoader<Object, Object>, Object>();
+      linkedHashSet1.add(mutableConfiguration2);
+      tempStateCacheView0.removeAll((Set<? extends MutableConfiguration<CacheLoader<Object, Object>, Object>>) linkedHashSet1);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>> tempStateCacheView0 = new TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>((JCSCache<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>) null);
+      TempStateCacheView<MutableConfiguration<Delayed, Object>, Object> tempStateCacheView1 = new TempStateCacheView<MutableConfiguration<Delayed, Object>, Object>((JCSCache<MutableConfiguration<Delayed, Object>, Object>) null);
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      classLoader0.setPackageAssertionStatus("", false);
+      jCSCachingProvider0.getDefaultClassLoader();
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>();
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      JCSConfiguration<ExpiryPolicy, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      jCSConfiguration0.statisticsEnabled();
+      JCSCache<ExpiryPolicy, ExpiryPolicy> jCSCache0 = new JCSCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<ExpiryPolicy, ExpiryPolicy> tempStateCacheView2 = new TempStateCacheView<ExpiryPolicy, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView2.close();
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView2.replace(expiryPolicy0, expiryPolicy0, expiryPolicy0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>> tempStateCacheView0 = new TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>((JCSCache<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>) null);
+      TempStateCacheView<MutableConfiguration<Delayed, Object>, Object> tempStateCacheView1 = new TempStateCacheView<MutableConfiguration<Delayed, Object>, Object>((JCSCache<MutableConfiguration<Delayed, Object>, Object>) null);
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      classLoader0.setPackageAssertionStatus("", true);
+      ClassLoader classLoader1 = jCSCachingProvider0.getDefaultClassLoader();
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>();
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      JCSConfiguration<ExpiryPolicy, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      jCSConfiguration0.statisticsEnabled();
+      JCSCache<ExpiryPolicy, ExpiryPolicy> jCSCache0 = new JCSCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<ExpiryPolicy, ExpiryPolicy> tempStateCacheView2 = new TempStateCacheView<ExpiryPolicy, ExpiryPolicy>(jCSCache0);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView2.replace(expiryPolicy0, expiryPolicy0, expiryPolicy0);
+      TempStateCacheView<Integer, CacheEntryListener<String, Object>> tempStateCacheView3 = new TempStateCacheView<Integer, CacheEntryListener<String, Object>>((JCSCache<Integer, CacheEntryListener<String, Object>>) null);
+      Integer integer0 = new Integer(0);
+      Integer integer1 = new Integer((-1946));
+      MutableConfiguration<String, String> mutableConfiguration1 = new MutableConfiguration<String, String>();
+      Class<String> class1 = String.class;
+      Class<String> class2 = String.class;
+      JCSConfiguration<String, String> jCSConfiguration1 = new JCSConfiguration<String, String>(mutableConfiguration1, class1, class2);
+      ElementAttributes elementAttributes1 = new ElementAttributes();
+      ExpiryAwareCache<String, String> expiryAwareCache1 = new ExpiryAwareCache<String, String>(compositeCacheAttributes0, elementAttributes1);
+      JCSCache<String, String> jCSCache1 = new JCSCache<String, String>(classLoader1, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<String, String> tempStateCacheView4 = new TempStateCacheView<String, String>(jCSCache1);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView4.getAndReplace((String) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      lateralCacheMonitor0.getStackTrace();
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      MutableConfiguration<Integer, Integer> mutableConfiguration1 = new MutableConfiguration<Integer, Integer>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Integer> jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Integer> tempStateCacheView0 = new TempStateCacheView<Integer, Integer>(jCSCache0);
+      Integer integer0 = new Integer((-1773));
+      tempStateCacheView0.replace(integer0, integer0, integer0);
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration2 = new MutableConfiguration<Delayed, ExpiryPolicy>();
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration3 = new MutableConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration2);
+      Class<Delayed> class1 = Delayed.class;
+      Class<ExpiryPolicy> class2 = ExpiryPolicy.class;
+      JCSConfiguration<Delayed, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration3, class1, class2);
+      ExpiryAwareCache<Delayed, ExpiryPolicy> expiryAwareCache1 = new ExpiryAwareCache<Delayed, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, ExpiryPolicy> jCSCache1 = new JCSCache<Delayed, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Delayed, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<Delayed, ExpiryPolicy>(jCSCache1);
+      tempStateCacheView1.merge();
+      TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>> tempStateCacheView2 = new TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>>((JCSCache<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>>) null);
+      tempStateCacheView1.getName();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Integer integer0 = new Integer((-1572));
+      TempStateCacheView<CacheWriter<String, String>, String> tempStateCacheView0 = new TempStateCacheView<CacheWriter<String, String>, String>((JCSCache<CacheWriter<String, String>, String>) null);
+      tempStateCacheView0.clear();
+      CacheWriter<String, String> cacheWriter0 = (CacheWriter<String, String>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.getAndReplace(cacheWriter0, "9PM'[");
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FileSystemHandling.appendLineToFile((EvoSuiteFile) null, "i^");
+      FileSystemHandling.appendStringToFile((EvoSuiteFile) null, "!-o.@Oa)*");
+      System.setCurrentTimeMillis(1645L);
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      Thread[] threadArray0 = new Thread[9];
+      threadArray0[0] = (Thread) lateralCacheMonitor0;
+      threadArray0[1] = (Thread) lateralCacheMonitor0;
+      threadArray0[2] = (Thread) lateralCacheMonitor0;
+      threadArray0[3] = (Thread) lateralCacheMonitor0;
+      threadArray0[4] = (Thread) lateralCacheMonitor0;
+      threadArray0[5] = (Thread) lateralCacheMonitor0;
+      MockThread mockThread0 = new MockThread(threadArray0[4], "!-o.@Oa)*");
+      threadArray0[6] = (Thread) mockThread0;
+      threadArray0[7] = (Thread) lateralCacheMonitor0;
+      threadArray0[8] = (Thread) lateralCacheMonitor0;
+      MockThread.enumerate(threadArray0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      NetworkHandling.createRemoteTextFile((EvoSuiteURL) null, "!-o.@Oa)*");
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      classLoader0.getParent();
+      MutableConfiguration<Delayed, Delayed> mutableConfiguration0 = new MutableConfiguration<Delayed, Delayed>();
+      MutableConfiguration<Delayed, Delayed> mutableConfiguration1 = new MutableConfiguration<Delayed, Delayed>(mutableConfiguration0);
+      Class<Delayed> class0 = Delayed.class;
+      JCSConfiguration<Delayed, Delayed> jCSConfiguration0 = new JCSConfiguration<Delayed, Delayed>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Delayed, Delayed> expiryAwareCache0 = new ExpiryAwareCache<Delayed, Delayed>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, Delayed> jCSCache0 = new JCSCache<Delayed, Delayed>(classLoader0, jCSCachingManager0, "!-o.@Oa)*", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      TempStateCacheView<Delayed, Delayed> tempStateCacheView0 = new TempStateCacheView<Delayed, Delayed>(jCSCache0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getName();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      System.setCurrentTimeMillis((-985L));
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, (Properties) null);
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Integer, ExpiryPolicy>();
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Integer, ExpiryPolicy>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Integer, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Integer, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Integer, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, ExpiryPolicy> jCSCache0 = new JCSCache<Integer, ExpiryPolicy>(classLoader0, jCSCachingManager0, "3", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Integer, ExpiryPolicy>(jCSCache0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAll((Set<? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Integer, Delayed> mutableConfiguration0 = new MutableConfiguration<Integer, Delayed>();
+      MutableConfiguration<Integer, Delayed> mutableConfiguration1 = new MutableConfiguration<Integer, Delayed>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<Integer, Delayed> jCSConfiguration0 = new JCSConfiguration<Integer, Delayed>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Delayed> expiryAwareCache0 = new ExpiryAwareCache<Integer, Delayed>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Delayed> jCSCache0 = new JCSCache<Integer, Delayed>(classLoader0, jCSCachingManager0, "qA^+89Cg|?}v!e4>;p", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Delayed> tempStateCacheView0 = new TempStateCacheView<Integer, Delayed>(jCSCache0);
+      Integer integer0 = new Integer((-2577));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      elementAttributes0.setTimeFactorForMilliseconds(7200);
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(7200, threadPoolExecutor_DiscardPolicy0);
+      MutableConfiguration<CacheEntryListener<CacheLoader<Object, Object>, ExpiryPolicy>, Integer> mutableConfiguration2 = new MutableConfiguration<CacheEntryListener<CacheLoader<Object, Object>, ExpiryPolicy>, Integer>();
+      Callable<Object> callable0 = (Callable<Object>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(callable0).call();
+      TimeUnit timeUnit0 = TimeUnit.SECONDS;
+      ScheduledFuture<Object> scheduledFuture0 = scheduledThreadPoolExecutor0.schedule(callable0, 0L, timeUnit0);
+      tempStateCacheView0.replace(integer0, (Delayed) scheduledFuture0);
+      MutableConfiguration<Integer, Object> mutableConfiguration3 = new MutableConfiguration<Integer, Object>();
+      Class<Object> class2 = Object.class;
+      JCSConfiguration<Integer, Object> jCSConfiguration1 = new JCSConfiguration<Integer, Object>(mutableConfiguration3, class0, class2);
+      ExpiryAwareCache<Integer, Object> expiryAwareCache1 = new ExpiryAwareCache<Integer, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Object> jCSCache1 = new JCSCache<Integer, Object>(classLoader0, jCSCachingManager0, "Shutting down UDP discovery service receiver.", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Integer, Object> tempStateCacheView1 = new TempStateCacheView<Integer, Object>(jCSCache1);
+      tempStateCacheView1.containsKey(integer0);
+      TempStateCacheView<AbstractMap.SimpleEntry<Delayed, Integer>, JCSCacheEntryEvent<CacheLoader<Object, Object>, Object>> tempStateCacheView2 = new TempStateCacheView<AbstractMap.SimpleEntry<Delayed, Integer>, JCSCacheEntryEvent<CacheLoader<Object, Object>, Object>>((JCSCache<AbstractMap.SimpleEntry<Delayed, Integer>, JCSCacheEntryEvent<CacheLoader<Object, Object>, Object>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView2.isClosed();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TempStateCacheView<Object, Integer> tempStateCacheView0 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      Integer integer0 = new Integer(0);
+      tempStateCacheView0.remove((Object) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndPut((Object) null, integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte) (-1);
+      byteArray0[1] = (byte)20;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte) (-4);
+      byteArray0[4] = (byte) (-127);
+      FileSystemHandling.appendDataToFile((EvoSuiteFile) null, byteArray0);
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      MutableConfiguration<Object, Object> mutableConfiguration1 = new MutableConfiguration<Object, Object>(mutableConfiguration0);
+      Class<Object> class0 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, Object> expiryAwareCache0 = new ExpiryAwareCache<Object, Object>(compositeCacheAttributes0, elementAttributes0);
+      LinkedHashSet<ExpiryPolicy> linkedHashSet0 = new LinkedHashSet<ExpiryPolicy>();
+      EntryProcessor<Object, Object, Object> entryProcessor0 = (EntryProcessor<Object, Object, Object>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[3];
+      objectArray0[0] = (Object) class0;
+      objectArray0[2] = (Object) compositeCacheAttributes0;
+      MutableConfiguration<Integer, String> mutableConfiguration2 = new MutableConfiguration<Integer, String>();
+      ExpiryAwareCache<Integer, String> expiryAwareCache1 = new ExpiryAwareCache<Integer, String>(compositeCacheAttributes0, elementAttributes0);
+      Integer integer0 = new Integer((-730));
+      Integer integer1 = new Integer((-730));
+      ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> expiryAwareCache2 = new ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>(compositeCacheAttributes0, elementAttributes0);
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration3 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>();
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration4 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration3);
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<ExpiryPolicy, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration4, class1, class1);
+      CompositeCacheAttributes compositeCacheAttributes1 = new CompositeCacheAttributes();
+      ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy> expiryAwareCache3 = new ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy>(compositeCacheAttributes1, elementAttributes0);
+      JCSCache<ExpiryPolicy, ExpiryPolicy> jCSCache0 = new JCSCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCachingManager0, "c(Nu&j0/N#", jCSConfiguration1, properties0, expiryAwareCache3);
+      TempStateCacheView<ExpiryPolicy, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView0.getName();
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Integer, ExpiryPolicy>();
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Integer, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Integer, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      TempStateCacheView<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer> tempStateCacheView0 = new TempStateCacheView<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer>((JCSCache<MutableConfiguration<CacheLoader<Object, Object>, Object>, Integer>) null);
+      LinkedHashSet<MutableConfiguration<CacheLoader<Object, Object>, Object>> linkedHashSet1 = new LinkedHashSet<MutableConfiguration<CacheLoader<Object, Object>, Object>>();
+      tempStateCacheView0.removeAll((Set<? extends MutableConfiguration<CacheLoader<Object, Object>, Object>>) linkedHashSet1);
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, String> mutableConfiguration2 = new MutableConfiguration<Object, String>();
+      Class<Object> class2 = Object.class;
+      Class<String> class3 = String.class;
+      JCSConfiguration<Object, String> jCSConfiguration2 = new JCSConfiguration<Object, String>(mutableConfiguration2, class2, class3);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, String> expiryAwareCache0 = new ExpiryAwareCache<Object, String>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, String> jCSCache0 = new JCSCache<Object, String>(classLoader0, jCSCachingManager0, "QkdC", jCSConfiguration2, properties0, expiryAwareCache0);
+      TempStateCacheView<Object, String> tempStateCacheView1 = new TempStateCacheView<Object, String>(jCSCache0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.registerCacheEntryListener((CacheEntryListenerConfiguration<Object, String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TempStateCacheView<Object, Integer> tempStateCacheView0 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      tempStateCacheView0.removeAll();
+      tempStateCacheView0.containsKey((Object) null);
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndPut((Object) null, integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TempStateCacheView<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>> tempStateCacheView0 = new TempStateCacheView<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>>((JCSCache<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>>) null);
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<ExpiryPolicy, Integer> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, Integer>();
+      MutableConfiguration<ExpiryPolicy, Integer> mutableConfiguration1 = new MutableConfiguration<ExpiryPolicy, Integer>(mutableConfiguration0);
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      Class<Integer> class1 = Integer.class;
+      JCSConfiguration<ExpiryPolicy, Integer> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, Integer>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, Integer> expiryAwareCache0 = new ExpiryAwareCache<ExpiryPolicy, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<ExpiryPolicy, Integer> jCSCache0 = new JCSCache<ExpiryPolicy, Integer>(classLoader0, jCSCachingManager0, "org.apache.commons.jcs3.jcache.TempStateCacheView", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<ExpiryPolicy, Integer> tempStateCacheView1 = new TempStateCacheView<ExpiryPolicy, Integer>(jCSCache0);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView1.get(expiryPolicy0);
+      MutableCacheEntryListenerConfiguration<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>> mutableCacheEntryListenerConfiguration0 = null;
+      try {
+        mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>>((CacheEntryListenerConfiguration<LinkedHashSet<Integer>, CacheEntryEventFilter<Object, Object>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("javax.cache.configuration.MutableCacheEntryListenerConfiguration", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ClassLoader classLoader0 = remoteCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      MutableConfiguration<Object, Object> mutableConfiguration1 = new MutableConfiguration<Object, Object>(mutableConfiguration0);
+      Class<Object> class0 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, Object> expiryAwareCache0 = new ExpiryAwareCache<Object, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, Object> jCSCache0 = new JCSCache<Object, Object>(classLoader0, jCSCachingManager0, "c(Nu&j0/N#", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Object, Object> tempStateCacheView0 = new TempStateCacheView<Object, Object>(jCSCache0);
+      LinkedHashSet<ExpiryPolicy> linkedHashSet0 = new LinkedHashSet<ExpiryPolicy>();
+      EntryProcessor<Object, Object, Object> entryProcessor0 = (EntryProcessor<Object, Object, Object>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[3];
+      objectArray0[0] = (Object) class0;
+      objectArray0[1] = (Object) classLoader0;
+      objectArray0[2] = (Object) compositeCacheAttributes0;
+      tempStateCacheView0.invokeAll((Set<?>) linkedHashSet0, entryProcessor0, objectArray0);
+      MutableConfiguration<Integer, String> mutableConfiguration2 = new MutableConfiguration<Integer, String>();
+      Class<Integer> class1 = Integer.class;
+      Class<String> class2 = String.class;
+      JCSConfiguration<Integer, String> jCSConfiguration1 = new JCSConfiguration<Integer, String>(mutableConfiguration2, class1, class2);
+      ExpiryAwareCache<Integer, String> expiryAwareCache1 = new ExpiryAwareCache<Integer, String>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, String> jCSCache1 = new JCSCache<Integer, String>(classLoader0, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Integer, String> tempStateCacheView1 = new TempStateCacheView<Integer, String>(jCSCache1);
+      Integer integer0 = new Integer((-730));
+      tempStateCacheView1.getAndPut(integer0, "[");
+      JCSConfiguration<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> jCSConfiguration2 = null;
+      ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> expiryAwareCache2 = new ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> jCSCache2 = null;
+      try {
+        jCSCache2 = new JCSCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>(classLoader0, jCSCachingManager0, "c(Nu&j0/N#", (JCSConfiguration<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>) null, properties0, expiryAwareCache2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      MutableConfiguration<Integer, Integer> mutableConfiguration1 = new MutableConfiguration<Integer, Integer>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Integer> jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Integer> tempStateCacheView0 = new TempStateCacheView<Integer, Integer>(jCSCache0);
+      Integer integer0 = new Integer((-1773));
+      tempStateCacheView0.replace(integer0, integer0, integer0);
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration2 = new MutableConfiguration<Delayed, ExpiryPolicy>();
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration3 = new MutableConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration2);
+      Class<Delayed> class1 = Delayed.class;
+      Class<ExpiryPolicy> class2 = ExpiryPolicy.class;
+      JCSConfiguration<Delayed, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration3, class1, class2);
+      ExpiryAwareCache<Delayed, ExpiryPolicy> expiryAwareCache1 = new ExpiryAwareCache<Delayed, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, ExpiryPolicy> jCSCache1 = new JCSCache<Delayed, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Delayed, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<Delayed, ExpiryPolicy>(jCSCache1);
+      tempStateCacheView1.merge();
+      MutableConfiguration<Delayed, String> mutableConfiguration4 = new MutableConfiguration<Delayed, String>();
+      MutableConfiguration<Delayed, String> mutableConfiguration5 = new MutableConfiguration<Delayed, String>(mutableConfiguration4);
+      Class<Delayed> class3 = Delayed.class;
+      Class<String> class4 = String.class;
+      JCSConfiguration<Delayed, String> jCSConfiguration2 = new JCSConfiguration<Delayed, String>(mutableConfiguration5, class3, class4);
+      CompositeCacheAttributes compositeCacheAttributes1 = new CompositeCacheAttributes();
+      ExpiryAwareCache<Delayed, String> expiryAwareCache2 = new ExpiryAwareCache<Delayed, String>(compositeCacheAttributes1, elementAttributes0);
+      JCSCache<Delayed, String> jCSCache2 = new JCSCache<Delayed, String>(classLoader0, jCSCachingManager0, "=|{)f$IziuamXe|e", jCSConfiguration2, properties0, expiryAwareCache2);
+      TempStateCacheView<Delayed, String> tempStateCacheView2 = new TempStateCacheView<Delayed, String>(jCSCache2);
+      tempStateCacheView2.isClosed();
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+      TempStateCacheView<CacheWriter<ExpiryPolicy, Object>, Object> tempStateCacheView0 = new TempStateCacheView<CacheWriter<ExpiryPolicy, Object>, Object>((JCSCache<CacheWriter<ExpiryPolicy, Object>, Object>) null);
+      CacheWriter<ExpiryPolicy, Object> cacheWriter0 = (CacheWriter<ExpiryPolicy, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Object, ExpiryPolicy>();
+      MutableConfiguration<Object, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Object, ExpiryPolicy>(mutableConfiguration0);
+      Class<Object> class0 = Object.class;
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Object, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Object, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Object, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ExpiryPolicy> jCSCache0 = new JCSCache<Object, ExpiryPolicy>(classLoader0, jCSCachingManager0, "value", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<Object, ExpiryPolicy>(jCSCache0);
+      Class<Object> class2 = Object.class;
+      tempStateCacheView1.unwrap(class2);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.replace(cacheWriter0, (Object) cacheWriter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TempStateCacheView<String, ForkJoinTask<Object>> tempStateCacheView0 = new TempStateCacheView<String, ForkJoinTask<Object>>((JCSCache<String, ForkJoinTask<Object>>) null);
+      tempStateCacheView0.clear();
+      tempStateCacheView0.remove("c5");
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.parseServerAuthority(jCSCachingProvider0.DEFAULT_URI);
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, uRI0, classLoader0, properties0);
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration0, class0, class0);
+      mutableConfiguration0.equals(uRI0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      System.setCurrentTimeMillis(9223372036854775807L);
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Integer> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "c5", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.ClassCastException: org.apache.commons.jcs3.utils.serialization.StandardSerializer cannot be cast to org.apache.commons.jcs3.engine.behavior.IElementSerializer
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JCSCache<ExpiryPolicy, Object> jCSCache0 = null;
+      TempStateCacheView<ExpiryPolicy, Object> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, Object>((JCSCache<ExpiryPolicy, Object>) null);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.iterator();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TempStateCacheView<String, LinkedHashSet<Object>> tempStateCacheView0 = new TempStateCacheView<String, LinkedHashSet<Object>>((JCSCache<String, LinkedHashSet<Object>>) null);
+      Locale locale0 = Locale.ITALIAN;
+      Locale locale1 = new Locale("3qXx");
+      locale0.getDisplayLanguage(locale1);
+      tempStateCacheView0.remove("3qXx");
+      tempStateCacheView0.removeAll();
+      tempStateCacheView0.remove("fG_5>");
+      Set<String> set0 = locale0.getUnicodeLocaleKeys();
+      tempStateCacheView0.getAll(set0);
+      tempStateCacheView0.getAndRemove("value");
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Delayed, Integer> expiryAwareCache0 = new ExpiryAwareCache<Delayed, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, Integer> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<Delayed, Integer>(classLoader0, jCSCachingManager0, "", (JCSConfiguration<Delayed, Integer>) null, properties0, expiryAwareCache0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Object, ExpiryPolicy>((JCSCache<Object, ExpiryPolicy>) null);
+      HashMap<Object, ExpiryPolicy> hashMap0 = new HashMap<Object, ExpiryPolicy>();
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      hashMap0.put("", expiryPolicy0);
+      tempStateCacheView0.putAll(hashMap0);
+      tempStateCacheView0.clear();
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TempStateCacheView<ExpiryPolicy, CacheEntryEventFilter<Object, Object>> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, CacheEntryEventFilter<Object, Object>>((JCSCache<ExpiryPolicy, CacheEntryEventFilter<Object, Object>>) null);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      EntryProcessor<ExpiryPolicy, CacheEntryEventFilter<Object, Object>, JCSEntry<Delayed, Delayed>> entryProcessor0 = (EntryProcessor<ExpiryPolicy, CacheEntryEventFilter<Object, Object>, JCSEntry<Delayed, Delayed>>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.invoke(expiryPolicy0, entryProcessor0, (Object[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TempStateCacheView<Integer, MutableConfiguration<Delayed, String>> tempStateCacheView0 = new TempStateCacheView<Integer, MutableConfiguration<Delayed, String>>((JCSCache<Integer, MutableConfiguration<Delayed, String>>) null);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      EntryProcessor<Integer, MutableConfiguration<Delayed, String>, AbstractMap.SimpleEntry<CacheEntryListener<Object, Object>, ExpiryPolicy>> entryProcessor0 = (EntryProcessor<Integer, MutableConfiguration<Delayed, String>, AbstractMap.SimpleEntry<CacheEntryListener<Object, Object>, ExpiryPolicy>>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[5];
+      objectArray0[0] = (Object) entryProcessor0;
+      Object object0 = new Object();
+      objectArray0[1] = object0;
+      objectArray0[2] = (Object) null;
+      objectArray0[3] = (Object) linkedHashSet0;
+      objectArray0[4] = (Object) tempStateCacheView0;
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.invokeAll((Set<? extends Integer>) linkedHashSet0, entryProcessor0, objectArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<Integer> class0 = Integer.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<Integer, Object> jCSConfiguration0 = new JCSConfiguration<Integer, Object>((Configuration<Integer, Object>) null, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Object> expiryAwareCache0 = new ExpiryAwareCache<Integer, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Object> jCSCache0 = new JCSCache<Integer, Object>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Object> tempStateCacheView0 = new TempStateCacheView<Integer, Object>(jCSCache0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.deregisterCacheEntryListener((CacheEntryListenerConfiguration<Integer, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TempStateCacheView<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>> tempStateCacheView0 = new TempStateCacheView<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>((JCSCache<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>) null);
+      tempStateCacheView0.clear();
+      TempStateCacheView<ExpiryPolicy, ForkJoinTask<Object>> tempStateCacheView1 = new TempStateCacheView<ExpiryPolicy, ForkJoinTask<Object>>((JCSCache<ExpiryPolicy, ForkJoinTask<Object>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.removeAll((Set<? extends ExpiryPolicy>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TempStateCacheView<String, MutableConfiguration<Object, Object>> tempStateCacheView0 = new TempStateCacheView<String, MutableConfiguration<Object, Object>>((JCSCache<String, MutableConfiguration<Object, Object>>) null);
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      Class<Object> class0 = Object.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration0, class0, class1);
+      MutableConfiguration<Object, Object> mutableConfiguration1 = new MutableConfiguration<Object, Object>(jCSConfiguration0);
+      MutableConfiguration<Object, Object> mutableConfiguration2 = mutableConfiguration1.setStatisticsEnabled(true);
+      mutableConfiguration2.getCacheLoaderFactory();
+      MutableConfiguration<Object, Object> mutableConfiguration3 = mutableConfiguration2.setManagementEnabled(true);
+      Class<Object> class2 = Object.class;
+      Class<Object> class3 = Object.class;
+      MutableConfiguration<Object, Object> mutableConfiguration4 = mutableConfiguration3.setTypes(class2, class3);
+      mutableConfiguration3.getKeyType();
+      MutableConfiguration<Object, Object> mutableConfiguration5 = mutableConfiguration4.setReadThrough(true);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndReplace((String) null, mutableConfiguration5);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TempStateCacheView<MutableConfiguration<String, Delayed>, CacheEntryEventFilter<Object, Object>> tempStateCacheView0 = new TempStateCacheView<MutableConfiguration<String, Delayed>, CacheEntryEventFilter<Object, Object>>((JCSCache<MutableConfiguration<String, Delayed>, CacheEntryEventFilter<Object, Object>>) null);
+      Class<String> class0 = String.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<String, Delayed> jCSConfiguration0 = new JCSConfiguration<String, Delayed>((Configuration<String, Delayed>) null, class0, class1);
+      MutableConfiguration<String, Delayed> mutableConfiguration0 = new MutableConfiguration<String, Delayed>(jCSConfiguration0);
+      FactoryBuilder.ClassFactory<ExpiryPolicy> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<ExpiryPolicy>(" o]z(oFRJ#}");
+      MutableConfiguration<String, Delayed> mutableConfiguration1 = mutableConfiguration0.setExpiryPolicyFactory(factoryBuilder_ClassFactory0);
+      CacheEntryEventFilter<Object, Object> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Object>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>>(cacheEntryEventFilter0);
+      MutableCacheEntryListenerConfiguration<String, Delayed> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<String, Delayed>((Factory<? extends CacheEntryListener<? super String, ? super Delayed>>) null, factoryBuilder_SingletonFactory0, true, true);
+      MutableConfiguration<String, Delayed> mutableConfiguration2 = mutableConfiguration1.removeCacheEntryListenerConfiguration(mutableCacheEntryListenerConfiguration0);
+      MutableConfiguration<String, Delayed> mutableConfiguration3 = mutableConfiguration2.setStoreByValue(false);
+      CacheEntryEventFilter<Object, Object> cacheEntryEventFilter1 = (CacheEntryEventFilter<Object, Object>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndReplace(mutableConfiguration3, cacheEntryEventFilter1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TempStateCacheView<MutableConfiguration<ExpiryPolicy, Object>, CacheWriter<Object, Object>> tempStateCacheView0 = new TempStateCacheView<MutableConfiguration<ExpiryPolicy, Object>, CacheWriter<Object, Object>>((JCSCache<MutableConfiguration<ExpiryPolicy, Object>, CacheWriter<Object, Object>>) null);
+      MutableConfiguration<ExpiryPolicy, Object> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, Object>();
+      MutableConfiguration<ExpiryPolicy, Object> mutableConfiguration1 = mutableConfiguration0.setStatisticsEnabled(true);
+      CacheWriter<Object, Object> cacheWriter0 = (CacheWriter<Object, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.put(mutableConfiguration1, cacheWriter0);
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      TempStateCacheView<Object, MutableConfiguration<Object, Object>> tempStateCacheView0 = new TempStateCacheView<Object, MutableConfiguration<Object, Object>>((JCSCache<Object, MutableConfiguration<Object, Object>>) null);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      tempStateCacheView0.removeAll((Set<?>) linkedHashSet0);
+      TempStateCacheView<Object, Integer> tempStateCacheView1 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.getAndRemove(linkedHashSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      TempStateCacheView<Object, Integer> tempStateCacheView0 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      Object object0 = new Object();
+      Integer integer0 = new Integer((-1));
+      tempStateCacheView0.putIfAbsent(object0, integer0);
+      tempStateCacheView0.clear();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, (Properties) null);
+      MutableConfiguration<Integer, Delayed> mutableConfiguration0 = new MutableConfiguration<Integer, Delayed>();
+      Class<Integer> class0 = Integer.class;
+      classLoader0.setPackageAssertionStatus("value", true);
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<Integer, Delayed> jCSConfiguration0 = new JCSConfiguration<Integer, Delayed>(mutableConfiguration0, class0, class1);
+      JCSCache<Integer, Delayed> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<Integer, Delayed>(classLoader0, jCSCachingManager0, "\n receive = [", jCSConfiguration0, (Properties) null, (ExpiryAwareCache<Integer, Delayed>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      TempStateCacheView<JCSCacheEntryEvent<String, String>, JCSCacheEntryEvent<Object, String>> tempStateCacheView0 = new TempStateCacheView<JCSCacheEntryEvent<String, String>, JCSCacheEntryEvent<Object, String>>((JCSCache<JCSCacheEntryEvent<String, String>, JCSCacheEntryEvent<Object, String>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.isClosed();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TempStateCacheView<Delayed, String> tempStateCacheView0 = new TempStateCacheView<Delayed, String>((JCSCache<Delayed, String>) null);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(1505, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      threadPoolExecutor_DiscardPolicy0.rejectedExecution(remoteCacheMonitor0, scheduledThreadPoolExecutor0);
+      MockThread mockThread0 = new MockThread();
+      MockThread mockThread1 = new MockThread(threadGroup0, mockThread0, "");
+      MockThread mockThread2 = new MockThread(threadGroup0, mockThread1, "", 0L);
+      TimeUnit timeUnit0 = TimeUnit.MICROSECONDS;
+      ScheduledFuture<?> scheduledFuture0 = scheduledThreadPoolExecutor0.schedule((Runnable) mockThread2, (long) 1505, timeUnit0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.replace((Delayed) scheduledFuture0, "*5.E", "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      TempStateCacheView<CacheWriter<ExpiryPolicy, Object>, Object> tempStateCacheView0 = new TempStateCacheView<CacheWriter<ExpiryPolicy, Object>, Object>((JCSCache<CacheWriter<ExpiryPolicy, Object>, Object>) null);
+      CacheWriter<ExpiryPolicy, Object> cacheWriter0 = (CacheWriter<ExpiryPolicy, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.replace(cacheWriter0, (Object) cacheWriter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread("'CD]M^\"8i|sUgl");
+      MockThread mockThread1 = new MockThread(threadGroup0, mockThread0, "'CD]M^\"8i|sUgl", (-1L));
+      ClassLoader classLoader0 = mockThread1.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      Class<Object> class0 = Object.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration0, class0, class1);
+      Properties properties1 = new Properties();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, Object> expiryAwareCache0 = new ExpiryAwareCache<Object, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, Object> jCSCache0 = new JCSCache<Object, Object>(classLoader0, jCSCachingManager0, "W-V/zia;##", jCSConfiguration0, properties1, expiryAwareCache0);
+      TempStateCacheView<Object, Object> tempStateCacheView0 = new TempStateCacheView<Object, Object>(jCSCache0);
+      Integer integer0 = new Integer(1216);
+      tempStateCacheView0.replace((Object) "'CD]M^\"8i|sUgl", (Object) integer0);
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      JCSCache<Object, Integer> jCSCache0 = null;
+      TempStateCacheView<Object, Integer> tempStateCacheView0 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.containsKey((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      String string0 = "QkdC";
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = null;
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, (IElementAttributes) null);
+      JCSCache<Integer, Integer> jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "QkdC", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Integer> tempStateCacheView0 = new TempStateCacheView<Integer, Integer>(jCSCache0);
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      Integer integer0 = new Integer(0);
+      jCSCache0.getAndReplace(integer0, integer0);
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      tempStateCacheView0.loadAll(linkedHashSet0, true, completionListenerFuture0);
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Integer, ExpiryPolicy>();
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Integer, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Integer, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      ExpiryAwareCache<Integer, ExpiryPolicy> expiryAwareCache1 = new ExpiryAwareCache<Integer, ExpiryPolicy>(compositeCacheAttributes0, (IElementAttributes) null);
+      JCSCache<Integer, ExpiryPolicy> jCSCache1 = new JCSCache<Integer, ExpiryPolicy>(classLoader0, jCSCachingManager0, "QkdC", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Integer, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<Integer, ExpiryPolicy>(jCSCache1);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.replace((Integer) null, expiryPolicy0, expiryPolicy0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoader classLoader1 = ClassLoader.getSystemClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader1, properties0);
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Delayed, ExpiryPolicy>();
+      Class<Delayed> class0 = Delayed.class;
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Delayed, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Delayed, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Delayed, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, ExpiryPolicy> jCSCache0 = new JCSCache<Delayed, ExpiryPolicy>(classLoader0, jCSCachingManager0, "Shutting down UDP discovery service receiver.", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Delayed, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Delayed, ExpiryPolicy>(jCSCache0);
+      DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+      delayQueue0.peek();
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.containsKey((Delayed) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      TempStateCacheView<Object, JCSCacheEntryEvent<Object, ExpiryPolicy>> tempStateCacheView0 = new TempStateCacheView<Object, JCSCacheEntryEvent<Object, ExpiryPolicy>>((JCSCache<Object, JCSCacheEntryEvent<Object, ExpiryPolicy>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.replace((Object) null, (JCSCacheEntryEvent<Object, ExpiryPolicy>) null, (JCSCacheEntryEvent<Object, ExpiryPolicy>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      MockThread mockThread0 = new MockThread(lateralCacheMonitor0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Integer, ExpiryPolicy>();
+      properties0.entrySet();
+      MutableConfiguration<Integer, ExpiryPolicy> mutableConfiguration1 = new MutableConfiguration<Integer, ExpiryPolicy>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Integer, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Integer, ExpiryPolicy>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Integer, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, ExpiryPolicy> jCSCache0 = new JCSCache<Integer, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Integer, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView0.removeAll();
+      String string0 = "z)Z;{ i<Z";
+      ExpiryAwareCache<Object, Integer> expiryAwareCache1 = new ExpiryAwareCache<Object, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, Integer> jCSCache1 = null;
+      try {
+        jCSCache1 = new JCSCache<Object, Integer>(classLoader0, jCSCachingManager0, "z)Z;{ i<Z", (JCSConfiguration<Object, Integer>) null, properties0, expiryAwareCache1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      TempStateCacheView<CacheWriter<Object, Object>, Integer> tempStateCacheView0 = new TempStateCacheView<CacheWriter<Object, Object>, Integer>((JCSCache<CacheWriter<Object, Object>, Integer>) null);
+      TempStateCacheView<MutableConfiguration<Object, Object>, String> tempStateCacheView1 = new TempStateCacheView<MutableConfiguration<Object, Object>, String>((JCSCache<MutableConfiguration<Object, Object>, String>) null);
+      tempStateCacheView1.merge();
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      TempStateCacheView<String, AbstractMap.SimpleImmutableEntry<Object, Object>> tempStateCacheView0 = new TempStateCacheView<String, AbstractMap.SimpleImmutableEntry<Object, Object>>((JCSCache<String, AbstractMap.SimpleImmutableEntry<Object, Object>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getCacheManager();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      JCSCache<String, CacheEntryListener<Object, Object>> jCSCache0 = null;
+      TempStateCacheView<String, CacheEntryListener<Object, Object>> tempStateCacheView0 = new TempStateCacheView<String, CacheEntryListener<Object, Object>>((JCSCache<String, CacheEntryListener<Object, Object>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.get((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      JCSCache<Integer, Object> jCSCache0 = null;
+      TempStateCacheView<Integer, Object> tempStateCacheView0 = new TempStateCacheView<Integer, Object>((JCSCache<Integer, Object>) null);
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.remove(integer0, (Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, AbstractMap.SimpleImmutableEntry<String, String>> tempStateCacheView0 = new TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, AbstractMap.SimpleImmutableEntry<String, String>>((JCSCache<AbstractMap.SimpleEntry<Object, Object>, AbstractMap.SimpleImmutableEntry<String, String>>) null);
+      Integer integer0 = new Integer((-176));
+      AbstractMap.SimpleEntry<Object, Object> abstractMap_SimpleEntry0 = new AbstractMap.SimpleEntry<Object, Object>(integer0, (Object) null);
+      AbstractMap.SimpleImmutableEntry<String, String> abstractMap_SimpleImmutableEntry0 = new AbstractMap.SimpleImmutableEntry<String, String>("", "");
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.remove(abstractMap_SimpleEntry0, abstractMap_SimpleImmutableEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      TempStateCacheView<String, ForkJoinTask<Object>> tempStateCacheView0 = new TempStateCacheView<String, ForkJoinTask<Object>>((JCSCache<String, ForkJoinTask<Object>>) null);
+      tempStateCacheView0.remove("c5");
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      URI uRI0 = MockURI.parseServerAuthority(jCSCachingProvider0.DEFAULT_URI);
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, uRI0, classLoader0, properties0);
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Integer> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "c5", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.ClassCastException: org.apache.commons.jcs3.utils.serialization.StandardSerializer cannot be cast to org.apache.commons.jcs3.engine.behavior.IElementSerializer
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      TempStateCacheView<Integer, CacheEntryEventFilter<Object, Object>> tempStateCacheView0 = new TempStateCacheView<Integer, CacheEntryEventFilter<Object, Object>>((JCSCache<Integer, CacheEntryEventFilter<Object, Object>>) null);
+      int int0 = (-2996);
+      Integer integer0 = new Integer((-767));
+      CacheEntryEventFilter<Object, Object> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Object>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndPut(integer0, cacheEntryEventFilter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      TempStateCacheView<ExpiryPolicy, CacheEntryListener<Integer, String>> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, CacheEntryListener<Integer, String>>((JCSCache<ExpiryPolicy, CacheEntryListener<Integer, String>>) null);
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<ExpiryPolicy, CacheEntryListener<String, Object>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<ExpiryPolicy, CacheEntryListener<String, Object>>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<ExpiryPolicy, CacheEntryListener<String, Object>> lateralCache0 = new LateralCache<ExpiryPolicy, CacheEntryListener<String, Object>>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      Set<ExpiryPolicy> set0 = lateralCache0.getKeySet();
+      lateralCache0.getStatistics();
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.loadAll(set0, false, (CompletionListener) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      TempStateCacheView<ExpiryPolicy, AbstractMap.SimpleEntry<Integer, String>> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, AbstractMap.SimpleEntry<Integer, String>>((JCSCache<ExpiryPolicy, AbstractMap.SimpleEntry<Integer, String>>) null);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      AbstractMap.SimpleEntry<Integer, String> abstractMap_SimpleEntry0 = new AbstractMap.SimpleEntry<Integer, String>((Integer) null, "value");
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      Map.Entry.comparingByValue((Comparator<? super AbstractMap.SimpleEntry<Integer, String>>) comparator0);
+      Map.Entry.comparingByKey();
+      abstractMap_SimpleEntry0.setValue("value");
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getAndPut(expiryPolicy0, abstractMap_SimpleEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      TempStateCacheView<CacheEntryListener<Delayed, String>, MutableConfiguration<String, ExpiryPolicy>> tempStateCacheView0 = new TempStateCacheView<CacheEntryListener<Delayed, String>, MutableConfiguration<String, ExpiryPolicy>>((JCSCache<CacheEntryListener<Delayed, String>, MutableConfiguration<String, ExpiryPolicy>>) null);
+      TempStateCacheView<String, String> tempStateCacheView1 = new TempStateCacheView<String, String>((JCSCache<String, String>) null);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      Integer integer0 = new Integer(1);
+      AbstractMap.SimpleEntry<String, Integer> abstractMap_SimpleEntry0 = new AbstractMap.SimpleEntry<String, Integer>("", integer0);
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)0;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<AbstractMap.SimpleEntry<String, Integer>, Integer> cacheElementSerialized0 = new CacheElementSerialized<AbstractMap.SimpleEntry<String, Integer>, Integer>("Ka%h'*", abstractMap_SimpleEntry0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      ExpiryAwareCache<String, AbstractMap.SimpleEntry<String, Object>> expiryAwareCache0 = new ExpiryAwareCache<String, AbstractMap.SimpleEntry<String, Object>>(compositeCacheAttributes0, iElementAttributes0);
+      Set<String> set0 = expiryAwareCache0.getKeySet();
+      tempStateCacheView1.removeAll(set0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.getAndRemove("key");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      JCSCache<Object, Integer> jCSCache0 = null;
+      TempStateCacheView<Object, Integer> tempStateCacheView0 = new TempStateCacheView<Object, Integer>((JCSCache<Object, Integer>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      JCSCache<Object, String> jCSCache0 = null;
+      TempStateCacheView<Object, String> tempStateCacheView0 = new TempStateCacheView<Object, String>((JCSCache<Object, String>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Object, ExpiryPolicy>();
+      Class<Object> class0 = Object.class;
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      JCSConfiguration<Object, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Object, ExpiryPolicy>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Object, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ExpiryPolicy> jCSCache0 = new JCSCache<Object, ExpiryPolicy>(classLoader0, jCSCachingManager0, "T!vIPT8qe", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Object, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView0.close();
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      TempStateCacheView<CacheWriter<Object, Object>, String> tempStateCacheView0 = new TempStateCacheView<CacheWriter<Object, Object>, String>((JCSCache<CacheWriter<Object, Object>, String>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.spliterator();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Object, ExpiryPolicy>((JCSCache<Object, ExpiryPolicy>) null);
+      HashMap<Object, ExpiryPolicy> hashMap0 = new HashMap<Object, ExpiryPolicy>();
+      tempStateCacheView0.putAll(hashMap0);
+      tempStateCacheView0.clear();
+      // Undeclared exception!
+      try { 
+        tempStateCacheView0.getName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      TempStateCacheView<Integer, CacheEntryEventFilter<Object, Integer>> tempStateCacheView0 = new TempStateCacheView<Integer, CacheEntryEventFilter<Object, Integer>>((JCSCache<Integer, CacheEntryEventFilter<Object, Integer>>) null);
+      Integer integer0 = new Integer((-2261));
+      CacheEntryEventFilter<Object, Integer> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Integer>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.putIfAbsent(integer0, cacheEntryEventFilter0);
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ClassLoader classLoader1 = ClassLoader.getSystemClassLoader();
+      classLoader0.clearAssertionStatus();
+      Set<String> set0 = properties0.stringPropertyNames();
+      MutableConfiguration<Object, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Object, ExpiryPolicy>();
+      Class<Object> class0 = Object.class;
+      mutableConfiguration0.getExpiryPolicyFactory();
+      jCSCachingManager0.getCache("");
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      Properties properties1 = jCSCachingProvider0.getDefaultProperties();
+      JCSConfiguration<Object, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Object, ExpiryPolicy>(mutableConfiguration0, class0, class1);
+      mutableConfiguration0.setStoreByValue(false);
+      mutableConfiguration0.getKeyType();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      jCSConfiguration0.getCacheEntryListenerConfigurations();
+      ExpiryAwareCache<Object, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Object, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ExpiryPolicy> jCSCache0 = new JCSCache<Object, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCachingProvider0.remove(jCSCachingManager0);
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Object, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView0.getAll(set0);
+      tempStateCacheView0.getCacheManager();
+      JCSCachingManager jCSCachingManager1 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader1, properties0);
+      JCSCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>> jCSCache1 = null;
+      try {
+        jCSCache1 = new JCSCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>(classLoader1, jCSCachingManager1, "Y,Vd)$(,D_ |[.C", (JCSConfiguration<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>) null, properties1, (ExpiryAwareCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      ClassLoader classLoader1 = ClassLoader.getSystemClassLoader();
+      classLoader0.clearAssertionStatus();
+      Set<String> set0 = properties0.stringPropertyNames();
+      MutableConfiguration<Object, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Object, ExpiryPolicy>();
+      Class<Object> class0 = Object.class;
+      mutableConfiguration0.getExpiryPolicyFactory();
+      jCSCachingManager0.getCache("");
+      Class<ExpiryPolicy> class1 = ExpiryPolicy.class;
+      Properties properties1 = jCSCachingProvider0.getDefaultProperties();
+      JCSConfiguration<Object, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<Object, ExpiryPolicy>(mutableConfiguration0, class0, class1);
+      mutableConfiguration0.setStoreByValue(false);
+      mutableConfiguration0.getKeyType();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      jCSConfiguration0.getCacheEntryListenerConfigurations();
+      ExpiryAwareCache<Object, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<Object, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ExpiryPolicy> jCSCache0 = new JCSCache<Object, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCachingProvider0.remove(jCSCachingManager0);
+      TempStateCacheView<Object, ExpiryPolicy> tempStateCacheView0 = new TempStateCacheView<Object, ExpiryPolicy>(jCSCache0);
+      tempStateCacheView0.getAll(set0);
+      tempStateCacheView0.getCacheManager();
+      JCSCachingManager jCSCachingManager1 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader1, properties0);
+      JCSCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>> jCSCache1 = null;
+      try {
+        jCSCache1 = new JCSCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>(classLoader1, jCSCachingManager1, "Y,Vd)$(,D_ |[.C", (JCSConfiguration<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>) null, properties1, (ExpiryAwareCache<JCSCacheEntryEvent<Object, Integer>, JCSCacheEntryEvent<Object, ExpiryPolicy>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      FileSystemHandling.appendLineToFile((EvoSuiteFile) null, "T&");
+      TempStateCacheView<MutableConfiguration<Integer, Object>, CacheEntryListener<Integer, Integer>> tempStateCacheView0 = new TempStateCacheView<MutableConfiguration<Integer, Object>, CacheEntryListener<Integer, Integer>>((JCSCache<MutableConfiguration<Integer, Object>, CacheEntryListener<Integer, Integer>>) null);
+      MutableConfiguration<Integer, Object> mutableConfiguration0 = new MutableConfiguration<Integer, Object>();
+      MutableConfiguration<Integer, Object> mutableConfiguration1 = mutableConfiguration0.setManagementEnabled(true);
+      MutableConfiguration<Integer, Object> mutableConfiguration2 = mutableConfiguration1.setStatisticsEnabled(true);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      tempStateCacheView0.remove(mutableConfiguration1);
+      MutableConfiguration<Integer, Object> mutableConfiguration3 = new MutableConfiguration<Integer, Object>(mutableConfiguration2);
+      tempStateCacheView0.remove(mutableConfiguration3);
+      TempStateCacheView<LinkedHashSet<String>, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<LinkedHashSet<String>, ExpiryPolicy>((JCSCache<LinkedHashSet<String>, ExpiryPolicy>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.iterator();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ClassLoader classLoader0 = remoteCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      MutableConfiguration<Object, Object> mutableConfiguration1 = new MutableConfiguration<Object, Object>(mutableConfiguration0);
+      Class<Object> class0 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, Object> expiryAwareCache0 = new ExpiryAwareCache<Object, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, Object> jCSCache0 = new JCSCache<Object, Object>(classLoader0, jCSCachingManager0, "c(Nu&j0/N#", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Object, Object> tempStateCacheView0 = new TempStateCacheView<Object, Object>(jCSCache0);
+      LinkedHashSet<ExpiryPolicy> linkedHashSet0 = new LinkedHashSet<ExpiryPolicy>();
+      EntryProcessor<Object, Object, Object> entryProcessor0 = (EntryProcessor<Object, Object, Object>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[3];
+      objectArray0[0] = (Object) class0;
+      objectArray0[1] = (Object) classLoader0;
+      objectArray0[2] = (Object) compositeCacheAttributes0;
+      tempStateCacheView0.invokeAll((Set<?>) linkedHashSet0, entryProcessor0, objectArray0);
+      MutableConfiguration<Integer, String> mutableConfiguration2 = new MutableConfiguration<Integer, String>();
+      Class<Integer> class1 = Integer.class;
+      Class<String> class2 = String.class;
+      JCSConfiguration<Integer, String> jCSConfiguration1 = new JCSConfiguration<Integer, String>(mutableConfiguration2, class1, class2);
+      ExpiryAwareCache<Integer, String> expiryAwareCache1 = new ExpiryAwareCache<Integer, String>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, String> jCSCache1 = new JCSCache<Integer, String>(classLoader0, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Integer, String> tempStateCacheView1 = new TempStateCacheView<Integer, String>(jCSCache1);
+      Integer integer0 = new Integer((-730));
+      tempStateCacheView1.remove(integer0, "[\"");
+      Integer integer1 = new Integer((-730));
+      tempStateCacheView1.getAndPut(integer1, "[");
+      ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> expiryAwareCache2 = new ExpiryAwareCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>> jCSCache2 = null;
+      try {
+        jCSCache2 = new JCSCache<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>(classLoader0, jCSCachingManager0, "c(Nu&j0/N#", (JCSConfiguration<CacheEntryEventFilter<Object, Object>, ForkJoinTask<Integer>>) null, properties0, expiryAwareCache2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      MockThread mockThread0 = new MockThread(lateralCacheMonitor0, "g_%9}L$/|^h");
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, Integer> expiryAwareCache0 = new ExpiryAwareCache<ExpiryPolicy, Integer>(compositeCacheAttributes0, elementAttributes0);
+      elementAttributes0.setSize(0);
+      JCSCache<ExpiryPolicy, Integer> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<ExpiryPolicy, Integer>(classLoader0, jCSCachingManager0, "1^GS #3H_=m", (JCSConfiguration<ExpiryPolicy, Integer>) null, properties0, expiryAwareCache0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>> tempStateCacheView0 = new TempStateCacheView<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>((JCSCache<JCSCacheEntryEvent<Object, Delayed>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>) null);
+      TempStateCacheView<MutableConfiguration<Delayed, Object>, Object> tempStateCacheView1 = new TempStateCacheView<MutableConfiguration<Delayed, Object>, Object>((JCSCache<MutableConfiguration<Delayed, Object>, Object>) null);
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      classLoader0.setPackageAssertionStatus("", true);
+      jCSCachingProvider0.getDefaultClassLoader();
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>();
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      JCSConfiguration<ExpiryPolicy, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy> expiryAwareCache0 = new ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      jCSConfiguration0.statisticsEnabled();
+      JCSCache<ExpiryPolicy, ExpiryPolicy> jCSCache0 = new JCSCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<ExpiryPolicy, ExpiryPolicy> tempStateCacheView2 = new TempStateCacheView<ExpiryPolicy, ExpiryPolicy>(jCSCache0);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView2.replace(expiryPolicy0, expiryPolicy0, expiryPolicy0);
+      TempStateCacheView<Integer, CacheEntryListener<String, Object>> tempStateCacheView3 = new TempStateCacheView<Integer, CacheEntryListener<String, Object>>((JCSCache<Integer, CacheEntryListener<String, Object>>) null);
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView3.remove(integer0, (CacheEntryListener<String, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Integer integer0 = new Integer((-1572));
+      TempStateCacheView<CacheWriter<String, String>, String> tempStateCacheView0 = new TempStateCacheView<CacheWriter<String, String>, String>((JCSCache<CacheWriter<String, String>, String>) null);
+      tempStateCacheView0.clear();
+      CacheWriter<String, String> cacheWriter0 = (CacheWriter<String, String>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.containsKey(cacheWriter0);
+      CacheWriter<String, String> cacheWriter1 = (CacheWriter<String, String>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.removeAll();
+      tempStateCacheView0.getAndReplace(cacheWriter1, "9PM'[");
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Integer, Integer> mutableConfiguration0 = new MutableConfiguration<Integer, Integer>();
+      MutableConfiguration<Integer, Integer> mutableConfiguration1 = new MutableConfiguration<Integer, Integer>(mutableConfiguration0);
+      Class<Integer> class0 = Integer.class;
+      JCSConfiguration<Integer, Integer> jCSConfiguration0 = new JCSConfiguration<Integer, Integer>(mutableConfiguration1, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Integer> expiryAwareCache0 = new ExpiryAwareCache<Integer, Integer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Integer> jCSCache0 = new JCSCache<Integer, Integer>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      TempStateCacheView<Integer, Integer> tempStateCacheView0 = new TempStateCacheView<Integer, Integer>(jCSCache0);
+      Integer integer0 = new Integer((-1773));
+      tempStateCacheView0.replace(integer0, integer0, integer0);
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-95);
+      FileSystemHandling.appendDataToFile((EvoSuiteFile) null, byteArray0);
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration2 = new MutableConfiguration<Delayed, ExpiryPolicy>();
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration3 = new MutableConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration2);
+      Class<Delayed> class1 = Delayed.class;
+      Class<ExpiryPolicy> class2 = ExpiryPolicy.class;
+      JCSConfiguration<Delayed, ExpiryPolicy> jCSConfiguration1 = new JCSConfiguration<Delayed, ExpiryPolicy>(mutableConfiguration3, class1, class2);
+      ExpiryAwareCache<Delayed, ExpiryPolicy> expiryAwareCache1 = new ExpiryAwareCache<Delayed, ExpiryPolicy>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Delayed, ExpiryPolicy> jCSCache1 = new JCSCache<Delayed, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration1, properties0, expiryAwareCache1);
+      TempStateCacheView<Delayed, ExpiryPolicy> tempStateCacheView1 = new TempStateCacheView<Delayed, ExpiryPolicy>(jCSCache1);
+      tempStateCacheView1.merge();
+      TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>> tempStateCacheView2 = new TempStateCacheView<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>>((JCSCache<AbstractMap.SimpleEntry<Object, Object>, LinkedHashSet<Delayed>>) null);
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      NetworkHandling.createRemoteTextFile((EvoSuiteURL) null, "");
+      TempStateCacheView<ExpiryPolicy, Object> tempStateCacheView0 = new TempStateCacheView<ExpiryPolicy, Object>((JCSCache<ExpiryPolicy, Object>) null);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      HashMap<ExpiryPolicy, Object> hashMap0 = new HashMap<ExpiryPolicy, Object>();
+      tempStateCacheView0.putAll(hashMap0);
+      ExpiryPolicy expiryPolicy1 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      tempStateCacheView0.remove(expiryPolicy1);
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MockThread mockThread1 = new MockThread(mockThread0);
+      mockThread1.setContextClassLoader(classLoader0);
+      Thread.UncaughtExceptionHandler thread_UncaughtExceptionHandler0 = mockThread1.getUncaughtExceptionHandler();
+      mockThread0.setUncaughtExceptionHandler(thread_UncaughtExceptionHandler0);
+      MutableConfiguration<Integer, Delayed> mutableConfiguration0 = new MutableConfiguration<Integer, Delayed>();
+      Class<Integer> class0 = Integer.class;
+      Class<Delayed> class1 = Delayed.class;
+      JCSConfiguration<Integer, Delayed> jCSConfiguration0 = new JCSConfiguration<Integer, Delayed>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, Delayed> expiryAwareCache0 = new ExpiryAwareCache<Integer, Delayed>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, Delayed> jCSCache0 = new JCSCache<Integer, Delayed>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      expiryAwareCache0.getStats();
+      // Undeclared exception!
+      try { 
+        properties0.put((Object) null, class1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      TempStateCacheView<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>> tempStateCacheView0 = new TempStateCacheView<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>((JCSCache<AbstractMap.SimpleEntry<String, Object>, AbstractMap.SimpleEntry<ExpiryPolicy, Object>>) null);
+      MutableConfiguration<Object, Object> mutableConfiguration0 = new MutableConfiguration<Object, Object>();
+      Class<Object> class0 = Object.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<Object, Object> jCSConfiguration0 = new JCSConfiguration<Object, Object>(mutableConfiguration0, class0, class1);
+      MutableConfiguration<Object, Object> mutableConfiguration1 = new MutableConfiguration<Object, Object>(jCSConfiguration0);
+      MutableConfiguration<Object, Object> mutableConfiguration2 = mutableConfiguration1.setWriteThrough(true);
+      FactoryBuilder.ClassFactory<ExpiryPolicy> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<ExpiryPolicy>("");
+      MutableConfiguration<Object, Object> mutableConfiguration3 = mutableConfiguration2.setExpiryPolicyFactory(factoryBuilder_ClassFactory0);
+      AbstractMap.SimpleEntry<String, Object> abstractMap_SimpleEntry0 = new AbstractMap.SimpleEntry<String, Object>("", mutableConfiguration3);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      AbstractMap.SimpleImmutableEntry<ExpiryPolicy, Object> abstractMap_SimpleImmutableEntry0 = new AbstractMap.SimpleImmutableEntry<ExpiryPolicy, Object>(expiryPolicy0, class1);
+      AbstractMap.SimpleEntry<ExpiryPolicy, Object> abstractMap_SimpleEntry1 = new AbstractMap.SimpleEntry<ExpiryPolicy, Object>(abstractMap_SimpleImmutableEntry0);
+      tempStateCacheView0.putIfAbsent(abstractMap_SimpleEntry0, abstractMap_SimpleEntry1);
+      tempStateCacheView0.clear();
+      TempStateCacheView<ExpiryPolicy, ForkJoinTask<Object>> tempStateCacheView1 = new TempStateCacheView<ExpiryPolicy, ForkJoinTask<Object>>((JCSCache<ExpiryPolicy, ForkJoinTask<Object>>) null);
+      // Undeclared exception!
+      try { 
+        tempStateCacheView1.removeAll((Set<? extends ExpiryPolicy>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }

@@ -1,0 +1,251 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      FixedSizeList<String> fixedSizeList0 = FixedSizeList.fixedSizeList((List<String>) linkedList0);
+      List<String> list0 = fixedSizeList0.subList(0, 0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      GrowthList<Boolean> growthList0 = new GrowthList<Boolean>(0);
+      ListIterator<Boolean> listIterator0 = growthList0.listIterator(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>(0);
+      SetUniqueList<Integer> setUniqueList0 = SetUniqueList.setUniqueList((List<Integer>) growthList0);
+      Integer integer0 = new Integer(0);
+      setUniqueList0.add(0, integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      GrowthList<String> growthList0 = new GrowthList<String>();
+      growthList0.add((String) null);
+      String string0 = growthList0.remove(0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      GrowthList<LinkedList<String>> growthList0 = new GrowthList<LinkedList<String>>(0);
+      GrowthList<Object> growthList1 = new GrowthList<Object>();
+      Factory<Integer> factory0 = ExceptionFactory.exceptionFactory();
+      growthList1.add((Object) growthList0);
+      LazyList<Object> lazyList0 = LazyList.lazyList((List<Object>) growthList1, (Factory<?>) factory0);
+      Object object0 = lazyList0.remove(0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      GrowthList<String> growthList0 = new GrowthList<String>();
+      ConstantFactory<String> constantFactory0 = new ConstantFactory<String>("");
+      LazyList<String> lazyList0 = new LazyList<String>(growthList0, constantFactory0);
+      String string0 = lazyList0.get(1);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      LinkedHashSet<String> linkedHashSet0 = new LinkedHashSet<String>();
+      SetUniqueList<String> setUniqueList0 = new SetUniqueList<String>(linkedList0, linkedHashSet0);
+      setUniqueList0.add((String) null);
+      List<String> list0 = setUniqueList0.decorated();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      GrowthList<LinkedList<Object>> growthList0 = new GrowthList<LinkedList<Object>>();
+      List<LinkedList<Object>> list0 = growthList0.decorated();
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      GrowthList<InstanceofPredicate> growthList0 = new GrowthList<InstanceofPredicate>();
+      Class<String> class0 = String.class;
+      InstanceofPredicate instanceofPredicate0 = new InstanceofPredicate(class0);
+      growthList0.add(instanceofPredicate0);
+      FixedSizeList<InstanceofPredicate> fixedSizeList0 = new FixedSizeList<InstanceofPredicate>(growthList0);
+      boolean boolean0 = growthList0.addAll(0, (Collection<? extends InstanceofPredicate>) fixedSizeList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      GrowthList<Object> growthList0 = new GrowthList<Object>();
+      boolean boolean0 = growthList0.addAll(0, (Collection<?>) growthList0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>(0);
+      // Undeclared exception!
+      try { 
+        growthList0.subList(0, (-121));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // fromIndex(0) > toIndex(-121)
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      UnmodifiableList<String> unmodifiableList0 = new UnmodifiableList<String>(linkedList0);
+      // Undeclared exception!
+      try { 
+        unmodifiableList0.set(170, "8hk]h q9d-Mv");
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.list.UnmodifiableList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Class<InstanceofPredicate> class0 = InstanceofPredicate.class;
+      InstanceofPredicate instanceofPredicate0 = new InstanceofPredicate(class0);
+      LinkedList<Predicate<Object>> linkedList0 = new LinkedList<Predicate<Object>>();
+      SetUniqueList<Predicate<Object>> setUniqueList0 = SetUniqueList.setUniqueList((List<Predicate<Object>>) linkedList0);
+      // Undeclared exception!
+      try { 
+        setUniqueList0.set(2887, instanceofPredicate0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 2887, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>();
+      Integer integer0 = new Integer((-1621));
+      // Undeclared exception!
+      try { 
+        growthList0.set((-1621), integer0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>();
+      // Undeclared exception!
+      try { 
+        growthList0.remove((-1));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      GrowthList<Predicate<Object>> growthList0 = new GrowthList<Predicate<Object>>(1);
+      SetUniqueList<Predicate<Object>> setUniqueList0 = SetUniqueList.setUniqueList((List<Predicate<Object>>) growthList0);
+      // Undeclared exception!
+      try { 
+        setUniqueList0.get(0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 0, Size: 0
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LinkedList<InstanceofPredicate> linkedList0 = new LinkedList<InstanceofPredicate>();
+      GrowthList<InstanceofPredicate> growthList0 = GrowthList.growthList((List<InstanceofPredicate>) linkedList0);
+      FixedSizeList<InstanceofPredicate> fixedSizeList0 = FixedSizeList.fixedSizeList((List<InstanceofPredicate>) growthList0);
+      // Undeclared exception!
+      try { 
+        fixedSizeList0.addAll((-2350), (Collection<? extends InstanceofPredicate>) linkedList0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // List is fixed size
+         //
+         verifyException("org.apache.commons.collections4.list.FixedSizeList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>(0);
+      // Undeclared exception!
+      try { 
+        growthList0.addAll(0, (Collection<? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      GrowthList<Integer> growthList0 = new GrowthList<Integer>();
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      SetUniqueList<Object> setUniqueList0 = new SetUniqueList<Object>(linkedList0, linkedHashSet0);
+      // Undeclared exception!
+      try { 
+        setUniqueList0.addAll(1527, (Collection<?>) growthList0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 1527, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      LinkedHashSet<String> linkedHashSet0 = new LinkedHashSet<String>();
+      SetUniqueList<String> setUniqueList0 = new SetUniqueList<String>(linkedList0, linkedHashSet0);
+      // Undeclared exception!
+      try { 
+        setUniqueList0.add((-2690), (String) null);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: -2690, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<Closure<Integer>> linkedList0 = new LinkedList<Closure<Integer>>();
+      GrowthList<Closure<Integer>> growthList0 = new GrowthList<Closure<Integer>>(linkedList0);
+      growthList0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinkedList<Closure<Object>> linkedList0 = new LinkedList<Closure<Object>>();
+      LinkedHashSet<Closure<Object>> linkedHashSet0 = new LinkedHashSet<Closure<Object>>();
+      SetUniqueList<Closure<Object>> setUniqueList0 = new SetUniqueList<Closure<Object>>(linkedList0, linkedHashSet0);
+      GrowthList<Closure<Object>> growthList0 = GrowthList.growthList((List<Closure<Object>>) setUniqueList0);
+      // Undeclared exception!
+      try { 
+        growthList0.remove(3672);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 3672, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }

@@ -1,0 +1,66 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      boolean boolean0 = SparkUtils.isSplat("*");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      boolean boolean0 = SparkUtils.isParam(":");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      List<String> list0 = SparkUtils.convertRouteToList("");
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SparkUtils.isSplat((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SparkUtils.isParam((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SparkUtils.convertRouteToList((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.SparkUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      List<String> list0 = SparkUtils.convertRouteToList("/:zeEliFDHb'7c");
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      List<String> list0 = SparkUtils.convertRouteToList("/:zeEliFDHb'7c");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      boolean boolean0 = SparkUtils.isParam("");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      boolean boolean0 = SparkUtils.isSplat("OongdBcJ@a4&:\"");
+      assertTrue(boolean0);
+}

@@ -1,0 +1,23 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(asyncHttpClientConfig0).getResponseFilters();
+      NettyRequestSender nettyRequestSender0 = mock(NettyRequestSender.class, new ViolatedAssumptionAnswer());
+      ResponseFiltersInterceptor responseFiltersInterceptor0 = new ResponseFiltersInterceptor(asyncHttpClientConfig0, nettyRequestSender0);
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      doReturn((Request) null).when(nettyResponseFuture0).getCurrentRequest();
+      AsyncHandler<Object> asyncHandler0 = (AsyncHandler<Object>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      HttpResponseStatus httpResponseStatus0 = mock(HttpResponseStatus.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        responseFiltersInterceptor0.exitAfterProcessingFilters(channel0, nettyResponseFuture0, asyncHandler0, httpResponseStatus0, httpHeaders0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.handler.intercept.ResponseFiltersInterceptor", e);
+      }
+  }

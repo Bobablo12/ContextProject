@@ -1,0 +1,513 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream((OutputStream) null);
+      try { 
+        jpegIptcRewriter0.writeIPTC((ByteSource) byteSourceArray0, (OutputStream) bufferedOutputStream0, (PhotoshopApp13Data) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("v{[}t_}|N?Mo;7'Y", false);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, (List<IptcBlock>) null);
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.writeIPTC((ByteSource) null, (OutputStream) mockFileOutputStream0, photoshopApp13Data0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[8];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      InputStream inputStream0 = byteSourceArray0.getInputStream();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(476);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      try { 
+        jpegIptcRewriter0.writeIPTC(inputStream0, (OutputStream) byteArrayOutputStream0, photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.writeIPTC((InputStream) dataInputStream0, (OutputStream) null, photoshopApp13Data0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("OQ4q-");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("OQ4q-", false);
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(mockFileOutputStream0);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(objectOutputStream0);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      try { 
+        jpegIptcRewriter0.writeIPTC((File) mockFile0, (OutputStream) dataOutputStream0, photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.writeIPTC((File) null, (OutputStream) pipedOutputStream0, (PhotoshopApp13Data) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[2];
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      try { 
+        jpegIptcRewriter0.removeIPTC(byteArray0, (OutputStream) pipedOutputStream0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[0];
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("!~rd%?oyg");
+      try { 
+        jpegIptcRewriter0.removeIPTC(byteArray0, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      File file0 = MockFile.createTempFile("OVERRIDE_READ_ONLY", "K1sl 3-+;E*");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(pipedOutputStream0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceFile0, (OutputStream) filterOutputStream0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      MockFile mockFile0 = new MockFile(" byte array");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceArray0, (OutputStream) mockPrintStream0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "~8f9<l^`&eD");
+      MockFile mockFile0 = new MockFile("org.apache.commons.imaging.formats.jpeg.iptc.JpegIptcRewriter");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceInputStream0, (OutputStream) mockFileOutputStream0, false);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("7O\"k]EHhT:3$Oo)s", "7O\"k]EHhT:3$Oo)s");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceFile0, (OutputStream) null, false);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[4];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceArray0, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("RegexFileFilter [pattern=");
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "org.apache.commons.imaging.formats.jpeg.xmp.JpegRewriter$JFIFPieceSegment");
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceInputStream0, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("s0Ry", "s0Ry");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) byteSourceFile0, (OutputStream) null);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      try { 
+        jpegIptcRewriter0.removeIPTC((InputStream) null, (OutputStream) byteArrayOutputStream0, true);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1410), 0);
+      MockFile mockFile0 = new MockFile("", "7Y-");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((InputStream) byteArrayInputStream0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0);
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) null, (OutputStream) mockPrintStream0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      MockFile mockFile0 = new MockFile("y\f }rI|Y", "y\f }rI|Y");
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) mockFile0, (OutputStream) pipedOutputStream0, false);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("z }$*@m?nVE(");
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) null, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("?8M", "?8M");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) mockFile0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) mockFile0, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      File file0 = MockFile.createTempFile("&bljAw~lv=6YWU", "[Object[]: ");
+      try { 
+        jpegIptcRewriter0.removeIPTC(file0, (OutputStream) null, false);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("u/n5*#");
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      try { 
+        jpegIptcRewriter0.writeIPTC((InputStream) null, (OutputStream) mockPrintStream0, photoshopApp13Data0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      byte[] byteArray0 = new byte[2];
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream((OutputStream) null, 42);
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, (List<IptcBlock>) null);
+      try { 
+        jpegIptcRewriter0.writeIPTC(byteArray0, (OutputStream) bufferedOutputStream0, photoshopApp13Data0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      try { 
+        jpegIptcRewriter0.removeIPTC((InputStream) pipedInputStream0, (OutputStream) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile("?8M", "?8M");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((File) mockFile0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("RegexFileFilter [pattern=");
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((byte[]) null, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      try { 
+        jpegIptcRewriter0.removeIPTC((InputStream) sequenceInputStream0, (OutputStream) null, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile(" byte array");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((byte[]) null, (OutputStream) mockPrintStream0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      MockFile mockFile0 = new MockFile(")GZ-l6\"\"lSk0+RHRBio", ")GZ-l6\"\"lSk0+RHRBio");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      try { 
+        jpegIptcRewriter0.writeIPTC((File) mockFile0, (OutputStream) byteArrayOutputStream0, photoshopApp13Data0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      JpegIptcRewriter jpegIptcRewriter0 = new JpegIptcRewriter();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      // Undeclared exception!
+      try { 
+        jpegIptcRewriter0.removeIPTC((ByteSource) null, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }

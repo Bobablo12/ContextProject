@@ -1,0 +1,140 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TreeSet<Integer> treeSet0 = new TreeSet<Integer>();
+      LinkedHashSet<Transformer<Object, Integer>> linkedHashSet0 = new LinkedHashSet<Transformer<Object, Integer>>();
+      Transformer<Integer, Integer> transformer0 = ChainedTransformer.chainedTransformer((Collection<? extends Transformer<? super Integer, ? extends Integer>>) linkedHashSet0);
+      TransformedSortedSet<Integer> transformedSortedSet0 = TransformedSortedSet.transformedSortedSet((SortedSet<Integer>) treeSet0, (Transformer<? super Integer, ? extends Integer>) transformer0);
+      SortedSet<Integer> sortedSet0 = transformedSortedSet0.getSortedSet();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TreeSet<String> treeSet0 = new TreeSet<String>();
+      Transformer<Object, String> transformer0 = ConstantTransformer.nullTransformer();
+      TransformedSortedSet<String> transformedSortedSet0 = TransformedSortedSet.transformedSortedSet((SortedSet<String>) treeSet0, (Transformer<? super String, ? extends String>) transformer0);
+      SortedSet<String> sortedSet0 = transformedSortedSet0.tailSet("W:=u&^XDKc$3&*_p");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TreeSet<Boolean> treeSet0 = new TreeSet<Boolean>();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 1);
+      Transformer<Object, Boolean> transformer0 = InvokerTransformer.invokerTransformer("org.apache.commons.collections4.set.TransformedSortedSet", (Class<?>[]) classArray0, (Object[]) classArray0);
+      TransformedSortedSet<Boolean> transformedSortedSet0 = TransformedSortedSet.transformedSortedSet((SortedSet<Boolean>) treeSet0, (Transformer<? super Boolean, ? extends Boolean>) transformer0);
+      Comparator<String> comparator0 = (Comparator<String>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(comparator0).compare(anyString() , anyString());
+      ComparatorPredicate.Criterion comparatorPredicate_Criterion0 = ComparatorPredicate.Criterion.EQUAL;
+      Predicate<String> predicate0 = ComparatorPredicate.comparatorPredicate("", comparator0, (ComparatorPredicate.Criterion) comparatorPredicate_Criterion0);
+      PredicateTransformer<String> predicateTransformer0 = new PredicateTransformer<String>(predicate0);
+      Boolean boolean0 = predicateTransformer0.transform("org.apache.commons.collections4.set.TransformedSortedSet");
+      SortedSet<Boolean> sortedSet0 = transformedSortedSet0.subSet(boolean0, boolean0);
+      assertEquals(1, sortedSet0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TreeSet<String> treeSet0 = new TreeSet<String>();
+      treeSet0.add("");
+      Transformer<Object, String> transformer0 = ConstantTransformer.nullTransformer();
+      TransformedSortedSet<String> transformedSortedSet0 = new TransformedSortedSet<String>(treeSet0, transformer0);
+      String string0 = transformedSortedSet0.last();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TreeSet<String> treeSet0 = new TreeSet<String>();
+      Transformer<Object, String> transformer0 = InvokerTransformer.invokerTransformer("");
+      treeSet0.add("");
+      TransformedSortedSet<String> transformedSortedSet0 = TransformedSortedSet.transformingSortedSet((SortedSet<String>) treeSet0, (Transformer<? super String, ? extends String>) transformer0);
+      String string0 = transformedSortedSet0.first();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(comparator0).toString();
+      TreeSet<Object> treeSet0 = new TreeSet<Object>(comparator0);
+      Transformer<Object, Integer> transformer0 = ExceptionTransformer.exceptionTransformer();
+      TransformedSortedSet<Object> transformedSortedSet0 = new TransformedSortedSet<Object>(treeSet0, transformer0);
+      Comparator<? super Object> comparator1 = transformedSortedSet0.comparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        TransformedSortedSet.transformingSortedSet((SortedSet<Boolean>) null, (Transformer<? super Boolean, ? extends Boolean>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TreeSet<Integer> treeSet0 = new TreeSet<Integer>();
+      Transformer<Object, Integer> transformer0 = ExceptionTransformer.exceptionTransformer();
+      Integer integer0 = new Integer(894);
+      treeSet0.add(integer0);
+      // Undeclared exception!
+      try { 
+        TransformedSortedSet.transformedSortedSet((SortedSet<Integer>) treeSet0, (Transformer<? super Integer, ? extends Integer>) transformer0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // ExceptionTransformer invoked
+         //
+         verifyException("org.apache.commons.collections4.functors.ExceptionTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TreeSet<String> treeSet0 = new TreeSet<String>();
+      treeSet0.add("");
+      ChainedTransformer<String> chainedTransformer0 = new ChainedTransformer<String>((Transformer<? super String, ? extends String>[]) null);
+      // Undeclared exception!
+      try { 
+        TransformedSortedSet.transformedSortedSet((SortedSet<String>) treeSet0, (Transformer<? super String, ? extends String>) chainedTransformer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.functors.ChainedTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Transformer<Object, Object> transformer0 = ConstantTransformer.constantTransformer((Object) null);
+      // Undeclared exception!
+      try { 
+        TransformedSortedSet.transformedSortedSet((SortedSet<Object>) null, (Transformer<? super Object, ?>) transformer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TreeSet<Integer> treeSet0 = new TreeSet<Integer>();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 7);
+      InvokerTransformer<Object, Integer> invokerTransformer0 = new InvokerTransformer<Object, Integer>("dP|1v1", classArray0, classArray0);
+      TransformedSortedSet<Integer> transformedSortedSet0 = TransformedSortedSet.transformingSortedSet((SortedSet<Integer>) treeSet0, (Transformer<? super Integer, ? extends Integer>) invokerTransformer0);
+      Integer integer0 = new Integer(3);
+      SortedSet<Integer> sortedSet0 = transformedSortedSet0.headSet(integer0);
+      TransformedSortedSet<Integer> transformedSortedSet1 = TransformedSortedSet.transformedSortedSet(sortedSet0, (Transformer<? super Integer, ? extends Integer>) invokerTransformer0);
+      // Undeclared exception!
+      try { 
+        transformedSortedSet1.tailSet(integer0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // fromKey out of range
+         //
+         verifyException("java.util.TreeMap$AscendingSubMap", e);
+      }
+  }

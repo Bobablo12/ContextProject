@@ -1,0 +1,14 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheKeyGeneratorImpl cacheKeyGeneratorImpl0 = new CacheKeyGeneratorImpl();
+      // Undeclared exception!
+      try { 
+        cacheKeyGeneratorImpl0.generateCacheKey((CacheKeyInvocationContext<? extends Annotation>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.cdi.CacheKeyGeneratorImpl", e);
+      }
+  }

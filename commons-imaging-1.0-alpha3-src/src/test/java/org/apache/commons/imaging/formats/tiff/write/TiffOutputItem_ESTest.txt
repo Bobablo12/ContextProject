@@ -1,0 +1,179 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("", byteArray0);
+      byte[] byteArray1 = new byte[2];
+      try { 
+        tiffOutputItem_Value0.updateValue(byteArray1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Updated data size mismatch: 5 vs. 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputItem$Value", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("1iZ", byteArray0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("1iZ");
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0, byteOrder0);
+      tiffOutputItem_Value0.writeItem(binaryOutputStream0);
+      assertEquals(1, binaryOutputStream0.getByteCount());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("i%W9_[b?M<`SCt", byteArray0);
+      int int0 = tiffOutputItem_Value0.getItemLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      tiffOutputDirectory0.setOffset(0L);
+      long long0 = tiffOutputDirectory0.getOffset();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("org.apache.commons.imaging.formats.tiff.write.TiffOutputItem", byteArray0);
+      int int0 = tiffOutputItem_Value0.getItemLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      int int0 = tiffOutputDirectory0.getItemLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value((String) null, byteArray0);
+      String string0 = tiffOutputItem_Value0.getItemDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      String string0 = tiffOutputDirectory0.getItemDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("", byteArray0);
+      String string0 = tiffOutputItem_Value0.getItemDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.writeItem((BinaryOutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputDirectory tiffOutputDirectory0 = new TiffOutputDirectory((-636), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputDirectory0.getItemDescription();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("i%W9_[b-M<`SCt", byteArray0);
+      byte[] byteArray1 = new byte[20];
+      try { 
+        tiffOutputItem_Value0.updateValue(byteArray1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Updated data size mismatch: 3 vs. 20
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputItem$Value", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("<H'TqYg5W", byteArray0);
+      tiffOutputItem_Value0.updateValue(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("i%W9_[b?M<`SCt", byteArray0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      DataOutputStream dataOutputStream0 = new DataOutputStream(byteArrayOutputStream0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(dataOutputStream0);
+      tiffOutputItem_Value0.writeItem(binaryOutputStream0);
+      assertEquals(1, binaryOutputStream0.getByteCount());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("Sub", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        tiffOutputItem_Value0.getItemLength();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputItem$Value", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      TiffOutputItem.Value tiffOutputItem_Value0 = new TiffOutputItem.Value("<H'TqYg5W", byteArray0);
+      String string0 = tiffOutputItem_Value0.getItemDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      tiffOutputDirectory0.setOffset(1L);
+      long long0 = tiffOutputDirectory0.getOffset();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateRootDirectory();
+      long long0 = tiffOutputDirectory0.getOffset();
+      assertEquals(1, long0);
+}

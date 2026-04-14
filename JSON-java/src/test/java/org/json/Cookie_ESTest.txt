@@ -1,0 +1,201 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String string0 = Cookie.unescape("%E0qv^LY!I7[:");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.toJSONObject("/4Q_4ku(, Z{\"By7z%");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Expected '=' and instead saw '' at 18 [character 19 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      String string0 = Cookie.escape(" [character ");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = Cookie.unescape("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.unescape((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.Cookie", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.toString((JSONObject) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.Cookie", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.toJSONObject((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.escape((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.Cookie", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      String string0 = Cookie.unescape("N{%0lbW-H.?@dum.");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      String string0 = Cookie.unescape("/4Q_4ku(, Z{\"By7z%25");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      String string0 = Cookie.unescape("}+xZ6XPw-/RRt");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      String string0 = Cookie.escape("<s.#}ew(%J#+$-b");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      String string0 = Cookie.unescape("H>`bs]x%I3'B\"26m*");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      String string0 = Cookie.unescape("Q,Q}W(N>|&7%c");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("d^j=r;d^j%3dr=java.lang.Object@0000000008");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("(G=<B57_y6Tlq");
+      JSONObject jSONObject1 = jSONObject0.put("(G=<B57_y6Tlq", false);
+      String string0 = Cookie.toString(jSONObject1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject();
+      try { 
+        Cookie.toString(jSONObject0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Cookie does not have a name
+         //
+         verifyException("org.json.Cookie", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("NeZOp+v{8z=.n");
+      Object object0 = new Object();
+      jSONObject0.putOnce("", object0);
+      String string0 = Cookie.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("(G=<B57_y6Tlq");
+      jSONObject0.remove("value");
+      String string0 = Cookie.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("(G=<B57_y6Tlq");
+      jSONObject0.remove("value");
+      String string0 = Cookie.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("NeZOp v{8z=.n;NeZOw>p v{8z");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("NeZOp v{8z=.n;=java.lang.Object@0000000009");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Cookie.toJSONObject("");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Cookies must have a 'name'
+         //
+         verifyException("org.json.Cookie", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      String string0 = Cookie.escape("NeZOp v{8z=.n;NeZOp%2bv{8z%3d.n");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      JSONObject jSONObject0 = Cookie.toJSONObject("NeZOp+v{8z=.n");
+      jSONObject0.put("NeZOp+v{8z=.n", true);
+      String string0 = Cookie.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      String string0 = Cookie.escape("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Cookie cookie0 = new Cookie();
+  }

@@ -1,0 +1,86 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Utf8Decoder utf8Decoder0 = new Utf8Decoder();
+      Charset charset0 = utf8Decoder0.charset();
+      char[] charArray0 = new char[1];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteBuffer byteBuffer0 = charset0.encode(charBuffer0);
+      CharBuffer charBuffer1 = charset0.decode(byteBuffer0);
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer(charBuffer1);
+      appendableBodyConsumer0.consume(byteBuffer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      char[] charArray0 = new char[9];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer(charBuffer0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      ByteBuffer byteBuffer0 = charset0.encode(charBuffer0);
+      // Undeclared exception!
+      try { 
+        appendableBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer(stringWriter0);
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect(1462);
+      // Undeclared exception!
+      try { 
+        appendableBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockFile mockFile0 = new MockFile((String) null, "vL9'ppGCg]");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      Utf8Decoder utf8Decoder0 = new Utf8Decoder();
+      Charset charset0 = utf8Decoder0.charset();
+      ByteBuffer byteBuffer0 = ByteBuffer.allocate(3497);
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer(mockFileWriter0, charset0);
+      appendableBodyConsumer0.close();
+      try { 
+        appendableBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer((Appendable) null);
+      appendableBodyConsumer0.close();
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      AppendableBodyConsumer appendableBodyConsumer0 = new AppendableBodyConsumer((Appendable) null);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteBuffer byteBuffer0 = charset0.encode(charBuffer0);
+      // Undeclared exception!
+      try { 
+        appendableBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.AppendableBodyConsumer", e);
+      }
+  }

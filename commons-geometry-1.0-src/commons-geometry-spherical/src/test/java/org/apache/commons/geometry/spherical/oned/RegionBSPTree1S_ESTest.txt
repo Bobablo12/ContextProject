@@ -1,0 +1,488 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(-0.0, -0.0, -0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.add(angularInterval0);
+      RegionBSPTree1S regionBSPTree1S1 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.xor((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S1, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S1);
+      Point1S point1S1 = regionBSPTree1S0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Transform1S transform1S0 = Transform1S.identity();
+      Point1S point1S0 = Point1S.PI;
+      Point1S point1S1 = transform1S0.apply(point1S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(57.29577951308232, 57.29577951308232, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S1, point1S1, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S1, false, precision_DoubleEquivalence1);
+      HyperplaneConvexSubset<Point1S> hyperplaneConvexSubset0 = cutAngle0.span();
+      regionBSPTree1S0.insert(hyperplaneConvexSubset0);
+      double double0 = regionBSPTree1S0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-1872.919), 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      RegionBSPTree1S.RegionNode1S regionBSPTree1S_RegionNode1S0 = regionBSPTree1S0.createNode();
+      RegionBSPTree1S.RegionNode1S regionBSPTree1S_RegionNode1S1 = regionBSPTree1S_RegionNode1S0.getSelf();
+      assertFalse(regionBSPTree1S_RegionNode1S1.isMinus());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneConvexSubset<Point1S> hyperplaneConvexSubset0 = cutAngle0.span();
+      regionBSPTree1S0.insert((HyperplaneSubset<Point1S>) hyperplaneConvexSubset0);
+      Point1S point1S1 = regionBSPTree1S0.project(point1S0);
+      assertFalse(point1S1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = angularInterval0.toTree();
+      Point1S point1S0 = Point1S.PI;
+      Point1S point1S1 = regionBSPTree1S0.project(point1S0);
+      assertFalse(point1S1.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of((-1872.919), 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      Point1S point1S0 = Point1S.PI;
+      Point1S point1S1 = regionBSPTree1S0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      RegionBSPTree1S regionBSPTree1S0 = angularInterval_Convex0.toTree();
+      RegionBSPTree1S.RegionNode1S regionBSPTree1S_RegionNode1S0 = regionBSPTree1S0.createNode();
+      assertFalse(regionBSPTree1S_RegionNode1S0.isOutside());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(988.0, 988.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      regionBSPTree1S0.add(angularInterval0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.transform((Transform<Point1S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.CutAngle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle((Point1S) null, false, precision_DoubleEquivalence0);
+      HyperplaneConvexSubset<Point1S> hyperplaneConvexSubset0 = cutAngle0.span();
+      regionBSPTree1S0.insert((HyperplaneSubset<Point1S>) hyperplaneConvexSubset0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.toIntervals();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      HyperplaneConvexSubset<Point1S> hyperplaneConvexSubset0 = cutAngle0.span();
+      regionBSPTree1S0.insert((HyperplaneSubset<Point1S>) hyperplaneConvexSubset0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.toIntervals();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [\uFFFD, 6.283]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      RegionBSPTree1S regionBSPTree1S0 = angularInterval_Convex0.toTree();
+      Point1S point1S0 = Point1S.PI;
+      CutAngle cutAngle0 = new CutAngle(point1S0, true, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.splitDiameter(cutAngle0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.RegionBSPTree1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.split((Hyperplane<Point1S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.RegionBSPTree1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree1S.fromInterval((AngularInterval) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.RegionBSPTree1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.add((AngularInterval) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.RegionBSPTree1S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval_Convex0);
+      Point1S point1S0 = Point1S.ZERO;
+      Point1S point1S1 = regionBSPTree1S0.project(point1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      double double0 = regionBSPTree1S0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = angularInterval0.toTree();
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      Transform1S transform1S0 = Transform1S.createNegation();
+      CutAngle cutAngle1 = cutAngle0.transform(transform1S0);
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.split(cutAngle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(1.0, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = angularInterval0.toTree();
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.split(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.add(angularInterval0);
+      RegionBSPTree1S regionBSPTree1S1 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S1.xor((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S1, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0);
+      List<AngularInterval> list0 = regionBSPTree1S1.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Point1S point1S0 = regionBSPTree1S0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Point1S point1S0 = Point1S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      CutAngle cutAngle0 = new CutAngle(point1S0, false, precision_DoubleEquivalence0);
+      CutAngle cutAngle1 = cutAngle0.reverse();
+      HyperplaneConvexSubset<Point1S> hyperplaneConvexSubset0 = cutAngle1.span();
+      regionBSPTree1S0.insert((HyperplaneSubset<Point1S>) hyperplaneConvexSubset0);
+      Transform1S transform1S0 = Transform1S.createRotation((-2138.5));
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.transform(transform1S0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid angular interval: [0, \uFFFD]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      List<AngularInterval> list0 = regionBSPTree1S0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.add(angularInterval0);
+      RegionBSPTree1S regionBSPTree1S1 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S1.xor((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S1, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S1);
+      List<AngularInterval> list0 = regionBSPTree1S1.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.add(angularInterval0);
+      regionBSPTree1S0.difference((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0);
+      regionBSPTree1S0.xor((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0);
+      List<AngularInterval> list0 = regionBSPTree1S0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      List<AngularInterval> list0 = regionBSPTree1S0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      RegionBSPTree1S regionBSPTree1S1 = new RegionBSPTree1S(false);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      RegionBSPTree1S regionBSPTree1S1 = new RegionBSPTree1S(false);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      Split<RegionBSPTree1S> split1 = regionBSPTree1S1.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(0.0, 0.0, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      Split<RegionBSPTree1S> split1 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      CutAngle cutAngle0 = angularInterval0.getMaxBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      Split<RegionBSPTree1S> split1 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.splitDiameter(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(988.0, 988.0, 6.283185307179586, 2.0, 2.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      regionBSPTree1S0.add(angularInterval0);
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.split(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      Transform1S transform1S0 = Transform1S.createRotation(57.29577951308232);
+      regionBSPTree1S0.transform(transform1S0);
+      assertFalse(transform1S0.isNegation());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      Transform1S transform1S0 = Transform1S.identity();
+      regionBSPTree1S0.transform(transform1S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = new RegionBSPTree1S();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(6.283185307179586, 6.283185307179586, precision_DoubleEquivalence0);
+      CutAngle cutAngle0 = angularInterval0.getMinBoundary();
+      Split<RegionBSPTree1S> split0 = regionBSPTree1S0.split(cutAngle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      RegionBSPTree1S regionBSPTree1S1 = regionBSPTree1S0.copy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0, 0.0, 0.0, (-2.979075673148106), (-2.979075673148106)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      regionBSPTree1S0.add(angularInterval0);
+      regionBSPTree1S0.difference((AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0, (AbstractRegionBSPTree<Point1S, RegionBSPTree1S.RegionNode1S>) regionBSPTree1S0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1S0.project(point1S0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree$BoundaryProjector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Point1S point1S0 = Point1S.PI;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      AngularInterval angularInterval0 = AngularInterval.of(point1S0, point1S0, precision_DoubleEquivalence0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      Transform1S transform1S0 = Transform1S.identity();
+      regionBSPTree1S0.transform(transform1S0);
+      Point1S point1S1 = regionBSPTree1S0.getCentroid();
+      ;
+}

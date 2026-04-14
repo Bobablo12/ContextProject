@@ -1,0 +1,57 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      JDBCConfigurationImpl jDBCConfigurationImpl0 = new JDBCConfigurationImpl(false, true);
+      jDBCConfigurationImpl0.queryCachePlugin = null;
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDerivation0.beforeConfigurationLoad(jDBCConfigurationImpl0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDerivation", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDerivation0.beforeConfigurationConstruct((ConfigurationProvider) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDerivation", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      MapConfigurationProvider mapConfigurationProvider0 = new MapConfigurationProvider();
+      boolean boolean0 = openJPAJCacheDerivation0.beforeConfigurationConstruct(mapConfigurationProvider0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      JDBCConfigurationImpl jDBCConfigurationImpl0 = new JDBCConfigurationImpl(false, true);
+      boolean boolean0 = openJPAJCacheDerivation0.beforeConfigurationLoad(jDBCConfigurationImpl0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      ConfigurationImpl configurationImpl0 = new ConfigurationImpl();
+      openJPAJCacheDerivation0.beforeConfigurationLoad(configurationImpl0);
+      assertEquals(0, openJPAJCacheDerivation0.getType());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      OpenJPAJCacheDerivation openJPAJCacheDerivation0 = new OpenJPAJCacheDerivation();
+      int int0 = openJPAJCacheDerivation0.getType();
+      assertEquals(1, int0);
+}

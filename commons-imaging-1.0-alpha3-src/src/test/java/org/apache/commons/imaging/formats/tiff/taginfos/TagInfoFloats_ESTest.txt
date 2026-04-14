@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("&KBX}\"a4{", 0, 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      float[] floatArray0 = new float[1];
+      byte[] byteArray0 = tagInfoFloats0.encodeValue(byteOrder0, floatArray0);
+      float[] floatArray1 = tagInfoFloats0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats((String) null, 0, 0, tiffDirectoryType0);
+      CharBuffer charBuffer0 = CharBuffer.allocate(0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      float[] floatArray0 = new float[0];
+      byte[] byteArray0 = tagInfoFloats0.encodeValue(byteOrder0, floatArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", 5718, 5718, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      // Undeclared exception!
+      try { 
+        tagInfoFloats0.getValue(byteOrder0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("8#/^Z", 1, 4443, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      // Undeclared exception!
+      try { 
+        tagInfoFloats0.encodeValue(byteOrder0, (float[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("8#/^Z", 1, 4443, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[2];
+      float[] floatArray0 = tagInfoFloats0.getValue(byteOrder0, byteArray0);
+      ;
+}

@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Predicate<Object> predicate0 = (Predicate<Object>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      PredicatedSortedBag<UnmodifiableSortedBag<Integer>> predicatedSortedBag0 = null;
+      try {
+        predicatedSortedBag0 = new PredicatedSortedBag<UnmodifiableSortedBag<Integer>>((SortedBag<UnmodifiableSortedBag<Integer>>) null, predicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Predicate<Object> predicate0 = (Predicate<Object>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        PredicatedSortedBag.predicatedSortedBag((SortedBag<Object>) null, (Predicate<? super Object>) predicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }

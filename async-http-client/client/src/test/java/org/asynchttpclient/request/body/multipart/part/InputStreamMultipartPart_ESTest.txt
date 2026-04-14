@@ -1,0 +1,566 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0, 6);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("Pattern is missing", pushbackInputStream0, "", 6, "");
+      byte[] byteArray0 = new byte[4];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator(true);
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      long long0 = inputStreamMultipartPart0.transferContentTo(emptyByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0, 6);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("Pattern is missing", pushbackInputStream0, "", 6, "");
+      byte[] byteArray0 = new byte[4];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator(true);
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      long long0 = inputStreamMultipartPart0.transferContentTo(emptyByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ArrayList<Param> arrayList0 = new ArrayList<Param>();
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn("increment", "increment").when(inputStreamPart0).getFileName();
+      doReturn((-562L)).when(inputStreamPart0).getContentLength();
+      doReturn(sequenceInputStream0).when(inputStreamPart0).getInputStream();
+      doReturn(charset0, charset0, charset0, charset0).when(inputStreamPart0).getCharset();
+      doReturn("increment").when(inputStreamPart0).getContentId();
+      doReturn("increment").when(inputStreamPart0).getContentType();
+      doReturn(arrayList0).when(inputStreamPart0).getCustomHeaders();
+      doReturn("increment", "increment").when(inputStreamPart0).getDispositionType();
+      doReturn("increment", "increment").when(inputStreamPart0).getName();
+      doReturn("increment").when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[9];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      ByteBuf byteBuf0 = inputStreamMultipartPart0.computePostContentBytes(34);
+      long long0 = inputStreamMultipartPart0.transferContentTo(byteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ArrayList<Param> arrayList0 = new ArrayList<Param>();
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn("increment", "increment").when(inputStreamPart0).getFileName();
+      doReturn((-562L)).when(inputStreamPart0).getContentLength();
+      doReturn(sequenceInputStream0).when(inputStreamPart0).getInputStream();
+      doReturn(charset0, charset0, charset0, charset0).when(inputStreamPart0).getCharset();
+      doReturn("increment").when(inputStreamPart0).getContentId();
+      doReturn("increment").when(inputStreamPart0).getContentType();
+      doReturn(arrayList0).when(inputStreamPart0).getCustomHeaders();
+      doReturn("increment", "increment").when(inputStreamPart0).getDispositionType();
+      doReturn("increment", "increment").when(inputStreamPart0).getName();
+      doReturn("increment").when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[9];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      ByteBuf byteBuf0 = inputStreamMultipartPart0.computePostContentBytes(34);
+      long long0 = inputStreamMultipartPart0.transferContentTo(byteBuf0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("2X5eEhbZCI", dataInputStream0, "2X5eEhbZCI", 0L, "", charset0, "");
+      byte[] byteArray0 = new byte[1];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      long long0 = inputStreamMultipartPart0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart((String) null, byteArrayInputStream0, "", (byte)44, "");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      long long0 = inputStreamMultipartPart0.getContentLength();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 206, 206);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("=#16!&xd{vTjIiQwK9", sequenceInputStream0, "org.asynchttpclient.request.body.multipart.part.InputStreamMultipartPart");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      long long0 = inputStreamMultipartPart0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn("", "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory").when(inputStreamPart0).getFileName();
+      doReturn(byteArrayInputStream0).when(inputStreamPart0).getInputStream();
+      doReturn((Charset) null, (Charset) null).when(inputStreamPart0).getCharset();
+      doReturn("io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory").when(inputStreamPart0).getContentId();
+      doReturn("io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory").when(inputStreamPart0).getContentType();
+      doReturn(linkedList0).when(inputStreamPart0).getCustomHeaders();
+      doReturn("4h3bTm5`tj=wAC*", "4h3bTm5`tj=wAC*").when(inputStreamPart0).getDispositionType();
+      doReturn("4h3bTm5`tj=wAC*", "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory").when(inputStreamPart0).getName();
+      doReturn("io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory").when(inputStreamPart0).getTransferEncoding();
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      doReturn((int)(byte)1, (int)(byte)1, (int)(byte)1, (int)(byte) (-21), (int)(byte)15).when(writableByteChannel0).write(any(java.nio.ByteBuffer.class));
+      // Undeclared exception!
+      inputStreamMultipartPart0.transferContentTo(writableByteChannel0);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)0;
+      byteArray0[1] = (byte)0;
+      FileSystemHandling.appendDataToFile((EvoSuiteFile) null, byteArray0);
+      byteArray0[2] = (byte)78;
+      byteArray0[3] = (byte)78;
+      byteArray0[4] = (byte)0;
+      byteArray0[7] = (byte) (-37);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("", byteArrayInputStream0, "K;oY*Jur&,h5i87N");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(datagramChannel0);
+        fail("Expecting exception: NotYetConnectedException");
+      } catch(NotYetConnectedException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart((String) null, byteArrayInputStream0, "notifyEvent {} {}", 1278L, (String) null, charset0);
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(fileChannel0);
+        fail("Expecting exception: NonWritableChannelException");
+      } catch(NonWritableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("tLY |k9R", byteArrayInputStream0, ";HK-AR~#l");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("4h3bTm5`tj=wAC*");
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      fileChannel0.close();
+      try { 
+        inputStreamMultipartPart0.transferContentTo(fileChannel0);
+        fail("Expecting exception: ClosedChannelException");
+      } catch(ClosedChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Stack<DataInputStream> stack0 = new Stack<DataInputStream>();
+      Enumeration<DataInputStream> enumeration0 = stack0.elements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      DataInputStream dataInputStream0 = new DataInputStream(sequenceInputStream0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("", dataInputStream0, "", 5142L, "");
+      byte[] byteArray0 = new byte[8];
+      stack0.add(dataInputStream0);
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo((WritableByteChannel) null);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(inputStreamPart0).getFileName();
+      doReturn((InputStream) null).when(inputStreamPart0).getInputStream();
+      doReturn((String) null).when(inputStreamPart0).getContentId();
+      doReturn((String) null).when(inputStreamPart0).getContentType();
+      doReturn((List) null).when(inputStreamPart0).getCustomHeaders();
+      doReturn((String) null).when(inputStreamPart0).getDispositionType();
+      doReturn((String) null).when(inputStreamPart0).getName();
+      doReturn((String) null).when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[1];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(writableByteChannel0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // \"in\" is null!
+         //
+         verifyException("java.nio.channels.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)60;
+      byteArray0[1] = (byte)30;
+      byteArray0[2] = (byte)90;
+      byteArray0[3] = (byte) (-97);
+      byteArray0[4] = (byte)4;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), (byte)4);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("2Rj=-D;T:3lC", sequenceInputStream0, "2Rj=-D;T:3lC", (-51L), "", charset0);
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(datagramChannel0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("TuF4[U:N{1,Z", mockFileInputStream0, "NW.sF{KtdGR]8f)", 8589934592L, "=zL{>4lzCa", charset0, "TuF4[U:N{1,Z", "NW.sF{KtdGR]8f)");
+      byte[] byteArray0 = new byte[6];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      try { 
+        inputStreamMultipartPart0.transferContentTo((WritableByteChannel) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(inputStreamPart0).getFileName();
+      doReturn((InputStream) null).when(inputStreamPart0).getInputStream();
+      doReturn((String) null).when(inputStreamPart0).getContentId();
+      doReturn((String) null).when(inputStreamPart0).getContentType();
+      doReturn((List) null).when(inputStreamPart0).getCustomHeaders();
+      doReturn((String) null).when(inputStreamPart0).getDispositionType();
+      doReturn((String) null).when(inputStreamPart0).getName();
+      doReturn((String) null).when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[7];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo((ByteBuf) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.InputStreamMultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null, (String) null).when(inputStreamPart0).getFileName();
+      doReturn((InputStream) null).when(inputStreamPart0).getInputStream();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getContentId();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getContentType();
+      doReturn((List) null, (List) null).when(inputStreamPart0).getCustomHeaders();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getDispositionType();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getName();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[5];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      ByteBuf byteBuf0 = inputStreamMultipartPart0.computePreContentBytes((byte)0);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(byteBuf0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.UnsafeByteBufUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-991), 1475);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("KFv", byteArrayInputStream0, "KFv", 3877L);
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator();
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(pooledByteBufAllocator0, (byte)20, 957);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.transferContentTo(unpooledUnsafeDirectByteBuf0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0, 1374);
+      Vector<Param> vector0 = new Vector<Param>();
+      Charset charset0 = Charset.defaultCharset();
+      pipedInputStream0.mark(1374);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("", pipedInputStream0, "", 1374, "3v@CMa=~H_;L9nk.", charset0, "/LPG,!:u", "hPl Nl#5R/");
+      inputStreamPart0.getCharset();
+      byte[] byteArray0 = new byte[7];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = PooledByteBufAllocator.DEFAULT;
+      CompositeByteBuf compositeByteBuf0 = pooledByteBufAllocator0.compositeDirectBuffer();
+      CompositeByteBuf compositeByteBuf1 = compositeByteBuf0.writeChar(451);
+      try { 
+        inputStreamMultipartPart0.transferContentTo(compositeByteBuf1);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null, (String) null).when(inputStreamPart0).getFileName();
+      doReturn((InputStream) null).when(inputStreamPart0).getInputStream();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getContentId();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getContentType();
+      doReturn((List) null, (List) null).when(inputStreamPart0).getCustomHeaders();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getDispositionType();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getName();
+      doReturn((String) null, (String) null).when(inputStreamPart0).getTransferEncoding();
+      byte[] byteArray0 = new byte[1];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(writableByteChannel0).write(any(java.nio.ByteBuffer.class));
+      inputStreamMultipartPart0.transferTo(writableByteChannel0);
+      inputStreamMultipartPart0.close();
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.close();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0, decrement: 1
+         //
+         verifyException("io.netty.util.internal.ReferenceCountUpdater", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Stack<DataInputStream> stack0 = new Stack<DataInputStream>();
+      Enumeration<DataInputStream> enumeration0 = stack0.elements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      DataInputStream dataInputStream0 = new DataInputStream(sequenceInputStream0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart((String) null, dataInputStream0, "org.asynchttpclient.request.body.multipart.part.InputStreamMultipartPart");
+      byte[] byteArray0 = new byte[8];
+      stack0.add(dataInputStream0);
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.close();
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("y|pw&(V3>$;C\"O\"/K-", dataInputStream0, "y|pw&(V3>$;C\"O\"/K-");
+      byte[] byteArray0 = new byte[2];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        inputStreamMultipartPart0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.FilterInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      InputStreamMultipartPart inputStreamMultipartPart0 = null;
+      try {
+        inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.PartVisitor$CounterPartVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      File file0 = MockFile.createTempFile("'w5z", "'w5z", (File) null);
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("'w5z", mockFileInputStream0, "'w5z", 0L, "'w5z", charset0);
+      byte[] byteArray0 = new byte[2];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      long long0 = inputStreamMultipartPart0.transferContentTo(fileChannel0);
+      assertTrue(fileChannel0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      File file0 = MockFile.createTempFile("'w5z", "'w5z", (File) null);
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("'w5z", mockFileInputStream0, "'w5z", 0L, "'w5z", charset0);
+      byte[] byteArray0 = new byte[2];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      long long0 = inputStreamMultipartPart0.transferContentTo(fileChannel0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("@", byteArrayInputStream0, "@");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("@");
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      long long0 = inputStreamMultipartPart0.transferContentTo(fileChannel0);
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InputStreamPart inputStreamPart0 = new InputStreamPart("@", byteArrayInputStream0, "@");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("@");
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      long long0 = inputStreamMultipartPart0.transferContentTo(fileChannel0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", byteArrayInputStream0, "\u0005~76z~@<cC=(/=", 8L, "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", charset0, "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", "\u0005~76z~@<cC=(/=");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator();
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(pooledByteBufAllocator0, (byte)38, (byte)38);
+      long long0 = inputStreamMultipartPart0.transferContentTo(unpooledUnsafeDirectByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      Charset charset0 = Charset.defaultCharset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", byteArrayInputStream0, "\u0005~76z~@<cC=(/=", 8L, "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", charset0, "io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory", "\u0005~76z~@<cC=(/=");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator();
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(pooledByteBufAllocator0, (byte)38, (byte)38);
+      long long0 = inputStreamMultipartPart0.transferContentTo(unpooledUnsafeDirectByteBuf0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      File file0 = MockFile.createTempFile("'w5z", "'w5z", (File) null);
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("'w5z", mockFileInputStream0, "'w5z", 0L, "'w5z", charset0);
+      byte[] byteArray0 = new byte[2];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = PooledByteBufAllocator.DEFAULT;
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      long long0 = inputStreamMultipartPart0.transferContentTo(emptyByteBuf0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      File file0 = MockFile.createTempFile("'w5z", "'w5z", (File) null);
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      InputStreamPart inputStreamPart0 = new InputStreamPart("'w5z", mockFileInputStream0, "'w5z", 0L, "'w5z", charset0);
+      byte[] byteArray0 = new byte[2];
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = PooledByteBufAllocator.DEFAULT;
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      long long0 = inputStreamMultipartPart0.transferContentTo(emptyByteBuf0);
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      byte[] byteArray0 = new byte[8];
+      WritableByteChannel writableByteChannel0 = mock(WritableByteChannel.class, new ViolatedAssumptionAnswer());
+      InputStreamPart inputStreamPart0 = new InputStreamPart("WDu| W;_L4a+rPTf=!", sequenceInputStream0, "directMemoryCacheAlignment: ");
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      inputStreamMultipartPart0.transferContentTo((WritableByteChannel) null);
+      try { 
+        inputStreamMultipartPart0.transferContentTo(writableByteChannel0);
+        fail("Expecting exception: AsynchronousCloseException");
+      } catch(AsynchronousCloseException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.channels.spi.AbstractInterruptibleChannel", e);
+      }
+  }

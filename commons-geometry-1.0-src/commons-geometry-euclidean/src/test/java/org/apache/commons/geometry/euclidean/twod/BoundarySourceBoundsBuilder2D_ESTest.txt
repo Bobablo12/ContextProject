@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BoundarySourceBoundsBuilder2D boundarySourceBoundsBuilder2D0 = new BoundarySourceBoundsBuilder2D();
+      // Undeclared exception!
+      try { 
+        boundarySourceBoundsBuilder2D0.getBounds((BoundarySource2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.BoundarySourceBoundsBuilder2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LineConvexSubset[] lineConvexSubsetArray0 = new LineConvexSubset[1];
+      BoundarySourceBoundsBuilder2D boundarySourceBoundsBuilder2D0 = new BoundarySourceBoundsBuilder2D();
+      BoundarySource2D boundarySource2D0 = BoundarySource2D.of(lineConvexSubsetArray0);
+      // Undeclared exception!
+      try { 
+        boundarySourceBoundsBuilder2D0.getBounds(boundarySource2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.BoundarySourceBoundsBuilder2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundarySourceBoundsBuilder2D boundarySourceBoundsBuilder2D0 = new BoundarySourceBoundsBuilder2D();
+      LineConvexSubset[] lineConvexSubsetArray0 = new LineConvexSubset[1];
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, (-0.16624677914734143), (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      lineConvexSubsetArray0[0] = (LineConvexSubset) reverseRay0;
+      LinePath linePath0 = LinePath.from(lineConvexSubsetArray0);
+      Bounds2D bounds2D0 = boundarySourceBoundsBuilder2D0.getBounds(linePath0);
+      assertNotNull(bounds2D0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BoundarySourceBoundsBuilder2D boundarySourceBoundsBuilder2D0 = new BoundarySourceBoundsBuilder2D();
+      HashSet<LineConvexSubset> hashSet0 = new HashSet<LineConvexSubset>();
+      BoundarySource2D boundarySource2D0 = BoundarySource2D.of((Collection<LineConvexSubset>) hashSet0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1421.9912, precision_DoubleEquivalence0);
+      Segment segment0 = line0.segment(0.0, 0.0);
+      hashSet0.add(segment0);
+      Bounds2D bounds2D0 = boundarySourceBoundsBuilder2D0.getBounds(boundarySource2D0);
+      assertNotNull(bounds2D0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BoundarySourceBoundsBuilder2D boundarySourceBoundsBuilder2D0 = new BoundarySourceBoundsBuilder2D();
+      HashSet<LineConvexSubset> hashSet0 = new HashSet<LineConvexSubset>();
+      BoundarySource2D boundarySource2D0 = BoundarySource2D.of((Collection<LineConvexSubset>) hashSet0);
+      Bounds2D bounds2D0 = boundarySourceBoundsBuilder2D0.getBounds(boundarySource2D0);
+      assertNotNull(bounds2D0);
+}

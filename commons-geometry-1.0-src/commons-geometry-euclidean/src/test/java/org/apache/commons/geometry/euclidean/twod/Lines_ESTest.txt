@@ -1,0 +1,695 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of(1632.2085102, 1632.2085102);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(vector2D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 843.3158267934293, precision_DoubleEquivalence0);
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      Line line1 = Lines.fromPoints(vector2D_Unit1, vector2D_Unit0, precision_DoubleEquivalence1);
+      // Undeclared exception!
+      try { 
+        Lines.validateLinesEquivalent(line1, line0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same line. Expected Line[origin= (0.35355339059327384, -0.1464466094067263), direction= (0.38268343236508984, 0.9238795325112867)] but was Line[origin= (-596.3143398075739, 596.3143398075739), direction= (0.7071067811865476, 0.7071067811865476)].
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1570.7), 966.0);
+      Vector2D.Unit vector2D_Unit0 = vector2D0.orthogonal();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-1570.7), precision_DoubleEquivalence0);
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval(line0, 1.0, 0.0);
+      assertTrue(lineConvexSubset0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-1265.8463), precision_DoubleEquivalence0);
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval(line0, 0.99, 2426.90891997);
+      assertTrue(lineConvexSubset0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.subsetFromInterval((Line) null, 0.9999999999, (-3197.87061));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Segment segment0 = Lines.segmentFromLocations(line0, 0.0, (-924.8676));
+      assertFalse(segment0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Segment segment0 = Lines.segmentFromLocations(line0, 0.0, 0.6);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D vector2D0 = rotation2D0.applyVector((Vector2D) vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndAngle(vector2D0, 1.0, precision_DoubleEquivalence0);
+      Lines.segmentFromPoints(line0, vector2D0, (Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1748.61668994176, 1748.61668994176);
+      Vector2D vector2D0 = rotation2D0.applyVector((Vector2D) vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      ReverseRay reverseRay0 = Lines.reverseRayFromPointAndDirection(vector2D0, vector2D_Unit0, precision_DoubleEquivalence0);
+      assertTrue(reverseRay0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.from(rotation2D0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1748.61668994176, 1748.61668994176);
+      Vector2D.Unit vector2D_Unit1 = affineTransformMatrix2D0.applyDirection((Vector2D) vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Ray ray0 = Lines.rayFromPointAndDirection(vector2D_Unit0, vector2D_Unit1, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 2133.51815, precision_DoubleEquivalence0);
+      Ray ray0 = Lines.rayFromPoint(line0, vector2D_Unit0);
+      assertFalse(ray0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.negate();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPoints(vector2D_Unit1, vector2D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D.Unit vector2D_Unit1 = vector2D_Unit0.orthogonal();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPoints(vector2D_Unit1, vector2D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndDirection(vector2D_Unit0, vector2D_Unit0, precision_DoubleEquivalence0);
+      Vector2D vector2D0 = line0.pointAt((-977.4851191), (-127.7459432255643));
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      Line line1 = Lines.fromPointAndDirection(vector2D0, vector2D_Unit0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1.0), (-1.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-0.999999999999998), precision_DoubleEquivalence0);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from((-1.0));
+      Vector2D vector2D0 = line0.toSpace((Vector1D) vector1D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      Line line1 = Lines.fromPointAndDirection(vector2D0, vector2D_Unit0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndAngle(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-1570.7), 966.0);
+      Vector2D.Unit vector2D_Unit0 = vector2D0.orthogonal();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndAngle(vector2D_Unit0, 1.0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.validateLinesEquivalent((Line) null, (Line) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromPoints((Vector2D) null, (Vector2D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromPoints((Vector2D) vector2D_Unit0, (Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromPoints((Line) null, (Vector2D) vector2D_Unit0, (Vector2D) vector2D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromPointAndDirection((Vector2D) null, (Vector2D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromPointAndDirection(vector2D0, vector2D0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromPoint((Line) null, (Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromLocation((Line) null, 736.49962);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      // Undeclared exception!
+      try { 
+        Lines.rayFromPointAndDirection(vector2D0, vector2D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = Vector2D.of(0.0, 0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      // Undeclared exception!
+      try { 
+        Lines.rayFromPointAndDirection(vector2D_Unit0, vector2D0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.rayFromLocation((Line) null, 553.10516964379);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        Lines.fromPoints((Vector2D) null, (Vector2D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        Lines.fromPointAndDirection((Vector2D) null, (Vector2D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.of((-4417.62), (-4417.62));
+      // Undeclared exception!
+      try { 
+        Lines.fromPointAndAngle(vector2D0, (-4417.62), (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval((Line) null, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-1265.8463), precision_DoubleEquivalence0);
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval(line0, 973.04509316778, Double.NEGATIVE_INFINITY);
+      assertTrue(lineConvexSubset0.isFinite());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.subsetFromInterval((Line) null, Double.POSITIVE_INFINITY, 1040.0931077);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1748.61668994176, 1748.61668994176);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1748.61668994176, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromLocations(line0, Double.POSITIVE_INFINITY, 360.0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid line segment locations: Infinity, 360.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromLocations((Line) null, 0.0, 0.0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndDirection(vector2D_Unit0, vector2D_Unit0, precision_DoubleEquivalence0);
+      Lines.reverseRayFromLocation(line0, (-127.7459432255643));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      Vector2D vector2D0 = Vector2D.max((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D1 = Vector2D.centroid(vector2DArray0[1], vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndDirection(vector2D0, vector2D1, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      // Undeclared exception!
+      try { 
+        Lines.fromPoints(vector2D_Unit0, vector2D_Unit0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 1452.19906204, precision_DoubleEquivalence0);
+      Lines.validateLinesEquivalent(line0, line0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1748.61668994176, precision_DoubleEquivalence0);
+      Interval interval0 = Interval.full();
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval(line0, interval0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, Double.NaN, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.subsetFromInterval(line0, Double.NaN, Double.NaN);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid line subset interval: NaN, NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line((Vector2D.Unit) null, 36.03735402787982, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.max(36.03735402787982, precision_DoubleEquivalence1);
+      // Undeclared exception!
+      try { 
+        Lines.subsetFromInterval(line0, interval0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Line", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 2133.51815, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.subsetFromInterval(line0, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid line subset interval: -Infinity, -Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromLocations((Line) null, (-2053.949810961102), Double.POSITIVE_INFINITY);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid line segment locations: -2053.949810961102, Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D vector2D0 = Vector2D.NaN;
+      Line line0 = new Line(vector2D_Unit0, (-1546.6088604210859), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.segmentFromPoints(line0, vector2D0, vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid line segment locations: NaN, NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1809.5953163118518, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromLocation(line0, Double.POSITIVE_INFINITY);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid reverse ray end location: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 1772.9427889896465, precision_DoubleEquivalence0);
+      Vector2D vector2D0 = line0.intersection(line0);
+      // Undeclared exception!
+      try { 
+        Lines.reverseRayFromPoint(line0, vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid reverse ray end point: (NaN, NaN)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1.5707963267948966, precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = Lines.reverseRayFromPoint(line0, vector2D_Unit0);
+      assertTrue(reverseRay0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-0.16468696704081454), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.rayFromLocation(line0, Double.POSITIVE_INFINITY);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid ray start location: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1.5707963267948966, precision_DoubleEquivalence0);
+      Ray ray0 = Lines.rayFromLocation(line0, 0.0);
+      assertTrue(ray0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      // Undeclared exception!
+      try { 
+        Lines.rayFromPoint((Line) null, vector2D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      // Undeclared exception!
+      try { 
+        Lines.fromPointAndAngle(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Line direction cannot be zero
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(1747.706878565614, 1747.706878565614);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1747.706878565614, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.min(1747.706878565614, precision_DoubleEquivalence1);
+      LineConvexSubset lineConvexSubset0 = Lines.subsetFromInterval(line0, interval0);
+      assertTrue(lineConvexSubset0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Segment segment0 = Lines.segmentFromPoints(vector2D0, (Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      assertTrue(segment0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = Lines.fromPointAndAngle(vector2D0, (-15.960808651006113), precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        Lines.rayFromPoint(line0, vector2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid ray start point: (-Infinity, -Infinity)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1772.9427889896465, precision_DoubleEquivalence0);
+      LineConvexSubset lineConvexSubset0 = Lines.span(line0);
+      assertTrue(lineConvexSubset0.isFull());
+}

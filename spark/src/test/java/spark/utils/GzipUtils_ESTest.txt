@@ -1,0 +1,88 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        GzipUtils.checkAndWrap(httpServletRequestWrapper0, httpServletResponseWrapper0, true);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration0).hasMoreElements();
+      doReturn("R5d^#`),j~t5GRyz").when(enumeration0).nextElement();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest0).getHeaders(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      doReturn((Collection) null).when(httpServletResponse0).getHeaders(anyString());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      // Undeclared exception!
+      try { 
+        GzipUtils.checkAndWrap(httpServletRequestWrapper0, httpServletResponseWrapper0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration0).hasMoreElements();
+      doReturn((Object) null).when(enumeration0).nextElement();
+      Locale locale0 = Locale.PRC;
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest0).getHeaders(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      doReturn((Collection) null).when(httpServletResponse0).getHeaders(anyString());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      // Undeclared exception!
+      try { 
+        GzipUtils.checkAndWrap(httpServletRequestWrapper0, httpServletResponseWrapper0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      boolean boolean0 = false;
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration0).hasMoreElements();
+      doReturn("gzip").when(enumeration0).nextElement();
+      Locale locale0 = Locale.TAIWAN;
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletInputStream) null).when(httpServletRequest0).getInputStream();
+      doReturn((Enumeration) null).when(httpServletRequest0).getParameterNames();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      httpServletRequestWrapper0.getParameterNames();
+      httpServletRequestWrapper0.getInputStream();
+      HttpServletRequest httpServletRequest1 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((Enumeration<String>) null).when(httpServletRequest1).getAttributeNames();
+      HttpServletRequestWrapper httpServletRequestWrapper1 = new HttpServletRequestWrapper(httpServletRequest1);
+      httpServletRequestWrapper1.getAttributeNames();
+      HttpServletRequest httpServletRequest2 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest2).getHeaders(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper2 = new HttpServletRequestWrapper(httpServletRequest2);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      doReturn((Collection) null).when(httpServletResponse0).getHeaders(anyString());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      // Undeclared exception!
+      try { 
+        GzipUtils.checkAndWrap(httpServletRequestWrapper2, httpServletResponseWrapper0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }

@@ -1,0 +1,1262 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      App14Segment app14Segment0 = new App14Segment((-1212), 0, (InputStream) null);
+      boolean boolean0 = JpegImageParser.isExifAPP1Segment(app14Segment0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      String[] stringArray0 = jpegImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile("+E_", "+E_");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(mockFileInputStream0, 65506);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "");
+      int[] intArray0 = new int[2];
+      try { 
+        jpegImageParser0.readSegments(byteSourceInputStream0, intArray0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      int[] intArray0 = new int[0];
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.readSegments((ByteSource) null, intArray0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(dataInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, (String) null);
+      int[] intArray0 = new int[1];
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.readSegments(byteSourceInputStream0, intArray0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "");
+      int[] intArray0 = new int[8];
+      try { 
+        jpegImageParser0.readSegments(byteSourceInputStream0, intArray0, false);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      int[] intArray0 = new int[9];
+      try { 
+        jpegImageParser0.readSegments(byteSourceFile0, intArray0, true);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile(" (length: ", "0,17)iWCKj>*o");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        jpegImageParser0.hasXmpSegment(byteSourceFile0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasXmpSegment((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasXmpSegment(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "SOF1_MARKER");
+      try { 
+        jpegImageParser0.hasXmpSegment(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("#c", "jpg");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.hasXmpSegment(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("&NlF>ICSQ'#x[.m'", byteArray0);
+      try { 
+        jpegImageParser0.hasIptcSegment(byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasIptcSegment((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasIptcSegment(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "JPEG (Joint Photographic Experts Group) Format");
+      try { 
+        jpegImageParser0.hasIptcSegment(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      try { 
+        jpegImageParser0.hasExifSegment(byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "org.apache.commons.imaging.formats.jpeg.JpegImageParser$2");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasExifSegment(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-100), (byte)109);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "X#w`8'}{-_pittAg=&h");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasExifSegment(byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "");
+      try { 
+        jpegImageParser0.hasExifSegment(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile("EXtN{]oL7", "EXtN{]oL7");
+      MockFile mockFile0 = new MockFile(file0, "EXtN{]oL7");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.hasExifSegment(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("%88", byteArray0);
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      try { 
+        jpegImageParser0.getXmpXml(byteSourceArray0, xmpImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getXmpXml((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "-hNs#]2*m");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getXmpXml(byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "JPEG (Joint Photographic Experts Group) Format");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getXmpXml(byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      MockFile mockFile0 = new MockFile("#zVI%");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.getXmpXml(byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile("Jpeg-Custom", "Jpeg-Custom");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getPhotoshopMetadata(byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getPhotoshopMetadata((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1759), 85);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, (String) null);
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getPhotoshopMetadata(byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "");
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getPhotoshopMetadata(byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("", "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      try { 
+        jpegImageParser0.getPhotoshopMetadata(byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) byteSourceArray0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "\"f:T\"/(r(G3'%");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) byteSourceInputStream0, (JpegImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-52), (byte)41);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "8");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) byteSourceArray0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1041), 1268);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "Jpeg/DCM");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "");
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[3];
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        jpegImageParser0.getImageInfo((ByteSource) byteSourceArray0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getImageInfo((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, (String) null);
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "");
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      try { 
+        jpegImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getImageInfo((ByteSource) byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("org.apache.commons.imaging.formats.jpeg.segments.DqtSegment$QuantizationTable", byteArray0);
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getICCProfileBytes((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile(":W95\"p(~e/g9R-oq8`");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      try { 
+        jpegImageParser0.getICCProfileBytes((ByteSource) byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("6>[>82v", byteArray0);
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(" degrees, ", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      SequenceInputStream sequenceInputStream1 = new SequenceInputStream(sequenceInputStream0, (InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream1, "~");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.SequenceInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[11];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-95), 6);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "jpg");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "");
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("Couldn't skip bytes", "Couldn't skip bytes");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.getExifRawData(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        jpegImageParser0.getExifMetadata(byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("Rp|*C=", (byte[]) null);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getExifMetadata(byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "['<`**XsUsPXX!<~{");
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        jpegImageParser0.getExifMetadata(byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile("##I{2m(yehYeFErg", "##I{2m(yehYeFErg");
+      MockFile mockFile0 = new MockFile(file0, "##I{2m(yehYeFErg");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        jpegImageParser0.getExifMetadata(byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(" I", byteArray0);
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getBufferedImage((ByteSource) byteSourceArray0, jpegImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getBufferedImage((ByteSource) null, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "e2AM'W%GdIALR>:F");
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, ")cS3`<_bsx");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      try { 
+        jpegImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      File file0 = MockFile.createTempFile("tif", "");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        jpegImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "JPEGProc");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("Imaging currently can't parse EXIF metadata split across multiple APP1 segments.  Please send this image to the Imaging project.");
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1440), 338);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "Imaging currently can't parse EXIF metadata split across multiple APP1 segments.  Please send this image to the Imaging project.");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("JU");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "JU");
+      try { 
+        jpegImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("[R-NFP$#a!=.I");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0);
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) byteSourceFile0, (JpegImagingParameters) null);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-100), 1774);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "$vH+}m|S@4/Ga<l%6");
+      int[] intArray0 = new int[5];
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.readSegments(byteSourceInputStream0, intArray0, true);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(65506);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "356BM/t%X");
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      try { 
+        jpegImageParser0.getMetadata((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      ImageFormat[] imageFormatArray0 = jpegImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      String string0 = jpegImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      MockFile mockFile0 = new MockFile("[hVSGqU[NE5a");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.getBufferedImage((ByteSource) byteSourceFile0, jpegImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      String string0 = jpegImageParser0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JpegImageParser.isExifAPP1Segment((GenericSegment) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-41), 121);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasXmpSegment(byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      JpegImagingParameters jpegImagingParameters0 = new JpegImagingParameters();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-100), 1737);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "$vH+}m|S@4/Ga<l%6");
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getXmpXml(byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.hasExifSegment((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      MockFile mockFile0 = new MockFile("jpg", "jpg");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegImageParser0.hasIptcSegment(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      JpegImageParser jpegImageParser0 = new JpegImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      JpegImagingParameters jpegImagingParameters0 = jpegImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        jpegImageParser0.getImageSize((ByteSource) byteSourceInputStream0, jpegImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }

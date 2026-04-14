@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      // Undeclared exception!
+      try { 
+        Sphere.from(vector3D_Unit0, 1276.85, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.YZY;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      // Undeclared exception!
+      try { 
+        Sphere.from(vector3D0, Double.POSITIVE_INFINITY, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal radius: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }

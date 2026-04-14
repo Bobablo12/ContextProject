@@ -1,0 +1,168 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RouteImpl routeImpl0 = RouteImpl.create("nOq@9-S|", (String) null, (Route) null);
+      Object object0 = routeImpl0.render((Object) null);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      doReturn((ModelAndView) null).when(templateViewRoute0).handle(any(spark.Request.class) , any(spark.Response.class));
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("", templateViewRoute0, templateEngine0);
+      Request request0 = new Request();
+      Response response0 = new Response();
+      Object object0 = templateViewRouteImpl0.handle(request0, response0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      String string0 = templateViewRouteImpl0.getPath();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, (String) null, templateViewRoute0, templateEngine0);
+      String string0 = templateViewRouteImpl0.getAcceptType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("", "", templateViewRoute0, templateEngine0);
+      String string0 = templateViewRouteImpl0.getAcceptType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ResponseTransformer responseTransformer0 = mock(ResponseTransformer.class, new ViolatedAssumptionAnswer());
+      ResponseTransformerRouteImpl responseTransformerRouteImpl0 = ResponseTransformerRouteImpl.create("", (Route) null, responseTransformer0);
+      Object object0 = responseTransformerRouteImpl0.delegate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("unpaused {}", "", templateViewRoute0, templateEngine0);
+      ResponseTransformerRouteImpl responseTransformerRouteImpl0 = ResponseTransformerRouteImpl.create("", "unpaused {}", (Route) templateViewRouteImpl0, (ResponseTransformer) null);
+      try { 
+        responseTransformerRouteImpl0.render((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.ResponseTransformerRouteImpl$1", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("", "", templateViewRoute0, templateEngine0);
+      try { 
+        templateViewRouteImpl0.render("head");
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to spark.ModelAndView
+         //
+         verifyException("spark.TemplateViewRouteImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RouteImpl routeImpl0 = RouteImpl.create("scan accepted dir {} mod={}", "user-agent", (Route) null);
+      Request request0 = new Request();
+      Response response0 = new Response();
+      try { 
+        routeImpl0.handle(request0, response0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.RouteImpl$1", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RouteImpl routeImpl0 = RouteImpl.create("", "", (Route) null);
+      String string0 = routeImpl0.getPath();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ModelAndView modelAndView0 = new ModelAndView((Object) null, (String) null);
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      doReturn(modelAndView0).when(templateViewRoute0).handle(any(spark.Request.class) , any(spark.Response.class));
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      RouteImpl routeImpl0 = RouteImpl.create("%", (String) null, (Route) templateViewRouteImpl0);
+      Request request0 = new Request();
+      Response response0 = new Response();
+      ModelAndView modelAndView1 = (ModelAndView)routeImpl0.handle(request0, response0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ModelAndView modelAndView0 = new ModelAndView((Object) null, (String) null);
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      RouteImpl routeImpl0 = RouteImpl.create("%", (String) null, (Route) templateViewRouteImpl0);
+      ModelAndView modelAndView1 = (ModelAndView)routeImpl0.render(modelAndView0);
+      assertNotNull(modelAndView1.getViewName());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      RouteImpl routeImpl0 = RouteImpl.create("%", (Route) templateViewRouteImpl0);
+      assertNotNull(routeImpl0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("R", "R", templateViewRoute0, templateEngine0);
+      ResponseTransformer responseTransformer0 = mock(ResponseTransformer.class, new ViolatedAssumptionAnswer());
+      ResponseTransformerRouteImpl responseTransformerRouteImpl0 = ResponseTransformerRouteImpl.create("R", "R", (Route) templateViewRouteImpl0, responseTransformer0);
+      String string0 = responseTransformerRouteImpl0.getPath();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(templateViewRoute0).toString();
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      Object object0 = templateViewRouteImpl0.delegate();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create((String) null, templateViewRoute0, templateEngine0);
+      RouteImpl routeImpl0 = templateViewRouteImpl0.withPrefix((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("R", "R", templateViewRoute0, templateEngine0);
+      ResponseTransformer responseTransformer0 = mock(ResponseTransformer.class, new ViolatedAssumptionAnswer());
+      ResponseTransformerRouteImpl responseTransformerRouteImpl0 = ResponseTransformerRouteImpl.create("R", "R", (Route) templateViewRouteImpl0, responseTransformer0);
+      String string0 = responseTransformerRouteImpl0.getAcceptType();
+      assertNotNull(string0);
+}

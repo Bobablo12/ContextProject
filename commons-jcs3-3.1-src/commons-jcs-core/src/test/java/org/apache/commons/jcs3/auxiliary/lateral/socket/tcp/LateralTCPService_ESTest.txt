@@ -1,0 +1,90 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String[] stringArray0 = new String[3];
+      LateralTCPService.main(stringArray0);
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPService<Object, Delayed> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<Object, Delayed>(tCPLateralCacheAttributes0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid address []
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer("z:CFQh4 ]<m>m\u0000");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LateralTCPService<Callable<Object>, OpenOption> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<Callable<Object>, OpenOption>(tCPLateralCacheAttributes0, compressingSerializer0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"CFQh4 ]<m>m\u0000\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      LateralTCPService<ForkJoinTask<OpenOption>, Delayed> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<ForkJoinTask<OpenOption>, Delayed>(tCPLateralCacheAttributes0, encryptingSerializer0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid address []
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPSender", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpServer("':w9I*[r,>(^Mcd8");
+      LateralTCPService<CacheElement<Integer, OpenOption>, Integer> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<CacheElement<Integer, OpenOption>, Integer>(tCPLateralCacheAttributes0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"w9I*[r,>(^Mcd8\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      LateralTCPService<Integer, Object> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<Integer, Object>((ITCPLateralCacheAttributes) null, encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPService", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LateralTCPService<LinkedHashSet<Object>, Object> lateralTCPService0 = null;
+      try {
+        lateralTCPService0 = new LateralTCPService<LinkedHashSet<Object>, Object>((ITCPLateralCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPService", e);
+      }
+  }

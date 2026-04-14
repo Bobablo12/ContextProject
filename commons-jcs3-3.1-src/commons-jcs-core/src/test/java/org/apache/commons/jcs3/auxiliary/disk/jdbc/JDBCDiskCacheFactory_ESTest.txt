@@ -1,0 +1,191 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheFactory0.initialize();
+      jDBCDiskCacheFactory0.dispose();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ScheduledExecutorService scheduledExecutorService0 = compositeCacheManager0.getScheduledExecutorService();
+      jDBCDiskCacheFactory0.scheduler = scheduledExecutorService0;
+      TableState tableState0 = jDBCDiskCacheFactory0.getTableState("^kQA@8ca(");
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDatabase("^kQA@8ca(");
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      LogManager.setLogSystem("");
+      JDBCDiskCache<JDBCDiskCacheFactory, Object> jDBCDiskCache0 = new JDBCDiskCache<JDBCDiskCacheFactory, Object>(jDBCDiskCacheAttributes0, sharedPoolDataSourceFactory0, tableState0);
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes1 = jDBCDiskCache0.getJdbcDiskCacheAttributes();
+      jDBCDiskCacheFactory0.createShrinkerWhenNeeded(jDBCDiskCacheAttributes1, jDBCDiskCache0);
+      TableState tableState1 = jDBCDiskCacheFactory0.getTableState(jDBCDiskCacheAttributes0.DEFAULT_POOL_NAME);
+      assertNotNull(tableState1.getTableName());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      DaemonThreadFactory daemonThreadFactory0 = new DaemonThreadFactory("Khmer");
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(0, daemonThreadFactory0);
+      jDBCDiskCacheFactory0.setScheduledExecutorService(scheduledThreadPoolExecutor0);
+      ScheduledExecutorService scheduledExecutorService0 = jDBCDiskCacheFactory0.getScheduledExecutorService();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.getTableState("Khmer");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.dispose();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheFactory0.initialize();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDriverClassName("org.apache.commons.jcs3:type=JCSAdminBean");
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) jDBCDiskCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) standardSerializer0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // java.sql.SQLException: Driver class not found org.apache.commons.jcs3:type=JCSAdminBean
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer(standardSerializer0);
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) null, (ICacheEventLogger) null, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TCPLateralCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheFactory0.initialize();
+      TableState tableState0 = jDBCDiskCacheFactory0.getTableState("^kQA@8ca(");
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setUseDiskShrinker(false);
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      LogManager.setLogSystem("");
+      JDBCDiskCache<JDBCDiskCacheFactory, Object> jDBCDiskCache0 = new JDBCDiskCache<JDBCDiskCacheFactory, Object>(jDBCDiskCacheAttributes0, sharedPoolDataSourceFactory0, tableState0);
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes1 = jDBCDiskCache0.getJdbcDiskCacheAttributes();
+      jDBCDiskCacheFactory0.createShrinkerWhenNeeded(jDBCDiskCacheAttributes1, jDBCDiskCache0);
+      TableState tableState1 = jDBCDiskCacheFactory0.getTableState(jDBCDiskCacheAttributes0.DEFAULT_POOL_NAME);
+      assertNotNull(tableState1.getTableName());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheFactory0.initialize();
+      jDBCDiskCacheFactory0.dispose();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      jDBCDiskCacheFactory0.initialize();
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) jDBCDiskCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheAttributes0.setConnectionPoolName("jcs");
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.getDataSourceFactory(jDBCDiskCacheAttributes0, (Properties) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      jDBCDiskCacheFactory0.initialize();
+      jDBCDiskCacheFactory0.dispose();
+      ScheduledExecutorService scheduledExecutorService0 = jDBCDiskCacheFactory0.getScheduledExecutorService();
+      assertNotNull(scheduledExecutorService0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      TableState tableState0 = new TableState("jcs");
+      JDBCDiskCache<Object, JndiDataSourceFactory> jDBCDiskCache0 = new JDBCDiskCache<Object, JndiDataSourceFactory>(jDBCDiskCacheAttributes0, sharedPoolDataSourceFactory0, tableState0);
+      jDBCDiskCacheFactory0.initialize();
+      jDBCDiskCacheFactory0.getTableState("org.apache.commons.jcs3.engine.CacheInfo");
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.createShrinkerWhenNeeded(jDBCDiskCacheAttributes0, jDBCDiskCache0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JDBCDiskCacheFactory jDBCDiskCacheFactory0 = new JDBCDiskCacheFactory();
+      DaemonThreadFactory daemonThreadFactory0 = new DaemonThreadFactory("(+bu!9", 1000);
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(1000, daemonThreadFactory0, threadPoolExecutor_AbortPolicy0);
+      jDBCDiskCacheFactory0.setScheduledExecutorService(scheduledThreadPoolExecutor0);
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      TableState tableState0 = new TableState("jcs");
+      JDBCDiskCache<Object, JndiDataSourceFactory> jDBCDiskCache0 = new JDBCDiskCache<Object, JndiDataSourceFactory>(jDBCDiskCacheAttributes0, sharedPoolDataSourceFactory0, tableState0);
+      jDBCDiskCacheFactory0.initialize();
+      // Undeclared exception!
+      try { 
+        jDBCDiskCacheFactory0.createShrinkerWhenNeeded(jDBCDiskCacheAttributes0, jDBCDiskCache0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.Thread", e);
+      }
+  }

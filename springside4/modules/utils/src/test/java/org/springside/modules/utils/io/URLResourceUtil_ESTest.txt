@@ -1,0 +1,130 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      URI uRI0 = URLResourceUtil.toURI("D.");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      URI uRI0 = URLResourceUtil.toURI("UZUt6:,X");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      File file0 = URLResourceUtil.asFile(".-kZ\u0000n%>%Dj");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      File file0 = URLResourceUtil.asFile("");
+      assertTrue(file0.isAbsolute());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile(" nJ'");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "");
+      File file0 = URLResourceUtil.asFile(" nJ'");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        URLResourceUtil.toURI((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URI$Parser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        URLResourceUtil.asStream("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        URLResourceUtil.asStream("classpath:///");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // resource / not found.
+         //
+         verifyException("com.google.common.base.Preconditions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        URLResourceUtil.asFile((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.File", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        URLResourceUtil.asFile("classpath:///");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // resource / not found.
+         //
+         verifyException("com.google.common.base.Preconditions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      InputStream inputStream0 = URLResourceUtil.asStream("classpath://");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      try { 
+        URLResourceUtil.asStream("eZOzm/#1!{r#5-");
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      File file0 = URLResourceUtil.asFile("classpath://");
+      assertTrue(file0.isAbsolute());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      URLResourceUtil uRLResourceUtil0 = new URLResourceUtil();
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      try { 
+        URLResourceUtil.toURI(".-kZ\u0000n%>%Dj");
+        fail("Expecting exception: URISyntaxException");
+      } catch(URISyntaxException e) {
+         //
+         // Illegal character in path at index 4: .-kZ\u0000n%>%Dj
+         //
+         verifyException("java.net.URI$Parser", e);
+      }
+  }

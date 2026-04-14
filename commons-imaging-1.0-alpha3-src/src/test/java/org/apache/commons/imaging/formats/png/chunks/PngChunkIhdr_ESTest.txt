@@ -1,0 +1,78 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PngChunkIhdr pngChunkIhdr0 = null;
+      try {
+        pngChunkIhdr0 = new PngChunkIhdr(0, 0, 0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      PngChunkIhdr pngChunkIhdr0 = null;
+      try {
+        pngChunkIhdr0 = new PngChunkIhdr(5, 5, 5, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid Png File: IHDR Corrupt
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[22];
+      byteArray0[12] = (byte)6;
+      PngChunkIhdr pngChunkIhdr0 = null;
+      try {
+        pngChunkIhdr0 = new PngChunkIhdr(39, 39, 39, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG: unknown interlace method: 6
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkIhdr", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[22];
+      byteArray0[12] = (byte) (-88);
+      PngChunkIhdr pngChunkIhdr0 = null;
+      try {
+        pngChunkIhdr0 = new PngChunkIhdr(39, 39, 39, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG: unknown interlace method: -88
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkIhdr", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[14];
+      byteArray0[9] = (byte) (-106);
+      PngChunkIhdr pngChunkIhdr0 = null;
+      try {
+        pngChunkIhdr0 = new PngChunkIhdr((byte) (-106), (byte) (-106), (byte) (-106), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG: unknown color type: -106
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkIhdr", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[15];
+      PngChunkIhdr pngChunkIhdr0 = new PngChunkIhdr(17, 17, 17, byteArray0);
+      ;
+}

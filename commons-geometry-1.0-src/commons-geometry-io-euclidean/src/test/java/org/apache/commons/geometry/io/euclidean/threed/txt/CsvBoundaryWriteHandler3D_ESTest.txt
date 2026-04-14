@@ -1,0 +1,46 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      Charset charset0 = csvBoundaryWriteHandler3D0.getDefaultCharset();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null, charset0);
+      // Undeclared exception!
+      try { 
+        csvBoundaryWriteHandler3D0.getFacetDefinitionWriter(fileGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      OutputStream outputStream0 = mock(OutputStream.class, new ViolatedAssumptionAnswer());
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(outputStream0, "*7c!Qn");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = csvBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      OutputStream outputStream0 = mock(OutputStream.class, new ViolatedAssumptionAnswer());
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(outputStream0, "*7c!Qn");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = csvBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      OutputStream outputStream0 = mock(OutputStream.class, new ViolatedAssumptionAnswer());
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(outputStream0, "*7c!Qn");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = csvBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+      assertEquals(1, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      GeometryFormat geometryFormat0 = csvBoundaryWriteHandler3D0.getFormat();
+      assertNotNull(geometryFormat0.getDefaultFileExtension());
+}

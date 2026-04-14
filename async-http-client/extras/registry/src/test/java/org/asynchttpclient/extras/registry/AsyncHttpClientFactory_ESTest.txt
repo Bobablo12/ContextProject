@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      AsyncHttpClientConfig asyncHttpClientConfig1 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(asyncHttpClientConfig1).getRequestFilters();
+      // Undeclared exception!
+      try { 
+        AsyncHttpClientFactory.getAsyncHttpClient(asyncHttpClientConfig1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.DefaultAsyncHttpClient", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AsyncHttpClientFactory asyncHttpClientFactory0 = new AsyncHttpClientFactory();
+  }

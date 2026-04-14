@@ -1,0 +1,329 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Vector2D.Unit vector2D_Unit1 = Vector2D.Unit.PLUS_X;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit1;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      HyperplaneBoundedRegion<Vector2D> hyperplaneBoundedRegion0 = bounds2D0.toRegion(precision_DoubleEquivalence0);
+      assertTrue(hyperplaneBoundedRegion0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[4];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      boolean boolean0 = bounds2D0.intersects(bounds2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[5];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Bounds2D bounds2D1 = bounds2D0.intersection(bounds2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[2];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      boolean boolean0 = bounds2D0.hasSize(precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[2];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      boolean boolean0 = bounds2D0.hasSize(precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[5];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).gte(anyDouble() , anyDouble());
+      boolean boolean0 = bounds2D0.contains((Vector2D) vector2D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[2];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      boolean boolean0 = bounds2D0.contains((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      // Undeclared exception!
+      try { 
+        bounds2D0.toRegion((Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.shape.Parallelogram", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.ZERO;
+      Vector2D[] vector2DArray0 = new Vector2D[5];
+      vector2DArray0[0] = vector2D0;
+      vector2DArray0[1] = vector2D0;
+      vector2DArray0[2] = vector2D0;
+      vector2DArray0[3] = vector2D0;
+      vector2DArray0[4] = vector2D0;
+      Bounds2D bounds2D0 = Bounds2D.from(vector2D0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      // Undeclared exception!
+      try { 
+        bounds2D0.toRegion(precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[2];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      // Undeclared exception!
+      try { 
+        bounds2D0.intersects((Bounds2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Bounds2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[2];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      // Undeclared exception!
+      try { 
+        bounds2D0.intersection((Bounds2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Bounds2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector2D[] vector2DArray0 = new Vector2D[9];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[7] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[8] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        bounds2D0.eq((Bounds2D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractBounds", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[2];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      // Undeclared exception!
+      try { 
+        bounds2D0.contains(vector2DArray0[0], (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Bounds2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[5];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D0 = bounds2D0.getDiagonal();
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[5];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D0 = bounds2D0.getMax();
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[2];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Vector2D vector2D0 = bounds2D0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[2] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[3] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[4] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[5] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[6] = vector2DArray0[3];
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = bounds2D0.eq(bounds2D0, precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      linkedList0.add((Vector3D) vector3D_Unit0);
+      Bounds3D bounds3D0 = Bounds3D.from((Iterable<Vector3D>) linkedList0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = bounds3D0.eq(bounds3D0, precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      linkedList0.add((Vector3D) vector3D_Unit0);
+      Bounds3D bounds3D0 = Bounds3D.from((Iterable<Vector3D>) linkedList0);
+      String string0 = bounds3D0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      linkedList0.add((Vector3D) vector3D_Unit0);
+      Bounds3D bounds3D0 = Bounds3D.from((Iterable<Vector3D>) linkedList0);
+      Vector3D vector3D0 = bounds3D0.getCentroid();
+      ;
+}

@@ -1,0 +1,234 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      jSONPointer_Builder0.append(0);
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      JSONArray jSONArray0 = new JSONArray();
+      try { 
+        jSONPointer0.queryFrom(jSONArray0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // index 0 is out of bounds - the array has 0 elements
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = JSONPointer.builder();
+      jSONPointer_Builder0.append(1004);
+      JSONPointer.Builder jSONPointer_Builder1 = jSONPointer_Builder0.append(110);
+      JSONPointer jSONPointer0 = jSONPointer_Builder1.build();
+      String[] stringArray0 = new String[6];
+      JSONObject jSONObject0 = new JSONObject((JSONObject) null, stringArray0);
+      try { 
+        jSONPointer0.queryFrom(jSONObject0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // value [null] is not an array or object therefore its key 110 cannot be resolved
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      jSONPointer_Builder0.append("#");
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      String string0 = jSONPointer0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add((String) null);
+      JSONPointer jSONPointer0 = new JSONPointer(linkedList0);
+      // Undeclared exception!
+      try { 
+        jSONPointer0.toURIFragment();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URLEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JSONPointer jSONPointer0 = null;
+      try {
+        jSONPointer0 = new JSONPointer((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JSONPointer jSONPointer0 = null;
+      try {
+        jSONPointer0 = new JSONPointer("#/%k/s[(d+apv");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // URLDecoder: Illegal hex characters in escape (%) pattern - For input string: \"k/\"
+         //
+         verifyException("java.net.URLDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JSONPointer jSONPointer0 = new JSONPointer("//Kq4");
+      String string0 = jSONPointer0.toURIFragment();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      String string0 = jSONPointer0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      jSONPointer_Builder0.append(119);
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      JSONArray jSONArray0 = new JSONArray();
+      try { 
+        jSONPointer0.queryFrom(jSONArray0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // index 119 is out of bounds - the array has 0 elements
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      jSONPointer_Builder0.append((-1502));
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      JSONArray jSONArray0 = new JSONArray();
+      try { 
+        jSONPointer0.queryFrom(jSONArray0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Error reading value at index position -1502
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      JSONPointer.Builder jSONPointer_Builder1 = jSONPointer_Builder0.append("=M");
+      JSONPointer jSONPointer0 = jSONPointer_Builder1.build();
+      JSONArray jSONArray0 = new JSONArray();
+      try { 
+        jSONPointer0.queryFrom(jSONArray0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // =M is not an array index
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      RoundingMode roundingMode0 = RoundingMode.UNNECESSARY;
+      Object object0 = jSONPointer0.queryFrom(roundingMode0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JSONPointer jSONPointer0 = new JSONPointer("//");
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JSONPointer jSONPointer0 = new JSONPointer("#/#/strig");
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JSONPointer jSONPointer0 = null;
+      try {
+        jSONPointer0 = new JSONPointer(" I*|?&PoO?q");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // a JSON pointer should start with '/' or '#/'
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JSONPointer jSONPointer0 = new JSONPointer("#");
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JSONPointer jSONPointer0 = null;
+      try {
+        jSONPointer0 = new JSONPointer((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // pointer cannot be null
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JSONPointer jSONPointer0 = new JSONPointer("");
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = JSONPointer.builder();
+      // Undeclared exception!
+      try { 
+        jSONPointer_Builder0.append((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // token cannot be null
+         //
+         verifyException("org.json.JSONPointer$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JSONPointer.Builder jSONPointer_Builder0 = new JSONPointer.Builder();
+      JSONObject jSONObject0 = new JSONObject();
+      jSONPointer_Builder0.append("#");
+      JSONPointer jSONPointer0 = jSONPointer_Builder0.build();
+      Object object0 = jSONPointer0.queryFrom(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ArrayList<String> arrayList0 = new ArrayList<String>();
+      arrayList0.add((String) null);
+      JSONPointer jSONPointer0 = new JSONPointer(arrayList0);
+      // Undeclared exception!
+      try { 
+        jSONPointer0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONPointer", e);
+      }
+  }

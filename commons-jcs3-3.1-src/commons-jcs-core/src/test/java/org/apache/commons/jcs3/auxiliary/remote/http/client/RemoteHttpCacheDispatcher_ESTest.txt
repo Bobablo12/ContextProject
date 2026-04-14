@@ -1,0 +1,18 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteHttpCacheDispatcher remoteHttpCacheDispatcher0 = null;
+      try {
+        remoteHttpCacheDispatcher0 = new RemoteHttpCacheDispatcher((RemoteHttpCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.http.client.AbstractHttpClient", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteHttpCacheAttributes remoteHttpCacheAttributes0 = new RemoteHttpCacheAttributes();
+      RemoteHttpCacheDispatcher remoteHttpCacheDispatcher0 = new RemoteHttpCacheDispatcher(remoteHttpCacheAttributes0);
+  }

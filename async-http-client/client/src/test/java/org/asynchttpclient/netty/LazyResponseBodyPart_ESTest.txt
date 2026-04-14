@@ -1,0 +1,161 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn(624).when(byteBuf0).readableBytes();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      int int0 = lazyResponseBodyPart0.length();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn((-898)).when(byteBuf0).readableBytes();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      int int0 = lazyResponseBodyPart0.length();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, true);
+      ByteBuf byteBuf0 = lazyResponseBodyPart0.getBuf();
+      assertNotNull(byteBuf0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true, true);
+      UnpooledDirectByteBuf unpooledDirectByteBuf0 = new UnpooledDirectByteBuf(unpooledByteBufAllocator0, 0, 1418);
+      ByteBuf byteBuf0 = unpooledDirectByteBuf0.writeMediumLE(0);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, true);
+      byte[] byteArray0 = lazyResponseBodyPart0.getBodyPartBytes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = UnpooledByteBufAllocator.DEFAULT;
+      UnpooledUnsafeHeapByteBuf unpooledUnsafeHeapByteBuf0 = new UnpooledUnsafeHeapByteBuf(unpooledByteBufAllocator0, 0, 1);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(unpooledUnsafeHeapByteBuf0, true);
+      byte[] byteArray0 = lazyResponseBodyPart0.getBodyPartBytes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, false);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.length();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.LazyResponseBodyPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true);
+      ArrayList<ByteBuf> arrayList0 = new ArrayList<ByteBuf>(64);
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(unpooledByteBufAllocator0, true, 64, arrayList0);
+      CompositeByteBuf compositeByteBuf1 = compositeByteBuf0.addFlattenedComponents(true, compositeByteBuf0);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(compositeByteBuf1, true);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.getBodyByteBuffer();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0
+         //
+         verifyException("io.netty.buffer.AbstractByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator(true);
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(pooledByteBufAllocator0, false, 690);
+      CompositeByteBuf compositeByteBuf1 = compositeByteBuf0.writeChar(0);
+      CompositeByteBuf compositeByteBuf2 = compositeByteBuf1.removeComponent(0);
+      CompositeByteBuf compositeByteBuf3 = compositeByteBuf2.addComponents((Iterable<ByteBuf>) compositeByteBuf1);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(compositeByteBuf3, true);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.getBodyByteBuffer();
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, false);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.getBodyByteBuffer();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.LazyResponseBodyPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator(true);
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(pooledByteBufAllocator0, false, 690);
+      CompositeByteBuf compositeByteBuf1 = compositeByteBuf0.writeChar(0);
+      compositeByteBuf1.removeComponent(0);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(compositeByteBuf1, true);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.getBodyByteBuffer();
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // index: 0, length: 2 (expected: range(0, 0))
+         //
+         verifyException("io.netty.buffer.AbstractByteBuf", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(byteBuf0).readableBytes();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      int int0 = lazyResponseBodyPart0.length();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn((ByteBuffer) null).when(byteBuf0).nioBuffer();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      ByteBuffer byteBuffer0 = lazyResponseBodyPart0.getBodyByteBuffer();
+      assertNotNull(byteBuffer0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn((ByteBuf) null).when(byteBuf0).duplicate();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      // Undeclared exception!
+      try { 
+        lazyResponseBodyPart0.getBodyPartBytes();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.util.ByteBufUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(byteBuf0).toString();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      ByteBuf byteBuf1 = lazyResponseBodyPart0.getBuf();
+      ;
+}

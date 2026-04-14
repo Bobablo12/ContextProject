@@ -1,0 +1,23 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int int0 = YCbCrConverter.convertYCbCrToRGB(2960, 99, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        YCbCrConverter.convertYCbCrToRGB(34304, 0, 2179);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 558848
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.YCbCrConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int int0 = YCbCrConverter.convertYCbCrToRGB(0, 128, 128);
+      assertEquals(0, int0);
+}

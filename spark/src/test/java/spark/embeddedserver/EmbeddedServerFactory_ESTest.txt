@@ -1,0 +1,16 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory();
+      Routes routes0 = Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.servletInstance;
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      EmbeddedServer embeddedServer0 = embeddedJettyFactory0.create(routes0, staticFilesConfiguration0, exceptionMapper0, true);
+      assertNotNull(embeddedServer0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory();
+      Routes routes0 = Routes.create();
+      EmbeddedServer embeddedServer0 = embeddedJettyFactory0.create(routes0, (StaticFilesConfiguration) null, false);
+      assertNotNull(embeddedServer0);
+}

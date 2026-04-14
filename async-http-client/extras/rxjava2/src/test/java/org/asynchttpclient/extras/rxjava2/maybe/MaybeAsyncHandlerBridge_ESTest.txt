@@ -1,0 +1,14 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MaybeEmitter<String> maybeEmitter0 = (MaybeEmitter<String>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<String> maybeAsyncHandlerBridge0 = null;
+      try {
+        maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<String>(maybeEmitter0, (AsyncHandler<? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }

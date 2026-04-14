@@ -1,0 +1,143 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl(false, false);
+      openJPAJCacheDataCacheManager0.initialize(openJPAConfigurationImpl0, openJPAConfigurationImpl0.queryCachePlugin, openJPAConfigurationImpl0.metaFactoryPlugin);
+      CacheManager cacheManager0 = openJPAJCacheDataCacheManager0.getCacheManager();
+      assertFalse(cacheManager0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      JDBCConfigurationImpl jDBCConfigurationImpl0 = new JDBCConfigurationImpl(false, false);
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.initialize(jDBCConfigurationImpl0, jDBCConfigurationImpl0.queryCachePlugin, jDBCConfigurationImpl0.brokerFactoryPlugin);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // An instance of the class \"class org.apache.openjpa.jdbc.kernel.JDBCBrokerFactory\" could not be instantiated.  Make sure the class has a public no-args constructor.
+         //
+         verifyException("org.apache.openjpa.lib.conf.Configurations", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl();
+      PluginValue pluginValue0 = (PluginValue)openJPAConfigurationImpl0.lifecycleEventManager;
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.initialize((OpenJPAConfiguration) null, pluginValue0, pluginValue0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // The plugin \"org.apache.openjpa.event.LifecycleEventManager\" of value type \"org.apache.openjpa.event.LifecycleEventManager\" is not compatible with the expected plugin type \"org.apache.openjpa.datacache.QueryCache\". Update the configuration property with a value that is compatible with the plugin.
+         //
+         verifyException("org.apache.openjpa.lib.conf.PluginValue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.initialize(openJPAConfigurationImpl0, openJPAConfigurationImpl0.cacheDistributionPolicyPlugin, openJPAConfigurationImpl0.connectionFactory2);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.openjpa.lib.conf.ObjectValue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      PluginValue pluginValue0 = new PluginValue((String) null, false);
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.initialize((OpenJPAConfiguration) null, pluginValue0, pluginValue0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.initialize(openJPAConfigurationImpl0, openJPAConfigurationImpl0.dataCacheManagerPlugin, openJPAConfigurationImpl0.aggregateListenerPlugins);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // [Lorg.apache.openjpa.datacache.QueryCache; cannot be cast to org.apache.openjpa.datacache.QueryCache
+         //
+         verifyException("org.apache.openjpa.datacache.DataCacheManagerImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.getOrCreateCache("dJEZ.MI,:vvm;G", "dJEZ.MI,:vvm;G");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl(false, false);
+      openJPAJCacheDataCacheManager0.initialize(openJPAConfigurationImpl0, openJPAConfigurationImpl0.queryCachePlugin, openJPAConfigurationImpl0.brokerFactoryPlugin);
+      openJPAJCacheDataCacheManager0.close();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.getOrCreateCache("6;mz<0PXYV", "******");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache manager closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCachingManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      // Undeclared exception!
+      try { 
+        openJPAJCacheDataCacheManager0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      OpenJPAConfigurationImpl openJPAConfigurationImpl0 = new OpenJPAConfigurationImpl(false, false);
+      openJPAJCacheDataCacheManager0.initialize(openJPAConfigurationImpl0, openJPAConfigurationImpl0.queryCachePlugin, openJPAConfigurationImpl0.brokerFactoryPlugin);
+      openJPAJCacheDataCacheManager0.close();
+      openJPAJCacheDataCacheManager0.close();
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      OpenJPAJCacheDataCacheManager openJPAJCacheDataCacheManager0 = new OpenJPAJCacheDataCacheManager();
+      CacheManager cacheManager0 = openJPAJCacheDataCacheManager0.getCacheManager();
+      assertNotNull(cacheManager0);
+}

@@ -1,0 +1,75 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RouteContext routeContext0 = RouteContext.create();
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      RouteContext routeContext1 = routeContext0.withMatcher(routes0);
+      Body body0 = Body.create();
+      RequestWrapper requestWrapper0 = RequestWrapper.create();
+      routeContext0.withRequestWrapper(requestWrapper0);
+      HttpMethod httpMethod0 = HttpMethod.after;
+      routeContext0.withBody(body0);
+      ResponseWrapper responseWrapper0 = ResponseWrapper.create();
+      routeContext1.withResponseWrapper(responseWrapper0);
+      FilterImpl filterImpl0 = mock(FilterImpl.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(filterImpl0).toString();
+      doReturn("'9").when(filterImpl0).getAcceptType();
+      doReturn("").when(filterImpl0).getPath();
+      routes0.add(httpMethod0, filterImpl0);
+      routeContext1.withUri("");
+      try { 
+        AfterFilters.execute(routeContext1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.http.matching.AfterFilters", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RouteContext routeContext0 = RouteContext.create();
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      RouteContext routeContext1 = routeContext0.withMatcher(routes0);
+      Body body0 = Body.create();
+      RequestWrapper requestWrapper0 = RequestWrapper.create();
+      requestWrapper0.setDelegate(requestWrapper0);
+      routeContext0.withRequestWrapper(requestWrapper0);
+      HttpMethod httpMethod0 = HttpMethod.after;
+      routeContext0.withBody(body0);
+      FilterImpl filterImpl0 = mock(FilterImpl.class, new ViolatedAssumptionAnswer());
+      doReturn("bTRv>&Y").when(filterImpl0).toString();
+      doReturn("bTRv>&Y").when(filterImpl0).getAcceptType();
+      doReturn("bTRv>&Y").when(filterImpl0).getPath();
+      routes0.add(httpMethod0, filterImpl0);
+      routeContext1.withUri("bTRv>&Y");
+      // Undeclared exception!
+      try { 
+        AfterFilters.execute(routeContext1);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RouteContext routeContext0 = RouteContext.create();
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      RouteContext routeContext1 = routeContext0.withMatcher(routes0);
+      Body body0 = Body.create();
+      HttpMethod httpMethod0 = HttpMethod.after;
+      routeContext0.withBody(body0);
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("", templateViewRoute0, templateEngine0);
+      routes0.add(httpMethod0, (RouteImpl) templateViewRouteImpl0);
+      RouteContext routeContext2 = routeContext1.withUri("");
+      AfterFilters.execute(routeContext1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      AfterFilters afterFilters0 = new AfterFilters();
+  }

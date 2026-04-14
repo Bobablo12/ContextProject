@@ -1,0 +1,44 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffImageWriterLossy tiffImageWriterLossy0 = new TiffImageWriterLossy(byteOrder0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        tiffImageWriterLossy0.write((OutputStream) null, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // No directories.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffImageWriterBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffImageWriterLossy tiffImageWriterLossy0 = new TiffImageWriterLossy(byteOrder0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("CV]a1'Rk");
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.getOrCreateExifDirectory();
+      tiffImageWriterLossy0.write(mockPrintStream0, tiffOutputSet0);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffImageWriterLossy tiffImageWriterLossy0 = new TiffImageWriterLossy();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffImageWriterLossy tiffImageWriterLossy0 = new TiffImageWriterLossy(byteOrder0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("y\"{");
+      // Undeclared exception!
+      try { 
+        tiffImageWriterLossy0.write(mockPrintStream0, (TiffOutputSet) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffImageWriterBase", e);
+      }
+  }

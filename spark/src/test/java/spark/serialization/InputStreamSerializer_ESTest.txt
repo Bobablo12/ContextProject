@@ -1,0 +1,227 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FileSystemHandling.appendStringToFile((EvoSuiteFile) null, "");
+      FileSystemHandling.shouldThrowIOException((EvoSuiteFile) null);
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      int int0 = (-1115);
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      pipedOutputStream0.connect(pipedInputStream0);
+      pipedOutputStream0.write((-1115));
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      // Undeclared exception!
+      inputStreamSerializer0.process(pipedOutputStream0, bufferedInputStream0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      OutputStream outputStream0 = null;
+      int int0 = 887;
+      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+      Enumeration<ObjectInputStream> enumeration0 = (Enumeration<ObjectInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(enumeration0).hasMoreElements();
+      doReturn((Object) null).when(enumeration0).nextElement();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      int int1 = 1;
+      sequenceInputStream0.mark(887);
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer0.process((OutputStream) null, sequenceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.SequenceInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      OutputStream outputStream0 = null;
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      InputStreamSerializer inputStreamSerializer1 = new InputStreamSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)0;
+      byteArray0[1] = (byte) (-57);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-57), 1026);
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer1.process(pipedOutputStream0, byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      inputStreamSerializer0.canProcess(byteArrayInputStream0);
+      byteArrayInputStream0.mark(0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(1);
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      inputStreamSerializer0.setNext(defaultSerializer0);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      dataInputStream0.close();
+      defaultSerializer0.processElement(byteArrayOutputStream0, inputStreamSerializer0);
+      inputStreamSerializer0.process(byteArrayOutputStream0, dataInputStream0);
+      inputStreamSerializer0.canProcess(defaultSerializer0);
+      inputStreamSerializer0.canProcess(byteArrayOutputStream0);
+      inputStreamSerializer0.process(byteArrayOutputStream0, byteArrayInputStream0);
+      assertEquals(0, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      String string0 = "&0:,v";
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("&0:,v", true);
+      inputStreamSerializer0.processElement(mockFileOutputStream0, "&0:,v");
+      mockFileOutputStream0.close();
+      BytesSerializer bytesSerializer0 = new BytesSerializer();
+      inputStreamSerializer0.setNext(bytesSerializer0);
+      mockFileOutputStream0.flush();
+      mockFileOutputStream0.getChannel();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte) (-101);
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)31;
+      byteArray0[3] = (byte)0;
+      byteArray0[4] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      try { 
+        inputStreamSerializer0.process(mockFileOutputStream0, sequenceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer0.process((OutputStream) null, (Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      inputStreamSerializer0.setNext(defaultSerializer0);
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer0.process((OutputStream) null, (Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      PipedInputStream pipedInputStream0 = null;
+      InputStreamSerializer inputStreamSerializer1 = new InputStreamSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("+:");
+      PrintStream printStream0 = mockPrintStream0.append('a');
+      inputStreamSerializer1.processElement(printStream0, inputStreamSerializer0);
+      MockPrintStream mockPrintStream1 = new MockPrintStream("spark.utils.GzipUtils$StringMatch");
+      MockPrintStream mockPrintStream2 = new MockPrintStream(mockPrintStream1);
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer1.process(mockPrintStream2, mockPrintStream2);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.evosuite.runtime.mock.java.io.MockPrintStream cannot be cast to java.io.InputStream
+         //
+         verifyException("spark.serialization.InputStreamSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      // Undeclared exception!
+      try { 
+        inputStreamSerializer0.process((OutputStream) null, "LQ].");
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to java.io.InputStream
+         //
+         verifyException("spark.serialization.InputStreamSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      Object object0 = new Object();
+      boolean boolean0 = inputStreamSerializer0.canProcess(object0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      inputStreamSerializer0.canProcess(byteArrayInputStream0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(1);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      dataInputStream0.close();
+      inputStreamSerializer0.process(byteArrayOutputStream0, dataInputStream0);
+      inputStreamSerializer0.canProcess(byteArrayOutputStream0);
+      inputStreamSerializer0.process(byteArrayOutputStream0, byteArrayInputStream0);
+      assertEquals(0, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      inputStreamSerializer0.setNext(defaultSerializer0);
+      inputStreamSerializer0.canProcess(bufferedInputStream0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("}g([&X", true);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0);
+      DataInputStream dataInputStream0 = new DataInputStream(pushbackInputStream0);
+      try { 
+        inputStreamSerializer0.process(mockFileOutputStream0, dataInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      InputStreamSerializer inputStreamSerializer0 = new InputStreamSerializer();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      pipedOutputStream0.flush();
+      PipedInputStream pipedInputStream0 = new PipedInputStream((byte)5);
+      try { 
+        inputStreamSerializer0.process(pipedOutputStream0, pipedInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }

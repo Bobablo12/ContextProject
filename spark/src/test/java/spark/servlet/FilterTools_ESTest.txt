@@ -1,0 +1,181 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("q n'D2U/Lu").when(httpServletRequest0).getContextPath();
+      doReturn("").when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      // Undeclared exception!
+      try { 
+        FilterTools.getRelativePath(httpServletRequestWrapper0, "\"#`laMW*@|");
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        FilterTools.getRelativePath(httpServletRequestWrapper0, "/*");
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(httpServletRequest0).getContextPath();
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      // Undeclared exception!
+      try { 
+        FilterTools.getRelativePath(httpServletRequestWrapper0, "ng@eLi@`Qmnyf22c");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("0U#-", (String) null).when(httpServletRequest0).getContextPath();
+      doReturn("0U#-", (String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      FilterTools.getRelativePath(httpServletRequestWrapper0, "%h3LQt@,_io}b\"7:d");
+      // Undeclared exception!
+      try { 
+        FilterTools.getRelativePath(httpServletRequestWrapper0, "/");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpServletRequestWrapper0);
+      httpServletRequestWrapper0.setRequest(servletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        FilterTools.getRelativePath(httpServletRequestWrapper0, "");
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FilterTools.getFilterPath((FilterConfig) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("//*").when(filterConfig0).getInitParameter(anyString());
+      String string0 = FilterTools.getFilterPath(filterConfig0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("/+").when(filterConfig0).getInitParameter(anyString());
+      // Undeclared exception!
+      try { 
+        FilterTools.getFilterPath(filterConfig0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // The filterMappingUrlPattern must start with \"/\" and end with \"/*\". It's: /+
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("/*").when(filterConfig0).getInitParameter(anyString());
+      String string0 = FilterTools.getFilterPath(filterConfig0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("0").when(filterConfig0).getInitParameter(anyString());
+      // Undeclared exception!
+      try { 
+        FilterTools.getFilterPath(filterConfig0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // The filterMappingUrlPattern must start with \"/\" and end with \"/*\". It's: 0
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterConfig0).getInitParameter(anyString());
+      String string0 = FilterTools.getFilterPath(filterConfig0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("Hj!").when(httpServletRequest0).getContextPath();
+      doReturn("/eZ\"/?y+{b_;q+5;o").when(httpServletRequest0).getRequestURI();
+      String string0 = FilterTools.getRelativePath(httpServletRequest0, "Hj!");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(httpServletRequest0).getContextPath();
+      doReturn("40N'rvSk2c0V^x(D}t").when(httpServletRequest0).getRequestURI();
+      String string0 = FilterTools.getRelativePath(httpServletRequest0, "");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("0", "0", "0", "0").when(httpServletRequest0).getContextPath();
+      doReturn("0", "0", "0", "g@@xVYez`Wvo5").when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      FilterTools.getRelativePath(httpServletRequestWrapper0, "g@@xVYez`Wvo5");
+      String string0 = FilterTools.getRelativePath(httpServletRequestWrapper0, "/");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("0", "0", "0", "0").when(httpServletRequest0).getContextPath();
+      doReturn("0", "0", "0", "g@@xVYez`Wvo5").when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      FilterTools.getRelativePath(httpServletRequestWrapper0, "g@@xVYez`Wvo5");
+      String string0 = FilterTools.getRelativePath(httpServletRequestWrapper0, "/");
+      FilterTools.getRelativePath(httpServletRequestWrapper0, "0");
+      String string1 = FilterTools.getRelativePath(httpServletRequestWrapper0, "[");
+      assertNotNull(string1);
+}

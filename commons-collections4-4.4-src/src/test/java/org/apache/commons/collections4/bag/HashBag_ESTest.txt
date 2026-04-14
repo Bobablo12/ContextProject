@@ -1,0 +1,19 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HashBag<String> hashBag0 = new HashBag<String>();
+      HashBag<String> hashBag1 = new HashBag<String>(hashBag0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HashBag<String> hashBag0 = null;
+      try {
+        hashBag0 = new HashBag<String>((Collection<? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.bag.AbstractMapBag", e);
+      }
+  }

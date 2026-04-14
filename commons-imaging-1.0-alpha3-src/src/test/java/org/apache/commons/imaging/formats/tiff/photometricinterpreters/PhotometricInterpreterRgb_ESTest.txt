@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[1] = 911;
+      intArray0[2] = 911;
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(911, intArray0, 0, 911, 911);
+      ImageBuilder imageBuilder0 = new ImageBuilder(1268, 911, true, true);
+      photometricInterpreterRgb0.interpretPixel(imageBuilder0, intArray0, 911, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[0] = 911;
+      intArray0[1] = 911;
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(911, intArray0, 0, 911, 911);
+      ImageBuilder imageBuilder0 = new ImageBuilder(1268, 911, true, true);
+      photometricInterpreterRgb0.interpretPixel(imageBuilder0, intArray0, 911, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[1] = 6137;
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(6137, intArray0, 6137, 255, 6137);
+      ImageBuilder imageBuilder0 = new ImageBuilder(6137, 255, true);
+      photometricInterpreterRgb0.interpretPixel(imageBuilder0, intArray0, (-2925), 255);
+      assertEquals(0, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[2] = 65280;
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(65280, intArray0, (-16777216), (-616), (-91));
+      // Undeclared exception!
+      try { 
+        photometricInterpreterRgb0.interpretPixel((ImageBuilder) null, intArray0, (-2393), 16711680);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgb", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(2822, intArray0, 630, 2822, (-3740));
+      ImageBuilder imageBuilder0 = new ImageBuilder(1204, 1204, false, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterRgb0.interpretPixel(imageBuilder0, intArray0, 2822, 1862);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgb", e);
+      }
+  }

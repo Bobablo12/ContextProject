@@ -1,0 +1,190 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      lateralTCPCacheFactory0.initialize();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ICacheServiceNonLocal<Object, Integer> iCacheServiceNonLocal0 = lateralTCPCacheFactory0.getCSNLInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0);
+      assertNotNull(iCacheServiceNonLocal0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.getCSNLInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.dispose();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.createCacheNoWait((ITCPLateralCacheAttributes) null, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.createCache((AuxiliaryCacheAttributes) remoteCacheAttributes0, (ICompositeCacheManager) null, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.RemoteCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.behavior.ITCPLateralCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+          CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+          lateralTCPCacheFactory0.initialize();
+          CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+          CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          // Undeclared exception!
+          try { 
+            lateralTCPCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.lambda$getInstance$0(LateralTCPListener.java:121)
+             // java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.getInstance(LateralTCPListener.java:116)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory.createListener(LateralTCPCacheFactory.java:392)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory.addListenerIfNeeded(LateralTCPCacheFactory.java:341)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory.createCache(LateralTCPCacheFactory.java:112)
+             // sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      lateralTCPCacheFactory0.initialize();
+      lateralTCPCacheFactory0.getCSNLInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (IElementSerializer) encryptingSerializer0);
+      lateralTCPCacheFactory0.dispose();
+      assertNotNull(lateralTCPCacheFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      lateralTCPCacheFactory0.initialize();
+      lateralTCPCacheFactory0.dispose();
+      lateralTCPCacheFactory0.dispose();
+      assertNotNull(lateralTCPCacheFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.getCSNLInstance((ITCPLateralCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      lateralTCPCacheFactory0.initialize();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      LateralCacheNoWait<Delayed, Integer> lateralCacheNoWait0 = lateralTCPCacheFactory0.createCacheNoWait((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.monitorCache(lateralCacheNoWait0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }

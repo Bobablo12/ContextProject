@@ -1,0 +1,667 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.hashCode();
+      assertFalse(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-2166.75364868), 1048.109419777, 1048.109419777, Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(vector1D0);
+      assertNotNull(hyperplaneLocation0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-2166.75364868), 1048.109419777, 1048.109419777, Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(vector1D0);
+      orientedPoint0.classify(1659.0234);
+      HyperplaneLocation hyperplaneLocation1 = orientedPoint0.classify(1659.0234);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-2166.75364868), 1048.109419777, 1048.109419777, Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(vector1D0);
+      orientedPoint0.classify(1659.0234);
+      HyperplaneLocation hyperplaneLocation1 = orientedPoint0.classify(1659.0234);
+      HyperplaneLocation hyperplaneLocation2 = orientedPoint0.classify(vector1D0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-2166.75364868), 1048.109419777, 1048.109419777, Double.NaN).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(vector1D0);
+      orientedPoint0.classify(1659.0234);
+      HyperplaneLocation hyperplaneLocation1 = orientedPoint0.classify(1659.0234);
+      HyperplaneLocation hyperplaneLocation2 = orientedPoint0.classify(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.identity();
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.project(vector1D0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.project(vector1D0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-2235.548734766));
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      orientedPoint1.project((Vector1D) vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-2235.548734766));
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      orientedPoint1.project((Vector1D) vector1D_Unit0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      orientedPoint0.project(vector1D0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of((-2251.568622));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-2251.568622));
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      OrientedPoint orientedPoint2 = orientedPoint1.reverse();
+      double double0 = orientedPoint2.offset(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      double double0 = orientedPoint0.offset(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      double double0 = orientedPoint0.offset((-1.0));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.isPositiveFacing();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      orientedPoint0.getPoint();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      orientedPoint0.getPoint();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.getPoint();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      orientedPoint0.getLocation();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      orientedPoint0.getLocation();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      double[] doubleArray0 = new double[2];
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.of(doubleArray0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.transform(affineTransformMatrix1D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-2908.3555972));
+      // Undeclared exception!
+      try { 
+        orientedPoint0.transform(affineTransformMatrix1D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Oriented point direction cannot be zero
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoints", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.similarOrientation((Hyperplane<Vector1D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.offset((Vector1D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, false, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.offset((-1907.0353047647286));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, false, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.getLocation();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.eq(orientedPoint0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Vector1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.classify((Vector1D) vector1D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        orientedPoint0.classify(1901.672);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.39903552594313924, 0.39903552594313924, 0.39903552594313924, (-1590.42730105213)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.contains(vector1D0);
+      orientedPoint0.contains(vector1D0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify((-2746.2818818));
+      assertNotNull(hyperplaneLocation0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.39903552594313924, 0.39903552594313924, 0.39903552594313924, (-1590.42730105213)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.contains(vector1D0);
+      orientedPoint0.contains(vector1D0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify((-2746.2818818));
+      HyperplaneLocation hyperplaneLocation1 = orientedPoint0.classify(Double.NaN);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.39903552594313924, 0.39903552594313924, 0.39903552594313924, (-1590.42730105213)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      orientedPoint0.contains(vector1D0);
+      orientedPoint0.contains(vector1D0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify((-2746.2818818));
+      HyperplaneLocation hyperplaneLocation1 = orientedPoint0.classify(Double.NaN);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      double double0 = orientedPoint0.offset((-654.9302196545567));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      Vector1D.Unit vector1D_Unit0 = orientedPoint0.getDirection();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      Vector1D.Unit vector1D_Unit0 = orientedPoint0.getDirection();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of((-916.27717937));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      OrientedPoint orientedPoint2 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence1);
+      OrientedPoint orientedPoint3 = orientedPoint2.reverse();
+      boolean boolean0 = orientedPoint1.equals(orientedPoint3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of((-916.27717937));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      OrientedPoint orientedPoint2 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence1);
+      OrientedPoint orientedPoint3 = orientedPoint2.reverse();
+      boolean boolean0 = orientedPoint1.equals(orientedPoint3);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(1169.564831381051);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(vector1D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      Vector1D vector1D1 = vector1D0.add(1.4487647751035, (Vector1D) vector1D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint1 = new OrientedPoint(vector1D1, true, precision_DoubleEquivalence1);
+      boolean boolean0 = orientedPoint0.equals(orientedPoint1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(1169.564831381051);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(vector1D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      Vector1D vector1D1 = vector1D0.add(1.4487647751035, (Vector1D) vector1D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint1 = new OrientedPoint(vector1D1, true, precision_DoubleEquivalence1);
+      boolean boolean0 = orientedPoint0.equals(orientedPoint1);
+      assertFalse(orientedPoint1.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(1169.564831381051);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(vector1D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      boolean boolean0 = orientedPoint1.equals(orientedPoint0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.equals(orientedPoint0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.equals(orientedPoint0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((Vector1D) vector1D_Unit0);
+      boolean boolean0 = orientedPoint0.equals(affineTransformMatrix1D0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((Vector1D) vector1D_Unit0);
+      boolean boolean0 = orientedPoint0.equals(affineTransformMatrix1D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = orientedPoint0.eq(orientedPoint1, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = orientedPoint0.eq(orientedPoint0, precision_DoubleEquivalence1);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = orientedPoint0.eq(orientedPoint0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = orientedPoint0.eq(orientedPoint0, precision_DoubleEquivalence1);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = orientedPoint0.eq(orientedPoint0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.similarOrientation(orientedPoint0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.similarOrientation(orientedPoint0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of((-916.27717937));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      boolean boolean0 = orientedPoint1.similarOrientation(orientedPoint0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(1169.564831381051);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(vector1D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(628.3);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(1169.564831381051);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(vector1D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, true, precision_DoubleEquivalence0);
+      HyperplaneLocation hyperplaneLocation0 = orientedPoint0.classify(628.3);
+      assertNotNull(hyperplaneLocation0);
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      double double0 = orientedPoint1.offset((Vector1D) vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      OrientedPoint orientedPoint1 = orientedPoint0.reverse();
+      double double0 = orientedPoint1.offset((Vector1D) vector1D_Unit0);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, false, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.identity();
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      boolean boolean0 = orientedPoint0.equals(orientedPoint1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createTranslation((Vector1D) vector1D_Unit0);
+      OrientedPoint orientedPoint1 = orientedPoint0.transform(affineTransformMatrix1D0);
+      OrientedPoint orientedPoint2 = orientedPoint1.reverse();
+      double double0 = orientedPoint2.offset((Vector1D) vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      boolean boolean0 = orientedPoint0.isPositiveFacing();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      orientedPoint0.span();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      String string0 = orientedPoint0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D_Unit0, false, precision_DoubleEquivalence0);
+      orientedPoint0.getLocation();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      orientedPoint0.getPoint();
+      assertTrue(orientedPoint0.isPositiveFacing());
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      orientedPoint0.project((Vector1D) null);
+      assertTrue(orientedPoint0.isPositiveFacing());
+}

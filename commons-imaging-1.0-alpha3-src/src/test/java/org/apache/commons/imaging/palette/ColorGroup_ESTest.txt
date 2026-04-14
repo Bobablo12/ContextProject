@@ -1,0 +1,276 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(16);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(0);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      String string0 = colorGroup0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-133));
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      colorGroup0.maxAlpha = 0;
+      String string0 = colorGroup0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2081));
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      colorGroup0.minAlpha = (-639);
+      String string0 = colorGroup0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2128));
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(16);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      String string0 = colorGroup0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2081));
+      colorCount0.count = (-2081);
+      linkedList0.add(colorCount0);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      int int0 = colorGroup0.getMedianValue();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      colorCount0.count = 1476;
+      linkedList0.add(colorCount0);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      int int0 = colorGroup0.getMedianValue();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(16);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(0);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains(2);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2128));
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(16);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains((-659));
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(26);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      colorCount0.count = (-5);
+      int int0 = colorGroup0.getMedianValue();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(5509);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList0.retainAll(linkedList1);
+      List<ColorCount> list0 = colorGroup0.getColorCounts();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(255);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      linkedList0.add((ColorCount) null);
+      // Undeclared exception!
+      try { 
+        colorGroup0.getMedianValue();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.ColorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2878));
+      linkedList0.addLast(colorCount0);
+      List<ColorCount> list0 = linkedList0.subList(0, 0);
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList0.retainAll(linkedList1);
+      ColorGroup colorGroup0 = null;
+      try {
+        colorGroup0 = new ColorGroup(list0, false);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      linkedList0.add((ColorCount) null);
+      ColorGroup colorGroup0 = null;
+      try {
+        colorGroup0 = new ColorGroup(linkedList0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.ColorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      int int0 = colorGroup0.getMedianValue();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains(Integer.MIN_VALUE);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2128));
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(16);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains(4284);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2128));
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains((-659));
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(16);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      colorGroup0.minGreen = 16;
+      boolean boolean0 = colorGroup0.contains(0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(26);
+      boolean boolean0 = linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      colorGroup0.maxRed = (-5);
+      boolean boolean1 = colorGroup0.contains(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(26);
+      boolean boolean0 = linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean1 = colorGroup0.contains((-5));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains(128);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(255);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      boolean boolean0 = colorGroup0.contains(0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-78));
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      boolean boolean0 = colorGroup0.contains(255);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorGroup colorGroup0 = null;
+      try {
+        colorGroup0 = new ColorGroup(linkedList0, true);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // empty color_group
+         //
+         verifyException("org.apache.commons.imaging.palette.ColorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2128));
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      List<ColorCount> list0 = colorGroup0.getColorCounts();
+      assertEquals(1, list0.size());
+}

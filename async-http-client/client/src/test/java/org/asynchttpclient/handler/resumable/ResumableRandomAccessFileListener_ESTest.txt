@@ -1,0 +1,38 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ResumableRandomAccessFileListener resumableRandomAccessFileListener0 = new ResumableRandomAccessFileListener((RandomAccessFile) null);
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      char[] charArray0 = new char[6];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteBuffer byteBuffer0 = charset0.encode(charBuffer0);
+      // Undeclared exception!
+      try { 
+        resumableRandomAccessFileListener0.onBytesReceived(byteBuffer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableRandomAccessFileListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ResumableRandomAccessFileListener resumableRandomAccessFileListener0 = new ResumableRandomAccessFileListener((RandomAccessFile) null);
+      // Undeclared exception!
+      try { 
+        resumableRandomAccessFileListener0.length();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableRandomAccessFileListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ResumableRandomAccessFileListener resumableRandomAccessFileListener0 = new ResumableRandomAccessFileListener((RandomAccessFile) null);
+      resumableRandomAccessFileListener0.onAllBytesReceived();
+  }

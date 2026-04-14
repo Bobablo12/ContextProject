@@ -1,0 +1,79 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      // Undeclared exception!
+      try { 
+        jettyServer0.create(504, 2845, 2845);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // max threads (504) less than min threads (2845)
+         //
+         verifyException("org.eclipse.jetty.util.thread.QueuedThreadPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      Server server0 = jettyServer0.create(727, 0, 0);
+      assertNotNull(server0.getVersion());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      Server server0 = jettyServer0.create(0, 0, 1409);
+      assertTrue(server0.isDumpAfterStart());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      // Undeclared exception!
+      try { 
+        jettyServer0.create(727, 1514, 727);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // max threads (727) less than min threads (1514)
+         //
+         verifyException("org.eclipse.jetty.util.thread.QueuedThreadPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      MonitoredQueuedThreadPool monitoredQueuedThreadPool0 = new MonitoredQueuedThreadPool();
+      Server server0 = jettyServer0.create((ThreadPool) monitoredQueuedThreadPool0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      Server server0 = jettyServer0.create((ThreadPool) null);
+      assertFalse(server0.isFailed());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      // Undeclared exception!
+      try { 
+        jettyServer0.create(2213344, 2213344, 2213344);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.util.BlockingArrayQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      Server server0 = jettyServer0.create(1048589, (-3094), (-3094));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      Server server0 = jettyServer0.create((-3094), (-3094), 1048589);
+      assertNotNull(server0.getVersion());
+}

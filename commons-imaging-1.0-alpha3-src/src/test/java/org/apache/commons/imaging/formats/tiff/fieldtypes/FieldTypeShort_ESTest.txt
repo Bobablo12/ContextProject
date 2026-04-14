@@ -1,0 +1,122 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[2];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1362), 8, fieldTypeShort0.ASCII, 8, (-1362), byteArray0, byteOrder0, 4571);
+      Object object0 = fieldTypeShort0.getValue(tiffField0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      TiffField tiffField0 = new TiffField((-1173), (-1), fieldTypeShort0, 4294967295L, 4294967295L, (byte[]) null, (ByteOrder) null, 1);
+      // Undeclared exception!
+      try { 
+        fieldTypeShort0.writeData(tiffField0, (ByteOrder) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField((-1946), (-1946), fieldTypeShort0, (-1946), (-1946), byteArray0, byteOrder0, (-1946));
+      // Undeclared exception!
+      try { 
+        fieldTypeShort0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(905, 905, fieldTypeShort0, 0L, 0L, (byte[]) null, byteOrder0, 905);
+      // Undeclared exception!
+      try { 
+        fieldTypeShort0.getValue(tiffField0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      Short short0 = new Short((short)0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = fieldTypeShort0.writeData(short0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      try { 
+        fieldTypeShort0.writeData(byteOrder0, byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid data: LITTLE_ENDIAN (java.nio.ByteOrder)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeShort", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[7];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField((short)0, 1, fieldTypeShort0.UNDEFINED, 1, 1L, byteArray0, byteOrder0, 1);
+      // Undeclared exception!
+      try { 
+        fieldTypeShort0.getValue(tiffField0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1924), (-1924), fieldTypeShort0, 0L, 0L, byteArray0, byteOrder0, (-1924));
+      Object object0 = fieldTypeShort0.getValue(tiffField0);
+      byte[] byteArray1 = fieldTypeShort0.writeData(object0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FieldTypeShort fieldTypeShort0 = new FieldTypeShort(0, "");
+      byte[] byteArray0 = new byte[2];
+      TiffField tiffField0 = new TiffField(0, (-1), fieldTypeShort0, (-1), (-1), byteArray0, (ByteOrder) null, 31);
+      // Undeclared exception!
+      try { 
+        fieldTypeShort0.getValue(tiffField0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }

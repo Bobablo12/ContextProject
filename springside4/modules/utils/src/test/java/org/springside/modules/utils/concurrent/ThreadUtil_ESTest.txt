@@ -1,0 +1,62 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      ThreadUtil.sleep(3210L, timeUnit0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ThreadUtil.sleep(0L, (TimeUnit) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.concurrent.ThreadUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ThreadUtil.sleep((-626L));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // timeout value is negative
+         //
+         verifyException("java.lang.Thread", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = ThreadUtil.getCallerClass();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ThreadUtil.sleep(0L);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ThreadUtil.handleInterruptedException();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ThreadUtil threadUtil0 = new ThreadUtil();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      // Undeclared exception!
+      try { 
+        ThreadUtil.sleep((-1L), timeUnit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // timeout value is negative
+         //
+         verifyException("java.lang.Thread", e);
+      }
+  }

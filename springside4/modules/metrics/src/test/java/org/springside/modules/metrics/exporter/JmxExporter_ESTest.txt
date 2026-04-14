@@ -1,0 +1,618 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      jmxExporter0.onTimerRemoved("");
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("nobX.0u", metricRegistry0);
+      jmxExporter0.onGaugeRemoved("jF#?y)*;5n");
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("", gauge0);
+      jmxExporter0.destroyMBeans();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("@':O[+k", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerRemoved("");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: @':O[+k
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("}Y4a%l9sR(ZX*PY", metricRegistry0);
+      Double[] doubleArray0 = new Double[9];
+      Double double0 = new Double(1236.358854);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = double0;
+      doubleArray0[2] = double0;
+      doubleArray0[3] = doubleArray0[0];
+      doubleArray0[4] = doubleArray0[1];
+      doubleArray0[5] = doubleArray0[0];
+      doubleArray0[6] = doubleArray0[0];
+      doubleArray0[7] = doubleArray0[0];
+      doubleArray0[8] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerAdded("", timer0);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("@':O[+k", metricRegistry0);
+      Double[] doubleArray0 = new Double[8];
+      Double double0 = new Double(1549.5);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[0];
+      doubleArray0[3] = doubleArray0[0];
+      doubleArray0[4] = double0;
+      doubleArray0[5] = doubleArray0[0];
+      doubleArray0[6] = doubleArray0[3];
+      doubleArray0[7] = doubleArray0[0];
+      Timer timer0 = new Timer(doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerAdded("Unable to register {}", timer0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: @':O[+k
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("Q+Cm~N", metricRegistry0);
+      Double[] doubleArray0 = new Double[8];
+      Double double0 = new Double((-1664.813102));
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[0];
+      doubleArray0[3] = double0;
+      doubleArray0[4] = doubleArray0[0];
+      doubleArray0[5] = double0;
+      doubleArray0[6] = double0;
+      doubleArray0[7] = doubleArray0[0];
+      Timer timer0 = new Timer(doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerAdded((String) null, timer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Invalid value (null)
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Timer timer0 = metricRegistry0.timer("", (Double[]) null);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerAdded("@vLSF/Ea1lb}\"", timer0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("Unable t registe:", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramRemoved("Unable t registe:");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: Unable t registe:
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramRemoved("vkG;!`0%iq_^2^Q\"H6");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("V_%9im)\"1-8", metricRegistry0);
+      Integer integer0 = new Integer(2705);
+      Double[] doubleArray0 = new Double[0];
+      Histogram histogram0 = new Histogram(integer0, doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramAdded("VI[-s?^E!V;D>7${a", histogram0);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("Unable to register already exist mbean:", metricRegistry0);
+      Integer integer0 = new Integer(0);
+      Double[] doubleArray0 = new Double[1];
+      Double double0 = new Double(1.0);
+      doubleArray0[0] = double0;
+      Histogram histogram0 = new Histogram(integer0, doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramAdded("1DAPeAs$", histogram0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: Unable to register already exist mbean:
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Double[] doubleArray0 = new Double[8];
+      Double double0 = new Double(25.0503);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = double0;
+      doubleArray0[2] = double0;
+      doubleArray0[3] = doubleArray0[1];
+      doubleArray0[4] = doubleArray0[1];
+      doubleArray0[5] = doubleArray0[4];
+      doubleArray0[6] = doubleArray0[1];
+      doubleArray0[7] = doubleArray0[2];
+      Histogram histogram0 = metricRegistry0.histogram("-t,yB{Ui-cczL^_Mp/", doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramAdded((String) null, histogram0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Invalid value (null)
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Double[] doubleArray0 = new Double[6];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = double0;
+      doubleArray0[4] = doubleArray0[0];
+      doubleArray0[5] = doubleArray0[3];
+      Histogram histogram0 = new Histogram(doubleArray0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramAdded("u3GLwJR>#NW\"OBhaT", histogram0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("@':O[+k", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeRemoved("@':O[+k");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: @':O[+k
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter((String) null, metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeRemoved((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // domain cannot be null
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("j?63AHv[^tz'7|L", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeAdded("'aB&OMxH*hGtH*yM@", (Gauge) null);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("d3!@g&L:ft", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeAdded("/>b", gauge0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: d3!@g&L:ft
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("org.springside.modules.metrics.exporter.JmxExporter$JmxGauge", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeAdded((String) null, gauge0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Invalid value (null)
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeAdded("`\"hIK6P7Kt*yps'rZ5*", gauge0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterRemoved((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Invalid value (null)
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterRemoved("]>Z0v\"");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Counter counter0 = new Counter();
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterAdded("5sG8@*b", counter0);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("Unable t registe:", metricRegistry0);
+      Counter counter0 = new Counter();
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterAdded("8\"G", counter0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: Unable t registe:
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter((String) null, metricRegistry0);
+      Counter counter0 = new Counter();
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterAdded((String) null, counter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // domain cannot be null
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterAdded("u3GLwJR>#NW\"OBhaT", (Counter) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("5((5", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("H @2qD5W/t)?m9d7", gauge0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.initMBeans();
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("RfV\"9)G8Xr", gauge0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.initMBeans();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      Double[] doubleArray0 = new Double[8];
+      Double double0 = new Double(455.02471755);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = double0;
+      doubleArray0[2] = double0;
+      doubleArray0[3] = doubleArray0[2];
+      doubleArray0[4] = double0;
+      doubleArray0[5] = doubleArray0[4];
+      doubleArray0[6] = doubleArray0[5];
+      doubleArray0[7] = doubleArray0[0];
+      metricRegistry0.histogram("", doubleArray0);
+      JmxExporter jmxExporter0 = new JmxExporter((String) null, metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.destroyMBeans();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // domain cannot be null
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("]>Z0v\"", gauge0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.destroyMBeans();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      JmxExporter jmxExporter0 = null;
+      try {
+        jmxExporter0 = new JmxExporter((String) null, (MetricRegistry) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("V_%9im)\"1-8", metricRegistry0);
+      Integer integer0 = new Integer(2705);
+      Double[] doubleArray0 = new Double[0];
+      Histogram histogram0 = new Histogram(integer0, doubleArray0);
+      jmxExporter0.onHistogramAdded(", avgRate=", histogram0);
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter((String) null, metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onTimerRemoved("x raa9(Cc3N");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // domain cannot be null
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      jmxExporter0.onTimerAdded("", (Timer) null);
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("V_%9im)\"1-8", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      jmxExporter0.onGaugeAdded(",JaV 2mUT~<", gauge0);
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      Counter counter0 = metricRegistry0.counter("mW'{dF%");
+      JmxExporter jmxExporter0 = new JmxExporter("org.springside.modules.metrics.exporter.JmxExporter$JmxGauge", metricRegistry0);
+      jmxExporter0.onCounterAdded("mW'{dF%", counter0);
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("GwD_r`.,T5j/AfY/Y", metricRegistry0);
+      metricRegistry0.counter("GwD_r`.,T5j/AfY/Y");
+      jmxExporter0.destroyMBeans();
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("kpp:,yXdb]hc", metricRegistry0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("kpp:,yXdb]hc", gauge0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.destroyMBeans();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: kpp:,yXdb]hc
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("GwD_r`.,T5j/AfY/Y", metricRegistry0);
+      metricRegistry0.timer("GwD_r`.,T5j/AfY/Y", (Double[]) null);
+      jmxExporter0.initMBeans();
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("GwD_r`.,T5j/AfY/Y", metricRegistry0);
+      metricRegistry0.counter("GwD_r`.,T5j/AfY/Y");
+      jmxExporter0.initMBeans();
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onGaugeRemoved(".O9es5U\"M");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      JmxExporter jmxExporter0 = new JmxExporter("5((5", metricRegistry0);
+      metricRegistry0.timer("5((5", (Double[]) null);
+      jmxExporter0.destroyMBeans();
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("h<", metricRegistry0);
+      Hashtable<String, Integer> hashtable0 = new Hashtable<String, Integer>();
+      MetricRegistry.getSortedMetrics((Map<String, Integer>) hashtable0);
+      Integer integer0 = new Integer(0);
+      Integer.min(0, 0);
+      Integer.getInteger("h<", integer0);
+      Integer.min(155, 0);
+      hashtable0.put("Y}", integer0);
+      MetricRegistry.getSortedMetrics((Map<String, Integer>) hashtable0);
+      jmxExporter0.destroyMBeans();
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("h<", gauge0);
+      jmxExporter0.onHistogramRemoved("h<");
+      jmxExporter0.initMBeans();
+      String string0 = "Unable to unregister:";
+      jmxExporter0.onCounterRemoved("Unable to unregister:");
+      String string1 = "CpV=fR;:W";
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onHistogramRemoved((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Invalid value (null)
+         //
+         verifyException("javax.management.ObjectName", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      JmxExporter jmxExporter0 = new JmxExporter("bQs:cN_+2^", metricRegistry0);
+      // Undeclared exception!
+      try { 
+        jmxExporter0.onCounterRemoved("f`6r-<.!1E");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // javax.management.MalformedObjectNameException: Invalid domain: bQs:cN_+2^
+         //
+         verifyException("org.springside.modules.metrics.exporter.JmxExporter", e);
+      }
+  }

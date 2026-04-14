@@ -1,0 +1,88 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      TransparencyFilterGrayscale transparencyFilterGrayscale0 = new TransparencyFilterGrayscale(byteArray0);
+      int int0 = transparencyFilterGrayscale0.getLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)121;
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      byte byte0 = transparencyFilterIndexedColor0.getByte(0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-116);
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      byte byte0 = transparencyFilterIndexedColor0.getByte((byte)0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      int int0 = transparencyFilterIndexedColor0.filter(0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)114;
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      int int0 = transparencyFilterIndexedColor0.filter(0, 0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      int int0 = transparencyFilterIndexedColor0.filter((byte) (-111), 16);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      TransparencyFilterGrayscale transparencyFilterGrayscale0 = new TransparencyFilterGrayscale(byteArray0);
+      // Undeclared exception!
+      try { 
+        transparencyFilterGrayscale0.getByte((-1654));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1654
+         //
+         verifyException("org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      try { 
+        transparencyFilterIndexedColor0.filter((-1461), (-3790));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // TransparencyFilterIndexedColor index: -3790, bytes.length: 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilterIndexedColor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      TransparencyFilterGrayscale transparencyFilterGrayscale0 = new TransparencyFilterGrayscale(byteArray0);
+      byte byte0 = transparencyFilterGrayscale0.getByte((byte)0);
+      assertEquals(byteArray0, byte0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      int int0 = transparencyFilterIndexedColor0.getLength();
+      ;
+}

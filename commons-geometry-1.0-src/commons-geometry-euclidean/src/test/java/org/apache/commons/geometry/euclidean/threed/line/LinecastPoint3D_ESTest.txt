@@ -1,0 +1,116 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<LinecastPoint3D> linkedList0 = new LinkedList<LinecastPoint3D>();
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, true, false, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = new LinecastPoint3D(vector3D0, vector3D0, line3D0);
+      linkedList0.add(linecastPoint3D0);
+      linkedList0.add(linecastPoint3D0);
+      LinecastPoint3D.sortAndFilter(linkedList0);
+      LinecastPoint3D linecastPoint3D1 = new LinecastPoint3D(vector3D0, vector3D0, line3D0);
+      linkedList0.add(linecastPoint3D1);
+      LinecastPoint3D.sortAndFilter(linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = new LinecastPoint3D(vector3D0, vector3D0, line3D0);
+      LinecastPoint3D linecastPoint3D1 = new LinecastPoint3D(vector3D0, vector3D0, line3D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = linecastPoint3D0.eq(linecastPoint3D1, precision_DoubleEquivalence1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        LinecastPoint3D.sortAndFilter((List<LinecastPoint3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.LinecastPoint3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = new LinecastPoint3D(vector3D_Unit0, vector3D_Unit0, line3D0);
+      // Undeclared exception!
+      try { 
+        linecastPoint3D0.eq(linecastPoint3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D((Vector3D) null, (Vector3D) null, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = null;
+      try {
+        linecastPoint3D0 = new LinecastPoint3D((Vector3D) null, (Vector3D) null, line3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.LinecastPoint3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = null;
+      try {
+        linecastPoint3D0 = new LinecastPoint3D(vector3D0, vector3D0, line3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<LinecastPoint3D> linkedList0 = new LinkedList<LinecastPoint3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, true, false, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = new LinecastPoint3D(vector3D_Unit0, vector3D_Unit0, line3D0);
+      linkedList0.add(linecastPoint3D0);
+      linkedList0.add(linecastPoint3D0);
+      LinecastPoint3D.sortAndFilter(linkedList0);
+      LinecastPoint3D.sortAndFilter(linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LinecastPoint3D linecastPoint3D0 = new LinecastPoint3D(vector3D_Unit0, vector3D_Unit0, line3D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true, true, true).when(precision_DoubleEquivalence1).eq(anyDouble() , anyDouble());
+      boolean boolean0 = linecastPoint3D0.eq(linecastPoint3D0, precision_DoubleEquivalence1);
+      assertTrue(boolean0);
+}

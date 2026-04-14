@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      int int0 = transparencyFilterTrueColor0.filter(16777215, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      int int0 = transparencyFilterTrueColor0.filter((byte) (-102), 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = null;
+      try {
+        transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // tRNS: Missing transparentColor
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      int int0 = transparencyFilterTrueColor0.filter((byte)0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[1] = (byte) (-1);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      int int0 = transparencyFilterTrueColor0.filter(0, 255);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = null;
+      try {
+        transparencyFilterTrueColor0 = new TransparencyFilterTrueColor((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilter", e);
+      }
+  }

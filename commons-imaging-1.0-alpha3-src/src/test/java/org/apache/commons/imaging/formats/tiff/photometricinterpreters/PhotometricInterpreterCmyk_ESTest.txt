@@ -1,0 +1,74 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[2] = (-1);
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(0, intArray0, (-1), 0, 0);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2775, 132, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCmyk0.interpretPixel(imageBuilder0, intArray0, (-3014), 0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -3014
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[1] = 2;
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(0, intArray0, (-1), 0, 0);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2775, 132, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCmyk0.interpretPixel(imageBuilder0, intArray0, (-3014), 0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -3014
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[0] = 2;
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(0, intArray0, (-1), 0, 0);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2775, 132, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCmyk0.interpretPixel(imageBuilder0, intArray0, (-3014), 0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -3014
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(490, intArray0, 189, 1388, 1388);
+      ImageBuilder imageBuilder0 = new ImageBuilder(1388, 311, true);
+      photometricInterpreterCmyk0.interpretPixel(imageBuilder0, intArray0, (-301), 311);
+      assertEquals(0, imageBuilder0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(986, (int[]) null, 1416, 986, 65280);
+      ImageBuilder imageBuilder0 = new ImageBuilder(624, 65280, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterCmyk0.interpretPixel(imageBuilder0, (int[]) null, 2659, 1416);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterCmyk", e);
+      }
+  }

@@ -1,0 +1,76 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer(byteArrayOutputStream0);
+      byte[] byteArray0 = new byte[2];
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0, 1, 0);
+      outputStreamBodyConsumer0.consume(byteBuffer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("C}|<Gg");
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer(mockPrintStream0);
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect(0);
+      // Undeclared exception!
+      try { 
+        outputStreamBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        outputStreamBodyConsumer0.consume((ByteBuffer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.OutputStreamBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      File file0 = MockFile.createTempFile("s;`B%(0a", "s;`B%(0a");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, true);
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer(mockFileOutputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      ByteBuffer byteBuffer0 = charset0.encode("");
+      try { 
+        outputStreamBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error in writing to file
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        outputStreamBodyConsumer0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.OutputStreamBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      OutputStreamBodyConsumer outputStreamBodyConsumer0 = new OutputStreamBodyConsumer(byteArrayOutputStream0);
+      outputStreamBodyConsumer0.close();
+  }

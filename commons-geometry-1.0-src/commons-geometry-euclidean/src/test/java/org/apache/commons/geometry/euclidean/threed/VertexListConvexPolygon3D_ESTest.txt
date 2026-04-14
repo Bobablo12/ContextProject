@@ -1,0 +1,128 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.4916681462400413E-154, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D(embeddingPlane0, list0);
+      VertexListConvexPolygon3D vertexListConvexPolygon3D1 = vertexListConvexPolygon3D0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, (-1657.869417505397), (Precision.DoubleEquivalence) null);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(plane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D(plane0, list0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        vertexListConvexPolygon3D0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 1520.75048619, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D(embeddingPlane0, list0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        vertexListConvexPolygon3D0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = null;
+      try {
+        vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D((Plane) null, (List<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = null;
+      try {
+        vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D((Plane) null, stack0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Convex polygon requires at least 3 points; found 0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D((Plane) null, vector3D0, vector3D0, vector3D0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D((Plane) null, list0);
+      List<Triangle3D> list1 = vertexListConvexPolygon3D0.toTriangles();
+      assertTrue(list1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.4916681462400413E-154, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AxisSequence axisSequence0 = AxisSequence.ZYZ;
+      AxisAngleSequence axisAngleSequence0 = AxisAngleSequence.createRelative(axisSequence0, 1.4916681462400413E-154, 1.4916681462400413E-154, 1.4916681462400413E-154);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D(embeddingPlane0, list0);
+      VertexListConvexPolygon3D vertexListConvexPolygon3D1 = vertexListConvexPolygon3D0.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.4916681462400413E-154, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D(embeddingPlane0, list0);
+      List<Vector3D> list1 = vertexListConvexPolygon3D0.getVertices();
+      assertEquals(1, list1.size());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D((Plane) null, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      VertexListConvexPolygon3D vertexListConvexPolygon3D0 = new VertexListConvexPolygon3D((Plane) null, list0);
+      // Undeclared exception!
+      try { 
+        vertexListConvexPolygon3D0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3D", e);
+      }
+  }

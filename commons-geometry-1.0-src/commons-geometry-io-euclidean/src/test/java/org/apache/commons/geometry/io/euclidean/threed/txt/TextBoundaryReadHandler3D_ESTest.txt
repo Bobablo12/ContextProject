@@ -1,0 +1,60 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(mockFileInputStream0);
+      StreamGeometryInput streamGeometryInput0 = new StreamGeometryInput(bufferedInputStream0);
+      TextFacetDefinitionReader textFacetDefinitionReader0 = (TextFacetDefinitionReader)textBoundaryReadHandler3D0.facetDefinitionReader(streamGeometryInput0);
+      assertNotNull(textFacetDefinitionReader0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      Path path0 = mock(Path.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(path0).toString();
+      doReturn((FileSystem) null).when(path0).getFileSystem();
+      Charset charset0 = textBoundaryReadHandler3D0.getDefaultCharset();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0, charset0);
+      // Undeclared exception!
+      try { 
+        textBoundaryReadHandler3D0.facetDefinitionReader(fileGeometryInput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      MockFile mockFile0 = new MockFile("M!FY{^_qKsQLq@6");
+      Path path0 = mockFile0.toPath();
+      Charset charset0 = textBoundaryReadHandler3D0.getDefaultCharset();
+      FileGeometryInput fileGeometryInput0 = new FileGeometryInput(path0, charset0);
+      // Undeclared exception!
+      try { 
+        textBoundaryReadHandler3D0.facetDefinitionReader(fileGeometryInput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // NoSuchFileException: M!FY{^_qKsQLq@6
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      GeometryFormat geometryFormat0 = textBoundaryReadHandler3D0.getFormat();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TextBoundaryReadHandler3D textBoundaryReadHandler3D0 = new TextBoundaryReadHandler3D();
+      textBoundaryReadHandler3D0.setDefaultCharset((Charset) null);
+      Charset charset0 = textBoundaryReadHandler3D0.getDefaultCharset();
+      assertNotNull(charset0);
+}

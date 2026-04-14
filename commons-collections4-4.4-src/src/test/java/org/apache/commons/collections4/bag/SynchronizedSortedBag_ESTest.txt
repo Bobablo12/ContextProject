@@ -1,0 +1,40 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SynchronizedSortedBag<String> synchronizedSortedBag0 = null;
+      try {
+        synchronizedSortedBag0 = new SynchronizedSortedBag<String>((SortedBag<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SynchronizedSortedBag.synchronizedSortedBag((SortedBag<CollectionSortedBag<Object>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      SynchronizedSortedBag<String> synchronizedSortedBag0 = null;
+      try {
+        synchronizedSortedBag0 = new SynchronizedSortedBag<String>((Bag<String>) null, integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }

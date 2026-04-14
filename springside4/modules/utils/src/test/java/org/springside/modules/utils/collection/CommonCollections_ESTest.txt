@@ -1,0 +1,50 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<Integer> linkedList0 = new LinkedList<Integer>();
+      Integer integer0 = linkedList0.poll();
+      List<Integer> list0 = linkedList0.subList(0, 0);
+      linkedList0.add(integer0);
+      // Undeclared exception!
+      try { 
+        CommonCollections.setUniqueList((List<Integer>) list0);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CommonCollections.setUniqueList((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // List must not be null
+         //
+         verifyException("org.apache.commons.collections4.list.SetUniqueList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Flat3Map<Object, Integer> flat3Map0 = CommonCollections.flat3Map();
+      assertEquals(1, flat3Map0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CommonCollections commonCollections0 = new CommonCollections();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<Integer> linkedList0 = new LinkedList<Integer>();
+      SetUniqueList<Integer> setUniqueList0 = CommonCollections.setUniqueList((List<Integer>) linkedList0);
+      assertNotNull(setUniqueList0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TreeList<Integer> treeList0 = CommonCollections.treeList();
+      assertEquals(0, treeList0.size());
+}

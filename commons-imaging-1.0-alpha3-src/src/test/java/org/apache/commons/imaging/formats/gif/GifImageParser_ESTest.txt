@@ -1,0 +1,1005 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[30];
+      byteArray0[22] = (byte)100;
+      byteArray0[15] = (byte)44;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: -1 codes: 3 code_size: 1, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[30];
+      byteArray0[21] = (byte) (-68);
+      byteArray0[15] = (byte)44;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: -1 codes: 3 code_size: 1, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[7] = (byte) (-77);
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      Dimension dimension0 = gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[7] = (byte) (-77);
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      Dimension dimension0 = gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[9] = (byte) (-46);
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      Dimension dimension0 = gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[9] = (byte) (-46);
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      Dimension dimension0 = gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      FormatCompliance formatCompliance0 = gifImageParser0.getFormatCompliance((ByteSource) byteSourceArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      String[] stringArray0 = gifImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      GifImageParser gifImageParser0 = new GifImageParser();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(2, 2, false);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("PackedFields bits");
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      try { 
+        gifImageParser0.writeImage(bufferedImage0, (OutputStream) mockFileOutputStream0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getXmpXml((ByteSource) null, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-12), (byte)85);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "czK3g7b*H");
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getXmpXml(byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("&Eah<%;y26O[_vNAil#");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      try { 
+        gifImageParser0.getXmpXml(byteSourceFile0, gifImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getMetadata((ByteSource) null, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, (String) null);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getMetadata((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-77), 1);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getMetadata((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      try { 
+        gifImageParser0.getMetadata((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid GIF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("LZWMinimumCodeSize: ");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      try { 
+        gifImageParser0.getMetadata((ByteSource) byteSourceFile0, gifImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[18];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      try { 
+        gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageSize((ByteSource) null, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, ")(x:A");
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageSize((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-3294), (byte)70);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, (String) null);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageSize((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      try { 
+        gifImageParser0.getImageSize((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid GIF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      File file0 = MockFile.createTempFile("M'T/", "LX=$t;");
+      MockFile mockFile0 = new MockFile(file0, "Background Color Index");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        gifImageParser0.getImageSize((ByteSource) byteSourceFile0, gifImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) null, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-88), (byte)100);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("L\u0001Imt]UI* ,ps_J");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceFile0, gifImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getFormatCompliance((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1278), (byte)8);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "is32");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getFormatCompliance((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getFormatCompliance((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid GIF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        gifImageParser0.getFormatCompliance((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) null, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(dataInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "");
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid GIF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("gif");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) byteSourceFile0, gifImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-3851), (byte)18);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "Unexpected leftover bits: ");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("ICO");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFile mockFile0 = new MockFile("");
+      File file0 = MockFile.createTempFile("bmp", "", (File) mockFile0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, true);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0);
+      byte[] byteArray0 = new byte[20];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(3);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(" E:R<-dPh", true);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0);
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("jH1", byteArray0);
+      try { 
+        gifImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid GIF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      MockFileWriter mockFileWriter0 = new MockFileWriter("ICNS_32x32_4BIT_IMAGE");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileWriter0, true);
+      MockFile mockFile0 = new MockFile("TransparencyFilterIndexedColor index: ", "O6-*");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        gifImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      File file0 = MockFile.createTempFile("LZWMinimumCodeSize: ", "LZWMinimumCodeSize: ");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      byte[] byteArray0 = gifImageParser0.getICCProfileBytes((ByteSource) byteSourceFile0, gifImagingParameters0);
+      assertNotNull(byteArray0);
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[17];
+      byteArray0[10] = (byte) (-46);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getXmpXml(byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // GIF: corrupt Color Table count: -1 read: 4 length: 24
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(87, 87, false);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("s!o,`K");
+      // Undeclared exception!
+      gifImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, (GifImagingParameters) null);
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      GifImageParser gifImageParser0 = new GifImageParser();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      // Undeclared exception!
+      try { 
+        gifImageParser0.writeImage((BufferedImage) null, (OutputStream) byteArrayOutputStream0, gifImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(6, 6, true);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("s!o,`K");
+      gifImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, (GifImagingParameters) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: Couldn't read Image Descriptor
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("!G-ubLlU*z-N", byteArray0);
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: Couldn't read Image Descriptor
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      try { 
+        GifImageParser.createDisposalMethodFromIntValue((byte)8);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: Invalid parsing of disposal method
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(7);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(6);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(5);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(3);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(2);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(1);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue(4);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      DisposalMethod disposalMethod0 = GifImageParser.createDisposalMethodFromIntValue((byte)0);
+      assertNotNull(disposalMethod0);
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getMetadata((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: Couldn't read Image Descriptor
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: Couldn't read ImageDescriptor
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[30];
+      byteArray0[15] = (byte)44;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getXmpXml(byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[30];
+      byteArray0[15] = (byte)33;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getXmpXml(byteSourceArray0, (XmpImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)34;
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      try { 
+        gifImageParser0.getBufferedImage(byteArray0, gifImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unknown code: 34
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[15] = (byte)59;
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      String string0 = gifImageParser0.getXmpXml(byteSourceArray0, gifImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[10] = (byte) (-46);
+      byteArray0[11] = (byte) (-1);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // GIF: corrupt Color Table count: -1 read: 3 length: 24
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[16];
+      byteArray0[10] = (byte) (-1);
+      GifImagingParameters gifImagingParameters0 = new GifImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getImageInfo((ByteSource) byteSourceArray0, gifImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // GIF: corrupt Color Table count: -1 read: 3 length: 768
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      String string0 = gifImageParser0.getDefaultExtension();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      String string0 = gifImageParser0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[18];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getFormatCompliance((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      GifImagingParameters gifImagingParameters0 = gifImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-42), 2890);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "GIF: Couldn't read Image Descriptor");
+      // Undeclared exception!
+      try { 
+        gifImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, gifImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      byte[] byteArray0 = new byte[30];
+      byteArray0[15] = (byte)33;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        gifImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GIF: unexpected end of data
+         //
+         verifyException("org.apache.commons.imaging.formats.gif.GifImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      GifImageParser gifImageParser0 = new GifImageParser();
+      ImageFormat[] imageFormatArray0 = gifImageParser0.getAcceptedTypes();
+      ;
+}

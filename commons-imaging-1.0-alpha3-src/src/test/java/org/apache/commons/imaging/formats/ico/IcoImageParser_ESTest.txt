@@ -1,0 +1,401 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[9];
+      byteArray0[2] = (byte)97;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid ICO File: icon type is 97
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      String[] stringArray0 = icoImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) null, (IcoImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "Unknown BitsPerPixel: ");
+      IcoImagingParameters icoImagingParameters0 = new IcoImagingParameters();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, icoImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-50), (byte)72);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, 40);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "ColorCount: ");
+      IcoImagingParameters icoImagingParameters0 = icoImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, icoImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "The list of names must not be null");
+      IcoImagingParameters icoImagingParameters0 = icoImageParser0.getDefaultParameters();
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, icoImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFile mockFile0 = new MockFile("ck\"lC");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      IcoImagingParameters icoImagingParameters0 = icoImageParser0.getDefaultParameters();
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) byteSourceFile0, icoImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid ICO File: icon type is 0
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, ";G Cfn#;[)e3,aVkw!");
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, Integer.MIN_VALUE, (byte)116);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      // Undeclared exception!
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid ICO File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        icoImageParser0.getAllBufferedImages((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFile mockFile0 = new MockFile("5p0?(,C\"");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      OutputStreamWriter outputStreamWriter0 = new OutputStreamWriter(mockFileOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(outputStreamWriter0, false);
+      // Undeclared exception!
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "ico-Custom");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("![");
+      // Undeclared exception!
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("redMask");
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-38), 18);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "ImageOffset");
+      // Undeclared exception!
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("BitCount: ");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0, true);
+      File file0 = MockFile.createTempFile("BitCount: ", (String) null);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid ICO File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFile mockFile0 = new MockFile(", ", ", ");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      StringWriter stringWriter0 = new StringWriter(35);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(stringWriter0);
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.writeImage((BufferedImage) null, (OutputStream) null, (IcoImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.PaletteFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      IcoImagingParameters icoImagingParameters0 = icoImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        icoImageParser0.writeImage((BufferedImage) null, (OutputStream) null, icoImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.PaletteFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("F", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(filterOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(bufferedOutputStream0, true);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte) (-48);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        icoImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid ICO File: reserved is 208
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      IcoImagingParameters icoImagingParameters0 = new IcoImagingParameters();
+      try { 
+        icoImageParser0.getBufferedImage((ByteSource) byteSourceArray0, icoImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid ICO File: icon type is 0
+         //
+         verifyException("org.apache.commons.imaging.formats.ico.IcoImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      ImageFormat[] imageFormatArray0 = icoImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      String string0 = icoImageParser0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      ImageMetadata imageMetadata0 = icoImageParser0.getMetadata((ByteSource) null, (IcoImagingParameters) null);
+      assertNotNull(imageMetadata0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "ico-Custom");
+      IcoImagingParameters icoImagingParameters0 = new IcoImagingParameters();
+      byte[] byteArray0 = icoImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, icoImagingParameters0);
+      assertNotNull(byteArray0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "ico-Custom");
+      IcoImagingParameters icoImagingParameters0 = new IcoImagingParameters();
+      Dimension dimension0 = icoImageParser0.getImageSize((ByteSource) byteSourceInputStream0, icoImagingParameters0);
+      assertNotNull(dimension0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      String string0 = icoImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      IcoImageParser icoImageParser0 = new IcoImageParser();
+      MockFile mockFile0 = new MockFile(", ", ", ");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      IcoImagingParameters icoImagingParameters0 = new IcoImagingParameters();
+      ImageInfo imageInfo0 = icoImageParser0.getImageInfo((ByteSource) byteSourceFile0, icoImagingParameters0);
+      assertNotNull(imageInfo0);
+}

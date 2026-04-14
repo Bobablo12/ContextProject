@@ -1,0 +1,316 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("", "", "");
+      DoubleFunction1N<String> doubleFunction1N0 = (DoubleFunction1N<String>) mock(DoubleFunction1N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("expected \"%s\" but found \"%s\"", doubleFunction1N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"expected \"%s\" but found \"%s\"\" at index 0: unable to parse number from string \"\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      DoubleFunction2N<Object> doubleFunction2N0 = (DoubleFunction2N<Object>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(doubleFunction2N0).apply(anyDouble() , anyDouble());
+      Object object0 = simpleTupleFormat0.parse("(0.0, -301.20671257106)", doubleFunction2N0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      DoubleFunction2N<Object> doubleFunction2N0 = (DoubleFunction2N<Object>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      doReturn("(2128.0, 2954.239, 2128.0)").when(doubleFunction2N0).apply(anyDouble() , anyDouble());
+      Object object0 = simpleTupleFormat0.parse("(2128.0, 406.1)", doubleFunction2N0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      DoubleFunction1N<Object> doubleFunction1N0 = (DoubleFunction1N<Object>) mock(DoubleFunction1N.class, new ViolatedAssumptionAnswer());
+      doReturn("(0.0, 894.957484096391, 0.0(").when(doubleFunction1N0).apply(anyDouble());
+      Object object0 = simpleTupleFormat0.parse("(894.957484096391(", doubleFunction1N0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null, (String) null);
+      String string0 = simpleTupleFormat0.getSuffix();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("|wL/", "");
+      simpleTupleFormat0.getSuffix();
+      assertNotNull(simpleTupleFormat0.getPrefix());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null, (String) null);
+      String string0 = simpleTupleFormat0.getSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("", "", "x[{ryWd'x)$f`<DI0");
+      simpleTupleFormat0.getSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null, (String) null);
+      String string0 = simpleTupleFormat0.getPrefix();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("", "");
+      String string0 = simpleTupleFormat0.getPrefix();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null);
+      DoubleFunction3N<Object> doubleFunction3N0 = (DoubleFunction3N<Object>) mock(DoubleFunction3N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse((String) null, doubleFunction3N0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      DoubleFunction2N<Integer> doubleFunction2N0 = (DoubleFunction2N<Integer>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse((String) null, doubleFunction2N0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      DoubleFunction1N<Object> doubleFunction1N0 = (DoubleFunction1N<Object>) mock(DoubleFunction1N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("(-14.050863609464496, -14.050863609464496, -14.050863609464496)", doubleFunction1N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"(-14.050863609464496, -14.050863609464496, -14.050863609464496)\" at index 22: expected \")\" but found \"-\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null);
+      DoubleFunction1N<String> doubleFunction1N0 = (DoubleFunction1N<String>) mock(DoubleFunction1N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse((String) null, doubleFunction1N0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("", "n=MLv");
+      DoubleFunction3N<Object> doubleFunction3N0 = (DoubleFunction3N<Object>) mock(DoubleFunction3N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("-3328.244444, -6489.5, -3328.244444, -3909.175324183775n=MLv", doubleFunction3N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"-3328.244444, -6489.5, -3328.244444, -3909.175324183775n=MLv\" at index 37: expected \"n=MLv\" but found \"-3909\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("ZaztE`_", (String) null);
+      DoubleFunction3N<Integer> doubleFunction3N0 = (DoubleFunction3N<Integer>) mock(DoubleFunction3N.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(doubleFunction3N0).apply(anyDouble() , anyDouble() , anyDouble());
+      Integer integer0 = simpleTupleFormat0.parse("ZaztE`_0.0, -1539.389477, 94.24", doubleFunction3N0);
+      assertNotNull(integer0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat(",($YD", (String) null);
+      DoubleFunction2N<Object> doubleFunction2N0 = (DoubleFunction2N<Object>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse(",($YD1506.4933621949, 1506.4933621949, 1506.4933621949, 1506.4933621949", doubleFunction2N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \",($YD1506.4933621949, 1506.4933621949, 1506.4933621949, 1506.4933621949\" at index 39: unexpected content
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      String string0 = simpleTupleFormat0.format(1.0, 0.0, 0.0, (-1.0));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("ZaztE`_", (String) null);
+      String string0 = simpleTupleFormat0.format(0.0, 1130.4185, 1494.09, 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null, (String) null);
+      String string0 = simpleTupleFormat0.format((-1434.5095470256647), (-1434.5095470256647), (-1434.5095470256647), (-1434.5095470256647));
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      String string0 = simpleTupleFormat0.format(0.0, 894.957484096391, 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("ZaztE`_", (String) null);
+      String string0 = simpleTupleFormat0.format(94.24, (-1865.743841184081), 1.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null, (String) null);
+      String string0 = simpleTupleFormat0.format((-1434.5095470256647), (-1434.5095470256647), (-1434.5095470256647));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      String string0 = simpleTupleFormat0.format(0.0, (-301.20671257106));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("ZaztE`_", (String) null);
+      String string0 = simpleTupleFormat0.format((-1865.743841184081), (-5059.2937));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null);
+      String string0 = simpleTupleFormat0.format(0.7865940810722631, 0.7865940810722631);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, (String) null);
+      String string0 = simpleTupleFormat0.format((-1828.3));
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      String string0 = simpleTupleFormat0.format(0.0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      String string0 = simpleTupleFormat0.format(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      String string0 = simpleTupleFormat0.getSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      DoubleFunction2N<String> doubleFunction2N0 = (DoubleFunction2N<String>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("Kz2ZVqG h:%u", doubleFunction2N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"Kz2ZVqG h:%u\" at index 0: expected \"(\" but found \"K\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat((String) null, "");
+      DoubleFunction3N<Object> doubleFunction3N0 = (DoubleFunction3N<Object>) mock(DoubleFunction3N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("\"A{[D", doubleFunction3N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"\"A{[D\" at index 0: unable to parse number from string \"\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = new SimpleTupleFormat("(", "(");
+      DoubleFunction1N<Object> doubleFunction1N0 = (DoubleFunction1N<Object>) mock(DoubleFunction1N.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(doubleFunction1N0).apply(anyDouble());
+      Object object0 = simpleTupleFormat0.parse("(894.957484096391(", doubleFunction1N0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      String string0 = simpleTupleFormat0.getSuffix();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      String string0 = simpleTupleFormat0.getPrefix();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      SimpleTupleFormat simpleTupleFormat0 = SimpleTupleFormat.getDefault();
+      DoubleFunction2N<Object> doubleFunction2N0 = (DoubleFunction2N<Object>) mock(DoubleFunction2N.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTupleFormat0.parse("(", doubleFunction2N0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Failed to parse string \"(\" at index 1: unable to parse number from string \"\"
+         //
+         verifyException("org.apache.commons.geometry.core.internal.SimpleTupleFormat", e);
+      }
+  }

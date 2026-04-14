@@ -1,0 +1,234 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(true);
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler1.onContentWriteProgress(1821L, 9223372036854775807L, 0L);
+      AsyncHandler.State asyncHandler_State1 = transferCompletionHandler1.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(false);
+      Response response0 = transferCompletionHandler0.onCompleted((Response) null);
+      assertNotNull(response0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HttpResponseStatus httpResponseStatus0 = mock(HttpResponseStatus.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(httpResponseStatus0).getStatusCode();
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(true);
+      ArrayList<HttpResponseBodyPart> arrayList0 = new ArrayList<HttpResponseBodyPart>();
+      NettyResponse nettyResponse0 = new NettyResponse(httpResponseStatus0, (HttpHeaders) null, arrayList0);
+      Response response0 = transferCompletionHandler0.onCompleted((Response) nettyResponse0);
+      assertTrue(response0.hasResponseStatus());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(true);
+      EmptyHttpHeaders emptyHttpHeaders0 = EmptyHttpHeaders.INSTANCE;
+      Stack<HttpResponseBodyPart> stack0 = new Stack<HttpResponseBodyPart>();
+      NettyResponse nettyResponse0 = new NettyResponse((HttpResponseStatus) null, emptyHttpHeaders0, stack0);
+      Response response0 = transferCompletionHandler0.onCompleted((Response) nettyResponse0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      transferCompletionHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      doReturn((Iterator) null).when(httpHeaders0).iterator();
+      try { 
+        transferCompletionHandler0.onTrailingHeadersReceived(httpHeaders0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.handler.codec.http.HttpHeaders", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      transferCompletionHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+      try { 
+        transferCompletionHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.http.CombinedHttpHeaders$CombinedHttpHeadersImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      CharSequence[] charSequenceArray0 = new CharSequence[2];
+      charSequenceArray0[0] = (CharSequence) "Sq_QBkDN$0qk";
+      io.netty.handler.codec.http.HttpResponseStatus httpResponseStatus0 = io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
+      AsciiString asciiString0 = httpResponseStatus0.codeAsText();
+      charSequenceArray0[1] = (CharSequence) asciiString0;
+      ReadOnlyHttpHeaders readOnlyHttpHeaders0 = new ReadOnlyHttpHeaders(true, charSequenceArray0);
+      transferCompletionHandler0.onHeadersReceived(readOnlyHttpHeaders0);
+      try { 
+        transferCompletionHandler0.onHeadersReceived(readOnlyHttpHeaders0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // read only
+         //
+         verifyException("io.netty.handler.codec.http.ReadOnlyHttpHeaders", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      DefaultHttpHeaders defaultHttpHeaders0 = new DefaultHttpHeaders();
+      transferCompletionHandler0.onTrailingHeadersReceived(defaultHttpHeaders0);
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      doReturn((Iterator) null).when(httpHeaders0).iterator();
+      try { 
+        transferCompletionHandler0.onHeadersReceived(httpHeaders0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.handler.codec.http.HttpHeaders", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(true);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true);
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(unpooledByteBufAllocator0, true, 28);
+      CompositeByteBuf compositeByteBuf1 = compositeByteBuf0.addComponents((Iterable<ByteBuf>) compositeByteBuf0);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(compositeByteBuf1, true);
+      // Undeclared exception!
+      try { 
+        transferCompletionHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, true);
+      try { 
+        transferCompletionHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.LazyResponseBodyPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(false);
+      // Undeclared exception!
+      try { 
+        transferCompletionHandler0.addTransferListener((TransferListener) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentLinkedQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      transferCompletionHandler1.onThrowable(throwable0);
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler0.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      transferCompletionHandler1.onContentWriteProgress(0L, 0L, 0L);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[3] = (byte)1;
+      HttpResponseBodyPart httpResponseBodyPart0 = mock(HttpResponseBodyPart.class, new ViolatedAssumptionAnswer());
+      doReturn(byteArray0).when(httpResponseBodyPart0).getBodyPartBytes();
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler0.onBodyPartReceived(httpResponseBodyPart0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      transferCompletionHandler0.onCompleted();
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler1.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      transferCompletionHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler1.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      TransferListener transferListener0 = mock(TransferListener.class, new ViolatedAssumptionAnswer());
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.addTransferListener(transferListener0);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      transferCompletionHandler1.headers(combinedHttpHeaders0);
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler0.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler(true);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true);
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(unpooledByteBufAllocator0, true, 28);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(compositeByteBuf0, true);
+      transferCompletionHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler0.onHeadersWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      boolean boolean0 = false;
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      transferCompletionHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+      try { 
+        transferCompletionHandler0.onHeadersReceived(combinedHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.http.CombinedHttpHeaders$CombinedHttpHeadersImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TransferCompletionHandler transferCompletionHandler0 = new TransferCompletionHandler();
+      AsyncHandler.State asyncHandler_State0 = transferCompletionHandler0.onContentWriteProgress(479L, 479L, 479L);
+      TransferCompletionHandler transferCompletionHandler1 = transferCompletionHandler0.removeTransferListener((TransferListener) null);
+      AsyncHandler.State asyncHandler_State1 = transferCompletionHandler1.onHeadersWritten();
+      ;
+}

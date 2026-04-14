@@ -1,0 +1,174 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          IndexedDiskCacheAttributes indexedDiskCacheAttributes0 = new IndexedDiskCacheAttributes();
+          indexedDiskCacheAttributes0.setCacheName("=S}$yw\"txcj)");
+          indexedDiskCacheAttributes0.setMaxKeySize(0);
+          IndexedDiskCache<String, Object> indexedDiskCache0 = null;
+          try {
+            indexedDiskCache0 = new IndexedDiskCache<String, Object>(indexedDiskCacheAttributes0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \"_S__yw_txcj_.data\" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDisk.<init>(IndexedDisk.java:62)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.initializeKeysAndData(IndexedDiskCache.java:226)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:183)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:151)
+             // sun.reflect.GeneratedConstructorAccessor135.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          FileSystemHandling.setPermissions((EvoSuiteFile) null, false, true, true);
+          IndexedDiskCacheAttributes indexedDiskCacheAttributes0 = new IndexedDiskCacheAttributes();
+          String string0 = "=S}$dw\"txcj)";
+          indexedDiskCacheAttributes0.setCacheName("=S}$dw\"txcj)");
+          IDiskCacheAttributes.DiskLimitType iDiskCacheAttributes_DiskLimitType0 = IDiskCacheAttributes.DiskLimitType.SIZE;
+          indexedDiskCacheAttributes0.setDiskLimitType(iDiskCacheAttributes_DiskLimitType0);
+          indexedDiskCacheAttributes0.setName((String) null);
+          IndexedDiskCache<String, ForkJoinTask<Integer>> indexedDiskCache0 = null;
+          try {
+            indexedDiskCache0 = new IndexedDiskCache<String, ForkJoinTask<Integer>>(indexedDiskCacheAttributes0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \"_S__dw_txcj_.data\" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDisk.<init>(IndexedDisk.java:62)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.initializeKeysAndData(IndexedDiskCache.java:226)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:183)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:151)
+             // sun.reflect.GeneratedConstructorAccessor135.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IndexedDiskCacheAttributes indexedDiskCacheAttributes0 = new IndexedDiskCacheAttributes();
+      IndexedDiskCache<Object, IndexedDiskElementDescriptor> indexedDiskCache0 = null;
+      try {
+        indexedDiskCache0 = new IndexedDiskCache<Object, IndexedDiskElementDescriptor>(indexedDiskCacheAttributes0, (IElementSerializer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          IndexedDiskCacheAttributes indexedDiskCacheAttributes0 = new IndexedDiskCacheAttributes();
+          indexedDiskCacheAttributes0.setCacheName("m))kjO#{{^{ej\"XKw,X");
+          indexedDiskCacheAttributes0.setOptimizeAtRemoveCount(2442);
+          indexedDiskCacheAttributes0.setMaxKeySize((-1541));
+          IndexedDiskCache<String, Object> indexedDiskCache0 = null;
+          try {
+            indexedDiskCache0 = new IndexedDiskCache<String, Object>(indexedDiskCacheAttributes0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \"m__kjO_____ej_XKw_X.data\" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDisk.<init>(IndexedDisk.java:62)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.initializeKeysAndData(IndexedDiskCache.java:226)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:183)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache.<init>(IndexedDiskCache.java:151)
+             // sun.reflect.GeneratedConstructorAccessor135.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IndexedDiskCacheAttributes indexedDiskCacheAttributes0 = new IndexedDiskCacheAttributes();
+      IndexedDiskCache<String, Object> indexedDiskCache0 = null;
+      try {
+        indexedDiskCache0 = new IndexedDiskCache<String, Object>(indexedDiskCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCache", e);
+      }
+  }

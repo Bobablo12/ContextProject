@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LRUMemoryCache<String, Delayed> lRUMemoryCache0 = new LRUMemoryCache<String, Delayed>();
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.adjustListForUpdate((ICacheElement<String, Delayed>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LRUMemoryCache<Object, Integer> lRUMemoryCache0 = new LRUMemoryCache<Object, Integer>();
+      MemoryElementDescriptor<Object, Integer> memoryElementDescriptor0 = new MemoryElementDescriptor<Object, Integer>((ICacheElement<Object, Integer>) null);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.adjustListForGet(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache", e);
+      }
+  }

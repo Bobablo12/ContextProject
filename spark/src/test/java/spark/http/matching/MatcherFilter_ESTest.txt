@@ -1,0 +1,241 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      staticFilesConfiguration0.configureExternal("");
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, true);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(httpServletRequest0).getAttribute(anyString());
+      doReturn((String) null).when(httpServletRequest0).getPathInfo();
+      doReturn((String) null).when(httpServletRequest0).getServletPath();
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequest0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      try { 
+        matcherFilter0.doFilter(httpRequestWrapper0, (ServletResponse) null, filterChain0);
+        fail("Expecting exception: MalformedURLException");
+      } catch(MalformedURLException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.resource.ExternalResourceHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter((spark.route.Routes) null, staticFilesConfiguration0, exceptionMapper0, true, true);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("", (String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletResponseWrapper0.setResponse(httpServletResponseWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = new StaticFilesConfiguration();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, false);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("?LtaWp9:E5FSDv9>ic`", "?LtaWp9:E5FSDv9>ic`").when(httpServletRequest0).getHeader(anyString());
+      doReturn("?LtaWp9:E5FSDv9>ic`").when(httpServletRequest0).getRequestURI();
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletResponseWrapper0.setResponse(httpServletResponseWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = new StaticFilesConfiguration();
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, false);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("H&>k'<zzA", (String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpServletRequestWrapper0, (ServletResponse) null, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.http.matching.MatcherFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, false);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(servletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // javax.servlet.ServletRequestWrapper cannot be cast to javax.servlet.http.HttpServletRequest
+         //
+         verifyException("spark.http.matching.MatcherFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = new StaticFilesConfiguration();
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, false);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("X-HTTP-Method-Override", "spark.http.atching.MatcherFilter").when(httpServletRequest0).getHeader(anyString());
+      doReturn("X-HTTP-Method-Override").when(httpServletRequest0).getRequestURI();
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      ServletResponseWrapper servletResponseWrapper0 = new ServletResponseWrapper(httpServletResponseWrapper0);
+      httpServletResponseWrapper0.setResponse(servletResponseWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, true, true);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("5N$GjauUZ&O]Q_i3L,~", (String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      matcherFilter0.doFilter(httpServletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = new StaticFilesConfiguration();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, false, false);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((String) null).when(httpServletRequest0).getMethod();
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpServletRequest0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.http.matching.MatcherFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      spark.route.Routes routes0 = spark.route.Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.servletInstance;
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      MatcherFilter matcherFilter0 = new MatcherFilter(routes0, staticFilesConfiguration0, exceptionMapper0, true, true);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("", (String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      matcherFilter0.doFilter(httpRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter((spark.route.Routes) null, staticFilesConfiguration0, exceptionMapper0, true, true);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("", (String) null).when(httpServletRequest0).getHeader(anyString());
+      doReturn((Enumeration) null).when(httpServletRequest0).getHeaders(anyString());
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(httpServletResponse0).getContentType();
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      doReturn(false).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        matcherFilter0.doFilter(httpRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter((spark.route.Routes) null, staticFilesConfiguration0, exceptionMapper0, true, true);
+      matcherFilter0.destroy();
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MatcherFilter matcherFilter0 = new MatcherFilter((spark.route.Routes) null, staticFilesConfiguration0, exceptionMapper0, true, true);
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      matcherFilter0.init(filterConfig0);
+  }

@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, String> expiryAwareCache0 = new ExpiryAwareCache<Integer, String>(iCompositeCacheAttributes0, elementAttributes0);
+      ExpiryAwareCache<CacheEntryEventFilter<Integer, Object>, CacheEntryListener<Object, Integer>> expiryAwareCache1 = new ExpiryAwareCache<CacheEntryEventFilter<Integer, Object>, CacheEntryListener<Object, Integer>>(iCompositeCacheAttributes0, elementAttributes0);
+      ExpiryAwareCache<String, MutableConfiguration<Object, Object>> expiryAwareCache2 = new ExpiryAwareCache<String, MutableConfiguration<Object, Object>>(compositeCacheAttributes0, elementAttributes0);
+      CacheElement<String, MutableConfiguration<Object, Object>> cacheElement0 = new CacheElement<String, MutableConfiguration<Object, Object>>("org.apache.commons.jcs3.engine.CacheElementSerialized", "org.apache.commons.jcs3.engine.CacheElementSerialized", (MutableConfiguration<Object, Object>) null);
+      // Undeclared exception!
+      try { 
+        expiryAwareCache2.doExpires(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.ExpiryAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>("", "", (byte[]) null, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      ExpiryAwareCache<MutableConfiguration<Object, Integer>, JCSListener<String, String>> expiryAwareCache0 = new ExpiryAwareCache<MutableConfiguration<Object, Integer>, JCSListener<String, String>>(compositeCacheAttributes0, iElementAttributes0);
+      CacheElementSerialized<MutableConfiguration<Object, Integer>, JCSListener<String, String>> cacheElementSerialized1 = new CacheElementSerialized<MutableConfiguration<Object, Integer>, JCSListener<String, String>>("", (MutableConfiguration<Object, Integer>) null, (byte[]) null, iElementAttributes0);
+      // Undeclared exception!
+      try { 
+        expiryAwareCache0.doExpires(cacheElementSerialized1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Object, String> expiryAwareCache0 = null;
+      try {
+        expiryAwareCache0 = new ExpiryAwareCache<Object, String>((ICompositeCacheAttributes) null, elementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>> expiryAwareCache0 = new ExpiryAwareCache<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>(compositeCacheAttributes0, elementAttributes0);
+      HashMap<CacheEntryListenerConfiguration<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>, JCSListener<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>> hashMap0 = new HashMap<CacheEntryListenerConfiguration<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>, JCSListener<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>>();
+      expiryAwareCache0.init((Cache<CacheEntryListener<String, Integer>, CacheEntryEventFilter<String, ExpiryPolicy>>) null, hashMap0);
+      ExpiryAwareCache<ExpiryPolicy, CacheWriter<Object, Object>> expiryAwareCache1 = new ExpiryAwareCache<ExpiryPolicy, CacheWriter<Object, Object>>(compositeCacheAttributes0, elementAttributes0);
+      CacheWriter<Object, Object> cacheWriter0 = (CacheWriter<Object, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+  }

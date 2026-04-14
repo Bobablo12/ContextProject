@@ -1,0 +1,40 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<RemoteCacheNoWait<String, String>> linkedList0 = new LinkedList<RemoteCacheNoWait<String, String>>();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      RemoteCacheNoWaitFacade<String, String> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<String, String>(linkedList0, (IRemoteCacheAttributes) null, cacheEventLoggerDebugLogger0, compressingSerializer0, (RemoteCacheFactory) null);
+      CacheListeners<String, String> cacheListeners0 = new CacheListeners<String, String>(remoteCacheNoWaitFacade0);
+      // Undeclared exception!
+      try { 
+        cacheListeners0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.AbstractRemoteCacheNoWaitFacade", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CacheListeners<Object, Integer> cacheListeners0 = null;
+      try {
+        cacheListeners0 = new CacheListeners<Object, Integer>((ICache<Object, Integer>) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cache must not be null
+         //
+         verifyException("org.apache.commons.jcs3.engine.CacheListeners", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ArrayList<LateralCacheNoWait<Object, SequenceInputStream>> arrayList0 = new ArrayList<LateralCacheNoWait<Object, SequenceInputStream>>();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheNoWaitFacade<Object, SequenceInputStream> lateralCacheNoWaitFacade0 = new LateralCacheNoWaitFacade<Object, SequenceInputStream>((ILateralCacheListener<Object, SequenceInputStream>) null, arrayList0, tCPLateralCacheAttributes0);
+      CacheListeners<Object, SequenceInputStream> cacheListeners0 = new CacheListeners<Object, SequenceInputStream>(lateralCacheNoWaitFacade0);
+      String string0 = cacheListeners0.toString();
+      ;
+}

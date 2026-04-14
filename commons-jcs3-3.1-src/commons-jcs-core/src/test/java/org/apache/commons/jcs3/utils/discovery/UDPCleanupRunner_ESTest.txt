@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UDPDiscoveryAttributes uDPDiscoveryAttributes0 = new UDPDiscoveryAttributes();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      UDPDiscoveryService uDPDiscoveryService0 = null;
+      try {
+        uDPDiscoveryService0 = new UDPDiscoveryService(uDPDiscoveryAttributes0, encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.NetworkInterface$1checkedAddresses", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UDPCleanupRunner uDPCleanupRunner0 = new UDPCleanupRunner((UDPDiscoveryService) null);
+      // Undeclared exception!
+      try { 
+        uDPCleanupRunner0.run();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.discovery.UDPCleanupRunner", e);
+      }
+  }

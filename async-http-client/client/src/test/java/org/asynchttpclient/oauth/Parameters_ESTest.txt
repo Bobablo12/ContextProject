@@ -1,0 +1,34 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Parameters parameters0 = new Parameters();
+      Parameters parameters1 = parameters0.add("NZQKON~NWmn(", "");
+      Parameters parameters2 = parameters1.add((String) null, "");
+      // Undeclared exception!
+      try { 
+        parameters2.sortAndConcat();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.oauth.Parameter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Parameters parameters0 = new Parameters();
+      String string0 = parameters0.sortAndConcat();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Parameters parameters0 = new Parameters();
+      Parameters parameters1 = parameters0.add("NZQKON~NWmn(", "");
+      String string0 = parameters1.sortAndConcat();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Parameters parameters0 = new Parameters();
+      parameters0.reset();
+  }

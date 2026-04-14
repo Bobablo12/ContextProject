@@ -1,0 +1,53 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-1801), (-3), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      RationalNumber[] rationalNumberArray0 = new RationalNumber[1];
+      RationalNumber rationalNumber0 = RationalNumber.valueOf(0.0);
+      rationalNumberArray0[0] = rationalNumber0;
+      byte[] byteArray0 = tagInfoSRationals0.encodeValue(byteOrder0, rationalNumberArray0);
+      RationalNumber[] rationalNumberArray1 = tagInfoSRationals0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals(".A", (-18), (-18), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = new byte[4];
+      RationalNumber[] rationalNumberArray0 = tagInfoSRationals0.getValue(byteOrder0, byteArray0);
+      byte[] byteArray1 = tagInfoSRationals0.encodeValue(byteOrder0, rationalNumberArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("JD?5hM]8{40", 0, 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tagInfoSRationals0.getValue((ByteOrder) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-3949), 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      // Undeclared exception!
+      try { 
+        tagInfoSRationals0.encodeValue(byteOrder0, (RationalNumber[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

@@ -1,0 +1,93 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DataParserRgb dataParserRgb0 = new DataParserRgb();
+      int[][][] intArray0 = new int[6][0][6];
+      BufferedImage bufferedImage0 = new BufferedImage(3, 3, 1);
+      byte[] byteArray0 = new byte[8];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(3, byteArray0, (byte)0, 18, (byte) (-117), 0, (byte)78);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte) (-70), 867, (byte) (-9), (-2626));
+      dataParserRgb0.parseData(intArray0, bufferedImage0, psdImageContents0);
+      assertEquals(0, bufferedImage0.getType());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserRgb dataParserRgb0 = new DataParserRgb();
+      int[][][] intArray0 = new int[6][0][6];
+      BufferedImage bufferedImage0 = new BufferedImage(3, 3, 1);
+      byte[] byteArray0 = new byte[8];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(3, byteArray0, (byte)0, (-35), (byte)0, 0, (byte)78);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte) (-70), 867, (byte) (-9), (-2626));
+      dataParserRgb0.parseData(intArray0, bufferedImage0, psdImageContents0);
+      assertEquals(1, bufferedImage0.getNumYTiles());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int int0 = dataParserCmyk0.getBasicChannelsCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DataParserLab dataParserLab0 = new DataParserLab();
+      int[][][] intArray0 = new int[6][7][2];
+      byte[] byteArray0 = new byte[1];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(0, byteArray0, 371, 2744, (-1330), 0, (-1));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, (-3774), 471, 486);
+      // Undeclared exception!
+      try { 
+        dataParserLab0.parseData(intArray0, (BufferedImage) null, psdImageContents0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DataParserRgb dataParserRgb0 = new DataParserRgb();
+      int[][][] intArray0 = new int[6][17][6];
+      BufferedImage bufferedImage0 = new BufferedImage(1, 1, 1);
+      byte[] byteArray0 = new byte[21];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, (byte) (-84), 1, (byte)72, 1, (byte)0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte) (-84), 1, (byte) (-84), 1);
+      // Undeclared exception!
+      try { 
+        dataParserRgb0.parseData(intArray0, bufferedImage0, psdImageContents0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      DataParserRgb dataParserRgb0 = new DataParserRgb();
+      int[][][] intArray0 = new int[6][0][6];
+      BufferedImage bufferedImage0 = new BufferedImage(1, 1, 1);
+      byte[] byteArray0 = new byte[9];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, (byte) (-53), 1, (byte)0, 1, (byte)0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte) (-53), 1, (byte)0, 1);
+      dataParserRgb0.parseData(intArray0, bufferedImage0, psdImageContents0);
+      assertTrue(bufferedImage0.isAlphaPremultiplied());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      BufferedImage bufferedImage0 = new BufferedImage(1, 1, 1);
+      byte[] byteArray0 = new byte[9];
+      int[][][] intArray0 = new int[4][9][5];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1, byteArray0, 255, 256, 1, 3477, 31);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 1638, (-414), 32, 2420);
+      // Undeclared exception!
+      try { 
+        dataParserGrayscale0.parseData(intArray0, bufferedImage0, psdImageContents0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

@@ -1,0 +1,40 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel((-3595), intArray0, (-928), (-2760), 1453, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterBiLevel0.interpretPixel((ImageBuilder) null, intArray0, (-3595), 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterBiLevel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1842;
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(1842, intArray0, 0, 1842, 65280, true);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2354, 1842, true, true);
+      photometricInterpreterBiLevel0.interpretPixel(imageBuilder0, intArray0, 2354, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel((-3), intArray0, (-3), (-3), (-3), false);
+      ImageBuilder imageBuilder0 = new ImageBuilder(980, 980, false, true);
+      // Undeclared exception!
+      try { 
+        photometricInterpreterBiLevel0.interpretPixel(imageBuilder0, intArray0, 980, (-3));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1960
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }

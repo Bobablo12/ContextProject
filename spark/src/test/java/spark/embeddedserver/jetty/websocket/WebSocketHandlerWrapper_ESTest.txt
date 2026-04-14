@@ -1,0 +1,35 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      WebSocketAdapter webSocketAdapter0 = new WebSocketAdapter();
+      WebSocketHandlerInstanceWrapper webSocketHandlerInstanceWrapper0 = new WebSocketHandlerInstanceWrapper(webSocketAdapter0);
+      Object object0 = webSocketHandlerInstanceWrapper0.getHandler();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        WebSocketHandlerWrapper.validateHandlerClass((Class<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Class<WebSocketAdapter> class0 = WebSocketAdapter.class;
+      WebSocketHandlerWrapper.validateHandlerClass(class0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Class<String> class0 = String.class;
+      // Undeclared exception!
+      try { 
+        WebSocketHandlerWrapper.validateHandlerClass(class0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'
+         //
+         verifyException("spark.embeddedserver.jetty.websocket.WebSocketHandlerWrapper", e);
+      }
+  }

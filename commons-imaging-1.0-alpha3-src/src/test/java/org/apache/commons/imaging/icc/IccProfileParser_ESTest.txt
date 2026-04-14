@@ -1,0 +1,232 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[100];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((ByteSource) byteSourceArray0);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("AToB1Tag");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "AToB1Tag");
+      MockFile mockFile0 = new MockFile("AToB1Tag");
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((File) mockFile0);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[100];
+      boolean boolean0 = iccProfileParser0.issRGB(byteArray0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((ByteSource) byteSourceArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-675), (byte)104);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "[0#");
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, ":>");
+      try { 
+        iccProfileParser0.issRGB((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid ICC Profile
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        iccProfileParser0.issRGB((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((File) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("AToB1Tag");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "AToB1Tag");
+      MockFile mockFile0 = new MockFile("AToB1Tag");
+      try { 
+        iccProfileParser0.issRGB((File) mockFile0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid ICC Profile
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "ProfileVersion");
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("fileFiltera", (byte[]) null);
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((ByteSource) byteSourceArray0);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[85];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      boolean boolean0 = iccProfileParser0.issRGB((ByteSource) byteSourceArray0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((File) null);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((byte[]) null);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[88];
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      IccProfileInfo iccProfileInfo0 = iccProfileParser0.getICCProfileInfo((ICC_Profile) null);
+      assertNotNull(iccProfileInfo0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      byte[] byteArray0 = new byte[1];
+      try { 
+        iccProfileParser0.issRGB(byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid ICC Profile
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      // Undeclared exception!
+      try { 
+        iccProfileParser0.issRGB((ICC_Profile) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.icc.IccProfileParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      IccProfileParser iccProfileParser0 = new IccProfileParser();
+      MockFile mockFile0 = new MockFile("", "");
+      try { 
+        iccProfileParser0.issRGB((File) mockFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }

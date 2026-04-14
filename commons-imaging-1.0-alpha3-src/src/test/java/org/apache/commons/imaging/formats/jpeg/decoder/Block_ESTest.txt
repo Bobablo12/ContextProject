@@ -1,0 +1,17 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Block block0 = null;
+      try {
+        block0 = new Block((-415), 1704);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.Block", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Block block0 = new Block((-1369), (-1));
+  }

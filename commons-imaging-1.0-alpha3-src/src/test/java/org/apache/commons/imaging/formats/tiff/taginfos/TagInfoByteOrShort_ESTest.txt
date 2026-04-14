@@ -1,0 +1,59 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("", (-2946), (-2946), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      short[] shortArray0 = new short[1];
+      byte[] byteArray0 = tagInfoByteOrShort0.encodeValue(byteOrder0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("Double", 1693, 1693, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      short[] shortArray0 = new short[0];
+      byte[] byteArray0 = tagInfoByteOrShort0.encodeValue(byteOrder0, shortArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteOrShort", (-1973), 2116, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = new byte[2];
+      byte[] byteArray1 = tagInfoByteOrShort0.encodeValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("", 1155, 1155, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = tagInfoByteOrShort0.encodeValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("4KrQ", 0, 0, tiffDirectoryType0);
+      byte[] byteArray0 = tagInfoByteOrShort0.encodeValue((ByteOrder) null, (byte[]) null);
+      assertNotNull(byteArray0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoByteOrShort tagInfoByteOrShort0 = new TagInfoByteOrShort("", 0, 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      // Undeclared exception!
+      try { 
+        tagInfoByteOrShort0.encodeValue(byteOrder0, (short[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

@@ -1,0 +1,19 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PatriciaTrie<String> patriciaTrie0 = new PatriciaTrie<String>();
+      Trie<String, String> trie0 = TrieUtils.unmodifiableTrie((Trie<String, ? extends String>) patriciaTrie0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        TrieUtils.unmodifiableTrie((Trie<Object, ? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Trie must not be null
+         //
+         verifyException("org.apache.commons.collections4.trie.UnmodifiableTrie", e);
+      }
+  }

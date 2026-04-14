@@ -1,0 +1,232 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Reporter[] reporterArray0 = new Reporter[1];
+      Slf4jReporter slf4jReporter0 = new Slf4jReporter();
+      reporterArray0[0] = (Reporter) slf4jReporter0;
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      reportScheduler0.report();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      Double[] doubleArray0 = new Double[5];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[0];
+      doubleArray0[3] = doubleArray0[1];
+      doubleArray0[4] = doubleArray0[0];
+      metricRegistry0.timer("", doubleArray0);
+      System.setCurrentTimeMillis(1376L);
+      LinkedList<Reporter> linkedList0 = new LinkedList<Reporter>();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, linkedList0);
+      reportScheduler0.report();
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      metricRegistry0.counter("G");
+      Reporter[] reporterArray0 = new Reporter[1];
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      System.setCurrentTimeMillis((-3110L));
+      // Undeclared exception!
+      try { 
+        reportScheduler0.report();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      Reporter[] reporterArray0 = new Reporter[2];
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      TimeUnit timeUnit0 = TimeUnit.MINUTES;
+      // Undeclared exception!
+      try { 
+        reportScheduler0.start(0L, timeUnit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ScheduledThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      Reporter[] reporterArray0 = new Reporter[1];
+      InetSocketAddress inetSocketAddress0 = MockInetSocketAddress.createUnresolved("qcS>e#c7", 2718);
+      GraphiteReporter graphiteReporter0 = new GraphiteReporter(inetSocketAddress0, "qcS>e#c7");
+      reporterArray0[0] = (Reporter) graphiteReporter0;
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.report();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.Socket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, (List<Reporter>) null);
+      Slf4jReporter slf4jReporter0 = new Slf4jReporter();
+      // Undeclared exception!
+      try { 
+        reportScheduler0.removeReporter(slf4jReporter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ReportScheduler reportScheduler0 = new ReportScheduler((MetricRegistry) null, (List<Reporter>) null);
+      MockInetSocketAddress mockInetSocketAddress0 = new MockInetSocketAddress(80);
+      GraphiteReporter graphiteReporter0 = new GraphiteReporter(mockInetSocketAddress0, (String) null);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.addReporter(graphiteReporter0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      ReportScheduler reportScheduler0 = null;
+      try {
+        reportScheduler0 = new ReportScheduler(metricRegistry0, (Reporter[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      Double[] doubleArray0 = new Double[5];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = double0;
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[2];
+      doubleArray0[4] = double0;
+      metricRegistry0.timer("", doubleArray0);
+      LinkedList<Reporter> linkedList0 = new LinkedList<Reporter>();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, linkedList0);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.report();
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.springside.modules.metrics.metric.Counter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(1.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[0];
+      doubleArray0[3] = doubleArray0[1];
+      metricRegistry0.histogram("", doubleArray0);
+      Reporter[] reporterArray0 = new Reporter[0];
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      reportScheduler0.report();
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      LinkedList<Reporter> linkedList0 = new LinkedList<Reporter>();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, linkedList0);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.stop();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Scheduler hadn't been started before
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MetricRegistry metricRegistry0 = new MetricRegistry();
+      Reporter[] reporterArray0 = new Reporter[1];
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      Gauge<Integer> gauge0 = (Gauge<Integer>) mock(Gauge.class, new ViolatedAssumptionAnswer());
+      metricRegistry0.registerGauge("200.42.42.0", gauge0);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.report();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      LinkedList<Reporter> linkedList0 = new LinkedList<Reporter>();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, linkedList0);
+      Slf4jReporter slf4jReporter0 = new Slf4jReporter("");
+      reportScheduler0.addReporter(slf4jReporter0);
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      LinkedList<Reporter> linkedList0 = new LinkedList<Reporter>();
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, linkedList0);
+      MockInetSocketAddress mockInetSocketAddress0 = new MockInetSocketAddress(0);
+      GraphiteReporter graphiteReporter0 = new GraphiteReporter(mockInetSocketAddress0, (String) null);
+      reportScheduler0.removeReporter(graphiteReporter0);
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MetricRegistry metricRegistry0 = MetricRegistry.INSTANCE;
+      Reporter[] reporterArray0 = new Reporter[0];
+      ReportScheduler reportScheduler0 = new ReportScheduler(metricRegistry0, reporterArray0);
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      reportScheduler0.start(1000L, timeUnit0);
+      // Undeclared exception!
+      try { 
+        reportScheduler0.start(0L, timeUnit0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Scheduler had been started before
+         //
+         verifyException("org.springside.modules.metrics.ReportScheduler", e);
+      }
+  }

@@ -1,0 +1,196 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      SynchronizedQueue<Object> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<Object>) linkedList0);
+      linkedList0.add((Object) null);
+      Object object0 = synchronizedQueue0.remove();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PriorityQueue<ArrayDeque<String>> priorityQueue0 = new PriorityQueue<ArrayDeque<String>>();
+      SynchronizedQueue<ArrayDeque<String>> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<ArrayDeque<String>>) priorityQueue0);
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      synchronizedQueue0.add(arrayDeque0);
+      ArrayDeque<String> arrayDeque1 = synchronizedQueue0.remove();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      SynchronizedQueue<Object> synchronizedQueue0 = new SynchronizedQueue<Object>(linkedList0);
+      linkedList0.add((Object) synchronizedQueue0);
+      Object object0 = synchronizedQueue0.poll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayDeque<LinkedList<String>> arrayDeque0 = new ArrayDeque<LinkedList<String>>();
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      arrayDeque0.add(linkedList0);
+      SynchronizedQueue<LinkedList<String>> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<LinkedList<String>>) arrayDeque0);
+      LinkedList<String> linkedList1 = synchronizedQueue0.peek();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PriorityQueue<LinkedList<Object>> priorityQueue0 = new PriorityQueue<LinkedList<Object>>();
+      SynchronizedQueue<LinkedList<Object>> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<LinkedList<Object>>) priorityQueue0);
+      Object object0 = new Object();
+      boolean boolean0 = synchronizedQueue0.equals(object0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      SynchronizedQueue<String> synchronizedQueue0 = new SynchronizedQueue<String>(linkedList0);
+      linkedList0.add((String) null);
+      String string0 = synchronizedQueue0.element();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PriorityQueue<LinkedList<Object>> priorityQueue0 = new PriorityQueue<LinkedList<Object>>();
+      SynchronizedQueue<LinkedList<Object>> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<LinkedList<Object>>) priorityQueue0);
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      synchronizedQueue0.offer(linkedList0);
+      LinkedList<Object> linkedList1 = synchronizedQueue0.element();
+      assertEquals(0, linkedList1.size());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      SynchronizedQueue<String> synchronizedQueue0 = new SynchronizedQueue<String>(linkedList0);
+      Queue<String> queue0 = synchronizedQueue0.decorated();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SynchronizedQueue.synchronizedQueue((Queue<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ArrayDeque<LinkedList<Object>> arrayDeque0 = new ArrayDeque<LinkedList<Object>>();
+      Object object0 = new Object();
+      SynchronizedQueue<LinkedList<Object>> synchronizedQueue0 = new SynchronizedQueue<LinkedList<Object>>(arrayDeque0, object0);
+      // Undeclared exception!
+      try { 
+        synchronizedQueue0.offer((LinkedList<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayDeque", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PriorityQueue<LinkedList<String>> priorityQueue0 = new PriorityQueue<LinkedList<String>>();
+      SynchronizedQueue<LinkedList<String>> synchronizedQueue0 = new SynchronizedQueue<LinkedList<String>>(priorityQueue0);
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      priorityQueue0.add(linkedList0);
+      // Undeclared exception!
+      try { 
+        synchronizedQueue0.offer(linkedList0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.util.LinkedList cannot be cast to java.lang.Comparable
+         //
+         verifyException("java.util.PriorityQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Object object0 = new Object();
+      SynchronizedQueue<Integer> synchronizedQueue0 = null;
+      try {
+        synchronizedQueue0 = new SynchronizedQueue<Integer>((Queue<Integer>) null, object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SynchronizedQueue<ArrayDeque<String>> synchronizedQueue0 = null;
+      try {
+        synchronizedQueue0 = new SynchronizedQueue<ArrayDeque<String>>((Queue<ArrayDeque<String>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ArrayDeque<Integer> arrayDeque0 = new ArrayDeque<Integer>();
+      SynchronizedQueue<Integer> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<Integer>) arrayDeque0);
+      boolean boolean0 = synchronizedQueue0.equals(synchronizedQueue0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      SynchronizedQueue<String> synchronizedQueue0 = new SynchronizedQueue<String>(linkedList0);
+      // Undeclared exception!
+      try { 
+        synchronizedQueue0.element();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      SynchronizedQueue<Object> synchronizedQueue0 = new SynchronizedQueue<Object>(linkedList0);
+      synchronizedQueue0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ArrayDeque<Object> arrayDeque0 = new ArrayDeque<Object>();
+      SynchronizedQueue<Object> synchronizedQueue0 = SynchronizedQueue.synchronizedQueue((Queue<Object>) arrayDeque0);
+      // Undeclared exception!
+      try { 
+        synchronizedQueue0.remove();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayDeque", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ArrayDeque<Object> arrayDeque0 = new ArrayDeque<Object>();
+      SynchronizedQueue<Object> synchronizedQueue0 = new SynchronizedQueue<Object>(arrayDeque0);
+      Object object0 = synchronizedQueue0.peek();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      SynchronizedQueue<String> synchronizedQueue0 = new SynchronizedQueue<String>(linkedList0);
+      String string0 = synchronizedQueue0.poll();
+      ;
+}

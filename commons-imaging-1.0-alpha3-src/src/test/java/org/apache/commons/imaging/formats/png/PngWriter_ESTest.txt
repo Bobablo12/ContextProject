@@ -1,0 +1,30 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      PngImagingParameters pngImagingParameters0 = new PngImagingParameters();
+      PngWriter pngWriter0 = new PngWriter();
+      // Undeclared exception!
+      try { 
+        pngWriter0.writeImage((BufferedImage) null, byteArrayOutputStream0, pngImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.PngWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PngWriter pngWriter0 = new PngWriter();
+      // Undeclared exception!
+      try { 
+        pngWriter0.writeImage((BufferedImage) null, (OutputStream) null, (PngImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.PngWriter", e);
+      }
+  }

@@ -1,0 +1,211 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream((OutputStream) null);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(filterOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Vector3D[] vector3DArray0 = new Vector3D[0];
+      Vector3D vector3D0 = Vector3D.max((Vector3D) vector3D_Unit0, vector3DArray0);
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeTriangle(vector3D0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, vector3D0, (-998));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(pipedOutputStream0, 1);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(bufferedOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Vector3D vector3D0 = Vector3D.ZERO;
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, vector3D0, vector3D0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Axis reference frame cannot be null", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(filterOutputStream0);
+      binaryStlWriter0.writeHeader(byteArray0, 152);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("(b");
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(mockFileOutputStream0);
+      binaryStlWriter0.close();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, 50);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: null
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeTriangle((Vector3D) null, (Vector3D) null, (Vector3D) null, (Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.StlUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      // Undeclared exception!
+      try { 
+        BinaryStlWriter.writeHeader(byteArray0, (int) (byte)0, (OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      // Undeclared exception!
+      try { 
+        BinaryStlWriter.writeHeader(byteArray0, 1061, (OutputStream) pipedOutputStream0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      MockFile mockFile0 = new MockFile("(lx]", "&U</");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(mockFileOutputStream0);
+      binaryStlWriter0.close();
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeHeader(byteArray0, (-1));
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: null
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Axis reference frame cannot be null", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      BinaryStlWriter.writeHeader(byteArray0, (int) (byte)1, (OutputStream) filterOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(byteArrayOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, 2587);
+      assertNotNull(byteArrayOutputStream0.toString());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(byteArrayOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, 2587);
+      assertEquals(0, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Axis reference frame cannot be null", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(filterOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-5688.0), (double) (byte)0, 4102.5871591);
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit2 = vector3D_Unit0.directionTo((Vector3D) vector3D_Unit1);
+      Vector3D.Unit vector3D_Unit3 = vector3D_Unit0.orthogonal((Vector3D) vector3D_Unit2);
+      Vector3D.Unit vector3D_Unit4 = vector3D_Unit3.orthogonal();
+      binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit4, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit3, (Vector3D) vector3D_Unit2, 152);
+      assertFalse(vector3D_Unit2.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      BinaryStlWriter.writeHeader((byte[]) null, (-80), (OutputStream) byteArrayOutputStream0);
+      assertEquals(1, byteArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      BinaryStlWriter.writeHeader((byte[]) null, (-80), (OutputStream) byteArrayOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Axis reference frame cannot be null", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter(filterOutputStream0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-5688.0), (double) (byte)0, 4102.5871591);
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit2 = vector3D_Unit1.orthogonal();
+      binaryStlWriter0.writeTriangle((Vector3D) vector3D_Unit2, (Vector3D) vector3D_Unit1, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      BinaryStlWriter binaryStlWriter0 = new BinaryStlWriter((OutputStream) null);
+      byte[] byteArray0 = new byte[0];
+      // Undeclared exception!
+      try { 
+        binaryStlWriter0.writeHeader(byteArray0, 2428);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriter", e);
+      }
+  }

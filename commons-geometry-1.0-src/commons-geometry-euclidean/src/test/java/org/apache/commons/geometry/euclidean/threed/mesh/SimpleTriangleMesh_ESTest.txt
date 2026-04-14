@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ConvexVolume convexVolume0 = ConvexVolume.full();
+      // Undeclared exception!
+      try { 
+        SimpleTriangleMesh.from((BoundarySource3D) convexVolume0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Precision context must not be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SimpleTriangleMesh.builder((Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Precision context must not be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[][] intArray0 = new int[6][2];
+      Vector3D[] vector3DArray0 = new Vector3D[20];
+      // Undeclared exception!
+      try { 
+        SimpleTriangleMesh.from(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Precision context must not be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedHashSet<int[]> linkedHashSet0 = new LinkedHashSet<int[]>();
+      // Undeclared exception!
+      try { 
+        SimpleTriangleMesh.from((Collection<Vector3D>) null, (Collection<int[]>) linkedHashSet0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Precision context must not be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }

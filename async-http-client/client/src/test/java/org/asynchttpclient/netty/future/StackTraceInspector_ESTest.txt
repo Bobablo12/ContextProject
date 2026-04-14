@@ -1,0 +1,474 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ClosedChannelException closedChannelException0 = new ClosedChannelException();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(closedChannelException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      Throwable throwable1 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      Throwable throwable2 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn(throwable1, (Throwable) null).when(throwable2).getCause();
+      // Undeclared exception!
+      try { 
+        StackTraceInspector.recoverOnNettyDisconnectException(throwable2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.future.StackTraceInspector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable0).getCause();
+      StackTraceInspector.recoverOnNettyDisconnectException(throwable0);
+      Throwable throwable1 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable1).getCause();
+      StackTraceInspector.recoverOnNettyDisconnectException(throwable1);
+      Throwable throwable2 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable2).getCause();
+      StackTraceInspector.recoverOnReadOrWriteException(throwable2);
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      Throwable throwable3 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable3).getCause();
+      StackTraceInspector.recoverOnNettyDisconnectException(throwable3);
+      Throwable throwable4 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable4).getCause();
+      StackTraceInspector.recoverOnReadOrWriteException(throwable4);
+      Throwable throwable5 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable5).getCause();
+      StackTraceInspector.recoverOnNettyDisconnectException(throwable5);
+      Throwable throwable6 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      doReturn((Throwable) null).when(throwable6).getCause();
+      StackTraceInspector.recoverOnNettyDisconnectException(throwable6);
+      Throwable throwable7 = null;
+      // Undeclared exception!
+      try { 
+        StackTraceInspector.recoverOnNettyDisconnectException((Throwable) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.future.StackTraceInspector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException((String) null);
+      MockThrowable mockThrowable0 = new MockThrowable("[m3BrW98", mockIOException0);
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockThrowable0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("");
+      MockIOException mockIOException0 = new MockIOException("", mockThrowable0);
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "", "sun.nio.ch.SocketChannelImpl", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      MockIOException mockIOException1 = new MockIOException(mockIOException0);
+      mockIOException1.getStackTrace();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("");
+      MockIOException mockIOException0 = new MockIOException("", mockThrowable0);
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "", "sun.nio.ch.SocketChannelImpl", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      MockIOException mockIOException1 = new MockIOException(mockIOException0);
+      mockIOException1.getStackTrace();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection reset by peer", "Connection reset by peer", "{} {}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "{} {}", "DNIN&;Inz", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      mockIOException0.toString();
+      MockIOException mockIOException2 = new MockIOException((String) null);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      boolean boolean2 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection reset by peer", "Connection reset by peer", "{} {}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "{} {}", "DNIN&;Inz", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      mockIOException0.toString();
+      MockIOException mockIOException2 = new MockIOException((String) null);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      boolean boolean2 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      assertTrue(boolean2);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("8stw$]Dc1k");
+      MockThrowable.getDefaultStackTrace();
+      mockThrowable0.setOriginForDelegate((StackTraceElement) null);
+      StackTraceInspector.recoverOnReadOrWriteException(mockThrowable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockThrowable0);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("8stw$]Dc1k");
+      MockThrowable.getDefaultStackTrace();
+      mockThrowable0.setOriginForDelegate((StackTraceElement) null);
+      StackTraceInspector.recoverOnReadOrWriteException(mockThrowable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockThrowable0);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      MockIOException mockIOException2 = new MockIOException("Connection reset by peer", mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      MockIOException mockIOException3 = new MockIOException((String) null);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      boolean boolean2 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      MockIOException mockIOException2 = new MockIOException("Connection reset by peer", mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      MockIOException mockIOException3 = new MockIOException((String) null);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      boolean boolean2 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      assertTrue(boolean2);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable();
+      MockThrowable mockThrowable1 = new MockThrowable(mockThrowable0);
+      MockIOException mockIOException0 = new MockIOException(mockThrowable1);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("disconnect");
+      MockIOException mockIOException0 = new MockIOException("disconnect");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconnect", "sun.nio.ch.SocketChannelImpl", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      boolean boolean2 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("disconnect");
+      MockIOException mockIOException0 = new MockIOException("disconnect");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconnect", "sun.nio.ch.SocketChannelImpl", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      boolean boolean2 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("disconnect");
+      MockIOException mockIOException0 = new MockIOException("disconnect");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconnect", "sun.nio.ch.SocketChannelImpl", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      boolean boolean2 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      assertTrue(boolean2);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("disconneXt");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconneXt", "disconneXt", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("disconneXt");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconneXt", "disconneXt", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      MockIOException mockIOException1 = new MockIOException((Throwable) null);
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("{} {}", "{} {}", "{} {}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDisFatcher", "sun.nio.ch.SocketDisFatcher", "{} {}", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      MockIOException mockIOException2 = new MockIOException("{} {}");
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      mockIOException0.toString();
+      MockIOException mockIOException3 = new MockIOException((String) null);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException2);
+      mockIOException2.getLocalizedMessage();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException2);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      mockIOException0.getCause();
+      MockIOException mockIOException1 = new MockIOException((Throwable) null);
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("{} {}", "{} {}", "{} {}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDisFatcher", "sun.nio.ch.SocketDisFatcher", "{} {}", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      MockIOException mockIOException2 = new MockIOException("{} {}");
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      mockIOException0.toString();
+      MockIOException mockIOException3 = new MockIOException((String) null);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException2);
+      mockIOException2.getLocalizedMessage();
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException2);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException();
+      MockIOException mockIOException2 = new MockIOException("{} {}", mockIOException1);
+      mockIOException2.toString();
+      MockIOException mockIOException3 = new MockIOException("org.evosuite.runtime.mock.java.lang.MockThrowable: {} {}", mockIOException0);
+      mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException0);
+      MockIOException mockIOException1 = new MockIOException();
+      MockIOException mockIOException2 = new MockIOException("{} {}", mockIOException1);
+      mockIOException2.toString();
+      MockIOException mockIOException3 = new MockIOException("org.evosuite.runtime.mock.java.lang.MockThrowable: {} {}", mockIOException0);
+      mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException3);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("}{}");
+      MockIOException mockIOException1 = new MockIOException("Connection Qeset by peer");
+      mockIOException0.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection Qeset by peer", "Connection Qeset by peer", "}{}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "}{}", "write", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      StackTraceInspector stackTraceInspector0 = new StackTraceInspector();
+      MockIOException mockIOException0 = new MockIOException("}{}");
+      MockIOException mockIOException1 = new MockIOException("Connection Qeset by peer");
+      mockIOException0.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection Qeset by peer", "Connection Qeset by peer", "}{}", 597);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "}{}", "write", 597);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean0 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException1);
+      boolean boolean2 = StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      assertTrue(boolean2);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection reset by peer", "Connection reset by peer", "{} {}", 572);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "{} {}", "DNIN&;Inz", 572);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      mockIOException0.toString();
+      MockIOException mockIOException2 = new MockIOException("Connection reset by peer");
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("{} {}");
+      MockIOException mockIOException1 = new MockIOException("Connection reset by peer");
+      mockIOException1.getCause();
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[2];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("Connection reset by peer", "Connection reset by peer", "{} {}", 572);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      StackTraceElement stackTraceElement1 = new StackTraceElement("sun.nio.ch.SocketDispatcher", "{} {}", "DNIN&;Inz", 572);
+      stackTraceElementArray0[1] = stackTraceElement1;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      mockIOException0.toString();
+      MockIOException mockIOException2 = new MockIOException("Connection reset by peer");
+      Throwable throwable0 = mockIOException0.initCause(mockIOException1);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException2);
+      StackTraceInspector.recoverOnReadOrWriteException(mockIOException1);
+      boolean boolean1 = StackTraceInspector.recoverOnReadOrWriteException(throwable0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      MockIOException mockIOException0 = new MockIOException("disconnect");
+      StackTraceElement[] stackTraceElementArray0 = new StackTraceElement[1];
+      StackTraceElement stackTraceElement0 = new StackTraceElement("io.netty.handler.ssl.SslHandler", "disconnect", "disconnect", 926);
+      stackTraceElementArray0[0] = stackTraceElement0;
+      mockIOException0.setStackTrace(stackTraceElementArray0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockIOException0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("ro.netty.handler.ssl.SslHandler");
+      StackTraceElement stackTraceElement0 = new StackTraceElement("ro.netty.handler.ssl.SslHandler", "ro.netty.handler.ssl.SslHandler", "ro.netty.handler.ssl.SslHandler", (byte)18);
+      mockThrowable0.setOriginForDelegate(stackTraceElement0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("ro.netty.handler.ssl.SslHandler");
+      StackTraceElement stackTraceElement0 = new StackTraceElement("ro.netty.handler.ssl.SslHandler", "ro.netty.handler.ssl.SslHandler", "ro.netty.handler.ssl.SslHandler", (byte)18);
+      mockThrowable0.setOriginForDelegate(stackTraceElement0);
+      boolean boolean0 = StackTraceInspector.recoverOnNettyDisconnectException(mockThrowable0);
+      ClosedChannelException closedChannelException0 = new ClosedChannelException();
+      Throwable throwable0 = closedChannelException0.fillInStackTrace();
+      boolean boolean1 = StackTraceInspector.recoverOnNettyDisconnectException(throwable0);
+      assertTrue(boolean1);
+}

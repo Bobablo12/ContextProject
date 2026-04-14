@@ -1,0 +1,44 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      defaultSerializer0.process(byteArrayOutputStream0, byteArrayOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      Object object0 = new Object();
+      try { 
+        defaultSerializer0.process(pipedOutputStream0, object0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      Object object0 = new Object();
+      boolean boolean0 = defaultSerializer0.canProcess(object0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DefaultSerializer defaultSerializer0 = new DefaultSerializer();
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        defaultSerializer0.process((OutputStream) null, object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.serialization.DefaultSerializer", e);
+      }
+  }

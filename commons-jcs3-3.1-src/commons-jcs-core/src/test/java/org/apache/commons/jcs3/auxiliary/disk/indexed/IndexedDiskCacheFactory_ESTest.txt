@@ -1,0 +1,34 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IndexedDiskCacheFactory indexedDiskCacheFactory0 = new IndexedDiskCacheFactory();
+      CommonRemoteCacheAttributes commonRemoteCacheAttributes0 = new CommonRemoteCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        indexedDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) commonRemoteCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.CommonRemoteCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IndexedDiskCacheFactory indexedDiskCacheFactory0 = new IndexedDiskCacheFactory();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        indexedDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) null, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache", e);
+      }
+  }

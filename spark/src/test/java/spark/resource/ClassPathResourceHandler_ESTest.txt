@@ -1,0 +1,90 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/", "/");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = classPathResourceHandler0.getResource("/");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = null;
+      try {
+        classPathResourceHandler0 = new ClassPathResourceHandler((String) null, "GP");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // [Assertion failed] - this argument is required; it must not be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = null;
+      try {
+        classPathResourceHandler0 = new ClassPathResourceHandler((String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // [Assertion failed] - this argument is required; it must not be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("./", "/");
+      // Undeclared exception!
+      try { 
+        classPathResourceHandler0.getResource("/");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // classpath
+         //
+         verifyException("spark.staticfiles.DirectoryTraversal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = classPathResourceHandler0.getResource("/");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/", "../");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = classPathResourceHandler0.getResource("/");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = classPathResourceHandler0.getResource("//G'Y/G'Y");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("");
+      try { 
+        classPathResourceHandler0.getResource("");
+        fail("Expecting exception: MalformedURLException");
+      } catch(MalformedURLException e) {
+         //
+         // 
+         //
+         verifyException("spark.resource.ClassPathResourceHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/");
+      try { 
+        classPathResourceHandler0.getResource((String) null);
+        fail("Expecting exception: MalformedURLException");
+      } catch(MalformedURLException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.resource.ClassPathResourceHandler", e);
+      }
+  }

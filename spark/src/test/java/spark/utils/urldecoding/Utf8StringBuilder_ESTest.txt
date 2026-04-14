@@ -1,0 +1,60 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(501);
+      utf8StringBuilder0.append((byte)0);
+      String string0 = utf8StringBuilder0.toString();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(501);
+      utf8StringBuilder0.append((byte)0);
+      int int0 = utf8StringBuilder0.length();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0._state = 235;
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.toString();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! incomplete UTF8 sequence
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = null;
+      try {
+        utf8StringBuilder0 = new Utf8StringBuilder((-898));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(134);
+      String string0 = utf8StringBuilder0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(134);
+      utf8StringBuilder0.reset();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      int int0 = utf8StringBuilder0.length();
+      assertEquals(0, int0);
+}

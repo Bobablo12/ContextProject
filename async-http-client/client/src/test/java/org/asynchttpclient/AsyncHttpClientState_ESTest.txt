@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AtomicBoolean atomicBoolean0 = new AtomicBoolean(true);
+      AsyncHttpClientState asyncHttpClientState0 = new AsyncHttpClientState(atomicBoolean0);
+      boolean boolean0 = asyncHttpClientState0.isClosed();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AtomicBoolean atomicBoolean0 = mock(AtomicBoolean.class, new ViolatedAssumptionAnswer());
+      AsyncHttpClientState asyncHttpClientState0 = new AsyncHttpClientState(atomicBoolean0);
+      boolean boolean0 = asyncHttpClientState0.isClosed();
+      assertFalse(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      AsyncHttpClientState asyncHttpClientState0 = new AsyncHttpClientState((AtomicBoolean) null);
+      // Undeclared exception!
+      try { 
+        asyncHttpClientState0.isClosed();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.AsyncHttpClientState", e);
+      }
+  }

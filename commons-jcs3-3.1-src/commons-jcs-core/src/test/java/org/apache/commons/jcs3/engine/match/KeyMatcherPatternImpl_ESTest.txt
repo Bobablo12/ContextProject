@@ -1,0 +1,40 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      KeyMatcherPatternImpl<Object> keyMatcherPatternImpl0 = new KeyMatcherPatternImpl<Object>();
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      // Undeclared exception!
+      try { 
+        keyMatcherPatternImpl0.getMatchingKeysFromArray("+H'", linkedHashSet0);
+        fail("Expecting exception: PatternSyntaxException");
+      } catch(PatternSyntaxException e) {
+         //
+         // Dangling meta character '+' near index 0
+         // +H'
+         // ^
+         //
+         verifyException("java.util.regex.Pattern", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      KeyMatcherPatternImpl<Object> keyMatcherPatternImpl0 = new KeyMatcherPatternImpl<Object>();
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      linkedHashSet0.add((Object) null);
+      // Undeclared exception!
+      try { 
+        keyMatcherPatternImpl0.getMatchingKeysFromArray("", linkedHashSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.System", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      KeyMatcherPatternImpl<Integer> keyMatcherPatternImpl0 = new KeyMatcherPatternImpl<Integer>();
+      LinkedHashSet<Integer> linkedHashSet0 = new LinkedHashSet<Integer>();
+      Set<Integer> set0 = keyMatcherPatternImpl0.getMatchingKeysFromArray("Bmc%k0J/}H", linkedHashSet0);
+      assertTrue(set0.isEmpty());
+}

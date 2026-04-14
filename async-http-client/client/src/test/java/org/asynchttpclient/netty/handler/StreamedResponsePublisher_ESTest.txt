@@ -1,0 +1,147 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, (NettyResponseFuture<?>) null, channel0);
+      streamedResponsePublisher0.cancelled();
+      assertFalse(streamedResponsePublisher0.hasOutstandingRequest());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(eventExecutor0).inEventLoop();
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      ChannelHandlerContext channelHandlerContext0 = mock(ChannelHandlerContext.class, new ViolatedAssumptionAnswer());
+      ChannelHandlerContext channelHandlerContext1 = mock(ChannelHandlerContext.class, new ViolatedAssumptionAnswer());
+      doReturn(channelHandlerContext0).when(channelHandlerContext1).fireChannelRegistered();
+      doReturn(channelHandlerContext0).when(channelHandlerContext1).read();
+      NettyResponseFuture<String> nettyResponseFuture0 = (NettyResponseFuture<String>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      streamedResponsePublisher0.channelRegistered(channelHandlerContext1);
+      assertTrue(streamedResponsePublisher0.hasOutstandingRequest());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(eventExecutor0).inEventLoop();
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      ChannelHandlerContext channelHandlerContext0 = mock(ChannelHandlerContext.class, new ViolatedAssumptionAnswer());
+      ChannelHandlerContext channelHandlerContext1 = mock(ChannelHandlerContext.class, new ViolatedAssumptionAnswer());
+      doReturn(channelHandlerContext0).when(channelHandlerContext1).fireChannelRegistered();
+      doReturn(channelHandlerContext0).when(channelHandlerContext1).read();
+      NettyResponseFuture<String> nettyResponseFuture0 = (NettyResponseFuture<String>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      streamedResponsePublisher0.channelRegistered(channelHandlerContext1);
+      streamedResponsePublisher0.requestDemand();
+      boolean boolean0 = streamedResponsePublisher0.hasOutstandingRequest();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher((EventExecutor) null, channelManager0, (NettyResponseFuture<?>) null, channel0);
+      streamedResponsePublisher0.future();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, (NettyResponseFuture<?>) null, channel0);
+      Subscriber<Object> subscriber0 = (Subscriber<Object>) mock(Subscriber.class, new ViolatedAssumptionAnswer());
+      streamedResponsePublisher0.subscribe(subscriber0);
+      // Undeclared exception!
+      try { 
+        streamedResponsePublisher0.subscribe((Subscriber<? super HttpResponseBodyPart>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.handler.StreamedResponsePublisher$ErrorReplacingSubscriber", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Integer> nettyResponseFuture0 = (NettyResponseFuture<Integer>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, (ChannelManager) null, nettyResponseFuture0, channel0);
+      // Undeclared exception!
+      try { 
+        streamedResponsePublisher0.cancelled();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.handler.StreamedResponsePublisher", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      // Undeclared exception!
+      try { 
+        streamedResponsePublisher0.requestDemand();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("com.typesafe.netty.HandlerPublisher", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      ChannelHandlerContext channelHandlerContext0 = mock(ChannelHandlerContext.class, new ViolatedAssumptionAnswer());
+      streamedResponsePublisher0.channelReadComplete(channelHandlerContext0);
+      assertFalse(streamedResponsePublisher0.hasOutstandingRequest());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      boolean boolean0 = streamedResponsePublisher0.hasOutstandingRequest();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      Subscriber<Object> subscriber0 = (Subscriber<Object>) mock(Subscriber.class, new ViolatedAssumptionAnswer());
+      streamedResponsePublisher0.subscribe(subscriber0);
+      Subscriber<Object> subscriber1 = (Subscriber<Object>) mock(Subscriber.class, new ViolatedAssumptionAnswer());
+      streamedResponsePublisher0.subscribe(subscriber1);
+      assertFalse(streamedResponsePublisher0.hasOutstandingRequest());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EventExecutor eventExecutor0 = mock(EventExecutor.class, new ViolatedAssumptionAnswer());
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      StreamedResponsePublisher streamedResponsePublisher0 = new StreamedResponsePublisher(eventExecutor0, channelManager0, nettyResponseFuture0, channel0);
+      streamedResponsePublisher0.setError((Throwable) null);
+      ;
+}

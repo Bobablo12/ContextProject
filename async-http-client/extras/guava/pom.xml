@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.asynchttpclient</groupId>
+    <artifactId>async-http-client-extras-parent</artifactId>
+    <version>2.12.3</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>async-http-client-extras-guava</artifactId>
+  <name>Asynchronous Http Client Guava Extras</name>
+  <description>
+    The Async Http Client Guava Extras.
+  </description>
+
+  <properties>
+    <javaModuleName>org.asynchttpclient.extras.guava</javaModuleName>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>28.2-jre</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
+    <directory>${project.basedir}/${target.dir}/</directory>
+    <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.9.8</version>
+        <configuration>
+          <threads>4</threads>
+          <timeoutConstant>8000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient.extras.guava*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.extras.guava.*_ESTest*</param>
+          </targetTests>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+  <profiles>
+    <profile>
+      <id>testID</id>
+      <activation>
+        <property>
+          <name>test.dir</name>
+        </property>
+      </activation>
+    </profile>
+    <profile>
+      <id>targetID</id>
+      <activation>
+        <property>
+          <name>target.dir</name>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
+</project>

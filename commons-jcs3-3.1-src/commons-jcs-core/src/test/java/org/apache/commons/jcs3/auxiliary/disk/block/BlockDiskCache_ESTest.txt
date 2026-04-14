@@ -1,0 +1,119 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BlockDiskCache<String, Runnable> blockDiskCache0 = null;
+      try {
+        blockDiskCache0 = new BlockDiskCache<String, Runnable>((BlockDiskCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BlockDiskCacheAttributes blockDiskCacheAttributes0 = new BlockDiskCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      BlockDiskCache<Integer, HashMap<Object, Object>> blockDiskCache0 = null;
+      try {
+        blockDiskCache0 = new BlockDiskCache<Integer, HashMap<Object, Object>>(blockDiskCacheAttributes0, compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          BlockDiskCacheAttributes blockDiskCacheAttributes0 = new BlockDiskCacheAttributes();
+          blockDiskCacheAttributes0.setCacheName("=SfuE");
+          blockDiskCacheAttributes0.setBlockSizeBytes(2142);
+          BlockDiskCache<LinkedList<Callable<Object>>, CacheElementSerialized<ByteArrayInputStream, Delayed>> blockDiskCache0 = null;
+          try {
+            blockDiskCache0 = new BlockDiskCache<LinkedList<Callable<Object>>, CacheElementSerialized<ByteArrayInputStream, Delayed>>(blockDiskCacheAttributes0, (IElementSerializer) null);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \"_SfuE.data\" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.block.BlockDisk.<init>(BlockDisk.java:119)
+             // org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCache.<init>(BlockDiskCache.java:128)
+             // sun.reflect.GeneratedConstructorAccessor125.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          BlockDiskCacheAttributes blockDiskCacheAttributes0 = new BlockDiskCacheAttributes();
+          CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+          blockDiskCacheAttributes0.setCacheName(", IS_ETERNAL = ");
+          BlockDiskCache<HashMap<String, String>, HashMap<Integer, String>> blockDiskCache0 = null;
+          try {
+            blockDiskCache0 = new BlockDiskCache<HashMap<String, String>, HashMap<Integer, String>>(blockDiskCacheAttributes0, compressingSerializer0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \"__IS_ETERNAL___.data\" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.block.BlockDisk.<init>(BlockDisk.java:119)
+             // org.apache.commons.jcs3.auxiliary.disk.block.BlockDisk.<init>(BlockDisk.java:91)
+             // org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCache.<init>(BlockDiskCache.java:133)
+             // sun.reflect.GeneratedConstructorAccessor125.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }

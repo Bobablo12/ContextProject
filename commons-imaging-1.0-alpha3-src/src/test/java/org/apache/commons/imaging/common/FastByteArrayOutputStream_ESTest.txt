@@ -1,0 +1,53 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = new FastByteArrayOutputStream(1);
+      fastByteArrayOutputStream0.write(1);
+      int int0 = fastByteArrayOutputStream0.getBytesWritten();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = null;
+      try {
+        fastByteArrayOutputStream0 = new FastByteArrayOutputStream((-552));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.FastByteArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = new FastByteArrayOutputStream(1);
+      byte[] byteArray0 = fastByteArrayOutputStream0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = new FastByteArrayOutputStream(1);
+      fastByteArrayOutputStream0.write(1);
+      fastByteArrayOutputStream0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = new FastByteArrayOutputStream(1);
+      fastByteArrayOutputStream0.write(1);
+      try { 
+        fastByteArrayOutputStream0.write(1);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Write exceeded expected length (1, 1)
+         //
+         verifyException("org.apache.commons.imaging.common.FastByteArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FastByteArrayOutputStream fastByteArrayOutputStream0 = new FastByteArrayOutputStream(1);
+      int int0 = fastByteArrayOutputStream0.getBytesWritten();
+      assertEquals(0, int0);
+}

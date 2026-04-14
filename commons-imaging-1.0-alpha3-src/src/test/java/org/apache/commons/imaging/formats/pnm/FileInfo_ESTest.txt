@@ -1,0 +1,217 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo((-2), 11, true, 809);
+      ImageBuilder imageBuilder0 = new ImageBuilder(11, 11, true);
+      ppmFileInfo0.readImage(imageBuilder0, (InputStream) null);
+      assertNotNull(ppmFileInfo0.getMIMEType());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo((-648), (-648), true, 1084);
+      ImageBuilder imageBuilder0 = new ImageBuilder(8, 8, true);
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      pgmFileInfo0.readImage(imageBuilder0, byteArrayInputStream0);
+      assertNotNull(pgmFileInfo0.getColorType());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ImageBuilder imageBuilder0 = new ImageBuilder(11, 11, true);
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(0, 11, false);
+      pbmFileInfo0.readImage(imageBuilder0, (InputStream) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-761), (-761), false);
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0);
+      pbmFileInfo0.readImage((ImageBuilder) null, bufferedInputStream0);
+      assertEquals(1, pbmFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, 0);
+      int int0 = FileInfo.readSample(byteArrayInputStream0, (-2668));
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(255, (-2022), true);
+      pbmFileInfo0.newline();
+      assertFalse(pbmFileInfo0.hasAlpha());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int int0 = FileInfo.scaleSample(0, 0, 0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      int int0 = FileInfo.scaleSample(69, 2167.1F, 69);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      int int0 = FileInfo.scaleSample(1, (-2.0629604F), 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[2] = (byte)87;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = FileInfo.readSample(byteArrayInputStream0, 6);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[2] = (byte)87;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = FileInfo.readSample(byteArrayInputStream0, 6);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = FileInfo.readSample(byteArrayInputStream0, 6);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = FileInfo.readSample(byteArrayInputStream0, 6);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FileInfo.readSample((InputStream) null, 2772);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1579), (byte)17);
+      // Undeclared exception!
+      try { 
+        FileInfo.readSample(byteArrayInputStream0, 1101);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      try { 
+        FileInfo.readSample(pipedInputStream0, 255);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(5, 5, true);
+      ImageBuilder imageBuilder0 = new ImageBuilder(5, 5, true);
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      try { 
+        pbmFileInfo0.readImage(imageBuilder0, byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PBM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo(8, 6, false, 809);
+      ImageBuilder imageBuilder0 = new ImageBuilder(6, 6, true);
+      // Undeclared exception!
+      try { 
+        ppmFileInfo0.readImage(imageBuilder0, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo(2772, 2772, false, 2772);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = ppmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo(2772, 2772, false, 2772);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = ppmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      try { 
+        FileInfo.scaleSample((-470), (-470), (-470));
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Negative pixel values are invalid in PNM files
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo(2772, 2772, false, 2772);
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      FileInfo.readSample(byteArrayInputStream0, 6);
+      try { 
+        ppmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      PpmFileInfo ppmFileInfo0 = new PpmFileInfo((-2), 11, false, 809);
+      ImageBuilder imageBuilder0 = new ImageBuilder(11, 11, true);
+      ppmFileInfo0.readImage(imageBuilder0, (InputStream) null);
+      assertNotNull(ppmFileInfo0.getColorType());
+}

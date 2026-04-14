@@ -1,0 +1,186 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(517);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(byteArrayOutputStream0);
+      bodyDeferringAsyncHandler0.closeOut();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      File file0 = MockFile.createTempFile("U*C/LfWCEjDCESg", "Lyor");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, false);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockFileOutputStream0);
+      SQLClientInfoException sQLClientInfoException0 = new SQLClientInfoException((String) null, (Map<String, ClientInfoStatus>) null);
+      bodyDeferringAsyncHandler0.onThrowable(sQLClientInfoException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("c&b`g`%{", true);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockFileOutputStream0);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      bodyDeferringAsyncHandler0.onHeadersReceived(combinedHttpHeaders0);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.onHeadersReceived(combinedHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.http.CombinedHttpHeaders$CombinedHttpHeadersImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.onCompleted();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(517);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(byteArrayOutputStream0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn((ByteBuf) null).when(byteBuf0).duplicate();
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, true);
+      try { 
+        bodyDeferringAsyncHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.util.ByteBufUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.closeOut();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MockFile mockFile0 = new MockFile(" cannot retry a request.", " cannot retry a request.");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockFileOutputStream0);
+      bodyDeferringAsyncHandler0.onCompleted();
+      Response response0 = bodyDeferringAsyncHandler0.onCompleted();
+      assertNotNull(response0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("V@s>L>vKskp*~8");
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockPrintStream0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(false);
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(unpooledByteBufAllocator0, 1038, 1038);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(unpooledUnsafeDirectByteBuf0, false);
+      bodyDeferringAsyncHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+      AsyncHandler.State asyncHandler_State0 = bodyDeferringAsyncHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("AKK{Y2_z4LP?B,n{tR");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockPrintStream0);
+      EmptyHttpHeaders emptyHttpHeaders0 = EmptyHttpHeaders.INSTANCE;
+      HttpHeaders httpHeaders0 = emptyHttpHeaders0.copy();
+      bodyDeferringAsyncHandler0.onTrailingHeadersReceived(httpHeaders0);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.onTrailingHeadersReceived(httpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.DefaultHeaders", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("PB+p", "PB+p");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockPrintStream0);
+      AsyncHandler.State asyncHandler_State0 = bodyDeferringAsyncHandler0.onStatusReceived((HttpResponseStatus) null);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(pipedOutputStream0, false);
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.onRetry();
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // BodyDeferringAsyncHandler cannot retry a request.
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      BodyDeferringAsyncHandler bodyDeferringAsyncHandler0 = new BodyDeferringAsyncHandler((OutputStream) null);
+      SQLFeatureNotSupportedException sQLFeatureNotSupportedException0 = new SQLFeatureNotSupportedException("2gd", "2gd");
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler0.onThrowable(sQLFeatureNotSupportedException0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Future<Response> future0 = (Future<Response>) mock(Future.class, new ViolatedAssumptionAnswer());
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BodyDeferringAsyncHandler.BodyDeferringInputStream bodyDeferringAsyncHandler_BodyDeferringInputStream0 = new BodyDeferringAsyncHandler.BodyDeferringInputStream(future0, (BodyDeferringAsyncHandler) null, byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler_BodyDeferringInputStream0.getAsapResponse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler$BodyDeferringInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      BodyDeferringAsyncHandler.BodyDeferringInputStream bodyDeferringAsyncHandler_BodyDeferringInputStream0 = new BodyDeferringAsyncHandler.BodyDeferringInputStream((Future<Response>) null, (BodyDeferringAsyncHandler) null, (InputStream) null);
+      // Undeclared exception!
+      try { 
+        bodyDeferringAsyncHandler_BodyDeferringInputStream0.getLastResponse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.BodyDeferringAsyncHandler$BodyDeferringInputStream", e);
+      }
+  }

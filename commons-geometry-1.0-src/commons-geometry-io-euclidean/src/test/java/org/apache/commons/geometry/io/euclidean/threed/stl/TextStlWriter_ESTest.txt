@@ -1,0 +1,316 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("DEFAULT", "DEFAULT");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0, true);
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2535.501), (-2535.501), 0.99);
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.orthogonal();
+      Vector3D.Unit vector3D_Unit2 = vector3D_Unit1.negate();
+      textStlWriter0.writeTriangle(vector3D_Unit2, vector3D_Unit1, vector3D_Unit0, vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(19);
+      TextStlWriter textStlWriter0 = new TextStlWriter(stringWriter0);
+      textStlWriter0.startSolid();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Vector3D[] vector3DArray0 = new Vector3D[5];
+      vector3DArray0[0] = (Vector3D) vector3D_Unit0;
+      vector3DArray0[1] = (Vector3D) vector3D_Unit0;
+      vector3DArray0[2] = (Vector3D) vector3D_Unit0;
+      vector3DArray0[3] = (Vector3D) vector3D_Unit0;
+      vector3DArray0[4] = (Vector3D) vector3D_Unit0;
+      Vector3D vector3D0 = Vector3D.min((Vector3D) vector3D_Unit0, vector3DArray0);
+      textStlWriter0.writeTriangle(vector3D0, vector3D0, vector3D_Unit0, vector3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("DEFAULT", "DEFAULT");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0, true);
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2535.501), (-2535.501), 0.99);
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.orthogonal();
+      textStlWriter0.writeTriangle(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("DEFAULT", "DEFAULT");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2535.501), (-2535.501), (-2535.501));
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(stack0);
+      textStlWriter0.writeTriangles((FacetDefinition) simpleFacetDefinition0);
+      assertNotNull(textStlWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("q{e9!", "q{e9!");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      PlaneConvexSubset planeConvexSubset0 = mock(PlaneConvexSubset.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(planeConvexSubset0).toTriangles();
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangles(planeConvexSubset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("loop");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      Vector<Triangle3D> vector0 = new Vector<Triangle3D>();
+      Vector<Vector3D> vector1 = new Vector<Vector3D>();
+      Plane plane0 = mock(Plane.class, new ViolatedAssumptionAnswer());
+      Triangle3D triangle3D0 = mock(Triangle3D.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(triangle3D0).getVertices();
+      doReturn((Plane) null).when(triangle3D0).getPlane();
+      vector0.add(triangle3D0);
+      PlaneConvexSubset planeConvexSubset0 = mock(PlaneConvexSubset.class, new ViolatedAssumptionAnswer());
+      doReturn(vector0).when(planeConvexSubset0).toTriangles();
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangles(planeConvexSubset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextStlWriter textStlWriter0 = new TextStlWriter(stringWriter0);
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangles((List<Vector3D>) null, vector3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.EuclideanUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("DEFAULT");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-2535.501), (-2535.501), (-2535.501));
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      stack0.add((Vector3D) vector3D_Unit0);
+      textStlWriter0.endSolid();
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangles((List<Vector3D>) stack0, (Vector3D) vector3D_Unit0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot write triangle: no solid has been started
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      TextStlWriter textStlWriter0 = new TextStlWriter(stringWriter0);
+      textStlWriter0.startSolid("");
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangle(vector3D_Unit0, vector3D_Unit0, (Vector3D) null, (Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TextStlWriter textStlWriter0 = new TextStlWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.startSolid();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TextStlWriter textStlWriter0 = new TextStlWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TextStlWriter textStlWriter0 = new TextStlWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.startSolid((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("DEFAULT", "DEFAULT");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      // Undeclared exception!
+      try { 
+        textStlWriter0.startSolid("DEFAULT");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot start solid definition: a solid is already being written
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("vertex");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid();
+      textStlWriter0.close();
+      assertNotNull(textStlWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("DEFAULT");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.orthogonal();
+      Vector3D.Unit vector3D_Unit2 = Vector3D.Unit.MINUS_X;
+      textStlWriter0.writeTriangle(vector3D_Unit1, vector3D_Unit0, vector3D_Unit2, vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("vertex");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot write triangle: no solid has been started
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("DEFAULT", "DEFAULT");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("DEFAULT");
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      textStlWriter0.writeTriangles((List<Vector3D>) stack0, (Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextStlWriter textStlWriter0 = new TextStlWriter(stringWriter0);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.endSolid();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot end solid definition: no solid has been started
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("\n");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.startSolid("\n");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Solid name cannot contain new line characters
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("UblRIU/", "");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      textStlWriter0.startSolid("UblRIU/");
+      // Undeclared exception!
+      try { 
+        textStlWriter0.startSolid();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot start solid definition: a solid is already being written
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("endloop");
+      TextStlWriter textStlWriter0 = new TextStlWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        textStlWriter0.writeTriangles((FacetDefinition) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriter", e);
+      }
+  }

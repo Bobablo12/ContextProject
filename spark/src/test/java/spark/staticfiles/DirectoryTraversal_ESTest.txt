@@ -1,0 +1,67 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        DirectoryTraversal.protectAgainstInClassPath((String) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.StringUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        DirectoryTraversal.protectAgainstForExternal("", (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DirectoryTraversal.DirectoryTraversalDetection directoryTraversal_DirectoryTraversalDetection0 = new DirectoryTraversal.DirectoryTraversalDetection("2WMFZZ!N");
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        DirectoryTraversal.protectAgainstForExternal("!IQ!}fU$='_?2", "2WMFZZ!N");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // external
+         //
+         verifyException("spark.staticfiles.DirectoryTraversal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DirectoryTraversal.protectAgainstInClassPath("", "");
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        DirectoryTraversal.protectAgainstInClassPath("test({}) -> [depth {}>{}]", ".class");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // classpath
+         //
+         verifyException("spark.staticfiles.DirectoryTraversal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      DirectoryTraversal directoryTraversal0 = new DirectoryTraversal();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      DirectoryTraversal.protectAgainstForExternal(",s=", ",s=");
+  }

@@ -1,0 +1,150 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = new ConsumerKey("*", "1?6Q eB%Ks_");
+      RequestToken requestToken0 = new RequestToken("^(", "");
+      Uri uri0 = new Uri("y0G&5;RF`P", "", "1?6Q eB%Ks_", 38, "", " could not be parsed into a proper Uri, missing host", "");
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      LinkedList<Param> linkedList1 = new LinkedList<Param>();
+      String string0 = oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, uri0, "^(", (List<Param>) linkedList0, (List<Param>) linkedList1, (long) 38, "1?6Q eB%Ks_");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = new ConsumerKey("&+F7~VMP", "&+F7~VMP");
+      RequestToken requestToken0 = new RequestToken("~", (String) null);
+      Uri uri0 = new Uri("xe<pl]ZU3ghVL(+;Z", "", "*", 0, "HmacSHA1", "xe<pl]ZU3ghVL(+;Z", "&+F7~VMP");
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      StringBuilder stringBuilder0 = oAuthSignatureCalculatorInstance0.signatureBaseString(consumerKey0, requestToken0, uri0, "ws", linkedList0, linkedList0, 0L, "wss");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = new ConsumerKey("&+F7~VMP", "&+F7~VMP");
+      RequestToken requestToken0 = new RequestToken("~", (String) null);
+      Uri uri0 = new Uri("xe<pl]ZU3ghVL(+;Z", "", "*", 0, "HmacSHA1", "xe<pl]ZU3ghVL(+;Z", "&+F7~VMP");
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      String string0 = oAuthSignatureCalculatorInstance0.computeSignature(consumerKey0, requestToken0, uri0, (String) null, linkedList0, linkedList0, 383L, "ws");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = mock(ConsumerKey.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(consumerKey0).getPercentEncodedKey();
+      RequestToken requestToken0 = mock(RequestToken.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(requestToken0).getKey();
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(uri0).toBaseUrl();
+      // Undeclared exception!
+      try { 
+        oAuthSignatureCalculatorInstance0.signatureBaseString(consumerKey0, requestToken0, uri0, "|_Y|:e\"gL", (List<Param>) null, (List<Param>) null, 1L, "9AZ)c#gG`I%");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = mock(ConsumerKey.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(consumerKey0).getPercentEncodedKey();
+      RequestToken requestToken0 = mock(RequestToken.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(requestToken0).getKey();
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(uri0).toBaseUrl();
+      // Undeclared exception!
+      try { 
+        oAuthSignatureCalculatorInstance0.computeSignature(consumerKey0, requestToken0, uri0, "", (List<Param>) null, (List<Param>) null, (-1302L), "j#%q]%|=b\"$-<9");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      RequestToken requestToken0 = new RequestToken("~", (String) null);
+      Uri uri0 = new Uri("xe<pl]ZU3ghVL(+;Z", "", "*", 0, "HmacSHA1", "xe<pl]ZU3ghVL(+;Z", "&+F7~VMP");
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      ConsumerKey consumerKey0 = new ConsumerKey("https", (String) null);
+      // Undeclared exception!
+      try { 
+        oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, uri0, "(iHB<;.x<", (List<Param>) linkedList0, (List<Param>) linkedList0, 1806L, "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = new ConsumerKey("", "");
+      RequestToken requestToken0 = new RequestToken("", "");
+      HashMap<String, List<String>> hashMap0 = new HashMap<String, List<String>>();
+      List<Param> list0 = Param.map2ParamList(hashMap0);
+      // Undeclared exception!
+      try { 
+        oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, (Uri) null, "", list0, (List<Param>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.oauth.OAuthSignatureCalculatorInstance", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = mock(ConsumerKey.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(consumerKey0).getPercentEncodedKey();
+      // Undeclared exception!
+      try { 
+        oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, (RequestToken) null, "", 3305L, "\"MqT%=h\"z@/pwo");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.oauth.OAuthSignatureCalculatorInstance", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = new ConsumerKey("&+F7~VMP", "&+F7~VMP");
+      RequestToken requestToken0 = new RequestToken("~", (String) null);
+      String string0 = oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, "xe<pl]ZU3ghVL(+;Z", 5028L, "UefLgH51a");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      ConsumerKey consumerKey0 = mock(ConsumerKey.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(consumerKey0).getPercentEncodedKey();
+      RequestToken requestToken0 = mock(RequestToken.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(requestToken0).getKey();
+      String string0 = oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, "9bRxT]G", 2138L, "9bRxT]G");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ConsumerKey consumerKey0 = new ConsumerKey("oa%uth_nonc-", "oa%uth_nonc-");
+      RequestToken requestToken0 = new RequestToken("oa%uth_nonc-", "oa%uth_nonc-");
+      Uri uri0 = new Uri("oa%uth_nonc-", "oa%uth_nonc-", "oa%uth_nonc-", 25, "oa%uth_nonc-", "oa%uth_nonc-", "oa%uth_nonc-");
+      LinkedList<Param> linkedList0 = new LinkedList<Param>();
+      Param param0 = new Param("https", "wss");
+      linkedList0.add(param0);
+      OAuthSignatureCalculatorInstance oAuthSignatureCalculatorInstance0 = new OAuthSignatureCalculatorInstance();
+      String string0 = oAuthSignatureCalculatorInstance0.computeAuthorizationHeader(consumerKey0, requestToken0, uri0, "ws", (List<Param>) linkedList0, (List<Param>) linkedList0, (long) 25, "oa%uth_nonc-");
+      ;
+}

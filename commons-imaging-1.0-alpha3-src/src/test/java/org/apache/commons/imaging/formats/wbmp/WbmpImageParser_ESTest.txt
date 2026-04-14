@@ -1,0 +1,526 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(10, 97, false);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("ui", false);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.writeImage(bufferedImage0, (OutputStream) filterOutputStream0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[3] = (byte)21;
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getBufferedImage(byteArray0, wbmpImagingParameters0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Width (0) and height (21) must be > 0
+         //
+         verifyException("java.awt.image.SampleModel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[2] = (byte)19;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.getImageSize((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.getImageSize((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[3] = (byte)21;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.getImageSize((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[2] = (byte)7;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.getImageInfo((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[3] = (byte) (-53);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      wbmpImageParser0.getImageInfo((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      wbmpImageParser0.getAcceptedExtensions();
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("wbmp");
+      wbmpImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      PrintStream printStream0 = DebugGraphics.logStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(printStream0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.writeImage((BufferedImage) null, (OutputStream) mockPrintStream0, wbmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(1125, 97, true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("ui", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.writeImage(bufferedImage0, (OutputStream) filterOutputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte) (-44);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(") [0x", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      try { 
+        wbmpImageParser0.getImageSize((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid/unsupported WBMP type 10752
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", (byte[]) null);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getImageSize((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      MockFile mockFile0 = new MockFile("A%_r+]");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.getImageSize((ByteSource) byteSourceFile0, wbmpImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) null, wbmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(dataInputStream0, 1);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "ui");
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-826), (byte)18);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "Height: ");
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      MockFile mockFile0 = new MockFile("Invalid/unsupported WBMP type ", "Invalid/unsupported WBMP type ");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) byteSourceFile0, wbmpImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[6];
+      byteArray0[1] = (byte) (-35);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid/unsupported WBMP FixHeaderField 0xdd
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) null, wbmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1935), (byte)40);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, (byte)122);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pushbackInputStream0, (byte)122);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "^M1Gfp3nV3M?U(H");
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "FixHeaderField");
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) byteSourceFile0, wbmpImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        wbmpImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error reading WBMP header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      MockFile mockFile0 = new MockFile("[d)8nmt%\" !u", "Wireless Application Protocol Bitmap Format");
+      MockFile mockFile1 = new MockFile(mockFile0, "+A");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile1);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0, true);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        wbmpImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      WbmpImageParser.WbmpHeader wbmpImageParser_WbmpHeader0 = new WbmpImageParser.WbmpHeader((-185), (byte) (-1), (-1789), (byte) (-1));
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("L8p41D~");
+      wbmpImageParser_WbmpHeader0.dump(mockPrintWriter0);
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      wbmpImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      PrintStream printStream0 = DebugGraphics.logStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(printStream0);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte) (-128);
+      byteArray0[2] = (byte)82;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        wbmpImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid/unsupported WBMP FixHeaderField 0x52
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte) (-102);
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid/unsupported WBMP type 3328
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(1125, 97, true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("ui", true);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      wbmpImageParser0.writeImage(bufferedImage0, (OutputStream) filterOutputStream0, wbmpImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte) (-62);
+      byteArray0[1] = (byte) (-128);
+      byteArray0[2] = (byte) (-128);
+      byteArray0[3] = (byte) (-62);
+      try { 
+        wbmpImageParser0.getAllBufferedImages(byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Overflow reading WBMP multi-byte field
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.getBufferedImage((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Width (0) and height (0) must be > 0
+         //
+         verifyException("java.awt.image.SampleModel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      ImageFormat[] imageFormatArray0 = wbmpImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("wbmp", byteArray0);
+      WbmpImagingParameters wbmpImagingParameters0 = new WbmpImagingParameters();
+      ImageMetadata imageMetadata0 = wbmpImageParser0.getMetadata((ByteSource) byteSourceArray0, wbmpImagingParameters0);
+      assertNotNull(imageMetadata0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      String string0 = wbmpImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      MockFile mockFile0 = new MockFile("'*K^-^Jb><<~m!K", "");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, true);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileWriter0);
+      // Undeclared exception!
+      try { 
+        wbmpImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.wbmp.WbmpImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-964), (byte) (-15));
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, (String) null);
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      try { 
+        wbmpImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error reading WBMP header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      WbmpImagingParameters wbmpImagingParameters0 = wbmpImageParser0.getDefaultParameters();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(1177);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "Uses Palette: ");
+      try { 
+        wbmpImageParser0.getImageSize((ByteSource) byteSourceInputStream0, wbmpImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      WbmpImageParser wbmpImageParser0 = new WbmpImageParser();
+      String string0 = wbmpImageParser0.getName();
+      ;
+}

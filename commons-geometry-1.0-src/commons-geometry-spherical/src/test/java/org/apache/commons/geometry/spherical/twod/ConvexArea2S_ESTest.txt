@@ -1,0 +1,862 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.add(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Point2S point2S0 = Point2S.MINUS_K;
+      arrayDeque0.add(point2S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Point2S point2S1 = Point2S.MINUS_J;
+      arrayDeque0.addLast(point2S1);
+      arrayDeque0.add(point2S1);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, true, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ConvexArea2S convexArea2S0 = ConvexArea2S.full();
+      GreatArc greatArc0 = convexArea2S0.trim((HyperplaneConvexSubset<Point2S>) null);
+      assertNotNull(greatArc0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-774.0041836789327), (-774.0041836789327), (-774.0041836789327));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = Point2S.PLUS_I;
+      arrayDeque0.push(point2S0);
+      arrayDeque0.add(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Transform2S transform2S0 = Transform2S.identity();
+      ConvexArea2S convexArea2S1 = convexArea2S0.transform(transform2S0);
+      assertFalse(convexArea2S1.isFull());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ConvexArea2S convexArea2S0 = ConvexArea2S.full();
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1829.439071231221, 1829.439071231221, 1829.439071231221);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1829.439071231221, 1829.439071231221, 1829.439071231221);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Vector3D vector3D0 = convexArea2S0.getWeightedCentroidVector();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Point2S point2S2 = convexArea2S0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Point2S point2S2 = convexArea2S0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.add(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Point2S point2S2 = convexArea2S0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.add(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Point2S point2S2 = convexArea2S0.getCentroid();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      GreatCircle[] greatCircleArray0 = new GreatCircle[0];
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      assertTrue(convexArea2S0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.trim((HyperplaneConvexSubset<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegion", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(601.578, 601.578);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.trim(greatArc0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.transform((Transform<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      Transform2S transform2S0 = Transform2S.createReflection((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.transform(transform2S0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector<GreatCircle> vector0 = new Vector<GreatCircle>(54, 7);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) vector0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.split((Hyperplane<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegion", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.split(greatCircle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      LinkedHashSet<GreatCircle> linkedHashSet0 = new LinkedHashSet<GreatCircle>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      linkedHashSet0.add(greatCircle0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) linkedHashSet0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.getInteriorAngles();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.AbstractGreatArcConnector$ConnectableGreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      AxisSequence axisSequence0 = AxisSequence.XZY;
+      Vector3D.Unit vector3D_Unit0 = (Vector3D.Unit)axisSequence0.getAxis3();
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      // Undeclared exception!
+      try { 
+        convexArea2S0.getBoundaryPath();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.AbstractGreatArcConnector$ConnectableGreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      LinkedHashSet<Point2S> linkedHashSet0 = new LinkedHashSet<Point2S>();
+      Point2S point2S0 = Point2S.MINUS_K;
+      linkedHashSet0.add(point2S0);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) linkedHashSet0, true, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.Point2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc(greatCircle0, angularInterval_Convex0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) null, precision_DoubleEquivalence1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      Point2S point2S0 = Point2S.MINUS_J;
+      arrayDeque0.add(point2S0);
+      arrayDeque0.add(point2S0);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = greatCircle0.arc(angularInterval_Convex0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertexLoop((Collection<Point2S>) null, precision_DoubleEquivalence1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, precision_DoubleEquivalence1);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create convex area: only a single unique vertex provided
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromPath((GreatArcPath) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromBounds((GreatCircle[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[3];
+      greatCircleArray0[0] = greatCircle0;
+      GreatCircle greatCircle1 = greatCircle0.reverse();
+      greatCircleArray0[1] = greatCircle1;
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromBounds(greatCircleArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromBounds((Iterable<GreatCircle>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegion$ConvexRegionBoundaryBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      stack0.add(greatCircle0);
+      GreatCircle greatCircle1 = greatCircle0.reverse();
+      stack0.add(greatCircle1);
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      Point2S point2S1 = greatCircle0.getPolePoint();
+      arrayDeque0.push(point2S0);
+      arrayDeque0.offerFirst(point2S1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, false, precision_DoubleEquivalence1);
+      assertTrue(convexArea2S0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      arrayDeque0.push(point2S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, false, precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create convex area: only a single unique vertex provided
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Point2S point2S0 = Point2S.MINUS_J;
+      arrayDeque0.addLast(point2S0);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, true, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create convex area: only a single unique vertex provided
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Point2S point2S0 = Point2S.MINUS_J;
+      arrayDeque0.addLast(point2S0);
+      arrayDeque0.add(point2S0);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, true, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      LinkedHashSet<Point2S> linkedHashSet0 = new LinkedHashSet<Point2S>();
+      linkedHashSet0.add((Point2S) null);
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) linkedHashSet0, true, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create convex area: only a single unique vertex provided
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = Point2S.MINUS_J;
+      arrayDeque0.push(point2S0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create convex area: only a single unique vertex provided
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.ConvexArea2S", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      ConvexArea2S convexArea2S0 = ConvexArea2S.full();
+      Point2S point2S0 = convexArea2S0.getCentroid();
+      assertNotNull(point2S0);
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(601.578, 601.578);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      double double0 = convexArea2S0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      double double0 = convexArea2S0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      PriorityQueue<Point2S> priorityQueue0 = new PriorityQueue<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = new GreatArc(greatCircle0, (AngularInterval.Convex) null);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      GreatArcPath greatArcPath0 = GreatArcPath.fromVertices((Collection<Point2S>) priorityQueue0, true, precision_DoubleEquivalence1);
+      List<Point2S> list0 = greatArcPath0.getVertices();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertices((Collection<Point2S>) list0, true, precision_DoubleEquivalence1);
+      double[] doubleArray0 = convexArea2S0.getInteriorAngles();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(601.578, 601.578);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      GreatArcPath greatArcPath0 = convexArea2S0.getBoundaryPath();
+      assertTrue(greatArcPath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatCircle[] greatCircleArray0 = new GreatCircle[1];
+      greatCircleArray0[0] = greatCircle0;
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds(greatCircleArray0);
+      GreatArcPath greatArcPath0 = convexArea2S0.getBoundaryPath();
+      ConvexArea2S convexArea2S1 = ConvexArea2S.fromPath(greatArcPath0);
+      assertTrue(convexArea2S1.isFull());
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Stack<GreatCircle> stack0 = new Stack<GreatCircle>();
+      ArrayDeque<GreatCircle> arrayDeque0 = new ArrayDeque<GreatCircle>(stack0);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) arrayDeque0);
+      ConvexArea2S convexArea2S1 = convexArea2S0.transform((Transform<Point2S>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(601.578, 601.578);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      Split<ConvexArea2S> split0 = convexArea2S0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-789.0), (-2245.4885523), (-789.0));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertices((Collection<Point2S>) arrayDeque0, precision_DoubleEquivalence1);
+      assertTrue(convexArea2S0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      ArrayDeque<Point2S> arrayDeque0 = new ArrayDeque<Point2S>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(601.578, 601.578);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromVertexLoop(arrayDeque0, precision_DoubleEquivalence1);
+      GreatArc greatArc1 = convexArea2S0.trim(greatArc0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector<GreatCircle> vector0 = new Vector<GreatCircle>(54, 7);
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromBounds((Iterable<GreatCircle>) vector0);
+      RegionBSPTree2S regionBSPTree2S0 = convexArea2S0.toTree();
+      assertNotNull(regionBSPTree2S0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      GreatArcPath greatArcPath0 = GreatArcPath.empty();
+      ConvexArea2S convexArea2S0 = ConvexArea2S.fromPath(greatArcPath0);
+      assertTrue(convexArea2S0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      ConvexArea2S convexArea2S0 = ConvexArea2S.full();
+      Stream<GreatArc> stream0 = convexArea2S0.boundaryStream();
+      assertNotNull(stream0);
+}

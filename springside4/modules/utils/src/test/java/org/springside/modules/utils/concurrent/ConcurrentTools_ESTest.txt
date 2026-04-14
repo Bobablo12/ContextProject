@@ -1,0 +1,81 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConcurrentTools.sampler((-1.0));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid selectPercent value: -1.0
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConcurrentTools.rateLimiter(0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // rate must be positive
+         //
+         verifyException("com.google.common.base.Preconditions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConcurrentTools.cyclicBarrier(0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.CyclicBarrier", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ConcurrentTools.countDownLatch((-3099));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // count < 0
+         //
+         verifyException("java.util.concurrent.CountDownLatch", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ConcurrentTools concurrentTools0 = new ConcurrentTools();
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CyclicBarrier cyclicBarrier0 = ConcurrentTools.cyclicBarrier(17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Sampler sampler0 = ConcurrentTools.sampler(17);
+      assertNotNull(sampler0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CountDownLatch countDownLatch0 = ConcurrentTools.countDownLatch(1006);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LongAdder longAdder0 = ConcurrentTools.longAdder();
+      assertEquals(0, longAdder0.intValue());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RateLimiter rateLimiter0 = ConcurrentTools.rateLimiter(17);
+      ;
+}

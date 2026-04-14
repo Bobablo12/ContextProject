@@ -1,0 +1,285 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<SimpleFacetDefinition> stream0 = Stream.empty();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(47);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(byteArrayOutputStream0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(dataOutputStream0);
+      stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<SimpleFacetDefinition> stream0 = Stream.empty();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(47);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(byteArrayOutputStream0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(dataOutputStream0);
+      stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+      assertEquals(1, stlBoundaryWriteHandler3D0.getinitialBufferSize());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<BinaryStlFacetDefinition> stream0 = Stream.empty();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) fileGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<SimpleFacetDefinition> stream0 = Stream.empty();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(92);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(byteArrayOutputStream0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(dataOutputStream0);
+      Function<Object, DoubleStream> function0 = (Function<Object, DoubleStream>) mock(Function.class, new ViolatedAssumptionAnswer());
+      stream0.flatMapToDouble(function0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // stream has already been operated upon or closed
+         //
+         verifyException("java.util.stream.AbstractPipeline", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<BinaryStlFacetDefinition> stream0 = Stream.empty();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(pipedOutputStream0, (String) null);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      MockFile mockFile0 = new MockFile("<.!*lrHn");
+      Path path0 = mockFile0.toPath();
+      Charset charset0 = Charset.defaultCharset();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput(path0, charset0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((BoundarySource3D) null, (GeometryOutput) fileGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryWriteHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.full();
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((BoundarySource3D) regionBSPTree3D0, (GeometryOutput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream(pipedInputStream0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(pipedOutputStream0, "");
+      stlBoundaryWriteHandler3D0.write((BoundarySource3D) regionBSPTree3D0, (GeometryOutput) streamGeometryOutput0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((BoundarySource3D) regionBSPTree3D0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Plane[] planeArray0 = new Plane[0];
+      ConvexVolume convexVolume0 = ConvexVolume.fromBounds(planeArray0);
+      Stream<PlaneConvexSubset> stream0 = convexVolume0.boundaryStream();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) fileGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<PlaneConvexSubset> stream0 = Stream.empty();
+      Supplier<ConvexVolume> supplier0 = (Supplier<ConvexVolume>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(supplier0).get();
+      BiConsumer<ConvexVolume, PlaneConvexSubset> biConsumer0 = (BiConsumer<ConvexVolume, PlaneConvexSubset>) mock(BiConsumer.class, new ViolatedAssumptionAnswer());
+      Comparator<ConvexVolume> comparator0 = (Comparator<ConvexVolume>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      BinaryOperator<ConvexVolume> binaryOperator0 = BinaryOperator.minBy((Comparator<? super ConvexVolume>) comparator0);
+      Collector.Characteristics[] collector_CharacteristicsArray0 = (Collector.Characteristics[]) Array.newInstance(Collector.Characteristics.class, 0);
+      Collector<PlaneConvexSubset, ConvexVolume, ConvexVolume> collector0 = Collector.of(supplier0, biConsumer0, binaryOperator0, (Collector.Characteristics[]) collector_CharacteristicsArray0);
+      stream0.collect((Collector<? super PlaneConvexSubset, ConvexVolume, ConvexVolume>) collector0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput((OutputStream) null, "Ip-${");
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // stream has already been operated upon or closed
+         //
+         verifyException("java.util.stream.AbstractPipeline", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("    ");
+      DataOutputStream dataOutputStream0 = new DataOutputStream(mockFileOutputStream0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(dataOutputStream0);
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      ArrayList<PlaneConvexSubset> arrayList0 = new ArrayList<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      Stream<PlaneConvexSubset> stream0 = boundaryList3D0.boundaryStream();
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: Error in writing to file
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("gkh{a");
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockPrintStream0, "gkh{a");
+      Stack<PlaneConvexSubset> stack0 = new Stack<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(stack0);
+      Stream<PlaneConvexSubset> stream0 = boundaryList3D0.boundaryStream();
+      stlBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+      assertEquals(0, stlBoundaryWriteHandler3D0.getinitialBufferSize());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Stream<BinaryStlFacetDefinition> stream0 = Stream.empty();
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput((OutputStream) null);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      SimpleFacetDefinition simpleFacetDefinition0 = mock(SimpleFacetDefinition.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(simpleFacetDefinition0).getVertices();
+      Supplier<SimpleFacetDefinition> supplier0 = (Supplier<SimpleFacetDefinition>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn(simpleFacetDefinition0).when(supplier0).get();
+      Stream<SimpleFacetDefinition> stream0 = Stream.generate(supplier0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(byteArrayOutputStream0);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.EuclideanUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      Supplier<PlaneConvexSubset> supplier0 = (Supplier<PlaneConvexSubset>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(supplier0).get();
+      Stream<PlaneConvexSubset> stream0 = Stream.generate(supplier0);
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) fileGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      // Undeclared exception!
+      try { 
+        stlBoundaryWriteHandler3D0.setInitialBufferSize((-2207));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Buffer size must be greater than 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      stlBoundaryWriteHandler3D0.setInitialBufferSize(492);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      stlBoundaryWriteHandler3D0.getFormat();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      StlBoundaryWriteHandler3D stlBoundaryWriteHandler3D0 = new StlBoundaryWriteHandler3D();
+      int int0 = stlBoundaryWriteHandler3D0.getinitialBufferSize();
+      ;
+}

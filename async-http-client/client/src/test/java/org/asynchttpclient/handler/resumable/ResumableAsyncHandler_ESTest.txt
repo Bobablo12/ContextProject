@@ -1,0 +1,206 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(0L);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true);
+      UnpooledUnsafeDirectByteBuf unpooledUnsafeDirectByteBuf0 = new UnpooledUnsafeDirectByteBuf(unpooledByteBufAllocator0, 1, 1);
+      ByteBuf byteBuf0 = unpooledUnsafeDirectByteBuf0.writerIndex(1);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(byteBuf0, false);
+      AsyncHandler.State asyncHandler_State0 = resumableAsyncHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+          propertiesBasedResumableProcessor0.save((Map<String, Long>) null);
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      propertiesBasedResumableProcessor0.remove("_Aw'k[eK%wd5I'E");
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      propertiesBasedResumableProcessor0.put("ASYNC", 2145L);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      Map<String, Long> map0 = propertiesBasedResumableProcessor0.load();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0);
+      ResumableAsyncHandler resumableAsyncHandler1 = new ResumableAsyncHandler(resumableAsyncHandler0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AsyncCompletionHandlerBase asyncCompletionHandlerBase0 = new AsyncCompletionHandlerBase();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(0L, asyncCompletionHandlerBase0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(false);
+      try { 
+        resumableAsyncHandler0.onStatusReceived((HttpResponseStatus) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0);
+      try { 
+        resumableAsyncHandler0.onHeadersReceived((HttpHeaders) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(true);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      resumableAsyncHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+      try { 
+        resumableAsyncHandler0.onHeadersReceived(combinedHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.http.CombinedHttpHeaders$CombinedHttpHeadersImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler();
+      // Undeclared exception!
+      try { 
+        resumableAsyncHandler0.adjustRequestRange((Request) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0, false);
+      ResumableAsyncHandler resumableAsyncHandler1 = new ResumableAsyncHandler(resumableAsyncHandler0);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      AsyncHandler.State asyncHandler_State0 = resumableAsyncHandler1.onHeadersReceived(combinedHttpHeaders0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      resumableAsyncHandler0.onHeadersReceived(combinedHttpHeaders0);
+      // Undeclared exception!
+      try { 
+        resumableAsyncHandler0.onTrailingHeadersReceived(combinedHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // can't add to itself.
+         //
+         verifyException("io.netty.handler.codec.http.CombinedHttpHeaders$CombinedHttpHeadersImpl", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0);
+      ResumableAsyncHandler resumableAsyncHandler1 = new ResumableAsyncHandler(2410L, resumableAsyncHandler0);
+      Response response0 = resumableAsyncHandler1.onCompleted();
+      assertNotNull(response0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(true);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, false);
+      try { 
+        resumableAsyncHandler0.onBodyPartReceived(lazyResponseBodyPart0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.LazyResponseBodyPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0, false);
+      ResumableAsyncHandler resumableAsyncHandler1 = new ResumableAsyncHandler(549755813888L, resumableAsyncHandler0);
+      int[] intArray0 = new int[9];
+      BatchUpdateException batchUpdateException0 = new BatchUpdateException("", "", intArray0);
+      SQLTransactionRollbackException sQLTransactionRollbackException0 = new SQLTransactionRollbackException("", batchUpdateException0);
+      resumableAsyncHandler1.onThrowable(sQLTransactionRollbackException0);
+      assertEquals(0, sQLTransactionRollbackException0.getErrorCode());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0);
+      resumableAsyncHandler0.onThrowable((Throwable) null);
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PropertiesBasedResumableProcessor propertiesBasedResumableProcessor0 = new PropertiesBasedResumableProcessor();
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(propertiesBasedResumableProcessor0, true);
+      ResumableAsyncHandler resumableAsyncHandler1 = resumableAsyncHandler0.setResumableListener((ResumableListener) null);
+      try { 
+        resumableAsyncHandler1.onCompleted();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.handler.resumable.ResumableAsyncHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler(false);
+      ResumableAsyncHandler resumableAsyncHandler1 = new ResumableAsyncHandler(resumableAsyncHandler0);
+      PooledByteBufAllocator pooledByteBufAllocator0 = new PooledByteBufAllocator();
+      EmptyByteBuf emptyByteBuf0 = new EmptyByteBuf(pooledByteBufAllocator0);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart(emptyByteBuf0, false);
+      try { 
+        resumableAsyncHandler1.onBodyPartReceived(lazyResponseBodyPart0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ResumableAsyncHandler resumableAsyncHandler0 = new ResumableAsyncHandler((ResumableAsyncHandler.ResumableProcessor) null, false);
+      Response response0 = resumableAsyncHandler0.onCompleted();
+      assertNotNull(response0);
+}

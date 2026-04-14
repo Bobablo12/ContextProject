@@ -1,0 +1,33 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      PngChunkPhys pngChunkPhys0 = new PngChunkPhys((-117), (-117), (-117), byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      PngChunkPhys pngChunkPhys0 = null;
+      try {
+        pngChunkPhys0 = new PngChunkPhys((-254), (-254), (-254), byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid Png File: pHYs Corrupt
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PngChunkPhys pngChunkPhys0 = null;
+      try {
+        pngChunkPhys0 = new PngChunkPhys(922, 922, (-3839), (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }

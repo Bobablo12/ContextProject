@@ -1,0 +1,59 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      JpegPhotoshopMetadata jpegPhotoshopMetadata0 = new JpegPhotoshopMetadata(photoshopApp13Data0);
+      jpegPhotoshopMetadata0.add((ImageMetadata.ImageMetadataItem) null);
+      // Undeclared exception!
+      try { 
+        jpegPhotoshopMetadata0.dump();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.GenericImageMetadata", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegPhotoshopMetadata jpegPhotoshopMetadata0 = null;
+      try {
+        jpegPhotoshopMetadata0 = new JpegPhotoshopMetadata((PhotoshopApp13Data) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegPhotoshopMetadata", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      IptcTypes iptcTypes0 = IptcTypes.COUNTRY_PRIMARY_LOCATION_CODE;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "");
+      linkedList0.add(iptcRecord0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      JpegPhotoshopMetadata jpegPhotoshopMetadata0 = new JpegPhotoshopMetadata(photoshopApp13Data0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      IptcTypes iptcTypes0 = IptcTypes.RECORD_VERSION;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "_4");
+      linkedList0.add(iptcRecord0);
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      JpegPhotoshopMetadata jpegPhotoshopMetadata0 = new JpegPhotoshopMetadata(photoshopApp13Data0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<IptcRecord> linkedList0 = new LinkedList<IptcRecord>();
+      LinkedList<IptcBlock> linkedList1 = new LinkedList<IptcBlock>();
+      PhotoshopApp13Data photoshopApp13Data0 = new PhotoshopApp13Data(linkedList0, linkedList1);
+      JpegPhotoshopMetadata jpegPhotoshopMetadata0 = new JpegPhotoshopMetadata(photoshopApp13Data0);
+      jpegPhotoshopMetadata0.dump();
+  }

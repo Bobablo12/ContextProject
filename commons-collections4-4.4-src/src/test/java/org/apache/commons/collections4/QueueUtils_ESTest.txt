@@ -1,0 +1,75 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Predicate<Object> predicate0 = (Predicate<Object>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      Queue<String> queue0 = QueueUtils.emptyQueue();
+      Queue<String> queue1 = QueueUtils.synchronizedQueue(queue0);
+      Queue<String> queue2 = QueueUtils.predicatedQueue(queue1, (Predicate<? super String>) predicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        QueueUtils.unmodifiableQueue((Queue<? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        QueueUtils.transformingQueue((Queue<String>) null, (Transformer<? super String, ? extends String>) transformer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        QueueUtils.synchronizedQueue((Queue<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Queue<Integer> queue0 = QueueUtils.emptyQueue();
+      // Undeclared exception!
+      try { 
+        QueueUtils.predicatedQueue(queue0, (Predicate<? super Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Predicate must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Queue<String> queue0 = QueueUtils.emptyQueue();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      Queue<String> queue1 = QueueUtils.transformingQueue(queue0, (Transformer<? super String, ? extends String>) transformer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Queue<String> queue0 = QueueUtils.emptyQueue();
+      Queue<Object> queue1 = QueueUtils.unmodifiableQueue((Queue<?>) queue0);
+      ;
+}

@@ -1,0 +1,143 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D vector3D0 = vector3D_Unit0.vectorTo(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NEGATIVE_INFINITY;
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      Vector1D vector1D1 = vector1D0.vectorTo(vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(1819.85141);
+      Vector1D vector1D0 = Vector1D.NaN;
+      Vector1D vector1D1 = vector1D_Unit0.lerp(vector1D0, (-1.0));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.of((-2056.7480733571315), 0.0, 0.0);
+      Vector3D.Unit vector3D_Unit0 = vector3D0.normalizeOrNull();
+      Vector3D vector3D1 = vector3D_Unit0.lerp(vector3D_Unit0, 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(4.149515568880993E180);
+      Vector1D.Unit vector1D_Unit0 = vector1D0.normalizeOrNull();
+      Vector1D vector1D1 = vector1D_Unit0.lerp(vector1D0, 4.149515568880993E180);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(2704.2842, (-6095.105), 0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector3D_Unit0.isZero(precision_DoubleEquivalence0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(1.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector1D_Unit0.eq(vector1D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(1.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      boolean boolean0 = vector1D_Unit0.eq(vector1D_Unit0, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(2704.2842, (-6095.105), 0.0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngle(vector3D_Unit0, 0.0);
+      Vector3D vector3D0 = quaternionRotation0.getAxis();
+      Vector3D.Unit vector3D_Unit1 = (Vector3D.Unit)vector3D0.directionTo(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        vector3D0.vectorTo((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.from(1029.81);
+      // Undeclared exception!
+      try { 
+        vector1D0.eq(vector1D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Vector1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      // Undeclared exception!
+      try { 
+        vector1D_Unit0.directionTo((Vector1D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Vector1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(3.141592653589793, 3.141592653589793, 3.141592653589793);
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.orthogonal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        vector2D_Unit0.isZero((Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.NaN;
+      // Undeclared exception!
+      try { 
+        vector1D0.directionTo(vector1D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }

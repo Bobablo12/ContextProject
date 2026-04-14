@@ -1,0 +1,55 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSEntry<Object, String> jCSEntry0 = new JCSEntry<Object, String>((Object) null, "sx%n^.n~p7F2C6$");
+      String string0 = jCSEntry0.getValue();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JCSEntry<String, Integer> jCSEntry0 = new JCSEntry<String, Integer>("org.apache.commons.jcs3.jcache.JCSEntry", (Integer) null);
+      String string0 = jCSEntry0.getKey();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JCSEntry<String, String> jCSEntry0 = new JCSEntry<String, String>("j?", "j?");
+      // Undeclared exception!
+      try { 
+        jCSEntry0.unwrap((Class<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JCSEntry<Object, String> jCSEntry0 = new JCSEntry<Object, String>((Object) null, (String) null);
+      Class<String> class0 = String.class;
+      // Undeclared exception!
+      try { 
+        jCSEntry0.unwrap(class0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JCSEntry<String, Object> jCSEntry0 = new JCSEntry<String, Object>((String) null, (Object) null);
+      String string0 = jCSEntry0.getKey();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JCSEntry<String, Object> jCSEntry0 = new JCSEntry<String, Object>((String) null, (Object) null);
+      Class<Object> class0 = Object.class;
+      JCSEntry jCSEntry1 = (JCSEntry)jCSEntry0.unwrap(class0);
+      Object object0 = jCSEntry1.getValue();
+      assertNotNull(object0);
+}

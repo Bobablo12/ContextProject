@@ -1,0 +1,30 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ArrayList<String> arrayList0 = new ArrayList<String>();
+      UDPDiscoverySenderThread uDPDiscoverySenderThread0 = null;
+      try {
+        uDPDiscoverySenderThread0 = new UDPDiscoverySenderThread((UDPDiscoveryAttributes) null, arrayList0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderThread", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UDPDiscoveryAttributes uDPDiscoveryAttributes0 = new UDPDiscoveryAttributes();
+      ArrayList<String> arrayList0 = new ArrayList<String>();
+      uDPDiscoveryAttributes0.setUdpDiscoveryPort((-1));
+      UDPDiscoverySenderThread uDPDiscoverySenderThread0 = null;
+      try {
+        uDPDiscoverySenderThread0 = new UDPDiscoverySenderThread(uDPDiscoveryAttributes0, arrayList0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // port out of range:-1
+         //
+         verifyException("java.net.InetSocketAddress", e);
+      }
+  }

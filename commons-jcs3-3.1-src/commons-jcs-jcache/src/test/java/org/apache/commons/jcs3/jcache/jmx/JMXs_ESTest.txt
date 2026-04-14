@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JMXs.unregister((ObjectName) null);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ObjectName objectName0 = new ObjectName("", "Xvn`a\"IM'<Hj)Oh", "Xvn`a\"IM'<Hj)Oh");
+      // Undeclared exception!
+      try { 
+        JMXs.unregister(objectName0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JMXs.register((ObjectName) null, (Object) null);
+        fail("Expecting exception: RuntimeOperationsException");
+      } catch(RuntimeOperationsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ObjectName objectName0 = new ObjectName("", "Xvn`a\"IM'<Hj)Oh", "Xvn`a\"IM'<Hj)Oh");
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        JMXs.register(objectName0, object0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ObjectName objectName0 = ObjectName.WILDCARD;
+      JMXs.unregister(objectName0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ObjectName objectName0 = ObjectName.getInstance("org.apache.commons.jcs3.jcache.jmx.JMXs", "javax.management.builder.initial", "org.apache.commons.jcs3.jcache.jmx.JMXs");
+      // Undeclared exception!
+      try { 
+        JMXs.register(objectName0, (Object) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JMXs", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MBeanServer mBeanServer0 = JMXs.server();
+      assertNotNull(mBeanServer0);
+}

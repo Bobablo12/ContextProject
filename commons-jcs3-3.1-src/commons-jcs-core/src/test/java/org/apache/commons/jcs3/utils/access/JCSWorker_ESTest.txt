@@ -1,0 +1,131 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      Integer integer0 = new Integer(46);
+      JCSWorker<Integer, Integer> jCSWorker0 = new JCSWorker<Integer, Integer>("");
+      JCSWorkerHelper<Integer> jCSWorkerHelper0 = (JCSWorkerHelper<Integer>) mock(JCSWorkerHelper.class, new ViolatedAssumptionAnswer());
+      doReturn(integer0).when(jCSWorkerHelper0).doWork();
+      Integer integer1 = jCSWorker0.getResult(integer0, "r9Iu", jCSWorkerHelper0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<Object, String> jCSWorker0 = new JCSWorker<Object, String>("Removing All keys from cacheType {0}");
+      String string0 = jCSWorker0.getRegion();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      Integer integer0 = new Integer(0);
+      JCSWorkerHelper<Object> jCSWorkerHelper0 = (JCSWorkerHelper<Object>) mock(JCSWorkerHelper.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(jCSWorkerHelper0).doWork();
+      JCSWorker<Integer, Object> jCSWorker0 = new JCSWorker<Integer, Object>("{0} is doing the work.");
+      try { 
+        jCSWorker0.getResult(integer0, jCSWorkerHelper0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<String, Integer> jCSWorker0 = new JCSWorker<String, Integer>("iGc$gK::");
+      try { 
+        jCSWorker0.getResult("Work Done, caching: key:{0}, group:{1}, result:{2}.", (JCSWorkerHelper<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<Object, Object> jCSWorker0 = new JCSWorker<Object, Object>("H:~:ESl");
+      JCSWorkerHelper<Object> jCSWorkerHelper0 = (JCSWorkerHelper<Object>) mock(JCSWorkerHelper.class, new ViolatedAssumptionAnswer());
+      try { 
+        jCSWorker0.getResult((Object) null, (String) null, jCSWorkerHelper0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<JCSWorker<Integer, String>, Integer> jCSWorker0 = null;
+      try {
+        jCSWorker0 = new JCSWorker<JCSWorker<Integer, String>, Integer>((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JCSWorker<Object, String> jCSWorker0 = null;
+      try {
+        jCSWorker0 = new JCSWorker<Object, String>("Removing All keys from cacheType {0}");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<String, Object> jCSWorker0 = new JCSWorker<String, Object>("");
+      String string0 = jCSWorker0.getRegion();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      Integer integer0 = new Integer(16);
+      JCSWorker<Integer, JCSWorker<Object, Object>> jCSWorker0 = new JCSWorker<Integer, JCSWorker<Object, Object>>("");
+      JCSWorker<Object, Object> jCSWorker1 = new JCSWorker<Object, Object>("");
+      JCSWorkerHelper<JCSWorker<Object, Object>> jCSWorkerHelper0 = (JCSWorkerHelper<JCSWorker<Object, Object>>) mock(JCSWorkerHelper.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(jCSWorkerHelper0).doWork();
+      try { 
+        jCSWorker0.getResult(integer0, jCSWorkerHelper0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.CacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      JCSWorker<Integer, JCSWorker<Object, Object>> jCSWorker0 = new JCSWorker<Integer, JCSWorker<Object, Object>>("");
+      JCSWorker<Integer, Object> jCSWorker1 = new JCSWorker<Integer, Object>("org.apache.commons.jcs3:type=JCSAdminBean");
+      JCSWorkerHelper<Object> jCSWorkerHelper0 = (JCSWorkerHelper<Object>) mock(JCSWorkerHelper.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(jCSWorkerHelper0).doWork();
+      try { 
+        jCSWorker1.getResult((Integer) null, "org.apache.commons.jcs3:type=JCSAdminBean", jCSWorkerHelper0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Key must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }

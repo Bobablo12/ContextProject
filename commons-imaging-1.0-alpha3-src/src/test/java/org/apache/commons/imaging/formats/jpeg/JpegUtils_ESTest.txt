@@ -1,0 +1,440 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      boolean boolean0 = jpegDecoder0.visitSegment((-1077), (byte[]) null, (-1077), (byte[]) null, (byte[]) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[4];
+      jpegDecoder0.visitSOS(65517, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      boolean boolean0 = jpegDecoder0.beginSOS();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      try { 
+        jpegUtils0.traverseJFIF(byteSourceArray0, jpegDecoder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      JpegUtils jpegUtils0 = new JpegUtils();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        jpegUtils0.traverseJFIF(byteSourceArray0, jpegDecoder0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1273), (byte)15);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, (String) null);
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      // Undeclared exception!
+      try { 
+        jpegUtils0.traverseJFIF(byteSourceInputStream0, jpegDecoder0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      try { 
+        jpegUtils0.traverseJFIF(byteSourceFile0, jpegDecoder0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      byte[] byteArray0 = new byte[9];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      InputStream inputStream0 = byteSourceArray0.getInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(inputStream0, "");
+      try { 
+        jpegUtils0.dumpJFIF(byteSourceInputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      // Undeclared exception!
+      try { 
+        jpegUtils0.dumpJFIF((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "NY[Y[@-Q");
+      // Undeclared exception!
+      try { 
+        jpegUtils0.dumpJFIF(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), 65497);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, (byte)11);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "Unknown");
+      // Undeclared exception!
+      try { 
+        jpegUtils0.dumpJFIF(byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      MockFile mockFile0 = new MockFile("Unknown");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegUtils0.dumpJFIF(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "T-K#'`sYb7.az7vu%=");
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      try { 
+        jpegUtils0.traverseJFIF(byteSourceInputStream0, jpegDecoder0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65519);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65518);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65517);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65516);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65515);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65514);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65513);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65512);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65511);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65510);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65509);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65508);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65507);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65506);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65505);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65504);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65503);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65502);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65501);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65500);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65499);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65498);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65497);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65496);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65495);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65494);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65493);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65492);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65491);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65490);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65489);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65488);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65487);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65486);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65485);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65484);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65483);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65482);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65480);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65479);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65478);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65477);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65476);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65475);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65474);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65473);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65481);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      String string0 = JpegUtils.getMarkerName(65472);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      JpegUtils jpegUtils0 = new JpegUtils();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "h18=#vW9o+W)X=");
+      try { 
+        jpegUtils0.dumpJFIF(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }

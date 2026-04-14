@@ -1,0 +1,490 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of(59.80488, 1027.40681667, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D1 = interval0.toTree();
+      regionBSPTree1D0.intersection((AbstractRegionBSPTree<Vector1D, RegionBSPTree1D.RegionNode1D>) regionBSPTree1D1);
+      boolean boolean0 = regionBSPTree1D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(6.696928794914171E299, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      Vector1D vector1D0 = interval0.getCentroid();
+      Vector1D vector1D1 = regionBSPTree1D0.project(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(1.0, 1.0, 1.0, 1.0, (-1778.92)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(0.4989577157558549, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      vector1D0.normalizeOrNull();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-1151.3847924245242), 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence1).signum(anyDouble());
+      Interval interval1 = Interval.of(1.0, (-1151.3847924245242), precision_DoubleEquivalence1);
+      Interval[] intervalArray0 = new Interval[2];
+      intervalArray0[0] = interval1;
+      intervalArray0[1] = interval1;
+      RegionBSPTree1D.from(interval0, intervalArray0);
+      OrientedPoint orientedPoint0 = interval1.getMaxBoundary();
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.INHERIT;
+      regionBSPTree1D0.insert((HyperplaneSubset<Vector1D>) hyperplaneConvexSubset0, regionCutRule0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.project(vector1D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree$BoundaryProjector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn((-1.5707963267948966), (-1.5707963267948966), (-1.5707963267948966), (-695.42327082)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      regionBSPTree1D0.complement();
+      OrientedPoint orientedPoint0 = interval0.getMaxBoundary();
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-695.42327082));
+      regionBSPTree1D0.transform(affineTransformMatrix1D0);
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      regionBSPTree1D0.insert((HyperplaneSubset<Vector1D>) hyperplaneConvexSubset0);
+      List<Interval> list0 = regionBSPTree1D0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      RegionBSPTree1D.RegionNode1D regionBSPTree1D_RegionNode1D0 = regionBSPTree1D0.getRoot();
+      RegionBSPTree1D.RegionNode1D regionBSPTree1D_RegionNode1D1 = regionBSPTree1D_RegionNode1D0.getSelf();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      Vector1D vector1D0 = regionBSPTree1D0.project((Vector1D) null);
+      assertNotNull(vector1D0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      Vector1D vector1D0 = Vector1D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint(vector1D0, true, precision_DoubleEquivalence0);
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.PLUS_INSIDE;
+      regionBSPTree1D0.insert(hyperplaneConvexSubset0, regionCutRule0);
+      Vector1D vector1D1 = regionBSPTree1D0.project(vector1D0);
+      assertFalse(vector1D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-1.6763323658950924)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of((-1.6763323658950924), (-1.6763323658950924), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Vector1D vector1D1 = regionBSPTree1D0.project(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector1D vector1D0 = Vector1D.of(0.5);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(vector1D0, vector1D0, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[1];
+      intervalArray0[0] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      double double0 = regionBSPTree1D0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      boolean boolean0 = regionBSPTree1D0.contains(1234.0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      RegionBSPTree1D.RegionNode1D regionBSPTree1D_RegionNode1D0 = regionBSPTree1D0.createNode();
+      regionBSPTree1D0.extract(regionBSPTree1D_RegionNode1D0);
+      regionBSPTree1D0.classify(0.0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Interval interval0 = Interval.of(3048.12691704277, 2115.8142795312, (Precision.DoubleEquivalence) null);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.toIntervals();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      regionBSPTree1D0.toIntervals();
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.max(2921.87988, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[3];
+      intervalArray0[0] = interval0;
+      intervalArray0[1] = interval0;
+      intervalArray0[2] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.split((Hyperplane<Vector1D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      Vector1D vector1D0 = Vector1D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(155.0710404).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.point(2.409919865102884E-181, precision_DoubleEquivalence0);
+      regionBSPTree1D0.add(interval0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.project(vector1D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree$BoundaryProjector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D();
+      RegionBSPTree1D.RegionNode1D regionBSPTree1D_RegionNode1D0 = regionBSPTree1D0.createNode();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, false, precision_DoubleEquivalence0);
+      regionBSPTree1D_RegionNode1D0.cut((Hyperplane<Vector1D>) orientedPoint0);
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = regionBSPTree1D_RegionNode1D0.getCut();
+      RegionCutRule regionCutRule0 = RegionCutRule.MINUS_INSIDE;
+      regionBSPTree1D0.insert(hyperplaneConvexSubset0, regionCutRule0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.getMin();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      OrientedPoint orientedPoint0 = new OrientedPoint((Vector1D) null, true, precision_DoubleEquivalence0);
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      regionBSPTree1D0.insert(hyperplaneConvexSubset0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.getMax();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree1D.from((Iterable<Interval>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.RegionBSPTree1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Class<Interval> class0 = Interval.class;
+      ServiceLoader<Interval> serviceLoader0 = ServiceLoader.loadInstalled(class0);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) serviceLoader0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.add((Interval) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.RegionBSPTree1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      double double0 = regionBSPTree1D0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      boolean boolean0 = regionBSPTree1D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(0.0, 16.14886398, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[1];
+      intervalArray0[0] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      Vector1D vector1D0 = Vector1D.NEGATIVE_INFINITY;
+      Vector1D vector1D1 = regionBSPTree1D0.project(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Stack<Interval> stack0 = new Stack<Interval>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((double)0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.point(0, precision_DoubleEquivalence0);
+      stack0.add(interval0);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) stack0);
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      Vector1D vector1D0 = regionBSPTree1D0.project((Vector1D) vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Interval interval0 = Interval.of((OrientedPoint) null, (OrientedPoint) null);
+      // Undeclared exception!
+      try { 
+        RegionBSPTree1D.from(interval0, (Interval[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.RegionBSPTree1D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ArrayDeque<Interval> arrayDeque0 = new ArrayDeque<Interval>();
+      LinkedList<Interval> linkedList0 = new LinkedList<Interval>(arrayDeque0);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) linkedList0);
+      List<Interval> list0 = regionBSPTree1D0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      regionBSPTree1D0.complement();
+      List<Interval> list0 = regionBSPTree1D0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(2921.87988, 298.23043135500353, 687.01317607492, 298.23043135500353, 298.23043135500353).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.max(2921.87988, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[3];
+      intervalArray0[0] = interval0;
+      intervalArray0[1] = interval0;
+      intervalArray0[2] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      List<Interval> list0 = regionBSPTree1D0.toIntervals();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.full();
+      double double0 = regionBSPTree1D0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Stack<Interval> stack0 = new Stack<Interval>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.point(0, precision_DoubleEquivalence0);
+      stack0.add(interval0);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) stack0);
+      double double0 = regionBSPTree1D0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Stack<Interval> stack0 = new Stack<Interval>();
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) stack0);
+      double double0 = regionBSPTree1D0.getMax();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Stack<Interval> stack0 = new Stack<Interval>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.point(0, precision_DoubleEquivalence0);
+      stack0.add(interval0);
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from((Iterable<Interval>) stack0);
+      double double0 = regionBSPTree1D0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.max(2921.87988, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[3];
+      intervalArray0[0] = interval0;
+      intervalArray0[1] = interval0;
+      intervalArray0[2] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      double double0 = regionBSPTree1D0.getMin();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D();
+      Interval interval0 = Interval.max(1258.50920871, (Precision.DoubleEquivalence) null);
+      OrientedPoint orientedPoint0 = interval0.getMaxBoundary();
+      HyperplaneConvexSubset<Vector1D> hyperplaneConvexSubset0 = orientedPoint0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.INHERIT;
+      regionBSPTree1D0.insert(hyperplaneConvexSubset0, regionCutRule0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree1D0.contains((-2038.2714));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.OrientedPoint", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(1.0, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      Vector1D vector1D0 = Vector1D.POSITIVE_INFINITY;
+      Vector1D vector1D1 = regionBSPTree1D0.project(vector1D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.empty();
+      Vector1D vector1D0 = Vector1D.ZERO;
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createTranslation(vector1D0);
+      boolean boolean0 = regionBSPTree1D0.swapsInsideOutside(affineTransformMatrix1D0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(1.0, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      OrientedPoint orientedPoint0 = interval0.getMaxBoundary();
+      Split<RegionBSPTree1D> split0 = regionBSPTree1D0.split(orientedPoint0);
+      assertEquals(split0, split0.getLocation());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0, 0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(0.0, 16.14886398, precision_DoubleEquivalence0);
+      Interval[] intervalArray0 = new Interval[1];
+      intervalArray0[0] = interval0;
+      RegionBSPTree1D regionBSPTree1D0 = RegionBSPTree1D.from(interval0, intervalArray0);
+      boolean boolean0 = regionBSPTree1D0.contains(0.0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      Interval interval0 = Interval.of(1.0, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      RegionLocation regionLocation0 = regionBSPTree1D0.classify((-1151.3847924245242));
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of(6.696928794914171E299, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      double double0 = regionBSPTree1D0.getBoundarySize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      boolean boolean0 = regionBSPTree1D0.isInfinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of(1.0, 1.0, precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      RegionBSPTree1D regionBSPTree1D1 = regionBSPTree1D0.copy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Interval interval0 = Interval.of((-1.5707963267948966), (-1.5707963267948966), precision_DoubleEquivalence0);
+      RegionBSPTree1D regionBSPTree1D0 = interval0.toTree();
+      RegionBSPTree1D.RegionNode1D regionBSPTree1D_RegionNode1D0 = regionBSPTree1D0.getRoot();
+      regionBSPTree1D_RegionNode1D0.getNodeRegion();
+      ;
+}

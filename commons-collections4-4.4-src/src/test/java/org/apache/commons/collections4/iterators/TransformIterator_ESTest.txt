@@ -1,0 +1,118 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TransformIterator<String, Object> transformIterator0 = new TransformIterator<String, Object>();
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0);
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(transformer0).toString();
+      TransformIterator<String, String> transformIterator2 = new TransformIterator<String, String>(transformIterator1, transformer0);
+      Transformer<? super String, ? extends String> transformer1 = transformIterator2.getTransformer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TransformIterator<String, Object> transformIterator0 = new TransformIterator<String, Object>();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0, transformer0);
+      TransformIterator<String, String> transformIterator2 = new TransformIterator<String, String>(transformIterator1);
+      Iterator<? extends String> iterator0 = transformIterator2.getIterator();
+      assertNotNull(iterator0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TransformIterator<String, Integer> transformIterator0 = new TransformIterator<String, Integer>();
+      // Undeclared exception!
+      try { 
+        transformIterator0.transform("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.TransformIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TransformIterator<String, Integer> transformIterator0 = new TransformIterator<String, Integer>();
+      // Undeclared exception!
+      try { 
+        transformIterator0.remove();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.TransformIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TransformIterator<Object, String> transformIterator0 = new TransformIterator<Object, String>();
+      TransformIterator<Object, Object> transformIterator1 = new TransformIterator<Object, Object>(transformIterator0);
+      Transformer<? super Object, ?> transformer0 = transformIterator1.getTransformer();
+      assertNotNull(transformer0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TransformIterator<String, String> transformIterator0 = new TransformIterator<String, String>();
+      Iterator<? extends String> iterator0 = transformIterator0.getIterator();
+      assertNotNull(iterator0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TransformIterator<String, Object> transformIterator0 = new TransformIterator<String, Object>();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0, transformer0);
+      // Undeclared exception!
+      try { 
+        transformIterator1.next();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.TransformIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TransformIterator<String, Integer> transformIterator0 = new TransformIterator<String, Integer>();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0, transformer0);
+      TransformIterator<String, Object> transformIterator2 = new TransformIterator<String, Object>(transformIterator1);
+      // Undeclared exception!
+      try { 
+        transformIterator2.hasNext();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.iterators.TransformIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TransformIterator<String, Object> transformIterator0 = new TransformIterator<String, Object>();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(transformer0).transform(any());
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0, transformer0);
+      String string0 = transformIterator1.transform("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TransformIterator<String, Integer> transformIterator0 = new TransformIterator<String, Integer>((Iterator<? extends String>) null);
+      Transformer<Object, Integer> transformer0 = (Transformer<Object, Integer>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      TransformIterator<Integer, Object> transformIterator1 = new TransformIterator<Integer, Object>(transformIterator0, transformer0);
+      transformIterator1.setIterator(transformIterator0);
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TransformIterator<String, Integer> transformIterator0 = new TransformIterator<String, Integer>();
+      Transformer<Object, String> transformer0 = (Transformer<Object, String>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      TransformIterator<Object, String> transformIterator1 = new TransformIterator<Object, String>(transformIterator0, transformer0);
+      TransformIterator<String, Object> transformIterator2 = new TransformIterator<String, Object>(transformIterator1);
+      Transformer<Object, Object> transformer1 = (Transformer<Object, Object>) mock(Transformer.class, new ViolatedAssumptionAnswer());
+      transformIterator2.setTransformer(transformer1);
+  }

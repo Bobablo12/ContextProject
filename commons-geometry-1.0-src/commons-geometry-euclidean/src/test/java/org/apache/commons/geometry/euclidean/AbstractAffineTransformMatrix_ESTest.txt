@@ -1,0 +1,129 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale(0.0, 799.2);
+      boolean boolean0 = affineTransformMatrix2D0.preservesOrientation();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      AffineTransformMatrix3D affineTransformMatrix3D1 = affineTransformMatrix3D0.linearTranspose();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((Vector2D) vector2D_Unit0, 462.030185895411);
+      AffineTransformMatrix2D affineTransformMatrix2D1 = affineTransformMatrix2D0.linear();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale(1290.06140147);
+      AffineTransformMatrix1D affineTransformMatrix1D1 = affineTransformMatrix1D0.inverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.fromColumnVectors((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0);
+      double double0 = affineTransformMatrix3D0.determinant();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.PLUS;
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createTranslation((Vector1D) vector1D_Unit0);
+      double double0 = affineTransformMatrix1D0.determinant();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-865.2472145684965));
+      double double0 = affineTransformMatrix1D0.determinant();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.of(283.951790118378, 283.951790118378, 0.0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.fromColumnVectors(vector3D0, vector3D0, vector3D0);
+      Vector3D vector3D1 = affineTransformMatrix3D0.applyDirection(vector3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale(0.0);
+      // Undeclared exception!
+      try { 
+        affineTransformMatrix2D0.normalTransform();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Matrix is not invertible; matrix determinant is 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Matrices", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.identity();
+      Vector3D vector3D0 = quaternionRotation0.getAxis();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.fromColumnVectors(vector3D0, vector3D0, vector3D0, vector3D0);
+      // Undeclared exception!
+      try { 
+        affineTransformMatrix3D0.inverse();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Matrix is not invertible; matrix determinant is 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Matrices", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      // Undeclared exception!
+      try { 
+        affineTransformMatrix3D0.applyDirection((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createTranslation((-44.82733308452892));
+      Vector1D vector1D0 = Vector1D.NaN;
+      // Undeclared exception!
+      try { 
+        affineTransformMatrix1D0.applyDirection(vector1D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createTranslation((-44.82733308452892));
+      boolean boolean0 = affineTransformMatrix1D0.preservesOrientation();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.identity();
+      AffineTransformMatrix1D affineTransformMatrix1D1 = affineTransformMatrix1D0.normalTransform();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      AffineTransformMatrix1D affineTransformMatrix1D0 = AffineTransformMatrix1D.createScale((-849.1986229250926));
+      boolean boolean0 = affineTransformMatrix1D0.preservesOrientation();
+      assertTrue(boolean0);
+}

@@ -1,0 +1,151 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TempStateCacheView<Integer, Object> tempStateCacheView0 = new TempStateCacheView<Integer, Object>((JCSCache<Integer, Object>) null);
+      Integer integer0 = new Integer(2296);
+      JCSMutableEntry<Integer, Object> jCSMutableEntry0 = new JCSMutableEntry<Integer, Object>(tempStateCacheView0, integer0);
+      jCSMutableEntry0.remove();
+      Object object0 = jCSMutableEntry0.getValue();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TempStateCacheView<String, CacheEntryEventFilter<Object, String>> tempStateCacheView0 = new TempStateCacheView<String, CacheEntryEventFilter<Object, String>>((JCSCache<String, CacheEntryEventFilter<Object, String>>) null);
+      JCSMutableEntry<String, CacheEntryEventFilter<Object, String>> jCSMutableEntry0 = new JCSMutableEntry<String, CacheEntryEventFilter<Object, String>>(tempStateCacheView0, "1");
+      CacheEntryEventFilter<Object, String> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, String>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(cacheEntryEventFilter0).toString();
+      jCSMutableEntry0.setValue(cacheEntryEventFilter0);
+      CacheEntryEventFilter<Object, String> cacheEntryEventFilter1 = jCSMutableEntry0.getValue();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JCSMutableEntry<Object, MutableConfiguration<String, Integer>> jCSMutableEntry0 = new JCSMutableEntry<Object, MutableConfiguration<String, Integer>>((Cache<Object, MutableConfiguration<String, Integer>>) null, (Object) null);
+      Object object0 = jCSMutableEntry0.getKey();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<DataInputStream, DataInputStream> mutableConfiguration0 = new MutableConfiguration<DataInputStream, DataInputStream>();
+      Class<DataInputStream> class0 = DataInputStream.class;
+      JCSConfiguration<DataInputStream, DataInputStream> jCSConfiguration0 = new JCSConfiguration<DataInputStream, DataInputStream>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<DataInputStream, DataInputStream> expiryAwareCache0 = new ExpiryAwareCache<DataInputStream, DataInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<DataInputStream, DataInputStream> jCSCache0 = new JCSCache<DataInputStream, DataInputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      JCSMutableEntry<DataInputStream, DataInputStream> jCSMutableEntry0 = new JCSMutableEntry<DataInputStream, DataInputStream>(jCSCache0, dataInputStream0);
+      boolean boolean0 = jCSMutableEntry0.exists();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CacheEntryEventFilter<Object, Integer> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Integer>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      JCSMutableEntry<CacheEntryEventFilter<Object, Integer>, Object> jCSMutableEntry0 = new JCSMutableEntry<CacheEntryEventFilter<Object, Integer>, Object>((Cache<CacheEntryEventFilter<Object, Integer>, Object>) null, cacheEntryEventFilter0);
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.unwrap((Class<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSMutableEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CacheEntryEventFilter<Object, Object> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Object>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      JCSMutableEntry<CacheEntryEventFilter<Object, Object>, Integer> jCSMutableEntry0 = new JCSMutableEntry<CacheEntryEventFilter<Object, Object>, Integer>((Cache<CacheEntryEventFilter<Object, Object>, Integer>) null, cacheEntryEventFilter0);
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.remove();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSMutableEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CacheWriter<Object, Object> cacheWriter0 = (CacheWriter<Object, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      JCSMutableEntry<CacheWriter<Object, Object>, Integer> jCSMutableEntry0 = new JCSMutableEntry<CacheWriter<Object, Object>, Integer>((Cache<CacheWriter<Object, Object>, Integer>) null, cacheWriter0);
+      Class<Object> class0 = Object.class;
+      Object object0 = jCSMutableEntry0.unwrap(class0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JCSMutableEntry<String, CacheEntryListener<Object, Object>> jCSMutableEntry0 = new JCSMutableEntry<String, CacheEntryListener<Object, Object>>((Cache<String, CacheEntryListener<Object, Object>>) null, "");
+      Class<Integer> class0 = Integer.class;
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.unwrap(class0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.Integer not supported in unwrap
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSMutableEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TempStateCacheView<String, CacheEntryEventFilter<Object, String>> tempStateCacheView0 = new TempStateCacheView<String, CacheEntryEventFilter<Object, String>>((JCSCache<String, CacheEntryEventFilter<Object, String>>) null);
+      JCSMutableEntry<String, CacheEntryEventFilter<Object, String>> jCSMutableEntry0 = new JCSMutableEntry<String, CacheEntryEventFilter<Object, String>>(tempStateCacheView0, "1");
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.getValue();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.TempStateCacheView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      doReturn("1!").when(expiryPolicy0).toString();
+      JCSMutableEntry<ExpiryPolicy, CacheWriter<Object, Object>> jCSMutableEntry0 = new JCSMutableEntry<ExpiryPolicy, CacheWriter<Object, Object>>((Cache<ExpiryPolicy, CacheWriter<Object, Object>>) null, expiryPolicy0);
+      ExpiryPolicy expiryPolicy1 = jCSMutableEntry0.getKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CacheWriter<Object, Object> cacheWriter0 = (CacheWriter<Object, Object>) mock(CacheWriter.class, new ViolatedAssumptionAnswer());
+      JCSMutableEntry<CacheWriter<Object, Object>, Integer> jCSMutableEntry0 = new JCSMutableEntry<CacheWriter<Object, Object>, Integer>((Cache<CacheWriter<Object, Object>, Integer>) null, cacheWriter0);
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.exists();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSMutableEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JCSMutableEntry<String, CacheLoader<Integer, Object>> jCSMutableEntry0 = new JCSMutableEntry<String, CacheLoader<Integer, Object>>((Cache<String, CacheLoader<Integer, Object>>) null, "@");
+      CacheLoader<Integer, Object> cacheLoader0 = (CacheLoader<Integer, Object>) mock(CacheLoader.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCSMutableEntry0.setValue(cacheLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSMutableEntry", e);
+      }
+  }

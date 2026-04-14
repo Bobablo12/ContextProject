@@ -1,0 +1,57 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PbmWriter pbmWriter0 = new PbmWriter(false);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        pbmWriter0.writeImage((BufferedImage) null, (OutputStream) null, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PbmWriter pbmWriter0 = new PbmWriter(true);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pbmWriter0.writeImage((BufferedImage) null, pipedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PbmWriter pbmWriter0 = new PbmWriter(true);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(18, 18, true);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("JI&V8.dkkkb[`<#");
+      pbmWriter0.writeImage(bufferedImage0, mockPrintStream0, (PnmImagingParameters) null);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PbmWriter pbmWriter0 = new PbmWriter(true);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(8, 8, true);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("JI&V8.dkkkb[`<#");
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      pbmWriter0.writeImage(bufferedImage0, mockPrintStream0, pnmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PbmWriter pbmWriter0 = new PbmWriter(false);
+      BufferedImage bufferedImage0 = new BufferedImage(1062, 16, 1);
+      MockFile mockFile0 = new MockFile("dib");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      pbmWriter0.writeImage(bufferedImage0, mockPrintStream0, pnmImagingParameters0);
+  }

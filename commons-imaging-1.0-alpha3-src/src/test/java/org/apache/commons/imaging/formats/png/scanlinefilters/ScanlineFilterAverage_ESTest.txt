@@ -1,0 +1,69 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage(255);
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-1);
+      scanlineFilterAverage0.unfilter(byteArray0, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage(256);
+      byte[] byteArray0 = new byte[4];
+      // Undeclared exception!
+      try { 
+        scanlineFilterAverage0.unfilter(byteArray0, (byte[]) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverage", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage(2626);
+      byte[] byteArray0 = new byte[1];
+      scanlineFilterAverage0.unfilter(byteArray0, byteArray0, (byte[]) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage((-1));
+      byte[] byteArray0 = new byte[2];
+      byte[] byteArray1 = new byte[1];
+      // Undeclared exception!
+      try { 
+        scanlineFilterAverage0.unfilter(byteArray0, byteArray1, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverage", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage(255);
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = new byte[2];
+      // Undeclared exception!
+      try { 
+        scanlineFilterAverage0.unfilter(byteArray0, byteArray1, byteArray1);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 2
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverage", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ScanlineFilterAverage scanlineFilterAverage0 = new ScanlineFilterAverage(10);
+      byte[] byteArray0 = new byte[25];
+      scanlineFilterAverage0.unfilter(byteArray0, byteArray0, byteArray0);
+      ;
+}

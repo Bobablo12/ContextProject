@@ -1,0 +1,19 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PngChunkIdat pngChunkIdat0 = null;
+      try {
+        pngChunkIdat0 = new PngChunkIdat(3, 1889, 3, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      PngChunkIdat pngChunkIdat0 = new PngChunkIdat((-1), 0, 0, byteArray0);
+      ;
+}

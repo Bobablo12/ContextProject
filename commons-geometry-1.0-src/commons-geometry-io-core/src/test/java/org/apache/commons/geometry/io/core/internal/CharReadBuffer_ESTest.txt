@@ -1,0 +1,562 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Min read value must be greater than 0; was ");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1);
+      int int0 = charReadBuffer0.charAt(15);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Min read value must be greater than 0; was ");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1);
+      int int0 = charReadBuffer0.charAt(15);
+      charReadBuffer0.pushString("YhkVJMbxHvD3m");
+      String string0 = charReadBuffer0.readString(104);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Min read value must be greater than 0; was ");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1);
+      int int0 = charReadBuffer0.charAt(15);
+      charReadBuffer0.pushString("YhkVJMbxHvD3m");
+      String string0 = charReadBuffer0.readString(104);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1922);
+      int int0 = charReadBuffer0.skip(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(".SIe&b7L0$s~#,cl:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.charAt(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("H$x?!/R-Bs`a]_I-@");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      charReadBuffer0.push('l');
+      String string0 = charReadBuffer0.peekString('l');
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("H$x?!/R-Bs`a]_I-@");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      charReadBuffer0.push('l');
+      String string0 = charReadBuffer0.peekString('l');
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.read();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.read();
+      boolean boolean0 = charReadBuffer0.hasMoreCharacters();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1941);
+      int int0 = charReadBuffer0.read();
+      int int1 = charReadBuffer0.skip(1941);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1941);
+      int int0 = charReadBuffer0.read();
+      int int1 = charReadBuffer0.skip(1941);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("$]ihm{>S+toz/`");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10);
+      int int0 = charReadBuffer0.read();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PD`6!occXd");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 47, 47);
+      int int0 = charReadBuffer0.skip(47);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PD`6!occXd");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 47, 47);
+      int int0 = charReadBuffer0.skip(47);
+      int int1 = charReadBuffer0.read();
+      int int2 = charReadBuffer0.makeAvailable(7);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PD`6!occXd");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 47, 47);
+      int int0 = charReadBuffer0.skip(47);
+      int int1 = charReadBuffer0.read();
+      int int2 = charReadBuffer0.makeAvailable(7);
+      assertEquals(0, int2);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 2);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.skip(512);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.readString((-1));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Requested string length cannot be negative; was -1
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.readString(0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1346);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.read();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_WP{m D");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 2);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.pushString((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length cannot be negative; was ");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1);
+      charReadBuffer0.skip(101);
+      charReadBuffer0.read();
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.pushString("5~>Aq");
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("H$x?!/R-Bs`a]_I-@");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.peekString('o');
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Character skip count cannot be negative; was ");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 46, 46);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.peek();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("yCvSxfc wC");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.makeAvailable(1889);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("oDBx$*|`V5$b2g4");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.hasMoreCharacters();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 2, 2);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.charAt(2);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer((Reader) null, (-1), (-2874));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer((Reader) null, (-2292));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("$]ihm{>S+toz/`");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10);
+      String string0 = charReadBuffer0.readString(1);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("$]ihm{>S+toz/`");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10);
+      String string0 = charReadBuffer0.readString(1);
+      String string1 = charReadBuffer0.peekString(10);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("$]ihm{>S+toz/`");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10);
+      String string0 = charReadBuffer0.readString(1);
+      String string1 = charReadBuffer0.peekString(10);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("H$x?!/R-Bs`a]_I-@");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      charReadBuffer0.skip(19);
+      String string0 = charReadBuffer0.peekString(19);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 220, 220);
+      int int0 = charReadBuffer0.peek();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.makeAvailable(0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 220, 220);
+      boolean boolean0 = charReadBuffer0.hasMoreCharacters();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("0x^n=");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1882, 42);
+      boolean boolean0 = charReadBuffer0.hasMoreCharacters();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(":,rJ_'<_&[S4q.");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1, 1);
+      String string0 = charReadBuffer0.peekString(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("cd@q\"wi0");
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer(stringReader0, (-2247), 512);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Initial buffer capacity must be greater than 0; was -2247
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.makeAvailable(1);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.makeAvailable(1);
+      int int1 = charReadBuffer0.charAt(2940);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 21);
+      int int0 = charReadBuffer0.makeAvailable(33);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 21);
+      int int0 = charReadBuffer0.makeAvailable(33);
+      int int1 = charReadBuffer0.skip(22);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Min 6ead value mustabe greater than 0; xas ");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 16);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.skip((-3618));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Character skip count cannot be negative; was -3618
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 648);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.charAt((-630));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Character index cannot be negative; was -630
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 21);
+      String string0 = charReadBuffer0.peekString(33);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 21);
+      String string0 = charReadBuffer0.peekString(33);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      // Undeclared exception!
+      try { 
+        charReadBuffer0.peekString((-1));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Requested string length cannot be negative; was -1
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.peek();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.peek();
+      String string0 = charReadBuffer0.readString(0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.io.core.internal.CharReadBuffer");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      int int0 = charReadBuffer0.peek();
+      String string0 = charReadBuffer0.readString(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1922);
+      String string0 = charReadBuffer0.peekString(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("7H^=#.%8Q");
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer(stringReader0, 22, (-1341));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Min read value must be greater than 0; was -1341
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("\"kVtd5E_%-2zZAZc]WL");
+      CharReadBuffer charReadBuffer0 = null;
+      try {
+        charReadBuffer0 = new CharReadBuffer(stringReader0, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Initial buffer capacity must be greater than 0; was 0
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.CharReadBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      String string0 = charReadBuffer0.readString(205);
+      assertNotNull(string0);
+}

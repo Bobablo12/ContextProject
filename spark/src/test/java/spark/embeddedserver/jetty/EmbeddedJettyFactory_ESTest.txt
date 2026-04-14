@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JettyServer jettyServer0 = new JettyServer();
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory(jettyServer0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory();
+      Routes routes0 = Routes.create();
+      StaticFilesConfiguration staticFilesConfiguration0 = StaticFilesConfiguration.servletInstance;
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      EmbeddedServer embeddedServer0 = embeddedJettyFactory0.create(routes0, staticFilesConfiguration0, exceptionMapper0, true);
+      assertNotNull(embeddedServer0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory();
+      EmbeddedJettyFactory embeddedJettyFactory1 = embeddedJettyFactory0.withThreadPool((ThreadPool) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EmbeddedJettyFactory embeddedJettyFactory0 = new EmbeddedJettyFactory();
+      EmbeddedJettyFactory embeddedJettyFactory1 = embeddedJettyFactory0.withHttpOnly(true);
+      ;
+}

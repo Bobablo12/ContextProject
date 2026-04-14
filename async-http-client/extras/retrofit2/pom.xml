@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>async-http-client-extras-parent</artifactId>
+    <groupId>org.asynchttpclient</groupId>
+    <version>2.12.3</version>
+  </parent>
+
+  <artifactId>async-http-client-extras-retrofit2</artifactId>
+  <name>Asynchronous Http Client Retrofit2 Extras</name>
+  <description>The Async Http Client Retrofit2 Extras.</description>
+
+  <properties>
+    <retrofit2.version>2.7.2</retrofit2.version>
+    <lombok.version>1.18.12</lombok.version>
+    <javaModuleName>org.asynchttpclient.extras.retrofit2</javaModuleName>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>${retrofit2.version}</version>
+    </dependency>
+
+    <!-- for tests -->
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-scalars</artifactId>
+      <version>${retrofit2.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-jackson</artifactId>
+      <version>${retrofit2.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>adapter-rxjava</artifactId>
+      <version>${retrofit2.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>adapter-rxjava2</artifactId>
+      <version>${retrofit2.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+
+  <build>
+    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
+    <directory>${project.basedir}/${target.dir}/</directory>
+    <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.9.8</version>
+        <configuration>
+          <threads>4</threads>
+          <timeoutConstant>8000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient.extras.retrofit*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.extras.retrofit.*_ESTest*</param>
+          </targetTests>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+  <profiles>
+    <profile>
+      <id>testID</id>
+      <activation>
+        <property>
+          <name>test.dir</name>
+        </property>
+      </activation>
+    </profile>
+    <profile>
+      <id>targetID</id>
+      <activation>
+        <property>
+          <name>target.dir</name>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
+</project>

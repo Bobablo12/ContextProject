@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSListener<JCSCacheEntryEvent<BufferedWriter, MockFileInputStream>, CacheEntryListener<Integer, Object>> jCSListener0 = null;
+      try {
+        jCSListener0 = new JCSListener<JCSCacheEntryEvent<BufferedWriter, MockFileInputStream>, CacheEntryListener<Integer, Object>>((CacheEntryListenerConfiguration<JCSCacheEntryEvent<BufferedWriter, MockFileInputStream>, CacheEntryListener<Integer, Object>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CacheEntryListener<Object, Object> cacheEntryListener0 = (CacheEntryListener<Object, Object>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>>(cacheEntryListener0);
+      FactoryBuilder.ClassFactory<NoFilter> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<NoFilter>("org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder");
+      MutableCacheEntryListenerConfiguration<Object, MockPrintStream> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<Object, MockPrintStream>(factoryBuilder_SingletonFactory0, factoryBuilder_ClassFactory0, true, false);
+      JCSListener<Object, MockPrintStream> jCSListener0 = null;
+      try {
+        jCSListener0 = new JCSListener<Object, MockPrintStream>(mutableCacheEntryListenerConfiguration0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder cannot be cast to javax.cache.event.CacheEntryEventFilter
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CacheEntryListener<Object, Object> cacheEntryListener0 = (CacheEntryListener<Object, Object>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryListener<Object, Object>>(cacheEntryListener0);
+      MutableCacheEntryListenerConfiguration<FilterOutputStream, MockRandomAccessFile> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<FilterOutputStream, MockRandomAccessFile>(factoryBuilder_SingletonFactory0, (Factory<? extends CacheEntryEventFilter<? super FilterOutputStream, ? super MockRandomAccessFile>>) null, true, true);
+      JCSListener<FilterOutputStream, MockRandomAccessFile> jCSListener0 = new JCSListener<FilterOutputStream, MockRandomAccessFile>(mutableCacheEntryListenerConfiguration0);
+      jCSListener0.close();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CacheEntryListener<Object, CharArrayReader> cacheEntryListener0 = (CacheEntryListener<Object, CharArrayReader>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryListener<Object, CharArrayReader>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryListener<Object, CharArrayReader>>(cacheEntryListener0);
+      Class<NoFilter> class0 = NoFilter.class;
+      FactoryBuilder.ClassFactory<NoFilter> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<NoFilter>(class0);
+      MutableCacheEntryListenerConfiguration<Integer, CharArrayReader> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<Integer, CharArrayReader>(factoryBuilder_SingletonFactory0, factoryBuilder_ClassFactory0, true, false);
+      JCSListener<Integer, CharArrayReader> jCSListener0 = null;
+      try {
+        jCSListener0 = new JCSListener<Integer, CharArrayReader>(mutableCacheEntryListenerConfiguration0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Failed to create an instance of org.apache.commons.jcs3.jcache.NoFilter
+         //
+         verifyException("javax.cache.configuration.FactoryBuilder$ClassFactory", e);
+      }
+  }

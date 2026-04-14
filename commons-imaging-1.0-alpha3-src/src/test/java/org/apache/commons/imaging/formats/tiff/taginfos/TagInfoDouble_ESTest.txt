@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("E2btCna{K7;}!Zy", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = new byte[19];
+      double double0 = tagInfoDouble0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("::", (-2497), tiffDirectoryType0);
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) "::");
+      ByteOrder byteOrder0 = charBuffer0.order();
+      byte[] byteArray0 = tagInfoDouble0.encodeValue(byteOrder0, 930.7158369722422);
+      double double0 = tagInfoDouble0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("", 1463, tiffDirectoryType0);
+      Charset charset0 = Charset.defaultCharset();
+      ByteBuffer byteBuffer0 = charset0.encode("");
+      CharBuffer charBuffer0 = charset0.decode(byteBuffer0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      // Undeclared exception!
+      try { 
+        tagInfoDouble0.getValue(byteOrder0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble((String) null, (-4167), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = tagInfoDouble0.encodeValue(byteOrder0, (double) (-1));
+      double double0 = tagInfoDouble0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("", (-1), tiffDirectoryType0);
+      byte[] byteArray0 = new byte[2];
+      // Undeclared exception!
+      try { 
+        tagInfoDouble0.getValue((ByteOrder) null, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 2
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

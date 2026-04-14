@@ -1,0 +1,329 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockError mockError0 = new MockError();
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException(mockError0);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.uncheckedAndWrap(exceptionUtil_UncheckedException0);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException((String) null);
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException((String) null, exceptionUtil_CloneableRuntimeException0);
+      ExecutionException executionException0 = new ExecutionException((String) null, exceptionUtil_CloneableException0);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.uncheckedAndWrap(executionException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.base.ExceptionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("");
+      exceptionUtil_CloneableRuntimeException0.setMessage("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("org.springside.modules.utils.base.ExceptionUtil$UncheckedException");
+      String string0 = exceptionUtil_CloneableRuntimeException0.getMessage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("y7LX-Y.4/LV J 5}]");
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException1 = exceptionUtil_CloneableRuntimeException0.clone();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException();
+      exceptionUtil_CloneableException0.setMessage((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("");
+      String string0 = exceptionUtil_CloneableException0.getMessage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException();
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException1 = exceptionUtil_CloneableException0.clone();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      String string0 = ExceptionUtil.toStringWithShortName((Throwable) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("y7LX-Y.4/LV J 5}]");
+      Throwable throwable0 = ExceptionUtil.getRootCause(exceptionUtil_CloneableRuntimeException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Throwable throwable0 = ExceptionUtil.clearStackTrace((Throwable) null);
+      assertNotNull(throwable0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException(mockRuntimeException0);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.uncheckedAndWrap(exceptionUtil_UncheckedException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException("char");
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.unchecked(mockRuntimeException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException((Throwable) null);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.toStringWithShortName(exceptionUtil_UncheckedException0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.base.ExceptionUtil$UncheckedException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      MockError mockError0 = new MockError("(o$<w\"z8^/ v.1(", mockRuntimeException0);
+      MockThrowable mockThrowable0 = new MockThrowable(mockError0);
+      mockRuntimeException0.initCause(mockThrowable0);
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("org.apache.commons.lang3.StringUtils", mockThrowable0);
+      // Undeclared exception!
+      ExceptionUtil.toStringWithRootCause(exceptionUtil_CloneableRuntimeException0);
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException((Throwable) null);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.toStringWithRootCause(exceptionUtil_UncheckedException0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.base.ExceptionUtil$UncheckedException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException();
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.isCausedBy(exceptionUtil_CloneableException0, (Class<? extends Exception>[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable(" [wrapped] ");
+      MockError mockError0 = new MockError(mockThrowable0);
+      mockThrowable0.initCause(mockError0);
+      // Undeclared exception!
+      ExceptionUtil.getRootCause(mockThrowable0);
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MockThrowable mockThrowable0 = new MockThrowable("org.springside.modules.utils.base.ExceptionUtil$UncheckedException");
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("", mockThrowable0);
+      mockThrowable0.initCause(exceptionUtil_CloneableRuntimeException0);
+      // Undeclared exception!
+      ExceptionUtil.clearStackTrace((Throwable) mockThrowable0);
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.getRootCause((Throwable) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("D2");
+      String string0 = ExceptionUtil.toStringWithRootCause(exceptionUtil_CloneableException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      String string0 = ExceptionUtil.toStringWithRootCause((Throwable) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      Class<RuntimeException>[] classArray0 = (Class<RuntimeException>[]) Array.newInstance(Class.class, 8);
+      Class<RuntimeException> class0 = RuntimeException.class;
+      classArray0[0] = class0;
+      boolean boolean0 = ExceptionUtil.isCausedBy(mockRuntimeException0, classArray0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MockError mockError0 = new MockError();
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.uncheckedAndWrap(mockError0);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException();
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException(exceptionUtil_CloneableRuntimeException0);
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.uncheckedAndWrap(exceptionUtil_UncheckedException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException();
+      Throwable throwable0 = ExceptionUtil.unwrap(exceptionUtil_CloneableException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      InvocationTargetException invocationTargetException0 = new InvocationTargetException((Throwable) null, (String) null);
+      Throwable throwable0 = ExceptionUtil.unwrap(invocationTargetException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("D2");
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException(exceptionUtil_CloneableException0);
+      Throwable throwable0 = ExceptionUtil.unwrap(exceptionUtil_UncheckedException0);
+      assertNotNull(throwable0.getMessage());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("{w,72/");
+      ExecutionException executionException0 = new ExecutionException("{w,72/", exceptionUtil_CloneableRuntimeException0);
+      Throwable throwable0 = ExceptionUtil.unwrap(executionException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      MockError mockError0 = new MockError();
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.unchecked(mockError0);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("sun.reflect.GeneratedConstructorAccessor41.newInstance(Unknown Source)\n<evosuite>.<evosuite>(<evosuite>)\n<evosuite>.<evosuite>(<evosuite>)\n<evosuite>.<evosuite>(<evosuite>)\n<evosuite>.<evosuite>(<evosuite>)\n<evosuite>.<evosuite>(<evosuite>)\n");
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.unchecked(exceptionUtil_CloneableRuntimeException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("D2");
+      // Undeclared exception!
+      try { 
+        ExceptionUtil.unchecked(exceptionUtil_CloneableException0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // D2
+         //
+         verifyException("org.springside.modules.utils.base.ExceptionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("D2");
+      ExceptionUtil.UncheckedException exceptionUtil_UncheckedException0 = new ExceptionUtil.UncheckedException(exceptionUtil_CloneableException0);
+      String string0 = exceptionUtil_UncheckedException0.getMessage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException0 = new ExceptionUtil.CloneableException("D2");
+      ExceptionUtil.CloneableException exceptionUtil_CloneableException1 = exceptionUtil_CloneableException0.clone("D2");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      MockError mockError0 = new MockError("(o$<w\"z8^/ v.1(", mockRuntimeException0);
+      MockThrowable mockThrowable0 = new MockThrowable(mockError0);
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("org.apache.commons.lang3.StringUtils", mockThrowable0);
+      String string0 = ExceptionUtil.toStringWithRootCause(exceptionUtil_CloneableRuntimeException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ExceptionUtil exceptionUtil0 = new ExceptionUtil();
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      MockError mockError0 = new MockError("(o$<w\"z8^/ v.1(", mockRuntimeException0);
+      MockThrowable mockThrowable0 = new MockThrowable(mockError0);
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("org.apache.commons.lang3.StringUtils", mockThrowable0);
+      String string0 = ExceptionUtil.toStringWithShortName(exceptionUtil_CloneableRuntimeException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      MockRuntimeException mockRuntimeException0 = new MockRuntimeException();
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException((String) null, mockRuntimeException0);
+      InvocationTargetException invocationTargetException0 = new InvocationTargetException(exceptionUtil_CloneableRuntimeException0, (String) null);
+      InvocationTargetException invocationTargetException1 = ExceptionUtil.clearStackTrace(invocationTargetException0);
+      assertNotNull(invocationTargetException1.getMessage());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException0 = new ExceptionUtil.CloneableRuntimeException("{w,72/");
+      ExceptionUtil.CloneableRuntimeException exceptionUtil_CloneableRuntimeException1 = exceptionUtil_CloneableRuntimeException0.clone("{w,72/");
+      ;
+}

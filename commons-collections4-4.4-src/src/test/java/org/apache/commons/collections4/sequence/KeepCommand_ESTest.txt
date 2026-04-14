@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      KeepCommand<String> keepCommand0 = new KeepCommand<String>("");
+      // Undeclared exception!
+      try { 
+        keepCommand0.accept((CommandVisitor<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.sequence.KeepCommand", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      KeepCommand<Object> keepCommand0 = new KeepCommand<Object>((Object) null);
+      CommandVisitor<Object> commandVisitor0 = (CommandVisitor<Object>) mock(CommandVisitor.class, new ViolatedAssumptionAnswer());
+      keepCommand0.accept(commandVisitor0);
+  }

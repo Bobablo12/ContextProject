@@ -1,0 +1,269 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String string0 = IcnsType.describeType((-1));
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int int0 = IcnsType.typeAsInt("icm#");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsType.typeAsInt("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid ICNS type
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_4BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      assertEquals(0, icnsType1.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_4BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_32x32_8BIT_MASK;
+      IcnsType icnsType1 = IcnsType.find8BPPMaskType(icnsType0);
+      assertEquals(0, icnsType1.getType());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_32x32_8BIT_MASK;
+      IcnsType icnsType1 = IcnsType.find8BPPMaskType(icnsType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_32x32_8BIT_MASK;
+      IcnsType icnsType1 = IcnsType.find8BPPMaskType(icnsType0);
+      assertEquals(0, icnsType1.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findAnyType(1748528491);
+      assertEquals(0, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findAnyType(1768124469);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findAnyType(1768124469);
+      assertEquals(1, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      IcnsType[] icnsTypeArray0 = IcnsType.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.valueOf("ICNS_32x32_8BIT_MASK");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.valueOf("ICNS_32x32_2x_32BIT_ARGB_IMAGE");
+      assertFalse(icnsType0.hasMask());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      int int0 = IcnsType.typeAsInt("\u0000\u0000\u0000\u0000");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_8BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      boolean boolean0 = icnsType1.hasMask();
+      assertEquals(0, icnsType1.getType());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_8BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      boolean boolean0 = icnsType1.hasMask();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_8BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      boolean boolean0 = icnsType1.hasMask();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_8BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find1BPPMaskType(icnsType0);
+      boolean boolean0 = icnsType1.hasMask();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findImageType(1768123683);
+      assertEquals(0, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsType.typeAsInt((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsType.find8BPPMaskType((IcnsType) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsType.find1BPPMaskType((IcnsType) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_32x32_32BIT_IMAGE;
+      int int0 = icnsType0.getWidth();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_32BIT_ARGB_IMAGE;
+      int int0 = icnsType0.getHeight();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_256x256_2x_32BIT_ARGB_IMAGE;
+      int int0 = icnsType0.getBitsPerPixel();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_256x256_32BIT_ARGB_IMAGE;
+      int int0 = icnsType0.getType();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsType.typeAsInt("org.apache.commons.imaging.formats.icns.IcnsType[width=16,height=12,bpp=8,hasMask=false]");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid ICNS type
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_32BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find8BPPMaskType(icnsType0);
+      IcnsType icnsType2 = IcnsType.find1BPPMaskType(icnsType1);
+      assertEquals(0, icnsType1.getType());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_32BIT_IMAGE;
+      IcnsType icnsType1 = IcnsType.find8BPPMaskType(icnsType0);
+      IcnsType icnsType2 = IcnsType.find1BPPMaskType(icnsType1);
+      assertEquals(1, icnsType2.getType());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findImageType(1768436530);
+      assertEquals(0, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      IcnsType.findImageType(33);
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findAnyType(1815637355);
+      assertEquals(0, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.findAnyType(1768436530);
+      assertEquals(0, icnsType0.getType());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_8BIT_IMAGE;
+      IcnsType.find8BPPMaskType(icnsType0);
+      assertEquals(1, icnsType0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_8BIT_IMAGE;
+      IcnsType.find8BPPMaskType(icnsType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_8BIT_IMAGE;
+      IcnsType.find8BPPMaskType(icnsType0);
+      assertEquals(1, icnsType0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      IcnsType.findAnyType(512);
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x16_32BIT_IMAGE;
+      boolean boolean0 = icnsType0.hasMask();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_16x12_8BIT_IMAGE;
+      String string0 = icnsType0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      IcnsType icnsType0 = IcnsType.ICNS_1024x1024_32BIT_ARGB_IMAGE;
+      IcnsType.find1BPPMaskType(icnsType0);
+  }

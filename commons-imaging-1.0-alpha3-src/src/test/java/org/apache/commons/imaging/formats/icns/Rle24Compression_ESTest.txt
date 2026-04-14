@@ -1,0 +1,91 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-1);
+      // Undeclared exception!
+      try { 
+        Rle24Compression.decompress(1, 1, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.Rle24Compression", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      // Undeclared exception!
+      try { 
+        Rle24Compression.decompress(379, 431, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 4
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.Rle24Compression", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byte[] byteArray1 = Rle24Compression.decompress(1, 1, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Rle24Compression.decompress(95, 211, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.Rle24Compression", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      // Undeclared exception!
+      try { 
+        Rle24Compression.decompress(698, (-971), byteArray0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.Rle24Compression", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[28];
+      byteArray0[22] = (byte) (-69);
+      // Undeclared exception!
+      try { 
+        Rle24Compression.decompress(128, 128, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 28
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.Rle24Compression", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = Rle24Compression.decompress(0, 95, (byte[]) null);
+      byte[] byteArray1 = Rle24Compression.decompress(4, 0, byteArray0);
+      byte[] byteArray2 = Rle24Compression.decompress(1838, 0, byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = Rle24Compression.decompress(0, 95, (byte[]) null);
+      byte[] byteArray1 = Rle24Compression.decompress(4, 0, byteArray0);
+      byte[] byteArray2 = Rle24Compression.decompress(1838, 0, byteArray1);
+      ;
+}

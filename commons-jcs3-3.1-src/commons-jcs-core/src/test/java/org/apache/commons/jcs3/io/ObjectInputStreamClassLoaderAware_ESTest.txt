@@ -1,0 +1,74 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ObjectInputStreamClassLoaderAware objectInputStreamClassLoaderAware0 = null;
+      try {
+        objectInputStreamClassLoaderAware0 = new ObjectInputStreamClassLoaderAware((InputStream) null, classLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ObjectInputStream$PeekInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-3), 1);
+      ObjectInputStreamClassLoaderAware objectInputStreamClassLoaderAware0 = null;
+      try {
+        objectInputStreamClassLoaderAware0 = new ObjectInputStreamClassLoaderAware(byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ObjectInputStreamClassLoaderAware objectInputStreamClassLoaderAware0 = null;
+      try {
+        objectInputStreamClassLoaderAware0 = new ObjectInputStreamClassLoaderAware(byteArrayInputStream0, classLoader0);
+        fail("Expecting exception: StreamCorruptedException");
+      } catch(Throwable e) {
+         //
+         // invalid stream header: 00000000
+         //
+         verifyException("java.io.ObjectInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ObjectInputStreamClassLoaderAware objectInputStreamClassLoaderAware0 = null;
+      try {
+        objectInputStreamClassLoaderAware0 = new ObjectInputStreamClassLoaderAware(pipedInputStream0, classLoader0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Enumeration<ByteArrayInputStream> enumeration0 = (Enumeration<ByteArrayInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(sequenceInputStream0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ObjectInputStreamClassLoaderAware objectInputStreamClassLoaderAware0 = null;
+      try {
+        objectInputStreamClassLoaderAware0 = new ObjectInputStreamClassLoaderAware(pushbackInputStream0, classLoader0);
+        fail("Expecting exception: EOFException");
+      } catch(Throwable e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ObjectInputStream$PeekInputStream", e);
+      }
+  }

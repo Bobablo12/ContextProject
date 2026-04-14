@@ -1,0 +1,64 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TransformerClosure<InstanceofPredicate> transformerClosure0 = new TransformerClosure<InstanceofPredicate>((Transformer<? super InstanceofPredicate, ?>) null);
+      Transformer<? super InstanceofPredicate, ?> transformer0 = transformerClosure0.getTransformer();
+      assertNotNull(transformer0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 4);
+      Transformer<Object, String> transformer0 = InvokerTransformer.invokerTransformer(">+>*0uU_T", (Class<?>[]) classArray0, (Object[]) classArray0);
+      TransformerClosure<Object> transformerClosure0 = new TransformerClosure<Object>(transformer0);
+      // Undeclared exception!
+      try { 
+        transformerClosure0.execute(">+>*0uU_T");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // InvokerTransformer: The method '>+>*0uU_T' on 'class java.lang.String' does not exist
+         //
+         verifyException("org.apache.commons.collections4.functors.InvokerTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Predicate<Object>[] predicateArray0 = (Predicate<Object>[]) Array.newInstance(Predicate.class, 7);
+      AnyPredicate<Object> anyPredicate0 = new AnyPredicate<Object>(predicateArray0);
+      Predicate<Object> predicate0 = NullIsExceptionPredicate.nullIsExceptionPredicate((Predicate<? super Object>) anyPredicate0);
+      predicateArray0[0] = predicate0;
+      DefaultEquator<Object> defaultEquator0 = DefaultEquator.defaultEquator();
+      EqualPredicate<Object> equalPredicate0 = new EqualPredicate<Object>(anyPredicate0, defaultEquator0);
+      predicateArray0[2] = (Predicate<Object>) equalPredicate0;
+      HashMap<Object, Boolean> hashMap0 = new HashMap<Object, Boolean>();
+      Transformer<Object, Boolean> transformer0 = MapTransformer.mapTransformer((Map<? super Object, ? extends Boolean>) hashMap0);
+      Transformer<Object, Boolean> transformer1 = IfTransformer.ifTransformer((Predicate<? super Object>) predicateArray0[0], (Transformer<? super Object, ? extends Boolean>) transformer0, (Transformer<? super Object, ? extends Boolean>) transformer0);
+      TransformerClosure<Object> transformerClosure0 = new TransformerClosure<Object>(transformer1);
+      // Undeclared exception!
+      try { 
+        transformerClosure0.execute(predicateArray0[2]);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TransformerClosure<Boolean> transformerClosure0 = new TransformerClosure<Boolean>((Transformer<? super Boolean, ?>) null);
+      // Undeclared exception!
+      try { 
+        transformerClosure0.execute((Boolean) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.functors.TransformerClosure", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Closure<Closure<Object>> closure0 = TransformerClosure.transformerClosure((Transformer<? super Closure<Object>, ?>) null);
+      ;
+}

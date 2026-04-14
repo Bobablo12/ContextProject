@@ -1,0 +1,82 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HSQLDiskCacheFactory hSQLDiskCacheFactory0 = new HSQLDiskCacheFactory();
+      jdbcDataSource jdbcDataSource0 = new jdbcDataSource();
+      jdbcConnection jdbcConnection0 = new jdbcConnection((Session) null);
+      // Undeclared exception!
+      try { 
+        hSQLDiskCacheFactory0.setupTable(jdbcConnection0, "iZ{/UJk\"~@u");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.hsqldb.jdbc.jdbcStatement", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HSQLDiskCacheFactory hSQLDiskCacheFactory0 = new HSQLDiskCacheFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      // Undeclared exception!
+      try { 
+        hSQLDiskCacheFactory0.setupDatabase((DataSource) null, jDBCDiskCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HSQLDiskCacheFactory hSQLDiskCacheFactory0 = new HSQLDiskCacheFactory();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      // Undeclared exception!
+      try { 
+        hSQLDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) remoteCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.RemoteCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HSQLDiskCacheFactory hSQLDiskCacheFactory0 = new HSQLDiskCacheFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      // Undeclared exception!
+      try { 
+        hSQLDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) jDBCDiskCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HSQLDiskCacheFactory hSQLDiskCacheFactory0 = new HSQLDiskCacheFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jdbcDataSource jdbcDataSource0 = new jdbcDataSource();
+      // Undeclared exception!
+      try { 
+        hSQLDiskCacheFactory0.setupDatabase(jdbcDataSource0, jDBCDiskCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheFactory", e);
+      }
+  }

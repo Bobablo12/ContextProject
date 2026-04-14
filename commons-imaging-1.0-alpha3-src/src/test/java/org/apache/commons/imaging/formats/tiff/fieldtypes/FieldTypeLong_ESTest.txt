@@ -1,0 +1,139 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(0, "org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLong");
+      byte[] byteArray0 = new byte[0];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(0, 0, fieldTypeLong0.FLOAT, 0, 0, byteArray0, byteOrder0, 0);
+      Object object0 = fieldTypeLong0.getValue(tiffField0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(2228, 0, fieldTypeLong0, 2228, 0, byteArray0, byteOrder0, 0);
+      Object object0 = fieldTypeLong0.getValue(tiffField0);
+      byte[] byteArray1 = fieldTypeLong0.writeData(object0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.IFD;
+      Object object0 = new Object();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      try { 
+        fieldTypeLong0.writeData(object0, byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid data: java.lang.Object@12b13e6a (java.lang.Object)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLong", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      TiffField tiffField0 = new TiffField(24, 24, (FieldType) null, 24, 24, (byte[]) null, (ByteOrder) null, 24);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.SLONG.writeData(tiffField0, (ByteOrder) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong((-1573), (String) null);
+      byte[] byteArray0 = new byte[5];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(1792, (-1), fieldTypeLong0.SHORT, (-1L), 1L, byteArray0, byteOrder0, (byte)15);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(0, "6I@;");
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.getValue((TiffField) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLong", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong((-1573), (String) null);
+      byte[] byteArray0 = new byte[5];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(1792, (-1), fieldTypeLong0.SHORT, (-1L), 1L, byteArray0, byteOrder0, (byte)15);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.IFD.getValue(tiffField0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(1, "jefwbtabL2fm^p1yA");
+      byte[] byteArray0 = new byte[0];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(133, 1, fieldTypeLong0, 1, 557L, byteArray0, byteOrder0, 133);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.getValue(tiffField0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      Integer integer0 = new Integer(1);
+      byte[] byteArray0 = fieldTypeLong0.writeData(integer0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.IFD;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(28, 28, fieldTypeLong0, 1L, 1339L, byteArray0, byteOrder0, 4);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

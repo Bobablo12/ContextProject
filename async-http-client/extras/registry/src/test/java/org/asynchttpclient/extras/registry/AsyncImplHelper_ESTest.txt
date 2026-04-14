@@ -1,0 +1,44 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AsyncImplHelper.getAsyncImplClass((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AsyncImplHelper.getAsyncImplClass("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Class<AsyncHttpClient> class0 = AsyncImplHelper.getAsyncImplClass("4");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      AsyncImplHelper asyncImplHelper0 = new AsyncImplHelper();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AsyncImplHelper.getAsyncImplClass("os.name");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Class : Linux couldn't be found in  the classpath due to : null
+         //
+         verifyException("org.asynchttpclient.extras.registry.AsyncImplHelper", e);
+      }
+  }

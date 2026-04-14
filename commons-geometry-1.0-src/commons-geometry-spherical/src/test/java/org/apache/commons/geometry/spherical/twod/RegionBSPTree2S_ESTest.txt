@@ -1,0 +1,244 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ConvexArea2S convexArea2S0 = ConvexArea2S.full();
+      RegionBSPTree2S regionBSPTree2S0 = convexArea2S0.toTree();
+      RegionBSPTree2S.RegionNode2S regionBSPTree2S_RegionNode2S0 = regionBSPTree2S0.createNode();
+      RegionBSPTree2S.RegionNode2S regionBSPTree2S_RegionNode2S1 = regionBSPTree2S_RegionNode2S0.getSelf();
+      assertTrue(regionBSPTree2S_RegionNode2S1.isOutside());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.empty();
+      regionBSPTree2S0.invalidate();
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.full();
+      List<ConvexArea2S> list0 = regionBSPTree2S0.toConvex();
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.full();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      Split<RegionBSPTree2S> split0 = regionBSPTree2S0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedHashSet<GreatArc> linkedHashSet0 = new LinkedHashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      linkedHashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) linkedHashSet0, true);
+      Point2S point2S0 = Point2S.PLUS_K;
+      Point2S point2S1 = regionBSPTree2S0.project(point2S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      Point2S point2S0 = greatCircle0.getPolePoint();
+      Point2S point2S1 = regionBSPTree2S0.project(point2S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      Point2S point2S0 = Point2S.PLUS_J;
+      Point2S point2S1 = regionBSPTree2S0.project(point2S0);
+      assertTrue(point2S1.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      List<GreatArc> list0 = regionBSPTree2S0.getBoundaries();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2S0.project((Point2S) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2S0.getBoundaryPaths();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.AbstractGreatArcConnector$ConnectableGreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree2S.from((Iterable<GreatArc>) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree2S.from((Iterable<GreatArc>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      Iterable<GreatArc> iterable0 = regionBSPTree2S0.boundaries();
+      assertNotNull(iterable0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = new RegionBSPTree2S(false);
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.full();
+      RegionBSPTree2S.RegionNode2S regionBSPTree2S_RegionNode2S0 = regionBSPTree2S0.createNode();
+      ConvexArea2S convexArea2S0 = regionBSPTree2S_RegionNode2S0.getNodeRegion();
+      assertTrue(convexArea2S0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.empty();
+      boolean boolean0 = regionBSPTree2S0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.full();
+      boolean boolean0 = regionBSPTree2S0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.empty();
+      Stream<GreatArc> stream0 = regionBSPTree2S0.boundaryStream();
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.empty();
+      List<ConvexArea2S> list0 = regionBSPTree2S0.toConvex();
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.full();
+      List<GreatArc> list0 = regionBSPTree2S0.getBoundaries();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.empty();
+      // Undeclared exception!
+      try { 
+        regionBSPTree2S0.split((Hyperplane<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = new RegionBSPTree2S();
+      regionBSPTree2S0.getBoundaryPaths();
+      List<GreatArcPath> list0 = regionBSPTree2S0.getBoundaryPaths();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = new RegionBSPTree2S();
+      RegionBSPTree2S regionBSPTree2S1 = regionBSPTree2S0.copy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      RegionBSPTree2S regionBSPTree2S0 = new RegionBSPTree2S();
+      RegionBSPTree2S regionBSPTree2S1 = regionBSPTree2S0.toTree();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0);
+      assertNotNull(regionBSPTree2S0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      Point2S point2S0 = regionBSPTree2S0.project((Point2S) null);
+      assertNotNull(point2S0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      HashSet<GreatArc> hashSet0 = new HashSet<GreatArc>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      boolean boolean0 = hashSet0.add(greatArc0);
+      RegionBSPTree2S regionBSPTree2S0 = RegionBSPTree2S.from((Iterable<GreatArc>) hashSet0, true);
+      boolean boolean1 = regionBSPTree2S0.isFinite();
+      ;
+}

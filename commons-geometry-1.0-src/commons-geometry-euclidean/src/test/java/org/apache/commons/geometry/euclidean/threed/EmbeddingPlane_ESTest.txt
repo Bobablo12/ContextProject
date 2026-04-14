@@ -1,0 +1,724 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4715.92812372521, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4715.92812372521, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4715.92812372521, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_X;
+      Vector3D.Unit vector3D_Unit2 = vector3D_Unit0.directionTo((Vector3D) vector3D_Unit1);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit2, vector3D_Unit1, vector3D_Unit2, 0.0, (Precision.DoubleEquivalence) null);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit2);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(1.0, 1.0, 1.0, 1.0);
+      Vector3D.Unit vector3D_Unit0 = (Vector3D.Unit)quaternionRotation0.getAxis();
+      Plane plane0 = new Plane(vector3D_Unit0, (-0.999999999999998), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D vector3D0 = Vector3D.NaN;
+      Vector2D vector2D0 = embeddingPlane0.toSubspace(vector3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      AxisSequence axisSequence0 = AxisSequence.ZXZ;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createTranslation((Vector3D) vector3D_Unit0);
+      Vector3D vector3D1 = vector3D0.transform(affineTransformMatrix3D0);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Vector2D vector2D0 = embeddingPlane0.toSubspace(vector3D1);
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-336.74413), (-336.74413), (-336.74413));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1339.4717008301861, (Precision.DoubleEquivalence) null);
+      Vector3D vector3D0 = Vector3D.of(653.3309598310976, (-0.999999999999998), 0.0);
+      Vector2D vector2D0 = embeddingPlane0.toSubspace(vector3D0);
+      assertTrue(vector2D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-336.74413), (-336.74413), (-336.74413));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-336.74413), (Precision.DoubleEquivalence) null);
+      Vector2D vector2D0 = Vector2D.NEGATIVE_INFINITY;
+      Vector3D vector3D0 = embeddingPlane0.toSpace(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector3D vector3D0 = embeddingPlane0.toSpace((Vector2D) vector2D_Unit0);
+      assertFalse(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Vector2D vector2D0 = embeddingPlane0.toSubspace((Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = embeddingPlane0.toSpace(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector3D vector3D0 = embeddingPlane0.toSpace(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      EmbeddingPlane.SubspaceTransform embeddingPlane_SubspaceTransform0 = embeddingPlane0.subspaceTransform(affineTransformMatrix3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_X;
+      Vector3D.Unit vector3D_Unit2 = vector3D_Unit0.directionTo((Vector3D) vector3D_Unit1);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit2, vector3D_Unit1, vector3D_Unit2, 0.0, (Precision.DoubleEquivalence) null);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngle(vector3D_Unit2, 0.0);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.rotate(vector3D_Unit0, quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(1.0, 1.0, 1.0, 1.0);
+      Vector3D.Unit vector3D_Unit0 = (Vector3D.Unit)quaternionRotation0.getAxis();
+      Plane plane0 = new Plane(vector3D_Unit0, (-0.999999999999998), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.reverse();
+      EmbeddingPlane embeddingPlane2 = embeddingPlane1.rotate(vector3D_Unit0, quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1536.3678654470375, (Precision.DoubleEquivalence) null);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of((-1335.972), 0.0, 1536.3678654470375, 2227.85690994703);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.rotate(vector3D_Unit0, quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector3D vector3D0 = embeddingPlane0.pointAt(vector2D_Unit0, (-2249.97833412));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector3D vector3D0 = embeddingPlane0.pointAt(vector2D0, 253.16);
+      assertEquals(0, vector3D0.getDimension());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Vector2D vector2D0 = Vector2D.of(0.0, 1329.7);
+      Vector3D vector3D0 = embeddingPlane0.pointAt(vector2D0, 2115.562);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1594.0781637180103), (Precision.DoubleEquivalence) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1593.0781637180103), (-1594.0781637180103));
+      Vector3D vector3D0 = embeddingPlane0.pointAt(vector2D_Unit0, (-1593.0781637180103));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1594.3), 0.25);
+      Vector3D vector3D0 = embeddingPlane0.pointAt(vector2D_Unit0, (-625.087));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 0.0, (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit0 = embeddingPlane0.getW();
+      assertNotNull(vector3D_Unit0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getW();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getW();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from(1.0, 1.0, (-1380.0982406));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Plane plane0 = new Plane(vector3D_Unit1, 1.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.createVectorRotation(vector3D_Unit1, vector3D_Unit1);
+      Plane plane1 = embeddingPlane0.rotate(vector3D_Unit1, quaternionRotation0);
+      Line3D line3D0 = embeddingPlane0.intersection(plane1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      EmbeddingPlane embeddingPlane1 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, precision_DoubleEquivalence1);
+      embeddingPlane1.getW();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, (-1.0), precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(1772.063894, (-1.0), (-1.0), (-1.0));
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      EmbeddingPlane embeddingPlane0 = plane1.getEmbedding();
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getW();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, (Vector3D.Unit) null, (Vector3D.Unit) null, 0.0, (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getV();
+      assertNotNull(vector3D_Unit1);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from(1.0, 0.0, 1006.4);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, 1006.4, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit1);
+      Line3D line3D0 = embeddingPlane0.intersection((Plane) embeddingPlane1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, precision_DoubleEquivalence1);
+      EmbeddingPlane embeddingPlane2 = plane0.getEmbedding();
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(0.0, 1.0, (-1484.4299669125), 1.0);
+      EmbeddingPlane embeddingPlane3 = embeddingPlane2.transform(quaternionRotation0);
+      Vector3D.Unit vector3D_Unit2 = embeddingPlane3.getV();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from(1.0, 0.0, 1006.4);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, 1006.4, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit1);
+      Line3D line3D0 = embeddingPlane0.intersection((Plane) embeddingPlane1);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = line3D0.getPrecision();
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, precision_DoubleEquivalence1);
+      EmbeddingPlane embeddingPlane2 = plane0.getEmbedding();
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(0.0, 1.0, (-1484.4299669125), 1.0);
+      EmbeddingPlane embeddingPlane3 = embeddingPlane2.transform(quaternionRotation0);
+      Vector3D.Unit vector3D_Unit2 = embeddingPlane3.getV();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 872.1, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getV();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from(1.0, 0.0, 1006.4);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, 1006.4, precision_DoubleEquivalence0);
+      Vector3D.Unit vector3D_Unit2 = embeddingPlane0.getV();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, (-949.18108829), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit0 = embeddingPlane0.getU();
+      assertNotNull(vector3D_Unit0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.16127209496169437, precision_DoubleEquivalence0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(1772.063894, 0.16127209496169437, 0.16127209496169437, 0.16127209496169437);
+      Plane plane1 = plane0.rotate(vector3D_Unit0, quaternionRotation0);
+      EmbeddingPlane embeddingPlane0 = plane1.getEmbedding();
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getU();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getU();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getU();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1594.0781637180103), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getU();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.getEmbedding();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.getEmbedding();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 2166.68, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.translate((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.translate(vector3D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1322.290955696142), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.transform((Transform<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.fromColumnVectors((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, (Vector3D.Unit) null, vector3D_Unit0, 842.51255887, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.toSubspace((Vector3D) vector3D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, (-1123.0), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.toSpace((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-2395.486363540187), (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.subspaceTransform((Transform<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.identity();
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 2.409919865102884E-181, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.rotate(vector3D0, quaternionRotation0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(794.103807, (-206.183001111837), 2.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.pointAt((Vector2D) null, 2252.4975);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale(4707.16349805194);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale(4707.16349805194);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      boolean boolean0 = embeddingPlane1.equals(embeddingPlane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1.0), precision_DoubleEquivalence0);
+      Object object0 = new Object();
+      boolean boolean0 = embeddingPlane0.equals(object0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 4.4809043009793035, (Precision.DoubleEquivalence) null);
+      boolean boolean0 = embeddingPlane0.equals((Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.reverse();
+      boolean boolean0 = embeddingPlane1.equals(embeddingPlane0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.subspaceTransform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 4.4809043009793035, (Precision.DoubleEquivalence) null);
+      Quaternion quaternion0 = Quaternion.ONE;
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of(quaternion0);
+      // Undeclared exception!
+      try { 
+        embeddingPlane0.rotate(vector3D_Unit0, quaternionRotation0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.16349805194, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getV();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      String string0 = embeddingPlane0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(794.103807, (-206.183001111837), 2.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, precision_DoubleEquivalence0);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1594.0781637180103), (Precision.DoubleEquivalence) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-1593.0781637180103), (-1594.0781637180103));
+      Vector3D vector3D0 = embeddingPlane0.toSpace((Vector2D) vector2D_Unit0);
+      assertFalse(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.getEmbedding();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-5.8582459853999), (Precision.DoubleEquivalence) null);
+      embeddingPlane0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1595.3), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getU();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-1594.0781637180103), (Precision.DoubleEquivalence) null);
+      Vector3D.Unit vector3D_Unit1 = embeddingPlane0.getW();
+      assertFalse(vector3D_Unit1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.1634981, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 4707.1634981, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      boolean boolean0 = embeddingPlane0.equals(embeddingPlane1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale((Vector2D) vector2D_Unit0);
+      EmbeddingPlane.SubspaceTransform embeddingPlane_SubspaceTransform0 = new EmbeddingPlane.SubspaceTransform((EmbeddingPlane) null, affineTransformMatrix2D0);
+      EmbeddingPlane embeddingPlane0 = embeddingPlane_SubspaceTransform0.getPlane();
+      assertNotNull(embeddingPlane0);
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale((Vector2D) vector2D_Unit0);
+      EmbeddingPlane.SubspaceTransform embeddingPlane_SubspaceTransform0 = new EmbeddingPlane.SubspaceTransform((EmbeddingPlane) null, affineTransformMatrix2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D1 = embeddingPlane_SubspaceTransform0.getTransform();
+      ;
+}

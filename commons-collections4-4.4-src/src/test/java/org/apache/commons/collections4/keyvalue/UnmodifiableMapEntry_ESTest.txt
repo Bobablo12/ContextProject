@@ -1,0 +1,46 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UnmodifiableMapEntry<Object, String> unmodifiableMapEntry0 = null;
+      try {
+        unmodifiableMapEntry0 = new UnmodifiableMapEntry<Object, String>((KeyValue<?, ? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.keyvalue.UnmodifiableMapEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UnmodifiableMapEntry<Object, Object> unmodifiableMapEntry0 = null;
+      try {
+        unmodifiableMapEntry0 = new UnmodifiableMapEntry<Object, Object>((Map.Entry<?, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.keyvalue.UnmodifiableMapEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      UnmodifiableMapEntry<String, String> unmodifiableMapEntry0 = new UnmodifiableMapEntry<String, String>("?f`z2Qx<mx~H kptNdY", "?f`z2Qx<mx~H kptNdY");
+      UnmodifiableMapEntry<Object, Comparable<String>> unmodifiableMapEntry1 = new UnmodifiableMapEntry<Object, Comparable<String>>((KeyValue<?, ? extends Comparable<String>>) unmodifiableMapEntry0);
+      // Undeclared exception!
+      try { 
+        unmodifiableMapEntry1.setValue("?f`z2Qx<mx~H kptNdY");
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // setValue() is not supported
+         //
+         verifyException("org.apache.commons.collections4.keyvalue.UnmodifiableMapEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      UnmodifiableMapEntry<String, String> unmodifiableMapEntry0 = new UnmodifiableMapEntry<String, String>("?f`z2Qx<mx~H kptNdY", "?f`z2Qx<mx~H kptNdY");
+      UnmodifiableMapEntry<Object, Object> unmodifiableMapEntry1 = new UnmodifiableMapEntry<Object, Object>((Map.Entry<?, ?>) unmodifiableMapEntry0);
+  }

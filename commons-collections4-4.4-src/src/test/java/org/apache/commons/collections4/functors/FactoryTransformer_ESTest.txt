@@ -1,0 +1,76 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Factory<String> factory0 = ConstantFactory.constantFactory((String) null);
+      FactoryTransformer<String, String> factoryTransformer0 = new FactoryTransformer<String, String>(factory0);
+      String string0 = factoryTransformer0.transform("joR&vba%jZ");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Integer integer0 = new Integer((-2518));
+      ConstantFactory<Integer> constantFactory0 = new ConstantFactory<Integer>(integer0);
+      FactoryTransformer<String, Integer> factoryTransformer0 = new FactoryTransformer<String, Integer>(constantFactory0);
+      Integer integer1 = factoryTransformer0.transform((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Factory<String> factory0 = ExceptionFactory.exceptionFactory();
+      FactoryTransformer<String, String> factoryTransformer0 = new FactoryTransformer<String, String>(factory0);
+      Factory<? extends String> factory1 = factoryTransformer0.getFactory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Factory<Object> factory0 = ExceptionFactory.exceptionFactory();
+      FactoryTransformer<String, Object> factoryTransformer0 = new FactoryTransformer<String, Object>(factory0);
+      // Undeclared exception!
+      try { 
+        factoryTransformer0.transform("UQ");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // ExceptionFactory invoked
+         //
+         verifyException("org.apache.commons.collections4.functors.ExceptionFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FactoryTransformer<String, Integer> factoryTransformer0 = new FactoryTransformer<String, Integer>((Factory<? extends Integer>) null);
+      // Undeclared exception!
+      try { 
+        factoryTransformer0.transform((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.functors.FactoryTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FactoryTransformer.factoryTransformer((Factory<? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Factory must not be null
+         //
+         verifyException("org.apache.commons.collections4.functors.FactoryTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Factory<String> factory0 = ConstantFactory.constantFactory("");
+      Transformer<String, String> transformer0 = FactoryTransformer.factoryTransformer((Factory<? extends String>) factory0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FactoryTransformer<String, Integer> factoryTransformer0 = new FactoryTransformer<String, Integer>((Factory<? extends Integer>) null);
+      Factory<? extends Integer> factory0 = factoryTransformer0.getFactory();
+      assertNotNull(factory0);
+}

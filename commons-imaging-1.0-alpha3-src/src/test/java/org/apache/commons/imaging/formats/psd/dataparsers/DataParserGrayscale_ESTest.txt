@@ -1,0 +1,70 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      int[][][] intArray0 = new int[1][5][8];
+      int[][] intArray1 = new int[2][9];
+      int[] intArray2 = new int[3];
+      intArray2[1] = 1;
+      intArray1[1] = intArray2;
+      intArray0[0] = intArray1;
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 1, 1, 1, (-1403));
+      int int0 = dataParserGrayscale0.getRGB(intArray0, 1, 1, psdImageContents0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      int[][][] intArray0 = new int[4][8][4];
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(1769, byteArray0, (-686), 1769, 2, 0, (-16777216));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (byte)2, 3, 0, 0);
+      int int0 = dataParserGrayscale0.getRGB(intArray0, 3, 0, psdImageContents0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(2, byteArray0, (-272), 0, (-1640), 2, 0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (-2161), 0, 2232, (byte)0);
+      // Undeclared exception!
+      try { 
+        dataParserGrayscale0.getRGB((int[][][]) null, 0, (-2064), psdImageContents0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscale", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      int[][][] intArray0 = new int[3][9][1];
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 556, 1, 0, (-2490));
+      // Undeclared exception!
+      try { 
+        dataParserGrayscale0.getRGB(intArray0, 1, (-854), psdImageContents0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -854
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscale", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      int int0 = dataParserGrayscale0.getBasicChannelsCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      int[][][] intArray0 = new int[1][5][8];
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 1, 1, 1, (-1403));
+      int int0 = dataParserGrayscale0.getRGB(intArray0, 1, 1, psdImageContents0);
+      assertEquals(1, int0);
+}

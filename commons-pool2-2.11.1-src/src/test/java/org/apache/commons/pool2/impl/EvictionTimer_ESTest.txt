@@ -1,0 +1,104 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      KeyedPooledObjectFactory<WeakReference<String>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<WeakReference<String>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<WeakReference<String>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<WeakReference<String>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor0 = genericKeyedObjectPool0.new Evictor();
+      EvictionTimer.schedule(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      int int0 = EvictionTimer.getNumTasks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Duration duration0 = Duration.ofSeconds(1375L);
+      // Undeclared exception!
+      try { 
+        EvictionTimer.schedule((BaseGenericObjectPool.Evictor) null, duration0, duration0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.EvictionTimer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Duration duration0 = Duration.ofDays(0);
+      // Undeclared exception!
+      try { 
+        EvictionTimer.schedule((BaseGenericObjectPool.Evictor) null, duration0, duration0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ScheduledThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory0);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor0 = genericKeyedObjectPool0.new Evictor();
+      Duration duration0 = Duration.ofSeconds((long) 100, (long) 0);
+      EvictionTimer.schedule(baseGenericObjectPool_Evictor0, duration0, duration0);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor1 = genericKeyedObjectPool0.new Evictor();
+      EvictionTimer.schedule(baseGenericObjectPool_Evictor1, duration0, duration0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      KeyedPooledObjectFactory<WeakReference<String>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<WeakReference<String>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      Duration duration0 = genericKeyedObjectPoolConfig0.getMinEvictableIdleDuration();
+      genericKeyedObjectPoolConfig0.setSoftMinEvictableIdleTime(duration0);
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<WeakReference<String>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<WeakReference<String>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig1);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor0 = genericKeyedObjectPool0.new Evictor();
+      EvictionTimer.schedule(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      genericKeyedObjectPool0.setTimeBetweenEvictionRuns(genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      EvictionTimer.cancel(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      KeyedPooledObjectFactory<WeakReference<String>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<WeakReference<String>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<WeakReference<String>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<WeakReference<String>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor0 = genericKeyedObjectPool0.new Evictor();
+      EvictionTimer.schedule(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      EvictionTimer.cancel(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT, false);
+      EvictionTimer.cancel(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      KeyedPooledObjectFactory<WeakReference<String>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<WeakReference<String>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<WeakReference<String>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<WeakReference<String>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      BaseGenericObjectPool.Evictor baseGenericObjectPool_Evictor0 = genericKeyedObjectPool0.new Evictor();
+      // Undeclared exception!
+      try { 
+        EvictionTimer.cancel(baseGenericObjectPool_Evictor0, genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.BaseGenericObjectPool$Evictor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Duration duration0 = BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_DURATION;
+      EvictionTimer.cancel((BaseGenericObjectPool.Evictor) null, duration0, false);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      int int0 = EvictionTimer.getNumTasks();
+      assertEquals(0, int0);
+}

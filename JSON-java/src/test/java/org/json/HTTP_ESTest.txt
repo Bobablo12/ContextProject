@@ -1,0 +1,95 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        HTTP.toString((JSONObject) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.HTTP", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      try { 
+        HTTP.toJSONObject("token cannot be null");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Expected ':' and instead saw '' at 20 [character 21 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        HTTP.toJSONObject((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject();
+      jSONObject0.put("Method", 86);
+      try { 
+        HTTP.toString(jSONObject0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Not enough material for an HTTP header.
+         //
+         verifyException("org.json.HTTP", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JSONObject jSONObject0 = HTTP.toJSONObject("GX}G//bbuXD<[RMG");
+      String[] stringArray0 = new String[6];
+      JSONObject jSONObject1 = new JSONObject(jSONObject0, stringArray0);
+      try { 
+        HTTP.toString(jSONObject1);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Not enough material for an HTTP header.
+         //
+         verifyException("org.json.HTTP", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JSONObject jSONObject0 = HTTP.toJSONObject("Status-Code");
+      jSONObject0.accumulate("Status-Code", "Status-Code");
+      assertEquals(0, jSONObject0.length());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JSONObject jSONObject0 = HTTP.toJSONObject("Status-Code");
+      jSONObject0.accumulate("Status-Code", "Status-Code");
+      String string0 = HTTP.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JSONObject jSONObject0 = HTTP.toJSONObject("HTTP");
+      String string0 = HTTP.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JSONObject jSONObject0 = HTTP.toJSONObject("Unab~e to writex)SONArrOy 3alue t indx: 0");
+      HTTP.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HTTP hTTP0 = new HTTP();
+  }

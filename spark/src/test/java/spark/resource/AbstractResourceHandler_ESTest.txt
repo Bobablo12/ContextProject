@@ -1,0 +1,174 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ExternalResourceHandler externalResourceHandler0 = new ExternalResourceHandler("/", "/");
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("/", (HttpUpgradeHandler) null, (Object) null).when(httpServletRequest0).getAttribute(anyString());
+      doReturn("/").when(httpServletRequest0).getPathInfo();
+      doReturn("/").when(httpServletRequest0).getServletPath();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ExternalResource externalResource0 = (ExternalResource)externalResourceHandler0.getResource(httpServletRequestWrapper0);
+      assertNotNull(externalResource0.getPath());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("=`j/nqj>2=/;W?Y6");
+      byte[] byteArray0 = new byte[1];
+      FileSystemHandling.appendDataToFile(evoSuiteFile0, byteArray0);
+      ExternalResourceHandler externalResourceHandler0 = new ExternalResourceHandler("=`j?Y6");
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("/nqj>2=/;W", (String) null, "/nqj>2=/;W").when(httpServletRequest0).getAttribute(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      // Undeclared exception!
+      try { 
+        externalResourceHandler0.getResource(httpServletRequestWrapper0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // external
+         //
+         verifyException("spark.staticfiles.DirectoryTraversal", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler(" ");
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        classPathResourceHandler0.getResource(httpServletRequestWrapper0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("_");
+      // Undeclared exception!
+      try { 
+        classPathResourceHandler0.getResource((HttpServletRequest) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.resource.AbstractResourceHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ExternalResourceHandler externalResourceHandler0 = new ExternalResourceHandler(")NP]-+(6v~/%N+");
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(externalResourceHandler0, (Object) null, (Object) null).when(httpServletRequest0).getAttribute(anyString());
+      doReturn((String) null).when(httpServletRequest0).getPathInfo();
+      doReturn((String) null).when(httpServletRequest0).getServletPath();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      AbstractResourceHandler.addPaths("handleWatchEvent {} {} <= {}", "handleWatchEvent {} {} <= {}");
+      try { 
+        externalResourceHandler0.getResource(httpServletRequestWrapper0);
+        fail("Expecting exception: MalformedURLException");
+      } catch(MalformedURLException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.resource.ExternalResourceHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("/7", "/7");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("///ZtjD/;N", "///ZtjD/;N");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths(";#<?!%P0R,.(xk\"", "0:cspyy|*m6]9=W#");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("7V9", "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("", "javax.servlet.include.path_info");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths((String) null, (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("4qihH9!", "4qihH9!");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("/", "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("/Jc>2=SVi/;", (String) null, "/Jc>2=SVi/;").when(httpServletRequest0).getAttribute(anyString());
+      ExternalResourceHandler externalResourceHandler0 = new ExternalResourceHandler("/Jc>2=SVi/;");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = externalResourceHandler0.getResource(httpServletRequest0);
+      assertNotNull(abstractFileResolvingResource0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("/Jc>2=SVi/;", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("/Jc>2=SVi/;", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      String string0 = AbstractResourceHandler.addPaths("", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("/7/7", "/7/7", "/7").when(httpServletRequest0).getAttribute(anyString());
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler("/7");
+      AbstractFileResolvingResource abstractFileResolvingResource0 = classPathResourceHandler0.getResource(httpServletRequest0);
+      assertNotNull(abstractFileResolvingResource0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ClassPathResourceHandler classPathResourceHandler0 = new ClassPathResourceHandler(".", (String) null);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(httpServletRequest0).getAttribute(anyString());
+      doReturn((String) null).when(httpServletRequest0).getPathInfo();
+      doReturn((String) null).when(httpServletRequest0).getServletPath();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      try { 
+        classPathResourceHandler0.getResource(httpServletRequestWrapper0);
+        fail("Expecting exception: MalformedURLException");
+      } catch(MalformedURLException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.resource.ClassPathResourceHandler", e);
+      }
+  }

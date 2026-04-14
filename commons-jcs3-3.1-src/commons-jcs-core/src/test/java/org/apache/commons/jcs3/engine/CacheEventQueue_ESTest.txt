@@ -1,0 +1,51 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheEventQueue<Integer, String> cacheEventQueue0 = null;
+      try {
+        cacheEventQueue0 = new CacheEventQueue<Integer, String>((ICacheListener<Integer, String>) null, 0L, "W_s_");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // listener must not be null
+         //
+         verifyException("org.apache.commons.jcs3.engine.AbstractCacheEventQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      AuxiliaryCache<String, Integer> auxiliaryCache0 = remoteCacheFactory0.createCache((AuxiliaryCacheAttributes) remoteCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) standardSerializer0);
+      CacheAdaptor<String, Integer> cacheAdaptor0 = new CacheAdaptor<String, Integer>(auxiliaryCache0);
+      CacheEventQueue<String, Integer> cacheEventQueue0 = new CacheEventQueue<String, Integer>(cacheAdaptor0, 30000L, "org.apache.commons.jcs3:type=JCSAdminBean", 0, 0);
+      ExecutorService executorService0 = cacheEventQueue0.createPool("org.apache.commons.jcs3:type=JCSAdminBean");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<String, Object> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, Object>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<String, Object> lateralCache0 = new LateralCache<String, Object>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      CacheAdaptor<String, Object> cacheAdaptor0 = new CacheAdaptor<String, Object>(lateralCache0);
+      CacheEventQueue<String, Object> cacheEventQueue0 = new CacheEventQueue<String, Object>(cacheAdaptor0, 313L, "CacheEventQueue.QProcessor-");
+      ICacheEventQueue.QueueType iCacheEventQueue_QueueType0 = cacheEventQueue0.getQueueType();
+      assertNotNull(iCacheEventQueue_QueueType0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CacheEventQueue<Object, String> cacheEventQueue0 = null;
+      try {
+        cacheEventQueue0 = new CacheEventQueue<Object, String>((ICacheListener<Object, String>) null, 30000L, "", 5678, (-3528));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // listener must not be null
+         //
+         verifyException("org.apache.commons.jcs3.engine.AbstractCacheEventQueue", e);
+      }
+  }

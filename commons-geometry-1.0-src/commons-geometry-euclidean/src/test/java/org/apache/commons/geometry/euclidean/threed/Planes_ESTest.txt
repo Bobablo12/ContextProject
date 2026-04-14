@@ -1,0 +1,810 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector<Vector3D> vector0 = new Vector<Vector3D>();
+      vector0.setSize(2422);
+      ConvexPolygon3D convexPolygon3D0 = Planes.fromConvexPlanarVertices((Plane) null, vector0);
+      assertTrue(convexPolygon3D0.isFull());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        Planes.validatePlanesEquivalent(embeddingPlane0, plane0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      int[][] intArray0 = new int[6][1];
+      int[] intArray1 = new int[3];
+      intArray1[0] = (-1677);
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons((List<? extends Vector3D>) linkedList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: -1677, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      int[][] intArray0 = new int[8][4];
+      int[] intArray1 = new int[1];
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles((List<? extends Vector3D>) arrayList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid number of vertex indices for face at index 0: expected 3 but found 1
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Vector3D vector3D0 = Vector3D.NaN;
+      // Undeclared exception!
+      try { 
+        Planes.triangleFromVertices(vector3D0, vector3D0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D[] vector3DArray0 = new Vector3D[4];
+      vector3DArray0[0] = (Vector3D) vector3D_Unit0;
+      // Undeclared exception!
+      try { 
+        Planes.fromPoints(vector3DArray0[0], (Vector3D) vector3D_Unit0, vector3DArray0[2], (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = Planes.fromPointAndNormal(vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(plane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      Planes.convexPolygonToTriangleFan(plane0, list0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Plane plane0 = new Plane(vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      PlaneConvexSubset planeConvexSubset0 = plane0.span();
+      BiFunction<Object, Object, EmbeddedAreaPlaneConvexSubset> biFunction0 = (BiFunction<Object, Object, EmbeddedAreaPlaneConvexSubset>) mock(BiFunction.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        Planes.subspaceSplit(plane0, (EmbeddedAreaPlaneConvexSubset) planeConvexSubset0, (BiFunction<? super EmbeddingPlane, ? super HyperplaneBoundedRegion<Vector2D>, EmbeddedAreaPlaneConvexSubset>) biFunction0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[0];
+      int[][] intArray0 = new int[0][7];
+      List<Triangle3D> list0 = Planes.indexedTriangles(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.negate();
+      Vector3D vector3D0 = Vector3D.of((-774.233047158135), (-2688.802562569059), 3960.807749191827);
+      EmbeddingPlane embeddingPlane0 = Planes.fromPointAndPlaneVectors(vector3D_Unit1, vector3D0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.of(1376.941683925691, (-3106.3274259577865), (-1257.0));
+      EmbeddingPlane embeddingPlane0 = Planes.fromPointAndPlaneVectors(vector3D0, vector3D0, vector3D0, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Vector3D vector3D1 = Vector3D.of(1368.988457, (-3105.2900485), (-1257.0));
+      Plane plane0 = Planes.fromPointAndNormal(vector3D0, vector3D1, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Vector3D vector3D1 = Vector3D.of(1368.988457, (-3105.2900485), (-1257.0));
+      Plane plane0 = Planes.fromPointAndNormal(vector3D0, vector3D1, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Plane plane0 = Planes.fromNormal(vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      // Undeclared exception!
+      try { 
+        Planes.triangleFromVertices((Vector3D) null, vector3D_Unit0, (Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.subsetFromConvexArea((EmbeddingPlane) null, (ConvexArea) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.intersection((PlaneSubset) null, (LineConvexSubset3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.intersection((PlaneSubset) null, (Line3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[0];
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles(vector3DArray0, (int[][]) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      int[][] intArray0 = new int[7][4];
+      int[] intArray1 = new int[3];
+      intArray1[2] = 649;
+      intArray0[0] = intArray1;
+      Vector3D[] vector3DArray0 = new Vector3D[1];
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 649
+         //
+         verifyException("java.util.Arrays$ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles((List<? extends Vector3D>) linkedList0, (int[][]) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      int[][] intArray0 = new int[5][5];
+      int[] intArray1 = new int[3];
+      intArray1[0] = (-58);
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles((List<? extends Vector3D>) arrayList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[0];
+      int[][] intArray0 = new int[6][0];
+      int[] intArray1 = new int[6];
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("java.util.Arrays$ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      int[][] intArray0 = new int[8][7];
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons((List<? extends Vector3D>) null, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      int[][] intArray0 = new int[5][1];
+      int[] intArray1 = new int[8];
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons((List<? extends Vector3D>) stack0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Array index out of range: 0
+         //
+         verifyException("java.util.Vector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.fromPoints((Vector3D) null, (Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: [null, null, null]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      LinkedHashSet<Vector3D> linkedHashSet0 = new LinkedHashSet<Vector3D>();
+      // Undeclared exception!
+      try { 
+        Planes.fromPoints((Collection<Vector3D>) linkedHashSet0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: []
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.fromPointAndPlaneVectors((Vector3D) null, (Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      // Undeclared exception!
+      try { 
+        Planes.fromPointAndPlaneVectors(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.fromPointAndNormal((Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NaN;
+      // Undeclared exception!
+      try { 
+        Planes.fromPointAndNormal(vector3D0, vector3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.fromNormal((Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(4.149515568880993E180, 4.149515568880993E180, 4.149515568880993E180);
+      Plane plane0 = Planes.fromPointAndNormal(vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        Planes.fromConvexPlanarVertices(plane0, (List<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.ABSOLUTE;
+      AxisSequence axisSequence0 = AxisSequence.YZY;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 0.0, 0.0, 0.0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      Vector3D vector3D0 = quaternionRotation0.getAxis();
+      // Undeclared exception!
+      try { 
+        Planes.extrudeVertexLoop((List<Vector2D>) null, (EmbeddingPlane) null, vector3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      LinkedList<Vector2D> linkedList0 = new LinkedList<Vector2D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      linkedList0.add((Vector2D) null);
+      // Undeclared exception!
+      try { 
+        Planes.extrudeVertexLoop(linkedList0, embeddingPlane0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        Planes.extrude(linePath0, embeddingPlane0, (Vector3D) vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.of(1368.988457, (-3105.2900485), (-1257.0));
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(vector3D0);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1555.93666159, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        Planes.extrude(regionBSPTree2D0, embeddingPlane0, vector3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.convexPolygonToTriangleFan((Plane) null, (List<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.EuclideanUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.convexPolygonFromVertices((Collection<Vector3D>) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      int[][] intArray0 = new int[5][1];
+      int[] intArray1 = new int[8];
+      stack0.add((Vector3D) null);
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons((List<? extends Vector3D>) stack0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: [null, null, null, null, null, null, null, null]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      int[][] intArray0 = new int[6][1];
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons((List<? extends Vector3D>) linkedList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid number of vertex indices for face at index 0: required at least 3 but found 1
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      int[][] intArray0 = new int[0][6];
+      List<ConvexPolygon3D> list0 = Planes.indexedConvexPolygons((List<? extends Vector3D>) linkedList0, intArray0, (Precision.DoubleEquivalence) null);
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      int[][] intArray0 = new int[5][5];
+      int[] intArray1 = new int[3];
+      intArray0[0] = intArray1;
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles((List<? extends Vector3D>) arrayList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 0, Size: 0
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      int[][] intArray0 = new int[3][9];
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles((List<? extends Vector3D>) arrayList0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid number of vertex indices for face at index 0: expected 3 but found 9
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        Planes.extrude(regionBSPTree2D0, embeddingPlane0, (Vector3D) vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.fromPoints((Collection<Vector3D>) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[8];
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      vector3DArray0[0] = (Vector3D) vector3D_Unit0;
+      int[][] intArray0 = new int[11][4];
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1698.5276133214652, 1698.5276133214652, 1698.5276133214652);
+      Plane plane0 = new Plane(vector3D_Unit0, 1698.5276133214652, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(plane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      List<Vector3D> list0 = simpleTriangle3D0.getVertices();
+      ConvexPolygon3D convexPolygon3D0 = Planes.fromConvexPlanarVertices(embeddingPlane0, list0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Vector<Vector3D> vector0 = new Vector<Vector3D>();
+      // Undeclared exception!
+      try { 
+        Planes.fromConvexPlanarVertices((Plane) null, vector0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Convex polygon requires at least 3 points; found 0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[0];
+      int[][] intArray0 = new int[2][1];
+      // Undeclared exception!
+      try { 
+        Planes.indexedConvexPolygons(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid number of vertex indices for face at index 0: required at least 3 but found 1
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Vector3D[] vector3DArray0 = new Vector3D[1];
+      int[][] intArray0 = new int[0][4];
+      List<ConvexPolygon3D> list0 = Planes.indexedConvexPolygons(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      int[][] intArray0 = new int[7][4];
+      int[] intArray1 = new int[3];
+      intArray0[0] = intArray1;
+      Vector3D[] vector3DArray0 = new Vector3D[1];
+      // Undeclared exception!
+      try { 
+        Planes.indexedTriangles(vector3DArray0, intArray0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: [null, null, null]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      int[][] intArray0 = new int[0][9];
+      List<Triangle3D> list0 = Planes.indexedTriangles((List<? extends Vector3D>) null, intArray0, (Precision.DoubleEquivalence) null);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-643.696548108386), (-715.01986), (-715.01986));
+      EmbeddingPlane embeddingPlane0 = Planes.fromPointAndPlaneVectors(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      HashSet<Line> hashSet0 = new HashSet<Line>(8);
+      ConvexArea convexArea0 = ConvexArea.fromBounds((Iterable<Line>) hashSet0);
+      Planes.subsetFromConvexArea(embeddingPlane0, convexArea0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      LinkedList<Vector2D> linkedList0 = new LinkedList<Vector2D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        Planes.extrudeVertexLoop(linkedList0, embeddingPlane0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = Planes.fromPointAndNormal(vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      // Undeclared exception!
+      try { 
+        Planes.convexPolygonToTriangleFan(plane0, arrayList0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot create triangle fan: 3 or more vertices are required but found only 0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.EuclideanUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Planes.triangleFromVertices((Vector3D) null, (Vector3D) null, (Vector3D) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: [null, null, null]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NaN;
+      // Undeclared exception!
+      try { 
+        Planes.fromNormal(vector3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Vector3D vector3D1 = Vector3D.of(1370.0299019704473, 1370.0299019704473, 1370.0299019704473);
+      Plane plane0 = Planes.fromPointAndNormal(vector3D0, vector3D1, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      // Undeclared exception!
+      try { 
+        Planes.extrude(linePath0, embeddingPlane0, vector3D1, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      // Undeclared exception!
+      try { 
+        Planes.convexPolygonFromVertices(arrayList0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: []
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }

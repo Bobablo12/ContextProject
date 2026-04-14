@@ -1,0 +1,38 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HTTPTokener hTTPTokener0 = null;
+      try {
+        hTTPTokener0 = new HTTPTokener((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HTTPTokener hTTPTokener0 = new HTTPTokener(" cYdq5abX( ");
+      hTTPTokener0.nextToken();
+      hTTPTokener0.nextToken();
+      assertTrue(hTTPTokener0.end());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HTTPTokener hTTPTokener0 = new HTTPTokener("' a}da4 fhstedsaF>'");
+      String string0 = hTTPTokener0.nextToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HTTPTokener hTTPTokener0 = new HTTPTokener("\"6B-p^83");
+      try { 
+        hTTPTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string. at 9 [character 10 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }

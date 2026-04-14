@@ -1,0 +1,44 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      InetAddress inetAddress0 = MockInetAddress.getByName("");
+      UDPDiscoveryReceiver uDPDiscoveryReceiver0 = null;
+      try {
+        uDPDiscoveryReceiver0 = new UDPDiscoveryReceiver((UDPDiscoveryService) null, "Received packet from address [{0}]", inetAddress0, 1852);
+        fail("Expecting exception: SocketException");
+      } catch(Throwable e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[4];
+      InetAddress inetAddress0 = InetAddress.getByAddress(byteArray0);
+      UDPDiscoveryReceiver uDPDiscoveryReceiver0 = null;
+      try {
+        uDPDiscoveryReceiver0 = new UDPDiscoveryReceiver((UDPDiscoveryService) null, (String) null, inetAddress0, 0);
+        fail("Expecting exception: SocketException");
+      } catch(Throwable e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      UDPDiscoveryAttributes uDPDiscoveryAttributes0 = new UDPDiscoveryAttributes();
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      UDPDiscoveryService uDPDiscoveryService0 = new UDPDiscoveryService(uDPDiscoveryAttributes0, standardSerializer0);
+      InetAddress inetAddress0 = MockInetAddress.getLocalHost();
+      UDPDiscoveryReceiver uDPDiscoveryReceiver0 = null;
+      try {
+        uDPDiscoveryReceiver0 = new UDPDiscoveryReceiver(uDPDiscoveryService0, "org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator", inetAddress0, (-358));
+        fail("Expecting exception: SocketException");
+      } catch(Throwable e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      UDPDiscoveryReceiver uDPDiscoveryReceiver0 = null;
+      try {
+        uDPDiscoveryReceiver0 = new UDPDiscoveryReceiver((UDPDiscoveryService) null, "V+k9TJ0wLo(pr]gBA", "V+k9TJ0wLo(pr]gBA", 1024);
+        fail("Expecting exception: SocketException");
+      } catch(Throwable e) {
+      }
+  }

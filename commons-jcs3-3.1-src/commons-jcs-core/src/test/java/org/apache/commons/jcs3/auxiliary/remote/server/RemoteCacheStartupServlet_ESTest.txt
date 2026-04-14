@@ -1,0 +1,104 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      CompositeCacheManager.getInstance("");
+      remoteCacheStartupServlet0.destroy();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      CompositeCacheManager.getInstance("");
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletResponseWrapper0.setResponse(httpServletResponseWrapper0);
+      // Undeclared exception!
+      try { 
+        remoteCacheStartupServlet0.service((HttpServletRequest) httpServletRequestWrapper0, (HttpServletResponse) httpServletResponseWrapper0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      // Undeclared exception!
+      try { 
+        remoteCacheStartupServlet0.service((HttpServletRequest) httpServletRequestWrapper0, (HttpServletResponse) httpServletResponseWrapper0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      // Undeclared exception!
+      try { 
+        remoteCacheStartupServlet0.init();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheStartupServlet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      CompositeCacheManager.getInstance("");
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(httpServletResponse0).getCharacterEncoding();
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      // Undeclared exception!
+      try { 
+        remoteCacheStartupServlet0.service((HttpServletRequest) httpServletRequestWrapper0, (HttpServletResponse) httpServletResponseWrapper0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheStartupServlet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      CompositeCacheManager.getInstance("");
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn("org.apache.commons.jcs3:type=JCSAdminBean").when(httpServletResponse0).getCharacterEncoding();
+      doReturn((ServletOutputStream) null).when(httpServletResponse0).getOutputStream();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      remoteCacheStartupServlet0.service((HttpServletRequest) httpServletRequestWrapper0, (HttpServletResponse) httpServletResponseWrapper0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RemoteCacheStartupServlet remoteCacheStartupServlet0 = new RemoteCacheStartupServlet();
+      // Undeclared exception!
+      try { 
+        remoteCacheStartupServlet0.destroy();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }

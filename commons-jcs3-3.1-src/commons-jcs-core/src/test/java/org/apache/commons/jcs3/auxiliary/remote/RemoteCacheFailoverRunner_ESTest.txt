@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      LinkedList<RemoteCacheNoWait<String, Delayed>> linkedList0 = new LinkedList<RemoteCacheNoWait<String, Delayed>>();
+      RemoteCacheNoWaitFacade<String, Delayed> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<String, Delayed>(linkedList0, (IRemoteCacheAttributes) null, cacheEventLoggerDebugLogger0, compressingSerializer0, remoteCacheFactory0);
+      RemoteCacheFailoverRunner<String, Delayed> remoteCacheFailoverRunner0 = new RemoteCacheFailoverRunner<String, Delayed>(remoteCacheNoWaitFacade0, remoteCacheFactory0);
+      // Undeclared exception!
+      try { 
+        remoteCacheFailoverRunner0.run();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacade", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      ArrayList<RemoteCacheNoWait<String, ForkJoinTask<Integer>>> arrayList0 = new ArrayList<RemoteCacheNoWait<String, ForkJoinTask<Integer>>>();
+      RemoteCacheNoWaitFacade<String, ForkJoinTask<Integer>> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<String, ForkJoinTask<Integer>>(arrayList0, remoteCacheAttributes0, cacheEventLoggerDebugLogger0, encryptingSerializer0, (RemoteCacheFactory) null);
+      RemoteCacheFailoverRunner<String, ForkJoinTask<Integer>> remoteCacheFailoverRunner0 = new RemoteCacheFailoverRunner<String, ForkJoinTask<Integer>>(remoteCacheNoWaitFacade0, (RemoteCacheFactory) null);
+      remoteCacheFailoverRunner0.run();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ArrayList<RemoteCacheNoWait<Object, OpenOption>> arrayList0 = new ArrayList<RemoteCacheNoWait<Object, OpenOption>>();
+      RemoteCacheNoWaitFacade<Object, OpenOption> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<Object, OpenOption>(arrayList0, remoteCacheAttributes0, cacheEventLoggerDebugLogger0, compressingSerializer0, (RemoteCacheFactory) null);
+      RemoteCacheFailoverRunner<Object, OpenOption> remoteCacheFailoverRunner0 = new RemoteCacheFailoverRunner<Object, OpenOption>(remoteCacheNoWaitFacade0, (RemoteCacheFactory) null);
+      remoteCacheFailoverRunner0.doWork();
+      assertFalse(remoteCacheFailoverRunner0.isDaemon());
+}

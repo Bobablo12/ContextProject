@@ -1,0 +1,390 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3371.7777156316), (-3371.7777156316), (-3371.7777156316));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = (EmbeddedAreaPlaneConvexSubset)embeddingPlane0.span();
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      Vector2D vector2D0 = embeddedAreaPlaneConvexSubset0.toSubspace(vector3D0);
+      assertTrue(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Vector3D.Unit vector3D_Unit1 = vector3D_Unit0.negate();
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit1, vector3D_Unit1, vector3D_Unit1, (-348.2803), (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0);
+      Vector2D vector2D0 = embeddedTreePlaneSubset0.toSubspace((Vector3D) vector3D_Unit0);
+      assertFalse(vector2D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.toSpace((Vector2D) vector2D_Unit0);
+      assertEquals(0, vector3D0.getDimension());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      Vector2D vector2D0 = embeddedTreePlaneSubset0.toSubspace((Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.toSpace(vector2D0);
+      assertFalse(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.toSpace((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, (RegionBSPTree2D) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.toSpace((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      Vector2D vector2D0 = embeddedTreePlaneSubset0.toSubspace((Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.toSpace(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      Vector2D vector2D0 = embeddedTreePlaneSubset0.toSubspace((Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.toSpace(vector2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      boolean boolean0 = embeddedTreePlaneSubset0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      double double0 = embeddedTreePlaneSubset0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, true);
+      double double0 = embeddedTreePlaneSubset0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      EmbeddingPlane embeddingPlane1 = embeddedTreePlaneSubset0.getPlane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Plane plane0 = new Plane(vector3D_Unit0, 2.326559996988609, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      EmbeddingPlane embeddingPlane1 = embeddedTreePlaneSubset0.getPlane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3371.7777156316), (-3371.7777156316), (-3371.7777156316));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1401.79195, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.reverse();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane1, true);
+      EmbeddingPlane embeddingPlane2 = embeddedTreePlaneSubset0.getPlane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3371.7777156316), (-3371.7777156316), (-3371.7777156316));
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit1, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.identity();
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.transform(affineTransformMatrix3D0);
+      EmbeddingPlane embeddingPlane2 = embeddingPlane1.reverse();
+      Line[] lineArray0 = new Line[0];
+      ConvexArea convexArea0 = ConvexArea.fromBounds(lineArray0);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane2, convexArea0);
+      EmbeddingPlane embeddingPlane3 = embeddedAreaPlaneConvexSubset0.getHyperplane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 3185.749783716974, (Precision.DoubleEquivalence) null);
+      LinkedList<Segment> linkedList0 = new LinkedList<Segment>();
+      BoundaryList2D boundaryList2D0 = new BoundaryList2D(linkedList0);
+      RegionBSPTree2D regionBSPTree2D0 = boundaryList2D0.toTree();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, regionBSPTree2D0);
+      EmbeddingPlane embeddingPlane1 = embeddedTreePlaneSubset0.getHyperplane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Bounds3D bounds3D0 = embeddedTreePlaneSubset0.getBoundsFromSubspace(regionBSPTree2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0);
+      Vector3D vector3D0 = embeddedTreePlaneSubset0.closest((Vector3D) vector3D_Unit0);
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.closest((Vector3D) vector3D_Unit0);
+      assertTrue(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(2217.090778, 2217.090778, 2217.090778);
+      Plane plane0 = new Plane(vector3D_Unit0, (-1566.1538540243407), (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane0 = plane0.getEmbedding();
+      Line[] lineArray0 = new Line[0];
+      ConvexArea convexArea0 = ConvexArea.fromBounds(lineArray0);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.closest((Vector3D) vector3D_Unit0);
+      assertFalse(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-130.17871645), (Precision.DoubleEquivalence) null);
+      Class<Line> class0 = Line.class;
+      ServiceLoader<Line> serviceLoader0 = ServiceLoader.load(class0);
+      ConvexArea convexArea0 = ConvexArea.fromBounds((Iterable<Line>) serviceLoader0);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.closest((Vector3D) vector3D_Unit0);
+      assertFalse(vector3D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane((Vector3D.Unit) null, (Vector3D.Unit) null, (Vector3D.Unit) null, 0.0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, (RegionBSPTree2D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.toSubspace((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddingPlane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, (RegionBSPTree2D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.isEmpty();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, (ConvexArea) null);
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.getCentroid();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, (ConvexArea) null);
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.getBoundsFromSubspace((BoundarySource2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, (ConvexArea) null);
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.isFull();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, convexArea0);
+      EmbeddingPlane embeddingPlane0 = embeddedAreaPlaneConvexSubset0.getPlane();
+      assertNotNull(embeddingPlane0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, convexArea0);
+      String string0 = embeddedAreaPlaneConvexSubset0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, (ConvexArea) null);
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.classify(vector3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.HyperplaneSubsets", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3371.7777156316), (-3371.7777156316), (-3371.7777156316));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      Line[] lineArray0 = new Line[0];
+      ConvexArea convexArea0 = ConvexArea.fromBounds(lineArray0);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      EmbeddingPlane embeddingPlane1 = embeddedAreaPlaneConvexSubset0.getHyperplane();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ConvexArea convexArea0 = ConvexArea.full();
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, convexArea0);
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.toSpace(vector2DArray0[0]);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      LinkedList<Line> linkedList0 = new LinkedList<Line>();
+      HashSet<Line> hashSet0 = new HashSet<Line>(linkedList0);
+      ConvexArea convexArea0 = ConvexArea.fromBounds((Iterable<Line>) hashSet0);
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, convexArea0);
+      boolean boolean0 = embeddedAreaPlaneConvexSubset0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, (ConvexArea) null);
+      // Undeclared exception!
+      try { 
+        embeddedAreaPlaneConvexSubset0.getSize();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3371.7777156316), (-3371.7777156316), (-3371.7777156316));
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (-3371.7777156316), (Precision.DoubleEquivalence) null);
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.closest((Vector3D) vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset((EmbeddingPlane) null, convexArea0);
+      Vector3D vector3D0 = embeddedAreaPlaneConvexSubset0.getCentroid();
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      boolean boolean0 = embeddedTreePlaneSubset0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      boolean boolean0 = embeddedTreePlaneSubset0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      EmbeddingPlane embeddingPlane0 = embeddedTreePlaneSubset0.getHyperplane();
+      assertNotNull(embeddingPlane0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.closest((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.internal.HyperplaneSubsets", e);
+      }
+  }

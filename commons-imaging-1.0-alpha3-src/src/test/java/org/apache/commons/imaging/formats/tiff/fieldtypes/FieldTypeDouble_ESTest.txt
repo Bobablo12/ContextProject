@@ -1,0 +1,143 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[3];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((byte)100, (byte)100, fieldTypeDouble0, (byte)100, 1, byteArray0, byteOrder0, (byte)100);
+      Object object0 = fieldTypeDouble0.getValue(tiffField0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(328, 328, fieldTypeDouble0, 2311L, 328, (byte[]) null, byteOrder0, 328);
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[0];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(2146151462, 2146151462, fieldTypeDouble0, 2146151462, 2146151462, byteArray0, byteOrder0, 50942);
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.DOUBLE.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(1, 1, fieldTypeDouble0, 1, 1, byteArray0, byteOrder0, (byte)0);
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-198), (String) null);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField((-716), (-198), fieldTypeDouble0, (-716), (-716), (byte[]) null, byteOrder0, (-716));
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.getValue(tiffField0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble(213, "}");
+      byte[] byteArray0 = new byte[2];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField((-2652), 0, fieldTypeDouble0, (-1L), (-1L), byteArray0, byteOrder0, 1);
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.getValue(tiffField0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField((byte)1, 0, fieldTypeDouble0, 0, 1, byteArray0, byteOrder0, 0);
+      try { 
+        fieldTypeDouble0.writeData(tiffField0, byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid data: 1 (0x1: Unknown Tag):  (0 Double) (org.apache.commons.imaging.formats.tiff.TiffField)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeDouble", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-79), "XPosiiop");
+      Double double0 = new Double((-79));
+      byte[] byteArray0 = fieldTypeDouble0.DOUBLE.writeData(double0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-699), "");
+      byte[] byteArray0 = new byte[6];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1, 0, fieldTypeDouble0, 1, 0L, byteArray0, byteOrder0, 1);
+      // Undeclared exception!
+      try { 
+        fieldTypeDouble0.getValue(tiffField0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 6
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField((byte)1, 0, fieldTypeDouble0, 0, 1, byteArray0, byteOrder0, 0);
+      Object object0 = fieldTypeDouble0.getValue(tiffField0);
+      byte[] byteArray1 = fieldTypeDouble0.DOUBLE.writeData(object0, byteOrder0);
+      ;
+}

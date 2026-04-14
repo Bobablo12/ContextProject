@@ -1,0 +1,178 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("File: '/File: '/.%;eth!*a/+_}rW~,");
+      FileSystemHandling.appendStringToFile(evoSuiteFile0, "3A;4Zr-|J[07");
+      MockFile mockFile0 = new MockFile("File: '", "File: '");
+      MockFile mockFile1 = new MockFile(mockFile0, ".%;eth!*a/+_}rW~,");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile1);
+      long long0 = byteSourceFile0.getLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("/tmp/|-x!4=={A:Rr#y5r?0|-x!4=={A:Rr#y5r?");
+      File file0 = MockFile.createTempFile("|-x!4=={A:Rr#y5r?", "|-x!4=={A:Rr#y5r?");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "PTA;`AE*[U");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      byte[] byteArray0 = byteSourceFile0.getBlock(0L, 3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockFile mockFile0 = new MockFile(":");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getInputStream();
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("T", "J1\\i");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getBlock((-1L), 369);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // File does not exist, and RandomAccessFile is not open in write mode
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockRandomAccessFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      File file0 = MockFile.createTempFile("org.apache.commons.imaging.common.bytesource.ByteSourceFile", "org.apache.commons.imaging.common.bytesource.ByteSourceFile");
+      MockFile mockFile0 = new MockFile(file0, "org.apache.commons.imaging.common.bytesource.ByteSourceFile");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        byteSourceFile0.getAll();
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      File file0 = MockFile.createTempFile("5Io67`#;$OJ1", "5Io67`#;$OJ1", (File) mockFile0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        byteSourceFile0.getBlock(1L, 0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: 1, block length: 0, data length: 0).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      File file0 = MockFile.createTempFile("|-x!4=={A:Rr#y5r?", "|-x!4=={A:Rr#y5r?");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      byte[] byteArray0 = byteSourceFile0.getBlock(0L, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      File file0 = MockFile.createTempFile("|-x!4=={A:Rr#y5r?", "|-x!4=={A:Rr#y5r?");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      InputStream inputStream0 = byteSourceFile0.getInputStream();
+      assertNotNull(inputStream0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      File file0 = MockFile.createTempFile("org.apache.common.io.fileAccumulatorPathVisitor", "org.apache.common.io.fileAccumulatorPathVisitor");
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        byteSourceFile0.getAll();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      File file0 = MockFile.createTempFile("|-x!4=={A:Rr#y5r?", "|-x!4=={A:Rr#y5r?");
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("/tmp/|-x!4=={A:Rr#y5r?0|-x!4=={A:Rr#y5r?");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "PTA;`AE*[U");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      byte[] byteArray0 = byteSourceFile0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      File file0 = MockFile.createTempFile("|-x!4=={A:Rr#y5r?", "|-x!4=={A:Rr#y5r?");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        byteSourceFile0.getBlock(0L, (-153));
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: 0, block length: -153, data length: 0).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      File file0 = MockFile.createTempFile("&/Bzhu+D$?dORdOW7", "&/Bzhu+D$?dORdOW7");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        byteSourceFile0.getBlock((-3009L), 0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: -3009, block length: 0, data length: 0).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      File file0 = MockFile.createTempFile("&/Bzhu+D$?dORdOW7", "&/Bzhu+D$?dORdOW7");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      byte[] byteArray0 = byteSourceFile0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      File file0 = MockFile.createTempFile("&/Bzhu+D$?dORdOW7", "&/Bzhu+D$?dORdOW7");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      long long0 = byteSourceFile0.getLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      File file0 = MockFile.createTempFile("&/Bzhu+D$?dORdOW7", "&/Bzhu+D$?dORdOW7");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      String string0 = byteSourceFile0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ByteSourceFile byteSourceFile0 = null;
+      try {
+        byteSourceFile0 = new ByteSourceFile((File) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }

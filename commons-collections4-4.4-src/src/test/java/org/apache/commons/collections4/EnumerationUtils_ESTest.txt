@@ -1,0 +1,154 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Enumeration<Integer> enumeration0 = (Enumeration<Integer>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      Enumeration<String> enumeration1 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration1).hasMoreElements();
+      doReturn((Object) null).when(enumeration1).nextElement();
+      // Undeclared exception!
+      try { 
+        EnumerationUtils.get(enumeration1, 3552);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Entry does not exist: 3551
+         //
+         verifyException("org.apache.commons.collections4.EnumerationUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      boolean boolean0 = true;
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration0).hasMoreElements();
+      doReturn((Object) null).when(enumeration0).nextElement();
+      EnumerationUtils.toList((Enumeration<? extends String>) enumeration0);
+      Enumeration<String> enumeration1 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(boolean0, false).when(enumeration1).hasMoreElements();
+      doReturn((Object) null).when(enumeration1).nextElement();
+      EnumerationUtils.toList((Enumeration<?>) enumeration1);
+      boolean boolean1 = false;
+      Enumeration<String> enumeration2 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(boolean1).when(enumeration2).hasMoreElements();
+      EnumerationUtils.toList((Enumeration<? extends String>) enumeration2);
+      String string0 = "Dt:el(f; 4b,B";
+      String string1 = "2' *PJI:|";
+      StringTokenizer stringTokenizer0 = new StringTokenizer(string0, string1);
+      String string2 = "add() not supported for empty Iterator";
+      stringTokenizer0.nextToken(string2);
+      stringTokenizer0.nextElement();
+      stringTokenizer0.hasMoreElements();
+      EnumerationUtils.toList(stringTokenizer0);
+      Enumeration<Integer> enumeration3 = (Enumeration<Integer>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        stringTokenizer0.nextToken();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.StringTokenizer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      String string0 = "'9r8.nToY23";
+      StringTokenizer stringTokenizer0 = new StringTokenizer("'9r8.nToY23", "_GrP(#62(hnInMC>", false);
+      stringTokenizer0.hasMoreElements();
+      stringTokenizer0.hasMoreTokens();
+      stringTokenizer0.nextToken();
+      stringTokenizer0.nextElement();
+      EnumerationUtils.get((Enumeration<Object>) stringTokenizer0, 1);
+      EnumerationUtils.toList(stringTokenizer0);
+      // Undeclared exception!
+      try { 
+        stringTokenizer0.nextElement();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.StringTokenizer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringTokenizer stringTokenizer0 = new StringTokenizer("5Cb:2w1u", "");
+      // Undeclared exception!
+      try { 
+        EnumerationUtils.get((Enumeration<Object>) stringTokenizer0, 2531);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Entry does not exist: 2530
+         //
+         verifyException("org.apache.commons.collections4.EnumerationUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringTokenizer stringTokenizer0 = new StringTokenizer("org.apache.commons.collections4.iterators.EmptyListIterator");
+      stringTokenizer0.nextToken();
+      EnumerationUtils.toList(stringTokenizer0);
+      stringTokenizer0.hasMoreTokens();
+      EnumerationUtils.toList(stringTokenizer0);
+      Enumeration<Integer> enumeration0 = null;
+      // Undeclared exception!
+      try { 
+        EnumerationUtils.toList((Enumeration<? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Enumeration<Integer> enumeration0 = (Enumeration<Integer>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      EnumerationUtils.toList((Enumeration<?>) enumeration0);
+      StringTokenizer stringTokenizer0 = new StringTokenizer("", (String) null);
+      // Undeclared exception!
+      try { 
+        EnumerationUtils.toList(stringTokenizer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.StringTokenizer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringTokenizer stringTokenizer0 = new StringTokenizer("VK!/", "");
+      List<Object> list0 = EnumerationUtils.toList((Enumeration<?>) stringTokenizer0);
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringTokenizer stringTokenizer0 = new StringTokenizer("#");
+      stringTokenizer0.hasMoreElements();
+      stringTokenizer0.nextElement();
+      stringTokenizer0.hasMoreElements();
+      EnumerationUtils.toList(stringTokenizer0);
+      Enumeration<String> enumeration0 = null;
+      int int0 = 1;
+      // Undeclared exception!
+      try { 
+        EnumerationUtils.get((Enumeration<String>) null, 1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Enumeration<Integer> enumeration0 = (Enumeration<Integer>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      List<Integer> list0 = EnumerationUtils.toList((Enumeration<? extends Integer>) enumeration0);
+      assertEquals(1, list0.size());
+}

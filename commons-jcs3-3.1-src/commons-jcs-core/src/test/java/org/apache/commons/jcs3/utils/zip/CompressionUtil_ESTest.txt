@@ -1,0 +1,242 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      try { 
+        CompressionUtil.decompressGzipByteArray(byteArray0, 0);
+        fail("Expecting exception: ZipException");
+      } catch(ZipException e) {
+         //
+         // Not in GZIP format
+         //
+         verifyException("java.util.zip.GZIPInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.decompressGzipByteArray((byte[]) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byte[] byteArray1 = CompressionUtil.decompressByteArray(byteArray0, (int) (byte)1);
+      try { 
+        CompressionUtil.decompressGzipByteArray(byteArray1, 0);
+        fail("Expecting exception: EOFException");
+      } catch(EOFException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.zip.GZIPInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      try { 
+        CompressionUtil.decompressGzipByteArray(byteArray0);
+        fail("Expecting exception: ZipException");
+      } catch(ZipException e) {
+         //
+         // Not in GZIP format
+         //
+         verifyException("java.util.zip.GZIPInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.decompressGzipByteArray((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      // Undeclared exception!
+      CompressionUtil.decompressByteArray(byteArray0, 1756);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      // Undeclared exception!
+      try { 
+        CompressionUtil.decompressByteArray(byteArray0, (-1404));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.zip.CompressionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      // Undeclared exception!
+      CompressionUtil.decompressByteArray(byteArray0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.compressByteArray((byte[]) null, (-2938));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      // Undeclared exception!
+      try { 
+        CompressionUtil.compressByteArray(byteArray0, (-2466));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.zip.CompressionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.compressByteArray((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0, 1642);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      // Undeclared exception!
+      CompressionUtil.compressByteArray(byteArray0, (int) (byte)0);
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1, 2128);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1, 2128);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1, 2128);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.decompressByteArray((byte[]) null, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Input was null
+         //
+         verifyException("org.apache.commons.jcs3.utils.zip.CompressionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = CompressionUtil.compressByteArray(byteArray0);
+      byte[] byteArray2 = CompressionUtil.decompressByteArray(byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompressionUtil.decompressByteArray((byte[]) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Input was null
+         //
+         verifyException("org.apache.commons.jcs3.utils.zip.CompressionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      try { 
+        CompressionUtil.decompressGzipByteArray(byteArray0);
+        fail("Expecting exception: EOFException");
+      } catch(EOFException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.zip.GZIPInputStream", e);
+      }
+  }

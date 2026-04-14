@@ -1,0 +1,43 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Properties properties0 = new Properties();
+      Object object0 = new Object();
+      properties0.put(object0, object0);
+      // Undeclared exception!
+      try { 
+        Property.toJSONObject(properties0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.Object cannot be cast to java.lang.String
+         //
+         verifyException("java.util.Properties", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Properties properties0 = Property.toProperties((JSONObject) null);
+      assertTrue(properties0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Properties properties0 = new Properties();
+      JSONObject jSONObject0 = Property.toJSONObject(properties0);
+      assertEquals(0, jSONObject0.length());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject((Object) "AQxF");
+      Properties properties0 = Property.toProperties(jSONObject0);
+      JSONObject jSONObject1 = Property.toJSONObject(properties0);
+      assertFalse(jSONObject1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JSONObject jSONObject0 = Property.toJSONObject((Properties) null);
+      assertEquals(0, jSONObject0.length());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Property property0 = new Property();
+  }

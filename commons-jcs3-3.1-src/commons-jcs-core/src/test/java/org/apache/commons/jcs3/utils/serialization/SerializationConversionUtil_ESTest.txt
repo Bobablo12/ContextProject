@@ -1,0 +1,173 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheElement<Object, String> cacheElement0 = new CacheElement<Object, String>("ejtq+7n=1U~S`V_", "ejtq+7n=1U~S`V_", "BDfO");
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ICacheElementSerialized<Object, String> iCacheElementSerialized0 = SerializationConversionUtil.getSerializedCacheElement((ICacheElement<Object, String>) cacheElement0, (IElementSerializer) standardSerializer0);
+      ICacheElement<Object, String> iCacheElement0 = SerializationConversionUtil.getDeSerializedCacheElement(iCacheElementSerialized0, (IElementSerializer) standardSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<String, String> cacheElement0 = new CacheElement<String, String>("Could not de-serialize object. The ElementSerializer is null.", (String) null, (String) null, elementAttributes0);
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      // Undeclared exception!
+      try { 
+        SerializationConversionUtil.getSerializedCacheElement((ICacheElement<String, String>) cacheElement0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.CREATE_NEW;
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<OpenOption, StandardOpenOption> cacheElementSerialized0 = new CacheElementSerialized<OpenOption, StandardOpenOption>("/t%[L1)3~02sXF);O)!", standardOpenOption0, byteArray0, elementAttributes0);
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<OpenOption, StandardOpenOption>) cacheElementSerialized0, (IElementSerializer) compressingSerializer0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer(encryptingSerializer0);
+      byte[] byteArray0 = new byte[9];
+      CacheElementSerialized<Object, Integer> cacheElementSerialized0 = new CacheElementSerialized<Object, Integer>((String) null, (Object) null, byteArray0, (IElementAttributes) null);
+      // Undeclared exception!
+      try { 
+        SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<Object, Integer>) cacheElementSerialized0, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: BufferUnderflowException");
+      } catch(BufferUnderflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.HeapByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Object object0 = new Object();
+      byte[] byteArray0 = new byte[7];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, Integer> cacheElementSerialized0 = new CacheElementSerialized<Object, Integer>(", IdleTime = ", object0, byteArray0, elementAttributes0);
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      try { 
+        SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<Object, Integer>) cacheElementSerialized0, (IElementSerializer) standardSerializer0);
+        fail("Expecting exception: StreamCorruptedException");
+      } catch(StreamCorruptedException e) {
+         //
+         // invalid stream header: 00000000
+         //
+         verifyException("java.io.ObjectInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CacheElementSerialized<Object, Object> cacheElementSerialized0 = (CacheElementSerialized<Object, Object>) mock(CacheElementSerialized.class, new ViolatedAssumptionAnswer());
+      byte[] byteArray0 = new byte[6];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<CacheElementSerialized<Object, Object>, String> cacheElementSerialized1 = new CacheElementSerialized<CacheElementSerialized<Object, Object>, String>("Could not serialize object. The ElementSerializer is null.", cacheElementSerialized0, byteArray0, elementAttributes0);
+      try { 
+        SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<CacheElementSerialized<Object, Object>, String>) cacheElementSerialized1, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: EOFException");
+      } catch(EOFException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ObjectInputStream$PeekInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, String> cacheElementSerialized0 = new CacheElementSerialized<Object, String>("", "", byteArray0, elementAttributes0);
+      try { 
+        SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<Object, String>) cacheElementSerialized0, (IElementSerializer) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not de-serialize object. The ElementSerializer is null.
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.SerializationConversionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ICacheElement<String, Object> iCacheElement0 = SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<String, Object>) null, (IElementSerializer) compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Integer integer0 = new Integer((-575));
+      CacheElement<Integer, String> cacheElement0 = new CacheElement<Integer, String>("$hX$[Mq3uYX", integer0, "Could not de-serialize object. The ElementSerializer is null.");
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ICacheElementSerialized<Integer, String> iCacheElementSerialized0 = SerializationConversionUtil.getSerializedCacheElement((ICacheElement<Integer, String>) cacheElement0, (IElementSerializer) standardSerializer0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, String> cacheElementSerialized0 = new CacheElementSerialized<Object, String>("Could not de-serialize object. The ElementSerializer is null.", iCacheElementSerialized0, (byte[]) null, elementAttributes0);
+      // Undeclared exception!
+      try { 
+        SerializationConversionUtil.getDeSerializedCacheElement((ICacheElementSerialized<Object, String>) cacheElementSerialized0, (IElementSerializer) standardSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Integer integer0 = new Integer(256);
+      Object object0 = new Object();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Integer, Object> cacheElement0 = new CacheElement<Integer, Object>("End of stream reached (length)", integer0, object0, elementAttributes0);
+      try { 
+        SerializationConversionUtil.getSerializedCacheElement((ICacheElement<Integer, Object>) cacheElement0, (IElementSerializer) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not serialize object. The ElementSerializer is null.
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.SerializationConversionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ICacheElementSerialized<String, Object> iCacheElementSerialized0 = SerializationConversionUtil.getSerializedCacheElement((ICacheElement<String, Object>) null, (IElementSerializer) compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CacheElementSerialized<SerializationConversionUtil, Object> cacheElementSerialized0 = (CacheElementSerialized<SerializationConversionUtil, Object>) mock(CacheElementSerialized.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(cacheElementSerialized0).toString();
+      byte[] byteArray0 = new byte[6];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<CacheElementSerialized<SerializationConversionUtil, Object>, Object> cacheElementSerialized1 = new CacheElementSerialized<CacheElementSerialized<SerializationConversionUtil, Object>, Object>("End of stream reached (length)", cacheElementSerialized0, byteArray0, elementAttributes0);
+      ICacheElementSerialized<CacheElementSerialized<SerializationConversionUtil, Object>, Object> iCacheElementSerialized0 = SerializationConversionUtil.getSerializedCacheElement((ICacheElement<CacheElementSerialized<SerializationConversionUtil, Object>, Object>) cacheElementSerialized1, (IElementSerializer) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SerializationConversionUtil serializationConversionUtil0 = new SerializationConversionUtil();
+      CacheElement<Object, SerializationConversionUtil> cacheElement0 = new CacheElement<Object, SerializationConversionUtil>("End of stream reached (length)", (Object) null, serializationConversionUtil0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      try { 
+        SerializationConversionUtil.getSerializedCacheElement((ICacheElement<Object, SerializationConversionUtil>) cacheElement0, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: NotSerializableException");
+      } catch(NotSerializableException e) {
+         //
+         // org.apache.commons.jcs3.utils.serialization.SerializationConversionUtil
+         //
+         verifyException("java.io.ObjectOutputStream", e);
+      }
+  }

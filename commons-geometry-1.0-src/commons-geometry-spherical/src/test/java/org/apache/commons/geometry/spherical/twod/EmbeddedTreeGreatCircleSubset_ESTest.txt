@@ -1,0 +1,322 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = mock(GreatCircle.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(greatCircle0).getPrecision();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeGreatCircleSubset0.getPrecision();
+      GreatCircle greatCircle1 = new GreatCircle(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence1);
+      Point2S point2S0 = Point2S.PLUS_K;
+      Transform2S transform2S0 = Transform2S.createRotation(point2S0, (-1.5707963267948966));
+      greatCircle1.transform(transform2S0);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.empty();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = new EmbeddedTreeGreatCircleSubset(greatCircle1, regionBSPTree1S0);
+      GreatArc greatArc0 = greatCircle1.span();
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset1.add(greatArc0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same great circle. Expected GreatCircle[pole= (0.0, 1.0, 0.0), u= (1.0, 0.0, 0.0), v= (0.0, 1.0, 0.0)] but was GreatCircle[pole= (0.0, 1.0, 0.0), u= (1.0, 0.0, 0.0), v= (0.0, 1.0, 0.0)].
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null, regionBSPTree1S0);
+      List<GreatArc> list0 = embeddedTreeGreatCircleSubset0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GreatCircle greatCircle0 = mock(GreatCircle.class, new ViolatedAssumptionAnswer());
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, false);
+      RegionBSPTree1S regionBSPTree1S0 = embeddedTreeGreatCircleSubset0.getSubspaceRegion();
+      assertNotNull(regionBSPTree1S0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null);
+      Point2S point2S0 = Point2S.PLUS_K;
+      Transform2S transform2S0 = Transform2S.createRotation(point2S0, 0.0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.transform(transform2S0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.EmbeddedTreeGreatCircleSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null, (RegionBSPTree1S) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.toConvex();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.EmbeddedTreeGreatCircleSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, true);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = embeddedTreeGreatCircleSubset0.getPrecision();
+      AngularInterval angularInterval0 = AngularInterval.of((-1630.27139818), (-1630.27139818), precision_DoubleEquivalence1);
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.fromInterval(angularInterval0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = new EmbeddedTreeGreatCircleSubset(greatCircle0, regionBSPTree1S0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset1.toConvex();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Interval is not convex: [-1,630.271, -1,628.808]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval$Convex", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.split((Hyperplane<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.EmbeddedTreeGreatCircleSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.split(greatCircle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, false);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc(greatCircle0, angularInterval_Convex0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.add(greatArc0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RegionBSPTree1S regionBSPTree1S0 = RegionBSPTree1S.full();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null, regionBSPTree1S0);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.add(embeddedTreeGreatCircleSubset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null, (RegionBSPTree1S) null);
+      RegionBSPTree1S regionBSPTree1S0 = embeddedTreeGreatCircleSubset0.getSubspaceRegion();
+      assertNotNull(regionBSPTree1S0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn((-1630.2713982), (-1630.2713982), (-1630.2713982), (-1630.2713982), (-1630.2713982)).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, true);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = embeddedTreeGreatCircleSubset0.transform(transform2S0);
+      Split<EmbeddedTreeGreatCircleSubset> split0 = embeddedTreeGreatCircleSubset1.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(1.0, 1.0, 1.0, 1.0, 1.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle1, true);
+      Split<EmbeddedTreeGreatCircleSubset> split0 = embeddedTreeGreatCircleSubset0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle1, false);
+      Split<EmbeddedTreeGreatCircleSubset> split0 = embeddedTreeGreatCircleSubset0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle1, true);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = embeddedTreeGreatCircleSubset0.transform(transform2S0);
+      Split<EmbeddedTreeGreatCircleSubset> split0 = embeddedTreeGreatCircleSubset1.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle1, true);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = embeddedTreeGreatCircleSubset0.transform(transform2S0);
+      Split<EmbeddedTreeGreatCircleSubset> split0 = embeddedTreeGreatCircleSubset1.split(greatCircle0);
+      Split<EmbeddedTreeGreatCircleSubset> split1 = embeddedTreeGreatCircleSubset0.split(greatCircle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      doReturn(0.0, 0.0, 0.0).when(precision_DoubleEquivalence0).signum(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle1, true);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset1 = embeddedTreeGreatCircleSubset0.transform(transform2S0);
+      embeddedTreeGreatCircleSubset1.split(greatCircle0);
+      embeddedTreeGreatCircleSubset1.add(embeddedTreeGreatCircleSubset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Transform2S transform2S0 = Transform2S.identity();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, false);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.transform(transform2S0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = mock(GreatCircle.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(greatCircle0).getPrecision();
+      doReturn(false).when(greatCircle0).eq(any(org.apache.commons.geometry.spherical.twod.GreatCircle.class) , any(org.apache.commons.numbers.core.Precision.DoubleEquivalence.class));
+      doReturn((String) null, (String) null).when(greatCircle0).toString();
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, false);
+      // Undeclared exception!
+      try { 
+        embeddedTreeGreatCircleSubset0.add(embeddedTreeGreatCircleSubset0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same great circle. Expected null but was null.
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset(greatCircle0, false);
+      String string0 = embeddedTreeGreatCircleSubset0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      EmbeddedTreeGreatCircleSubset embeddedTreeGreatCircleSubset0 = new EmbeddedTreeGreatCircleSubset((GreatCircle) null);
+      List<GreatArc> list0 = embeddedTreeGreatCircleSubset0.toConvex();
+      ;
+}

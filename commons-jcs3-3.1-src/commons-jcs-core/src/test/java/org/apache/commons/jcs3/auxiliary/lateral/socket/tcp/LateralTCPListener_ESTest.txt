@@ -1,0 +1,535 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      byte[] byteArray0 = new byte[5];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      LateralTCPListener<LateralElementDescriptor<SocketChannel, Integer>, OpenOption> lateralTCPListener0 = new LateralTCPListener<LateralElementDescriptor<SocketChannel, Integer>, OpenOption>(tCPLateralCacheAttributes0);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      CacheElementSerialized<SocketChannel, Integer> cacheElementSerialized0 = new CacheElementSerialized<SocketChannel, Integer>(":Hq:/g)<j{7BCk4bB", socketChannel0, byteArray0, elementAttributes0);
+      LateralCommand lateralCommand0 = LateralCommand.REMOVE;
+      LateralElementDescriptor<SocketChannel, Integer> lateralElementDescriptor0 = new LateralElementDescriptor<SocketChannel, Integer>(cacheElementSerialized0, lateralCommand0, 1414L);
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      lateralTCPListener0.setCacheManager(compositeCacheManager0);
+      CacheElement<LateralElementDescriptor<SocketChannel, Integer>, OpenOption> cacheElement0 = new CacheElement<LateralElementDescriptor<SocketChannel, Integer>, OpenOption>("sIH(v)=sm1jZZOMHT", lateralElementDescriptor0, linkOption0);
+      lateralTCPListener0.handlePut(cacheElement0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setZombieQueueMaxSize(8080);
+      LateralTCPListener<String, Object> lateralTCPListener0 = new LateralTCPListener<String, Object>(tCPLateralCacheAttributes0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      lateralTCPListener0.setCacheManager(compositeCacheManager0);
+      lateralTCPListener0.handleGet("4\"m/tZ1+E$^^m{", "5");
+      lateralTCPListener0.handleRemoveAll("], attr [");
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleGetMatching("[r xs@>OBAdv']n", "0 9bq\".{J]st");
+        fail("Expecting exception: PatternSyntaxException");
+      } catch(PatternSyntaxException e) {
+         //
+         // Illegal repetition near index 6
+         // 0 9bq\".{J]st
+         //       ^
+         //
+         verifyException("java.util.regex.Pattern", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+        try {
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          tCPLateralCacheAttributes0.setZombieQueueMaxSize(8112);
+          LateralTCPListener<String, Object> lateralTCPListener0 = new LateralTCPListener<String, Object>(tCPLateralCacheAttributes0);
+          CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+          lateralTCPListener0.setCacheManager(compositeCacheManager0);
+          lateralTCPListener0.handleGetKeySet(":>X{'$30s5Lpw*");
+          lateralTCPListener0.handleRemove("handleRemove> cacheName={0}, key={1}", "5");
+          // Undeclared exception!
+          try { 
+            LateralTCPListener.getInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.lambda$getInstance$0(LateralTCPListener.java:121)
+             // java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.getInstance(LateralTCPListener.java:116)
+             // sun.reflect.GeneratedMethodAccessor243.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+        } catch(Throwable t) {
+            // Need to catch declared exceptions
+        }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<String, ServerSocketChannel> lateralTCPListener0 = new LateralTCPListener<String, ServerSocketChannel>(tCPLateralCacheAttributes0);
+      lateralTCPListener0.setListenerId(0L);
+      long long0 = lateralTCPListener0.getListenerId();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LateralTCPListener<ServerSocketChannel, Integer> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, Integer>((ITCPLateralCacheAttributes) null);
+      lateralTCPListener0.setListenerId(1024L);
+      long long0 = lateralTCPListener0.getListenerId();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LateralTCPListener<ServerSocketChannel, String> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, String>((ITCPLateralCacheAttributes) null);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.init();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpListenerPort((-1));
+      LateralTCPListener<CacheElementSerialized<Object, Integer>, String> lateralTCPListener0 = new LateralTCPListener<CacheElementSerialized<Object, Integer>, String>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.init();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // port out of range:-1
+         //
+         verifyException("java.net.InetSocketAddress", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<CacheElement<Object, Object>, CacheElementSerialized<String, String>> lateralTCPListener0 = new LateralTCPListener<CacheElement<Object, Object>, CacheElementSerialized<String, String>>(tCPLateralCacheAttributes0);
+      Object object0 = new Object();
+      Integer integer0 = new Integer(3);
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("", object0, integer0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleRemove("fGVFYmyKL a", cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<ServerSocketChannel, OpenOption> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, OpenOption>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleGetMatching("O", "O");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<ServerSocketChannel, Object> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, Object>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleGetKeySet("e");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LateralTCPListener<Object, Object> lateralTCPListener0 = new LateralTCPListener<Object, Object>((ITCPLateralCacheAttributes) null);
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleGet("", object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        LateralTCPListener.getInstance((ITCPLateralCacheAttributes) null, (ICompositeCacheManager) compositeCacheManager0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setTcpListenerPort((-389));
+      // Undeclared exception!
+      try { 
+        LateralTCPListener.getInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // port out of range:-389
+         //
+         verifyException("java.net.InetSocketAddress", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<SocketChannel, SocketChannel> lateralTCPListener0 = new LateralTCPListener<SocketChannel, SocketChannel>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.getCache("F6Po}\"-S8z5");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<ServerSocketChannel, Integer> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, Integer>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.dispose();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          LateralTCPListener<CacheElement<Object, SocketChannel>, SocketChannel> lateralTCPListener0 = new LateralTCPListener<CacheElement<Object, SocketChannel>, SocketChannel>(tCPLateralCacheAttributes0);
+          // Undeclared exception!
+          try { 
+            lateralTCPListener0.init();
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // sun.reflect.GeneratedMethodAccessor245.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          tCPLateralCacheAttributes0.setZombieQueueMaxSize(287);
+          tCPLateralCacheAttributes0.setTcpListenerHost((String) null);
+          LateralTCPListener<SocketChannel, ServerSocketChannel> lateralTCPListener0 = new LateralTCPListener<SocketChannel, ServerSocketChannel>(tCPLateralCacheAttributes0);
+          // Undeclared exception!
+          try { 
+            lateralTCPListener0.init();
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // sun.reflect.GeneratedMethodAccessor245.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          tCPLateralCacheAttributes0.setTcpListenerHost("n");
+          LateralTCPListener<String, String> lateralTCPListener0 = new LateralTCPListener<String, String>(tCPLateralCacheAttributes0);
+          // Undeclared exception!
+          try { 
+            lateralTCPListener0.init();
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // sun.reflect.GeneratedMethodAccessor245.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LateralTCPListener<CacheElement<Object, SocketChannel>, SocketChannel> lateralTCPListener0 = new LateralTCPListener<CacheElement<Object, SocketChannel>, SocketChannel>((ITCPLateralCacheAttributes) null);
+      lateralTCPListener0.getTcpLateralCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      assertEquals(0, elementAttributes0.getIdleTime());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<String, SocketChannel> lateralTCPListener0 = new LateralTCPListener<String, SocketChannel>(tCPLateralCacheAttributes0);
+      lateralTCPListener0.getGetCnt();
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance("J82$(EC!@&|F)4");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Properties$LineReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LateralTCPListener<Object, ServerSocketChannel> lateralTCPListener0 = new LateralTCPListener<Object, ServerSocketChannel>((ITCPLateralCacheAttributes) null);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.shutdown();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setPutOnlyMode(false);
+      LateralTCPListener<String, SocketChannel> lateralTCPListener0 = new LateralTCPListener<String, SocketChannel>(tCPLateralCacheAttributes0);
+      String string0 = "";
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleDispose("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+        try {
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          LateralTCPListener<String, Object> lateralTCPListener0 = new LateralTCPListener<String, Object>(tCPLateralCacheAttributes0);
+          CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+          lateralTCPListener0.setCacheManager(compositeCacheManager0);
+          lateralTCPListener0.handleGetKeySet("");
+          lateralTCPListener0.handleGetMatching("4\"m/tZ1+;$^^m{", "");
+          // Undeclared exception!
+          try { 
+            LateralTCPListener.getInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.lambda$getInstance$0(LateralTCPListener.java:121)
+             // java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.getInstance(LateralTCPListener.java:116)
+             // sun.reflect.GeneratedMethodAccessor243.invoke(Unknown Source)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+        } catch(Throwable t) {
+            // Need to catch declared exceptions
+        }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<CacheElementSerialized<Object, Integer>, String> lateralTCPListener0 = new LateralTCPListener<CacheElementSerialized<Object, Integer>, String>(tCPLateralCacheAttributes0);
+      Integer integer0 = new Integer((-1));
+      CacheElement<Integer, Integer> cacheElement0 = new CacheElement<Integer, Integer>("2,+", integer0, integer0);
+      LateralElementDescriptor<Integer, Integer> lateralElementDescriptor0 = new LateralElementDescriptor<Integer, Integer>(cacheElement0);
+      byte[] byteArray0 = new byte[5];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, Integer> cacheElementSerialized0 = new CacheElementSerialized<Object, Integer>("2,+", lateralElementDescriptor0, byteArray0, elementAttributes0);
+      CacheElement<CacheElementSerialized<Object, Integer>, String> cacheElement1 = new CacheElement<CacheElementSerialized<Object, Integer>, String>("2,+", cacheElementSerialized0, "2,+");
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handlePut(cacheElement1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<ServerSocketChannel, ServerSocketChannel> lateralTCPListener0 = new LateralTCPListener<ServerSocketChannel, ServerSocketChannel>(tCPLateralCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleRemoveAll("\"aE/");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPListener<String, Object> lateralTCPListener0 = new LateralTCPListener<String, Object>(tCPLateralCacheAttributes0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      lateralTCPListener0.setCacheManager(compositeCacheManager0);
+      lateralTCPListener0.handleGetKeySet("");
+      // Undeclared exception!
+      try { 
+        lateralTCPListener0.handleRemove("4\"m/tZ1+E$^^m{", (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

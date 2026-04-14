@@ -1,0 +1,82 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDriverClassName("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.SharedPoolDataSourceFactory");
+      jDBCDiskCacheAttributes0.setConnectionPoolName("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.SharedPoolDataSourceFactory");
+      sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      String string0 = sharedPoolDataSourceFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setConnectionPoolName("");
+      jDBCDiskCacheAttributes0.setDriverClassName("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.SharedPoolDataSourceFactory");
+      sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      String string0 = sharedPoolDataSourceFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDriverClassName("org.apache.commons.pool2.impl.BaseObjectPoolConfig");
+      sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      SharedPoolDataSource sharedPoolDataSource0 = (SharedPoolDataSource)sharedPoolDataSourceFactory0.getDataSource();
+      assertNotNull(sharedPoolDataSource0.getDataSourceName());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDriverClassName("jcs");
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      try { 
+        sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+        fail("Expecting exception: SQLException");
+      } catch(SQLException e) {
+         //
+         // Driver class not found jcs
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.SharedPoolDataSourceFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      sharedPoolDataSourceFactory0.close();
+      assertNotNull(sharedPoolDataSourceFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      DataSource dataSource0 = sharedPoolDataSourceFactory0.getDataSource();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      String string0 = sharedPoolDataSourceFactory0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      jDBCDiskCacheAttributes0.setDriverClassName("org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.SharedPoolDataSourceFactory");
+      sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+      sharedPoolDataSourceFactory0.close();
+      assertNotNull(sharedPoolDataSourceFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JDBCDiskCacheAttributes jDBCDiskCacheAttributes0 = new JDBCDiskCacheAttributes();
+      SharedPoolDataSourceFactory sharedPoolDataSourceFactory0 = new SharedPoolDataSourceFactory();
+      // Undeclared exception!
+      try { 
+        sharedPoolDataSourceFactory0.initialize(jDBCDiskCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }

@@ -1,0 +1,242 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(1100, 4531);
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(47, 3846);
+      perHostConnectionSemaphore0.acquireChannelLock(perHostConnectionSemaphore1);
+      Semaphore semaphore0 = new Semaphore(3846, true);
+      perHostConnectionSemaphore0.acquireChannelLock(semaphore0);
+      perHostConnectionSemaphore0.acquireChannelLock(perHostConnectionSemaphore1);
+      PerHostConnectionSemaphore perHostConnectionSemaphore2 = new PerHostConnectionSemaphore(47, (-1));
+      perHostConnectionSemaphore2.acquireChannelLock(perHostConnectionSemaphore0);
+      perHostConnectionSemaphore2.acquireChannelLock(perHostConnectionSemaphore1);
+      perHostConnectionSemaphore1.acquireChannelLock(perHostConnectionSemaphore2);
+      perHostConnectionSemaphore1.releaseChannelLock("io.netty.handler.ssl.JdkAlpnSslEngine$AlpnSelector");
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore1.acquireChannelLock((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int int0 = 12;
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(124, 12);
+      Object object0 = new Object();
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(object0);
+      String string0 = "4%Nr+3So9Fi]V,q";
+      Semaphore semaphore0 = perHostConnectionSemaphore0.getFreeConnectionsForHost("4%Nr+3So9Fi]V,q");
+      perHostConnectionSemaphore0.acquireChannelLock(semaphore0);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost("4%Nr+3So9Fi]V,q");
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore0.getFreeConnectionsForHost((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(3562, 1388);
+      Semaphore semaphore0 = new Semaphore(1388);
+      semaphore0.isFair();
+      perHostConnectionSemaphore0.acquireChannelLock(semaphore0);
+      perHostConnectionSemaphore0.releaseChannelLock(semaphore0);
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(2340, (-3267));
+      perHostConnectionSemaphore0.releaseChannelLock(perHostConnectionSemaphore1);
+      perHostConnectionSemaphore1.getFreeConnectionsForHost(semaphore0);
+      PerHostConnectionSemaphore perHostConnectionSemaphore2 = new PerHostConnectionSemaphore(2340, 3562);
+      Object object0 = new Object();
+      Semaphore semaphore1 = perHostConnectionSemaphore2.getFreeConnectionsForHost(object0);
+      semaphore1.acquireUninterruptibly();
+      perHostConnectionSemaphore1.releaseChannelLock(semaphore1);
+      PerHostConnectionSemaphore perHostConnectionSemaphore3 = new PerHostConnectionSemaphore((-1814), 0);
+      perHostConnectionSemaphore1.getFreeConnectionsForHost(perHostConnectionSemaphore3);
+      perHostConnectionSemaphore3.acquireChannelLock(perHostConnectionSemaphore1);
+      perHostConnectionSemaphore1.getFreeConnectionsForHost(perHostConnectionSemaphore0);
+      Semaphore semaphore2 = new Semaphore(3562);
+      semaphore2.release(1388);
+      perHostConnectionSemaphore2.getFreeConnectionsForHost(semaphore2);
+      perHostConnectionSemaphore2.acquireChannelLock(semaphore1);
+      PerHostConnectionSemaphore perHostConnectionSemaphore4 = new PerHostConnectionSemaphore(2340, 819);
+      perHostConnectionSemaphore3.getFreeConnectionsForHost(perHostConnectionSemaphore4);
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore4.releaseChannelLock((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(1, 0);
+      Object object0 = new Object();
+      Semaphore semaphore0 = perHostConnectionSemaphore0.getFreeConnectionsForHost(object0);
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(timeUnit0);
+      semaphore0.tryAcquire(1, 0L, timeUnit0);
+      semaphore0.isFair();
+      semaphore0.tryAcquire();
+      perHostConnectionSemaphore0.releaseChannelLock(semaphore0);
+      Object object1 = new Object();
+      perHostConnectionSemaphore0.acquireChannelLock(object1);
+      Object object2 = new Object();
+      TimeUnit timeUnit1 = TimeUnit.HOURS;
+      semaphore0.tryAcquire((long) 0, timeUnit1);
+      perHostConnectionSemaphore0.releaseChannelLock(object2);
+      try { 
+        perHostConnectionSemaphore0.acquireChannelLock(object1);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Too many connections: 1
+         //
+         verifyException("org.asynchttpclient.netty.channel.PerHostConnectionSemaphore", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(4, 4);
+      Object object0 = new Object();
+      perHostConnectionSemaphore0.acquireChannelLock(object0);
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(Integer.MAX_VALUE, Integer.MAX_VALUE);
+      Object object1 = new Object();
+      perHostConnectionSemaphore1.getFreeConnectionsForHost(perHostConnectionSemaphore0);
+      perHostConnectionSemaphore1.getFreeConnectionsForHost(object1);
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore1.releaseChannelLock(object1);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // Maximum permit count exceeded
+         //
+         verifyException("java.util.concurrent.Semaphore$Sync", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(2533, 2533);
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(0, 0);
+      perHostConnectionSemaphore0.releaseChannelLock(perHostConnectionSemaphore1);
+      Object object0 = null;
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore0.releaseChannelLock((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(0, (-3069));
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(0, 0);
+      Semaphore semaphore0 = perHostConnectionSemaphore1.getFreeConnectionsForHost(perHostConnectionSemaphore0);
+      perHostConnectionSemaphore0.releaseChannelLock(semaphore0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      int int0 = 2566;
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(2566, (-3588));
+      Object object0 = null;
+      // Undeclared exception!
+      try { 
+        perHostConnectionSemaphore0.getFreeConnectionsForHost((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore((-1109), 3157);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost("ZuEjxD4-^YdI+}oc");
+      MockThrowable mockThrowable0 = new MockThrowable();
+      MockThrowable mockThrowable1 = new MockThrowable("", mockThrowable0);
+      MockIOException mockIOException0 = new MockIOException("ZuEjxD4-^YdI+}oc", mockThrowable1);
+      MockIOException mockIOException1 = new MockIOException(mockIOException0);
+      mockIOException1.fillInStackTrace();
+      perHostConnectionSemaphore0.releaseChannelLock(mockIOException1);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(mockIOException0);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost("org.asynchttpclient.netty.channel.PerHostConnectionSemaphore");
+      Object object0 = new Object();
+      perHostConnectionSemaphore0.releaseChannelLock(object0);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore((-184), (-89));
+      Object object0 = new Object();
+      perHostConnectionSemaphore0.releaseChannelLock(object0);
+      Object object1 = new Object();
+      Semaphore semaphore0 = perHostConnectionSemaphore0.getFreeConnectionsForHost(object1);
+      Object object2 = new Object();
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(object2);
+      semaphore0.acquireUninterruptibly();
+      semaphore0.tryAcquire();
+      Semaphore semaphore1 = perHostConnectionSemaphore0.getFreeConnectionsForHost(semaphore0);
+      semaphore1.availablePermits();
+      Object object3 = new Object();
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(1, 1120);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(perHostConnectionSemaphore1);
+      semaphore1.acquire();
+      perHostConnectionSemaphore0.releaseChannelLock(object3);
+      PerHostConnectionSemaphore perHostConnectionSemaphore2 = new PerHostConnectionSemaphore((-729), (-184));
+      perHostConnectionSemaphore2.releaseChannelLock(semaphore1);
+      perHostConnectionSemaphore0.releaseChannelLock(perHostConnectionSemaphore2);
+      perHostConnectionSemaphore0.releaseChannelLock(semaphore1);
+      perHostConnectionSemaphore2.acquireChannelLock((Object) null);
+      MockIOException mockIOException0 = new MockIOException();
+      Semaphore semaphore2 = perHostConnectionSemaphore2.getFreeConnectionsForHost(mockIOException0);
+      semaphore2.acquireUninterruptibly();
+      perHostConnectionSemaphore1.acquireChannelLock(semaphore2);
+      TooManyConnectionsPerHostException tooManyConnectionsPerHostException0 = (TooManyConnectionsPerHostException)perHostConnectionSemaphore1.tooManyConnectionsPerHost;
+      perHostConnectionSemaphore0.releaseChannelLock(tooManyConnectionsPerHostException0);
+      try { 
+        perHostConnectionSemaphore1.acquireChannelLock(semaphore0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Too many connections: 1
+         //
+         verifyException("org.asynchttpclient.netty.channel.PerHostConnectionSemaphore", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(6, 6);
+      Object object0 = new Object();
+      Semaphore semaphore0 = perHostConnectionSemaphore0.getFreeConnectionsForHost(object0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PerHostConnectionSemaphore perHostConnectionSemaphore0 = new PerHostConnectionSemaphore(0, 1437);
+      PerHostConnectionSemaphore perHostConnectionSemaphore1 = new PerHostConnectionSemaphore(1437, 1437);
+      perHostConnectionSemaphore0.acquireChannelLock(perHostConnectionSemaphore1);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost((Object) null);
+      MockIOException mockIOException0 = new MockIOException();
+      MockThrowable mockThrowable0 = new MockThrowable();
+      mockIOException0.initCause(mockThrowable0);
+      perHostConnectionSemaphore0.getFreeConnectionsForHost(mockIOException0);
+      Semaphore semaphore0 = perHostConnectionSemaphore1.getFreeConnectionsForHost(perHostConnectionSemaphore0);
+      assertNotNull(semaphore0);
+}

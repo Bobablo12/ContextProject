@@ -1,0 +1,75 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput((URL) null);
+      URL uRL0 = urlGeometryInput0.getUrl();
+      assertNotNull(uRL0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      URLStreamHandler uRLStreamHandler0 = mock(URLStreamHandler.class, new ViolatedAssumptionAnswer());
+      URL uRL0 = MockURL.URL("N", "P1~&QJ?", 0, "P1~&QJ?", uRLStreamHandler0);
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      URL uRL1 = urlGeometryInput0.getUrl();
+      assertNotNull(uRL1.getHost());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      URL uRL0 = MockURL.getFtpExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      URL uRL1 = urlGeometryInput0.getUrl();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      URL uRL0 = MockURL.getHttpExample();
+      EvoSuiteURL evoSuiteURL0 = new EvoSuiteURL("http://www.someFakeButWellFormedURL.org/fooExample");
+      NetworkHandling.createRemoteTextFile(evoSuiteURL0, "");
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      InputStream inputStream0 = urlGeometryInput0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      URL uRL0 = MockURL.getHttpExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      // Undeclared exception!
+      try { 
+        urlGeometryInput0.getInputStream();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: Could not find: www.someFakeButWellFormedURL.org
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      URLStreamHandler uRLStreamHandler0 = mock(URLStreamHandler.class, new ViolatedAssumptionAnswer());
+      URL uRL0 = MockURL.URL("t5<HB", "", 2, "", uRLStreamHandler0);
+      Charset charset0 = Charset.defaultCharset();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0, charset0);
+      URL uRL1 = urlGeometryInput0.getUrl();
+      assertEquals(1, uRL1.getPort());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput((URL) null);
+      String string0 = urlGeometryInput0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      URL uRL0 = MockURL.getFileExample();
+      UrlGeometryInput urlGeometryInput0 = new UrlGeometryInput(uRL0);
+      // Undeclared exception!
+      try { 
+        urlGeometryInput0.getInputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URL", e);
+      }
+  }

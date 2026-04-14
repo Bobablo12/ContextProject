@@ -1,0 +1,457 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[2];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page((byte)17, "q>E/VFFC2SG&rF", (-785), linkedList0, hashMap0, byteArray0);
+      boolean boolean0 = hashMap0.remove((Object) jCacheFilter_Page0, (Object) ".LocalStrings");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      LinkedList<Serializable> linkedList1 = new LinkedList<Serializable>();
+      hashMap0.put("", linkedList1);
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, (String) null, 0, linkedList0, hashMap0, (byte[]) null);
+      List<Serializable> list0 = hashMap0.remove((Object) jCacheFilter_Page0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page((-1), "", (-1), linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(262, ",pWc8u/", (-1), linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[3];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, "management-enabled", 0, (Collection<Cookie>) null, hashMap0, byteArray0);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page((byte)3, "management-enabled", (byte)9, (Collection<Cookie>) null, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("afterService").when(httpServletRequest0).getMethod();
+      doReturn("afterService").when(httpServletRequest0).getQueryString();
+      doReturn("afterService").when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      String string0 = jCacheFilter0.key(httpServletRequestWrapper0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.key(httpServletRequestWrapper0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.key((ServletRequest) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.System", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpServletRequestWrapper0);
+      httpServletRequestWrapper0.setRequest(servletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.key(httpServletRequestWrapper0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      Enumeration<URL> enumeration0 = (Enumeration<URL>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      ClassLoader classLoader0 = mock(ClassLoader.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(classLoader0).getResources(anyString());
+      ServletContext servletContext0 = mock(ServletContext.class, new ViolatedAssumptionAnswer());
+      doReturn(classLoader0).when(servletContext0).getClassLoader();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(servletContext0).when(filterConfig0).getServletContext();
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.init(filterConfig0);
+        fail("Expecting exception: CacheException");
+      } catch(CacheException e) {
+         //
+         // No CachingProviders have been configured
+         //
+         verifyException("javax.cache.Caching$CachingProviderRegistry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(enumeration0).hasMoreElements();
+      doReturn((Object) null).when(enumeration0).nextElement();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest0).getParameterNames();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      Enumeration<String> enumeration1 = httpServletRequestWrapper0.getParameterNames();
+      HttpServletRequest httpServletRequest1 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration1).when(httpServletRequest1).getHeaders(anyString());
+      doReturn((String) null).when(httpServletRequest1).getMethod();
+      doReturn((String) null).when(httpServletRequest1).getQueryString();
+      doReturn((String) null).when(httpServletRequest1).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper1 = new HttpServletRequestWrapper(httpServletRequest1);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(httpServletRequestWrapper1, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.web.JCacheFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(httpServletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((Enumeration) null).when(httpServletRequest0).getHeaders(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      ServletResponseWrapper servletResponseWrapper0 = new ServletResponseWrapper(httpServletResponseWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(httpServletRequestWrapper0, servletResponseWrapper0, filterChain0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.destroy();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.web.JCacheFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, (String) null, 0, linkedList0, hashMap0, (byte[]) null);
+      Cookie cookie0 = new Cookie("periodic", "");
+      linkedList0.add(cookie0);
+      LinkedList<Cookie> linkedList1 = new LinkedList<Cookie>();
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(0, (String) null, 0, linkedList1, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, (String) null, 0, linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(0, "null__null", 0, linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, (String) null, 0, linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(0, "null__null", 0, linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, "null_null_null", 0, linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(0, "null_null_null", 0, linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, "t", 0, linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page(0, "null_t_null", 0, linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, (String) null, 0, linkedList0, hashMap0, (byte[]) null);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page((-1), "", (-1), linkedList0, hashMap0, (byte[]) null);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[7];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(477, "", 477, linkedList0, hashMap0, byteArray0);
+      boolean boolean0 = jCacheFilter_Page0.equals("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[20];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(0, "managVement-enabled", 0, (Collection<Cookie>) null, hashMap0, byteArray0);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[1];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(524, "DEFAULT", 11, linkedList0, hashMap0, byteArray0);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page((byte)0, "DEFAULT", 11, linkedList0, hashMap0, byteArray0);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinkedList<Cookie> linkedList0 = new LinkedList<Cookie>();
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[1];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(524, "DEFAULT", 11, linkedList0, hashMap0, byteArray0);
+      JCacheFilter.Page jCacheFilter_Page1 = new JCacheFilter.Page((byte)0, "DEFAULT", 11, linkedList0, hashMap0, byteArray0);
+      boolean boolean0 = jCacheFilter_Page0.equals(jCacheFilter_Page1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JCacheFilter.PageKey jCacheFilter_PageKey0 = new JCacheFilter.PageKey("~H/`3@T;%1Q40-:", false);
+      LinkedList<Serializable> linkedList0 = new LinkedList<Serializable>();
+      boolean boolean0 = jCacheFilter_PageKey0.equals(linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      JCacheFilter.PageKey jCacheFilter_PageKey0 = new JCacheFilter.PageKey("~H/`3@T;%1Q40-:", false);
+      LinkedList<Serializable> linkedList0 = new LinkedList<Serializable>();
+      linkedList0.add((Serializable) jCacheFilter_PageKey0);
+      boolean boolean0 = linkedList0.remove((Object) jCacheFilter_PageKey0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      JCacheFilter.PageKey jCacheFilter_PageKey0 = new JCacheFilter.PageKey("~H/`3@T;%1Q40-:", false);
+      LinkedList<Serializable> linkedList0 = new LinkedList<Serializable>();
+      linkedList0.add((Serializable) jCacheFilter_PageKey0);
+      boolean boolean0 = linkedList0.remove((Object) jCacheFilter_PageKey0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      JCacheFilter.PageKey jCacheFilter_PageKey0 = new JCacheFilter.PageKey("8g%*Q#TmC", false);
+      boolean boolean0 = jCacheFilter_PageKey0.equals((Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest0).getAttributeNames();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      Enumeration<String> enumeration1 = httpServletRequestWrapper0.getAttributeNames();
+      HttpServletRequest httpServletRequest1 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration1).when(httpServletRequest1).getHeaders(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper1 = new HttpServletRequestWrapper(httpServletRequest1);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(httpServletRequestWrapper1, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Response committed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.web.JCacheFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      Enumeration<String> enumeration0 = (Enumeration<String>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true).when(enumeration0).hasMoreElements();
+      doReturn("remo$eMapper", "gzip").when(enumeration0).nextElement();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration0).when(httpServletRequest0).getAttributeNames();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      Enumeration<String> enumeration1 = httpServletRequestWrapper0.getAttributeNames();
+      HttpServletRequest httpServletRequest1 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(enumeration1).when(httpServletRequest1).getHeaders(anyString());
+      doReturn("").when(httpServletRequest1).getMethod();
+      doReturn("").when(httpServletRequest1).getQueryString();
+      doReturn("remo$eMapper").when(httpServletRequest1).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper1 = new HttpServletRequestWrapper(httpServletRequest1);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(httpServletRequestWrapper1, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.web.JCacheFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(httpServletResponse0).isCommitted();
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.doFilter(servletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.web.JCacheFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      ServletContext servletContext0 = mock(ServletContext.class, new ViolatedAssumptionAnswer());
+      doReturn((ClassLoader) null).when(servletContext0).getClassLoader();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterConfig0).getInitParameter(anyString());
+      doReturn((Enumeration) null).when(filterConfig0).getInitParameterNames();
+      doReturn(servletContext0).when(filterConfig0).getServletContext();
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.init(filterConfig0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ServletContext servletContext0 = mock(ServletContext.class, new ViolatedAssumptionAnswer());
+      doReturn((ClassLoader) null).when(servletContext0).getClassLoader();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletContext0).when(httpServletRequest0).getServletContext();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletContext servletContext1 = httpServletRequestWrapper0.getServletContext();
+      JCacheFilter jCacheFilter0 = new JCacheFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("afterService_afterService_afterService").when(filterConfig0).getInitParameter(anyString());
+      doReturn((Enumeration<String>) null).when(filterConfig0).getInitParameterNames();
+      doReturn(servletContext1).when(filterConfig0).getServletContext();
+      // Undeclared exception!
+      try { 
+        jCacheFilter0.init(filterConfig0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      HashMap<String, List<Serializable>> hashMap0 = new HashMap<String, List<Serializable>>();
+      byte[] byteArray0 = new byte[1];
+      JCacheFilter.Page jCacheFilter_Page0 = new JCacheFilter.Page(10, "", 10, (Collection<Cookie>) null, hashMap0, byteArray0);
+      boolean boolean0 = jCacheFilter_Page0.equals((Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      JCacheFilter.PageKey jCacheFilter_PageKey0 = new JCacheFilter.PageKey("", true);
+      jCacheFilter_PageKey0.setGzip(true);
+  }

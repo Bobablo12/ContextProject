@@ -1,0 +1,23 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Request request0 = new Request();
+      RouteMatch routeMatch0 = new RouteMatch(request0, (String) null, "8vM2w", ",?x~$u$-'#@}");
+      // Undeclared exception!
+      try { 
+        Access.changeMatch(request0, routeMatch0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.SparkUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Request request0 = new Request();
+      HttpMethod httpMethod0 = HttpMethod.delete;
+      RouteMatch routeMatch0 = new RouteMatch((Object) null, "u(./D?;KU:F", "5yqF]", "8vM2w", httpMethod0);
+      Access.changeMatch(request0, routeMatch0);
+      assertNotNull(routeMatch0.getAcceptType());
+}

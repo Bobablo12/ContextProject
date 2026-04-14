@@ -1,0 +1,240 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.XZX;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = GreatCircles.fromPole(vector3D0, precision_DoubleEquivalence0);
+      GreatCircle greatCircle1 = greatCircle0.reverse();
+      // Undeclared exception!
+      try { 
+        GreatCircles.validateGreatCirclesEquivalent(greatCircle1, greatCircle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Arguments do not represent the same great circle. Expected GreatCircle[pole= (-1.0, -0.0, -0.0), u= (-0.0, 0.0, 1.0), v= (-0.0, 1.0, -0.0)] but was GreatCircle[pole= (1.0, 0.0, 0.0), u= (-0.0, 0.0, 1.0), v= (0.0, -1.0, 0.0)].
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Point2S point2S0 = Point2S.PLUS_I;
+      Point2S point2S1 = Point2S.of(1.0, 1.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoints(point2S0, point2S1, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot create great circle from points (0.0, 1.5707963267948966) and (1.0, 1.0): points are antipodal
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Point2S point2S0 = Point2S.PLUS_I;
+      Point2S point2S1 = Point2S.of(1.0, 1.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = GreatCircles.fromPoints(point2S0, point2S1, precision_DoubleEquivalence0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        GreatCircles.validateGreatCirclesEquivalent((GreatCircle) null, (GreatCircle) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoleAndU((Vector3D) null, (Vector3D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPole(vector3D0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoints((Point2S) null, (Point2S) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Point2S point2S0 = Point2S.PLUS_K;
+      // Undeclared exception!
+      try { 
+        GreatCircles.arcFromPoints(point2S0, point2S0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Point2S point2S0 = Point2S.PLUS_J;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      // Undeclared exception!
+      try { 
+        GreatCircles.arcFromPoints(point2S0, point2S0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      GreatCircle greatCircle0 = GreatCircles.fromPole(vector3D_Unit0, precision_DoubleEquivalence0);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = GreatCircles.arcFromInterval(greatCircle0, angularInterval_Convex0);
+      assertNotNull(greatArc0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = GreatCircles.fromPoleAndU(vector3D_Unit0, vector3D_Unit1, precision_DoubleEquivalence0);
+      GreatCircles.validateGreatCirclesEquivalent(greatCircle0, greatCircle0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Point2S point2S0 = Point2S.from(vector3D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoints(point2S0, point2S0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot create great circle from points (4.71238898038469, 1.5707963267948966) and (4.71238898038469, 1.5707963267948966): points are equal
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Point2S point2S0 = Point2S.PLUS_I;
+      Point2S point2S1 = Point2S.NaN;
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoints(point2S0, point2S1, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid points for great circle: (0.0, 1.5707963267948966), (NaN, NaN)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Point2S point2S0 = Point2S.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoints(point2S0, point2S0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid points for great circle: (NaN, NaN), (NaN, NaN)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPole((Vector3D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircles", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.ZYZ;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        GreatCircles.fromPoleAndU(vector3D0, vector3D0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Point2S point2S0 = Point2S.PLUS_I;
+      Point2S point2S1 = Point2S.MINUS_J;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatArc greatArc0 = GreatCircles.arcFromPoints(point2S1, point2S0, precision_DoubleEquivalence0);
+      ;
+}

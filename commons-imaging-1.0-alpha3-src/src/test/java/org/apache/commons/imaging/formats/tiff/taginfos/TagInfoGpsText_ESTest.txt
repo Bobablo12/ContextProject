@@ -1,0 +1,178 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("|?A!oWB`VR4R`8$I", (-1341), tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.UNDEFINED;
+      byte[] byteArray0 = new byte[6];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1341), (-1341), fieldTypeByte0, (-1341), (-1341), byteArray0, byteOrder0, (byte)3);
+      // Undeclared exception!
+      try { 
+        tagInfoGpsText0.getValue(tiffField0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("A%sl$x+Dt8*4", 65, tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.SBYTE;
+      Object object0 = new Object();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      try { 
+        tagInfoGpsText0.encodeValue(fieldTypeByte0, object0, byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GPS text value not String: java.lang.Object@244b88aa (java.lang.Object)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoGpsText", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText((String) null, 65535, tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.UNDEFINED;
+      byte[] byteArray0 = new byte[11];
+      byteArray0[0] = (byte)94;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(0, 78, fieldTypeByte0, 201L, 65535, byteArray0, byteOrder0, (byte)1);
+      String string0 = tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("Zw`]Q#", 1557, tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.BYTE;
+      byte[] byteArray0 = new byte[6];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(1557, 1557, fieldTypeByte0, 1557, (-1), byteArray0, byteOrder0, (-1));
+      String string0 = tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("*jlUMV.i[_O", 67, tiffDirectoryType0);
+      byte[] byteArray0 = new byte[6];
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffField tiffField0 = new TiffField(1, 1, (FieldType) null, (-712L), (-498L), byteArray0, byteOrder0, (byte)0);
+      try { 
+        tagInfoGpsText0.getValue(tiffField0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GPS text field not encoded as bytes.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoGpsText", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText((String) null, 65535, tiffDirectoryType0);
+      FieldTypeByte fieldTypeByte0 = FieldType.UNDEFINED;
+      byte[] byteArray0 = new byte[11];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(0, 78, fieldTypeByte0, 201L, 65535, byteArray0, byteOrder0, (byte)1);
+      String string0 = tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("7?Eyq", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = tagInfoGpsText0.encodeValue(fieldTypeAscii0, "7?Eyq", byteOrder0);
+      TiffField tiffField0 = new TiffField(34, (-1), fieldTypeAscii0, 34, 34, byteArray0, byteOrder0, (-1));
+      String string0 = tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("7?Eyq", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = tagInfoGpsText0.encodeValue(fieldTypeAscii0, "7?Eyq", byteOrder0);
+      TiffField tiffField0 = new TiffField(34, (-1), fieldTypeAscii0, 34, 34, byteArray0, byteOrder0, (-1));
+      String string0 = tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("`\uFFFD\u0001\u0000\u0000]H\u0000+\u0000\u0000\u0000", (-1339), tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = new FieldTypeAscii((-1), "`\uFFFD\u0001\u0000\u0000]H\u0000+\u0000\u0000\u0000");
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = tagInfoGpsText0.encodeValue(fieldTypeAscii0, "`\uFFFD\u0001\u0000\u0000]H\u0000+\u0000\u0000\u0000", byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("`\uFFFD\u0001\u0000\u0000]H\u0000+\u0000\u0000\u0000", (-1339), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = tagInfoGpsText0.encodeValue((FieldType) null, "`\uFFFD\u0001\u0000\u0000]H\u0000+\u0000\u0000\u0000", byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("", (-306), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1), (-1), (FieldType) null, (-1), (-306), (byte[]) null, byteOrder0, (-1));
+      // Undeclared exception!
+      try { 
+        tagInfoGpsText0.encodeValue((FieldType) null, tiffField0, byteOrder0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("7?Eyq", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      byte[] byteArray0 = tagInfoGpsText0.encodeValue(fieldTypeAscii0, "7?Eyq", byteOrder0);
+      TiffField tiffField0 = new TiffField((-1), (-1), fieldTypeAscii0, 0, 0, byteArray0, byteOrder0, 0);
+      tagInfoGpsText0.getValue(tiffField0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("", (-306), tiffDirectoryType0);
+      boolean boolean0 = tagInfoGpsText0.isText();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("", 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tagInfoGpsText0.getValue((TiffField) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoGpsText", e);
+      }
+  }

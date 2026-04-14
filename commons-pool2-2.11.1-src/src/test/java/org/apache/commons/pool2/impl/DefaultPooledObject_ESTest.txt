@@ -1,0 +1,423 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultPooledObject<Object> defaultPooledObject0 = new DefaultPooledObject<Object>((Object) null);
+      Object object0 = defaultPooledObject0.getObject();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("P|BXTS^O}1hp:+g/");
+      long long0 = defaultPooledObject0.getLastUsedTime();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      System.setCurrentTimeMillis((-10L));
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("P|BXTS^O}1hp:+g/");
+      long long0 = defaultPooledObject0.getLastUsedTime();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("P|BXTS^O}1hp:+g/");
+      long long0 = defaultPooledObject0.getLastReturnTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      System.setCurrentTimeMillis((-10L));
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("P|BXTS^O}1hp:+g/");
+      long long0 = defaultPooledObject0.getLastReturnTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      SoftReference<Object> softReference0 = new SoftReference<Object>("h=*&4]=q&hzMMp");
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      DefaultPooledObject<DefaultPooledObject<Object>> defaultPooledObject0 = new DefaultPooledObject<DefaultPooledObject<Object>>(pooledSoftReference0);
+      long long0 = defaultPooledObject0.getLastBorrowTime();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      System.setCurrentTimeMillis((-769L));
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("[n");
+      long long0 = defaultPooledObject0.getLastBorrowTime();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      SoftReference<Object> softReference0 = new SoftReference<Object>("h=*&4]=q&hzMMp");
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      DefaultPooledObject<DefaultPooledObject<Object>> defaultPooledObject0 = new DefaultPooledObject<DefaultPooledObject<Object>>(pooledSoftReference0);
+      long long0 = defaultPooledObject0.getCreateTime();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      System.setCurrentTimeMillis((-769L));
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("[n");
+      long long0 = defaultPooledObject0.getCreateTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>(integer0);
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      SoftReference<Object> softReference1 = new SoftReference<Object>(softReference0, referenceQueue0);
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference1);
+      System.setCurrentTimeMillis(0L);
+      long long0 = pooledSoftReference0.getActiveTimeMillis();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("");
+      DefaultPooledObject<String> defaultPooledObject1 = new DefaultPooledObject<String>("");
+      int int0 = defaultPooledObject0.compareTo((PooledObject<String>) defaultPooledObject1);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Object object0 = new Object();
+      SoftReference<Object> softReference0 = new SoftReference<Object>(object0);
+      softReference0.clear();
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      // Undeclared exception!
+      try { 
+        pooledSoftReference0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.System", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PooledSoftReference<PooledSoftReference<Object>> pooledSoftReference0 = new PooledSoftReference<PooledSoftReference<Object>>((SoftReference<PooledSoftReference<Object>>) null);
+      // Undeclared exception!
+      try { 
+        pooledSoftReference0.getObject();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.PooledSoftReference", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Integer integer0 = new Integer(1122);
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>(integer0);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      // Undeclared exception!
+      try { 
+        pooledSoftReference0.compareTo((PooledObject<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.DefaultPooledObject", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      DefaultPooledObject<DefaultPooledObject<Integer>> defaultPooledObject0 = new DefaultPooledObject<DefaultPooledObject<Integer>>((DefaultPooledObject<Integer>) null);
+      SoftReference<Object> softReference0 = new SoftReference<Object>(defaultPooledObject0);
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      Instant instant0 = pooledSoftReference0.getLastUsedInstant();
+      assertNotNull(instant0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Integer integer0 = new Integer(2206);
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>(integer0);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      Duration duration0 = pooledSoftReference0.getIdleDuration();
+      assertNotNull(duration0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      SoftReference<PooledObject<Integer>> softReference0 = new SoftReference<PooledObject<Integer>>((PooledObject<Integer>) null);
+      PooledSoftReference<PooledObject<Integer>> pooledSoftReference0 = new PooledSoftReference<PooledObject<Integer>>(softReference0);
+      DefaultPooledObject<PooledObject<PooledObject<Integer>>> defaultPooledObject0 = new DefaultPooledObject<PooledObject<PooledObject<Integer>>>(pooledSoftReference0);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      Instant instant0 = defaultPooledObject1.getLastReturnInstant();
+      assertNotNull(instant0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("xsD_+B$Vocd3 C");
+      defaultPooledObject0.markAbandoned();
+      boolean boolean0 = defaultPooledObject0.startEvictionTest();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>((Integer) null);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      DefaultPooledObject<Object> defaultPooledObject0 = new DefaultPooledObject<Object>(pooledSoftReference0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0);
+      defaultPooledObject0.printStackTrace(mockPrintWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      System.setCurrentTimeMillis((-769L));
+      Duration duration0 = defaultPooledObject1.getIdleDuration();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("org.apache.commons.pool2.impl.DefaultPooledObject");
+      LinkedList<PooledObject<String>> linkedList0 = new LinkedList<PooledObject<String>>();
+      boolean boolean0 = defaultPooledObject0.endEvictionTest(linkedList0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("org.apache.commons.pool2.impl.DefaultPooledObject");
+      LinkedList<PooledObject<String>> linkedList0 = new LinkedList<PooledObject<String>>();
+      boolean boolean0 = defaultPooledObject0.endEvictionTest(linkedList0);
+      assertEquals(0, linkedList0.size());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      SoftReference<PooledObject<Integer>> softReference0 = new SoftReference<PooledObject<Integer>>((PooledObject<Integer>) null);
+      PooledSoftReference<PooledObject<Integer>> pooledSoftReference0 = new PooledSoftReference<PooledObject<Integer>>(softReference0);
+      DefaultPooledObject<PooledObject<PooledObject<Integer>>> defaultPooledObject0 = new DefaultPooledObject<PooledObject<PooledObject<Integer>>>(pooledSoftReference0);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      boolean boolean0 = defaultPooledObject1.deallocate();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>(integer0, referenceQueue0);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      DefaultPooledObject<PooledObject<Integer>> defaultPooledObject0 = new DefaultPooledObject<PooledObject<Integer>>(pooledSoftReference0);
+      defaultPooledObject0.allocate();
+      boolean boolean0 = defaultPooledObject0.deallocate();
+      assertEquals(1, defaultPooledObject0.getBorrowedCount());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>(integer0, referenceQueue0);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      DefaultPooledObject<PooledObject<Integer>> defaultPooledObject0 = new DefaultPooledObject<PooledObject<Integer>>(pooledSoftReference0);
+      defaultPooledObject0.allocate();
+      boolean boolean0 = defaultPooledObject0.deallocate();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Integer integer0 = new Integer((-671));
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>(integer0);
+      System.setCurrentTimeMillis(0L);
+      DefaultPooledObject<Integer> defaultPooledObject1 = new DefaultPooledObject<Integer>(integer0);
+      int int0 = defaultPooledObject0.compareTo((PooledObject<Integer>) defaultPooledObject1);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>((Integer) null);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      pooledSoftReference0.startEvictionTest();
+      boolean boolean0 = pooledSoftReference0.allocate();
+      assertNotNull(pooledSoftReference0.getState());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>((Integer) null);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      pooledSoftReference0.startEvictionTest();
+      boolean boolean0 = pooledSoftReference0.allocate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      SoftReference<Object> softReference0 = new SoftReference<Object>("org.apache.commons.pool2.impl.DefaultPooledObject");
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      pooledSoftReference0.setLogAbandoned(true);
+      boolean boolean0 = pooledSoftReference0.allocate();
+      assertNotNull(pooledSoftReference0.getState());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      SoftReference<Object> softReference0 = new SoftReference<Object>("org.apache.commons.pool2.impl.DefaultPooledObject");
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      pooledSoftReference0.setLogAbandoned(true);
+      boolean boolean0 = pooledSoftReference0.allocate();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      defaultPooledObject0.allocate();
+      long long0 = defaultPooledObject0.getBorrowedCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      defaultPooledObject0.allocate();
+      long long0 = defaultPooledObject0.getBorrowedCount();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("xsD_+B$Vocd3 C");
+      defaultPooledObject0.markAbandoned();
+      boolean boolean0 = defaultPooledObject0.allocate();
+      assertNotNull(defaultPooledObject0.getState());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("xsD_+B$Vocd3 C");
+      defaultPooledObject0.markAbandoned();
+      boolean boolean0 = defaultPooledObject0.allocate();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      SoftReference<PooledObject<Integer>> softReference0 = new SoftReference<PooledObject<Integer>>(defaultPooledObject0);
+      PooledSoftReference<PooledObject<Integer>> pooledSoftReference0 = new PooledSoftReference<PooledObject<Integer>>(softReference0);
+      DefaultPooledObject<PooledSoftReference<PooledObject<Integer>>> defaultPooledObject1 = new DefaultPooledObject<PooledSoftReference<PooledObject<Integer>>>(pooledSoftReference0);
+      long long0 = defaultPooledObject1.getLastReturnTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("");
+      String string0 = defaultPooledObject0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      long long0 = defaultPooledObject0.getBorrowedCount();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      Object object0 = new Object();
+      DefaultPooledObject<Object> defaultPooledObject0 = new DefaultPooledObject<Object>(object0);
+      SoftReference<DefaultPooledObject<Object>> softReference0 = new SoftReference<DefaultPooledObject<Object>>(defaultPooledObject0, referenceQueue0);
+      PooledSoftReference<DefaultPooledObject<Object>> pooledSoftReference0 = new PooledSoftReference<DefaultPooledObject<Object>>(softReference0);
+      long long0 = pooledSoftReference0.getActiveTimeMillis();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      PooledSoftReference<PooledObject<Object>> pooledSoftReference0 = new PooledSoftReference<PooledObject<Object>>((SoftReference<PooledObject<Object>>) null);
+      long long0 = pooledSoftReference0.getLastUsedTime();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      Duration duration0 = defaultPooledObject0.getIdleTime();
+      assertNotNull(duration0);
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      defaultPooledObject0.setRequireFullStackTrace(false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      SoftReference<PooledObject<Integer>> softReference0 = new SoftReference<PooledObject<Integer>>(defaultPooledObject0);
+      PooledSoftReference<PooledObject<Integer>> pooledSoftReference0 = new PooledSoftReference<PooledObject<Integer>>(softReference0);
+      DefaultPooledObject<PooledSoftReference<PooledObject<Integer>>> defaultPooledObject1 = new DefaultPooledObject<PooledSoftReference<PooledObject<Integer>>>(pooledSoftReference0);
+      defaultPooledObject1.use();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      PooledObjectState pooledObjectState0 = defaultPooledObject1.getState();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      SoftReference<Integer> softReference0 = new SoftReference<Integer>((Integer) null);
+      PooledSoftReference<Integer> pooledSoftReference0 = new PooledSoftReference<Integer>(softReference0);
+      DefaultPooledObject<PooledObject<Integer>> defaultPooledObject0 = new DefaultPooledObject<PooledObject<Integer>>(pooledSoftReference0);
+      PooledObject<Integer> pooledObject0 = defaultPooledObject0.getObject();
+      assertNotNull(pooledObject0.getState());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      DefaultPooledObject<DefaultPooledObject<Object>> defaultPooledObject2 = new DefaultPooledObject<DefaultPooledObject<Object>>(defaultPooledObject1);
+      long long0 = defaultPooledObject2.getLastBorrowTime();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("");
+      Instant instant0 = defaultPooledObject0.getLastBorrowInstant();
+      assertNotNull(instant0);
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      DefaultPooledObject<Object> defaultPooledObject0 = new DefaultPooledObject<Object>((Object) null);
+      long long0 = defaultPooledObject0.getIdleTimeMillis();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      DefaultPooledObject<DefaultPooledObject<Object>> defaultPooledObject2 = new DefaultPooledObject<DefaultPooledObject<Object>>(defaultPooledObject1);
+      Instant instant0 = defaultPooledObject2.getCreateInstant();
+      assertNotNull(instant0);
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      PooledSoftReference<String> pooledSoftReference0 = new PooledSoftReference<String>((SoftReference<String>) null);
+      int int0 = pooledSoftReference0.compareTo((PooledObject<String>) pooledSoftReference0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>((Integer) null);
+      DefaultPooledObject<Object> defaultPooledObject1 = new DefaultPooledObject<Object>(defaultPooledObject0);
+      long long0 = defaultPooledObject1.getCreateTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      SoftReference<PooledSoftReference<String>> softReference0 = new SoftReference<PooledSoftReference<String>>((PooledSoftReference<String>) null, referenceQueue0);
+      PooledSoftReference<PooledSoftReference<String>> pooledSoftReference0 = new PooledSoftReference<PooledSoftReference<String>>(softReference0);
+      pooledSoftReference0.markReturning();
+      assertNotNull(pooledSoftReference0.getState());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      PooledSoftReference<String> pooledSoftReference0 = new PooledSoftReference<String>((SoftReference<String>) null);
+      pooledSoftReference0.invalidate();
+      assertNotNull(pooledSoftReference0.getState());
+}

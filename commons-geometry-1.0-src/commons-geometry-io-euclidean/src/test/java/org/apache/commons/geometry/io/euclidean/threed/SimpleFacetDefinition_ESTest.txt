@@ -1,0 +1,138 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_Y;
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(stack0, vector3D_Unit1);
+      Vector3D vector3D0 = simpleFacetDefinition0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-689.845), (-689.845), (-689.845));
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0, vector3D_Unit0);
+      Vector3D vector3D0 = simpleFacetDefinition0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0, vector3D_Unit0);
+      Vector3D vector3D0 = simpleFacetDefinition0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      SimpleFacetDefinition simpleFacetDefinition0 = null;
+      try {
+        simpleFacetDefinition0 = new SimpleFacetDefinition((List<Vector3D>) null, vector3D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Facet vertex list cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SimpleFacetDefinition simpleFacetDefinition0 = null;
+      try {
+        simpleFacetDefinition0 = new SimpleFacetDefinition((List<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Facet vertex list cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(0.9995, 0.9995, 0.9995);
+      SimpleFacetDefinition simpleFacetDefinition0 = null;
+      try {
+        simpleFacetDefinition0 = new SimpleFacetDefinition(stack0, vector3D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Facet vertex list must contain at least 3 points; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinition", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0, vector3D_Unit0);
+      Vector3D vector3D0 = simpleFacetDefinition0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0);
+      Vector3D vector3D1 = simpleFacetDefinition0.getNormal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0);
+      List<Vector3D> list0 = simpleFacetDefinition0.getVertices();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>(stack0);
+      SimpleFacetDefinition simpleFacetDefinition0 = null;
+      try {
+        simpleFacetDefinition0 = new SimpleFacetDefinition(linkedList0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Facet vertex list must contain at least 3 points; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinition", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      arrayList0.add(vector3D0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(arrayList0);
+      String string0 = simpleFacetDefinition0.toString();
+      ;
+}

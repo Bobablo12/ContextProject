@@ -1,0 +1,21 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UnboundedQueueFeedableBodyGenerator unboundedQueueFeedableBodyGenerator0 = new UnboundedQueueFeedableBodyGenerator();
+      BodyChunk bodyChunk0 = new BodyChunk((ByteBuf) null, false);
+      boolean boolean0 = unboundedQueueFeedableBodyGenerator0.offer(bodyChunk0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UnboundedQueueFeedableBodyGenerator unboundedQueueFeedableBodyGenerator0 = new UnboundedQueueFeedableBodyGenerator();
+      // Undeclared exception!
+      try { 
+        unboundedQueueFeedableBodyGenerator0.offer((BodyChunk) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentLinkedQueue", e);
+      }
+  }

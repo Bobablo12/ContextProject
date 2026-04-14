@@ -1,0 +1,93 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      InetSocketAddress inetSocketAddress0 = MockInetSocketAddress.createUnresolved("", 0);
+      Server server0 = new Server(inetSocketAddress0);
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer((JettyServerFactory) null, server0);
+      embeddedJettyServer0.extinguish();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer((JettyServerFactory) null, (Handler) null);
+      HashMap<String, WebSocketHandlerWrapper> hashMap0 = new HashMap<String, WebSocketHandlerWrapper>();
+      Optional<Integer> optional0 = Optional.empty();
+      embeddedJettyServer0.configureWebSockets(hashMap0, optional0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JettyServerFactory jettyServerFactory0 = mock(JettyServerFactory.class, new ViolatedAssumptionAnswer());
+      ServletHandler servletHandler0 = new ServletHandler();
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer(jettyServerFactory0, servletHandler0);
+      int int0 = embeddedJettyServer0.activeThreadCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JettyServerFactory jettyServerFactory0 = mock(JettyServerFactory.class, new ViolatedAssumptionAnswer());
+      WebAppContext webAppContext0 = new WebAppContext("Web Sockets", "%s[q=%d,q[0]=%s,o=%s]");
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer(jettyServerFactory0, webAppContext0);
+      // Undeclared exception!
+      try { 
+        embeddedJettyServer0.join();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.embeddedserver.jetty.EmbeddedJettyServer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ConstraintSecurityHandler constraintSecurityHandler0 = new ConstraintSecurityHandler();
+      WebAppContext webAppContext0 = new WebAppContext(constraintSecurityHandler0, "STARTED", "STOPPED");
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer((JettyServerFactory) null, webAppContext0);
+      SslStores sslStores0 = SslStores.create("RUNNING", "RUNNING", "URWD(mgtujqq5HY", "B9");
+      try { 
+        embeddedJettyServer0.ignite("freemarker.template.Template", 29, sslStores0, 0, 4, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.embeddedserver.jetty.EmbeddedJettyServer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JettyServerFactory jettyServerFactory0 = mock(JettyServerFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Server) null).when(jettyServerFactory0).create(anyInt() , anyInt() , anyInt());
+      WebAppContext webAppContext0 = new WebAppContext("org.eclipse.jetty.util.thread.QueuedThreadPool", "org.eclipse.jetty.util.thread.QueuedThreadPool");
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer(jettyServerFactory0, webAppContext0);
+      SslStores sslStores0 = SslStores.create("", "org.eclipse.jetty.server.error_page", "T", "Web Sockets");
+      try { 
+        embeddedJettyServer0.ignite("", 3, sslStores0, 1, 655, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // 'server' must not be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Server server0 = new Server(719);
+      JettyServerFactory jettyServerFactory0 = mock(JettyServerFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(server0).when(jettyServerFactory0).create(any(org.eclipse.jetty.util.thread.ThreadPool.class));
+      ServletContextHandler servletContextHandler0 = new ServletContextHandler();
+      EmbeddedJettyServer embeddedJettyServer0 = new EmbeddedJettyServer(jettyServerFactory0, servletContextHandler0);
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(1000);
+      ExecutorThreadPool executorThreadPool0 = new ExecutorThreadPool(scheduledThreadPoolExecutor0, (-1984));
+      EmbeddedJettyServer embeddedJettyServer1 = embeddedJettyServer0.withThreadPool(executorThreadPool0);
+      SslStores sslStores0 = SslStores.create("STOPPING", "ZvZy?$Z*", "", "RUNNING", "Grl");
+      try { 
+        embeddedJettyServer1.ignite("STARTING", (-190), sslStores0, (-1), 67, 420);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.evosuite.runtime.mock.java.lang.MockException", e);
+      }
+  }

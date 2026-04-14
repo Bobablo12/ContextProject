@@ -1,0 +1,331 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1408, 1408, 1408, 1408, "GRAYSCALE");
+      byte[] byteArray0 = new byte[7];
+      byteArray0[1] = (byte) (-8);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = pamFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1408, 1408, 1408, 1408, "GRAYSCALE");
+      byte[] byteArray0 = new byte[7];
+      byteArray0[1] = (byte) (-8);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = pamFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(20, 20, 1744, 20, "BLACKANDWHITE_ALPHA");
+      byte[] byteArray0 = new byte[6];
+      byteArray0[1] = (byte) (-94);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      int int0 = pamFileInfo0.getRGB((InputStream) sequenceInputStream0);
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(20, 20, 1744, 20, "BLACKANDWHITE_ALPHA");
+      byte[] byteArray0 = new byte[6];
+      byteArray0[1] = (byte) (-94);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      int int0 = pamFileInfo0.getRGB((InputStream) sequenceInputStream0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      pamFileInfo0.hasAlpha();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      pamFileInfo0.hasAlpha();
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, 977, 0, 566, "GRAYSCALE_ALPHA");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(0, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, 977, 0, 566, "GRAYSCALE_ALPHA");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, (-215), 3314, 3314, "GRAYSCALE_ALPHA");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, (-215), 3314, 3314, "GRAYSCALE_ALPHA");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(20, 20, 1744, 20, "BLACKANDWHITE_ALPHA");
+      // Undeclared exception!
+      try { 
+        pamFileInfo0.getRGB((InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-57), (byte)39);
+      // Undeclared exception!
+      try { 
+        pamFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pipedInputStream0);
+      try { 
+        pamFileInfo0.getRGB((InputStream) bufferedInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = null;
+      try {
+        pamFileInfo0 = new PamFileInfo(3879, 255, 3879, 3879, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = null;
+      try {
+        pamFileInfo0 = new PamFileInfo((byte)49, (byte)49, (byte)49, (byte)49, "");
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Unknown PAM tupletype ''
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PamFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(5, 5, 5, 5, "RGB_ALPHA");
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(5, 5, 5, 5, "RGB_ALPHA");
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = null;
+      try {
+        pamFileInfo0 = new PamFileInfo((-542), (-542), (-542), 16711691, "R.6rY|");
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PAM maxVal 16711691 is out of range [1;65535]
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PamFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = null;
+      try {
+        pamFileInfo0 = new PamFileInfo((byte) (-22), (byte) (-22), (byte) (-22), (byte) (-22), (String) null);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PAM maxVal -22 is out of range [1;65535]
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PamFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      pamFileInfo0.getColorType();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      pamFileInfo0.getColorType();
+      assertEquals(0, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      String string0 = pamFileInfo0.getImageTypeDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      String string0 = pamFileInfo0.getImageTypeDescription();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      String string0 = pamFileInfo0.getImageTypeDescription();
+      assertEquals(0, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      String string0 = pamFileInfo0.getImageTypeDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      int int0 = pamFileInfo0.getBitDepth();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      int int0 = pamFileInfo0.getBitDepth();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, 977, (-1287), 566, "BLACKANDWHITE");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(566, 977, (-1287), 566, "BLACKANDWHITE");
+      int int0 = pamFileInfo0.getNumComponents();
+      assertEquals(0, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      String string0 = pamFileInfo0.getMIMEType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      String string0 = pamFileInfo0.getMIMEType();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      String string0 = pamFileInfo0.getMIMEType();
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      boolean boolean0 = pamFileInfo0.hasAlpha();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      boolean boolean0 = pamFileInfo0.hasAlpha();
+      assertEquals(0, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      boolean boolean0 = pamFileInfo0.hasAlpha();
+      assertEquals(0, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(0, 0, 1816, 1816, "RGB");
+      // Undeclared exception!
+      try { 
+        pamFileInfo0.getRGB((WhiteSpaceReader) null);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // PAM files are only ever binary
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PamFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      pamFileInfo0.getImageType();
+      assertEquals(1, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      pamFileInfo0.getImageType();
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      pamFileInfo0.getImageType();
+      assertFalse(pamFileInfo0.hasAlpha());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      ImageInfo.ColorType imageInfo_ColorType0 = pamFileInfo0.getColorType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      ImageInfo.ColorType imageInfo_ColorType0 = pamFileInfo0.getColorType();
+      assertEquals(0, pamFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      ImageInfo.ColorType imageInfo_ColorType0 = pamFileInfo0.getColorType();
+      assertEquals(1, pamFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      PamFileInfo pamFileInfo0 = new PamFileInfo(1430, 1430, 1430, 1430, "GRAYSCALE");
+      ImageInfo.ColorType imageInfo_ColorType0 = pamFileInfo0.getColorType();
+      assertNotNull(imageInfo_ColorType0);
+}

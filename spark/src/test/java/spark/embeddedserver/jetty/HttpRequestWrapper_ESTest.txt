@@ -1,0 +1,166 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ServletInputStream servletInputStream0 = mock(ServletInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0, 0, 0, 0).when(servletInputStream0).read(any(byte[].class));
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletInputStream0).when(httpServletRequest0).getInputStream();
+      doReturn("#aV3", "T5{@g~<7aA").when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      // Undeclared exception!
+      httpRequestWrapper0.getInputStream();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      httpServletRequestWrapper0.setRequest(httpRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        httpRequestWrapper0.getInputStream();
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ServletInputStream servletInputStream0 = mock(ServletInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn(123, 123, (-1416)).when(servletInputStream0).read(any(byte[].class));
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletInputStream0).when(httpServletRequest0).getInputStream();
+      doReturn("#aV3", "T5{@g~<7aA").when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        httpRequestWrapper0.getInputStream();
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpServletRequestWrapper0);
+      httpServletRequestWrapper0.setRequest(servletRequestWrapper0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        httpRequestWrapper0.getInputStream();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HttpRequestWrapper httpRequestWrapper0 = null;
+      try {
+        httpRequestWrapper0 = new HttpRequestWrapper((HttpServletRequest) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Request cannot be null
+         //
+         verifyException("javax.servlet.ServletRequestWrapper", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ServletInputStream servletInputStream0 = mock(ServletInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn((-1)).when(servletInputStream0).read(any(byte[].class));
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletInputStream0).when(httpServletRequest0).getInputStream();
+      doReturn("", "", "", "multipart/form-daa_?P^5{rF!w@2R= (8").when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      ServletInputStream servletInputStream1 = httpRequestWrapper0.getInputStream();
+      ServletInputStream servletInputStream2 = httpRequestWrapper0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ServletInputStream servletInputStream0 = mock(ServletInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn((-1)).when(servletInputStream0).read(any(byte[].class));
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletInputStream0).when(httpServletRequest0).getInputStream();
+      doReturn("", "", "", "multipart/form-daa_?P^5{rF!w@2R= (8").when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      ServletInputStream servletInputStream1 = httpRequestWrapper0.getInputStream();
+      ServletInputStream servletInputStream2 = httpRequestWrapper0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ServletInputStream servletInputStream0 = mock(ServletInputStream.class, new ViolatedAssumptionAnswer());
+      doReturn("multipart/form-data\"_?P^5{rF!w@2R= (8").when(servletInputStream0).toString();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn(servletInputStream0).when(httpServletRequest0).getInputStream();
+      doReturn("multipart/form-data\"_?P^5{rF!w@2R= (8", "multipart/form-data\"_?P^5{rF!w@2R= (8").when(httpServletRequest0).getHeader(anyString());
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequest0);
+      httpRequestWrapper0.getInputStream();
+      assertTrue(httpRequestWrapper0.notConsumed());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletInputStream) null).when(httpServletRequest0).getInputStream();
+      doReturn((String) null, (String) null).when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      // Undeclared exception!
+      try { 
+        httpRequestWrapper0.getInputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((ServletInputStream) null).when(httpServletRequest0).getInputStream();
+      doReturn("chunked").when(httpServletRequest0).getHeader(anyString());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      httpRequestWrapper0.getInputStream();
+      assertTrue(httpRequestWrapper0.notConsumed());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      boolean boolean0 = httpRequestWrapper0.notConsumed();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpRequestWrapper httpRequestWrapper0 = new HttpRequestWrapper(httpServletRequestWrapper0);
+      httpRequestWrapper0.notConsumed(true);
+      boolean boolean0 = httpRequestWrapper0.notConsumed();
+      ;
+}

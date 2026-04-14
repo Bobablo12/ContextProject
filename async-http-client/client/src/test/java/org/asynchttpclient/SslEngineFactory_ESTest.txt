@@ -1,0 +1,89 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SSLContext sSLContext0 = SSLContext.getDefault();
+      JsseSslEngineFactory jsseSslEngineFactory0 = new JsseSslEngineFactory(sSLContext0);
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(asyncHttpClientConfig0).isDisableHttpsEndpointIdentificationAlgorithm();
+      SSLEngine sSLEngine0 = jsseSslEngineFactory0.newSslEngine(asyncHttpClientConfig0, "-#FZ", 2920);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(asyncHttpClientConfig0).isDisableHttpsEndpointIdentificationAlgorithm();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.newSslEngine(asyncHttpClientConfig0, "", (-162));
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(asyncHttpClientConfig0).isDisableHttpsEndpointIdentificationAlgorithm();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.newSslEngine(asyncHttpClientConfig0, "cr`bk(L#OOKGir", 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ssl.DefaultSslEngineFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      defaultSslEngineFactory0.destroy();
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      String[] stringArray0 = new String[5];
+      stringArray0[1] = "";
+      stringArray0[2] = "";
+      stringArray0[3] = "";
+      stringArray0[4] = "";
+      AsyncHttpClientConfig asyncHttpClientConfig1 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) stringArray0, (Object) null).when(asyncHttpClientConfig1).getEnabledCipherSuites();
+      doReturn((Object) stringArray0, (Object) null).when(asyncHttpClientConfig1).getEnabledProtocols();
+      doReturn((SslContext) null).when(asyncHttpClientConfig1).getSslContext();
+      doReturn(604).when(asyncHttpClientConfig1).getSslSessionCacheSize();
+      doReturn(1980).when(asyncHttpClientConfig1).getSslSessionTimeout();
+      doReturn(false).when(asyncHttpClientConfig1).isUseOpenSsl();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.init(asyncHttpClientConfig1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.init((AsyncHttpClientConfig) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ssl.DefaultSslEngineFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JsseSslEngineFactory jsseSslEngineFactory0 = new JsseSslEngineFactory((SSLContext) null);
+      jsseSslEngineFactory0.init((AsyncHttpClientConfig) null);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JsseSslEngineFactory jsseSslEngineFactory0 = new JsseSslEngineFactory((SSLContext) null);
+      jsseSslEngineFactory0.destroy();
+  }

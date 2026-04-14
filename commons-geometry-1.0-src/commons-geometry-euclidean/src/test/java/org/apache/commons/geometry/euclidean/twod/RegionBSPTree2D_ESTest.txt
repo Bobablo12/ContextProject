@@ -1,0 +1,524 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation(0.0);
+      Line line1 = line0.transform(affineTransformMatrix2D0);
+      Ray ray0 = line1.rayFrom((Vector2D) vector2D_Unit0);
+      List<LinecastPoint2D> list0 = regionBSPTree2D0.linecast((LineConvexSubset) ray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = lineSpanningSubset0.getPrecision();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertAxisAlignedPartitions(vector2D_Unit0, precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedHashSet<LineSpanningSubset> linkedHashSet0 = new LinkedHashSet<LineSpanningSubset>();
+      ArrayList<LineSpanningSubset> arrayList0 = new ArrayList<LineSpanningSubset>(linkedHashSet0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) arrayList0, false);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D1 = regionBSPTree2D_RegionNode2D0.getSelf();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedHashSet<LineSpanningSubset> linkedHashSet0 = new LinkedHashSet<LineSpanningSubset>();
+      ArrayList<LineSpanningSubset> arrayList0 = new ArrayList<LineSpanningSubset>(linkedHashSet0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) arrayList0, false);
+      regionBSPTree2D0.invalidate();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-3441.92), (Precision.DoubleEquivalence) null);
+      Segment segment0 = line0.segment((Vector2D) vector2D_Unit0, (Vector2D) vector2D_Unit0);
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertBoundary(segment0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      List<ConvexArea> list0 = regionBSPTree2D0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      Vector2D vector2D0 = regionBSPTree2D0.project((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      Vector2D vector2D0 = regionBSPTree2D0.project((Vector2D) vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      Vector2D vector2D0 = regionBSPTree2D0.project((Vector2D) vector2D_Unit0);
+      assertTrue(vector2D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      Vector2D vector2D0 = regionBSPTree2D0.project((Vector2D) vector2D_Unit0);
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TreeSet<ReverseRay> treeSet0 = new TreeSet<ReverseRay>();
+      LinkedList<ReverseRay> linkedList0 = new LinkedList<ReverseRay>(treeSet0);
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = 1234.0;
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale(vector2D0);
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Line line0 = new Line(vector2D_Unit0, 0.5, (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo((-178.1218));
+      linkedList0.add(reverseRay0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) linkedList0, true);
+      List<LineConvexSubset> list0 = regionBSPTree2D0.getBoundaries();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Class<LineSpanningSubset> class0 = LineSpanningSubset.class;
+      ServiceLoader<LineSpanningSubset> serviceLoader0 = ServiceLoader.load(class0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) serviceLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.split((Hyperplane<Vector2D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.project((Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.linecastFirst((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.RegionBSPTree2D$LinecastVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.cut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.linecast((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.RegionBSPTree2D$LinecastVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TreeSet<ReverseRay> treeSet0 = new TreeSet<ReverseRay>();
+      LinkedList<ReverseRay> linkedList0 = new LinkedList<ReverseRay>(treeSet0);
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = 1234.0;
+      Vector2D vector2D0 = Vector2D.of(doubleArray0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createScale(vector2D0);
+      Vector2D.Unit vector2D_Unit0 = affineTransformMatrix2D0.applyDirection(vector2D0);
+      Line line0 = new Line(vector2D_Unit0, 0.5, (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo((-178.1218));
+      linkedList0.add(reverseRay0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) linkedList0, true);
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.getBoundaryPaths();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.AbstractLinePathConnector$ConnectableLineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      // Undeclared exception!
+      try { 
+        regionBSPTree2D0.add((ConvexArea) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.RegionBSPTree2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-268.656), (-268.656));
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      Vector2D[] vector2DArray0 = new Vector2D[2];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = lineSpanningSubset0.getPrecision();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertAxisAlignedGrid(bounds2D0, (-1), precision_DoubleEquivalence1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D(true);
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      Iterable<LineConvexSubset> iterable0 = regionBSPTree2D0.boundaries();
+      assertNotNull(iterable0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinkedHashSet<LineSpanningSubset> linkedHashSet0 = new LinkedHashSet<LineSpanningSubset>();
+      ArrayList<LineSpanningSubset> arrayList0 = new ArrayList<LineSpanningSubset>(linkedHashSet0);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) arrayList0, false);
+      Stream<LineConvexSubset> stream0 = regionBSPTree2D0.boundaryStream();
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      RegionCutRule regionCutRule0 = RegionCutRule.PLUS_INSIDE;
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0, regionCutRule0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      regionBSPTree2D0.linecastFirst((LineConvexSubset) lineSpanningSubset0);
+      List<LinecastPoint2D> list0 = regionBSPTree2D0.linecast((LineConvexSubset) lineSpanningSubset0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(true, false, false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertPartition((LineConvexSubset) lineSpanningSubset0);
+      regionBSPTree2D_PartitionedRegionBuilder2D1.insertPartition(line0);
+      LinecastPoint2D linecastPoint2D0 = regionBSPTree2D0.linecastFirst((LineConvexSubset) lineSpanningSubset0);
+      assertNotNull(linecastPoint2D0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      List<LinecastPoint2D> list0 = regionBSPTree2D0.linecast((LineConvexSubset) lineSpanningSubset0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertPartition((LineConvexSubset) lineSpanningSubset0);
+      regionBSPTree2D_PartitionedRegionBuilder2D1.insertPartition(line0);
+      LinecastPoint2D linecastPoint2D0 = regionBSPTree2D0.linecastFirst((LineConvexSubset) lineSpanningSubset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(true, false, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertPartition((LineConvexSubset) lineSpanningSubset0);
+      regionBSPTree2D_PartitionedRegionBuilder2D1.insertPartition(line0);
+      LinecastPoint2D linecastPoint2D0 = regionBSPTree2D0.linecastFirst((LineConvexSubset) lineSpanningSubset0);
+      assertNotNull(linecastPoint2D0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertBoundaries((BoundarySource2D) regionBSPTree2D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-268.656), (-268.656));
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 1.0, precision_DoubleEquivalence0);
+      ArrayList<Ray> arrayList0 = new ArrayList<Ray>();
+      Ray ray0 = line0.rayFrom((Vector2D) vector2D_Unit0);
+      arrayList0.add(ray0);
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D1 = regionBSPTree2D_PartitionedRegionBuilder2D0.insertBoundaries((Iterable<? extends LineConvexSubset>) arrayList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      ConvexArea convexArea0 = regionBSPTree2D_RegionNode2D0.getNodeRegion();
+      assertTrue(convexArea0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      double double0 = regionBSPTree2D0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ArrayDeque<Ray> arrayDeque0 = new ArrayDeque<Ray>(1);
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) arrayDeque0, true);
+      double double0 = regionBSPTree2D0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      double double0 = regionBSPTree2D0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      RegionBSPTree2D.RegionNode2D regionBSPTree2D_RegionNode2D0 = regionBSPTree2D0.createNode();
+      regionBSPTree2D_RegionNode2D0.insertCut((Hyperplane<Vector2D>) line0);
+      regionBSPTree2D0.extract(regionBSPTree2D_RegionNode2D0);
+      List<ConvexArea> list0 = regionBSPTree2D0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      Vector2D[] vector2DArray0 = new Vector2D[2];
+      vector2DArray0[0] = (Vector2D) vector2D_Unit0;
+      vector2DArray0[1] = (Vector2D) vector2D_Unit0;
+      Bounds2D bounds2D0 = Bounds2D.from((Vector2D) vector2D_Unit0, vector2DArray0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0, 0, 0, 0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false, false, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 1.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = lineSpanningSubset0.getPrecision();
+      // Undeclared exception!
+      regionBSPTree2D_PartitionedRegionBuilder2D0.insertAxisAlignedGrid(bounds2D0, 10, precision_DoubleEquivalence1);
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Vector2D vector2D0 = regionBSPTree2D0.project((Vector2D) vector2D_Unit0);
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      List<LinePath> list0 = regionBSPTree2D0.getBoundaryPaths();
+      List<LinePath> list1 = regionBSPTree2D0.getBoundaryPaths();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 1288.700291234, (Precision.DoubleEquivalence) null);
+      Split<RegionBSPTree2D> split0 = regionBSPTree2D0.split(line0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      RegionBSPTree2D.PartitionedRegionBuilder2D regionBSPTree2D_PartitionedRegionBuilder2D0 = RegionBSPTree2D.partitionedRegionBuilder();
+      RegionBSPTree2D regionBSPTree2D0 = regionBSPTree2D_PartitionedRegionBuilder2D0.build();
+      assertNotNull(regionBSPTree2D0);
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      ConvexArea convexArea0 = ConvexArea.full();
+      regionBSPTree2D0.add(convexArea0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree2D.from((Iterable<? extends LineConvexSubset>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = new RegionBSPTree2D();
+      RegionBSPTree2D regionBSPTree2D1 = regionBSPTree2D0.toTree();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      RegionBSPTree2D regionBSPTree2D1 = regionBSPTree2D0.copy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.empty();
+      List<LineConvexSubset> list0 = regionBSPTree2D0.getBoundaries();
+      assertTrue(list0.isEmpty());
+}

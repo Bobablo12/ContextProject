@@ -1,0 +1,55 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[2];
+      TiffImageWriterLossless tiffImageWriterLossless0 = new TiffImageWriterLossless(byteOrder0, byteArray0);
+      File file0 = MockFile.createTempFile("[Ay=M-ceGPK", "[Ay=M-ceGPK");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(file0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0, byteOrder0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        tiffImageWriterLossless0.write(binaryOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffImageWriterLossless", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffImageWriterLossless tiffImageWriterLossless0 = new TiffImageWriterLossless((byte[]) null);
+      // Undeclared exception!
+      try { 
+        tiffImageWriterLossless0.write(byteArrayOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[0];
+      TiffImageWriterLossless tiffImageWriterLossless0 = new TiffImageWriterLossless(byteOrder0, byteArray0);
+      MockFile mockFile0 = new MockFile("");
+      File file0 = MockFile.createTempFile("org.apache.commons.imaging.formats.tiff.write.TiffImageWriterLossless", "org.apache.commons.imaging.formats.tiff.write.TiffImageWriterLossless", (File) mockFile0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        tiffImageWriterLossless0.write(binaryOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }

@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      NettyRequestSender nettyRequestSender0 = mock(NettyRequestSender.class, new ViolatedAssumptionAnswer());
+      Continue100Interceptor continue100Interceptor0 = new Continue100Interceptor(nettyRequestSender0);
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        continue100Interceptor0.exitAfterHandling100(channel0, nettyResponseFuture0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      NettyRequestSender nettyRequestSender0 = mock(NettyRequestSender.class, new ViolatedAssumptionAnswer());
+      Attribute<String> attribute0 = (Attribute<String>) mock(Attribute.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(attribute0).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      NettyResponseFuture<Object> nettyResponseFuture0 = (NettyResponseFuture<Object>) mock(NettyResponseFuture.class, new ViolatedAssumptionAnswer());
+      Continue100Interceptor continue100Interceptor0 = new Continue100Interceptor(nettyRequestSender0);
+      boolean boolean0 = continue100Interceptor0.exitAfterHandling100(channel0, nettyResponseFuture0);
+      assertTrue(boolean0);
+}

@@ -1,0 +1,512 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<ExpiryPolicy, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, ExpiryPolicy>();
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      JCSConfiguration<ExpiryPolicy, ExpiryPolicy> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, ExpiryPolicy>(mutableConfiguration0, class0, class0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy> expiryAwareCache0 = (ExpiryAwareCache<ExpiryPolicy, ExpiryPolicy>) mock(ExpiryAwareCache.class, new ViolatedAssumptionAnswer());
+      doReturn((ICacheElement) null).when(expiryAwareCache0).get(any(javax.cache.expiry.ExpiryPolicy.class));
+      doReturn(iElementAttributes0, iElementAttributes0).when(expiryAwareCache0).getElementAttributes();
+      JCSCache<ExpiryPolicy, ExpiryPolicy> jCSCache0 = new JCSCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      ClassLoaderAwareCache<ExpiryPolicy, ExpiryPolicy> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, ExpiryPolicy>(classLoader0, jCSCache0);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      boolean boolean0 = classLoaderAwareCache0.replace(expiryPolicy0, expiryPolicy0, expiryPolicy0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      jCSCachingProvider0.close(classLoader0);
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<ExpiryPolicy, String> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, String>();
+      MutableConfiguration<ExpiryPolicy, String> mutableConfiguration1 = new MutableConfiguration<ExpiryPolicy, String>(mutableConfiguration0);
+      Class<ExpiryPolicy> class0 = ExpiryPolicy.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<ExpiryPolicy, String> jCSConfiguration0 = new JCSConfiguration<ExpiryPolicy, String>(mutableConfiguration1, class0, class1);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      ExpiryAwareCache<ExpiryPolicy, String> expiryAwareCache0 = (ExpiryAwareCache<ExpiryPolicy, String>) mock(ExpiryAwareCache.class, new ViolatedAssumptionAnswer());
+      doReturn(iElementAttributes0, iElementAttributes0).when(expiryAwareCache0).getElementAttributes();
+      doReturn((Set) null).when(expiryAwareCache0).getKeySet();
+      JCSCache<ExpiryPolicy, String> jCSCache0 = new JCSCache<ExpiryPolicy, String>(classLoader0, jCSCachingManager0, "=|", jCSConfiguration0, properties0, expiryAwareCache0);
+      ClassLoaderAwareCache<ExpiryPolicy, String> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, String>(classLoader0, jCSCache0);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.iterator();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.HashSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        ClassLoaderAwareCache.getDelegate((Cache<?, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TempStateCacheView<Integer, Integer> tempStateCacheView0 = new TempStateCacheView<Integer, Integer>((JCSCache<Integer, Integer>) null);
+      // Undeclared exception!
+      try { 
+        ClassLoaderAwareCache.getDelegate((Cache<?, ?>) tempStateCacheView0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.jcache.TempStateCacheView cannot be cast to org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<ClassLoaderAwareCache<String, Object>, ForkJoinTask<Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<ClassLoaderAwareCache<String, Object>, ForkJoinTask<Integer>>(classLoader0, (JCSCache<ClassLoaderAwareCache<String, Object>, ForkJoinTask<Integer>>) null);
+      JCSCache<MutableConfiguration<String, ExpiryPolicy>, Integer> jCSCache0 = ClassLoaderAwareCache.getDelegate((Cache<?, ?>) classLoaderAwareCache0);
+      assertNotNull(jCSCache0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Cache<MutableConfiguration<String, ExpiryPolicy>, Integer> cache0 = ClassLoaderAwareCache.wrap(classLoader0, (JCSCache<MutableConfiguration<String, ExpiryPolicy>, Integer>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Cache<MutableConfiguration<Object, JCSEntry>, Integer> cache0 = ClassLoaderAwareCache.wrap((ClassLoader) null, (JCSCache<MutableConfiguration<Object, JCSEntry>, Integer>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Delayed, Object> mutableConfiguration0 = new MutableConfiguration<Delayed, Object>();
+      Class<Delayed> class0 = Delayed.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<Delayed, Object> jCSConfiguration0 = new JCSConfiguration<Delayed, Object>(mutableConfiguration0, class0, class1);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Delayed, Object> expiryAwareCache0 = (ExpiryAwareCache<Delayed, Object>) mock(ExpiryAwareCache.class, new ViolatedAssumptionAnswer());
+      doReturn(elementAttributes0, elementAttributes0).when(expiryAwareCache0).getElementAttributes();
+      JCSCache<Delayed, Object> jCSCache0 = new JCSCache<Delayed, Object>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      ClassLoaderAwareCache<Delayed, Object> classLoaderAwareCache0 = new ClassLoaderAwareCache<Delayed, Object>(classLoader0, jCSCache0);
+      boolean boolean0 = classLoaderAwareCache0.equals(mutableConfiguration0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<Integer, MutableConfiguration<CacheLoader<Object, Integer>, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, MutableConfiguration<CacheLoader<Object, Integer>, String>>(classLoader0, (JCSCache<Integer, MutableConfiguration<CacheLoader<Object, Integer>, String>>) null);
+      Integer integer0 = new Integer(3271);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getAndRemove(integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<JCSEntry<ExpiryPolicy, Delayed>, JCSEntry<Delayed, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<JCSEntry<ExpiryPolicy, Delayed>, JCSEntry<Delayed, String>>(classLoader0, (JCSCache<JCSEntry<ExpiryPolicy, Delayed>, JCSEntry<Delayed, String>>) null);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(1, threadFactory0);
+      Callable<ClassLoaderAwareCache<Integer, String>> callable0 = (Callable<ClassLoaderAwareCache<Integer, String>>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      ScheduledFuture<ClassLoaderAwareCache<Integer, String>> scheduledFuture0 = scheduledThreadPoolExecutor0.schedule(callable0, 596L, timeUnit0);
+      JCSEntry<ExpiryPolicy, Delayed> jCSEntry0 = new JCSEntry<ExpiryPolicy, Delayed>((ExpiryPolicy) null, scheduledFuture0);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.containsKey(jCSEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ClassLoader classLoader0 = remoteCacheMonitor0.getContextClassLoader();
+      ClassLoaderAwareCache<Integer, CacheWriter<Object, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, CacheWriter<Object, Integer>>(classLoader0, (JCSCache<Integer, CacheWriter<Object, Integer>>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.remove((Integer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<ExpiryPolicy, Delayed> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, Delayed>(classLoader0, (JCSCache<ExpiryPolicy, Delayed>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getCacheManager();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<Integer, CacheEntryListener<Object, Object>> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, CacheEntryListener<Object, Object>>(classLoader0, (JCSCache<Integer, CacheEntryListener<Object, Object>>) null);
+      CacheEntryListener<Object, Object> cacheEntryListener0 = (CacheEntryListener<Object, Object>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.replace((Integer) null, cacheEntryListener0, cacheEntryListener0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<CacheEntryListener<Object, Object>, MutableConfiguration<String, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<CacheEntryListener<Object, Object>, MutableConfiguration<String, String>>(classLoader0, (JCSCache<CacheEntryListener<Object, Object>, MutableConfiguration<String, String>>) null);
+      LinkedHashSet<CacheEntryListener<Object, Object>> linkedHashSet0 = new LinkedHashSet<CacheEntryListener<Object, Object>>();
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getAll(linkedHashSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<String, MutableConfiguration<Delayed, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<String, MutableConfiguration<Delayed, Integer>>(classLoader0, (JCSCache<String, MutableConfiguration<Delayed, Integer>>) null);
+      Locale locale0 = Locale.GERMANY;
+      Set<String> set0 = locale0.getUnicodeLocaleAttributes();
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.loadAll(set0, true, completionListenerFuture0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("l^AS~ec-jt(m");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<Integer> class0 = Integer.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<Integer, String> jCSConfiguration0 = new JCSConfiguration<Integer, String>((Configuration<Integer, String>) null, class0, class1);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, String> expiryAwareCache0 = (ExpiryAwareCache<Integer, String>) mock(ExpiryAwareCache.class, new ViolatedAssumptionAnswer());
+      doReturn(elementAttributes0, elementAttributes0).when(expiryAwareCache0).getElementAttributes();
+      JCSCache<Integer, String> jCSCache0 = new JCSCache<Integer, String>(classLoader0, jCSCachingManager0, "l^AS~ec-jt(m", jCSConfiguration0, properties0, expiryAwareCache0);
+      ClassLoaderAwareCache<Integer, String> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, String>(classLoader0, jCSCache0);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.put((Integer) null, ";`J3!~Od-}(e$");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      ClassLoaderAwareCache<CacheEntryEventFilter<CacheLoader<Object, Integer>, String>, JCSEntry<Object, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<CacheEntryEventFilter<CacheLoader<Object, Integer>, String>, JCSEntry<Object, String>>(classLoader0, (JCSCache<CacheEntryEventFilter<CacheLoader<Object, Integer>, String>, JCSEntry<Object, String>>) null);
+      CacheEntryEventFilter<CacheLoader<Object, Integer>, String> cacheEntryEventFilter0 = (CacheEntryEventFilter<CacheLoader<Object, Integer>, String>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      JCSEntry<Object, String> jCSEntry0 = new JCSEntry<Object, String>(classLoaderAwareCache0, "");
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getAndReplace(cacheEntryEventFilter0, jCSEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<CacheEntryListener<Object, CacheLoader<Object, Integer>>, CacheEntryListener<Object, Object>> classLoaderAwareCache0 = new ClassLoaderAwareCache<CacheEntryListener<Object, CacheLoader<Object, Integer>>, CacheEntryListener<Object, Object>>(classLoader0, (JCSCache<CacheEntryListener<Object, CacheLoader<Object, Integer>>, CacheEntryListener<Object, Object>>) null);
+      CacheEntryListener<Object, CacheLoader<Object, Integer>> cacheEntryListener0 = (CacheEntryListener<Object, CacheLoader<Object, Integer>>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      CacheEntryListener<Object, Object> cacheEntryListener1 = (CacheEntryListener<Object, Object>) mock(CacheEntryListener.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.putIfAbsent(cacheEntryListener0, cacheEntryListener1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<Integer, CacheLoader<Object, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, CacheLoader<Object, Integer>>(classLoader0, (JCSCache<Integer, CacheLoader<Object, Integer>>) null);
+      HashMap<Integer, CacheLoader<Object, Integer>> hashMap0 = new HashMap<Integer, CacheLoader<Object, Integer>>();
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.putAll(hashMap0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<ExpiryPolicy, Integer> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, Integer>(classLoader0, (JCSCache<ExpiryPolicy, Integer>) null);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.remove(expiryPolicy0, integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<ClassLoaderAwareCache<CacheLoader<Object, Integer>, Integer>, String> classLoaderAwareCache0 = new ClassLoaderAwareCache<ClassLoaderAwareCache<CacheLoader<Object, Integer>, Integer>, String>(classLoader0, (JCSCache<ClassLoaderAwareCache<CacheLoader<Object, Integer>, Integer>, String>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.isClosed();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      ClassLoaderAwareCache<CacheEntryListener<Object, Object>, CacheLoader<Object, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<CacheEntryListener<Object, Object>, CacheLoader<Object, Integer>>(classLoader0, (JCSCache<CacheEntryListener<Object, Object>, CacheLoader<Object, Integer>>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.clear();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<Integer, JCSEntry<Object, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<Integer, JCSEntry<Object, String>>(classLoader0, (JCSCache<Integer, JCSEntry<Object, String>>) null);
+      JCSEntry<Object, String> jCSEntry0 = new JCSEntry<Object, String>(classLoaderAwareCache0, "vbB<X)NBp]0g!");
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.replace((Integer) null, jCSEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("l^AS~ec-jt(m");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<Integer> class0 = Integer.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<Integer, String> jCSConfiguration0 = new JCSConfiguration<Integer, String>((Configuration<Integer, String>) null, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<Integer, String> expiryAwareCache0 = (ExpiryAwareCache<Integer, String>) mock(ExpiryAwareCache.class, new ViolatedAssumptionAnswer());
+      doReturn(iElementAttributes0, iElementAttributes0).when(expiryAwareCache0).getElementAttributes();
+      JCSCache<Integer, String> jCSCache0 = new JCSCache<Integer, String>(classLoader0, jCSCachingManager0, "l^AS~ec-jt(m", jCSConfiguration0, properties0, expiryAwareCache0);
+      JCSCache<ForkJoinTask<ExpiryPolicy>, Integer> jCSCache1 = ClassLoaderAwareCache.getDelegate((Cache<?, ?>) jCSCache0);
+      ClassLoaderAwareCache<ForkJoinTask<ExpiryPolicy>, Integer> classLoaderAwareCache0 = new ClassLoaderAwareCache<ForkJoinTask<ExpiryPolicy>, Integer>(classLoader0, jCSCache1);
+      ExpiryPolicy expiryPolicy0 = mock(ExpiryPolicy.class, new ViolatedAssumptionAnswer());
+      ForkJoinTask<ExpiryPolicy> forkJoinTask0 = ForkJoinTask.adapt((Runnable) mockThread0, expiryPolicy0);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getAndPut(forkJoinTask0, (Integer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // value is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("l^AS~ec-jt(m");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      ClassLoaderAwareCache<String, CacheWriter<Object, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<String, CacheWriter<Object, Integer>>(classLoader0, (JCSCache<String, CacheWriter<Object, Integer>>) null);
+      classLoaderAwareCache0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<CacheWriter<Object, Integer>, JCSMutableEntry<Integer, Object>> classLoaderAwareCache0 = new ClassLoaderAwareCache<CacheWriter<Object, Integer>, JCSMutableEntry<Integer, Object>>(classLoader0, (JCSCache<CacheWriter<Object, Integer>, JCSMutableEntry<Integer, Object>>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<String, Object> classLoaderAwareCache0 = new ClassLoaderAwareCache<String, Object>(classLoader0, (JCSCache<String, Object>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.get("rA_`$SP#}lU/h");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      ClassLoaderAwareCache<ForkJoinTask<ExpiryPolicy>, CacheLoader<Object, Integer>> classLoaderAwareCache0 = new ClassLoaderAwareCache<ForkJoinTask<ExpiryPolicy>, CacheLoader<Object, Integer>>(classLoader0, (JCSCache<ForkJoinTask<ExpiryPolicy>, CacheLoader<Object, Integer>>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.getName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoaderAwareCache<ExpiryPolicy, String> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, String>(classLoader0, (JCSCache<ExpiryPolicy, String>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.removeAll();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      ClassLoaderAwareCache<ExpiryPolicy, ClassLoaderAwareCache<ExpiryPolicy, String>> classLoaderAwareCache0 = new ClassLoaderAwareCache<ExpiryPolicy, ClassLoaderAwareCache<ExpiryPolicy, String>>(classLoader0, (JCSCache<ExpiryPolicy, ClassLoaderAwareCache<ExpiryPolicy, String>>) null);
+      ZombieCacheServiceNonLocal<ExpiryPolicy, JCSMutableEntry<ExpiryPolicy, Integer>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<ExpiryPolicy, JCSMutableEntry<ExpiryPolicy, Integer>>(0);
+      Set<ExpiryPolicy> set0 = zombieCacheServiceNonLocal0.getKeySet("bTlR?k1EIsuS?");
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.removeAll(set0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ClassLoader classLoader0 = remoteCacheMonitor0.getContextClassLoader();
+      ClassLoaderAwareCache<JCSCache<Integer, ExpiryPolicy>, CacheEntryListener<Object, Object>> classLoaderAwareCache0 = new ClassLoaderAwareCache<JCSCache<Integer, ExpiryPolicy>, CacheEntryListener<Object, Object>>(classLoader0, (JCSCache<JCSCache<Integer, ExpiryPolicy>, CacheEntryListener<Object, Object>>) null);
+      // Undeclared exception!
+      try { 
+        classLoaderAwareCache0.registerCacheEntryListener((CacheEntryListenerConfiguration<JCSCache<Integer, ExpiryPolicy>, CacheEntryListener<Object, Object>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.proxy.ClassLoaderAwareCache", e);
+      }
+  }

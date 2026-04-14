@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JpegXmpParser jpegXmpParser0 = new JpegXmpParser();
+      boolean boolean0 = jpegXmpParser0.isXmpJpegSegment((byte[]) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegXmpParser jpegXmpParser0 = new JpegXmpParser();
+      byte[] byteArray0 = new byte[2];
+      try { 
+        jpegXmpParser0.parseXmpJpegSegment(byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid JPEG XMP Segment.
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpParser", e);
+      }
+  }

@@ -1,0 +1,237 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byteArray0[1] = (byte)87;
+      byteArray0[4] = (byte)35;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArrayInputStream0.read();
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment(0, 15, byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      SosSegment sosSegment0 = new SosSegment((-360), byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      SosSegment sosSegment0 = new SosSegment((-360), byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment((-2239), byteArray0);
+      SosSegment.Component sosSegment_Component0 = sosSegment0.getComponents((int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment((-2239), byteArray0);
+      SosSegment.Component sosSegment_Component0 = sosSegment0.getComponents((int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment((-2239), byteArray0);
+      SosSegment.Component sosSegment_Component0 = sosSegment0.getComponents((int) (byte)0);
+      assertNotNull(sosSegment_Component0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment((-2239), byteArray0);
+      SosSegment.Component sosSegment_Component0 = sosSegment0.getComponents((int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment((-2239), byteArray0);
+      SosSegment.Component sosSegment_Component0 = sosSegment0.getComponents((int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment(0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SosSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte) (-88);
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment((-2384), byteArray0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SosSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment((-20), byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment((-450), (-450), (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-54);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 4);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment(0, 0, bufferedInputStream0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SosSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-104), 16);
+      SosSegment sosSegment0 = null;
+      try {
+        sosSegment0 = new SosSegment(16, (-480), byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SosSegment sosSegment0 = new SosSegment(0, 15, byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      SosSegment.Component[] sosSegment_ComponentArray0 = sosSegment0.getComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)1;
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      SosSegment.Component[] sosSegment_ComponentArray0 = sosSegment0.getComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      // Undeclared exception!
+      try { 
+        sosSegment0.getComponents((int) (byte) (-1));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SosSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      SosSegment.Component[] sosSegment_ComponentArray0 = sosSegment0.getComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      SosSegment.Component[] sosSegment_ComponentArray0 = sosSegment0.getComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      String string0 = sosSegment0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      SosSegment sosSegment0 = new SosSegment(0, byteArray0);
+      String string0 = sosSegment0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      SosSegment.Component sosSegment_Component0 = new SosSegment.Component(435, 435, (-10));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      SosSegment.Component sosSegment_Component0 = new SosSegment.Component(435, 435, (-10));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      SosSegment.Component sosSegment_Component0 = new SosSegment.Component(435, 435, (-10));
+      ;
+}

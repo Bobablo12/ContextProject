@@ -1,0 +1,33 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Integer integer0 = new Integer(3119);
+      DeleteCommand<Integer> deleteCommand0 = new DeleteCommand<Integer>(integer0);
+      CommandVisitor<Integer> commandVisitor0 = (CommandVisitor<Integer>) mock(CommandVisitor.class, new ViolatedAssumptionAnswer());
+      deleteCommand0.accept(commandVisitor0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InsertCommand<String> insertCommand0 = new InsertCommand<String>((String) null);
+      String string0 = insertCommand0.getObject();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      KeepCommand<String> keepCommand0 = new KeepCommand<String>("3u|Y\u0001/*-Od7;~");
+      String string0 = keepCommand0.getObject();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DeleteCommand<Object> deleteCommand0 = new DeleteCommand<Object>((Object) null);
+      // Undeclared exception!
+      try { 
+        deleteCommand0.accept((CommandVisitor<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.sequence.DeleteCommand", e);
+      }
+  }

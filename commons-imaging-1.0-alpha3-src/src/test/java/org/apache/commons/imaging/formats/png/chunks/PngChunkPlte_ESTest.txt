@@ -1,0 +1,148 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(3, (-456), (-456), byteArray0);
+      try { 
+        pngChunkPlte0.getRGB(255);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: unknown Palette reference: 255
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 0, 0, byteArray0);
+      int[] intArray0 = pngChunkPlte0.getRgb();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(3, 3, (-335), byteArray0);
+      // Undeclared exception!
+      try { 
+        pngChunkPlte0.correct((GammaCorrection) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PngChunkPlte pngChunkPlte0 = null;
+      try {
+        pngChunkPlte0 = new PngChunkPlte(16, (-696), 1533, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      PngChunkPlte pngChunkPlte0 = null;
+      try {
+        pngChunkPlte0 = new PngChunkPlte((-3213), (-3213), 158, byteArray0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      PngChunkPlte pngChunkPlte0 = null;
+      try {
+        pngChunkPlte0 = new PngChunkPlte(255, 910, 255, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid Png File: PLTE Corrupt
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(3, 3, (-335), byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection((byte)32, 3);
+      pngChunkPlte0.correct(gammaCorrection0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 0, 0, byteArray0);
+      try { 
+        pngChunkPlte0.getRGB(0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: unknown Palette reference: 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[75];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(21, 21, 21, byteArray0);
+      int int0 = pngChunkPlte0.getRGB((byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[75];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(21, 21, 21, byteArray0);
+      try { 
+        pngChunkPlte0.getRGB((-16777216));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: unknown Palette reference: -16777216
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[19];
+      PngChunkPlte pngChunkPlte0 = null;
+      try {
+        pngChunkPlte0 = new PngChunkPlte((-2240), (-2240), (-2240), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PLTE: wrong length: -2240
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkPlte", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[75];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(21, 21, 21, byteArray0);
+      int[] intArray0 = pngChunkPlte0.getRgb();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[75];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(21, 21, 21, byteArray0);
+      int[] intArray0 = pngChunkPlte0.getRgb();
+      ;
+}

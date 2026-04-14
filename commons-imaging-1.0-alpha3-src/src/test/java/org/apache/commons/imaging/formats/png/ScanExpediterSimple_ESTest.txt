@@ -1,0 +1,123 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[1] = (byte) (-8);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE;
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-2471), 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(255.0, 0.0);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(8, 1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, (byte) (-71), 5, pngChunkPlte0, gammaCorrection0, transparencyFilterTrueColor0);
+      // Undeclared exception!
+      try { 
+        scanExpediterSimple0.drive();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.ScanExpediterSimple", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE;
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-2471), 0, byteArray0);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection((byte)10, (-184));
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(0, 1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, (-184), (-2471), pngChunkPlte0, gammaCorrection0, transparencyFilterTrueColor0);
+      scanExpediterSimple0.drive();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-2471), (byte) (-71), byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(255.0, 0);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE_WITH_ALPHA;
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple((-1), 2734, byteArrayInputStream0, (BufferedImage) null, pngColorType0, 8, (-1), pngChunkPlte0, gammaCorrection0, transparencyFilterTrueColor0);
+      try { 
+        scanExpediterSimple0.drive();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: missing filter type
+         //
+         verifyException("org.apache.commons.imaging.formats.png.ScanExpediter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      File file0 = MockFile.createTempFile("=*z6X%R!_G}.]", "org.apache.commons.imaging.formats.png.ScanExpediterSimple");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      PngColorType pngColorType0 = PngColorType.TRUE_COLOR;
+      byte[] byteArray0 = new byte[1];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-1400), 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(0, (-1.0));
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(0, (-1400), mockFileInputStream0, (BufferedImage) null, pngColorType0, 0, 0, pngChunkPlte0, gammaCorrection0, transparencyFilterIndexedColor0);
+      scanExpediterSimple0.drive();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE;
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-2471), 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(255.0, 0.0);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(8, 1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, (byte) (-71), 0, pngChunkPlte0, gammaCorrection0, transparencyFilterTrueColor0);
+      // Undeclared exception!
+      try { 
+        scanExpediterSimple0.drive();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE;
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, (-2471), (byte)112, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(255.0, 0);
+      TransparencyFilterTrueColor transparencyFilterTrueColor0 = new TransparencyFilterTrueColor(byteArray0);
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(8, 1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, (byte)0, 5, pngChunkPlte0, gammaCorrection0, transparencyFilterTrueColor0);
+      // Undeclared exception!
+      try { 
+        scanExpediterSimple0.drive();
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(2687);
+      PngColorType pngColorType0 = PngColorType.TRUE_COLOR_WITH_ALPHA;
+      byte[] byteArray0 = new byte[6];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 954, (-3871), byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection((byte) (-89), (byte)0);
+      TransparencyFilterGrayscale transparencyFilterGrayscale0 = new TransparencyFilterGrayscale(byteArray0);
+      ScanExpediterSimple scanExpediterSimple0 = new ScanExpediterSimple(954, 2687, pipedInputStream0, (BufferedImage) null, pngColorType0, 2687, (-2571), pngChunkPlte0, gammaCorrection0, transparencyFilterGrayscale0);
+      try { 
+        scanExpediterSimple0.drive();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }

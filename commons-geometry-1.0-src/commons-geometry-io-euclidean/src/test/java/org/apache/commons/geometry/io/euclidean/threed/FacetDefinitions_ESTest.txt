@@ -1,0 +1,86 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      Vector3D vector3D0 = Vector3D.of(0.0, 0.0, (-0.999999999999998));
+      AxisSequence axisSequence0 = AxisSequence.YZY;
+      Vector3D vector3D1 = axisSequence0.getAxis3();
+      stack0.add(vector3D1);
+      stack0.add(vector3D0);
+      stack0.add(vector3D0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(stack0, vector3D0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      // Undeclared exception!
+      try { 
+        FacetDefinitions.toPolygon((FacetDefinition) simpleFacetDefinition0, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Stack<Vector3D> stack0 = new Stack<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      List<Vector3D> list0 = stack0.subList(0, 0);
+      stack0.add((Vector3D) vector3D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        FacetDefinitions.toPolygon((Collection<Vector3D>) list0, (Vector3D) vector3D_Unit0, precision_DoubleEquivalence0);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        FacetDefinitions.toPolygon((Collection<Vector3D>) null, vector3D0, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayDeque<Vector3D> arrayDeque0 = new ArrayDeque<Vector3D>();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        FacetDefinitions.toPolygon((Collection<Vector3D>) arrayDeque0, (Vector3D) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Points do not define a plane: []
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes$PlaneBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        FacetDefinitions.toPolygon((FacetDefinition) null, precision_DoubleEquivalence0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Facet cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }

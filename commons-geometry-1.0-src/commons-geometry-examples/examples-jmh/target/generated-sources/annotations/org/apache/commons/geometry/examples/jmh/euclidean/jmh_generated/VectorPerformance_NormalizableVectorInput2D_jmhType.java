@@ -1,0 +1,4 @@
+package org.apache.commons.geometry.examples.jmh.euclidean.jmh_generated;
+public class VectorPerformance_NormalizableVectorInput2D_jmhType extends VectorPerformance_NormalizableVectorInput2D_jmhType_B3 {
+}
+

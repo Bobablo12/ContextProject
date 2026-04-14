@@ -1,0 +1,151 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("sRt%x)=Ntw{ ]w+]^%O");
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // !hex x
+         //
+         verifyException("spark.utils.urldecoding.TypeUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path((String) null, 0, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.urldecoding.UrlDecode", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.urldecoding.UrlDecode", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = UrlDecode.path("", 0, 0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      String string0 = UrlDecode.path("rU3,K;k%t~4m4*Fa2s", 3, 3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path(";/<YWk*k;a!%[MtobN", 0, 1864);
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("?KU3OMk%>68~u40CJ2s", 6, 6);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! char appended in state 36
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path(";/<k(k)%u@oho_RfvN", 0, 43);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // !hex 111
+         //
+         verifyException("spark.utils.urldecoding.TypeUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("!F3%P9KATnH>", 2, 2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Bad URI % encoding
+         //
+         verifyException("spark.utils.urldecoding.UrlDecode", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      String string0 = UrlDecode.path("rU3,K", 0, 3);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("zYBXd|vzkYr!zaz|", (-3260), (-3260));
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      String string0 = UrlDecode.path("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      String string0 = UrlDecode.path(";R/tq|2=$\"k:4J5;-nt");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("Yz_uRAh?mW:\"I/2}M%U");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Bad URI % encoding
+         //
+         verifyException("spark.utils.urldecoding.UrlDecode", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        UrlDecode.path("a&</H%f?");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! byte Ff in state 0
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      UrlDecode urlDecode0 = new UrlDecode();
+  }

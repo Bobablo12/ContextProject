@@ -1,0 +1,3406 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(279, "XPTitle");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, fieldTypeLong0, 329L, 0L, byteArray0, (ByteOrder) null, 763);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      try { 
+        tiffDirectory0.imageDataInStrips();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Couldn't find image data.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, (FieldType) null, 0L, 3740L, byteArray0, (ByteOrder) null, (byte) (-20));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2, linkedList0, 0L, 2, (ByteOrder) null);
+      try { 
+        tiffDirectory0.getTiffRawImageDataElements();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Couldn't find image data.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (byte)57, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("\t[59]: Unknown Tag (0, 0x0), Long, 9512: \n", 0, tiffDirectoryType0, true);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Field \"\t[59]: Unknown Tag (0, 0x0), Long, 9512: 
+         // \" has wrong count 2378
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, 1979, 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, 4849, tagInfoFloat0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, 1979, 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, 4849, tagInfoFloat0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[9];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("*Wa@*7", (-4), fieldTypeLong0.BYTE_OR_SHORT, (-4), tiffDirectoryType0, true);
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 2378, (-24), tagInfoLong0.directoryType);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("Oce Scanjob Description", 0, (-1461), tagInfoLongs0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[9];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("*Wa@*7", (-4), fieldTypeLong0.BYTE_OR_SHORT, (-4), tiffDirectoryType0, true);
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 2378, (-24), tagInfoLong0.directoryType);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("Oce Scanjob Description", 0, (-1461), tagInfoLongs0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[16];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[16];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[1];
+      TiffField tiffField0 = new TiffField(12, 12, fieldTypeShort0, 12, 815L, byteArray0, byteOrder0, (byte)5);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(12, linkedList0, 12, 815L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 12, fieldTypeShort0, 324, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[1];
+      TiffField tiffField0 = new TiffField(12, 12, fieldTypeShort0, 12, 815L, byteArray0, byteOrder0, (byte)5);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(12, linkedList0, 12, 815L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 12, fieldTypeShort0, 324, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[16];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      String string0 = tiffDirectory0.getElementDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[16];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      String string0 = tiffDirectory0.getElementDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[16];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      String string0 = tiffDirectory0.getElementDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, 1L, (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      tiffDirectory0.getDirectoryEntries();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, 1L, (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      tiffDirectory0.getDirectoryEntries();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2052, linkedList0, 6L, 6L, (ByteOrder) null);
+      tiffDirectory0.getByteOrder();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2052, linkedList0, 6L, 6L, (ByteOrder) null);
+      tiffDirectory0.getByteOrder();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("W_,:8", 0, 3068, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("W_,:8", 0, 3068, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-12), 2480, fieldTypeShort0, 0L, (-616L), byteArray0, byteOrder0, 2480);
+      linkedList0.offer(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-12), linkedList0, 0L, (-1573L), byteOrder0);
+      TagInfo tagInfo0 = new TagInfo("&t#$V=:'_ME9j]7", (-12), fieldTypeShort0.DOUBLE, (-2630));
+      tiffDirectory0.findField(tagInfo0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-12), 2480, fieldTypeShort0, 0L, (-616L), byteArray0, byteOrder0, 2480);
+      linkedList0.offer(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-12), linkedList0, 0L, (-1573L), byteOrder0);
+      TagInfo tagInfo0 = new TagInfo("&t#$V=:'_ME9j]7", (-12), fieldTypeShort0.DOUBLE, (-2630));
+      tiffDirectory0.findField(tagInfo0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 7, 4294967295L, byteOrder0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField(7, 7, fieldTypeAscii0, 7, 7, byteArray0, byteOrder0, (byte) (-3));
+      linkedList0.offerFirst(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", 7, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoRational0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 7, 4294967295L, byteOrder0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField(7, 7, fieldTypeAscii0, 7, 7, byteArray0, byteOrder0, (byte) (-3));
+      linkedList0.offerFirst(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", 7, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoRational0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 0L, 1, byteOrder0);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[2];
+      TiffField tiffField0 = new TiffField(3957, 110, fieldTypeLong0, (-1L), 6, byteArray0, byteOrder0, 4197);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("}NJxu`0DbbH)b", 3957, 1, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoSBytes0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 0L, 1, byteOrder0);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[2];
+      TiffField tiffField0 = new TiffField(3957, 110, fieldTypeLong0, (-1L), 6, byteArray0, byteOrder0, 4197);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("}NJxu`0DbbH)b", 3957, 1, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoSBytes0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TagInfo tagInfo0 = new TagInfo("pr#]b6Q9wM", 0, fieldTypeLong0);
+      tiffDirectory0.findField(tagInfo0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TagInfo tagInfo0 = new TagInfo("pr#]b6Q9wM", 0, fieldTypeLong0);
+      tiffDirectory0.findField(tagInfo0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, 65535);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, 65535);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(814, linkedList0, 814, (-1892L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-3444), 6, tiffDirectoryType0);
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-2466), "(");
+      byte[] byteArray0 = new byte[6];
+      TiffField tiffField0 = new TiffField((-3444), 814, fieldTypeDouble0, 0L, 0L, byteArray0, byteOrder0, (byte)107);
+      linkedList0.add(tiffField0);
+      tiffDirectory0.findField((TagInfo) tagInfoRationals0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(814, linkedList0, 814, (-1892L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-3444), 6, tiffDirectoryType0);
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble((-2466), "(");
+      byte[] byteArray0 = new byte[6];
+      TiffField tiffField0 = new TiffField((-3444), 814, fieldTypeDouble0, 0L, 0L, byteArray0, byteOrder0, (byte)107);
+      linkedList0.add(tiffField0);
+      tiffDirectory0.findField((TagInfo) tagInfoRationals0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 1, 1, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("", 3321, 6, tiffDirectoryType0);
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(1615, "");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(3321, 50723, fieldTypeRational0, 1L, 2L, byteArray0, byteOrder0, 4289);
+      linkedList0.add(tiffField0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 1, 1, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("", 3321, 6, tiffDirectoryType0);
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(1615, "");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(3321, 50723, fieldTypeRational0, 1L, 2L, byteArray0, byteOrder0, 4289);
+      linkedList0.add(tiffField0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3362), 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(130, linkedList0, 821L, (-508L), byteOrder0);
+      tiffDirectory0.findField((TagInfo) tagInfoFloat0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3362), 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(130, linkedList0, 821L, (-508L), byteOrder0);
+      tiffDirectory0.findField((TagInfo) tagInfoFloat0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      linkedList0.add((TiffField) null);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1096, linkedList0, 1096, 682L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.imageDataInStrips();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      linkedList0.add((TiffField) null);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 2846L, 2967L, (ByteOrder) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.hasTiffRasterData();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(134, linkedList0, 48258, 134, byteOrder0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.hasTiffImageData();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.hasTiffFloatingPointRasterData();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      linkedList0.add((TiffField) null);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2052, linkedList0, 0L, 0L, (ByteOrder) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.hasJpegImageData();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1255), linkedList0, 883L, 883L, byteOrder0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getTiffRawImageDataElements();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(285, linkedList0, 32L, 32L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getSingleFieldValue((TagInfoShortOrLong) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      char[] charArray0 = new char[3];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1454, linkedList0, 1207L, 1207L, byteOrder0);
+      linkedList0.add((TiffField) null);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getRasterData(tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1120), linkedList0, 0L, 0L, byteOrder0);
+      linkedList0.offerFirst((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getJpegRawImageDataElement();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("vT'1qD^|`rEZ\"0#[%@T", 1873, tiffDirectoryType0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoXpString0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-813), linkedList0, (-813), (-813), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 975, (-813), tiffDirectoryType0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShorts0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, 0L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType", 3, 6, tiffDirectoryType0);
+      linkedList0.offer((TiffField) null);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("[TagInfo. tag: 3 (0x3, name: org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType]", 6, 3, tagInfoSLongs0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShortOrLong0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2741, linkedList0, (-2911L), 2741, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoShort) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      char[] charArray0 = new char[9];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 1, 1106L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoSShorts) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (-5L), 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      linkedList0.add((TiffField) null);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort(";dK", (-667), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShort0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoSRationals) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2052, linkedList0, 0L, 0L, (ByteOrder) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoSRational) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 0, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      linkedList0.add((TiffField) null);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("_^-%3", 0, 0, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 0L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoSBytes) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1829), linkedList0, 1525L, (-1293L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      linkedList0.add((TiffField) null);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte("Sharpness", 581, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSByte0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-9), linkedList0, 0L, (-1), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoRationals) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(325, linkedList0, 4258L, (-9), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoRational) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(5, linkedList0, 5, (-926L), (ByteOrder) null);
+      linkedList0.add((TiffField) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs(" is unsupported", 0, 6, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1), linkedList0, 592L, (-2674L), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoLong) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 0L, (-1154L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText(")", (-9), tiffDirectoryType0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoGpsText0, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1885, linkedList0, 2L, 562L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoFloats) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 0L, 255L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoFloat) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-3518), linkedList0, 0L, 566L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoDoubles) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-235), linkedList0, (-235), (-235), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoDouble) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2020, linkedList0, (-1L), (-2806L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs(")'Tmkkk}Gy9;[cU\"WI", 284, 316, tiffDirectoryType0, true);
+      linkedList0.add((TiffField) null);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("jkqA#JP", (-1990), (FieldType) null, 2062, tagInfoLongs0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoBytes0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, (-2147483648L), 7, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoByte) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      CharBuffer charBuffer0 = CharBuffer.allocate('O');
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(250, linkedList0, 250, 250, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoSLong tagInfoSLong0 = new TagInfoSLong("", 289, tiffDirectoryType0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfo) tagInfoSLong0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-9L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (-1829), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfo) tagInfoRationals0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(763, 2378, fieldTypeLong0, (-2423L), 763, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, 0L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getElementDescription();
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (-1844L), 12L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      linkedList0.add((TiffField) null);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("", 30, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.findField((TagInfo) tagInfoSShort0, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 0, (-96L), (ByteOrder) null);
+      linkedList0.add((TiffField) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShort tagInfoShort0 = new TagInfoShort((String) null, (-2074), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.findField((TagInfo) tagInfoShort0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-218), linkedList0, 2085L, 2341L, byteOrder0);
+      linkedList0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.dump();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField((-370), 29, (FieldType) null, 0L, 12L, (byte[]) null, byteOrder0, 3957);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-370), linkedList0, (-28L), (-1106L), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.dump();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-9L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.dump();
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = null;
+      try {
+        tiffDirectory0 = new TiffDirectory((-31), (List<TiffField>) null, 0L, 0L, byteOrder0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2710), linkedList0, 2098L, 2098L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("r", 0, (-739), tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("E,|q&F`OYN@", 1, 1, tagInfoFloats0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShortOrLong0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"E,|q&F`OYN@\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(581, linkedList0, 4012L, 581, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("e1 }", (-1), 0, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShorts0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"e1 }\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 1, 1, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("", 3321, 6, tiffDirectoryType0);
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(1615, "");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(3321, 50723, fieldTypeRational0, 1L, 2L, byteArray0, byteOrder0, 4289);
+      linkedList0.add(tiffField0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoAscii0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type 
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1107), linkedList0, 0L, 0L, byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue((TagInfoAscii) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, 65535);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, 65535);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoAscii0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (-1844L), 12L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = new FieldTypeAscii(133, (String) null);
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 48323, fieldTypeAscii0, (-2147483648L), (-2147483648L), byteArray0, byteOrder0, (byte)7);
+      linkedList0.add(tiffField0);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("", 30, tagInfoFloat0.directoryType);
+      TiffField tiffField1 = tiffDirectory0.findField((TagInfo) tagInfoSShort0, false);
+      assertEquals(tiffField0, tiffField1);
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (-1844L), 12L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = new FieldTypeAscii(133, (String) null);
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 48323, fieldTypeAscii0, (-2147483648L), (-2147483648L), byteArray0, byteOrder0, (byte)7);
+      linkedList0.add(tiffField0);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("", 30, tagInfoFloat0.directoryType);
+      TiffField tiffField1 = tiffDirectory0.findField((TagInfo) tagInfoSShort0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (-1844L), 12L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("org.apache.commons.imaging.formats.tiff.TiffImagingParameters", 0, tiffDirectoryType0);
+      FieldTypeAscii fieldTypeAscii0 = new FieldTypeAscii(133, (String) null);
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 48323, fieldTypeAscii0, (-2147483648L), (-2147483648L), byteArray0, byteOrder0, (byte)7);
+      linkedList0.add(tiffField0);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("", 30, tagInfoFloat0.directoryType);
+      TiffField tiffField1 = tiffDirectory0.findField((TagInfo) tagInfoSShort0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 1L, 7, byteOrder0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffDirectory0.getTiffImage(byteOrder0, tiffImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 1L, 7, byteOrder0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffDirectory0.getTiffImage(byteOrder0, tiffImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffImageData();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      String string0 = TiffDirectory.description((-4));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      String string0 = TiffDirectory.description(133);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      String string0 = TiffDirectory.description(2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 3, (-347L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      List<FieldType> list0 = FieldType.LONG_OR_IFD;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("q0xpcx", 325, list0, 325, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 3, (-347L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      List<FieldType> list0 = FieldType.LONG_OR_IFD;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("q0xpcx", 325, list0, 325, tiffDirectoryType0);
+      tiffDirectory0.findField((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffFloatingPointRasterData();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffFloatingPointRasterData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffFloatingPointRasterData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 1, 1, byteOrder0);
+      try { 
+        tiffDirectory0.getJpegRawImageDataElement();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Couldn't find image data.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-466), linkedList0, (-466), 432L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("g9#8ERt<U[", (-466), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoXpString0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"g9#8ERt<U[\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("#g0}<Pt>[S%b:", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(273, linkedList0, (-1), 6L, byteOrder0);
+      tiffDirectory0.getFieldValue(tagInfoXpString0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("#g0}<Pt>[S%b:", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(273, linkedList0, (-1), 6L, byteOrder0);
+      tiffDirectory0.getFieldValue(tagInfoXpString0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(279, "XPTitle");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, fieldTypeLong0, 329L, 0L, byteArray0, (ByteOrder) null, 763);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoXpString tagInfoXpString0 = new TagInfoXpString("XPTitle", 279, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoXpString0, false);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Text field not encoded as bytes.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoXpString", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 18L, (-1155L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("", (-9), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoGpsText0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoGpsText) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoGpsText) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      byte[] byteArray0 = new byte[2];
+      TiffField tiffField0 = new TiffField(59, 2427, (FieldType) null, 2427, 2427, byteArray0, (ByteOrder) null, 4);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(59, linkedList0, 59, 59, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoGpsText tagInfoGpsText0 = new TagInfoGpsText("V275", 59, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoGpsText0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // GPS text field not encoded as bytes.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.taginfos.TagInfoGpsText", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2651, linkedList0, 2651, 1525L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles((String) null, (-2522), 2651, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoDoubles0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"null\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(273, linkedList0, (-1), 6L, byteOrder0);
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("#g0}<Pt>[S%b:", 273, 0, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoDoubles0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(273, linkedList0, (-1), 6L, byteOrder0);
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("#g0}<Pt>[S%b:", 273, 0, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoDoubles0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[7];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1012), (-1012), fieldTypeDouble0, (-1012), (-1012), byteArray0, byteOrder0, (byte) (-13));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1012), linkedList0, (-1012), 8L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoDoubles tagInfoDoubles0 = new TagInfoDoubles("e", (-1012), 18, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoDoubles0, false);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1872, linkedList0, 1872, 1872, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("4o293T#DemrV6ga7{", (-1695), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoDouble0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"4o293T#DemrV6ga7{\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-16), linkedList0, (-967L), (-16), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoDouble tagInfoDouble0 = new TagInfoDouble("name", (-16), tiffDirectoryType0);
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(1, "6y1{H}y=e8w)kPG2");
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-16), 360, fieldTypeRational0, 0L, (-760L), byteArray0, byteOrder0, (byte)6);
+      linkedList0.add(tiffField0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoDouble0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"name\" has incorrect type 6y1{H}y=e8w)kPG2
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2052, linkedList0, 0L, 0L, (ByteOrder) null);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[3];
+      TiffField tiffField0 = new TiffField((-1914), 6, fieldTypeLong0, 6, 6, byteArray0, (ByteOrder) null, (byte)112);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", (-1914), 2, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoFloats0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type SLong
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-631), linkedList0, (-631), (-631), byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoFloats) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-631), linkedList0, (-631), (-631), byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoFloats) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, 41L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", 0, 6, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoFloats0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1663, linkedList0, 0L, 0L, (ByteOrder) null);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[3];
+      TiffField tiffField0 = new TiffField((-1897), 6, fieldTypeLong0, 6, 6, byteArray0, (ByteOrder) null, (byte)112);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", (-1897), (byte)2, tiffDirectoryType0);
+      float[] floatArray0 = tiffDirectory0.getFieldValue(tagInfoFloats0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1663, linkedList0, 0L, 0L, (ByteOrder) null);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[3];
+      TiffField tiffField0 = new TiffField((-1897), 6, fieldTypeLong0, 6, 6, byteArray0, (ByteOrder) null, (byte)112);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", (-1897), (byte)2, tiffDirectoryType0);
+      float[] floatArray0 = tiffDirectory0.getFieldValue(tagInfoFloats0, false);
+      assertNotNull(floatArray0);
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1663, linkedList0, 0L, 0L, (ByteOrder) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("", (-1134), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoFloat0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3362), 836L, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(130, linkedList0, 821L, 821L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoFloat0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"2f\" has incorrect type Short
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-9L), (-480), byteArray0, byteOrder0, (byte) (-110));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (-1829), tiffDirectoryType0);
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-480), (-1730), tagInfoRationals0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSRationals0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type Float
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(286, linkedList0, 286, (-930L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals(", length: ", 286, 0, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSRationals0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \", length: \" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(50740, linkedList0, 50740, 50740, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-1), (-619), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(50740, linkedList0, 50740, 50740, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-1), (-619), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-27L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (byte) (-33), tiffDirectoryType0);
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-480), (-1730), tagInfoRationals0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-27L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (byte) (-33), tiffDirectoryType0);
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("", (-480), (-1730), tagInfoRationals0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational((String) null, (-1769), tagInfoSBytes0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSRational0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"null\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-593), linkedList0, (-593), (-593), byteOrder0);
+      FieldTypeShort fieldTypeShort0 = new FieldTypeShort(6, "");
+      byte[] byteArray0 = new byte[6];
+      TiffField tiffField0 = new TiffField(79, (-657), fieldTypeShort0, (-593L), 6, byteArray0, byteOrder0, 79);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("O", 79, 2023, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSLongs0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"O\" has incorrect type 
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-631), linkedList0, (-631), (-631), byteOrder0);
+      FieldTypeShort fieldTypeShort0 = new FieldTypeShort((-3216), "");
+      byte[] byteArray0 = new byte[6];
+      TiffField tiffField0 = new TiffField(79, (-657), fieldTypeShort0, (-631L), 6, byteArray0, byteOrder0, 79);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("O", 79, 2023, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-631), linkedList0, (-631), (-631), byteOrder0);
+      FieldTypeShort fieldTypeShort0 = new FieldTypeShort((-3216), "");
+      byte[] byteArray0 = new byte[6];
+      TiffField tiffField0 = new TiffField(79, (-657), fieldTypeShort0, (-631L), 6, byteArray0, byteOrder0, 79);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("O", 79, 2023, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 7, (-1L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("", 7, 6, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSLongs0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, 0L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType", 3, 6, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("Oce Scanjob Description", 0, (-1461), tagInfoLongs0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("Oce Scanjob Description", 0, (-1461), tagInfoLongs0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoSLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-404), linkedList0, (-404), 0L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSLong tagInfoSLong0 = new TagInfoSLong("!fO#F,Ts]", 6, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"!fO#F,Ts]\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, 65535);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSLong tagInfoSLong0 = new TagInfoSLong("JPEGQTables", (-491), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSLong0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-370), linkedList0, (-28L), (-1106L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      FieldTypeShort fieldTypeShort0 = new FieldTypeShort(40091, "HK'b@");
+      byte[] byteArray0 = new byte[4];
+      TiffField tiffField0 = new TiffField((-5), (-3178), fieldTypeShort0, (-3178), (-1106L), byteArray0, byteOrder0, (-370));
+      linkedList0.add(tiffField0);
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("", (-5), (-5), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShorts0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type HK'b@
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-370), linkedList0, (-41L), (-370), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("", (-8), (-8), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShorts0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 3, (-347L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts(":GA6k'={d{1X", (-4497), 325, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 3, (-347L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts(":GA6k'={d{1X", (-4497), 325, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1663, linkedList0, 0L, 0L, (ByteOrder) null);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[3];
+      TiffField tiffField0 = new TiffField((-1897), 6, fieldTypeLong0, 6, 6, byteArray0, (ByteOrder) null, (byte)112);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", (-1897), (byte)2, tiffDirectoryType0);
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("\t[2]: Unknown Tag (-1897, 0xfffff897), SLong, 24: \n", (-1897), (byte)112, tagInfoFloats0.directoryType);
+      short[] shortArray0 = tiffDirectory0.getFieldValue(tagInfoSShorts0, false);
+      assertNotNull(shortArray0);
+}
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1663, linkedList0, 0L, 0L, (ByteOrder) null);
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[3];
+      TiffField tiffField0 = new TiffField((-1897), 6, fieldTypeLong0, 6, 6, byteArray0, (ByteOrder) null, (byte)112);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoFloats tagInfoFloats0 = new TagInfoFloats("", (-1897), (byte)2, tiffDirectoryType0);
+      TagInfoSShorts tagInfoSShorts0 = new TagInfoSShorts("\t[2]: Unknown Tag (-1897, 0xfffff897), SLong, 24: \n", (-1897), (byte)112, tagInfoFloats0.directoryType);
+      short[] shortArray0 = tiffDirectory0.getFieldValue(tagInfoSShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, 351);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("E k?\"%", 0, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShort0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"E k?\"%\" has incorrect type SLong
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(50740, linkedList0, 50740, 50740, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("", 6, 59, tiffDirectoryType0);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("", (-1), tagInfoSLongs0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShort0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3331), 1979, byteArray0, byteOrder0, (byte) (-28));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoSShort tagInfoSShort0 = new TagInfoSShort("U cZsN!?n2i_", 1979, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSShort0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Field \"U cZsN!?n2i_\" has wrong count -3331
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 1811L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 18, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSBytes0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"null\" has incorrect type Float
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2766, linkedList0, 2766, 2766, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes("3", 6, 3, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSBytes0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"3\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoSBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      byte[] byteArray1 = tiffDirectory0.getFieldValue(tagInfoSBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      byte[] byteArray1 = tiffDirectory0.getFieldValue(tagInfoSBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      byte[] byteArray1 = tiffDirectory0.getFieldValue(tagInfoSBytes0, false);
+      assertNotNull(byteArray1);
+}
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoSBytes tagInfoSBytes0 = new TagInfoSBytes((String) null, 41487, 111, tiffDirectoryType0);
+      TagInfoSByte tagInfoSByte0 = new TagInfoSByte((String) null, 1, tagInfoSBytes0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSByte0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"null\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-27L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (byte) (-33), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoRationals0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type Float
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1124, linkedList0, 1124, 14L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("&^?", 1124, (-1), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoRationals0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"&^?\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2537, linkedList0, (-998L), (-998L), byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoRationals) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2537, linkedList0, (-998L), (-998L), byteOrder0);
+      tiffDirectory0.getFieldValue((TagInfoRationals) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-27L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (byte) (-33), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField((-480), (-480), fieldTypeFloat0, (-27L), (-480), byteArray0, byteOrder0, 113);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoRationals tagInfoRationals0 = new TagInfoRationals("", (-480), (byte) (-33), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoRationals0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("KmMc-6pUDZu/!qlv", 279, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoRational0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"KmMc-6pUDZu/!qlv\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 7, 4294967295L, byteOrder0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField(7, 7, fieldTypeAscii0, 7, 7, byteArray0, byteOrder0, (byte) (-3));
+      linkedList0.offerFirst(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoRational tagInfoRational0 = new TagInfoRational("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", 7, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoRational0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory\" has incorrect type ASCII
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, 0L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSLongs tagInfoSLongs0 = new TagInfoSLongs("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType", 3, 6, tiffDirectoryType0);
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("[TagInfo. tag: 3 (0x3, name: org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType]", 6, 3, tagInfoSLongs0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoShortOrLong0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1559), linkedList0, (-1L), 0L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("Bad Type", (-1559), 6, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getSingleFieldValue(tagInfoShortOrLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"Bad Type\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 0, fieldTypeLong0, 0, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1797L, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("*Wa@*7", (-4), fieldTypeLong0.BYTE_OR_SHORT, (-4), tiffDirectoryType0, true);
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tagInfoLong0.directoryType, false);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"Missing expected field: \" has incorrect type SLong
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (byte)57, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, 1, tiffDirectoryType0, false);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-5));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (byte)57, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, 1, tiffDirectoryType0, false);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 3, (-347L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals(":GA6k'={d{1X", 325, (-367), tiffDirectoryType0);
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("q0xpcx", (-635), (-367), tagInfoSRationals0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLongs0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"q0xpcx\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Interoperability", 0, 6, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Interoperability", 0, 6, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      int[] intArray0 = tiffDirectory0.getFieldValue(tagInfoLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      int[] intArray0 = tiffDirectory0.getFieldValue(tagInfoLongs0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 2378, fieldTypeLong0, 2378, 0, byteArray0, byteOrder0, (-24));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLongs tagInfoLongs0 = new TagInfoLongs("Missing expected field: ", 0, (-4), tiffDirectoryType0, false);
+      int[] intArray0 = tiffDirectory0.getFieldValue(tagInfoLongs0, false);
+      assertNotNull(intArray0);
+}
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(7, linkedList0, 7, 7, byteOrder0);
+      FieldTypeAscii fieldTypeAscii0 = FieldType.ASCII;
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField(7, 7, fieldTypeAscii0, 7, 7, byteArray0, byteOrder0, (byte) (-3));
+      linkedList0.offerFirst(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("]iX\"^H`:_J%0'", 7, fieldTypeAscii0.SHORT_OR_LONG, (byte)41, tiffDirectoryType0, false);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"]iX\"^H`:_J%0'\" has incorrect type ASCII
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 1784L, 0, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("*Wa@*7", (-4), fieldTypeLong0.BYTE_OR_SHORT, (-4), tiffDirectoryType0, false);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"*Wa@*7\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = FieldType.LONG;
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(0, 0, fieldTypeLong0, 0, 0, byteArray0, byteOrder0, (-30));
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, (byte)57, (-8L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoLong tagInfoLong0 = new TagInfoLong("\t[59]: Unknown Tag (0, 0x0), Long, 0: \n", 0, tiffDirectoryType0, true);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoLong0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Field \"\t[59]: Unknown Tag (0, 0x0), Long, 0: 
+         // \" has wrong count 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3331), 1979, byteArray0, byteOrder0, (byte) (-28));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, 4849, tagInfoFloat0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3331), 1979, byteArray0, byteOrder0, (byte) (-28));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, 4849, tagInfoFloat0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3362), 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((byte)84, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, (byte)0, tagInfoFloat0.directoryType);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShorts0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type SShort
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("3tC:~irE", 0, 6, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2768), linkedList0, (-2768), (-2768), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("3tC:~irE", 0, 6, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoShorts0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeShort fieldTypeShort0 = FieldType.SHORT;
+      byte[] byteArray0 = new byte[8];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField(1979, 1979, fieldTypeShort0, (-3362), 1979, byteArray0, byteOrder0, (byte)84);
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("2f", 1979, tiffDirectoryType0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, (byte) (-28), byteOrder0);
+      TagInfoShorts tagInfoShorts0 = new TagInfoShorts("", 1979, 4849, tagInfoFloat0.directoryType);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShorts0, true);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(12, linkedList0, 4671L, 12, (ByteOrder) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShort tagInfoShort0 = new TagInfoShort("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", 6, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoShort0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"org.apache.commons.imaging.formats.tiff.write.TiffOutputSet\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, (-491));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getSingleFieldValue(tagInfoAscii0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(50740, linkedList0, 50740, 50740, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("", 344, 59, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoAscii0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(50740, linkedList0, 50740, 50740, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("", 344, 59, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoAscii0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(79, linkedList0, 79, 79, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("8%v0hb[q mLR(S", 79, 79, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getSingleFieldValue(tagInfoAscii0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"8%v0hb[q mLR(S\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, (-491));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoAscii0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test188()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-491), linkedList0, (-1777L), (-491), byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-491), (-491), (FieldType) null, (-491), (-1777L), byteArray0, byteOrder0, (-491));
+      linkedList0.add(tiffField0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoAscii tagInfoAscii0 = new TagInfoAscii("\"1", (-491), (-491), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoAscii0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test189()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[14];
+      TiffField tiffField0 = new TiffField(12, 12, fieldTypeShort0, 12, 815L, byteArray0, byteOrder0, (byte)5);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(12, linkedList0, 12, 815L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 12, (byte)5, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoBytes0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type SShort
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test190()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      FieldTypeShort fieldTypeShort0 = FieldType.SSHORT;
+      byte[] byteArray0 = new byte[1];
+      TiffField tiffField0 = new TiffField(12, 12, fieldTypeShort0, (-205L), 815L, byteArray0, byteOrder0, (byte)5);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(12, linkedList0, 12, 815L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 12, fieldTypeShort0, 324, tiffDirectoryType0);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoBytes0, true);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test191()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", (-1), 3470, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoBytes0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"org.apache.commons.imageng.formats.tiff.constants.DngTagConstants\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test192()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 6, fieldTypeFloat0, (-3311L), 6L, byteArray0, byteOrder0, (-2522));
+      linkedList0.add(tiffField0);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 6, fieldTypeFloat0.SHORT_OR_LONG, (-1), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test193()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 6, fieldTypeFloat0, (-3311L), 6L, byteArray0, byteOrder0, (-2522));
+      linkedList0.add(tiffField0);
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 6, fieldTypeFloat0.SHORT_OR_LONG, (-1), tiffDirectoryType0);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test194()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      TagInfoByte tagInfoByte0 = new TagInfoByte("", 0, fieldTypeFloat0, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoByte0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test195()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeDouble fieldTypeDouble0 = FieldType.DOUBLE;
+      byte[] byteArray0 = new byte[17];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField((-1022), (-2574), fieldTypeDouble0, (-1022), (-1022), byteArray0, byteOrder0, (byte)85);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1022), linkedList0, (-1022), (-3507L), byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoByte tagInfoByte0 = new TagInfoByte("", (-1022), tiffDirectoryType0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoByte0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type Double
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test196()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", 41487, 3470, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test197()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", 41487, 3470, tiffDirectoryType0);
+      tiffDirectory0.getFieldValue((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test198()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", 41487, 3470, tiffDirectoryType0);
+      Object object0 = tiffDirectory0.getFieldValue((TagInfo) tagInfoBytes0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test199()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", 41487, 3470, tiffDirectoryType0);
+      Object object0 = tiffDirectory0.getFieldValue((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test200()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("org.apache.commons.imageng.formats.tiff.constants.DngTagConstants", 41487, 3470, tiffDirectoryType0);
+      Object object0 = tiffDirectory0.getFieldValue((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test201()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(0, linkedList0, 0, 2474L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      TagInfoAsciiOrRational tagInfoAsciiOrRational0 = new TagInfoAsciiOrRational("c`8v`T\"", 2354, 0, tiffDirectoryType0);
+      try { 
+        tiffDirectory0.findField((TagInfo) tagInfoAsciiOrRational0, true);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Missing expected field: 2354 (0x932: c`8v`T\"): 
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test202()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(279, "XPTitle");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, fieldTypeLong0, 329L, 0L, byteArray0, (ByteOrder) null, 763);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffRasterData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test203()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(279, "XPTitle");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, fieldTypeLong0, 329L, 0L, byteArray0, (ByteOrder) null, 763);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffRasterData();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test204()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeLong fieldTypeLong0 = new FieldTypeLong(279, "XPTitle");
+      byte[] byteArray0 = new byte[7];
+      TiffField tiffField0 = new TiffField(279, 279, fieldTypeLong0, 329L, 0L, byteArray0, (ByteOrder) null, 763);
+      linkedList0.add(tiffField0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(279, linkedList0, 279, (-5L), byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasTiffRasterData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test205()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("", 6, tiffDirectoryType0);
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[5];
+      TiffField tiffField0 = new TiffField(6, 6, fieldTypeFloat0, (-3311L), 6L, byteArray0, byteOrder0, (-2522));
+      linkedList0.add(tiffField0);
+      try { 
+        tiffDirectory0.getFieldValue(tagInfoSRational0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"\" has incorrect type Float
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test206()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffDirectory0.getTiffImage(tiffImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test207()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffDirectory0.getTiffImage(tiffImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test208()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      tiffDirectory0.getTiffImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test209()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3772, linkedList0, (-133L), 0L, byteOrder0);
+      tiffDirectory0.getTiffImage();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test210()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1559), linkedList0, (-1L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasJpegImageData();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test211()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1559), linkedList0, (-1L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasJpegImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test212()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1559), linkedList0, (-1L), 0L, byteOrder0);
+      boolean boolean0 = tiffDirectory0.hasJpegImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test213()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      tiffDirectory0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test214()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[4];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(41487, 50940, fieldTypeFloat0, 721L, 721L, byteArray0, byteOrder0, 89);
+      linkedList0.add(tiffField0);
+      TiffDirectory tiffDirectory0 = new TiffDirectory(41487, linkedList0, 0L, 721L, byteOrder0);
+      tiffDirectory0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test215()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2, linkedList0, 0L, 2, (ByteOrder) null);
+      String string0 = tiffDirectory0.description();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test216()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2, linkedList0, 0L, 2, (ByteOrder) null);
+      String string0 = tiffDirectory0.description();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test217()  throws Throwable  {
+      String string0 = TiffDirectory.description(1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test218()  throws Throwable  {
+      String string0 = TiffDirectory.description(0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test219()  throws Throwable  {
+      String string0 = TiffDirectory.description((-1));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test220()  throws Throwable  {
+      String string0 = TiffDirectory.description((-2));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test221()  throws Throwable  {
+      String string0 = TiffDirectory.description((-3));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test222()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-4512), linkedList0, 0L, 0L, (ByteOrder) null);
+      linkedList0.offerFirst((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffDirectory0.getElementDescription();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test223()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.getElementDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test224()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.getElementDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test225()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(3, linkedList0, 0L, 0L, byteOrder0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffDirectory0.getRasterData(tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"SampleFormat\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test226()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.setTiffImageData((TiffImageData) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test227()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.setTiffImageData((TiffImageData) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test228()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      tiffDirectory0.getTiffImage(byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test229()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      tiffDirectory0.getTiffImage(byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test230()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.getByteOrder();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test231()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(396, linkedList0, 396, 396, byteOrder0);
+      tiffDirectory0.getByteOrder();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test232()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(286, linkedList0, 286, (-930L), byteOrder0);
+      tiffDirectory0.getJpegImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test233()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(286, linkedList0, 286, (-930L), byteOrder0);
+      tiffDirectory0.getJpegImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test234()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(79, linkedList0, 79, 79, byteOrder0);
+      tiffDirectory0.setJpegImageData((JpegImageData) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test235()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(79, linkedList0, 79, 79, byteOrder0);
+      tiffDirectory0.setJpegImageData((JpegImageData) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test236()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("", 6, tiffDirectoryType0);
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 6, fieldTypeFloat0.SHORT_OR_LONG, (-1), tagInfoSRational0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test237()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoSRational tagInfoSRational0 = new TagInfoSRational("", 6, tiffDirectoryType0);
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes("", 6, fieldTypeFloat0.SHORT_OR_LONG, (-1), tagInfoSRational0.directoryType);
+      tiffDirectory0.getFieldValue(tagInfoBytes0, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test238()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      tiffDirectory0.getTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test239()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(6, linkedList0, 2917L, 946L, byteOrder0);
+      tiffDirectory0.getTiffImageData();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test240()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      tiffDirectory0.getDirectoryEntries();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test241()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-480), linkedList0, (-480), (-480), byteOrder0);
+      tiffDirectory0.getDirectoryEntries();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test242()  throws Throwable  {
+      TiffDirectory.ImageDataElement tiffDirectory_ImageDataElement0 = new TiffDirectory.ImageDataElement(0L, 22);
+      String string0 = tiffDirectory_ImageDataElement0.getElementDescription();
+      ;
+}

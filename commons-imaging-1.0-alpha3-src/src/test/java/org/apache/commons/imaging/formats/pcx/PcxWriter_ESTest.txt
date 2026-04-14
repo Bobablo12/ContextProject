@@ -1,0 +1,180 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth(256);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PcxWriter pcxWriter0 = new PcxWriter((PcxImagingParameters) null);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(226, 13, false);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      try { 
+        pcxWriter0.writeImage(bufferedImage0, pipedOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PcxWriter pcxWriter0 = new PcxWriter((PcxImagingParameters) null);
+      Hashtable<RenderingHints.Key, DataInputStream> hashtable0 = new Hashtable<RenderingHints.Key, DataInputStream>();
+      RenderingHints renderingHints0 = new RenderingHints(hashtable0);
+      RescaleOp rescaleOp0 = new RescaleOp(389.2F, 389.2F, renderingHints0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(13, 215, false);
+      BufferedImage bufferedImage1 = rescaleOp0.filter(bufferedImage0, bufferedImage0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("O4f{cYX");
+      pcxWriter0.writeImage(bufferedImage1, mockPrintStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PcxWriter pcxWriter0 = new PcxWriter((PcxImagingParameters) null);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(226, 13, true);
+      bufferedImage0.setRGB(187, 0, (-426));
+      // Undeclared exception!
+      try { 
+        pcxWriter0.writeImage(bufferedImage0, (OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PcxWriter pcxWriter0 = new PcxWriter((PcxImagingParameters) null);
+      Hashtable<RenderingHints.Key, DataInputStream> hashtable0 = new Hashtable<RenderingHints.Key, DataInputStream>();
+      RenderingHints renderingHints0 = new RenderingHints(hashtable0);
+      RescaleOp rescaleOp0 = new RescaleOp(389.2F, 389.2F, renderingHints0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(226, 13, false);
+      BufferedImage bufferedImage1 = rescaleOp0.filter(bufferedImage0, bufferedImage0);
+      bufferedImage1.setRGB(187, 0, (-426));
+      // Undeclared exception!
+      try { 
+        pcxWriter0.writeImage(bufferedImage0, (OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)2);
+      pcxImagingParameters0.setPlanes((byte)2);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(5, 5, 5);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)2);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)3);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setPlanes(1);
+      pcxImagingParameters0.setBitDepth((byte)4);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)4);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(6, 6, 6);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth(8);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(8, 8, 8);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)32);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      BufferedImage bufferedImage0 = new BufferedImage(12, 12, 12);
+      PrintStream printStream0 = DebugGraphics.logStream();
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setBitDepth((byte)24);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      pcxWriter0.writeImage(bufferedImage0, printStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      PixelDensity pixelDensity0 = PixelDensity.createFromPixelsPerCentimetre((-0.035083874933702075), (-0.035083874933702075));
+      pcxImagingParameters0.setPixelDensity(pixelDensity0);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      pcxImagingParameters0.setCompression((byte)2);
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PcxImagingParameters pcxImagingParameters0 = new PcxImagingParameters();
+      PcxWriter pcxWriter0 = new PcxWriter(pcxImagingParameters0);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(100, 100, true);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(100);
+      // Undeclared exception!
+      pcxWriter0.writeImage(bufferedImage0, byteArrayOutputStream0);
+  }

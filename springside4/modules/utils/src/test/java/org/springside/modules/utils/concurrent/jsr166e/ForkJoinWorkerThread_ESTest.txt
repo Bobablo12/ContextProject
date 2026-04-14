@@ -1,0 +1,38 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ForkJoinPool forkJoinPool0 = ForkJoinPool.common;
+      ForkJoinWorkerThread forkJoinWorkerThread0 = new ForkJoinWorkerThread(forkJoinPool0);
+      MockException mockException0 = new MockException("]RtQ+0kT%e");
+      MockThrowable mockThrowable0 = new MockThrowable("]RtQ+0kT%e", mockException0);
+      forkJoinWorkerThread0.onTermination(mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ForkJoinPool forkJoinPool0 = ForkJoinPool.common;
+      ForkJoinWorkerThread forkJoinWorkerThread0 = new ForkJoinWorkerThread(forkJoinPool0);
+      forkJoinWorkerThread0.onStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ForkJoinPool.DefaultForkJoinWorkerThreadFactory forkJoinPool_DefaultForkJoinWorkerThreadFactory0 = new ForkJoinPool.DefaultForkJoinWorkerThreadFactory();
+      ForkJoinPool forkJoinPool0 = new ForkJoinPool();
+      ForkJoinWorkerThread forkJoinWorkerThread0 = forkJoinPool_DefaultForkJoinWorkerThreadFactory0.newThread(forkJoinPool0);
+      int int0 = forkJoinWorkerThread0.getPoolIndex();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ForkJoinPool forkJoinPool0 = ForkJoinPool.commonPool();
+      ForkJoinWorkerThread forkJoinWorkerThread0 = new ForkJoinWorkerThread(forkJoinPool0);
+      ForkJoinPool forkJoinPool1 = forkJoinWorkerThread0.getPool();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ForkJoinPool forkJoinPool0 = new ForkJoinPool();
+      ForkJoinWorkerThread forkJoinWorkerThread0 = new ForkJoinWorkerThread(forkJoinPool0);
+      // Undeclared exception!
+      forkJoinWorkerThread0.run();
+  }

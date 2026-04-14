@@ -1,0 +1,196 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-81);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      int int0 = bitInputStreamFlexible0.readBits((byte)16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-81);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      int int0 = bitInputStreamFlexible0.readBits((byte)16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte)1;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.readBits(1);
+      int int0 = bitInputStreamFlexible0.readBits(1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte)1;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.readBits(1);
+      int int0 = bitInputStreamFlexible0.readBits(1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[1] = (byte) (-28);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.read();
+      int int0 = bitInputStreamFlexible0.readBits(1);
+      assertEquals(1, bitInputStreamFlexible0.getBytesRead());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[1] = (byte) (-28);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.read();
+      int int0 = bitInputStreamFlexible0.readBits(1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      byteArray0[0] = (byte)1;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      int int0 = bitInputStreamFlexible0.read();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.readBits(1);
+      long long0 = bitInputStreamFlexible0.getBytesRead();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible((InputStream) null);
+      // Undeclared exception!
+      try { 
+        bitInputStreamFlexible0.readBits(1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      try { 
+        bitInputStreamFlexible0.readBits(1);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // couldn't read bits
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      try { 
+        bitInputStreamFlexible0.readBits(32);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // couldn't read bits
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      try { 
+        bitInputStreamFlexible0.readBits(1950);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // BitInputStream: unknown error
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.readBits(1);
+      try { 
+        bitInputStreamFlexible0.read();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // BitInputStream: incomplete bit read
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      int int0 = bitInputStreamFlexible0.read();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      bitInputStreamFlexible0.flushCache();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      long long0 = bitInputStreamFlexible0.getBytesRead();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible((InputStream) null);
+      // Undeclared exception!
+      try { 
+        bitInputStreamFlexible0.read();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }

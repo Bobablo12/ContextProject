@@ -1,0 +1,98 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PngColorType pngColorType0 = PngColorType.GREYSCALE_WITH_ALPHA;
+      byte[] byteArray0 = new byte[6];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(6, 902, 6, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(1511.0826179, (byte)0);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced((byte) (-112), 5679, dataInputStream0, (BufferedImage) null, pngColorType0, 902, 5679, pngChunkPlte0, gammaCorrection0, (TransparencyFilter) null);
+      // Undeclared exception!
+      scanExpediterInterlaced0.drive();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 8, 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(0, (byte)0);
+      PngColorType pngColorType0 = PngColorType.GREYSCALE;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 8);
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced((byte)2, (byte)2, byteArrayInputStream0, (BufferedImage) null, pngColorType0, 8, (byte)2, pngChunkPlte0, gammaCorrection0, (TransparencyFilter) null);
+      // Undeclared exception!
+      try { 
+        scanExpediterInterlaced0.drive();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.ScanExpediterInterlaced", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 902, 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(0, (byte)0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 902);
+      PngColorType pngColorType0 = PngColorType.TRUE_COLOR_WITH_ALPHA;
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced(2219, 1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, 8, 0, pngChunkPlte0, gammaCorrection0, (TransparencyFilter) null);
+      // Undeclared exception!
+      try { 
+        scanExpediterInterlaced0.drive();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PngColorType pngColorType0 = PngColorType.INDEXED_COLOR;
+      byte[] byteArray0 = new byte[6];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(6, 902, 6, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection((byte)3, (byte)29);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      TransparencyFilterIndexedColor transparencyFilterIndexedColor0 = new TransparencyFilterIndexedColor(byteArray0);
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced(3155, (byte)4, byteArrayInputStream0, (BufferedImage) null, pngColorType0, 5, 5, pngChunkPlte0, gammaCorrection0, transparencyFilterIndexedColor0);
+      try { 
+        scanExpediterInterlaced0.drive();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNG: missing image data count: -1 read: 5 length: 247
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PngColorType pngColorType0 = PngColorType.GREYSCALE_WITH_ALPHA;
+      byte[] byteArray0 = new byte[6];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(6, 6, 6, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(6, (byte)0);
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced((byte)0, 6, sequenceInputStream0, (BufferedImage) null, pngColorType0, (byte)0, (byte)0, pngChunkPlte0, gammaCorrection0, (TransparencyFilter) null);
+      scanExpediterInterlaced0.drive();
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      PngChunkPlte pngChunkPlte0 = new PngChunkPlte(0, 900, 0, byteArray0);
+      GammaCorrection gammaCorrection0 = new GammaCorrection(0, (byte)0);
+      PngColorType pngColorType0 = PngColorType.INDEXED_COLOR;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 900);
+      ScanExpediterInterlaced scanExpediterInterlaced0 = new ScanExpediterInterlaced((byte)1, (byte)1, byteArrayInputStream0, (BufferedImage) null, pngColorType0, 900, 0, pngChunkPlte0, gammaCorrection0, (TransparencyFilter) null);
+      try { 
+        scanExpediterInterlaced0.drive();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: bad BitDepth: 900
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }

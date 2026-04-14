@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("diSgqs:-DF9iJ2BWd", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = tagInfoFloat0.encodeValue(byteOrder0, (float) 0);
+      float float0 = tagInfoFloat0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("", 1, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = tagInfoFloat0.encodeValue(byteOrder0, (float) 1);
+      float float0 = tagInfoFloat0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("diSgqs:-DF9iJ2BWd", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = tagInfoFloat0.encodeValue(byteOrder0, (-3115.6F));
+      float float0 = tagInfoFloat0.getValue(byteOrder0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat(" oUvJx@b% $_|", 136, tiffDirectoryType0);
+      CharBuffer charBuffer0 = CharBuffer.allocate(136);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      // Undeclared exception!
+      try { 
+        tagInfoFloat0.getValue(byteOrder0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("cRtOS}]#6<'7Hd)s ", (-2830), tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[3];
+      // Undeclared exception!
+      try { 
+        tagInfoFloat0.getValue(byteOrder0, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 3
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }

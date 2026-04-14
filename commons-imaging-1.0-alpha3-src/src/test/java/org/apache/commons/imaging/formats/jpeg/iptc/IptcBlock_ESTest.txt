@@ -1,0 +1,112 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1193, byteArray0, (byte[]) null);
+      boolean boolean0 = iptcBlock0.isIPTCBlock();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1193, byteArray0, (byte[]) null);
+      boolean boolean0 = iptcBlock0.isIPTCBlock();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(0, byteArray0, byteArray0);
+      int int0 = iptcBlock0.getBlockType();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock((-9), byteArray0, byteArray0);
+      int int0 = iptcBlock0.getBlockType();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(0, byteArray0, byteArray0);
+      iptcBlock0.getBlockNameBytes();
+      assertEquals(0, iptcBlock0.getBlockType());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(0, byteArray0, byteArray0);
+      iptcBlock0.getBlockData();
+      assertEquals(0, iptcBlock0.getBlockType());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      IptcBlock iptcBlock0 = new IptcBlock(1193, byteArray0, (byte[]) null);
+      // Undeclared exception!
+      try { 
+        iptcBlock0.getBlockData();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcBlock", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IptcBlock iptcBlock0 = null;
+      try {
+        iptcBlock0 = new IptcBlock(0, (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Block name bytes must not be null.
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      boolean boolean0 = iptcBlock0.isIPTCBlock();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      IptcBlock iptcBlock0 = new IptcBlock((-3096), byteArray0, byteArray0);
+      boolean boolean0 = iptcBlock0.isIPTCBlock();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      IptcBlock iptcBlock0 = new IptcBlock((-3096), byteArray0, byteArray0);
+      boolean boolean0 = iptcBlock0.isIPTCBlock();
+      assertEquals(0, iptcBlock0.getBlockType());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[17];
+      IptcBlock iptcBlock0 = new IptcBlock(1, byteArray0, byteArray0);
+      int int0 = iptcBlock0.getBlockType();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      IptcBlock iptcBlock0 = new IptcBlock(1028, byteArray0, byteArray0);
+      iptcBlock0.getBlockData();
+      assertTrue(iptcBlock0.isIPTCBlock());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[16];
+      IptcBlock iptcBlock0 = new IptcBlock((-3096), byteArray0, byteArray0);
+      iptcBlock0.getBlockNameBytes();
+      assertEquals(1, iptcBlock0.getBlockType());
+}

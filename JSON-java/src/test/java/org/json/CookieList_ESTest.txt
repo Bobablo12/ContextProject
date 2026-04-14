@@ -1,0 +1,63 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JSONObject jSONObject0 = CookieList.toJSONObject("=uA9-\"jM14),s");
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CookieList.toString((JSONObject) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.CookieList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CookieList.toJSONObject((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject((Object) "=uA9-\"jM14),s");
+      String string0 = CookieList.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject((Map<?, ?>) null);
+      String string0 = CookieList.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      try { 
+        CookieList.toJSONObject("org.json.CookieList");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Expected '=' and instead saw '' at 19 [character 20 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JSONObject jSONObject0 = CookieList.toJSONObject("");
+      assertEquals(0, jSONObject0.length());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CookieList cookieList0 = new CookieList();
+  }

@@ -1,0 +1,148 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 1L, 0L);
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 1L, 0L);
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, (-2358L), 488L);
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, (-2358L), 488L);
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("p");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0);
+      long long0 = fileBodyGenerator0.getRegionLength();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, 1000L);
+      long long0 = fileBodyGenerator0.getRegionLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, 1000L);
+      long long0 = fileBodyGenerator0.getRegionLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      File file0 = MockFile.createTempFile("+y*^_B8!1hG'RY1>", "7vjr44oLU");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(file0);
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("/tmp/+y*^_B8!1hG'RY1>07vjr44oLU");
+      FileSystemHandling.appendLineToFile(evoSuiteFile0, "+y*^_B8!1hG'RY1>");
+      File file1 = fileBodyGenerator0.getFile();
+      assertNotNull(file1.toString());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("./");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0);
+      File file0 = fileBodyGenerator0.getFile();
+      assertTrue(file0.isFile());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FileBodyGenerator fileBodyGenerator0 = null;
+      try {
+        fileBodyGenerator0 = new FileBodyGenerator((File) null, (-1L), (-1L));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // file
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      // Undeclared exception!
+      try { 
+        fileBodyGenerator0.createBody();
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // FileBodyGenerator.createBody isn't used, Netty direclt sends the file
+         //
+         verifyException("org.asynchttpclient.request.body.generator.FileBodyGenerator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      long long0 = fileBodyGenerator0.getRegionSeek();
+      assertEquals(0, fileBodyGenerator0.getRegionLength());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      FileBodyGenerator fileBodyGenerator0 = null;
+      try {
+        fileBodyGenerator0 = new FileBodyGenerator((File) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.generator.FileBodyGenerator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      fileBodyGenerator0.getFile();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      fileBodyGenerator0.getFile();
+      assertEquals(0, fileBodyGenerator0.getRegionLength());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      long long0 = fileBodyGenerator0.getRegionLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      FileBodyGenerator fileBodyGenerator0 = new FileBodyGenerator(mockFile0, 0L, (-1L));
+      long long0 = fileBodyGenerator0.getRegionLength();
+      ;
+}

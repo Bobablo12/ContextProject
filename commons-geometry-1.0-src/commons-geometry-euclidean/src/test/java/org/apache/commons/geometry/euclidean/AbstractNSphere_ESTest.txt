@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      // Undeclared exception!
+      try { 
+        Sphere.from(vector3D_Unit0, 72.02930029345471, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      // Undeclared exception!
+      try { 
+        Circle.from(vector2D0, (-48.8), (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal center point: (Infinity, Infinity)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      // Undeclared exception!
+      try { 
+        Sphere.from(vector3D_Unit0, Double.NEGATIVE_INFINITY, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal radius: -Infinity
+         //
+         verifyException("org.apache.commons.geometry.euclidean.AbstractNSphere", e);
+      }
+  }

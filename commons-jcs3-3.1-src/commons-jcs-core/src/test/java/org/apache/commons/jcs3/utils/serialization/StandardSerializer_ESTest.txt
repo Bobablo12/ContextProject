@@ -1,0 +1,78 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(1);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Object object0 = standardSerializer0.deSerialize(byteArray0, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      // Undeclared exception!
+      try { 
+        standardSerializer0.deSerialize((byte[]) null, classLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      byte[] byteArray0 = new byte[4];
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      try { 
+        standardSerializer0.deSerialize(byteArray0, classLoader0);
+        fail("Expecting exception: StreamCorruptedException");
+      } catch(StreamCorruptedException e) {
+         //
+         // invalid stream header: 00000000
+         //
+         verifyException("java.io.ObjectInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = null;
+      byte[] byteArray0 = standardSerializer0.serialize((Integer) null);
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      standardSerializer0.deSerialize(byteArray0, classLoader0);
+      byte[] byteArray1 = new byte[1];
+      String string0 = "org.apache.http.impl.bootstrap.ThreadFactoryImpl";
+      try { 
+        standardSerializer0.deSerialize(byteArray1, classLoader0);
+        fail("Expecting exception: EOFException");
+      } catch(EOFException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ObjectInputStream$PeekInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      byte[] byteArray0 = standardSerializer0.serialize((String) null);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      standardSerializer0.deSerialize(byteArray0, classLoader0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      try { 
+        standardSerializer0.serialize((Object) pipedInputStream0);
+        fail("Expecting exception: NotSerializableException");
+      } catch(NotSerializableException e) {
+         //
+         // java.io.PipedInputStream
+         //
+         verifyException("java.io.ObjectOutputStream", e);
+      }
+  }

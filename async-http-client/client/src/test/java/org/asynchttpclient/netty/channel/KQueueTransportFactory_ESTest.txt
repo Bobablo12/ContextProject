@@ -1,0 +1,13 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      KQueueTransportFactory kQueueTransportFactory0 = null;
+      try {
+        kQueueTransportFactory0 = new KQueueTransportFactory();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // The kqueue transport is not supported
+         //
+         verifyException("org.asynchttpclient.netty.channel.KQueueTransportFactory", e);
+      }
+  }

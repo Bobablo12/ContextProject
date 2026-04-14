@@ -1,0 +1,600 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      XML.stringToValue("6h3wBdTn");
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      try { 
+        XML.toJSONObject("Missing '>'`after '<!z.");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 23 [character 24 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      XML.unescape("");
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JSONArray jSONArray0 = new JSONArray();
+      XML.toString((Object) jSONArray0, "2");
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      XML.toJSONObject("<~1>java.lang.Character@0000000001</~1>", true);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      XML.toJSONObject("<d&gt;1eNkYa>null</d&gt;1eNkYa>", xMLParserConfiguration0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      XML.toJSONObject("\"org.json.XMLParserConfiguration@0000000008\"");
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("<d&gt;1eNkYa>org.json.JSONObject$Null@0000000028</d&gt;1eNkYa>");
+      XML.toJSONObject((Reader) stringReader0, true);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("<Mismatched >java.lang.String@0000000001</Mismatched >");
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      XML.toJSONObject((Reader) stringReader0, xMLParserConfiguration0);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      XML.escape("");
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.unescape((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.KEEP_STRINGS;
+      JSONArray jSONArray0 = new JSONArray();
+      jSONArray0.put(4890, (-2479.7236797));
+      // Undeclared exception!
+      XML.toString((Object) jSONArray0, "+Fhy", xMLParserConfiguration0);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((String) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((String) null, xMLParserConfiguration0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&gt;");
+      stringReader0.close();
+      try { 
+        XML.toJSONObject((Reader) stringReader0, true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unable to preserve stream position
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((Reader) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((Reader) null, xMLParserConfiguration0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.toJSONObject((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.stringToValue((String) null, (XMLXsiTypeConverter<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.stringToValue((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.noSpace((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XML.escape((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.ORIGINAL;
+      String string0 = XML.toString((Object) xMLParserConfiguration0, (String) null, xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      String string0 = XML.toString((Object) null, "", xMLParserConfiguration0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0, true);
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.ORIGINAL;
+      String string0 = XML.toString((Object) jSONObject0, (String) null, xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Italy");
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.KEEP_STRINGS;
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0, xMLParserConfiguration0);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Object object0 = XML.stringToValue("<~1>java.lang.Character@0000000001</~1>");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Object object0 = XML.stringToValue("null");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      try { 
+        XML.toJSONObject("<Misshaped close tag>java.lang.String@0000000003</Misshaped close tag>");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped close tag at 66 [character 67 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      JSONArray jSONArray0 = new JSONArray(102);
+      jSONArray0.put(46, (Object) null);
+      String string0 = XML.toString((Object) jSONArray0, "get", xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      JSONArray jSONArray0 = new JSONArray(102);
+      jSONArray0.put((double) 102);
+      String string0 = XML.toString((Object) jSONArray0, (String) null, xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      String string0 = XML.toString((Object) null, "d&gt;1eNkYa");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Locale locale0 = Locale.ITALY;
+      JSONObject jSONObject0 = new JSONObject(locale0);
+      String string0 = XML.toString((Object) jSONObject0, "gj");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      JSONObject jSONObject0 = new JSONObject((Object) "H!>$cu^");
+      String string0 = XML.toString((Object) jSONObject0, "array", xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      JSONObject jSONObject0 = XML.toJSONObject("d&gt;1eNkYa", false);
+      String string0 = XML.toString((Object) jSONObject0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Object object0 = XML.stringToValue("89ER");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Object object0 = XML.stringToValue("89er");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Object object0 = XML.stringToValue("-t?G#b\"]uJo(;:");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Object object0 = XML.stringToValue("0000");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Object object0 = XML.stringToValue("0");
+      assertEquals(0, object0);
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Object object0 = XML.stringToValue("0l0");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Object object0 = XML.stringToValue("-0");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Object object0 = XML.stringToValue("-2");
+      assertEquals(1, object0);
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Object object0 = XML.stringToValue("9T'XiX9vOao/.%]M");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Object object0 = XML.stringToValue("\"");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      JSONObject jSONObject0 = XML.toJSONObject("<d&gt;1eNkYa>null</d&gt;1eNkYa>");
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Object object0 = XML.stringToValue("false");
+      assertFalse(object0);
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Object object0 = XML.stringToValue("true");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Object object0 = XML.stringToValue("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      XMLXsiTypeConverter<String> xMLXsiTypeConverter0 = (XMLXsiTypeConverter<String>) mock(XMLXsiTypeConverter.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(xMLXsiTypeConverter0).convert(anyString());
+      Object object0 = XML.stringToValue("", xMLXsiTypeConverter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Object object0 = XML.stringToValue("MrQt, E[uY:3(*-", (XMLXsiTypeConverter<?>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("<array><displayName></displayName></array>");
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("<array><bytes>java.lang.Byte@0000000013</bytes><bytes>java.lang.Byte@0000000016</bytes><bytes>java.lang.Byte@0000000019</bytes><bytes>java.lang.Byte@0000000022</bytes><bytes>java.lang.Byte@0000000025</bytes><bytes>java.lang.Byte@0000000028</bytes><bytes>java.lang.Byte@0000000031</bytes><bytes>java.lang.Byte@0000000034</bytes><disp_ayName></disp_ayName><empty>java.lang.Boolean@0000000038</empty></array>");
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("RbxY-<C3AJ8}t>:;I3g");
+      try { 
+        XML.toJSONObject((Reader) stringReader0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unclosed tag C3AJ8}t at 19 [character 20 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.ORIGINAL;
+      try { 
+        XML.toJSONObject("<-?(?:0|[1-9]d*)(?:.d+)?(?:[eE][+-]?d+)?>java.lang.String@0000000011</-?(?:0|[1-9]d*)(?:.d+)?(?:[eE][+-]?d+)?>", xMLParserConfiguration0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 3 [character 4 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      try { 
+        XML.toJSONObject("<p #;=[Wn9$#h2");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped element at 14 [character 15 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      try { 
+        XML.toJSONObject("<=6}#^e$L<~[>java.lang.String@0000000002</=6}#^e$L<~[>");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 2 [character 3 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      try { 
+        XML.toJSONObject("<~1>java.lang.Character@0000000001</~t>", true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Mismatched ~1 and ~t at 38 [character 39 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      try { 
+        XML.toJSONObject("</>>java.lang.String@0000000001<//>>", false);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Mismatched close tag > at 3 [character 4 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_G1\"<?-8^:_YM<");
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0, true);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = XMLParserConfiguration.ORIGINAL;
+      StringReader stringReader0 = new StringReader("f*$}<!=_e=u!g3nq#lx");
+      try { 
+        XML.toJSONObject((Reader) stringReader0, xMLParserConfiguration0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 19 [character 20 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      try { 
+        XML.toJSONObject("Missing '>' after '<!'.");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 23 [character 24 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      try { 
+        XML.noSpace("Missing value");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // 'Missing value' contains a space character.
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      try { 
+        XML.noSpace("");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Empty string.
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      XML.noSpace("<14}']9yFR^CB!FH~.&>java.lang.String@0000000006</14}']9yFR^CB!FH~.&>");
+  }
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      String string0 = XML.unescape("&lt;");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      String string0 = XML.unescape("<14}']9yFR^CB!FH~.&>java.lang.String@0000000006</14}']9yFR^CB!FH~.&>");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      String string0 = XML.escape("_ HV+wa}MB0/0bI09");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      String string0 = XML.escape(">V*U%z<z5yp/{mp/b");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      String string0 = XML.escape("I}y&jIniq/K1Rt'");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      String string0 = XML.escape("ZA,MsW\"bbaK");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      try { 
+        XML.toJSONObject(">V*U%z<z5yp/{mp/b", true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 15 [character 16 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      JSONObject jSONObject0 = XML.toJSONObject((Reader) stringReader0);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      XML xML0 = new XML();
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      XMLParserConfiguration xMLParserConfiguration0 = new XMLParserConfiguration();
+      JSONObject jSONObject0 = XML.toJSONObject("#llyRdK4IO/", xMLParserConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      Character character0 = XML.LT;
+      String string0 = XML.toString((Object) character0);
+      ;
+}

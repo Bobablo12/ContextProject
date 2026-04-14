@@ -1,0 +1,381 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.YXZ;
+      Vector3D vector3D0 = axisSequence0.getAxis1();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = line3D0.reverseRayTo(vector3D0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createTranslation(vector3D0);
+      LineConvexSubset3D lineConvexSubset3D0 = reverseRay3D0.transform(affineTransformMatrix3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Ray3D ray3D0 = new Ray3D(line3D0, 0.0);
+      double double0 = ray3D0.getSubspaceStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Ray3D ray3D0 = line3D0.rayFrom(941.677062102);
+      double double0 = ray3D0.getSubspaceStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(2109.2606, (-1.0), (-2068.8));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = line3D0.reverseRayTo((Vector3D) vector3D_Unit0);
+      double double0 = reverseRay3D0.getSubspaceStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1.0, 1.0, 0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      Interval interval0 = lineSpanningSubset3D0.getSubspaceRegion();
+      assertFalse(interval0.hasMaxBoundary());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = line3D0.segment((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0);
+      Interval interval0 = segment3D0.getSubspaceRegion();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.XZX;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, (Precision.DoubleEquivalence) null);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D0, vector3D0);
+      double double0 = segment3D0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      double double0 = lineSpanningSubset3D0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, 0.5, (-4780.005));
+      double double0 = segment3D0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1669.59650725, 0.0, 1669.59650725);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = line3D0.reverseRayTo(1669.59650725);
+      Vector3D vector3D0 = reverseRay3D0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D0, vector3D0);
+      Vector3D vector3D1 = segment3D0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      AxisSequence axisSequence0 = AxisSequence.XYX;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = line3D0.segment(944.2605674569, 944.2605674569);
+      Vector3D vector3D1 = segment3D0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3194.70391), (-3194.70391), (-3194.70391));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = line3D0.segment((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = segment3D0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D_Unit0, vector3D_Unit0);
+      Vector3D vector3D0 = segment3D0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D_Unit0, vector3D_Unit0);
+      Interval interval0 = segment3D0.getInterval();
+      assertTrue(interval0.hasMaxBoundary());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1.0, 1.0, 0.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      Interval interval0 = lineSpanningSubset3D0.getInterval();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      Vector3D vector3D0 = lineSpanningSubset3D0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, 0.0, (-555.21607431747));
+      Vector3D vector3D0 = segment3D0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D_Unit0, vector3D_Unit0);
+      Segment3D segment3D1 = segment3D0.transform(affineTransformMatrix3D0);
+      Vector3D vector3D0 = segment3D1.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale((Vector3D) vector3D_Unit0);
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = new ReverseRay3D(line3D0, vector3D_Unit0);
+      ReverseRay3D reverseRay3D1 = reverseRay3D0.transform(affineTransformMatrix3D0);
+      Vector3D vector3D0 = reverseRay3D1.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from((-3194.70391), (-3194.70391), (-3194.70391));
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = line3D0.segment((Vector3D) vector3D_Unit0, (Vector3D) vector3D_Unit0);
+      Vector3D vector3D0 = segment3D0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1195.0, 1195.0, 1195.0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = line3D0.reverseRayTo((Vector3D) vector3D_Unit0);
+      // Undeclared exception!
+      try { 
+        reverseRay3D0.transform((Transform<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.Line3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NaN;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.fromColumnVectors(vector3D0, vector3D0, vector3D0, vector3D0);
+      Segment3D segment3D0 = line3D0.segment(1768.325048180363, 1768.325048180363);
+      // Undeclared exception!
+      try { 
+        segment3D0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: NaN
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      Ray3D ray3D0 = new Ray3D(line3D0, vector3D0);
+      // Undeclared exception!
+      try { 
+        ray3D0.getSubspaceRegion();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid interval values: [\uFFFD, \u221E]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Interval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector3D vector3D0 = Vector3D.POSITIVE_INFINITY;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D0, vector3D0, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = new ReverseRay3D(line3D0, vector3D0);
+      // Undeclared exception!
+      try { 
+        reverseRay3D0.getInterval();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid interval values: [-\u221E, \uFFFD]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Interval", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D((Vector3D) null, (Vector3D) null, precision_DoubleEquivalence0);
+      ReverseRay3D reverseRay3D0 = new ReverseRay3D(line3D0, (-1.0));
+      // Undeclared exception!
+      try { 
+        reverseRay3D0.getEndPoint();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1669.59650725, 0.0, 1669.59650725);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Ray3D ray3D0 = line3D0.rayFrom(1209.126473068594);
+      // Undeclared exception!
+      try { 
+        ray3D0.contains((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.Line3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset3D0.contains(vector3D_Unit0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D((Line3D) null);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset3D0.getSubspaceRegion();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.LineConvexSubset3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      boolean boolean0 = lineSpanningSubset3D0.contains(vector3D_Unit0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D(line3D0);
+      boolean boolean0 = lineSpanningSubset3D0.contains(vector3D_Unit0);
+      boolean boolean1 = lineSpanningSubset3D0.contains(vector3D_Unit0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).gte(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      Line3D line3D0 = new Line3D(vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      Segment3D segment3D0 = new Segment3D(line3D0, vector3D_Unit0, vector3D_Unit0);
+      boolean boolean0 = segment3D0.contains(vector3D_Unit0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      LineSpanningSubset3D lineSpanningSubset3D0 = new LineSpanningSubset3D((Line3D) null);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset3D0.getInterval();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.line.LineConvexSubset3D", e);
+      }
+  }

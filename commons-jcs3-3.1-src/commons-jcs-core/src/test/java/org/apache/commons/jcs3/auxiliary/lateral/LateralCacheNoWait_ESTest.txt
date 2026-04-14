@@ -1,0 +1,368 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Object, CacheElementSerialized<Object, Object>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Object, CacheElementSerialized<Object, Object>>(0);
+      LateralCache<Object, CacheElementSerialized<Object, Object>> lateralCache0 = new LateralCache<Object, CacheElementSerialized<Object, Object>>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, (LateralCacheMonitor) null);
+      LateralCacheNoWait<Object, CacheElementSerialized<Object, Object>> lateralCacheNoWait0 = new LateralCacheNoWait<Object, CacheElementSerialized<Object, Object>>(lateralCache0);
+      Set<Object> set0 = lateralCacheNoWait0.getKeySet();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      lateralTCPCacheFactory0.initialize();
+      LateralCacheNoWait<Object, Integer> lateralCacheNoWait0 = lateralTCPCacheFactory0.createCacheNoWait((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+      String string0 = lateralCacheNoWait0.getIdentityKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      tCPLateralCacheAttributes0.setPutOnlyMode(false);
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      LateralCache<Integer, BufferedInputStream> lateralCache0 = new LateralCache<Integer, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<Integer, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, BufferedInputStream>(lateralCache0);
+      // Undeclared exception!
+      try { 
+        lateralCacheNoWait0.getMatching("Get Coeunt");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.LateralCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LateralCacheNoWait<InputStream, BufferedInputStream> lateralCacheNoWait0 = null;
+      try {
+        lateralCacheNoWait0 = new LateralCacheNoWait<InputStream, BufferedInputStream>((LateralCache<InputStream, BufferedInputStream>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWait", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<String, Delayed> lateralCache0 = new LateralCache<String, Delayed>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<String, Delayed>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<String, Delayed> lateralCacheNoWait0 = new LateralCacheNoWait<String, Delayed>(lateralCache0);
+      lateralCacheNoWait0.resetEventQ();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      LateralCache<Integer, Object> lateralCache0 = new LateralCache<Integer, Object>(lateralCacheAttributes0, (ICacheServiceNonLocal<Integer, Object>) null, (LateralCacheMonitor) null);
+      LateralCacheNoWait<Integer, Object> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, Object>(lateralCache0);
+      CacheStatus cacheStatus0 = lateralCacheNoWait0.getStatus();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<BufferedInputStream, OpenOption> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<BufferedInputStream, OpenOption>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<BufferedInputStream, OpenOption> lateralCache0 = new LateralCache<BufferedInputStream, OpenOption>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<BufferedInputStream, OpenOption> lateralCacheNoWait0 = new LateralCacheNoWait<BufferedInputStream, OpenOption>(lateralCache0);
+      CacheStatus cacheStatus0 = lateralCacheNoWait0.getStatus();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Integer, BufferedInputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Integer, BufferedInputStream>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<Integer, BufferedInputStream> lateralCache0 = new LateralCache<Integer, BufferedInputStream>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, BufferedInputStream>(lateralCache0);
+      Integer integer0 = new Integer(2134);
+      ICacheElement<Integer, BufferedInputStream> iCacheElement0 = lateralCacheNoWait0.get(integer0);
+      assertNotNull(iCacheElement0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<String, CacheElement<LinkOption, Integer>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, CacheElement<LinkOption, Integer>>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<String, CacheElement<LinkOption, Integer>> lateralCache0 = new LateralCache<String, CacheElement<LinkOption, Integer>>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<String, CacheElement<LinkOption, Integer>> lateralCacheNoWait0 = new LateralCacheNoWait<String, CacheElement<LinkOption, Integer>>(lateralCache0);
+      IStats iStats0 = lateralCacheNoWait0.getStatistics();
+      assertNotNull(iStats0.getTypeName());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ZombieCacheServiceNonLocal<Object, BufferedInputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Object, BufferedInputStream>(442);
+      LateralCache<Object, BufferedInputStream> lateralCache0 = new LateralCache<Object, BufferedInputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<Object, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<Object, BufferedInputStream>(lateralCache0);
+      lateralCacheNoWait0.setIdentityKey("Failed in retrying the get for the second time.");
+      String string0 = lateralCacheNoWait0.getIdentityKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<Integer, Integer> lateralCache0 = new LateralCache<Integer, Integer>(lateralCacheAttributes0, (ICacheServiceNonLocal<Integer, Integer>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, Integer> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, Integer>(lateralCache0);
+      ILateralCacheAttributes iLateralCacheAttributes0 = lateralCacheNoWait0.getAuxiliaryCacheAttributes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ZombieCacheServiceNonLocal<Object, CacheElementSerialized<String, String>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Object, CacheElementSerialized<String, String>>();
+      LateralCache<Object, CacheElementSerialized<String, String>> lateralCache0 = new LateralCache<Object, CacheElementSerialized<String, String>>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<Object, CacheElementSerialized<String, String>> lateralCacheNoWait0 = new LateralCacheNoWait<Object, CacheElementSerialized<String, String>>(lateralCache0);
+      lateralCacheNoWait0.resetEventQ();
+      assertNotNull(lateralCacheNoWait0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      LateralCache<Integer, BufferedInputStream> lateralCache0 = new LateralCache<Integer, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<Integer, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, BufferedInputStream>(lateralCache0);
+      Map<Integer, ICacheElement<Integer, BufferedInputStream>> map0 = lateralCacheNoWait0.getMatching("Get Coeunt");
+      assertEquals(0, map0.size());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<CacheElement<BufferedInputStream, Integer>, InputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<CacheElement<BufferedInputStream, Integer>, InputStream>();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      LateralCache<CacheElement<BufferedInputStream, Integer>, InputStream> lateralCache0 = new LateralCache<CacheElement<BufferedInputStream, Integer>, InputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<CacheElement<BufferedInputStream, Integer>, InputStream> lateralCacheNoWait0 = new LateralCacheNoWait<CacheElement<BufferedInputStream, Integer>, InputStream>(lateralCache0);
+      Map<CacheElement<BufferedInputStream, Integer>, ICacheElement<CacheElement<BufferedInputStream, Integer>, InputStream>> map0 = lateralCacheNoWait0.getMatching("/G");
+      assertTrue(map0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ZombieCacheServiceNonLocal<LinkOption, Integer> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<LinkOption, Integer>((-4255));
+      LateralCache<LinkOption, Integer> lateralCache0 = new LateralCache<LinkOption, Integer>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<LinkOption, Integer> lateralCacheNoWait0 = new LateralCacheNoWait<LinkOption, Integer>(lateralCache0);
+      LinkedHashSet<LinkOption> linkedHashSet0 = new LinkedHashSet<LinkOption>();
+      Map<LinkOption, ICacheElement<LinkOption, Integer>> map0 = lateralCacheNoWait0.getMultiple(linkedHashSet0);
+      assertTrue(map0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<BufferedInputStream, BufferedInputStream> lateralCache0 = new LateralCache<BufferedInputStream, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<BufferedInputStream, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<BufferedInputStream, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<BufferedInputStream, BufferedInputStream>(lateralCache0);
+      Map<BufferedInputStream, ICacheElement<BufferedInputStream, BufferedInputStream>> map0 = lateralCacheNoWait0.getMultiple((Set<BufferedInputStream>) null);
+      assertEquals(1, map0.size());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCache<String, LateralCacheNoWait<Integer, Object>> lateralCache0 = new LateralCache<String, LateralCacheNoWait<Integer, Object>>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<String, LateralCacheNoWait<Integer, Object>>) null, (LateralCacheMonitor) null);
+      LateralCacheNoWait<String, LateralCacheNoWait<Integer, Object>> lateralCacheNoWait0 = new LateralCacheNoWait<String, LateralCacheNoWait<Integer, Object>>(lateralCache0);
+      ICacheElement<String, LateralCacheNoWait<Integer, Object>> iCacheElement0 = lateralCacheNoWait0.get((String) null);
+      assertNotNull(iCacheElement0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ZombieCacheServiceNonLocal<LinkOption, Integer> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<LinkOption, Integer>();
+      LateralCache<LinkOption, Integer> lateralCache0 = new LateralCache<LinkOption, Integer>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<LinkOption, Integer> lateralCacheNoWait0 = new LateralCacheNoWait<LinkOption, Integer>(lateralCache0);
+      LinkedHashSet<LinkOption> linkedHashSet0 = new LinkedHashSet<LinkOption>();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      linkedHashSet0.add(linkOption0);
+      // Undeclared exception!
+      try { 
+        lateralCacheNoWait0.getMultiple(linkedHashSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.HashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<String, LateralCacheNoWait<Integer, Object>> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, LateralCacheNoWait<Integer, Object>>();
+      LateralCache<String, LateralCacheNoWait<Integer, Object>> lateralCache0 = new LateralCache<String, LateralCacheNoWait<Integer, Object>>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<String, LateralCacheNoWait<Integer, Object>>) null, (LateralCacheMonitor) null);
+      LateralCacheNoWait<String, LateralCacheNoWait<Integer, Object>> lateralCacheNoWait0 = new LateralCacheNoWait<String, LateralCacheNoWait<Integer, Object>>(lateralCache0);
+      lateralCacheNoWait0.fixCache(zombieCacheServiceNonLocal0);
+      assertEquals(0, lateralCacheNoWait0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      lateralTCPCacheFactory0.initialize();
+      LateralCacheNoWait<LinkOption, OpenOption> lateralCacheNoWait0 = lateralTCPCacheFactory0.createCacheNoWait((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+      String string0 = lateralCacheNoWait0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      lateralTCPCacheFactory0.initialize();
+      LateralCacheNoWait<LinkOption, OpenOption> lateralCacheNoWait0 = lateralTCPCacheFactory0.createCacheNoWait((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) compressingSerializer0);
+      String string0 = lateralCacheNoWait0.toString();
+      assertNotNull(lateralCacheNoWait0.getIdentityKey());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ZombieCacheServiceNonLocal<LinkOption, BufferedInputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<LinkOption, BufferedInputStream>();
+      LateralCache<LinkOption, BufferedInputStream> lateralCache0 = new LateralCache<LinkOption, BufferedInputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<LinkOption, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<LinkOption, BufferedInputStream>(lateralCache0);
+      String string0 = lateralCacheNoWait0.getIdentityKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<BufferedInputStream, InputStream> lateralCache0 = new LateralCache<BufferedInputStream, InputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<BufferedInputStream, InputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<BufferedInputStream, InputStream> lateralCacheNoWait0 = new LateralCacheNoWait<BufferedInputStream, InputStream>(lateralCache0);
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0, 256);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<BufferedInputStream, InputStream> cacheElement0 = new CacheElement<BufferedInputStream, InputStream>("C~fW+BpoL", bufferedInputStream0, sequenceInputStream0, elementAttributes0);
+      lateralCacheNoWait0.update(cacheElement0);
+      assertNotNull(cacheElement0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<Integer, CacheElement<OpenOption, BufferedInputStream>> lateralCache0 = new LateralCache<Integer, CacheElement<OpenOption, BufferedInputStream>>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<Integer, CacheElement<OpenOption, BufferedInputStream>>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, CacheElement<OpenOption, BufferedInputStream>> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, CacheElement<OpenOption, BufferedInputStream>>(lateralCache0);
+      int int0 = lateralCacheNoWait0.getSize();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<BufferedInputStream, BufferedInputStream> lateralCache0 = new LateralCache<BufferedInputStream, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<BufferedInputStream, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<BufferedInputStream, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<BufferedInputStream, BufferedInputStream>(lateralCache0);
+      // Undeclared exception!
+      try { 
+        lateralCacheNoWait0.getKeySet();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.LateralCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      LateralCache<Integer, BufferedInputStream> lateralCache0 = new LateralCache<Integer, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<Integer, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, BufferedInputStream>(lateralCache0);
+      String string0 = lateralCacheNoWait0.getCacheName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<BufferedInputStream, BufferedInputStream> lateralCache0 = new LateralCache<BufferedInputStream, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<BufferedInputStream, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<BufferedInputStream, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<BufferedInputStream, BufferedInputStream>(lateralCache0);
+      String string0 = lateralCacheNoWait0.getStats();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<ForkJoinTask<String>, BufferedInputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<ForkJoinTask<String>, BufferedInputStream>();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<ForkJoinTask<String>, BufferedInputStream> lateralCache0 = new LateralCache<ForkJoinTask<String>, BufferedInputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<ForkJoinTask<String>, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<ForkJoinTask<String>, BufferedInputStream>(lateralCache0);
+      ICacheType.CacheType iCacheType_CacheType0 = lateralCacheNoWait0.getCacheType();
+      assertNotNull(iCacheType_CacheType0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<CacheElement<BufferedInputStream, Integer>, InputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<CacheElement<BufferedInputStream, Integer>, InputStream>();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      LateralCache<CacheElement<BufferedInputStream, Integer>, InputStream> lateralCache0 = new LateralCache<CacheElement<BufferedInputStream, Integer>, InputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<CacheElement<BufferedInputStream, Integer>, InputStream> lateralCacheNoWait0 = new LateralCacheNoWait<CacheElement<BufferedInputStream, Integer>, InputStream>(lateralCache0);
+      lateralCacheNoWait0.dispose();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<ForkJoinTask<String>, BufferedInputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<ForkJoinTask<String>, BufferedInputStream>();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<ForkJoinTask<String>, BufferedInputStream> lateralCache0 = new LateralCache<ForkJoinTask<String>, BufferedInputStream>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<ForkJoinTask<String>, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<ForkJoinTask<String>, BufferedInputStream>(lateralCache0);
+      lateralCacheNoWait0.removeAll();
+      assertEquals(0, lateralCacheNoWait0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<InputStream, Delayed> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<InputStream, Delayed>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<InputStream, Delayed> lateralCache0 = new LateralCache<InputStream, Delayed>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<InputStream, Delayed> lateralCacheNoWait0 = new LateralCacheNoWait<InputStream, Delayed>(lateralCache0);
+      String string0 = lateralCacheNoWait0.getEventLoggingExtraInfo();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      LateralCache<InputStream, BufferedInputStream> lateralCache0 = new LateralCache<InputStream, BufferedInputStream>(tCPLateralCacheAttributes0, (ICacheServiceNonLocal<InputStream, BufferedInputStream>) null, lateralCacheMonitor0);
+      LateralCacheNoWait<InputStream, BufferedInputStream> lateralCacheNoWait0 = new LateralCacheNoWait<InputStream, BufferedInputStream>(lateralCache0);
+      boolean boolean0 = lateralCacheNoWait0.remove(sequenceInputStream0);
+      assertTrue(boolean0);
+}

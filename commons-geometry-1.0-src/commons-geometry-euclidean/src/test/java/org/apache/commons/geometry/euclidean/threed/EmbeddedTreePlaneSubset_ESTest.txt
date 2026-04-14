@@ -1,0 +1,186 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset1 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.add(embeddedTreePlaneSubset1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 1621.053206683114, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.of((-871.6897371), 1621.053206683114, (-871.6897371), (-1.0));
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset1 = embeddedTreePlaneSubset0.transform(quaternionRotation0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      List<PlaneConvexSubset> list0 = embeddedTreePlaneSubset0.toConvex();
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, (RegionBSPTree2D) null);
+      RegionBSPTree2D regionBSPTree2D0 = embeddedTreePlaneSubset0.getSubspaceRegion();
+      assertNotNull(regionBSPTree2D0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 3855.821674529065, (Precision.DoubleEquivalence) null);
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset(embeddingPlane0, false);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale(3855.821674529065, 2666.10641, 1.0);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, (RegionBSPTree2D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.toTriangles();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, (RegionBSPTree2D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.toConvex();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, (RegionBSPTree2D) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.getBounds();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.AbstractEmbeddedRegionPlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.add((PlaneConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, false);
+      RegionBSPTree2D regionBSPTree2D0 = embeddedTreePlaneSubset0.getSubspaceRegion();
+      assertNotNull(regionBSPTree2D0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.toTriangles();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot convert infinite plane subset to triangles: EmbeddedTreePlaneSubset[plane= null, subspaceRegion= RegionBSPTree2D[count= 1, height= 0]]
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      List<Triangle3D> list0 = embeddedTreePlaneSubset0.toTriangles();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      List<PlaneConvexSubset> list0 = embeddedTreePlaneSubset0.toConvex();
+      assertEquals(0, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      Bounds3D bounds3D0 = embeddedTreePlaneSubset0.getBounds();
+      assertNotNull(bounds3D0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RegionBSPTree2D regionBSPTree2D0 = RegionBSPTree2D.full();
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, regionBSPTree2D0);
+      PlaneSubset.Embedded planeSubset_Embedded0 = embeddedTreePlaneSubset0.getEmbedded();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null, true);
+      AffineTransformMatrix3D affineTransformMatrix3D0 = AffineTransformMatrix3D.createScale(0.0, 0.0, (-1.0));
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.transform(affineTransformMatrix3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      EmbeddedTreePlaneSubset embeddedTreePlaneSubset0 = new EmbeddedTreePlaneSubset((EmbeddingPlane) null);
+      // Undeclared exception!
+      try { 
+        embeddedTreePlaneSubset0.split((Hyperplane<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Planes", e);
+      }
+  }

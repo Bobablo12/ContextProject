@@ -1,0 +1,96 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Object object0 = new Object();
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = genericKeyedObjectPool0.getFactory();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool0.getNumActivePerKey();
+      genericKeyedObjectPool1.setMessagesStatistics(true);
+      JdkProxyHandler<Object> jdkProxyHandler0 = new JdkProxyHandler<Object>(object0, genericKeyedObjectPool1);
+      JdkProxyHandler<Integer> jdkProxyHandler1 = new JdkProxyHandler<Integer>((Integer) null, (UsageTracking<Integer>) null);
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig1);
+      JdkProxyHandler<String> jdkProxyHandler2 = new JdkProxyHandler<String>("pool", genericKeyedObjectPool2);
+      Method method0 = null;
+      Object[] objectArray0 = null;
+      try { 
+        jdkProxyHandler1.invoke((Object) null, (Method) null, (Object[]) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // This object may no longer be used as it has been returned to the Object Pool.
+         //
+         verifyException("org.apache.commons.pool2.proxy.BaseProxyHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      genericKeyedObjectPool0.getEvictionPolicyClassName();
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = genericKeyedObjectPool0.getFactory();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      genericKeyedObjectPool1.getNumIdle((Object) genericKeyedObjectPoolConfig0);
+      JdkProxyHandler<Object> jdkProxyHandler0 = new JdkProxyHandler<Object>("5>-f8M?R.)B", genericKeyedObjectPool1);
+      abandonedConfig0.setLogAbandoned(true);
+      Integer integer0 = new Integer(0);
+      abandonedConfig0.setRemoveAbandonedTimeout(genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      PooledObjectFactory<Integer> pooledObjectFactory0 = (PooledObjectFactory<Integer>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericObjectPoolConfig<Integer> genericObjectPoolConfig0 = new GenericObjectPoolConfig<Integer>();
+      genericObjectPoolConfig0.setTestWhileIdle(false);
+      GenericObjectPoolConfig<Integer> genericObjectPoolConfig1 = genericObjectPoolConfig0.clone();
+      genericObjectPoolConfig1.setJmxEnabled(false);
+      GenericObjectPool<Integer> genericObjectPool0 = new GenericObjectPool<Integer>(pooledObjectFactory0, genericObjectPoolConfig1, abandonedConfig0);
+      genericObjectPool0.setMinIdle(8);
+      JdkProxyHandler<Integer> jdkProxyHandler1 = new JdkProxyHandler<Integer>(integer0, genericObjectPool0);
+      PooledObjectFactory<String> pooledObjectFactory1 = (PooledObjectFactory<String>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericObjectPool<String> genericObjectPool1 = new GenericObjectPool<String>(pooledObjectFactory1);
+      genericObjectPool1.setBlockWhenExhausted(true);
+      genericObjectPool1.setAbandonedConfig(abandonedConfig0);
+      genericObjectPool1.setAbandonedConfig(abandonedConfig0);
+      JdkProxyHandler<String> jdkProxyHandler2 = new JdkProxyHandler<String>("org.apache.commons.pool2.proxy.JdkProxyHandler", genericObjectPool1);
+      JdkProxyHandler<String> jdkProxyHandler3 = new JdkProxyHandler<String>("H+jM88cH74UqiZ", genericObjectPool1);
+      jdkProxyHandler0.getPooledObject();
+      Method method0 = null;
+      Object[] objectArray0 = new Object[5];
+      objectArray0[0] = (Object) null;
+      objectArray0[1] = (Object) pooledObjectFactory1;
+      objectArray0[2] = (Object) genericKeyedObjectPool0;
+      objectArray0[3] = (Object) jdkProxyHandler3;
+      objectArray0[4] = (Object) jdkProxyHandler0;
+      try { 
+        jdkProxyHandler3.invoke("5>-f8M?R.)B", (Method) null, objectArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.BaseProxyHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory0);
+      JdkProxyHandler<String> jdkProxyHandler0 = new JdkProxyHandler<String>("2", genericKeyedObjectPool0);
+      Object[] objectArray0 = new Object[1];
+      try { 
+        jdkProxyHandler0.invoke(genericKeyedObjectPool0, (Method) null, objectArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.BaseProxyHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JdkProxyHandler<Object> jdkProxyHandler0 = new JdkProxyHandler<Object>("", (UsageTracking<Object>) null);
+  }

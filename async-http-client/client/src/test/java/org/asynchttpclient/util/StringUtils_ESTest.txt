@@ -1,0 +1,130 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder("^(");
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)57;
+      StringUtils.appendBase16(stringBuilder0, byteArray0);
+      assertNotNull(stringBuilder0.toString());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-106);
+      // Undeclared exception!
+      try { 
+        StringUtils.appendBase16((StringBuilder) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.StringUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte) (-19);
+      String string0 = StringUtils.toHexString(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      Charset charset0 = Charset.defaultCharset();
+      ByteBuffer byteBuffer0 = StringUtils.charSequence2ByteBuffer(stringBuilder0, charset0);
+      assertEquals(1, byteBuffer0.position());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      String string0 = StringUtils.toHexString(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      byte[] byteArray0 = StringUtils.charSequence2Bytes("ed00", charset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringBuffer stringBuffer0 = new StringBuffer();
+      Charset charset0 = Charset.defaultCharset();
+      byte[] byteArray0 = StringUtils.charSequence2Bytes(stringBuffer0, charset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect(4613);
+      byte[] byteArray0 = StringUtils.byteBuffer2ByteArray(byteBuffer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocate(0);
+      byte[] byteArray0 = StringUtils.byteBuffer2ByteArray(byteBuffer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        StringUtils.toHexString((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.StringUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      // Undeclared exception!
+      try { 
+        StringUtils.charSequence2ByteBuffer((CharSequence) null, charset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      byte[] byteArray0 = new byte[3];
+      byteArray0[2] = (byte) (-17);
+      StringUtils.appendBase16(stringBuilder0, byteArray0);
+      assertNotNull(stringBuilder0.toString());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        StringUtils.byteBuffer2ByteArray((ByteBuffer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.StringUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Charset charset0 = Charset.defaultCharset();
+      // Undeclared exception!
+      try { 
+        StringUtils.charSequence2Bytes((CharSequence) null, charset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }

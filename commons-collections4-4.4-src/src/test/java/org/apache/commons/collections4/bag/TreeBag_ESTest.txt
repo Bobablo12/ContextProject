@@ -1,0 +1,32 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      TreeBag<InstanceofPredicate> treeBag0 = new TreeBag<InstanceofPredicate>(comparator0);
+      assertTrue(treeBag0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(comparator0).toString();
+      doReturn(0).when(comparator0).compare(any() , any());
+      TreeBag<Transformer<InstanceofPredicate, String>> treeBag0 = new TreeBag<Transformer<InstanceofPredicate, String>>(comparator0);
+      treeBag0.add((Transformer<InstanceofPredicate, String>) null);
+      Transformer<InstanceofPredicate, String> transformer0 = treeBag0.last();
+      assertNotNull(transformer0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TreeBag<String> treeBag0 = new TreeBag<String>((Comparator<? super String>) null);
+      Predicate<String> predicate0 = FalsePredicate.falsePredicate();
+      PredicatedCollection<String> predicatedCollection0 = PredicatedCollection.predicatedCollection((Collection<String>) treeBag0, (Predicate<? super String>) predicate0);
+      treeBag0.add("MPteF}W>");
+      TreeBag<Object> treeBag1 = new TreeBag<Object>(predicatedCollection0);
+      Object object0 = treeBag1.last();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TreeBag<Object> treeBag0 = new TreeBag<Object>();
+      SortedMap<Object, AbstractMapBag.MutableInteger> sortedMap0 = (SortedMap<Object, AbstractMapBag.MutableInteger>)treeBag0.getMap();
+      assertEquals(0, sortedMap0.size());
+}

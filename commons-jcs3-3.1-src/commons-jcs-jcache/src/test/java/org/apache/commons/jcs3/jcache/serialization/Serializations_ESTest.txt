@@ -1,0 +1,39 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      Thread thread0 = MockThread.currentThread();
+      MockThread mockThread0 = new MockThread(threadGroup0, thread0);
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      Delayed delayed0 = Serializations.copy((IElementSerializer) standardSerializer0, classLoader0, (Delayed) null);
+      assertNotNull(delayed0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockThread mockThread0 = new MockThread("h[l z5+NRiD@%<lkU;l");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      Integer integer0 = new Integer(1);
+      Object object0 = Serializations.copy((IElementSerializer) compressingSerializer0, classLoader0, (Object) integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Serializations serializations0 = new Serializations();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Integer integer0 = new Integer(1000);
+      // Undeclared exception!
+      try { 
+        Serializations.copy((IElementSerializer) compressingSerializer0, classLoader0, integer0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // java.lang.NullPointerException
+         //
+         verifyException("org.apache.commons.jcs3.jcache.serialization.Serializations", e);
+      }
+  }

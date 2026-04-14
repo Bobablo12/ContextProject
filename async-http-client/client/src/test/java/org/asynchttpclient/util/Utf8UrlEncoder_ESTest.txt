@@ -1,0 +1,303 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String string0 = "";
+      Utf8UrlEncoder.encodeAndAppendQuery((StringBuilder) null, "");
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeAndAppendPercentEncoded((StringBuilder) null, (CharSequence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeAndAppendQueryElement((StringBuilder) null, (CharSequence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder0, "");
+      StringBuilder stringBuilder2 = stringBuilder0.reverse();
+      StringBuilder stringBuilder3 = stringBuilder1.append((float) 0);
+      StringBuilder stringBuilder4 = stringBuilder1.insert(0, (CharSequence) stringBuilder3);
+      char[] charArray0 = new char[3];
+      stringBuilder4.insert(0, charArray0);
+      StringBuilder stringBuilder5 = stringBuilder3.append((Object) stringBuilder4);
+      stringBuilder5.insert(0, 3487.520685);
+      StringBuilder stringBuilder6 = stringBuilder5.append(false);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder2, stringBuilder6);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = null;
+      Utf8UrlEncoder.percentEncodeQueryElement((String) null);
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeQueryElement((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.Utf8UrlEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      String string0 = "";
+      Utf8UrlEncoder.percentEncodeQueryElement("");
+      StringBuilder stringBuilder0 = null;
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeAndAppendFormElement((StringBuilder) null, (CharSequence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodePath((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.Utf8UrlEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder("@nDR:!;I");
+      StringBuffer stringBuffer0 = new StringBuffer();
+      StringBuilder stringBuilder1 = stringBuilder0.append(stringBuffer0);
+      StringBuilder stringBuilder2 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder1, "@nDR:!;I");
+      stringBuilder2.insert(0, "@nDR:!;I");
+      StringBuilder stringBuilder3 = stringBuilder2.deleteCharAt(0);
+      char[] charArray0 = new char[4];
+      charArray0[0] = '\"';
+      charArray0[1] = '#';
+      stringBuffer0.appendCodePoint(1);
+      charArray0[2] = ')';
+      charArray0[3] = ']';
+      stringBuilder3.insert(0, charArray0, 0, 0);
+      Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder3, "@nDR:!;I");
+      String string0 = "x@C%56&zyh}xhQ";
+      Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder2, "x@C%56&zyh}xhQ");
+      Utf8UrlEncoder.percentEncodeQueryElement("x@C%56&zyh}xhQ");
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder3, "@nDR:!;I");
+      String string1 = "p\\<a~Q%rb8 yfF";
+      StringBuilder stringBuilder4 = new StringBuilder("p<a~Q%rb8 yfF");
+      Utf8UrlEncoder.encodeAndAppendPercentEncoded(stringBuilder3, stringBuilder4);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder0, stringBuilder2);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Utf8UrlEncoder.percentEncodeQueryElement((String) null);
+      Utf8UrlEncoder.percentEncodeQueryElement((String) null);
+      Utf8UrlEncoder.encodeQueryElement("");
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodePath((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.Utf8UrlEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Utf8UrlEncoder.percentEncodeQueryElement("SytZ,Av@4d");
+      Utf8UrlEncoder.percentEncodeQueryElement("");
+      Utf8UrlEncoder.encodePath("");
+      Utf8UrlEncoder.encodeAndAppendFormElement((StringBuilder) null, "");
+      Utf8UrlEncoder.encodeAndAppendPercentEncoded((StringBuilder) null, "");
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringBuilder stringBuilder0 = null;
+      String string0 = "0123456789ABCDEF";
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeAndAppendQuery((StringBuilder) null, "0123456789ABCDEF");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Utf8UrlEncoder.encodePath(" |8)'!xQF^\"");
+      Utf8UrlEncoder.percentEncodeQueryElement(" |8)'!xQF^\"");
+      Utf8UrlEncoder.encodeQueryElement("%20%7C8)'!xQF%5E%22%7F");
+      StringBuilder stringBuilder0 = new StringBuilder(0);
+      Utf8UrlEncoder.encodeQueryElement("");
+      int int0 = 0;
+      StringBuilder stringBuilder1 = stringBuilder0.insert(0, (CharSequence) "%20%7C8%29%27%21xQF%5E%22%7F", 0, 0);
+      StringBuilder stringBuilder2 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder0, "M\"wA?}>M{A:qR");
+      String string0 = "0123456789ABCDEF";
+      Utf8UrlEncoder.encodeQueryElement("0123456789ABCDEF");
+      StringBuilder stringBuilder3 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder2, "%20%7C8%29%27%21xQF%5E%22%7F");
+      StringBuilder stringBuilder4 = Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder1, "0123456789ABCDEF");
+      Utf8UrlEncoder.percentEncodeQueryElement("M\"wA?}>M{A:qR");
+      Utf8UrlEncoder.encodeQueryElement("M%22wA%3F%7D%3EM%7BA%3AqR");
+      stringBuilder3.append((-1932.8896042013878));
+      StringBuilder stringBuilder5 = Utf8UrlEncoder.encodeAndAppendPercentEncoded(stringBuilder4, "0123456789ABCDEF");
+      StringBuilder stringBuilder6 = Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder3, "%2520%257C8%29%27%21xQF%255E%2522%257F");
+      Utf8UrlEncoder.percentEncodeQueryElement("M%2522wA%253F%257D%253EM%257BA%253AqR");
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder6, "%20%7C8%29%27%21xQF%5E%22%7F");
+      Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder5, "0i9j*S||;b!aYnd5<^o");
+      int int1 = 998;
+      StringBuilder stringBuilder7 = stringBuilder3.appendCodePoint(998);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendPercentEncoded(stringBuilder7, stringBuilder0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuffer stringBuffer0 = new StringBuffer();
+      StringBuilder stringBuilder1 = stringBuilder0.append((Object) stringBuilder0);
+      stringBuilder1.appendCodePoint(1716);
+      StringBuilder stringBuilder2 = new StringBuilder(1716);
+      Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder2, stringBuilder1);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = stringBuilder0.appendCodePoint(2690);
+      stringBuilder0.reverse();
+      StringBuilder stringBuilder2 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder1, "o-\"n+");
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder2, stringBuilder0);
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Utf8UrlEncoder.encodePath("Q1x%\"gvvT4D*#2");
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Utf8UrlEncoder.percentEncodeQueryElement("IEd sWLBNL>");
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = Utf8UrlEncoder.encodeAndAppendPercentEncoded(stringBuilder0, stringBuilder0);
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder0, stringBuilder1);
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodeAndAppendQuery((StringBuilder) null, "c9U~~-c&0,&sG-");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Utf8UrlEncoder.encodeQueryElement("");
+      Utf8UrlEncoder.encodeAndAppendQueryElement((StringBuilder) null, "");
+      Utf8UrlEncoder.encodePath("");
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Utf8UrlEncoder.encodePath("");
+      Utf8UrlEncoder.encodeQueryElement("");
+      Utf8UrlEncoder.encodeQueryElement("");
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Utf8UrlEncoder.encodeQueryElement("org.asynchttpclient.util.Utf8UrlEncoder");
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuffer stringBuffer0 = new StringBuffer();
+      StringBuilder stringBuilder1 = stringBuilder0.append((Object) stringBuilder0);
+      stringBuilder1.appendCodePoint(911);
+      stringBuilder1.appendCodePoint(1746);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder0, stringBuilder1);
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Utf8UrlEncoder.percentEncodeQueryElement((String) null);
+      Utf8UrlEncoder.percentEncodeQueryElement("");
+      Utf8UrlEncoder.encodePath("");
+      // Undeclared exception!
+      try { 
+        Utf8UrlEncoder.encodePath((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.Utf8UrlEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder0, "");
+      stringBuilder1.chars();
+      char[] charArray0 = new char[3];
+      stringBuilder0.insert(0, charArray0);
+      stringBuilder1.append((Object) stringBuilder1);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder1, stringBuilder0);
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = Utf8UrlEncoder.encodeAndAppendQuery(stringBuilder0, "");
+      StringBuilder stringBuilder2 = stringBuilder1.append((float) 0);
+      char[] charArray0 = new char[3];
+      stringBuilder0.insert(0, charArray0);
+      StringBuilder stringBuilder3 = stringBuilder2.append((Object) stringBuilder1);
+      StringBuilder stringBuilder4 = stringBuilder3.append(false);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendFormElement(stringBuilder1, stringBuilder4);
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Utf8UrlEncoder.encodePath("cF!8~=Dv<");
+      Utf8UrlEncoder.encodeQueryElement("cF!8~=Dv<");
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Utf8UrlEncoder.encodePath(" |8)'!xQF^\"");
+      Utf8UrlEncoder.percentEncodeQueryElement(" |8)'!xQF^\"");
+      Utf8UrlEncoder.encodeQueryElement("%20%7C8%29%27%21xQF%5E%22%7F");
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuffer stringBuffer0 = new StringBuffer();
+      StringBuilder stringBuilder1 = stringBuilder0.appendCodePoint(2289);
+      // Undeclared exception!
+      Utf8UrlEncoder.encodeAndAppendQueryElement(stringBuilder1, stringBuilder0);
+  }

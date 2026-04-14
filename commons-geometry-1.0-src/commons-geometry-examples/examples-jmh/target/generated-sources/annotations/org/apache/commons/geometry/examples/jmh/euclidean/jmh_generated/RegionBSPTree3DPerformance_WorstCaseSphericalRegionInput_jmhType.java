@@ -1,0 +1,4 @@
+package org.apache.commons.geometry.examples.jmh.euclidean.jmh_generated;
+public class RegionBSPTree3DPerformance_WorstCaseSphericalRegionInput_jmhType extends RegionBSPTree3DPerformance_WorstCaseSphericalRegionInput_jmhType_B3 {
+}
+

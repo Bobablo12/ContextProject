@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      EmptyIterator<Object> emptyIterator0 = new EmptyIterator<Object>();
+      emptyIterator0.reset();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EmptyListIterator<Integer> emptyListIterator0 = new EmptyListIterator<Integer>();
+      boolean boolean0 = emptyListIterator0.hasNext();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EmptyIterator<Integer> emptyIterator0 = new EmptyIterator<Integer>();
+      // Undeclared exception!
+      try { 
+        emptyIterator0.next();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EmptyListIterator<Integer> emptyListIterator0 = new EmptyListIterator<Integer>();
+      Integer integer0 = new Integer(1);
+      // Undeclared exception!
+      try { 
+        emptyListIterator0.set(integer0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EmptyListIterator<String> emptyListIterator0 = new EmptyListIterator<String>();
+      // Undeclared exception!
+      try { 
+        emptyListIterator0.remove();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EmptyIterator<Integer> emptyIterator0 = new EmptyIterator<Integer>();
+      int int0 = emptyIterator0.nextIndex();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EmptyListIterator<String> emptyListIterator0 = new EmptyListIterator<String>();
+      int int0 = emptyListIterator0.previousIndex();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EmptyListIterator<String> emptyListIterator0 = new EmptyListIterator<String>();
+      // Undeclared exception!
+      try { 
+        emptyListIterator0.previous();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      EmptyListIterator<String> emptyListIterator0 = new EmptyListIterator<String>();
+      // Undeclared exception!
+      try { 
+        emptyListIterator0.add("Nn");
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // add() not supported for empty Iterator
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EmptyIterator<Object> emptyIterator0 = new EmptyIterator<Object>();
+      boolean boolean0 = emptyIterator0.hasPrevious();
+      assertTrue(boolean0);
+}

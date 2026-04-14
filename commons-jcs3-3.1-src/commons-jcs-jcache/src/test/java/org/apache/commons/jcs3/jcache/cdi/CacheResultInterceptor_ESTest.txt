@@ -1,0 +1,22 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CacheResultInterceptor cacheResultInterceptor0 = new CacheResultInterceptor();
+      AnnotatedType<CDIJCacheHelper> annotatedType0 = (AnnotatedType<CDIJCacheHelper>) mock(AnnotatedType.class, new ViolatedAssumptionAnswer());
+      CDIJCacheHelper cDIJCacheHelper0 = mock(CDIJCacheHelper.class, new ViolatedAssumptionAnswer());
+      doReturn((CDIJCacheHelper.MethodMeta) null).when(cDIJCacheHelper0).findMeta(any(javax.interceptor.InvocationContext.class));
+      InjectionTarget<CDIJCacheHelper> injectionTarget0 = (InjectionTarget<CDIJCacheHelper>) mock(InjectionTarget.class, new ViolatedAssumptionAnswer());
+      doReturn(cDIJCacheHelper0).when(injectionTarget0).produce(nullable(javax.enterprise.context.spi.CreationalContext.class));
+      MakeJCacheCDIInterceptorFriendly.HelperBean makeJCacheCDIInterceptorFriendly_HelperBean0 = new MakeJCacheCDIInterceptorFriendly.HelperBean(annotatedType0, injectionTarget0, "");
+      CreationalContext<CDIJCacheHelper> creationalContext0 = (CreationalContext<CDIJCacheHelper>) mock(CreationalContext.class, new ViolatedAssumptionAnswer());
+      CDIJCacheHelper cDIJCacheHelper1 = makeJCacheCDIInterceptorFriendly_HelperBean0.create(creationalContext0);
+      Injector.inject(cacheResultInterceptor0, (Class<?>) CacheResultInterceptor.class, "helper", (Object) cDIJCacheHelper1);
+      try { 
+        cacheResultInterceptor0.cache((InvocationContext) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.cdi.CacheResultInterceptor", e);
+      }
+  }

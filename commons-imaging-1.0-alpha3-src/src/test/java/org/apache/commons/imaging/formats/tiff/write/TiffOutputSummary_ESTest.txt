@@ -1,0 +1,130 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[1];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data(21L, 2689, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      int[] intArray0 = new int[9];
+      FieldTypeFloat fieldTypeFloat0 = new FieldTypeFloat(221, "C");
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfo tagInfo0 = new TagInfo("rr.V^H,SZw7c\";d", (-692), fieldTypeFloat0, 0, tiffDirectoryType0, false);
+      TiffOutputField tiffOutputField0 = new TiffOutputField(tagInfo0, fieldTypeFloat0, 1899, byteArray0);
+      ImageDataOffsets imageDataOffsets0 = new ImageDataOffsets(tiffElement_DataElementArray0, intArray0, tiffOutputField0);
+      tiffOutputSummary0.addTiffImageData(imageDataOffsets0);
+      try { 
+        tiffOutputSummary0.updateOffsets((ByteOrder) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Cannot change size of value.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputField", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD2;
+      TagInfoSRationals tagInfoSRationals0 = new TagInfoSRationals("c", (-2670), (-2670), tiffDirectoryType0);
+      FieldTypeFloat fieldTypeFloat0 = FieldType.FLOAT;
+      byte[] byteArray0 = new byte[2];
+      ByteOrder byteOrder1 = ByteOrder.nativeOrder();
+      TiffOutputField tiffOutputField0 = new TiffOutputField(tagInfoSRationals0, fieldTypeFloat0, (-1), byteArray0);
+      tiffOutputSummary0.add(tiffOutputDirectory0, tiffOutputField0);
+      try { 
+        tiffOutputSummary0.updateOffsets(byteOrder1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Cannot change size of value.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputField", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, (TiffOutputDirectory) null, (Map<Integer, TiffOutputDirectory>) null);
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      int[] intArray0 = new int[1];
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoShortOrLong tagInfoShortOrLong0 = new TagInfoShortOrLong("J5i>T*D}-a8UA30/B", (-2647), 95, tiffDirectoryType0, false);
+      TiffOutputField tiffOutputField0 = TiffOutputField.createOffsetField(tagInfoShortOrLong0, tiffOutputSummary0.byteOrder);
+      ImageDataOffsets imageDataOffsets0 = new ImageDataOffsets(tiffElement_DataElementArray0, intArray0, tiffOutputField0);
+      tiffOutputSummary0.addTiffImageData(imageDataOffsets0);
+      tiffOutputSummary0.updateOffsets(byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_INTEROP_IFD;
+      TagInfoShortOrLongOrRational tagInfoShortOrLongOrRational0 = new TagInfoShortOrLongOrRational("H>Ya", (-4), 2251, tiffDirectoryType0);
+      TiffOutputField tiffOutputField0 = TiffOutputField.createOffsetField(tagInfoShortOrLongOrRational0, byteOrder0);
+      tiffOutputSummary0.add(tiffOutputDirectory0, tiffOutputField0);
+      tiffOutputSummary0.updateOffsets(byteOrder0);
+      assertNotNull(byteOrder0.toString());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[1];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data((-1L), (-2), byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      int[] intArray0 = new int[12];
+      ImageDataOffsets imageDataOffsets0 = new ImageDataOffsets(tiffElement_DataElementArray0, intArray0, (TiffOutputField) null);
+      tiffOutputSummary0.addTiffImageData(imageDataOffsets0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSummary0.updateOffsets(byteOrder0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(byteOrder0, tiffOutputDirectory0, hashMap0);
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[9];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data((-1L), (-4), byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      int[] intArray0 = new int[0];
+      ImageDataOffsets imageDataOffsets0 = new ImageDataOffsets(tiffElement_DataElementArray0, intArray0, (TiffOutputField) null);
+      tiffOutputSummary0.addTiffImageData(imageDataOffsets0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSummary0.updateOffsets(byteOrder0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSummary", e);
+      }
+  }

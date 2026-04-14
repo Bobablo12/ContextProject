@@ -1,0 +1,460 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!8NHbvJ'W");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextKeyword();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected OBJ keyword but found empty token followed by [!]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("N3");
+      stringReader0.read();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readVector();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 2: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("0 m");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      double double0 = polygonObjParser0.nextDouble();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("N3");
+      stringReader0.read();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      double double0 = polygonObjParser0.nextDouble();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("OBJ keyword");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextDataLineContent();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextDataLineContent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      SimpleTextParser simpleTextParser0 = polygonObjParser0.getTextParser();
+      assertNotNull(simpleTextParser0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-814));
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(simpleTextParser0);
+      SimpleTextParser simpleTextParser1 = polygonObjParser0.getTextParser();
+      assertEquals(1, simpleTextParser1.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_z~^rQ");
+      stringReader0.read();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextKeyword();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_z~^rQ");
+      stringReader0.read();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextKeyword();
+      SimpleTextParser simpleTextParser0 = polygonObjParser0.getTextParser();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("f2DD1");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      polygonObjParser0.nextKeyword();
+      String string0 = polygonObjParser0.getCurrentKeyword();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 43, 43);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(simpleTextParser0);
+      simpleTextParser0.setLineNumber(0);
+      SimpleTextParser simpleTextParser1 = polygonObjParser0.discardDataLineWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("#8sybvJ'W");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      polygonObjParser0.readDataLine();
+      SimpleTextParser simpleTextParser0 = polygonObjParser0.discardDataLineWhitespace();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(simpleTextParser0);
+      simpleTextParser0.setColumnNumber((-1));
+      SimpleTextParser simpleTextParser1 = polygonObjParser0.discardDataLineWhitespace();
+      assertFalse(simpleTextParser1.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readVector();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readVector();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readDoubles();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("OBJ keyword");
+      stringReader0.close();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readDoubles();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readDataLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.euclidean.threed.Vector3D$Unit");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readDataLine();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextKeyword();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextKeyword();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(simpleTextParser0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextDouble();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!>;mVVe!#");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextDouble();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextDataLineContent();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("OBJ keyword");
+      stringReader0.close();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextDataLineContent();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.discardDataLineWhitespace();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.euclidean.oned.Vector1D");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.discardDataLineWhitespace();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.discardDataLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.discardDataLine();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_z~^rQ");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      polygonObjParser0.discardDataLine();
+      String string0 = polygonObjParser0.readDataLine();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Q5F");
+      stringReader0.read();
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      double[] doubleArray0 = polygonObjParser0.readDoubles();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Q5F");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.readDoubles();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected double but found [Q5F]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("#8sybvJ'W");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      polygonObjParser0.nextKeyword();
+      double[] doubleArray0 = polygonObjParser0.readDoubles();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(" V.}Usu|:'6Gd9HmXF");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextKeyword();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 2: non-blank lines must begin with an OBJ keyword or comment character
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apahe.cOmmons.eomt'y.euclidean.threed.Vector3D");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextKeyword();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apahe.cOmmons.eomt'y.euclidean.threed.Vector3D");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      boolean boolean0 = polygonObjParser0.nextKeyword();
+      boolean boolean1 = polygonObjParser0.nextKeyword();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Q5F");
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser(stringReader0);
+      String string0 = polygonObjParser0.getCurrentKeyword();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      PolygonObjParser polygonObjParser0 = new PolygonObjParser((SimpleTextParser) null);
+      // Undeclared exception!
+      try { 
+        polygonObjParser0.nextDouble();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.obj.AbstractObjParser", e);
+      }
+  }

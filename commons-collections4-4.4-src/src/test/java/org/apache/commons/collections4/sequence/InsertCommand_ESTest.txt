@@ -1,0 +1,21 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      InsertCommand<String> insertCommand0 = new InsertCommand<String>("");
+      // Undeclared exception!
+      try { 
+        insertCommand0.accept((CommandVisitor<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.sequence.InsertCommand", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Integer integer0 = new Integer(678);
+      InsertCommand<Object> insertCommand0 = new InsertCommand<Object>(integer0);
+      CommandVisitor<Object> commandVisitor0 = (CommandVisitor<Object>) mock(CommandVisitor.class, new ViolatedAssumptionAnswer());
+      insertCommand0.accept(commandVisitor0);
+  }

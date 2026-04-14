@@ -1,0 +1,25 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      IElementEventHandler iElementEventHandler0 = mock(IElementEventHandler.class, new ViolatedAssumptionAnswer());
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_IDLETIME_ONREQUEST;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(elementEventQueue0, elementEventType0);
+      elementEventQueue0.addElementEvent(iElementEventHandler0, (IElementEvent<Object>) elementEvent0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      IElementEventHandler iElementEventHandler0 = mock(IElementEventHandler.class, new ViolatedAssumptionAnswer());
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_IDLETIME_ONREQUEST;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(elementEventQueue0, elementEventType0);
+      elementEventQueue0.dispose();
+      elementEventQueue0.addElementEvent(iElementEventHandler0, (IElementEvent<Object>) elementEvent0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      elementEventQueue0.dispose();
+      elementEventQueue0.dispose();
+  }

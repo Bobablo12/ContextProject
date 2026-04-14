@@ -1,0 +1,119 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      NodeCachingLinkedList<String> nodeCachingLinkedList0 = new NodeCachingLinkedList<String>(499);
+      nodeCachingLinkedList0.isCacheFull();
+      NodeCachingLinkedList<Object> nodeCachingLinkedList1 = new NodeCachingLinkedList<Object>(1231);
+      AbstractLinkedList.Node<Object> abstractLinkedList_Node0 = new AbstractLinkedList.Node<Object>((AbstractLinkedList.Node<Object>) null, (AbstractLinkedList.Node<Object>) null, (Object) null);
+      nodeCachingLinkedList1.addNodeToCache(abstractLinkedList_Node0);
+      nodeCachingLinkedList1.createNode((Object) null);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CursorableLinkedList<Locale.LanguageRange> cursorableLinkedList0 = new CursorableLinkedList<Locale.LanguageRange>();
+      NodeCachingLinkedList<Locale.LanguageRange> nodeCachingLinkedList0 = new NodeCachingLinkedList<Locale.LanguageRange>(2);
+      nodeCachingLinkedList0.toArray();
+      AbstractLinkedList.Node<Locale.LanguageRange> abstractLinkedList_Node0 = nodeCachingLinkedList0.header;
+      cursorableLinkedList0.removeNode(abstractLinkedList_Node0);
+      NodeCachingLinkedList<Locale.LanguageRange> nodeCachingLinkedList1 = null;
+      try {
+        nodeCachingLinkedList1 = new NodeCachingLinkedList<Locale.LanguageRange>(cursorableLinkedList0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Couldn't get the node: index (0) greater than the size of the list (-1).
+         //
+         verifyException("org.apache.commons.collections4.list.AbstractLinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      NodeCachingLinkedList<Object> nodeCachingLinkedList0 = new NodeCachingLinkedList<Object>();
+      AbstractLinkedList.Node<Object> abstractLinkedList_Node0 = nodeCachingLinkedList0.header;
+      nodeCachingLinkedList0.addNodeAfter(abstractLinkedList_Node0, abstractLinkedList_Node0);
+      nodeCachingLinkedList0.isCacheFull();
+      nodeCachingLinkedList0.removeAllNodes();
+      CursorableLinkedList<Integer> cursorableLinkedList0 = new CursorableLinkedList<Integer>();
+      NodeCachingLinkedList<Integer> nodeCachingLinkedList1 = new NodeCachingLinkedList<Integer>(cursorableLinkedList0);
+      nodeCachingLinkedList1.removeAllNodes();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      NodeCachingLinkedList<String> nodeCachingLinkedList0 = new NodeCachingLinkedList<String>((-5834));
+      AbstractLinkedList.Node<String> abstractLinkedList_Node0 = new AbstractLinkedList.Node<String>();
+      AbstractLinkedList.Node<String> abstractLinkedList_Node1 = new AbstractLinkedList.Node<String>("");
+      abstractLinkedList_Node0.setPreviousNode(abstractLinkedList_Node1);
+      AbstractLinkedList.Node<String> abstractLinkedList_Node2 = nodeCachingLinkedList0.createNode("");
+      abstractLinkedList_Node0.previous = abstractLinkedList_Node2;
+      AbstractLinkedList.Node<String> abstractLinkedList_Node3 = abstractLinkedList_Node0.previous;
+      nodeCachingLinkedList0.addNodeToCache(abstractLinkedList_Node3);
+      NodeCachingLinkedList<Object> nodeCachingLinkedList1 = new NodeCachingLinkedList<Object>(nodeCachingLinkedList0);
+      nodeCachingLinkedList1.setMaximumCacheSize(0);
+      NodeCachingLinkedList<Integer> nodeCachingLinkedList2 = new NodeCachingLinkedList<Integer>();
+      Integer integer0 = new Integer(0);
+      AbstractLinkedList.Node<Integer> abstractLinkedList_Node4 = new AbstractLinkedList.Node<Integer>(integer0);
+      abstractLinkedList_Node4.setValue(integer0);
+      int int0 = 0;
+      Integer integer1 = new Integer(0);
+      AbstractLinkedList.Node<Integer> abstractLinkedList_Node5 = new AbstractLinkedList.Node<Integer>(abstractLinkedList_Node4, abstractLinkedList_Node4, integer1);
+      abstractLinkedList_Node4.next = abstractLinkedList_Node5;
+      nodeCachingLinkedList2.addNodeToCache(abstractLinkedList_Node4);
+      nodeCachingLinkedList1.shrinkCacheToMaximumSize();
+      nodeCachingLinkedList0.removeNode(abstractLinkedList_Node0);
+      nodeCachingLinkedList1.spliterator();
+      nodeCachingLinkedList2.setMaximumCacheSize(0);
+      nodeCachingLinkedList2.getNodeFromCache();
+      nodeCachingLinkedList1.getMaximumCacheSize();
+      nodeCachingLinkedList0.removeAllNodes();
+      // Undeclared exception!
+      nodeCachingLinkedList0.shrinkCacheToMaximumSize();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      NodeCachingLinkedList<Object> nodeCachingLinkedList0 = new NodeCachingLinkedList<Object>();
+      AbstractLinkedList.Node<Object> abstractLinkedList_Node0 = new AbstractLinkedList.Node<Object>();
+      nodeCachingLinkedList0.removeNode(abstractLinkedList_Node0);
+      nodeCachingLinkedList0.getNodeFromCache();
+      NodeCachingLinkedList<String> nodeCachingLinkedList1 = new NodeCachingLinkedList<String>((-221));
+      String string0 = ", ";
+      nodeCachingLinkedList1.createNode(", ");
+      CursorableLinkedList<Integer> cursorableLinkedList0 = new CursorableLinkedList<Integer>();
+      AbstractLinkedList.LinkedSubList<Integer> abstractLinkedList_LinkedSubList0 = null;
+      try {
+        abstractLinkedList_LinkedSubList0 = new AbstractLinkedList.LinkedSubList<Integer>(cursorableLinkedList0, (-221), (-221));
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // fromIndex = -221
+         //
+         verifyException("org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      NodeCachingLinkedList<Object> nodeCachingLinkedList0 = new NodeCachingLinkedList<Object>(2393);
+      nodeCachingLinkedList0.getNodeFromCache();
+      CursorableLinkedList<Integer> cursorableLinkedList0 = new CursorableLinkedList<Integer>();
+      NodeCachingLinkedList<Integer> nodeCachingLinkedList1 = new NodeCachingLinkedList<Integer>(cursorableLinkedList0);
+      Integer integer0 = new Integer(0);
+      nodeCachingLinkedList1.stream();
+      AbstractLinkedList.Node<Integer> abstractLinkedList_Node0 = new AbstractLinkedList.Node<Integer>(integer0);
+      nodeCachingLinkedList1.addNodeToCache(abstractLinkedList_Node0);
+      nodeCachingLinkedList1.removeAllNodes();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      NodeCachingLinkedList<Object> nodeCachingLinkedList0 = new NodeCachingLinkedList<Object>((-444));
+      nodeCachingLinkedList0.removeAllNodes();
+      AbstractLinkedList.Node<Object> abstractLinkedList_Node0 = new AbstractLinkedList.Node<Object>(nodeCachingLinkedList0);
+      nodeCachingLinkedList0.addNodeToCache(abstractLinkedList_Node0);
+      NodeCachingLinkedList<String> nodeCachingLinkedList1 = new NodeCachingLinkedList<String>();
+      nodeCachingLinkedList1.createNode("org.apache.commons.collections4.list.NodeCachingLinkedList");
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      NodeCachingLinkedList<Object> nodeCachingLinkedList0 = new NodeCachingLinkedList<Object>(0);
+      nodeCachingLinkedList0.iterator();
+      nodeCachingLinkedList0.shrinkCacheToMaximumSize();
+      NodeCachingLinkedList<String> nodeCachingLinkedList1 = new NodeCachingLinkedList<String>(0);
+      nodeCachingLinkedList1.isCacheFull();
+  }

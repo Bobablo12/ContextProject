@@ -1,0 +1,88 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RequestBuilder requestBuilder0 = null;
+      try {
+        requestBuilder0 = new RequestBuilder((Request) null, true, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.RequestBuilderBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RequestBuilder requestBuilder0 = null;
+      try {
+        requestBuilder0 = new RequestBuilder((Request) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.RequestBuilderBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RequestBuilder requestBuilder0 = new RequestBuilder("a header name cannot contain non-ASCII character: ", true);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RequestBuilder requestBuilder0 = new RequestBuilder(">VmYM8", false, false);
+      Request request0 = requestBuilder0.build();
+      RequestBuilder requestBuilder1 = new RequestBuilder(request0);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RequestBuilder requestBuilder0 = new RequestBuilder("a header name cannot contain non-ASCII character: ", false, false);
+      Request request0 = requestBuilder0.build();
+      RequestBuilder requestBuilder1 = new RequestBuilder(request0, false, true);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RequestBuilder requestBuilder0 = new RequestBuilder();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((InetAddress) null).when(request0).getAddress();
+      doReturn((HttpHeaders) null).when(request0).getHeaders();
+      doReturn((InetAddress) null).when(request0).getLocalAddress();
+      doReturn((String) null).when(request0).getMethod();
+      doReturn((Uri) null).when(request0).getUri();
+      RequestBuilder requestBuilder0 = null;
+      try {
+        requestBuilder0 = new RequestBuilder(request0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // headers
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RequestBuilder requestBuilder0 = new RequestBuilder("ip45yhT-T^N;$UL");
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((InetAddress) null).when(request0).getAddress();
+      doReturn((HttpHeaders) null).when(request0).getHeaders();
+      doReturn((InetAddress) null).when(request0).getLocalAddress();
+      doReturn((String) null).when(request0).getMethod();
+      doReturn((Uri) null).when(request0).getUri();
+      RequestBuilder requestBuilder0 = null;
+      try {
+        requestBuilder0 = new RequestBuilder(request0, true, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // headers
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }

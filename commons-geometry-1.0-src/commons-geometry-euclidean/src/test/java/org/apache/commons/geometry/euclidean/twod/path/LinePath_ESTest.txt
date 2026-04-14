@@ -1,0 +1,657 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Vector2D[] vector2DArray0 = new Vector2D[1];
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.prependVertices(vector2DArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isClosed();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isClosed();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Vector2D[] vector2DArray0 = new Vector2D[0];
+      LinePath.Builder linePath_Builder1 = linePath_Builder0.prependVertices(vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Vector2D[] vector2DArray0 = new Vector2D[0];
+      LinePath.Builder linePath_Builder1 = linePath_Builder0.appendVertices(vector2DArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.prepend((Vector2D) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LineConvexSubset lineConvexSubset0 = linePath_Builder0.getStart();
+      assertNotNull(lineConvexSubset0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.append((Vector2D) vector2D_Unit0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LineConvexSubset[] lineConvexSubsetArray0 = new LineConvexSubset[0];
+      LinePath linePath0 = LinePath.from(lineConvexSubsetArray0);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      // Undeclared exception!
+      try { 
+        linePath0.simplify();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector<LineConvexSubset> vector0 = new Vector<LineConvexSubset>();
+      vector0.add((LineConvexSubset) null);
+      LinePath linePath0 = new LinePath(vector0);
+      // Undeclared exception!
+      try { 
+        linePath0.getVertexSequence();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<LineConvexSubset> linkedList0 = new LinkedList<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(linkedList0);
+      linkedList0.add((LineConvexSubset) null);
+      // Undeclared exception!
+      try { 
+        linePath0.getSize();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertices((Collection<Vector2D>) null, true, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector<Vector2D> vector0 = new Vector<Vector2D>();
+      Vector2D vector2D0 = Vector2D.NaN;
+      vector0.add(vector2D0);
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertices((Collection<Vector2D>) vector0, true, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertices((Collection<Vector2D>) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertexLoop((Collection<Vector2D>) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      hashSet0.add(vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertexLoop(hashSet0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinePath linePath0 = null;
+      try {
+        linePath0 = new LinePath((List<LineConvexSubset>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections$UnmodifiableCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LinePath linePath0 = linePath_Builder0.build(false);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LinePath linePath0 = linePath_Builder0.build(true);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      TreeSet<Vector2D> treeSet0 = new TreeSet<Vector2D>();
+      LinePath.Builder linePath_Builder1 = linePath_Builder0.appendVertices((Collection<? extends Vector2D>) treeSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Stack<Vector2D> stack0 = new Stack<Vector2D>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from((-2305.34284678423), (-2079.588));
+      stack0.add((Vector2D) vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.appendVertices((Collection<? extends Vector2D>) stack0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LineConvexSubset lineConvexSubset0 = linePath_Builder0.getEnd();
+      assertNotNull(lineConvexSubset0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      // Undeclared exception!
+      try { 
+        LinePath.from((Collection<? extends LineConvexSubset>) list0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      HashSet<ReverseRay> hashSet0 = new HashSet<ReverseRay>();
+      LinePath linePath0 = LinePath.from((Collection<? extends LineConvexSubset>) hashSet0);
+      boolean boolean0 = linePath0.isClosed();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      boolean boolean0 = linePath0.isClosed();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      boolean boolean0 = linePath0.isClosed();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(arrayList0);
+      arrayList0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ArrayDeque<Segment> arrayDeque0 = new ArrayDeque<Segment>();
+      LinePath linePath0 = LinePath.from((Collection<? extends LineConvexSubset>) arrayDeque0);
+      boolean boolean0 = linePath0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(arrayList0);
+      boolean boolean0 = linePath0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(arrayList0);
+      LineConvexSubset lineConvexSubset0 = linePath0.getEnd();
+      assertNotNull(lineConvexSubset0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      linePath0.getEnd();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LinePath.Builder linePath_Builder1 = linePath_Builder0.setPrecision((Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      HashSet<ReverseRay> hashSet0 = new HashSet<ReverseRay>();
+      LinePath linePath0 = LinePath.from((Collection<? extends LineConvexSubset>) hashSet0);
+      List<LineConvexSubset> list0 = linePath0.getElements();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.append((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LinePath linePath0 = linePath_Builder0.build();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>(857);
+      LinePath linePath0 = LinePath.fromVertices((Collection<Vector2D>) hashSet0, false, (Precision.DoubleEquivalence) null);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Vector2D[] vector2DArray0 = new Vector2D[7];
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.prependVertices(vector2DArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>();
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.from(733.00897, 733.00897);
+      hashSet0.add(vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        LinePath.fromVertices((Collection<Vector2D>) hashSet0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Unable to create line segment: no vertex precision specified
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      stack0.add((LineConvexSubset) null);
+      // Undeclared exception!
+      try { 
+        linePath0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      String string0 = linePath0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      String string0 = linePath0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      // Undeclared exception!
+      try { 
+        linePath0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSpanningSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      LinePath linePath1 = linePath0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      stack0.setSize(2703);
+      LinePath linePath0 = new LinePath(stack0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.identity();
+      // Undeclared exception!
+      try { 
+        linePath0.transform(affineTransformMatrix2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      LinePath linePath1 = linePath0.transform((Transform<Vector2D>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      double double0 = linePath0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      double double0 = linePath0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isInfinite();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      LinePath linePath0 = new LinePath(stack0);
+      stack0.add((LineConvexSubset) null);
+      boolean boolean0 = linePath0.isInfinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      boolean boolean0 = linePath0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      List<Vector2D> list1 = linePath0.getVertexSequence();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      List<Vector2D> list1 = linePath0.getVertexSequence();
+      assertTrue(list1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      RegionBSPTree1D regionBSPTree1D0 = new RegionBSPTree1D(true);
+      EmbeddedTreeLineSubset embeddedTreeLineSubset0 = new EmbeddedTreeLineSubset((Line) null, regionBSPTree1D0);
+      List<LineConvexSubset> list0 = embeddedTreeLineSubset0.toConvex();
+      LinePath linePath0 = new LinePath(list0);
+      LinePath linePath1 = linePath0.simplify();
+      assertTrue(linePath1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      LineConvexSubset lineConvexSubset0 = linePath0.getStart();
+      assertNotNull(lineConvexSubset0);
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      LinePath linePath1 = linePath0.simplify();
+      LinePath linePath2 = linePath1.simplify();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>();
+      LinePath linePath0 = LinePath.fromVertexLoop(hashSet0, (Precision.DoubleEquivalence) null);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      HashSet<Vector2D> hashSet0 = new HashSet<Vector2D>();
+      LinePath linePath0 = LinePath.fromVertices((Collection<Vector2D>) hashSet0, (Precision.DoubleEquivalence) null);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      LinePath linePath0 = LinePath.empty();
+      Stream<LineConvexSubset> stream0 = linePath0.boundaryStream();
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      LinkedList<Ray> linkedList0 = new LinkedList<Ray>();
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>(linkedList0);
+      LinePath linePath0 = new LinePath(arrayList0);
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      LinkedList<Ray> linkedList0 = new LinkedList<Ray>();
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>(linkedList0);
+      LinePath linePath0 = new LinePath(arrayList0);
+      arrayList0.add((LineConvexSubset) null);
+      linePath0.getStart();
+      assertTrue(linePath0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      LineConvexSubset[] lineConvexSubsetArray0 = new LineConvexSubset[4];
+      // Undeclared exception!
+      try { 
+        LinePath.from(lineConvexSubsetArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      // Undeclared exception!
+      try { 
+        linePath_Builder0.prepend((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.path.LinePath$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      Stack<Vector2D> stack0 = new Stack<Vector2D>();
+      LinePath.Builder linePath_Builder1 = linePath_Builder0.prependVertices((Collection<Vector2D>) stack0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      LinePath.Builder linePath_Builder0 = LinePath.builder((Precision.DoubleEquivalence) null);
+      LinePath linePath0 = linePath_Builder0.close();
+      assertTrue(linePath0.isEmpty());
+}

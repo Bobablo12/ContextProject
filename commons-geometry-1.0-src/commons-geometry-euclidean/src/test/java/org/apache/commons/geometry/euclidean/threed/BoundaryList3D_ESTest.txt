@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ArrayList<SimpleTriangle3D> arrayList0 = new ArrayList<SimpleTriangle3D>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(arrayList0);
+      arrayList0.add((SimpleTriangle3D) null);
+      BoundaryList3D boundaryList3D1 = boundaryList3D0.toList();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BoundaryList3D boundaryList3D0 = null;
+      try {
+        boundaryList3D0 = new BoundaryList3D((List<? extends PlaneConvexSubset>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Collections$UnmodifiableCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector<VertexListConvexPolygon3D> vector0 = new Vector<VertexListConvexPolygon3D>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(vector0);
+      BoundaryList3D boundaryList3D1 = boundaryList3D0.toList();
+      ;
+}

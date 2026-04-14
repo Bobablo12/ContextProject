@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment((-1), byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Unexpected EOF count: -1 read: 1 length: 5
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment(0, 0, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1), (byte)49);
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment((-809), (-809), byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment((-641), 0, sequenceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Unexpected EOF count: -1 read: 0 length: 5
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[24];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment(1, 1, byteArrayInputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File: missing JFIF string
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.JfifSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment(508, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File: missing JFIF string
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.JfifSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JfifSegment jfifSegment0 = null;
+      try {
+        jfifSegment0 = new JfifSegment(1, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.JfifSegment", e);
+      }
+  }

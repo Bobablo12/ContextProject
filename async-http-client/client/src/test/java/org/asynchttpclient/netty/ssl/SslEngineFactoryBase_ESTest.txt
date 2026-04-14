@@ -1,0 +1,80 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      String string0 = defaultSslEngineFactory0.domain("8S$");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      String string0 = defaultSslEngineFactory0.domain(".");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.domain("");
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.domain((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ssl.SslEngineFactoryBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        defaultSslEngineFactory0.configureSslEngine((SSLEngine) null, asyncHttpClientConfig0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ssl.SslEngineFactoryBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SSLContext sSLContext0 = SSLContext.getDefault();
+      JsseSslEngineFactory jsseSslEngineFactory0 = new JsseSslEngineFactory(sSLContext0);
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(asyncHttpClientConfig0).isDisableHttpsEndpointIdentificationAlgorithm();
+      SSLEngine sSLEngine0 = jsseSslEngineFactory0.newSslEngine(asyncHttpClientConfig0, " V<ovB7", (-2648));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      DefaultSslEngineFactory defaultSslEngineFactory0 = new DefaultSslEngineFactory();
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(asyncHttpClientConfig0).isDisableHttpsEndpointIdentificationAlgorithm();
+      AsyncHttpClientConfig asyncHttpClientConfig1 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String[]) null).when(asyncHttpClientConfig1).getEnabledCipherSuites();
+      doReturn((String[]) null).when(asyncHttpClientConfig1).getEnabledProtocols();
+      doReturn((SslContext) null).when(asyncHttpClientConfig1).getSslContext();
+      doReturn(0).when(asyncHttpClientConfig1).getSslSessionCacheSize();
+      doReturn(0).when(asyncHttpClientConfig1).getSslSessionTimeout();
+      doReturn(false).when(asyncHttpClientConfig1).isFilterInsecureCipherSuites();
+      doReturn(false).when(asyncHttpClientConfig1).isUseInsecureTrustManager();
+      doReturn(false).when(asyncHttpClientConfig1).isUseOpenSsl();
+      defaultSslEngineFactory0.init(asyncHttpClientConfig1);
+      SSLEngine sSLEngine0 = defaultSslEngineFactory0.newSslEngine(asyncHttpClientConfig0, "Ew+7", 600);
+      AsyncHttpClientConfig asyncHttpClientConfig2 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(asyncHttpClientConfig2).isDisableHttpsEndpointIdentificationAlgorithm();
+      defaultSslEngineFactory0.configureSslEngine(sSLEngine0, asyncHttpClientConfig2);
+  }

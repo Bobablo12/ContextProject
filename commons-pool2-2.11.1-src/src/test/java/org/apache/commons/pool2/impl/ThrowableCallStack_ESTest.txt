@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = null;
+      try {
+        throwableCallStack0 = new ThrowableCallStack((String) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = null;
+      try {
+        throwableCallStack0 = new ThrowableCallStack("rE?xJZuf-]Q@YWt", true);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal pattern character 'r'
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = new ThrowableCallStack("", true);
+      boolean boolean0 = throwableCallStack0.printStackTrace((PrintWriter) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = new ThrowableCallStack("Tb:$o[$`I8/fe", false);
+      throwableCallStack0.fillInStackTrace();
+      File file0 = MockFile.createTempFile("Tb:$o[$`I8/fe", "Tb:$o[$`I8/fe");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      boolean boolean0 = throwableCallStack0.printStackTrace(mockPrintWriter0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = new ThrowableCallStack("", true);
+      throwableCallStack0.fillInStackTrace();
+      // Undeclared exception!
+      try { 
+        throwableCallStack0.printStackTrace((PrintWriter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.ThrowableCallStack", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ThrowableCallStack throwableCallStack0 = new ThrowableCallStack("", true);
+      throwableCallStack0.clear();
+  }

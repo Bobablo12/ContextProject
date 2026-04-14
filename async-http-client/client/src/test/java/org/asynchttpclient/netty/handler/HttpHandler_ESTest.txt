@@ -1,0 +1,30 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      NettyRequestSender nettyRequestSender0 = mock(NettyRequestSender.class, new ViolatedAssumptionAnswer());
+      HttpHandler httpHandler0 = null;
+      try {
+        httpHandler0 = new HttpHandler((AsyncHttpClientConfig) null, channelManager0, nettyRequestSender0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.handler.intercept.Redirect30xInterceptor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(asyncHttpClientConfig0).getMaxRedirects();
+      ChannelManager channelManager0 = mock(ChannelManager.class, new ViolatedAssumptionAnswer());
+      HttpHandler httpHandler0 = null;
+      try {
+        httpHandler0 = new HttpHandler(asyncHttpClientConfig0, channelManager0, (NettyRequestSender) null);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

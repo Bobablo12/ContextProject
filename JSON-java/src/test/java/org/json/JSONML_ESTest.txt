@@ -1,0 +1,471 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Missing '>' after '<!'.");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      try { 
+        JSONML.toJSONArray(xMLTokener0, false);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 23 [character 24 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JSONObject jSONObject0 = JSONML.toJSONObject("<]ZALe|TOo>java.lang.String@0000000004</]ZALe|TOo>");
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<gK-ZALe|TOo]/>");
+      JSONArray jSONArray0 = JSONML.toJSONArray(xMLTokener0, true);
+      assertTrue(jSONArray0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject();
+      try { 
+        JSONML.toString(jSONObject0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Empty string.
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toString((JSONObject) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toString((JSONArray) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("d=uHZ@$3EU");
+      try { 
+        JSONML.toJSONObject(xMLTokener0, true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad XML at 10 [character 11 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("childNodes");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      jSONArray0.put(4842, false);
+      String string0 = JSONML.toString(jSONArray0);
+      XMLTokener xMLTokener0 = new XMLTokener(string0);
+      // Undeclared exception!
+      JSONML.toJSONObject(xMLTokener0, true);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject((XMLTokener) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<v)&apos;}~iH+C}swfz>java.lang.String@0000000004</v)&apos;}~iH+C}swfz>");
+      xMLTokener0.nextMeta();
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject(xMLTokener0, true);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to org.json.JSONObject
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject((XMLTokener) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<]ZALe|TOo>java.lang.String@0000000004</]ZALe|TOo>");
+      xMLTokener0.nextContent();
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject(xMLTokener0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to org.json.JSONObject
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("-ZALe|cOo]");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      jSONArray0.put(1124, (Object) "<-ZALe|cOo]/>");
+      String string0 = JSONML.toString(jSONArray0);
+      // Undeclared exception!
+      JSONML.toJSONObject(string0, true);
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject((String) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONObject((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONArray((XMLTokener) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONArray((XMLTokener) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      try { 
+        JSONML.toJSONArray("<-ZALe|cOo]>java.lang.String@0000000004</-ZALe|cOo]>", true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped close tag at 51 [character 52 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("v)'}~iH+C}swfz");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      jSONArray0.put(733, (Object) "v)'}~iH+C}swfz");
+      String string0 = JSONML.toString(jSONArray0);
+      // Undeclared exception!
+      JSONML.toJSONArray(string0, true);
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONArray((String) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("gK-ZALe|TOo]");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      jSONArray0.put(286, (long) 286);
+      String string0 = JSONML.toString(jSONArray0);
+      // Undeclared exception!
+      JSONML.toJSONArray(string0);
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JSONML.toJSONArray((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("CAC<)VFFR>Sb.<-");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped element at 15 [character 16 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JSONObject jSONObject0 = JSONML.toJSONObject("<]ZALe|TOo>java.lang.String@0000000004</]ZALe|TOo>", true);
+      jSONObject0.put("Er5tmvhw67ay=", 3666);
+      String string0 = JSONML.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("-ZALe|cOo]");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      HashMap<JSONArray, Locale.FilteringMode> hashMap0 = new HashMap<JSONArray, Locale.FilteringMode>();
+      jSONArray0.put(14, (Map<?, ?>) hashMap0);
+      try { 
+        JSONML.toString(jSONArray0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Empty string.
+         //
+         verifyException("org.json.XML", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("gK-ZALe|TOo]");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      arrayDeque0.addFirst("t7");
+      jSONArray0.put(32, (Collection<?>) arrayDeque0);
+      String string0 = JSONML.toString(jSONArray0);
+      try { 
+        JSONML.toJSONArray(string0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped close tag at 1149 [character 1150 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("WDk<&M]Yk5Fo_?j1QFf");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 15 [character 16 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("O~j[<5/1");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 8 [character 9 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      JSONObject jSONObject0 = JSONML.toJSONObject("<java.lang.Boolean@0000000002 &amp;g=\"java.lang.Character@0000000007\"/>", false);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      try { 
+        JSONML.toJSONArray("<java.lang.String@0000000014 Er5tmvhw67ay==\"java.lang.Integer@0000000031\" ]YkiFA_=\"org.json.JSONArray@0000000019\">java.lang.String@0000000012</java.lang.String@0000000014>");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Missing value at 43 [character 44 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("CA8C<)VFFR>Sb.<-", false);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped element at 16 [character 17 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("CAC<?k)VFFR>Sb.-");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad XML at 16 [character 17 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("@4<!a~`<2/");
+      try { 
+        JSONML.toJSONArray(xMLTokener0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped meta tag at 10 [character 11 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      try { 
+        JSONML.toJSONObject("<>5");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped tag at 2 [character 3 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ArrayDeque<String> arrayDeque0 = new ArrayDeque<String>();
+      arrayDeque0.add("gK-ZALe|TOo]");
+      JSONArray jSONArray0 = new JSONArray((Iterable<?>) arrayDeque0);
+      jSONArray0.put(32, (Collection<?>) arrayDeque0);
+      String string0 = JSONML.toString(jSONArray0);
+      try { 
+        JSONML.toJSONArray(string0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped close tag at 1128 [character 1129 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      JSONArray jSONArray0 = JSONML.toJSONArray("<]ZALe|TOo>java.lang.String@0000000004</]ZALe|TOo>");
+      assertTrue(jSONArray0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      JSONArray jSONArray0 = JSONML.toJSONArray("<-ZALe|cOo]/>", true);
+      String string0 = JSONML.toString(jSONArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      JSONML jSONML0 = new JSONML();
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<]ZALe|TOo>java.lang.String@0000000004</]ZALe|TOo>");
+      JSONObject jSONObject0 = JSONML.toJSONObject(xMLTokener0);
+      assertTrue(jSONObject0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<]ZALe|TOo/>");
+      JSONObject jSONObject0 = JSONML.toJSONObject(xMLTokener0, true);
+      String string0 = JSONML.toString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<gK-ZALe|TOo]/>");
+      JSONML.toJSONArray(xMLTokener0);
+      try { 
+        JSONML.toJSONObject(xMLTokener0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad XML at 15 [character 16 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      JSONObject jSONObject0 = JSONML.toJSONObject("<-ZALe|cOo ]=\"java.lang.String@0000000009\"/>", true);
+      assertTrue(jSONObject0.isEmpty());
+}

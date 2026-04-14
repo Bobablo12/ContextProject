@@ -1,0 +1,230 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = 255;
+      intArray0[1] = 1;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid marker found in entropy data: 0xFF 1
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 3233;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.nextBit();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 3233;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.nextBit();
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.read();
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.read();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1799;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.read();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      intArray0[0] = (-2139);
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.read();
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      intArray0[0] = (-2139);
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.read();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      jpegInputStream0.nextBit();
+      // Undeclared exception!
+      try { 
+        jpegInputStream0.read();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // This stream hasn't any other value, all values were already read.
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      boolean boolean0 = jpegInputStream0.hasNext();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      jpegInputStream0.nextBit();
+      boolean boolean0 = jpegInputStream0.hasNext();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      intArray0[0] = 255;
+      intArray0[1] = 220;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // DNL not yet supported
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = 255;
+      intArray0[1] = 255;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid marker found in entropy data: 0xFF ff
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = 255;
+      intArray0[1] = (-355);
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Premature End of File
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 255;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.nextBit();
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 255;
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      int int0 = jpegInputStream0.nextBit();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = (-1135);
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Premature End of File
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      jpegInputStream0.nextBit();
+      int int0 = jpegInputStream0.nextBit();
+      assertFalse(jpegInputStream0.hasNext());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      jpegInputStream0.nextBit();
+      int int0 = jpegInputStream0.nextBit();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      int[] intArray0 = new int[0];
+      JpegInputStream jpegInputStream0 = new JpegInputStream(intArray0);
+      // Undeclared exception!
+      try { 
+        jpegInputStream0.nextBit();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // This stream hasn't any other value, all values were already read.
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JpegInputStream jpegInputStream0 = null;
+      try {
+        jpegInputStream0 = new JpegInputStream((int[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream", e);
+      }
+  }

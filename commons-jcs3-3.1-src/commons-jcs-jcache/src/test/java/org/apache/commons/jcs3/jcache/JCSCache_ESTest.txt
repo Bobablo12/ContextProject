@@ -1,0 +1,1727 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<MockThread, CacheLoaderException> mutableConfiguration0 = new MutableConfiguration<MockThread, CacheLoaderException>();
+      Class<MockThread> class0 = MockThread.class;
+      Class<CacheLoaderException> class1 = CacheLoaderException.class;
+      JCSConfiguration<MockThread, CacheLoaderException> jCSConfiguration0 = new JCSConfiguration<MockThread, CacheLoaderException>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<MockThread, CacheLoaderException> expiryAwareCache0 = new ExpiryAwareCache<MockThread, CacheLoaderException>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockThread, CacheLoaderException> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<MockThread, CacheLoaderException>(classLoader0, jCSCachingManager0, "\"Lw}aM^^XZS2:", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // javax.management.MalformedObjectNameException: Unterminated quoted value
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<DataInputStream, Integer> mutableConfiguration0 = new MutableConfiguration<DataInputStream, Integer>();
+      Class<DataInputStream> class0 = DataInputStream.class;
+      Class<Integer> class1 = Integer.class;
+      JCSConfiguration<DataInputStream, Integer> jCSConfiguration0 = new JCSConfiguration<DataInputStream, Integer>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      char[] charArray0 = new char[6];
+      CharArrayReader charArrayReader0 = new CharArrayReader(charArray0);
+      byte[] byteArray0 = new byte[9];
+      CacheElementSerialized<CharArrayReader, ObjectInputStream> cacheElementSerialized0 = new CacheElementSerialized<CharArrayReader, ObjectInputStream>((String) null, charArrayReader0, byteArray0, (IElementAttributes) null);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      ExpiryAwareCache<DataInputStream, Integer> expiryAwareCache0 = new ExpiryAwareCache<DataInputStream, Integer>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<DataInputStream, Integer> jCSCache0 = new JCSCache<DataInputStream, Integer>(classLoader0, jCSCachingManager0, "\n threadPoolName = [", jCSConfiguration0, properties0, expiryAwareCache0);
+      Iterator<Cache.Entry<DataInputStream, Integer>> iterator0 = (Iterator<Cache.Entry<DataInputStream, Integer>>)jCSCache0.iterator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      MutableConfiguration<EternalExpiryPolicy, CharArrayReader> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, CharArrayReader>();
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<CharArrayReader> class1 = CharArrayReader.class;
+      JCSConfiguration<EternalExpiryPolicy, CharArrayReader> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, CharArrayReader>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<EternalExpiryPolicy, CharArrayReader> expiryAwareCache0 = new ExpiryAwareCache<EternalExpiryPolicy, CharArrayReader>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<EternalExpiryPolicy, CharArrayReader> jCSCache0 = new JCSCache<EternalExpiryPolicy, CharArrayReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      String string0 = jCSCache0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<ElementAttributes, Object> mutableConfiguration0 = new MutableConfiguration<ElementAttributes, Object>();
+      Class<ElementAttributes> class0 = ElementAttributes.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<ElementAttributes, Object> jCSConfiguration0 = new JCSConfiguration<ElementAttributes, Object>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<ElementAttributes, Object> expiryAwareCache0 = new ExpiryAwareCache<ElementAttributes, Object>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<ElementAttributes, Object> jCSCache0 = new JCSCache<ElementAttributes, Object>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.unwrap((Class<BufferedWriter>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      // Undeclared exception!
+      try { 
+        jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0, mockPrintStream0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      // Undeclared exception!
+      try { 
+        jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.removeAll((Set<? extends StandardSerializer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // keys is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      MutableConfiguration<BufferedWriter, Object> mutableConfiguration0 = new MutableConfiguration<BufferedWriter, Object>();
+      Class<BufferedWriter> class0 = BufferedWriter.class;
+      Class<Object> class1 = Object.class;
+      JCSConfiguration<BufferedWriter, Object> jCSConfiguration0 = new JCSConfiguration<BufferedWriter, Object>(mutableConfiguration0, class0, class1);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<BufferedWriter, Object> expiryAwareCache0 = new ExpiryAwareCache<BufferedWriter, Object>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<BufferedWriter, Object> jCSCache0 = new JCSCache<BufferedWriter, Object>(classLoader0, jCSCachingManager0, "U;H1a?<`6;m!?", jCSConfiguration0, properties0, expiryAwareCache0);
+      Integer integer0 = new Integer(3);
+      // Undeclared exception!
+      try { 
+        jCSCache0.remove((BufferedWriter) null, (Object) integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "f0~0C[NvbhbU,dErt");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<EntryProcessorException, OutputStreamWriter> mutableConfiguration0 = new MutableConfiguration<EntryProcessorException, OutputStreamWriter>();
+      Class<EntryProcessorException> class0 = EntryProcessorException.class;
+      Class<OutputStreamWriter> class1 = OutputStreamWriter.class;
+      JCSConfiguration<EntryProcessorException, OutputStreamWriter> jCSConfiguration0 = new JCSConfiguration<EntryProcessorException, OutputStreamWriter>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<EntryProcessorException, OutputStreamWriter> expiryAwareCache0 = new ExpiryAwareCache<EntryProcessorException, OutputStreamWriter>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<EntryProcessorException, OutputStreamWriter> jCSCache0 = new JCSCache<EntryProcessorException, OutputStreamWriter>(classLoader0, jCSCachingManager0, "4azy6S56>}!y:F|'V$", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.remove((EntryProcessorException) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Object, CharArrayReader> mutableConfiguration0 = new MutableConfiguration<Object, CharArrayReader>();
+      Class<Object> class0 = Object.class;
+      Class<CharArrayReader> class1 = CharArrayReader.class;
+      JCSConfiguration<Object, CharArrayReader> jCSConfiguration0 = new JCSConfiguration<Object, CharArrayReader>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ExpiryAwareCache<Object, CharArrayReader> expiryAwareCache0 = new ExpiryAwareCache<Object, CharArrayReader>(compositeCacheAttributes0, (IElementAttributes) null);
+      JCSCache<Object, CharArrayReader> jCSCache0 = new JCSCache<Object, CharArrayReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      char[] charArray0 = new char[5];
+      CharArrayReader charArrayReader0 = new CharArrayReader(charArray0, 3, 1);
+      // Undeclared exception!
+      try { 
+        jCSCache0.putIfAbsent((Object) null, charArrayReader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<FilterInputStream> class0 = FilterInputStream.class;
+      Class<PipedReader> class1 = PipedReader.class;
+      JCSConfiguration<FilterInputStream, PipedReader> jCSConfiguration0 = new JCSConfiguration<FilterInputStream, PipedReader>((Configuration<FilterInputStream, PipedReader>) null, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<FilterInputStream, PipedReader> expiryAwareCache0 = new ExpiryAwareCache<FilterInputStream, PipedReader>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<FilterInputStream, PipedReader> jCSCache0 = new JCSCache<FilterInputStream, PipedReader>(classLoader0, jCSCachingManager0, "/cache.ccf", jCSConfiguration0, properties0, expiryAwareCache0);
+      PipedReader pipedReader0 = new PipedReader();
+      // Undeclared exception!
+      try { 
+        jCSCache0.put((FilterInputStream) null, pipedReader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      MutableConfiguration<MockFileReader, CharArrayReader> mutableConfiguration0 = new MutableConfiguration<MockFileReader, CharArrayReader>();
+      Class<MockFileReader> class0 = MockFileReader.class;
+      Class<CharArrayReader> class1 = CharArrayReader.class;
+      JCSConfiguration<MockFileReader, CharArrayReader> jCSConfiguration0 = new JCSConfiguration<MockFileReader, CharArrayReader>(mutableConfiguration0, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ExpiryAwareCache<MockFileReader, CharArrayReader> expiryAwareCache0 = new ExpiryAwareCache<MockFileReader, CharArrayReader>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileReader, CharArrayReader> jCSCache0 = new JCSCache<MockFileReader, CharArrayReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.loadAll((Set<? extends MockFileReader>) null, true, completionListenerFuture0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // keys is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      MutableConfiguration<DataInputStream, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<DataInputStream, MockPrintStream>();
+      Class<DataInputStream> class0 = DataInputStream.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<DataInputStream, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<DataInputStream, MockPrintStream>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<DataInputStream, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<DataInputStream, MockPrintStream>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<DataInputStream, MockPrintStream> jCSCache0 = new JCSCache<DataInputStream, MockPrintStream>(classLoader0, jCSCachingManager0, "G[|:rR NShS", jCSConfiguration0, properties0, expiryAwareCache0);
+      TreeSet<DataInputStream> treeSet0 = new TreeSet<DataInputStream>();
+      Object[] objectArray0 = new Object[0];
+      // Undeclared exception!
+      try { 
+        jCSCache0.invokeAll((Set<? extends DataInputStream>) treeSet0, (EntryProcessor<DataInputStream, MockPrintStream, ElementAttributes>) null, objectArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // entryProcessor is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileWriter, MockFileWriter> mutableConfiguration0 = new MutableConfiguration<MockFileWriter, MockFileWriter>();
+      Class<MockFileWriter> class0 = MockFileWriter.class;
+      JCSConfiguration<MockFileWriter, MockFileWriter> jCSConfiguration0 = new JCSConfiguration<MockFileWriter, MockFileWriter>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<MockFileWriter, MockFileWriter> expiryAwareCache0 = new ExpiryAwareCache<MockFileWriter, MockFileWriter>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<MockFileWriter, MockFileWriter> jCSCache0 = new JCSCache<MockFileWriter, MockFileWriter>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      EntryProcessor<MockFileWriter, MockFileWriter, MockThread> entryProcessor0 = (EntryProcessor<MockFileWriter, MockFileWriter, MockThread>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        jCSCache0.invoke((MockFileWriter) null, entryProcessor0, (Object[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileWriter, MockFileWriter> mutableConfiguration0 = new MutableConfiguration<MockFileWriter, MockFileWriter>();
+      Class<MockFileWriter> class0 = MockFileWriter.class;
+      JCSConfiguration<MockFileWriter, MockFileWriter> jCSConfiguration0 = new JCSConfiguration<MockFileWriter, MockFileWriter>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<MockFileWriter, MockFileWriter> expiryAwareCache0 = new ExpiryAwareCache<MockFileWriter, MockFileWriter>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<MockFileWriter, MockFileWriter> jCSCache0 = new JCSCache<MockFileWriter, MockFileWriter>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      MockFileWriter mockFileWriter0 = new MockFileWriter("org.apache.commons.jcs3:type=JCSAdminBean", true);
+      EntryProcessor<MockFileWriter, MockFileWriter, MockThread> entryProcessor0 = (EntryProcessor<MockFileWriter, MockFileWriter, MockThread>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[0];
+      // Undeclared exception!
+      try { 
+        jCSCache0.invoke(mockFileWriter0, entryProcessor0, objectArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      MutableConfiguration<PipedWriter, CacheLoaderException> mutableConfiguration0 = new MutableConfiguration<PipedWriter, CacheLoaderException>();
+      Class<PipedWriter> class0 = PipedWriter.class;
+      Class<CacheLoaderException> class1 = CacheLoaderException.class;
+      JCSConfiguration<PipedWriter, CacheLoaderException> jCSConfiguration0 = new JCSConfiguration<PipedWriter, CacheLoaderException>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<PipedWriter, CacheLoaderException> expiryAwareCache0 = new ExpiryAwareCache<PipedWriter, CacheLoaderException>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<PipedWriter, CacheLoaderException> jCSCache0 = new JCSCache<PipedWriter, CacheLoaderException>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      PipedWriter pipedWriter0 = new PipedWriter();
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAndReplace(pipedWriter0, (CacheLoaderException) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // value is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAndRemove((StandardSerializer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAndPut((StandardSerializer) null, mockPrintStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      Class<CacheLoaderException> class0 = CacheLoaderException.class;
+      Class<MockFileOutputStream> class1 = MockFileOutputStream.class;
+      JCSConfiguration<CacheLoaderException, MockFileOutputStream> jCSConfiguration0 = new JCSConfiguration<CacheLoaderException, MockFileOutputStream>((Configuration<CacheLoaderException, MockFileOutputStream>) null, class0, class1);
+      ExpiryAwareCache<CacheLoaderException, MockFileOutputStream> expiryAwareCache0 = new ExpiryAwareCache<CacheLoaderException, MockFileOutputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<CacheLoaderException, MockFileOutputStream> jCSCache0 = new JCSCache<CacheLoaderException, MockFileOutputStream>(classLoader0, jCSCachingManager0, "call next() before remove()", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAll((Set<? extends CacheLoaderException>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<TouchedExpiryPolicy> class0 = TouchedExpiryPolicy.class;
+      Class<MockFileInputStream> class1 = MockFileInputStream.class;
+      JCSConfiguration<TouchedExpiryPolicy, MockFileInputStream> jCSConfiguration0 = new JCSConfiguration<TouchedExpiryPolicy, MockFileInputStream>((Configuration<TouchedExpiryPolicy, MockFileInputStream>) null, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<TouchedExpiryPolicy, MockFileInputStream> expiryAwareCache0 = new ExpiryAwareCache<TouchedExpiryPolicy, MockFileInputStream>(iCompositeCacheAttributes0, iElementAttributes0);
+      JCSCache<TouchedExpiryPolicy, MockFileInputStream> jCSCache0 = new JCSCache<TouchedExpiryPolicy, MockFileInputStream>(classLoader0, jCSCachingManager0, "<97{PkZc53aB5QT2J9y", jCSConfiguration0, properties0, expiryAwareCache0);
+      HashSet<TouchedExpiryPolicy> hashSet0 = new HashSet<TouchedExpiryPolicy>();
+      hashSet0.add((TouchedExpiryPolicy) null);
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAll(hashSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("B\u0006d'KS~$FBhJK=Pf");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<CharArrayWriter, CacheLoaderException> mutableConfiguration0 = new MutableConfiguration<CharArrayWriter, CacheLoaderException>();
+      Class<CharArrayWriter> class0 = CharArrayWriter.class;
+      Class<CacheLoaderException> class1 = CacheLoaderException.class;
+      JCSConfiguration<CharArrayWriter, CacheLoaderException> jCSConfiguration0 = new JCSConfiguration<CharArrayWriter, CacheLoaderException>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<CharArrayWriter, CacheLoaderException> expiryAwareCache0 = new ExpiryAwareCache<CharArrayWriter, CacheLoaderException>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<CharArrayWriter, CacheLoaderException> jCSCache0 = new JCSCache<CharArrayWriter, CacheLoaderException>(classLoader0, jCSCachingManager0, "k-^!9G'75L`@B$t3?^=", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.get((CharArrayWriter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "6q*_@50GHCb.zI?", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.enableStatistics();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JMXs", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream>();
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<MockFileOutputStream> class1 = MockFileOutputStream.class;
+      JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream> expiryAwareCache0 = new ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<EternalExpiryPolicy, MockFileOutputStream> jCSCache0 = new JCSCache<EternalExpiryPolicy, MockFileOutputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.containsKey((EternalExpiryPolicy) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // key is null
+         //
+         verifyException("org.apache.commons.jcs3.jcache.Asserts", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<OutputStreamWriter, BufferedInputStream> mutableConfiguration0 = new MutableConfiguration<OutputStreamWriter, BufferedInputStream>();
+      FactoryBuilder.ClassFactory<CacheWriter<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheWriter<Object, Object>>("");
+      MutableConfiguration<OutputStreamWriter, BufferedInputStream> mutableConfiguration1 = mutableConfiguration0.setCacheWriterFactory(factoryBuilder_ClassFactory0);
+      Class<OutputStreamWriter> class0 = OutputStreamWriter.class;
+      Class<BufferedInputStream> class1 = BufferedInputStream.class;
+      JCSConfiguration<OutputStreamWriter, BufferedInputStream> jCSConfiguration0 = new JCSConfiguration<OutputStreamWriter, BufferedInputStream>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      char[] charArray0 = new char[5];
+      CharArrayReader charArrayReader0 = new CharArrayReader(charArray0);
+      byte[] byteArray0 = new byte[7];
+      CacheElementSerialized<CharArrayReader, ObjectInputStream> cacheElementSerialized0 = new CacheElementSerialized<CharArrayReader, ObjectInputStream>("P0BGvc``cGDlWlnuJ6", charArrayReader0, byteArray0, (IElementAttributes) null);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      ExpiryAwareCache<OutputStreamWriter, BufferedInputStream> expiryAwareCache0 = new ExpiryAwareCache<OutputStreamWriter, BufferedInputStream>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<OutputStreamWriter, BufferedInputStream> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<OutputStreamWriter, BufferedInputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Failed to create an instance of 
+         //
+         verifyException("javax.cache.configuration.FactoryBuilder$ClassFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<FilterInputStream, DataInputStream> mutableConfiguration0 = new MutableConfiguration<FilterInputStream, DataInputStream>();
+      MutableConfiguration<FilterInputStream, DataInputStream> mutableConfiguration1 = mutableConfiguration0.setManagementEnabled(true);
+      Class<FilterInputStream> class0 = FilterInputStream.class;
+      Class<DataInputStream> class1 = DataInputStream.class;
+      JCSConfiguration<FilterInputStream, DataInputStream> jCSConfiguration0 = new JCSConfiguration<FilterInputStream, DataInputStream>(mutableConfiguration1, class0, class1);
+      ExpiryAwareCache<FilterInputStream, DataInputStream> expiryAwareCache0 = new ExpiryAwareCache<FilterInputStream, DataInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<FilterInputStream, DataInputStream> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<FilterInputStream, DataInputStream>(classLoader0, jCSCachingManager0, "u?", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JMXs", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<FilterOutputStream> class0 = FilterOutputStream.class;
+      Class<CharArrayWriter> class1 = CharArrayWriter.class;
+      JCSConfiguration<FilterOutputStream, CharArrayWriter> jCSConfiguration0 = new JCSConfiguration<FilterOutputStream, CharArrayWriter>((Configuration<FilterOutputStream, CharArrayWriter>) null, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<FilterOutputStream, CharArrayWriter> expiryAwareCache0 = new ExpiryAwareCache<FilterOutputStream, CharArrayWriter>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<FilterOutputStream, CharArrayWriter> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<FilterOutputStream, CharArrayWriter>(classLoader0, jCSCachingManager0, "F6A_O,)d1.", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.ClassCastException: org.apache.commons.jcs3.utils.serialization.StandardSerializer cannot be cast to org.apache.commons.jcs3.engine.behavior.IElementSerializer
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      boolean boolean0 = jCSCache0.remove((StandardSerializer) compressingSerializer0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<AccessedExpiryPolicy, PipedInputStream> mutableConfiguration0 = new MutableConfiguration<AccessedExpiryPolicy, PipedInputStream>();
+      Class<AccessedExpiryPolicy> class0 = AccessedExpiryPolicy.class;
+      Class<PipedInputStream> class1 = PipedInputStream.class;
+      JCSConfiguration<AccessedExpiryPolicy, PipedInputStream> jCSConfiguration0 = new JCSConfiguration<AccessedExpiryPolicy, PipedInputStream>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<AccessedExpiryPolicy, PipedInputStream> expiryAwareCache0 = new ExpiryAwareCache<AccessedExpiryPolicy, PipedInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<AccessedExpiryPolicy, PipedInputStream> jCSCache0 = new JCSCache<AccessedExpiryPolicy, PipedInputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      Duration duration0 = Duration.ZERO;
+      AccessedExpiryPolicy accessedExpiryPolicy0 = new AccessedExpiryPolicy(duration0);
+      boolean boolean0 = jCSCache0.remove(accessedExpiryPolicy0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("#params for setter != 1");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<ByteArrayInputStream, PipedReader> mutableConfiguration0 = new MutableConfiguration<ByteArrayInputStream, PipedReader>();
+      Class<ByteArrayInputStream> class0 = ByteArrayInputStream.class;
+      Class<PipedReader> class1 = PipedReader.class;
+      JCSConfiguration<ByteArrayInputStream, PipedReader> jCSConfiguration0 = new JCSConfiguration<ByteArrayInputStream, PipedReader>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<ByteArrayInputStream, PipedReader> expiryAwareCache0 = new ExpiryAwareCache<ByteArrayInputStream, PipedReader>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<ByteArrayInputStream, PipedReader> jCSCache0 = new JCSCache<ByteArrayInputStream, PipedReader>(classLoader0, jCSCachingManager0, "#params for setter != 1", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PipedReader pipedReader0 = new PipedReader();
+      // Undeclared exception!
+      try { 
+        jCSCache0.put(byteArrayInputStream0, pipedReader0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // java.io.NotSerializableException: java.io.PipedReader
+         //
+         verifyException("org.apache.commons.jcs3.jcache.serialization.Serializations", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<ByteArrayInputStream> class0 = ByteArrayInputStream.class;
+      Class<EncryptingSerializer> class1 = EncryptingSerializer.class;
+      JCSConfiguration<ByteArrayInputStream, EncryptingSerializer> jCSConfiguration0 = new JCSConfiguration<ByteArrayInputStream, EncryptingSerializer>((Configuration<ByteArrayInputStream, EncryptingSerializer>) null, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ExpiryAwareCache<ByteArrayInputStream, EncryptingSerializer> expiryAwareCache0 = new ExpiryAwareCache<ByteArrayInputStream, EncryptingSerializer>(compositeCacheAttributes0, (IElementAttributes) null);
+      JCSCache<ByteArrayInputStream, EncryptingSerializer> jCSCache0 = new JCSCache<ByteArrayInputStream, EncryptingSerializer>(classLoader0, jCSCachingManager0, ".", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1, (byte)0);
+      boolean boolean0 = jCSCache0.containsKey(byteArrayInputStream0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<MockPrintStream> class0 = MockPrintStream.class;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<ElementAttributes, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<ElementAttributes, MockPrintStream>();
+      Class<ElementAttributes> class1 = ElementAttributes.class;
+      JCSConfiguration<ElementAttributes, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<ElementAttributes, MockPrintStream>(mutableConfiguration0, class1, class0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ExpiryAwareCache<ElementAttributes, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<ElementAttributes, MockPrintStream>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<ElementAttributes, MockPrintStream> jCSCache0 = new JCSCache<ElementAttributes, MockPrintStream>(classLoader0, jCSCachingManager0, "fR#D5HL:~", jCSConfiguration0, properties0, expiryAwareCache0);
+      String string0 = jCSCache0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<DataOutputStream, BufferedReader> mutableConfiguration0 = new MutableConfiguration<DataOutputStream, BufferedReader>();
+      Class<DataOutputStream> class0 = DataOutputStream.class;
+      Class<BufferedReader> class1 = BufferedReader.class;
+      JCSConfiguration<DataOutputStream, BufferedReader> jCSConfiguration0 = new JCSConfiguration<DataOutputStream, BufferedReader>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<DataOutputStream, BufferedReader> expiryAwareCache0 = new ExpiryAwareCache<DataOutputStream, BufferedReader>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<DataOutputStream, BufferedReader> jCSCache0 = new JCSCache<DataOutputStream, BufferedReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      boolean boolean0 = jCSCache0.isClosed();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      MockThread mockThread0 = new MockThread("#params for setter != 1");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<BufferedReader, ElementAttributes> mutableConfiguration0 = new MutableConfiguration<BufferedReader, ElementAttributes>();
+      Class<BufferedReader> class0 = BufferedReader.class;
+      Class<ElementAttributes> class1 = ElementAttributes.class;
+      JCSConfiguration<BufferedReader, ElementAttributes> jCSConfiguration0 = new JCSConfiguration<BufferedReader, ElementAttributes>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<BufferedReader, ElementAttributes> expiryAwareCache0 = new ExpiryAwareCache<BufferedReader, ElementAttributes>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<BufferedReader, ElementAttributes> jCSCache0 = new JCSCache<BufferedReader, ElementAttributes>(classLoader0, jCSCachingManager0, "#params for setter != 1", jCSConfiguration0, properties0, expiryAwareCache0);
+      Class<Object> class2 = Object.class;
+      JCSCache jCSCache1 = (JCSCache)jCSCache0.unwrap(class2);
+      assertTrue(jCSCache1.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<PushbackInputStream, CacheWriterException> mutableConfiguration0 = new MutableConfiguration<PushbackInputStream, CacheWriterException>();
+      Class<PushbackInputStream> class0 = PushbackInputStream.class;
+      Class<CacheWriterException> class1 = CacheWriterException.class;
+      JCSConfiguration<PushbackInputStream, CacheWriterException> jCSConfiguration0 = new JCSConfiguration<PushbackInputStream, CacheWriterException>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<PushbackInputStream, CacheWriterException> expiryAwareCache0 = new ExpiryAwareCache<PushbackInputStream, CacheWriterException>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<PushbackInputStream, CacheWriterException> jCSCache0 = new JCSCache<PushbackInputStream, CacheWriterException>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      Class<BufferedInputStream> class2 = BufferedInputStream.class;
+      // Undeclared exception!
+      try { 
+        jCSCache0.unwrap(class2);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.io.BufferedInputStream not supported in unwrap
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream>();
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<MockFileOutputStream> class1 = MockFileOutputStream.class;
+      JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream> expiryAwareCache0 = new ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<EternalExpiryPolicy, MockFileOutputStream> jCSCache0 = new JCSCache<EternalExpiryPolicy, MockFileOutputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      jCSCache0.close();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<BufferedReader, ElementAttributes> mutableConfiguration0 = new MutableConfiguration<BufferedReader, ElementAttributes>();
+      Class<BufferedReader> class0 = BufferedReader.class;
+      Class<ElementAttributes> class1 = ElementAttributes.class;
+      JCSConfiguration<BufferedReader, ElementAttributes> jCSConfiguration0 = new JCSConfiguration<BufferedReader, ElementAttributes>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<BufferedReader, ElementAttributes> expiryAwareCache0 = new ExpiryAwareCache<BufferedReader, ElementAttributes>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<BufferedReader, ElementAttributes> jCSCache0 = new JCSCache<BufferedReader, ElementAttributes>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      FactoryBuilder.ClassFactory<CacheEntryListener<Object, Object>> factoryBuilder_ClassFactory0 = new FactoryBuilder.ClassFactory<CacheEntryListener<Object, Object>>((String) null);
+      CacheEntryEventFilter<Object, Object> cacheEntryEventFilter0 = (CacheEntryEventFilter<Object, Object>) mock(CacheEntryEventFilter.class, new ViolatedAssumptionAnswer());
+      FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>> factoryBuilder_SingletonFactory0 = new FactoryBuilder.SingletonFactory<CacheEntryEventFilter<Object, Object>>(cacheEntryEventFilter0);
+      MutableCacheEntryListenerConfiguration<BufferedReader, ElementAttributes> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<BufferedReader, ElementAttributes>(factoryBuilder_ClassFactory0, factoryBuilder_SingletonFactory0, true, false);
+      // Undeclared exception!
+      try { 
+        jCSCache0.registerCacheEntryListener(mutableCacheEntryListenerConfiguration0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Failed to create an instance of null
+         //
+         verifyException("javax.cache.configuration.FactoryBuilder$ClassFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<FilterOutputStream, MockFileInputStream> mutableConfiguration0 = new MutableConfiguration<FilterOutputStream, MockFileInputStream>();
+      Class<FilterOutputStream> class0 = FilterOutputStream.class;
+      Class<MockFileInputStream> class1 = MockFileInputStream.class;
+      JCSConfiguration<FilterOutputStream, MockFileInputStream> jCSConfiguration0 = new JCSConfiguration<FilterOutputStream, MockFileInputStream>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<FilterOutputStream, MockFileInputStream> expiryAwareCache0 = new ExpiryAwareCache<FilterOutputStream, MockFileInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<FilterOutputStream, MockFileInputStream> jCSCache0 = new JCSCache<FilterOutputStream, MockFileInputStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      TreeSet<DataOutputStream> treeSet0 = new TreeSet<DataOutputStream>();
+      EntryProcessor<FilterOutputStream, MockFileInputStream, MockThread> entryProcessor0 = (EntryProcessor<FilterOutputStream, MockFileInputStream, MockThread>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      Object[] objectArray0 = new Object[4];
+      Map<FilterOutputStream, EntryProcessorResult<MockThread>> map0 = jCSCache0.invokeAll((Set<? extends FilterOutputStream>) treeSet0, entryProcessor0, objectArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      LinkedHashSet<EncryptingSerializer> linkedHashSet0 = new LinkedHashSet<EncryptingSerializer>();
+      CompletionListenerFuture completionListenerFuture0 = new CompletionListenerFuture();
+      jCSCache0.loadAll(linkedHashSet0, false, completionListenerFuture0);
+      assertTrue(linkedHashSet0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<FilterOutputStream, StandardSerializer> mutableConfiguration0 = new MutableConfiguration<FilterOutputStream, StandardSerializer>();
+      Class<FilterOutputStream> class1 = FilterOutputStream.class;
+      JCSConfiguration<FilterOutputStream, StandardSerializer> jCSConfiguration0 = new JCSConfiguration<FilterOutputStream, StandardSerializer>(mutableConfiguration0, class1, class0);
+      ExpiryAwareCache<FilterOutputStream, StandardSerializer> expiryAwareCache0 = new ExpiryAwareCache<FilterOutputStream, StandardSerializer>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<FilterOutputStream, StandardSerializer> jCSCache0 = new JCSCache<FilterOutputStream, StandardSerializer>(classLoader0, jCSCachingManager0, "org.apache.commons.jcs3.engine.CacheInfo", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.removeAll();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      LinkedHashSet<EncryptingSerializer> linkedHashSet0 = new LinkedHashSet<EncryptingSerializer>();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      linkedHashSet0.add(encryptingSerializer0);
+      MutableConfiguration<EncryptingSerializer, FilterOutputStream> mutableConfiguration0 = new MutableConfiguration<EncryptingSerializer, FilterOutputStream>();
+      Class<EncryptingSerializer> class0 = EncryptingSerializer.class;
+      Class<FilterOutputStream> class1 = FilterOutputStream.class;
+      JCSConfiguration<EncryptingSerializer, FilterOutputStream> jCSConfiguration0 = new JCSConfiguration<EncryptingSerializer, FilterOutputStream>(mutableConfiguration0, class0, class1);
+      ExpiryAwareCache<EncryptingSerializer, FilterOutputStream> expiryAwareCache0 = new ExpiryAwareCache<EncryptingSerializer, FilterOutputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<EncryptingSerializer, FilterOutputStream> jCSCache0 = new JCSCache<EncryptingSerializer, FilterOutputStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.removeAll((Set<? extends EncryptingSerializer>) linkedHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      MockPrintStream mockPrintStream1 = jCSCache0.getAndReplace(compressingSerializer0, mockPrintStream0);
+      assertNotNull(mockPrintStream1);
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      MockPrintStream mockPrintStream1 = jCSCache0.getAndReplace(compressingSerializer0, mockPrintStream0);
+      assertNotNull(mockPrintStream1);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("5\"Lw}aM^^XZ2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      boolean boolean0 = jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("5\"Lw}aM^^XZ2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      boolean boolean0 = jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSConfiguration0.statisticsEnabled();
+      boolean boolean0 = jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0, mockPrintStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aM^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      boolean boolean0 = jCSCache0.replace((StandardSerializer) compressingSerializer0, mockPrintStream0, mockPrintStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<ByteArrayInputStream, ElementAttributes> mutableConfiguration0 = new MutableConfiguration<ByteArrayInputStream, ElementAttributes>();
+      MutableConfiguration<ByteArrayInputStream, ElementAttributes> mutableConfiguration1 = mutableConfiguration0.setReadThrough(true);
+      Class<ByteArrayInputStream> class0 = ByteArrayInputStream.class;
+      Class<ElementAttributes> class1 = ElementAttributes.class;
+      JCSConfiguration<ByteArrayInputStream, ElementAttributes> jCSConfiguration0 = new JCSConfiguration<ByteArrayInputStream, ElementAttributes>(mutableConfiguration1, class0, class1);
+      ExpiryAwareCache<ByteArrayInputStream, ElementAttributes> expiryAwareCache0 = new ExpiryAwareCache<ByteArrayInputStream, ElementAttributes>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<ByteArrayInputStream, ElementAttributes> jCSCache0 = new JCSCache<ByteArrayInputStream, ElementAttributes>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1, 883);
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAndPut(byteArrayInputStream0, elementAttributes0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // java.io.NotSerializableException: java.io.ByteArrayInputStream
+         //
+         verifyException("org.apache.commons.jcs3.jcache.serialization.Serializations", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      Class<PipedOutputStream> class0 = PipedOutputStream.class;
+      Class<BufferedOutputStream> class1 = BufferedOutputStream.class;
+      JCSConfiguration<PipedOutputStream, BufferedOutputStream> jCSConfiguration0 = new JCSConfiguration<PipedOutputStream, BufferedOutputStream>((Configuration<PipedOutputStream, BufferedOutputStream>) null, class0, class1);
+      MutableConfiguration<Object, ClientInfoStatus> mutableConfiguration0 = new MutableConfiguration<Object, ClientInfoStatus>();
+      Class<Object> class2 = Object.class;
+      Class<ClientInfoStatus> class3 = ClientInfoStatus.class;
+      JCSConfiguration<Object, ClientInfoStatus> jCSConfiguration1 = new JCSConfiguration<Object, ClientInfoStatus>(mutableConfiguration0, class2, class3);
+      ExpiryAwareCache<Object, ClientInfoStatus> expiryAwareCache0 = new ExpiryAwareCache<Object, ClientInfoStatus>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ClientInfoStatus> jCSCache0 = new JCSCache<Object, ClientInfoStatus>(classLoader0, jCSCachingManager0, "org.apache.commons.jcs3.jcache.JCSCache$1", jCSConfiguration1, properties0, expiryAwareCache0);
+      ClientInfoStatus clientInfoStatus0 = ClientInfoStatus.REASON_VALUE_INVALID;
+      boolean boolean0 = jCSCache0.remove((Object) jCSConfiguration0, clientInfoStatus0);
+      assertEquals(0, expiryAwareCache0.getMissCountNotFound());
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      Class<PipedOutputStream> class0 = PipedOutputStream.class;
+      Class<BufferedOutputStream> class1 = BufferedOutputStream.class;
+      JCSConfiguration<PipedOutputStream, BufferedOutputStream> jCSConfiguration0 = new JCSConfiguration<PipedOutputStream, BufferedOutputStream>((Configuration<PipedOutputStream, BufferedOutputStream>) null, class0, class1);
+      MutableConfiguration<Object, ClientInfoStatus> mutableConfiguration0 = new MutableConfiguration<Object, ClientInfoStatus>();
+      Class<Object> class2 = Object.class;
+      Class<ClientInfoStatus> class3 = ClientInfoStatus.class;
+      JCSConfiguration<Object, ClientInfoStatus> jCSConfiguration1 = new JCSConfiguration<Object, ClientInfoStatus>(mutableConfiguration0, class2, class3);
+      ExpiryAwareCache<Object, ClientInfoStatus> expiryAwareCache0 = new ExpiryAwareCache<Object, ClientInfoStatus>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<Object, ClientInfoStatus> jCSCache0 = new JCSCache<Object, ClientInfoStatus>(classLoader0, jCSCachingManager0, "org.apache.commons.jcs3.jcache.JCSCache$1", jCSConfiguration1, properties0, expiryAwareCache0);
+      ClientInfoStatus clientInfoStatus0 = ClientInfoStatus.REASON_VALUE_INVALID;
+      boolean boolean0 = jCSCache0.remove((Object) jCSConfiguration0, clientInfoStatus0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      byte[] byteArray0 = new byte[2];
+      CacheElementSerialized<StandardSerializer, MockPrintStream> cacheElementSerialized0 = new CacheElementSerialized<StandardSerializer, MockPrintStream>("", compressingSerializer0, byteArray0, elementAttributes0);
+      expiryAwareCache0.update(cacheElementSerialized0);
+      MockPrintStream mockPrintStream0 = jCSCache0.getAndRemove(compressingSerializer0);
+      assertNotNull(mockPrintStream0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[2];
+      CacheElementSerialized<StandardSerializer, MockPrintStream> cacheElementSerialized0 = new CacheElementSerialized<StandardSerializer, MockPrintStream>("", compressingSerializer0, byteArray0, elementAttributes0);
+      expiryAwareCache0.update(cacheElementSerialized0);
+      MockPrintStream mockPrintStream0 = jCSCache0.getAndRemove(compressingSerializer0);
+      assertNotNull(mockPrintStream0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      Class<MockFileReader> class0 = MockFileReader.class;
+      Class<PipedInputStream> class1 = PipedInputStream.class;
+      JCSConfiguration<MockFileReader, PipedInputStream> jCSConfiguration0 = new JCSConfiguration<MockFileReader, PipedInputStream>((Configuration<MockFileReader, PipedInputStream>) null, class0, class1);
+      ExpiryAwareCache<MockFileReader, PipedInputStream> expiryAwareCache0 = new ExpiryAwareCache<MockFileReader, PipedInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileReader, PipedInputStream> jCSCache0 = new JCSCache<MockFileReader, PipedInputStream>(classLoader0, jCSCachingManager0, "]", jCSConfiguration0, properties0, expiryAwareCache0);
+      ConcurrentHashMap<MockFileReader, PipedInputStream> concurrentHashMap0 = new ConcurrentHashMap<MockFileReader, PipedInputStream>();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileReader mockFileReader0 = new MockFileReader(fileDescriptor0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0);
+      concurrentHashMap0.put(mockFileReader0, pipedInputStream0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.putAll(concurrentHashMap0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // java.io.NotSerializableException: java.io.PipedInputStream
+         //
+         verifyException("org.apache.commons.jcs3.jcache.serialization.Serializations", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      Class<MockFileReader> class0 = MockFileReader.class;
+      Class<PipedInputStream> class1 = PipedInputStream.class;
+      JCSConfiguration<MockFileReader, PipedInputStream> jCSConfiguration0 = new JCSConfiguration<MockFileReader, PipedInputStream>((Configuration<MockFileReader, PipedInputStream>) null, class0, class1);
+      ExpiryAwareCache<MockFileReader, PipedInputStream> expiryAwareCache0 = new ExpiryAwareCache<MockFileReader, PipedInputStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileReader, PipedInputStream> jCSCache0 = new JCSCache<MockFileReader, PipedInputStream>(classLoader0, jCSCachingManager0, "]", jCSConfiguration0, properties0, expiryAwareCache0);
+      ConcurrentHashMap<MockFileReader, PipedInputStream> concurrentHashMap0 = new ConcurrentHashMap<MockFileReader, PipedInputStream>();
+      jCSCache0.putAll(concurrentHashMap0);
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      mutableConfiguration0.setStoreByValue(false);
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("-=");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      jCSCache0.getAndPut(compressingSerializer0, mockPrintStream0);
+      assertEquals(0, expiryAwareCache0.getUpdateCount());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      mutableConfiguration0.setStoreByValue(false);
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("-=");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableStatistics();
+      jCSCache0.getAndPut(compressingSerializer0, mockPrintStream0);
+      assertEquals(0, expiryAwareCache0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      mutableConfiguration0.setStoreByValue(false);
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("-=");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[2];
+      CacheElementSerialized<StandardSerializer, MockPrintStream> cacheElementSerialized0 = new CacheElementSerialized<StandardSerializer, MockPrintStream>("", compressingSerializer0, byteArray0, elementAttributes0);
+      expiryAwareCache0.update(cacheElementSerialized0);
+      jCSCache0.getAndPut(compressingSerializer0, mockPrintStream0);
+      assertEquals(0, expiryAwareCache0.getHitCountRam());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      mutableConfiguration0.setStoreByValue(false);
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("-=");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      byte[] byteArray0 = new byte[2];
+      CacheElementSerialized<StandardSerializer, MockPrintStream> cacheElementSerialized0 = new CacheElementSerialized<StandardSerializer, MockPrintStream>("", compressingSerializer0, byteArray0, elementAttributes0);
+      expiryAwareCache0.update(cacheElementSerialized0);
+      jCSCache0.getAndPut(compressingSerializer0, mockPrintStream0);
+      assertEquals(0, elementAttributes0.getTimeToLiveSeconds());
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("\"Lw}aMz^^XZS2:");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      // Undeclared exception!
+      try { 
+        jCSCache0.putIfAbsent(encryptingSerializer0, mockPrintStream0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // java.io.NotSerializableException: org.evosuite.runtime.mock.java.io.MockPrintStream
+         //
+         verifyException("org.apache.commons.jcs3.jcache.serialization.Serializations", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      LinkedHashSet<EncryptingSerializer> linkedHashSet0 = new LinkedHashSet<EncryptingSerializer>();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      linkedHashSet0.add(encryptingSerializer0);
+      jCSCache0.getAll(linkedHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "9$?G kN&~w=GDt%|ZyL");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileOutputStream, MockFileReader> mutableConfiguration0 = new MutableConfiguration<MockFileOutputStream, MockFileReader>();
+      MutableConfiguration<MockFileOutputStream, MockFileReader> mutableConfiguration1 = mutableConfiguration0.setReadThrough(true);
+      Class<MockFileOutputStream> class0 = MockFileOutputStream.class;
+      Class<MockFileReader> class1 = MockFileReader.class;
+      JCSConfiguration<MockFileOutputStream, MockFileReader> jCSConfiguration0 = new JCSConfiguration<MockFileOutputStream, MockFileReader>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<MockFileOutputStream, MockFileReader> expiryAwareCache0 = new ExpiryAwareCache<MockFileOutputStream, MockFileReader>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileOutputStream, MockFileReader> jCSCache0 = new JCSCache<MockFileOutputStream, MockFileReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("9$?G kN&~w=GDt%|ZyL", true);
+      jCSCache0.get(mockFileOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "9$?G kN&~w=GDt%|ZyL");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileOutputStream, MockFileReader> mutableConfiguration0 = new MutableConfiguration<MockFileOutputStream, MockFileReader>();
+      MutableConfiguration<MockFileOutputStream, MockFileReader> mutableConfiguration1 = mutableConfiguration0.setReadThrough(true);
+      Class<MockFileOutputStream> class0 = MockFileOutputStream.class;
+      Class<MockFileReader> class1 = MockFileReader.class;
+      JCSConfiguration<MockFileOutputStream, MockFileReader> jCSConfiguration0 = new JCSConfiguration<MockFileOutputStream, MockFileReader>(mutableConfiguration1, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<MockFileOutputStream, MockFileReader> expiryAwareCache0 = new ExpiryAwareCache<MockFileOutputStream, MockFileReader>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileOutputStream, MockFileReader> jCSCache0 = new JCSCache<MockFileOutputStream, MockFileReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("9$?G kN&~w=GDt%|ZyL", true);
+      jCSCache0.get(mockFileOutputStream0);
+      assertEquals(0, expiryAwareCache0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.close();
+      // Undeclared exception!
+      try { 
+        jCSCache0.getAndRemove(compressingSerializer0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cache closed
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream> mutableConfiguration0 = new MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream>();
+      MutableConfiguration<EternalExpiryPolicy, MockFileOutputStream> mutableConfiguration1 = mutableConfiguration0.setStatisticsEnabled(true);
+      Class<EternalExpiryPolicy> class0 = EternalExpiryPolicy.class;
+      Class<MockFileOutputStream> class1 = MockFileOutputStream.class;
+      JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream> jCSConfiguration0 = new JCSConfiguration<EternalExpiryPolicy, MockFileOutputStream>(mutableConfiguration1, class0, class1);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream> expiryAwareCache0 = new ExpiryAwareCache<EternalExpiryPolicy, MockFileOutputStream>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<EternalExpiryPolicy, MockFileOutputStream> jCSCache0 = new JCSCache<EternalExpiryPolicy, MockFileOutputStream>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<MockFileWriter> class0 = MockFileWriter.class;
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      MutableConfiguration<MockFileWriter, BufferedReader> mutableConfiguration0 = new MutableConfiguration<MockFileWriter, BufferedReader>();
+      MutableCacheEntryListenerConfiguration<MockFileWriter, BufferedReader> mutableCacheEntryListenerConfiguration0 = new MutableCacheEntryListenerConfiguration<MockFileWriter, BufferedReader>((Factory<? extends CacheEntryListener<? super MockFileWriter, ? super BufferedReader>>) null, (Factory<? extends CacheEntryEventFilter<? super MockFileWriter, ? super BufferedReader>>) null, true, false);
+      MutableConfiguration<MockFileWriter, BufferedReader> mutableConfiguration1 = mutableConfiguration0.addCacheEntryListenerConfiguration(mutableCacheEntryListenerConfiguration0);
+      Class<BufferedReader> class1 = BufferedReader.class;
+      JCSConfiguration<MockFileWriter, BufferedReader> jCSConfiguration0 = new JCSConfiguration<MockFileWriter, BufferedReader>(mutableConfiguration1, class0, class1);
+      ExpiryAwareCache<MockFileWriter, BufferedReader> expiryAwareCache0 = new ExpiryAwareCache<MockFileWriter, BufferedReader>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<MockFileWriter, BufferedReader> jCSCache0 = null;
+      try {
+        jCSCache0 = new JCSCache<MockFileWriter, BufferedReader>(classLoader0, jCSCachingManager0, "Propagated {0} events to the new ICacheServiceNonLocal in {1}", jCSConfiguration0, properties0, expiryAwareCache0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.JCSListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileWriter, MockFileWriter> mutableConfiguration0 = new MutableConfiguration<MockFileWriter, MockFileWriter>();
+      Class<MockFileWriter> class0 = MockFileWriter.class;
+      JCSConfiguration<MockFileWriter, MockFileWriter> jCSConfiguration0 = new JCSConfiguration<MockFileWriter, MockFileWriter>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<MockFileWriter, MockFileWriter> expiryAwareCache0 = new ExpiryAwareCache<MockFileWriter, MockFileWriter>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<MockFileWriter, MockFileWriter> jCSCache0 = new JCSCache<MockFileWriter, MockFileWriter>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.enableManagement();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      Consumer<Object> consumer0 = (Consumer<Object>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      jCSCache0.forEach(consumer0);
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileWriter, MockFileWriter> mutableConfiguration0 = new MutableConfiguration<MockFileWriter, MockFileWriter>();
+      Class<MockFileWriter> class0 = MockFileWriter.class;
+      JCSConfiguration<MockFileWriter, MockFileWriter> jCSConfiguration0 = new JCSConfiguration<MockFileWriter, MockFileWriter>(mutableConfiguration0, class0, class0);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<MockFileWriter, MockFileWriter> expiryAwareCache0 = new ExpiryAwareCache<MockFileWriter, MockFileWriter>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<MockFileWriter, MockFileWriter> jCSCache0 = new JCSCache<MockFileWriter, MockFileWriter>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      MockFileWriter mockFileWriter0 = new MockFileWriter("org.apache.commons.jcs3:type=JCSAdminBean", true);
+      EntryProcessor<MockFileWriter, MockFileWriter, MockThread> entryProcessor0 = (EntryProcessor<MockFileWriter, MockFileWriter, MockThread>) mock(EntryProcessor.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(entryProcessor0).process(nullable(javax.cache.processor.MutableEntry.class) , any(java.lang.Object[].class));
+      Object[] objectArray0 = new Object[0];
+      jCSCache0.invoke(mockFileWriter0, entryProcessor0, objectArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      Class<Integer> class0 = Integer.class;
+      Class<String> class1 = String.class;
+      JCSConfiguration<Integer, String> jCSConfiguration0 = new JCSConfiguration<Integer, String>((Configuration<Integer, String>) null, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<Integer, String> expiryAwareCache0 = new ExpiryAwareCache<Integer, String>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<Integer, String> jCSCache0 = new JCSCache<Integer, String>(classLoader0, jCSCachingManager0, "f@s 25bX}07yn+", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.disableManagement();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MutableConfiguration<MockRandomAccessFile, MockFileWriter> mutableConfiguration0 = new MutableConfiguration<MockRandomAccessFile, MockFileWriter>();
+      Class<MockRandomAccessFile> class0 = MockRandomAccessFile.class;
+      Class<MockFileWriter> class1 = MockFileWriter.class;
+      JCSConfiguration<MockRandomAccessFile, MockFileWriter> jCSConfiguration0 = new JCSConfiguration<MockRandomAccessFile, MockFileWriter>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ExpiryAwareCache<MockRandomAccessFile, MockFileWriter> expiryAwareCache0 = new ExpiryAwareCache<MockRandomAccessFile, MockFileWriter>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockRandomAccessFile, MockFileWriter> jCSCache0 = new JCSCache<MockRandomAccessFile, MockFileWriter>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.disableStatistics();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockPrintStream, LinkOption> mutableConfiguration0 = new MutableConfiguration<MockPrintStream, LinkOption>();
+      Cache<MockPrintStream, LinkOption> cache0 = jCSCachingManager0.createCache("`761dj@-;W,8y{)$v2", mutableConfiguration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<StandardSerializer, MockPrintStream> mutableConfiguration0 = new MutableConfiguration<StandardSerializer, MockPrintStream>();
+      Class<StandardSerializer> class0 = StandardSerializer.class;
+      Class<MockPrintStream> class1 = MockPrintStream.class;
+      JCSConfiguration<StandardSerializer, MockPrintStream> jCSConfiguration0 = new JCSConfiguration<StandardSerializer, MockPrintStream>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<StandardSerializer, MockPrintStream> expiryAwareCache0 = new ExpiryAwareCache<StandardSerializer, MockPrintStream>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<StandardSerializer, MockPrintStream> jCSCache0 = new JCSCache<StandardSerializer, MockPrintStream>(classLoader0, jCSCachingManager0, "-=", jCSConfiguration0, properties0, expiryAwareCache0);
+      CacheManager cacheManager0 = jCSCache0.getCacheManager();
+      assertTrue(cacheManager0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      MockThread mockThread0 = new MockThread();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      Class<CompressingSerializer> class0 = CompressingSerializer.class;
+      Class<PipedReader> class1 = PipedReader.class;
+      JCSConfiguration<CompressingSerializer, PipedReader> jCSConfiguration0 = new JCSConfiguration<CompressingSerializer, PipedReader>((Configuration<CompressingSerializer, PipedReader>) null, class0, class1);
+      ExpiryAwareCache<CompressingSerializer, PipedReader> expiryAwareCache0 = new ExpiryAwareCache<CompressingSerializer, PipedReader>(iCompositeCacheAttributes0, elementAttributes0);
+      JCSCache<CompressingSerializer, PipedReader> jCSCache0 = new JCSCache<CompressingSerializer, PipedReader>(classLoader0, jCSCachingManager0, "[u<s;=GW}o3SQ", jCSConfiguration0, properties0, expiryAwareCache0);
+      jCSCache0.clear();
+      assertTrue(jCSCache0.isClosed());
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor((LateralTCPCacheFactory) null);
+      ClassLoader classLoader0 = lateralCacheMonitor0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<CompressingSerializer, MockFileReader> mutableConfiguration0 = new MutableConfiguration<CompressingSerializer, MockFileReader>();
+      Class<CompressingSerializer> class0 = CompressingSerializer.class;
+      Class<MockFileReader> class1 = MockFileReader.class;
+      JCSConfiguration<CompressingSerializer, MockFileReader> jCSConfiguration0 = new JCSConfiguration<CompressingSerializer, MockFileReader>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      ExpiryAwareCache<CompressingSerializer, MockFileReader> expiryAwareCache0 = new ExpiryAwareCache<CompressingSerializer, MockFileReader>(compositeCacheAttributes0, iElementAttributes0);
+      JCSCache<CompressingSerializer, MockFileReader> jCSCache0 = new JCSCache<CompressingSerializer, MockFileReader>(classLoader0, jCSCachingManager0, "org.apache.commons.jcs3:type=JCSAdminBean", jCSConfiguration0, properties0, expiryAwareCache0);
+      Statistics statistics0 = jCSCache0.getStatistics();
+      assertEquals(0, statistics0.getMisses());
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "9$?G kN&~w=GDt%|ZyL");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<MockFileOutputStream, MockFileReader> mutableConfiguration0 = new MutableConfiguration<MockFileOutputStream, MockFileReader>();
+      Class<MockFileOutputStream> class0 = MockFileOutputStream.class;
+      Class<MockFileReader> class1 = MockFileReader.class;
+      JCSConfiguration<MockFileOutputStream, MockFileReader> jCSConfiguration0 = new JCSConfiguration<MockFileOutputStream, MockFileReader>(mutableConfiguration0, class0, class1);
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      ExpiryAwareCache<MockFileOutputStream, MockFileReader> expiryAwareCache0 = new ExpiryAwareCache<MockFileOutputStream, MockFileReader>(compositeCacheAttributes0, elementAttributes0);
+      JCSCache<MockFileOutputStream, MockFileReader> jCSCache0 = new JCSCache<MockFileOutputStream, MockFileReader>(classLoader0, jCSCachingManager0, "", jCSConfiguration0, properties0, expiryAwareCache0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("9$?G kN&~w=GDt%|ZyL", true);
+      MockFileReader mockFileReader0 = jCSCache0.get(mockFileOutputStream0);
+      assertNotNull(mockFileReader0);
+}

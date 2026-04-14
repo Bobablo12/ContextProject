@@ -1,0 +1,271 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(mockFileInputStream0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pushbackInputStream0);
+      huffmanTree0.insert("j,Q", "j,Q");
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible((InputStream) null);
+      // Undeclared exception!
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitInputStreamFlexible", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      byte[] byteArray0 = new byte[1];
+      huffmanTree0.insert("", (Object) null);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid bit pattern
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      huffmanTree0.insert("", "");
+      huffmanTree0.decode((BitInputStreamFlexible) null);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      String string0 = "p<ep8.";
+      huffmanTree0.insert("p<ep8.", "p<ep8.");
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-27);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid bit pattern
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      huffmanTree0.insert("", "!x[DMwJ}H(O]LGgQ)=");
+      try { 
+        huffmanTree0.insert("org.apache.commons.imaging.common.itu_t4.HuffmanTree$Node", "Qwm!o/s4d3nX-u");
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Can't add child to a leaf
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      String string0 = "p]Mn&0R1?)Y6Cv_{Od";
+      String string1 = "8YS~03}V )4yo-oN";
+      // Undeclared exception!
+      huffmanTree0.insert("p]Mn&0R1?)Y6Cv_{Od", "8YS~03}V )4yo-oN");
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      String string0 = "fvW!w";
+      String string1 = "";
+      huffmanTree0.insert("s~e`yw", "");
+      try { 
+        huffmanTree0.insert("s~e`yw", "Pattern is missing");
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Can't add child to a leaf
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      String string0 = "Error reading stream for huffman tree";
+      huffmanTree0.insert("3c1\")u8~w2a", "Error reading stream for huffman tree");
+      Integer integer0 = new Integer(2854);
+      try { 
+        huffmanTree0.insert("Error reading stream for huffman tree", integer0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Can't add child to a leaf
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HuffmanTree<Integer> huffmanTree0 = new HuffmanTree<Integer>();
+      Integer integer0 = new Integer(474);
+      // Undeclared exception!
+      try { 
+        huffmanTree0.insert((String) null, integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      String string0 = "Invalid bit pattern";
+      // Undeclared exception!
+      huffmanTree0.insert("Invalid bit pattern", "Invalid bit pattern");
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      Enumeration<ObjectInputStream> enumeration0 = (Enumeration<ObjectInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(sequenceInputStream0);
+      // Undeclared exception!
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 0, Size: 0
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      byte[] byteArray0 = new byte[1];
+      huffmanTree0.insert("", (Object) null);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      bitInputStreamFlexible0.available();
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid bit pattern
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(mockFileInputStream0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pushbackInputStream0);
+      huffmanTree0.insert("j,Q", "j,Q");
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(bufferedInputStream0);
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Error reading stream for huffman tree
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      FileSystemHandling.appendLineToFile((EvoSuiteFile) null, ",gB'W~0#-LMwu");
+      FileSystemHandling.createFolder((EvoSuiteFile) null);
+      HuffmanTree<InputStream> huffmanTree0 = new HuffmanTree<InputStream>();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      huffmanTree0.insert("a:-*c\"f)Cqt", (InputStream) null);
+      // Undeclared exception!
+      huffmanTree0.insert(",gB'W~0#-LMwu", (InputStream) null);
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      HuffmanTree<ObjectInputStream> huffmanTree0 = new HuffmanTree<ObjectInputStream>();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      HuffmanTree<String> huffmanTree0 = new HuffmanTree<String>();
+      HuffmanTree<Integer> huffmanTree1 = new HuffmanTree<Integer>();
+      String string0 = "";
+      Integer integer0 = new Integer(48);
+      huffmanTree1.insert("", integer0);
+      HuffmanTree<InputStream> huffmanTree2 = new HuffmanTree<InputStream>();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(48);
+      huffmanTree2.insert("hV|Fxlqk", pipedInputStream0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(pipedInputStream0);
+      huffmanTree1.decode(bitInputStreamFlexible0);
+      Integer integer1 = new Integer(48);
+      try { 
+        huffmanTree1.insert("Pattern is missing", integer1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Can't add child to a leaf
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      String string0 = "p<ep.";
+      huffmanTree0.insert("p<ep.", "p<ep.");
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-27);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BitInputStreamFlexible bitInputStreamFlexible0 = new BitInputStreamFlexible(byteArrayInputStream0);
+      try { 
+        huffmanTree0.decode(bitInputStreamFlexible0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid bit pattern
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      HuffmanTree<Object> huffmanTree0 = new HuffmanTree<Object>();
+      huffmanTree0.insert("", "");
+      HuffmanTree<Integer> huffmanTree1 = new HuffmanTree<Integer>();
+      int int0 = 2477;
+      Integer integer0 = new Integer(2477);
+      huffmanTree1.insert("f", integer0);
+      Integer integer1 = new Integer(2477);
+      try { 
+        huffmanTree1.insert("f", integer1);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Can't add child to a leaf
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.HuffmanTree", e);
+      }
+  }

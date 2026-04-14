@@ -1,0 +1,34 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BlockDiskCacheFactory blockDiskCacheFactory0 = new BlockDiskCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      // Undeclared exception!
+      try { 
+        blockDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) standardSerializer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TCPLateralCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BlockDiskCacheAttributes blockDiskCacheAttributes0 = new BlockDiskCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      BlockDiskCacheFactory blockDiskCacheFactory0 = new BlockDiskCacheFactory();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        blockDiskCacheFactory0.createCache((AuxiliaryCacheAttributes) blockDiskCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) null, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCache", e);
+      }
+  }

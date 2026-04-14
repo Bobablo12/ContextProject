@@ -1,0 +1,90 @@
+{
+  "MUT" : {
+    "method_name" : "put",
+    "signature" : "spark.Routable.put(String,spark.Route)",
+    "qualified_name" : "Routable.put",
+    "line_number" : 80,
+    "parameters" : [ "java.lang.String", "spark.Route" ],
+    "code" : "    public void put(String path, Route route) {\n        addRoute(HttpMethod.put, createRouteImpl(path, route));\n    }\n",
+    "javadoc" : "    /**\n     * Map the route for HTTP PUT requests\n     *\n     * @param path  the path\n     * @param route The route\n     */\n",
+    "class_hierarchy" : {
+      "class_name" : "spark.Routable",
+      "simple_name" : "Routable",
+      "package_name" : "spark",
+      "superclasses" : [ "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ "spark.Service" ]
+    }
+  },
+  "callers" : [ {
+    "method_name" : "put",
+    "signature" : "spark.Service.put(String,spark.Route)",
+    "qualified_name" : "Service.put",
+    "line_number" : 55,
+    "code" : " * http.get(\"/hello\", (q, a) {@literal ->} \"Hello World\");\n",
+    "javadoc" : "",
+    "edge" : "Service.void put -> Routable.void put",
+    "class_hierarchy" : {
+      "class_name" : "spark.Service",
+      "simple_name" : "Service",
+      "package_name" : "spark",
+      "superclasses" : [ "spark.Routable", "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  }, {
+    "method_name" : "put",
+    "signature" : "spark.Redirect.put(String,String,spark.Redirect$Status)",
+    "qualified_name" : "Redirect.put",
+    "line_number" : 157,
+    "code" : "        http.put(fromPath, redirectRoute(toPath, status));\n    }\n\n    /**\n     * Redirects any HTTP request of type DELETE on 'fromPath' to 'toPath' with the provided redirect 'status' code.\n     *\n     * @param fromPath from path\n     * @param toPath   to path\n     * @param status   status code\n     */\n    public void delete(String fromPath, String toPath, Status status) {\n        http.delete(fromPath, redirectRoute(toPath, status));\n    }\n",
+    "javadoc" : "",
+    "edge" : "Redirect.void put -> Routable.void put",
+    "class_hierarchy" : {
+      "class_name" : "spark.Redirect",
+      "simple_name" : "Redirect",
+      "package_name" : "spark",
+      "superclasses" : [ "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  } ],
+  "callees" : [ {
+    "method_name" : "createRouteImpl",
+    "signature" : "spark.Routable.spark.RouteImpl createRouteImpl(String,spark.Route)",
+    "qualified_name" : "Routable.createRouteImpl",
+    "line_number" : 820,
+    "code" : "    private RouteImpl createRouteImpl(String path, Route route) {\n        if (defaultResponseTransformer != null) {\n            return ResponseTransformerRouteImpl.create(path, route, defaultResponseTransformer);\n        }\n        return RouteImpl.create(path, route);\n    }\n",
+    "javadoc" : "    /**\n     * Create route implementation or use default response transformer\n     *\n     * @param path  the path\n     * @param route the route\n     * @return ResponseTransformerRouteImpl or RouteImpl\n     */\n",
+    "edge" : "Routable.void put -> Routable.spark.RouteImpl createRouteImpl",
+    "class_hierarchy" : {
+      "class_name" : "spark.Routable",
+      "simple_name" : "Routable",
+      "package_name" : "spark",
+      "superclasses" : [ "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ "spark.Service" ]
+    }
+  }, {
+    "method_name" : "addRoute",
+    "signature" : "spark.Service.addRoute(spark.route.HttpMethod,spark.RouteImpl)",
+    "qualified_name" : "Service.addRoute",
+    "line_number" : 585,
+    "code" : "    public void addRoute(HttpMethod httpMethod, RouteImpl route) {\n        init();\n        routes.add(httpMethod, route.withPrefix(getPaths()));\n    }\n",
+    "javadoc" : "",
+    "edge" : "Routable.void put -> Service.void addRoute",
+    "class_hierarchy" : {
+      "class_name" : "spark.Service",
+      "simple_name" : "Service",
+      "package_name" : "spark",
+      "superclasses" : [ "spark.Routable", "java.lang.Object" ],
+      "interfaces" : [ ],
+      "direct_subclasses" : [ ]
+    }
+  } ],
+  "metadata" : {
+    "call_graph_tool" : "SootUp",
+    "analysis_depth" : 1,
+    "class_hierarchy_included" : true
+  }
+}

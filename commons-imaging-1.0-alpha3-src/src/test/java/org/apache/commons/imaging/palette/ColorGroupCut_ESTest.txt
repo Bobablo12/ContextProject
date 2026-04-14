@@ -1,0 +1,43 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(1340);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      ColorComponent colorComponent0 = ColorComponent.RED;
+      ColorGroupCut colorGroupCut0 = new ColorGroupCut((ColorGroup) null, colorGroup0, colorComponent0, 0);
+      ColorGroup colorGroup1 = colorGroupCut0.getColorGroup(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ColorComponent colorComponent0 = ColorComponent.GREEN;
+      ColorGroupCut colorGroupCut0 = new ColorGroupCut((ColorGroup) null, (ColorGroup) null, colorComponent0, 4);
+      ColorGroup colorGroup0 = colorGroupCut0.getColorGroup(4);
+      assertNotNull(colorGroup0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2263);
+      linkedList0.offerFirst(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      ColorComponent colorComponent0 = ColorComponent.GREEN;
+      ColorGroupCut colorGroupCut0 = new ColorGroupCut((ColorGroup) null, colorGroup0, colorComponent0, (-1233));
+      ColorGroup colorGroup1 = colorGroupCut0.getColorGroup(241);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ColorGroupCut colorGroupCut0 = new ColorGroupCut((ColorGroup) null, (ColorGroup) null, (ColorComponent) null, 0);
+      // Undeclared exception!
+      try { 
+        colorGroupCut0.getColorGroup(0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.ColorGroupCut", e);
+      }
+  }

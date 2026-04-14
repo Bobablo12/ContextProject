@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+        try {
+          MockFile mockFile0 = new MockFile(") for ");
+          StandardSerializer standardSerializer0 = new StandardSerializer();
+          IndexedDisk indexedDisk0 = null;
+          try {
+            indexedDisk0 = new IndexedDisk(mockFile0, standardSerializer0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.io.FilePermission\" \") for \" \"write\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkWrite(SecurityManager.java:979)
+             // sun.nio.fs.UnixChannelFactory.open(UnixChannelFactory.java:247)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:136)
+             // sun.nio.fs.UnixChannelFactory.newFileChannel(UnixChannelFactory.java:148)
+             // sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:175)
+             // java.nio.channels.FileChannel.open(FileChannel.java:287)
+             // java.nio.channels.FileChannel.open(FileChannel.java:335)
+             // org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDisk.<init>(IndexedDisk.java:62)
+             // sun.reflect.GeneratedConstructorAccessor153.newInstance(Unknown Source)
+             // sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+             // java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+             // org.evosuite.testcase.statements.ConstructorStatement$1.execute(ConstructorStatement.java:233)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.ConstructorStatement.execute(ConstructorStatement.java:188)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+        } catch(Throwable t) {
+            // Need to catch declared exceptions
+        }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      IndexedDisk indexedDisk0 = null;
+      try {
+        indexedDisk0 = new IndexedDisk((File) null, compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDisk", e);
+      }
+  }

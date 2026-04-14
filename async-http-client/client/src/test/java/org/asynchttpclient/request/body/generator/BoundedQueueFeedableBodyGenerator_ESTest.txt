@@ -1,0 +1,103 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int int0 = 13;
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(13);
+      BodyChunk bodyChunk0 = null;
+      FeedListener feedListener0 = mock(FeedListener.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.setListener(feedListener0);
+      // Undeclared exception!
+      try { 
+        boundedQueueFeedableBodyGenerator0.offer((BodyChunk) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ArrayBlockingQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int int0 = 0;
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = null;
+      try {
+        boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ArrayBlockingQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(1073741824);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(1);
+      BodyChunk bodyChunk0 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      BodyChunk bodyChunk1 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk1);
+      BodyChunk bodyChunk2 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      BodyChunk bodyChunk3 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk3);
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk2);
+      BodyChunk bodyChunk4 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk4);
+      boundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, true);
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk0);
+      BodyChunk bodyChunk5 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk5);
+      BodyChunk bodyChunk6 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, true);
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk6);
+      BodyChunk bodyChunk7 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk7);
+      BodyChunk bodyChunk8 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk8);
+      // Undeclared exception!
+      try { 
+        boundedQueueFeedableBodyGenerator0.offer((BodyChunk) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ArrayBlockingQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(1790);
+      BodyChunk bodyChunk0 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      FeedListener feedListener0 = null;
+      boundedQueueFeedableBodyGenerator0.createBody();
+      boundedQueueFeedableBodyGenerator0.setListener((FeedListener) null);
+      boundedQueueFeedableBodyGenerator0.createBody();
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk0);
+      BodyChunk bodyChunk1 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk1);
+      boundedQueueFeedableBodyGenerator0.setListener((FeedListener) null);
+      boundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, true);
+      BodyChunk bodyChunk2 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk2);
+      boundedQueueFeedableBodyGenerator0.setListener((FeedListener) null);
+      BodyChunk bodyChunk3 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk3);
+      BodyChunk bodyChunk4 = mock(BodyChunk.class, new ViolatedAssumptionAnswer());
+      boundedQueueFeedableBodyGenerator0.offer(bodyChunk4);
+      boundedQueueFeedableBodyGenerator0.setListener((FeedListener) null);
+      BodyChunk bodyChunk5 = null;
+      // Undeclared exception!
+      try { 
+        boundedQueueFeedableBodyGenerator0.offer((BodyChunk) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ArrayBlockingQueue", e);
+      }
+  }

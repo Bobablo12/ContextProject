@@ -1,0 +1,32 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      UDPDiscoveryManager uDPDiscoveryManager0 = UDPDiscoveryManager.getInstance();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      LogManager.setLogSystem((String) null);
+      compositeCacheManager0.shutDown();
+      // Undeclared exception!
+      try { 
+        uDPDiscoveryManager0.getService("", 0, 0, (ICompositeCacheManager) compositeCacheManager0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.NetworkInterface$1checkedAddresses", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      UDPDiscoveryManager uDPDiscoveryManager0 = UDPDiscoveryManager.getInstance();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        uDPDiscoveryManager0.getService("s*,s*", (-4209), (String) null, (-4209), 1, (ICompositeCacheManager) null, (IElementSerializer) compressingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.NetworkInterface$1checkedAddresses", e);
+      }
+  }

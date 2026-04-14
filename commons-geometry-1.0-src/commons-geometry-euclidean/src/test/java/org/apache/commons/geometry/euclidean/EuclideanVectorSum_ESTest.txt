@@ -1,0 +1,53 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector1D.Sum vector1D_Sum0 = Vector1D.Sum.create();
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      vector1D_Sum0.accept((Vector1D) vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector1D.Sum vector1D_Sum0 = Vector1D.Sum.create();
+      Vector1D.Unit vector1D_Unit0 = Vector1D.Unit.MINUS;
+      EuclideanVectorSum<Vector1D> euclideanVectorSum0 = vector1D_Sum0.addScaled(1762.403092, vector1D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      Vector2D[] vector2DArray0 = new Vector2D[3];
+      vector2DArray0[0] = vector2D0;
+      vector2DArray0[1] = vector2D0;
+      vector2DArray0[2] = vector2D0;
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.of(vector2D0, vector2DArray0);
+      EuclideanVectorSum<Vector2D> euclideanVectorSum0 = vector2D_Sum0.add(vector2DArray0[0]);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector2D.Sum vector2D_Sum0 = Vector2D.Sum.create();
+      // Undeclared exception!
+      try { 
+        vector2D_Sum0.addScaled(1065.4, (Vector2D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector1D.Sum vector1D_Sum0 = Vector1D.Sum.create();
+      // Undeclared exception!
+      try { 
+        vector1D_Sum0.accept((Vector1D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.oned.Vector1D", e);
+      }
+  }

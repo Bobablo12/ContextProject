@@ -1,0 +1,80 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector<Part> vector0 = new Vector<Part>();
+      // Undeclared exception!
+      try { 
+        MultipartUtils.newMultipartBody(vector0, (HttpHeaders) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.MultipartUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      // Undeclared exception!
+      try { 
+        MultipartUtils.newMultipartBody((List<Part>) null, combinedHttpHeaders0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // parts
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<Part> linkedList0 = new LinkedList<Part>();
+      byte[] byteArray0 = new byte[1];
+      linkedList0.push((Part) null);
+      // Undeclared exception!
+      try { 
+        MultipartUtils.generateMultipartParts(linkedList0, byteArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unknown part type: null
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.MultipartUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayList<Part> arrayList0 = new ArrayList<Part>();
+      StringPart stringPart0 = new StringPart("D.Wpk.*D=", "GZ");
+      arrayList0.add((Part) stringPart0);
+      // Undeclared exception!
+      try { 
+        MultipartUtils.generateMultipartParts(arrayList0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.PartVisitor$CounterPartVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector<Part> vector0 = new Vector<Part>();
+      EmptyHttpHeaders emptyHttpHeaders0 = EmptyHttpHeaders.INSTANCE;
+      vector0.add((Part) null);
+      // Undeclared exception!
+      try { 
+        MultipartUtils.newMultipartBody(vector0, emptyHttpHeaders0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unknown part type: null
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.MultipartUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MultipartUtils multipartUtils0 = new MultipartUtils();
+  }

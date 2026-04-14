@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CountingOnlyOutputStream countingOnlyOutputStream0 = new CountingOnlyOutputStream();
+      byte[] byteArray0 = new byte[2];
+      countingOnlyOutputStream0.write(byteArray0, (-3268), (-612));
+      int int0 = countingOnlyOutputStream0.getCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CountingOnlyOutputStream countingOnlyOutputStream0 = new CountingOnlyOutputStream();
+      // Undeclared exception!
+      try { 
+        countingOnlyOutputStream0.write((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.admin.CountingOnlyOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CountingOnlyOutputStream countingOnlyOutputStream0 = new CountingOnlyOutputStream();
+      int int0 = countingOnlyOutputStream0.getCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CountingOnlyOutputStream countingOnlyOutputStream0 = new CountingOnlyOutputStream();
+      countingOnlyOutputStream0.write((-1));
+      int int0 = countingOnlyOutputStream0.getCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CountingOnlyOutputStream countingOnlyOutputStream0 = new CountingOnlyOutputStream();
+      byte[] byteArray0 = new byte[6];
+      countingOnlyOutputStream0.write(byteArray0);
+      assertEquals(0, countingOnlyOutputStream0.getCount());
+}

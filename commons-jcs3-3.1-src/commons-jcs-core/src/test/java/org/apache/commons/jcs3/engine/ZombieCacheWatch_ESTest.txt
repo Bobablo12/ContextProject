@@ -1,0 +1,37 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ZombieCacheWatch zombieCacheWatch0 = new ZombieCacheWatch();
+      zombieCacheWatch0.removeCacheListener("", (ICacheListener<Delayed, String>) null);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ZombieCacheWatch zombieCacheWatch0 = new ZombieCacheWatch();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Object, Delayed> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Object, Delayed>(1);
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<Object, Delayed> lateralCache0 = new LateralCache<Object, Delayed>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      CacheAdaptor<Object, Delayed> cacheAdaptor0 = new CacheAdaptor<Object, Delayed>(lateralCache0);
+      zombieCacheWatch0.addCacheListener((ICacheListener<Object, Delayed>) cacheAdaptor0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ZombieCacheWatch zombieCacheWatch0 = new ZombieCacheWatch();
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<String, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, String>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<String, String> lateralCache0 = new LateralCache<String, String>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<String, String> lateralCacheNoWait0 = new LateralCacheNoWait<String, String>(lateralCache0);
+      CacheAdaptor<String, String> cacheAdaptor0 = new CacheAdaptor<String, String>(lateralCacheNoWait0);
+      zombieCacheWatch0.removeCacheListener((ICacheListener<String, String>) cacheAdaptor0);
+      assertEquals(0, cacheAdaptor0.getListenerId());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ZombieCacheWatch zombieCacheWatch0 = new ZombieCacheWatch();
+      CacheAdaptor<Object, Integer> cacheAdaptor0 = new CacheAdaptor<Object, Integer>((ICache<Object, Integer>) null);
+      zombieCacheWatch0.addCacheListener("", (ICacheListener<Object, Integer>) cacheAdaptor0);
+      assertEquals(1, cacheAdaptor0.getListenerId());
+}

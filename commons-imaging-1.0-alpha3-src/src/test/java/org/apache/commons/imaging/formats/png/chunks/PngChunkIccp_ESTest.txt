@@ -1,0 +1,71 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PngChunkIccp pngChunkIccp0 = null;
+      try {
+        pngChunkIccp0 = new PngChunkIccp(1207, 0, 608, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte) (-65);
+      byteArray0[1] = (byte)1;
+      PngChunkIccp pngChunkIccp0 = null;
+      try {
+        pngChunkIccp0 = new PngChunkIccp((-4448), (-4448), (-4448), byteArray0);
+        fail("Expecting exception: EOFException");
+      } catch(Throwable e) {
+         //
+         // Unexpected end of ZLIB input stream
+         //
+         verifyException("java.util.zip.InflaterInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      PngChunkIccp pngChunkIccp0 = null;
+      try {
+        pngChunkIccp0 = new PngChunkIccp(22, 22, 22, byteArray0);
+        fail("Expecting exception: ZipException");
+      } catch(Throwable e) {
+         //
+         // unknown compression method
+         //
+         verifyException("java.util.zip.InflaterInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkIccp pngChunkIccp0 = null;
+      try {
+        pngChunkIccp0 = new PngChunkIccp((-2992), (-2992), (-2992), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PngChunkIccp: No Profile Name
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkIccp", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      PngChunkIccp pngChunkIccp0 = null;
+      try {
+        pngChunkIccp0 = new PngChunkIccp((-3253), (-3253), (-3253), byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkIccp", e);
+      }
+  }

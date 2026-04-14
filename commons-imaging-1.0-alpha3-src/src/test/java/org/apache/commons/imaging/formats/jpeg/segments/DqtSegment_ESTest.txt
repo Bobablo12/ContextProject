@@ -1,0 +1,155 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[0];
+      DqtSegment.QuantizationTable dqtSegment_QuantizationTable0 = new DqtSegment.QuantizationTable((-363), 0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[0];
+      DqtSegment.QuantizationTable dqtSegment_QuantizationTable0 = new DqtSegment.QuantizationTable((-363), 0, intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment(15, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment(1361, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.DqtSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment(353, 1424, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-3601), (byte)80);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment((-3601), 4, pushbackInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-45);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment((-4857), 1192, byteArrayInputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Quantization table precision '13' is invalid
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.DqtSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment(0, 272, byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      DqtSegment dqtSegment0 = new DqtSegment((-1194), (-1194), (InputStream) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte)30;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment((byte)63, 696, byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte)64;
+      DqtSegment dqtSegment0 = null;
+      try {
+        dqtSegment0 = new DqtSegment((-359), byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Quantization table precision '4' is invalid
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.DqtSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      DqtSegment dqtSegment0 = new DqtSegment((-1), byteArray0);
+      String string0 = dqtSegment0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      DqtSegment.QuantizationTable dqtSegment_QuantizationTable0 = new DqtSegment.QuantizationTable((-359), (-359), intArray0);
+      dqtSegment_QuantizationTable0.getElements();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      int[] intArray0 = new int[1];
+      DqtSegment.QuantizationTable dqtSegment_QuantizationTable0 = new DqtSegment.QuantizationTable((-359), (-359), intArray0);
+      dqtSegment_QuantizationTable0.getElements();
+      ;
+}

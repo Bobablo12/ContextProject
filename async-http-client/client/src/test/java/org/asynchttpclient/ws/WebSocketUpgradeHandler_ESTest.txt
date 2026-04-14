@@ -1,0 +1,189 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = new WebSocketUpgradeHandler((List<WebSocketListener>) null);
+      HttpResponseStatus httpResponseStatus0 = mock(HttpResponseStatus.class, new ViolatedAssumptionAnswer());
+      doReturn(614).when(httpResponseStatus0).getStatusCode();
+      AsyncHandler.State asyncHandler_State0 = webSocketUpgradeHandler0.onStatusReceived(httpResponseStatus0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      webSocketUpgradeHandler0.setWebSocket0((NettyWebSocket) null);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      webSocketUpgradeHandler0.onThrowable0(throwable0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      webSocketUpgradeHandler0.onStatusReceived0((HttpResponseStatus) null);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      webSocketUpgradeHandler0.onOpen0();
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      webSocketUpgradeHandler0.onHeadersReceived0(httpHeaders0);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector<WebSocketListener> vector0 = new Vector<WebSocketListener>();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = new WebSocketUpgradeHandler(vector0);
+      webSocketUpgradeHandler0.onCompleted0();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = new WebSocketUpgradeHandler((List<WebSocketListener>) null);
+      HttpResponseBodyPart httpResponseBodyPart0 = mock(HttpResponseBodyPart.class, new ViolatedAssumptionAnswer());
+      webSocketUpgradeHandler0.onBodyPartReceived0(httpResponseBodyPart0);
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder1 = webSocketUpgradeHandler_Builder0.addWebSocketListener(webSocketListener0);
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder1.build();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, combinedHttpHeaders0);
+      webSocketUpgradeHandler0.setWebSocket(nettyWebSocket0);
+      webSocketUpgradeHandler0.onOpen();
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(embeddedChannel0, (HttpHeaders) null);
+      webSocketUpgradeHandler0.setWebSocket(nettyWebSocket0);
+      NettyWebSocket nettyWebSocket1 = webSocketUpgradeHandler0.onCompleted();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      webSocketUpgradeHandler_Builder0.addWebSocketListener((WebSocketListener) null);
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        webSocketUpgradeHandler0.onThrowable(throwable0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.ws.WebSocketUpgradeHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      try { 
+        webSocketUpgradeHandler0.onStatusReceived((HttpResponseStatus) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.ws.WebSocketUpgradeHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder1 = webSocketUpgradeHandler_Builder0.addWebSocketListener(webSocketListener0);
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder1.build();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, combinedHttpHeaders0);
+      webSocketUpgradeHandler0.setWebSocket(nettyWebSocket0);
+      SQLTransientConnectionException sQLTransientConnectionException0 = new SQLTransientConnectionException();
+      webSocketUpgradeHandler0.onThrowable(sQLTransientConnectionException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = new WebSocketUpgradeHandler((List<WebSocketListener>) null);
+      HttpResponseStatus httpResponseStatus0 = mock(HttpResponseStatus.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(httpResponseStatus0).getStatusCode();
+      AsyncHandler.State asyncHandler_State0 = webSocketUpgradeHandler0.onStatusReceived(httpResponseStatus0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = new WebSocketUpgradeHandler((List<WebSocketListener>) null);
+      NettyWebSocket nettyWebSocket0 = webSocketUpgradeHandler0.onCompleted();
+      assertNotNull(nettyWebSocket0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      HttpResponseStatus httpResponseStatus0 = mock(HttpResponseStatus.class, new ViolatedAssumptionAnswer());
+      doReturn(101).when(httpResponseStatus0).getStatusCode();
+      AsyncHandler.State asyncHandler_State0 = webSocketUpgradeHandler0.onStatusReceived(httpResponseStatus0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, combinedHttpHeaders0);
+      webSocketUpgradeHandler0.setWebSocket(nettyWebSocket0);
+      webSocketUpgradeHandler0.onOpen();
+      NettyWebSocket nettyWebSocket1 = webSocketUpgradeHandler0.onCompleted();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      // Undeclared exception!
+      try { 
+        webSocketUpgradeHandler0.onOpen();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.ws.WebSocketUpgradeHandler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      HttpResponseBodyPart httpResponseBodyPart0 = mock(HttpResponseBodyPart.class, new ViolatedAssumptionAnswer());
+      AsyncHandler.State asyncHandler_State0 = webSocketUpgradeHandler0.onBodyPartReceived(httpResponseBodyPart0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder1 = webSocketUpgradeHandler_Builder0.removeWebSocketListener(webSocketListener0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      WebSocketUpgradeHandler.Builder webSocketUpgradeHandler_Builder0 = new WebSocketUpgradeHandler.Builder();
+      WebSocketUpgradeHandler webSocketUpgradeHandler0 = webSocketUpgradeHandler_Builder0.build();
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      AsyncHandler.State asyncHandler_State0 = webSocketUpgradeHandler0.onHeadersReceived(combinedHttpHeaders0);
+      assertNotNull(asyncHandler_State0);
+}

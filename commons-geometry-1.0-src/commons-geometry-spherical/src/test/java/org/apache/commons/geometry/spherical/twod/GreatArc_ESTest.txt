@@ -1,0 +1,403 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = mock(GreatCircle.class, new ViolatedAssumptionAnswer());
+      doReturn((GreatCircle) null).when(greatCircle0).transform(nullable(org.apache.commons.geometry.core.Transform.class));
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc(greatCircle0, angularInterval_Convex0);
+      Transform2S transform2S0 = Transform2S.createReflection((Vector3D) vector3D_Unit0);
+      GreatArc greatArc1 = greatArc0.transform(transform2S0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.arc((AngularInterval.Convex) null);
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getSubspaceRegion();
+      assertNotNull(angularInterval_Convex0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc(4308.0, 0.0);
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getSubspaceRegion();
+      assertTrue(angularInterval_Convex0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getSubspaceRegion();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      Point2S point2S0 = greatArc0.getStartPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.arc((AngularInterval.Convex) null);
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getInterval();
+      assertNotNull(angularInterval_Convex0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true, false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      greatCircle0.vectorAt((-32.68));
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      greatArc0.getPrecision();
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      // Undeclared exception!
+      try { 
+        AngularInterval.Convex.of(2882.58, (-4189.565223292961), precision_DoubleEquivalence1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Interval is not convex: [2,882.58, 2,885.301]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval$Convex", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getInterval();
+      assertTrue(angularInterval_Convex0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      Point2S point2S0 = greatArc0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit1, precision_DoubleEquivalence0);
+      Point2S point2S0 = Point2S.MINUS_K;
+      Transform2S transform2S0 = Transform2S.createReflection(point2S0);
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      GreatArc greatArc0 = greatCircle1.arc(point2S0, point2S0);
+      Point2S point2S1 = greatArc0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      AxisReferenceFrame axisReferenceFrame0 = AxisReferenceFrame.RELATIVE;
+      AxisSequence axisSequence0 = AxisSequence.ZXY;
+      AxisAngleSequence axisAngleSequence0 = new AxisAngleSequence(axisReferenceFrame0, axisSequence0, 1069.016021, 1069.016021, 1069.016021);
+      QuaternionRotation quaternionRotation0 = QuaternionRotation.fromAxisAngleSequence(axisAngleSequence0);
+      Transform2S transform2S0 = Transform2S.createRotation(quaternionRotation0);
+      // Undeclared exception!
+      try { 
+        greatArc0.transform(transform2S0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal norm: 0.0
+         //
+         verifyException("org.apache.commons.geometry.euclidean.internal.Vectors", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.arc((AngularInterval.Convex) null);
+      // Undeclared exception!
+      try { 
+        greatArc0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircleSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      // Undeclared exception!
+      try { 
+        greatArc0.split(greatCircle0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Vector3D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, true, false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit1, precision_DoubleEquivalence0);
+      Point2S point2S0 = Point2S.MINUS_K;
+      Transform2S transform2S0 = Transform2S.createReflection(point2S0);
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      GreatArc greatArc0 = greatCircle1.arc(point2S0, point2S0);
+      // Undeclared exception!
+      try { 
+        greatArc0.split(greatCircle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Interval is not convex: [1.571, 4.712]
+         //
+         verifyException("org.apache.commons.geometry.spherical.oned.AngularInterval$Convex", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      GreatArc greatArc0 = new GreatArc((GreatCircle) null, (AngularInterval.Convex) null);
+      // Undeclared exception!
+      try { 
+        greatArc0.getStartPoint();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.arc((AngularInterval.Convex) null);
+      // Undeclared exception!
+      try { 
+        greatArc0.getMidPoint();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      GreatArc greatArc0 = new GreatArc((GreatCircle) null, (AngularInterval.Convex) null);
+      // Undeclared exception!
+      try { 
+        greatArc0.getEndPoint();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatArc", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      Point2S point2S0 = greatArc0.getStartPoint();
+      assertFalse(point2S0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      AngularInterval.Convex angularInterval_Convex0 = greatArc0.getSubspaceRegion();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit1, precision_DoubleEquivalence0);
+      Point2S point2S0 = Point2S.MINUS_K;
+      Transform2S transform2S0 = Transform2S.createReflection(point2S0);
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      GreatArc greatArc0 = greatCircle1.arc(point2S0, point2S0);
+      Split<GreatArc> split0 = greatArc0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false, true, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.PLUS_Y;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit1, precision_DoubleEquivalence0);
+      Point2S point2S0 = Point2S.MINUS_K;
+      Transform2S transform2S0 = Transform2S.createReflection(point2S0);
+      GreatCircle greatCircle1 = greatCircle0.transform(transform2S0);
+      GreatArc greatArc0 = greatCircle1.arc(point2S0, point2S0);
+      Split<GreatArc> split0 = greatArc0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.MINUS_Z;
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = greatArc0.getPrecision();
+      GreatCircle greatCircle1 = new GreatCircle(vector3D_Unit1, vector3D_Unit1, vector3D_Unit0, precision_DoubleEquivalence1);
+      Split<GreatArc> split0 = greatArc0.split(greatCircle1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      Split<GreatArc> split0 = greatArc0.split(greatCircle0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      Point2S point2S0 = greatArc0.getMidPoint();
+      assertFalse(point2S0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = greatArc0.getMidPoint();
+      assertNotNull(point2S0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = greatArc0.getEndPoint();
+      assertNotNull(point2S0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      Point2S point2S0 = greatArc0.getStartPoint();
+      assertNotNull(point2S0);
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      GreatArc greatArc1 = greatArc0.reverse();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      doReturn(true).when(precision_DoubleEquivalence0).lte(anyDouble() , anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.arc((-32.68), (-32.68));
+      // Undeclared exception!
+      try { 
+        greatArc0.transform((Transform<Point2S>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatCircle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, (Precision.DoubleEquivalence) null);
+      GreatArc greatArc0 = greatCircle0.span();
+      String string0 = greatArc0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc((GreatCircle) null, angularInterval_Convex0);
+      // Undeclared exception!
+      try { 
+        greatArc0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.GreatArc", e);
+      }
+  }

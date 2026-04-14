@@ -1,0 +1,97 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Factory<String> factory0 = FactoryUtils.prototypeFactory("org.apache.commons.collections4.functors.ConstantFactory");
+      // Undeclared exception!
+      try { 
+        FactoryUtils.prototypeFactory((Object) factory0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // The prototype must be cloneable via a public clone method
+         //
+         verifyException("org.apache.commons.collections4.functors.PrototypeFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FactoryUtils.instantiateFactory((Class<String>) null, (Class<?>[]) null, (Object[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Class to instantiate must not be null
+         //
+         verifyException("org.apache.commons.collections4.functors.InstantiateFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 2);
+      // Undeclared exception!
+      try { 
+        FactoryUtils.instantiateFactory(class0, (Class<?>[]) classArray0, (Object[]) classArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // InstantiateFactory: The constructor must exist and be public 
+         //
+         verifyException("org.apache.commons.collections4.functors.InstantiateFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FactoryUtils.instantiateFactory((Class<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Class to instantiate must not be null
+         //
+         verifyException("org.apache.commons.collections4.functors.InstantiateFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Class<Integer> class0 = Integer.class;
+      // Undeclared exception!
+      try { 
+        FactoryUtils.instantiateFactory(class0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // InstantiateFactory: The constructor must exist and be public 
+         //
+         verifyException("org.apache.commons.collections4.functors.InstantiateFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Factory<Object> factory0 = FactoryUtils.constantFactory((Object) class0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Factory<Object> factory0 = FactoryUtils.instantiateFactory(class0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Factory<String> factory0 = FactoryUtils.exceptionFactory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Factory<Object> factory0 = FactoryUtils.instantiateFactory(class0, (Class<?>[]) null, (Object[]) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Factory<String> factory0 = FactoryUtils.nullFactory();
+      assertNotNull(factory0);
+}

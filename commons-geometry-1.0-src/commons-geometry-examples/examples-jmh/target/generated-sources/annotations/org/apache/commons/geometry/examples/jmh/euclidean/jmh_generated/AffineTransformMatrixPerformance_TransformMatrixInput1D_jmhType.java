@@ -1,0 +1,4 @@
+package org.apache.commons.geometry.examples.jmh.euclidean.jmh_generated;
+public class AffineTransformMatrixPerformance_TransformMatrixInput1D_jmhType extends AffineTransformMatrixPerformance_TransformMatrixInput1D_jmhType_B3 {
+}
+

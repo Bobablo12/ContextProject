@@ -1,0 +1,4 @@
+package org.apache.commons.geometry.examples.jmh.euclidean.jmh_generated;
+public class RegionBSPTree3DPerformance_SphericalBoundaryInput_jmhType extends RegionBSPTree3DPerformance_SphericalBoundaryInput_jmhType_B3 {
+}
+

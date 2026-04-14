@@ -1,0 +1,231 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = new byte[6];
+      byteArray1[5] = (byte) (-101);
+      boolean boolean0 = binaryConstant0.equals(byteArray1, 3, 3);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = new byte[6];
+      boolean boolean0 = binaryConstant0.equals(byteArray1, 3, 3);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      boolean boolean0 = binaryConstant0.equals(byteArray0, (int) (byte) (-1), 1545);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      BinaryConstant binaryConstant1 = new BinaryConstant(byteArray0);
+      boolean boolean0 = binaryConstant0.equals((Object) binaryConstant1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = binaryConstant0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      int int0 = binaryConstant0.size();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte byte0 = binaryConstant0.get((byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte)44;
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte byte0 = binaryConstant0.get((byte)2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte) (-111);
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte byte0 = binaryConstant0.get(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = new byte[1];
+      boolean boolean0 = binaryConstant0.equals(byteArray1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      // Undeclared exception!
+      try { 
+        binaryConstant0.writeTo((OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryConstant", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      try { 
+        binaryConstant0.writeTo(pipedOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      // Undeclared exception!
+      try { 
+        binaryConstant0.equals((byte[]) null, (int) (byte)0, 1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryConstant", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      // Undeclared exception!
+      try { 
+        binaryConstant0.equals(byteArray0, 1, 1);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryConstant", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      BinaryConstant binaryConstant0 = null;
+      try {
+        binaryConstant0 = new BinaryConstant((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryConstant", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      boolean boolean0 = binaryConstant0.equals(byteArray0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("3/wl\\j&uyaV=L\"mt");
+      binaryConstant0.writeTo(mockPrintStream0);
+      assertEquals(0, binaryConstant0.size());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = new byte[7];
+      byteArray1[3] = (byte)1;
+      boolean boolean0 = binaryConstant0.equals(byteArray1, 3, 3);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      boolean boolean0 = binaryConstant0.equals(byteArray0, (-29), (-29));
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("rNYN5x:$)l'*");
+      boolean boolean0 = binaryConstant0.equals((Object) mockPrintStream0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      boolean boolean0 = binaryConstant0.equals((Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      byte[] byteArray1 = binaryConstant0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      // Undeclared exception!
+      try { 
+        binaryConstant0.get((byte)13);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 13
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryConstant", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      binaryConstant0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BinaryConstant binaryConstant0 = new BinaryConstant(byteArray0);
+      int int0 = binaryConstant0.size();
+      assertEquals(0, int0);
+}

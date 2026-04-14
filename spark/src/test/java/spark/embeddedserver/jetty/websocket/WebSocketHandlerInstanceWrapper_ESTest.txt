@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      WebSocketHandlerInstanceWrapper webSocketHandlerInstanceWrapper0 = null;
+      try {
+        webSocketHandlerInstanceWrapper0 = new WebSocketHandlerInstanceWrapper((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // WebSocket handler cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      WebSocketHandlerInstanceWrapper webSocketHandlerInstanceWrapper0 = null;
+      try {
+        webSocketHandlerInstanceWrapper0 = new WebSocketHandlerInstanceWrapper("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'
+         //
+         verifyException("spark.embeddedserver.jetty.websocket.WebSocketHandlerWrapper", e);
+      }
+  }

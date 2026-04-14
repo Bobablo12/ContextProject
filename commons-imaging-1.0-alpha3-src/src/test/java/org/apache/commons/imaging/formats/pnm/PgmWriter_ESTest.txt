@@ -1,0 +1,53 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PgmWriter pgmWriter0 = new PgmWriter(false);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("w]l.9SFNId<`GT\"A");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        pgmWriter0.writeImage((BufferedImage) null, bufferedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PgmWriter pgmWriter0 = new PgmWriter(false);
+      MockFile mockFile0 = new MockFile("Sm13DH+7QJWh55");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, false);
+      mockFile0.setWritable(false);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pgmWriter0.writeImage((BufferedImage) null, mockFileOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PgmWriter pgmWriter0 = new PgmWriter(true);
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getColorBufferedImage(26, 26, true);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      pgmWriter0.writeImage(bufferedImage0, byteArrayOutputStream0, pnmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PgmWriter pgmWriter0 = new PgmWriter(false);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(1136, 947, false);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(947);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(byteArrayOutputStream0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      pgmWriter0.writeImage(bufferedImage0, dataOutputStream0, pnmImagingParameters0);
+  }

@@ -1,0 +1,346 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      Object object0 = new Object();
+      concurrentHashSet0.add(object0);
+      Object[] objectArray0 = new Object[0];
+      Object[] objectArray1 = concurrentHashSet0.toArray(objectArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      Object[] objectArray0 = new Object[0];
+      Object[] objectArray1 = concurrentHashSet0.toArray(objectArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Integer integer0 = new Integer((-1865));
+      concurrentHashSet0.add(integer0);
+      Object[] objectArray0 = concurrentHashSet0.toArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      concurrentHashSet0.add(linkedList0);
+      int int0 = concurrentHashSet0.size();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      ConcurrentHashSet<String> concurrentHashSet1 = new ConcurrentHashSet<String>();
+      concurrentHashSet1.add("awt.toolkit");
+      boolean boolean0 = concurrentHashSet1.retainAll(concurrentHashSet0);
+      assertEquals(0, concurrentHashSet1.size());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      ConcurrentHashSet<String> concurrentHashSet1 = new ConcurrentHashSet<String>();
+      concurrentHashSet1.add("awt.toolkit");
+      boolean boolean0 = concurrentHashSet1.retainAll(concurrentHashSet0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      Object object0 = new Object();
+      concurrentHashSet0.add(object0);
+      boolean boolean0 = concurrentHashSet0.removeAll(concurrentHashSet0);
+      assertTrue(concurrentHashSet0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      Object object0 = new Object();
+      concurrentHashSet0.add(object0);
+      boolean boolean0 = concurrentHashSet0.removeAll(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      Stream<Object> stream0 = concurrentHashSet0.stream();
+      concurrentHashSet0.add(stream0);
+      String[] stringArray0 = new String[7];
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.toArray(stringArray0);
+        fail("Expecting exception: ArrayStoreException");
+      } catch(ArrayStoreException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.retainAll((Collection<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap$CollectionView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.removeAll((Collection<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap$CollectionView", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.remove((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      linkedList0.add((Object) linkedList0);
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.containsAll(linkedList0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.add((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Integer> concurrentHashSet1 = new ConcurrentHashSet<Integer>();
+      boolean boolean0 = concurrentHashSet1.equals(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.contains(concurrentHashSet0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      Iterator<Object> iterator0 = concurrentHashSet0.iterator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      int int0 = concurrentHashSet0.size();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      concurrentHashSet0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Integer integer0 = new Integer((-1865));
+      boolean boolean0 = concurrentHashSet0.add(integer0);
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean1 = concurrentHashSet1.equals(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Integer integer0 = new Integer((-1865));
+      boolean boolean0 = concurrentHashSet0.add(integer0);
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean1 = concurrentHashSet1.equals(concurrentHashSet0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Integer integer0 = new Integer((-1865));
+      boolean boolean0 = concurrentHashSet0.add(integer0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Integer integer0 = new Integer((-1865));
+      boolean boolean0 = concurrentHashSet0.add(integer0);
+      boolean boolean1 = concurrentHashSet0.add(integer0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      ConcurrentHashSet<Object> concurrentHashSet2 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.remove(concurrentHashSet2);
+      assertEquals(0, concurrentHashSet1.size());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      ConcurrentHashSet<Object> concurrentHashSet2 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.remove(concurrentHashSet2);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Integer integer0 = new Integer((-1865));
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet0.remove(integer0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.add(concurrentHashSet0);
+      boolean boolean1 = concurrentHashSet1.contains(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.add(concurrentHashSet0);
+      boolean boolean1 = concurrentHashSet1.contains(concurrentHashSet0);
+      assertTrue(boolean1);
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      boolean boolean0 = concurrentHashSet1.removeAll(concurrentHashSet0);
+      assertTrue(concurrentHashSet1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      boolean boolean0 = concurrentHashSet1.removeAll(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet0.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      assertTrue(concurrentHashSet0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      concurrentHashSet1.add(concurrentHashSet0);
+      boolean boolean0 = concurrentHashSet1.isEmpty();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      ConcurrentHashSet<Object> concurrentHashSet0 = new ConcurrentHashSet<Object>();
+      concurrentHashSet0.clear();
+      assertEquals(0, concurrentHashSet0.size());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      ConcurrentHashSet<Object> concurrentHashSet1 = new ConcurrentHashSet<Object>();
+      boolean boolean0 = concurrentHashSet1.retainAll(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      String string0 = concurrentHashSet0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      // Undeclared exception!
+      try { 
+        concurrentHashSet0.toArray((String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      Object[] objectArray0 = concurrentHashSet0.toArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      ConcurrentHashSet<String> concurrentHashSet0 = new ConcurrentHashSet<String>();
+      ConcurrentHashSet<Integer> concurrentHashSet1 = new ConcurrentHashSet<Integer>();
+      boolean boolean0 = concurrentHashSet1.containsAll(concurrentHashSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      ConcurrentHashSet<Integer> concurrentHashSet0 = new ConcurrentHashSet<Integer>();
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      linkedList0.addFirst(concurrentHashSet0);
+      boolean boolean0 = concurrentHashSet0.containsAll(linkedList0);
+      ;
+}

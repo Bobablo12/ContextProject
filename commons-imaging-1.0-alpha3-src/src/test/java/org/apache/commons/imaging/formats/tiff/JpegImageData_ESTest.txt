@@ -1,0 +1,21 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      JpegImageData jpegImageData0 = new JpegImageData(61L, (-2843), byteArray0);
+      String string0 = jpegImageData0.getElementDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegImageData jpegImageData0 = new JpegImageData(0L, 0, (byte[]) null);
+      // Undeclared exception!
+      try { 
+        jpegImageData0.getElementDescription();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffElement$DataElement", e);
+      }
+  }

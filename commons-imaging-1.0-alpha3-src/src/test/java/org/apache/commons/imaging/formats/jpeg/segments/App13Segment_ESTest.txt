@@ -1,0 +1,71 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      App13Segment app13Segment0 = null;
+      try {
+        app13Segment0 = new App13Segment(0, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.App13Segment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-38), 1983);
+      App13Segment app13Segment0 = null;
+      try {
+        app13Segment0 = new App13Segment(65500, 65500, byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      App13Segment app13Segment0 = null;
+      try {
+        app13Segment0 = new App13Segment((-2316), (-2316), pipedInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid Segment: insufficient data, invalid length: -2316
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      App13Segment app13Segment0 = new App13Segment((-1640), byteArray0);
+      boolean boolean0 = app13Segment0.isPhotoshopJpegSegment();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      App13Segment app13Segment0 = new App13Segment((-1), 0, (InputStream) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      App13Segment app13Segment0 = new App13Segment(4319, byteArray0);
+      ImagingParameters imagingParameters0 = new ImagingParameters();
+      PhotoshopApp13Data photoshopApp13Data0 = app13Segment0.parsePhotoshopSegment(imagingParameters0);
+      assertNotNull(photoshopApp13Data0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      App13Segment app13Segment0 = null;
+      try {
+        app13Segment0 = new App13Segment(3157, 3157, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }

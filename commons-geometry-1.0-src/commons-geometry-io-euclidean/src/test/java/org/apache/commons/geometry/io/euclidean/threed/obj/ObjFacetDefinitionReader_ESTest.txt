@@ -1,0 +1,67 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("] but was [");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected OBJ keyword but found empty token followed by []]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("G6c~ARmt/90&\"KOQ3");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = null;
+      try {
+        objFacetDefinitionReader0 = new ObjFacetDefinitionReader((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("inalid Matrixelee[t:");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      FacetDefinition facetDefinition0 = objFacetDefinitionReader0.readFacet();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("inalid Matrixelee[t:");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      objFacetDefinitionReader0.handleNormal(vector3D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("G6c~ARmt/90&\"KOQ3");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_X;
+      objFacetDefinitionReader0.handleVertex(vector3D_Unit0);
+      assertFalse(vector3D_Unit0.isNaN());
+}

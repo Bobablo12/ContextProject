@@ -1,0 +1,757 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultPooledObject<GenericObjectPool<Integer>> defaultPooledObject0 = new DefaultPooledObject<GenericObjectPool<Integer>>((GenericObjectPool<Integer>) null);
+      KeyedPooledObjectFactory<String, GenericObjectPool<Integer>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, GenericObjectPool<Integer>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(keyedPooledObjectFactory0).toString();
+      doReturn(defaultPooledObject0).when(keyedPooledObjectFactory0).makeObject(anyString());
+      GenericKeyedObjectPool<String, GenericObjectPool<Integer>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, GenericObjectPool<Integer>>(keyedPooledObjectFactory0);
+      CglibProxySource<GenericObjectPool<Integer>> cglibProxySource0 = new CglibProxySource<GenericObjectPool<Integer>>((Class<? extends GenericObjectPool<Integer>>) null);
+      ProxiedKeyedObjectPool<String, GenericObjectPool<Integer>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<String, GenericObjectPool<Integer>>(genericKeyedObjectPool0, cglibProxySource0);
+      proxiedKeyedObjectPool0.getNumIdle("ErodingPerKeyKeyedObjectPool{factor=");
+      proxiedKeyedObjectPool0.addObject("ErodingPerKeyKeyedObjectPool{factor=");
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.System", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      DefaultPooledObject<Integer> defaultPooledObject0 = new DefaultPooledObject<Integer>(integer0);
+      KeyedPooledObjectFactory<GenericKeyedObjectPool<String, Object>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericKeyedObjectPool<String, Object>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(defaultPooledObject0).when(keyedPooledObjectFactory0).makeObject(nullable(org.apache.commons.pool2.impl.GenericKeyedObjectPool.class));
+      GenericKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer>(keyedPooledObjectFactory0);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      AbandonedConfig abandonedConfig0 = null;
+      Duration duration0 = Duration.from(genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT);
+      genericKeyedObjectPoolConfig0.setTimeBetweenEvictionRuns(duration0);
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig0, (AbandonedConfig) null);
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory2 = genericKeyedObjectPool1.getFactory();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory2);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.borrowObject(genericKeyedObjectPool2);
+        fail("Expecting exception: IncompatibleClassChangeError");
+      } catch(IncompatibleClassChangeError e) {
+         //
+         // Expected non-static field net.sf.cglib.proxy.Enhancer.serialVersionUID
+         //
+         verifyException("net.sf.cglib.proxy.Enhancer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ReferenceQueue<Object> referenceQueue0 = new ReferenceQueue<Object>();
+      SoftReference<Object> softReference0 = new SoftReference<Object>((Object) null, referenceQueue0);
+      PooledSoftReference<Object> pooledSoftReference0 = new PooledSoftReference<Object>(softReference0);
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(pooledSoftReference0).when(keyedPooledObjectFactory0).makeObject(any());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 7);
+      Class<String> class0 = String.class;
+      classArray0[0] = class0;
+      Class<String> class1 = String.class;
+      classArray0[1] = class1;
+      Class<String> class2 = String.class;
+      classArray0[2] = class2;
+      Class<String> class3 = String.class;
+      classArray0[3] = class3;
+      classLoader1.setClassAssertionStatus("LIx", false);
+      Class<String> class4 = String.class;
+      classArray0[4] = class4;
+      Class<String> class5 = String.class;
+      classArray0[5] = class5;
+      Class<String> class6 = String.class;
+      classArray0[6] = class6;
+      JdkProxySource<Object> jdkProxySource0 = new JdkProxySource<Object>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<Object, Object> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Object>(genericKeyedObjectPool0, jdkProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.borrowObject(jdkProxySource0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // java.lang.String is not an interface
+         //
+         verifyException("java.lang.reflect.Proxy$ProxyClassFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      KeyedObjectPool<String, GenericKeyedObjectPool<String, Object>> keyedObjectPool0 = null;
+      ProxiedKeyedObjectPool<String, GenericKeyedObjectPool<String, Object>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<String, GenericKeyedObjectPool<String, Object>>((KeyedObjectPool<String, GenericKeyedObjectPool<String, Object>>) null, (ProxySource<GenericKeyedObjectPool<String, Object>>) null);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.getNumIdle();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, String>((KeyedObjectPool<Object, String>) null, cglibProxySource0);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.getNumActive((Object) "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig1);
+      genericKeyedObjectPoolConfig0.setJmxEnabled(false);
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 2);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      JdkProxySource<Object> jdkProxySource0 = new JdkProxySource<Object>((ClassLoader) null, classArray0);
+      ProxiedKeyedObjectPool<Object, Object> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Object>(genericKeyedObjectPool0, jdkProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.invalidateObject((Object) class1, (Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      KeyedPooledObjectFactory<GenericKeyedObjectPool<Object, Object>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericKeyedObjectPool<Object, Object>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(keyedPooledObjectFactory0).toString();
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 0);
+      JdkProxySource<Integer> jdkProxySource0 = new JdkProxySource<Integer>(classLoader0, classArray0);
+      ProxiedKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, Integer>(genericKeyedObjectPool0, jdkProxySource0);
+      proxiedKeyedObjectPool0.toString();
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig3 = genericKeyedObjectPoolConfig2.clone();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig3, (AbandonedConfig) null);
+      JdkProxySource<String> jdkProxySource1 = new JdkProxySource<String>(classLoader0, classArray0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<Object, String>(genericKeyedObjectPool1, jdkProxySource1);
+      try { 
+        proxiedKeyedObjectPool1.returnObject((Object) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Integer, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, String>((KeyedObjectPool<Integer, String>) null, cglibProxySource0);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Integer>(keyedPooledObjectFactory0);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<String, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<String, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      proxiedKeyedObjectPool0.getNumIdle();
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<Integer>[] classArray0 = (Class<Integer>[]) Array.newInstance(Class.class, 7);
+      classArray0[0] = class0;
+      classArray0[1] = class0;
+      classArray0[2] = class0;
+      classArray0[3] = class0;
+      classArray0[4] = class0;
+      classArray0[5] = class0;
+      classArray0[6] = class0;
+      JdkProxySource<Object> jdkProxySource0 = new JdkProxySource<Object>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<Object, Object> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<Object, Object>(genericKeyedObjectPool1, jdkProxySource0);
+      Integer integer0 = new Integer((-148));
+      try { 
+        proxiedKeyedObjectPool1.invalidateObject((Object) integer0, (Object) genericKeyedObjectPool1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // not a proxy instance
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      KeyedPooledObjectFactory<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>>(keyedPooledObjectFactory0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 7);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[2] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[3] = class3;
+      Class<Object> class4 = Object.class;
+      classArray0[4] = class4;
+      Class<Object> class5 = Object.class;
+      classArray0[5] = class5;
+      Class<Object> class6 = Object.class;
+      classArray0[6] = class6;
+      JdkProxySource<GenericKeyedObjectPool<Object, Object>> jdkProxySource0 = new JdkProxySource<GenericKeyedObjectPool<Object, Object>>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericObjectPool<Object>, GenericKeyedObjectPool<Object, Object>>(genericKeyedObjectPool0, jdkProxySource0);
+      PooledObjectFactory<Object> pooledObjectFactory0 = (PooledObjectFactory<Object>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      classLoader0.clearAssertionStatus();
+      GenericObjectPool<Object> genericObjectPool0 = new GenericObjectPool<Object>(pooledObjectFactory0);
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      try { 
+        proxiedKeyedObjectPool0.returnObject(genericObjectPool0, genericKeyedObjectPool1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // not a proxy instance
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0);
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, String>(genericKeyedObjectPool0, cglibProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.invalidateObject((Object) genericKeyedObjectPool0, "lfx Px*4})H");
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.String cannot be cast to net.sf.cglib.proxy.Factory
+         //
+         verifyException("org.apache.commons.pool2.proxy.CglibProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 4);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[2] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[3] = class3;
+      JdkProxySource<Integer> jdkProxySource0 = new JdkProxySource<Integer>(classLoader0, classArray0);
+      ProxiedKeyedObjectPool<Object, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Integer>((KeyedObjectPool<Object, Integer>) null, jdkProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.borrowObject(classLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Integer>(keyedPooledObjectFactory0);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<Object, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      proxiedKeyedObjectPool0.getNumIdle((Object) genericKeyedObjectPool0);
+      try { 
+        proxiedKeyedObjectPool0.clear((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Integer, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, abandonedConfig1);
+      Class<String> class0 = String.class;
+      CglibProxySource<Object> cglibProxySource0 = new CglibProxySource<Object>(class0);
+      ProxiedKeyedObjectPool<Integer, Object> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, Object>(genericKeyedObjectPool0, cglibProxySource0);
+      Integer integer0 = new Integer((-1));
+      Integer integer1 = new Integer(0);
+      try { 
+        proxiedKeyedObjectPool0.returnObject(integer0, integer1);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.Integer cannot be cast to net.sf.cglib.proxy.Factory
+         //
+         verifyException("org.apache.commons.pool2.proxy.CglibProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 6);
+      Class<String> class0 = String.class;
+      classArray0[0] = class0;
+      Class<String> class1 = String.class;
+      classLoader1.setPackageAssertionStatus("ZIoMBwcz{!dL?VC}&S", false);
+      classArray0[1] = class1;
+      Class<String> class2 = String.class;
+      ClassLoader.getSystemClassLoader();
+      classLoader0.setClassAssertionStatus("Oi", true);
+      classArray0[2] = class2;
+      Class<String> class3 = String.class;
+      classArray0[3] = class3;
+      Class<String> class4 = String.class;
+      classArray0[4] = class4;
+      Class<String> class5 = String.class;
+      classArray0[5] = class5;
+      JdkProxySource<GenericObjectPool<String>> jdkProxySource0 = new JdkProxySource<GenericObjectPool<String>>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<String, GenericObjectPool<String>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<String, GenericObjectPool<String>>((KeyedObjectPool<String, GenericObjectPool<String>>) null, jdkProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.returnObject("(]O4'6", (GenericObjectPool<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      KeyedPooledObjectFactory<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(keyedPooledObjectFactory0).toString();
+      GenericKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>>(keyedPooledObjectFactory0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 2);
+      Class<String> class0 = String.class;
+      classArray0[0] = class0;
+      Class<String> class1 = String.class;
+      classArray0[1] = class1;
+      JdkProxySource<GenericKeyedObjectPool<Object, Object>> jdkProxySource0 = new JdkProxySource<GenericKeyedObjectPool<Object, Object>>(classLoader0, classArray0);
+      ProxiedKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericKeyedObjectPool<Object, Object>, GenericKeyedObjectPool<Object, Object>>(genericKeyedObjectPool0, jdkProxySource0);
+      proxiedKeyedObjectPool0.toString();
+      Class<Object>[] classArray1 = (Class<Object>[]) Array.newInstance(Class.class, 1);
+      Class<Object> class2 = Object.class;
+      classArray1[0] = class2;
+      JdkProxySource<Integer> jdkProxySource1 = new JdkProxySource<Integer>(classLoader0, classArray1);
+      ProxiedKeyedObjectPool<String, Integer> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<String, Integer>((KeyedObjectPool<String, Integer>) null, jdkProxySource1);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool1.getNumActive();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<String>[] classArray0 = (Class<String>[]) Array.newInstance(Class.class, 6);
+      Class<String> class0 = String.class;
+      classArray0[0] = class0;
+      Class<String> class1 = String.class;
+      classArray0[1] = class1;
+      Class<String> class2 = String.class;
+      classArray0[2] = class2;
+      Class<String> class3 = String.class;
+      classArray0[3] = class3;
+      Class<String> class4 = String.class;
+      classArray0[4] = class4;
+      Class<String> class5 = String.class;
+      classArray0[5] = class5;
+      JdkProxySource<GenericKeyedObjectPool<Object, String>> jdkProxySource0 = new JdkProxySource<GenericKeyedObjectPool<Object, String>>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<Object, GenericKeyedObjectPool<Object, String>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, GenericKeyedObjectPool<Object, String>>((KeyedObjectPool<Object, GenericKeyedObjectPool<Object, String>>) null, jdkProxySource0);
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool0.getNumIdle(object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 8);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[2] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[3] = class3;
+      Class<Object> class4 = Object.class;
+      classArray0[4] = class4;
+      Class<Object> class5 = Object.class;
+      classArray0[5] = class5;
+      Class<Object> class6 = Object.class;
+      classArray0[6] = class6;
+      Class<Object> class7 = Object.class;
+      classArray0[7] = class7;
+      JdkProxySource<Integer> jdkProxySource0 = new JdkProxySource<Integer>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<Integer, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, Integer>((KeyedObjectPool<Integer, Integer>) null, jdkProxySource0);
+      String string0 = proxiedKeyedObjectPool0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0);
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, String>(genericKeyedObjectPool0, cglibProxySource0);
+      proxiedKeyedObjectPool0.clear();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      CglibProxySource<Object> cglibProxySource0 = new CglibProxySource<Object>(class0);
+      ProxiedKeyedObjectPool<Integer, Object> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, Object>((KeyedObjectPool<Integer, Object>) null, cglibProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.clear();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(keyedPooledObjectFactory0).toString();
+      doReturn((PooledObject) null).when(keyedPooledObjectFactory0).makeObject(any());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      Class<String> class0 = String.class;
+      genericKeyedObjectPool0.toString();
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, String>(genericKeyedObjectPool0, cglibProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.addObject(cglibProxySource0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      KeyedPooledObjectFactory<GenericObjectPool<Object>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericObjectPool<Object>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<GenericObjectPool<Object>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericObjectPool<Object>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, abandonedConfig1);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<GenericObjectPool<Object>, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericObjectPool<Object>, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      try { 
+        proxiedKeyedObjectPool0.borrowObject((GenericObjectPool<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<Object, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Integer>((KeyedObjectPool<Object, Integer>) null, cglibProxySource0);
+      Object object0 = new Object();
+      try { 
+        proxiedKeyedObjectPool0.addObject(object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.ProxiedKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      KeyedPooledObjectFactory<Integer, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, Integer>(keyedPooledObjectFactory0);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<Integer, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      Integer integer0 = new Integer(91);
+      try { 
+        proxiedKeyedObjectPool0.returnObject(integer0, integer0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.Integer cannot be cast to net.sf.cglib.proxy.Factory
+         //
+         verifyException("org.apache.commons.pool2.proxy.CglibProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      genericKeyedObjectPoolConfig1.setTestOnCreate(true);
+      PooledObjectFactory<Integer> pooledObjectFactory0 = (PooledObjectFactory<Integer>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericObjectPool<Integer> genericObjectPool0 = new GenericObjectPool<Integer>(pooledObjectFactory0);
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      ProxiedKeyedObjectPool<Object, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, String>(genericKeyedObjectPool0, cglibProxySource0);
+      proxiedKeyedObjectPool0.getNumActive();
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>(">;a7&xM_xAHX/mfx]L");
+      KeyedPooledObjectFactory<Integer, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(defaultPooledObject0).when(keyedPooledObjectFactory1).makeObject(anyInt());
+      GenericKeyedObjectPool<Integer, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, String>(keyedPooledObjectFactory1);
+      ProxiedKeyedObjectPool<Integer, String> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<Integer, String>(genericKeyedObjectPool1, cglibProxySource0);
+      // Undeclared exception!
+      try { 
+        proxiedKeyedObjectPool1.borrowObject((Integer) 8);
+        fail("Expecting exception: IncompatibleClassChangeError");
+      } catch(IncompatibleClassChangeError e) {
+         //
+         // Expected non-static field net.sf.cglib.proxy.Enhancer.serialVersionUID
+         //
+         verifyException("net.sf.cglib.proxy.Enhancer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory1 = genericKeyedObjectPool0.getFactory();
+      genericKeyedObjectPool0.clear();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory1);
+      Class<Object> class0 = Object.class;
+      CglibProxySource<Object> cglibProxySource0 = new CglibProxySource<Object>(class0);
+      ProxiedKeyedObjectPool<String, Object> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<String, Object>(genericKeyedObjectPool1, cglibProxySource0);
+      proxiedKeyedObjectPool0.getNumActive();
+      KeyedPooledObjectFactory<GenericObjectPool<Integer>, Object> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<GenericObjectPool<Integer>, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<GenericObjectPool<Integer>, Object> genericKeyedObjectPool2 = new GenericKeyedObjectPool<GenericObjectPool<Integer>, Object>(keyedPooledObjectFactory2);
+      ProxiedKeyedObjectPool<GenericObjectPool<Integer>, Object> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<GenericObjectPool<Integer>, Object>(genericKeyedObjectPool2, cglibProxySource0);
+      PooledObjectFactory<Integer> pooledObjectFactory0 = (PooledObjectFactory<Integer>) mock(PooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericObjectPoolConfig<Integer> genericObjectPoolConfig0 = new GenericObjectPoolConfig<Integer>();
+      GenericObjectPoolConfig<Integer> genericObjectPoolConfig1 = genericObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericObjectPool<Integer> genericObjectPool0 = new GenericObjectPool<Integer>(pooledObjectFactory0, genericObjectPoolConfig1, abandonedConfig0);
+      proxiedKeyedObjectPool1.clear(genericObjectPool0);
+      assertEquals(0, genericObjectPool0.getMinIdle());
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      JdkProxySource<String> jdkProxySource0 = null;
+      try {
+        jdkProxySource0 = new JdkProxySource<String>(classLoader1, (Class<?>[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.JdkProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, String>(keyedPooledObjectFactory0);
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      ProxiedKeyedObjectPool<Integer, String> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, String>(genericKeyedObjectPool0, cglibProxySource0);
+      Integer integer0 = new Integer(521);
+      proxiedKeyedObjectPool0.getNumActive(integer0);
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory1);
+      ProxiedKeyedObjectPool<String, String> proxiedKeyedObjectPool1 = new ProxiedKeyedObjectPool<String, String>(genericKeyedObjectPool1, cglibProxySource0);
+      proxiedKeyedObjectPool1.clear("CilTD*p2obbVC~O");
+      KeyedPooledObjectFactory<String, GenericKeyedObjectPool<Object, String>> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, GenericKeyedObjectPool<Object, String>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<GenericKeyedObjectPool<Object, String>> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<GenericKeyedObjectPool<Object, String>>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      GenericKeyedObjectPool<String, GenericKeyedObjectPool<Object, String>> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, GenericKeyedObjectPool<Object, String>>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 5);
+      Class<Object> class1 = Object.class;
+      classArray0[0] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[1] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[2] = class3;
+      Class<Object> class4 = Object.class;
+      classArray0[3] = class4;
+      Class<Object> class5 = Object.class;
+      classArray0[4] = class5;
+      JdkProxySource<GenericKeyedObjectPool<Object, String>> jdkProxySource0 = new JdkProxySource<GenericKeyedObjectPool<Object, String>>((ClassLoader) null, classArray0);
+      ProxiedKeyedObjectPool<String, GenericKeyedObjectPool<Object, String>> proxiedKeyedObjectPool2 = new ProxiedKeyedObjectPool<String, GenericKeyedObjectPool<Object, String>>(genericKeyedObjectPool2, jdkProxySource0);
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool3 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory3, genericKeyedObjectPoolConfig1, abandonedConfig0);
+      try { 
+        proxiedKeyedObjectPool2.invalidateObject("", genericKeyedObjectPool3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // not a proxy instance
+         //
+         verifyException("java.lang.reflect.Proxy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      KeyedPooledObjectFactory<GenericKeyedObjectPool<String, Object>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<GenericKeyedObjectPool<String, Object>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((PooledObject) null).when(keyedPooledObjectFactory0).makeObject(nullable(org.apache.commons.pool2.impl.GenericKeyedObjectPool.class));
+      GenericKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer>(keyedPooledObjectFactory0);
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Integer> cglibProxySource0 = new CglibProxySource<Integer>(class0);
+      ProxiedKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<GenericKeyedObjectPool<String, Object>, Integer>(genericKeyedObjectPool0, cglibProxySource0);
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      AbandonedConfig abandonedConfig0 = null;
+      Duration duration0 = Duration.from(genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT);
+      genericKeyedObjectPoolConfig0.setTimeBetweenEvictionRuns(duration0);
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig0, (AbandonedConfig) null);
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory2 = genericKeyedObjectPool1.getFactory();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory2);
+      try { 
+        proxiedKeyedObjectPool0.borrowObject(genericKeyedObjectPool2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Integer>(keyedPooledObjectFactory0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 8);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[2] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[3] = class3;
+      Class<Object> class4 = Object.class;
+      classArray0[4] = class4;
+      Class<Object> class5 = Object.class;
+      classArray0[5] = class5;
+      Class<Object> class6 = Object.class;
+      classArray0[6] = class6;
+      Class<Object> class7 = Object.class;
+      classArray0[7] = class7;
+      JdkProxySource<Integer> jdkProxySource0 = new JdkProxySource<Integer>(classLoader1, classArray0);
+      ProxiedKeyedObjectPool<Object, Integer> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Object, Integer>(genericKeyedObjectPool0, jdkProxySource0);
+      proxiedKeyedObjectPool0.close();
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, GenericKeyedObjectPool<String, Object>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, GenericKeyedObjectPool<String, Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, GenericKeyedObjectPool<String, Object>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, GenericKeyedObjectPool<String, Object>>(keyedPooledObjectFactory0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      Class<Object>[] classArray0 = (Class<Object>[]) Array.newInstance(Class.class, 8);
+      Class<Object> class0 = Object.class;
+      classArray0[0] = class0;
+      Class<Object> class1 = Object.class;
+      classArray0[1] = class1;
+      Class<Object> class2 = Object.class;
+      classArray0[2] = class2;
+      Class<Object> class3 = Object.class;
+      classArray0[3] = class3;
+      Class<Object> class4 = Object.class;
+      classArray0[4] = class4;
+      Class<Object> class5 = Object.class;
+      classArray0[5] = class5;
+      Class<Object> class6 = Object.class;
+      classArray0[6] = class6;
+      Class<Object> class7 = Object.class;
+      classArray0[7] = class7;
+      JdkProxySource<GenericKeyedObjectPool<String, Object>> jdkProxySource0 = new JdkProxySource<GenericKeyedObjectPool<String, Object>>(classLoader0, classArray0);
+      ProxiedKeyedObjectPool<Integer, GenericKeyedObjectPool<String, Object>> proxiedKeyedObjectPool0 = new ProxiedKeyedObjectPool<Integer, GenericKeyedObjectPool<String, Object>>(genericKeyedObjectPool0, jdkProxySource0);
+      int int0 = proxiedKeyedObjectPool0.getNumIdle();
+      assertEquals(0, int0);
+}

@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[2] = (byte)56;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      InfoHeaderReader infoHeaderReader0 = new InfoHeaderReader(byteArrayInputStream0);
+      try { 
+        infoHeaderReader0.readNextLine();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // HDR: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.rgbe.InfoHeaderReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InfoHeaderReader infoHeaderReader0 = new InfoHeaderReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        infoHeaderReader0.readNextLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

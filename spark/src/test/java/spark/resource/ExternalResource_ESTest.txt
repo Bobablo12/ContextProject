@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("");
+      boolean boolean0 = externalResource0.isDirectory();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource(".Q*k=Oey,!2/{&q^G(");
+      String string0 = externalResource0.getPath();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("L;A=p2|lB_H");
+      FileSystemHandling.appendStringToFile(evoSuiteFile0, "L;A=p2|lB_H");
+      ExternalResource externalResource0 = new ExternalResource("L;A=p2|lB_H");
+      InputStream inputStream0 = externalResource0.getInputStream();
+      assertEquals(0, inputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("");
+      String string0 = externalResource0.getFilename();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("");
+      boolean boolean0 = externalResource0.exists();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ExternalResource externalResource0 = null;
+      try {
+        externalResource0 = new ExternalResource((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.File", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("");
+      String string0 = externalResource0.getPath();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("L;A=p2|lB_H");
+      String string0 = externalResource0.getDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("k");
+      String string0 = externalResource0.getFilename();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("k");
+      File file0 = externalResource0.getFileForLastModifiedCheck();
+      assertFalse(file0.exists());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("k");
+      try { 
+        externalResource0.getInputStream();
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("k");
+      boolean boolean0 = externalResource0.isDirectory();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("k");
+      boolean boolean0 = externalResource0.exists();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ExternalResource externalResource0 = new ExternalResource("");
+      URL uRL0 = externalResource0.getURL();
+      assertEquals(0, uRL0.getPort());
+}

@@ -1,0 +1,29 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = new byte[0];
+      ImageResourceBlock imageResourceBlock0 = new ImageResourceBlock(1703, byteArray0, byteArray1);
+      String string0 = imageResourceBlock0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ImageResourceBlock imageResourceBlock0 = new ImageResourceBlock(2648, byteArray0, byteArray0);
+      String string0 = imageResourceBlock0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ImageResourceBlock imageResourceBlock0 = new ImageResourceBlock(0, (byte[]) null, (byte[]) null);
+      // Undeclared exception!
+      try { 
+        imageResourceBlock0.getName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.ImageResourceBlock", e);
+      }
+  }

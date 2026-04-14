@@ -1,0 +1,185 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      byte[] byteArray0 = new byte[9];
+      ByteBuffer byteBuffer0 = ByteBuffer.wrap(byteArray0);
+      byteBuffer0.putLong(0L);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.FileBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("+=k*4S2_");
+      File file0 = MockFile.createTempFile("!&@)hUU82[DHSYB?<0", "!&@)hUU82[DHSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      long long0 = fileBodyConsumer0.getTransferredBytes();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("+=k*4S2_/!&@)hUU82[DHSYB?<00!&@)hUU82[DHSYB?<0");
+      byte[] byteArray0 = new byte[6];
+      FileSystemHandling.appendDataToFile(evoSuiteFile0, byteArray0);
+      MockFile mockFile0 = new MockFile("+=k*4S2_");
+      File file0 = MockFile.createTempFile("!&@)hUU82[DHSYB?<0", "!&@)hUU82[DHSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      long long0 = fileBodyConsumer0.getTransferredBytes();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.resume();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.FileBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile("", "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      try { 
+        fileBodyConsumer0.resume();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocate(7);
+      ByteBuffer byteBuffer1 = byteBuffer0.asReadOnlyBuffer();
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.consume(byteBuffer1);
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect(821);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.ByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("+=k*4S2_");
+      File file0 = MockFile.createTempFile("!&@)hUU82[DHSYB?<0", "!&@)hUU82[DHSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      ByteBuffer byteBuffer0 = ByteBuffer.allocate(31);
+      try { 
+        fileBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockRandomAccessFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.FileBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("q&@)hUU2[>HSYB?<0");
+      File file0 = MockFile.createTempFile("q&@)hUU2[>HSYB?<0", "q&@)hUU2[>HSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      try { 
+        fileBodyConsumer0.close();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer((RandomAccessFile) null);
+      // Undeclared exception!
+      try { 
+        fileBodyConsumer0.getTransferredBytes();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.FileBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("+=k*4S2_");
+      File file0 = MockFile.createTempFile("!&@)hUU82[DHSYB?<0", "!&@)hUU82[DHSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      fileBodyConsumer0.close();
+      try { 
+        fileBodyConsumer0.getTransferredBytes();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockRandomAccessFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("+=k*4S2_");
+      File file0 = MockFile.createTempFile("!&@)hUU82[DHSYB?<0", "!&@)hUU82[DHSYB?<0", (File) mockFile0);
+      MockRandomAccessFile mockRandomAccessFile0 = new MockRandomAccessFile(file0, "r");
+      FileBodyConsumer fileBodyConsumer0 = new FileBodyConsumer(mockRandomAccessFile0);
+      fileBodyConsumer0.resume();
+      assertEquals(1, fileBodyConsumer0.getTransferredBytes());
+}

@@ -1,0 +1,32 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultSubsitutor defaultSubsitutor0 = new DefaultSubsitutor();
+      // Undeclared exception!
+      try { 
+        defaultSubsitutor0.substitute((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DefaultSubsitutor defaultSubsitutor0 = new DefaultSubsitutor();
+      // Undeclared exception!
+      try { 
+        defaultSubsitutor0.substitute("${}");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DefaultSubsitutor defaultSubsitutor0 = new DefaultSubsitutor();
+      String string0 = defaultSubsitutor0.substitute("${/uM~");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DefaultSubsitutor defaultSubsitutor0 = new DefaultSubsitutor();
+      String string0 = defaultSubsitutor0.substitute("");
+      ;
+}

@@ -1,0 +1,105 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[6][3][9];
+      int[][] intArray1 = new int[1][6];
+      int[] intArray2 = new int[4];
+      intArray2[0] = 1771;
+      intArray1[0] = intArray2;
+      intArray0[0] = intArray1;
+      intArray0[3] = intArray0[0];
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 0, 0, 0, 5152);
+      int int0 = dataParserCmyk0.getRGB(intArray0, 0, 0, psdImageContents0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[6][3][9];
+      int[][] intArray1 = new int[1][6];
+      int[] intArray2 = new int[4];
+      intArray2[0] = 1771;
+      intArray1[0] = intArray2;
+      intArray0[1] = intArray1;
+      intArray0[2] = intArray0[1];
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 0, 0, 0, 5152);
+      int int0 = dataParserCmyk0.getRGB(intArray0, 0, 0, psdImageContents0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[6][3][9];
+      int[][] intArray1 = new int[1][6];
+      int[] intArray2 = new int[4];
+      intArray2[0] = 1771;
+      intArray1[0] = intArray2;
+      intArray0[1] = intArray1;
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 0, 0, 0, 5152);
+      int int0 = dataParserCmyk0.getRGB(intArray0, 0, 0, psdImageContents0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[6][3][9];
+      int[][] intArray1 = new int[1][6];
+      int[] intArray2 = new int[4];
+      intArray2[0] = 1771;
+      intArray1[0] = intArray2;
+      intArray0[0] = intArray1;
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 0, 0, 0, 5152);
+      int int0 = dataParserCmyk0.getRGB(intArray0, 0, 0, psdImageContents0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[4][3][8];
+      byte[] byteArray0 = new byte[1];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo((-979), byteArray0, (-2083), 2, (-1857), 0, 2);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, 4773, 4, 1114);
+      int int0 = dataParserCmyk0.getRGB(intArray0, 0, 2, psdImageContents0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int[][][] intArray0 = new int[5][9][5];
+      byte[] byteArray0 = new byte[0];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(0, byteArray0, 3, (-669), (-1), (-2501), 1);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 4, (-1598), 3, 1);
+      // Undeclared exception!
+      try { 
+        dataParserCmyk0.getRGB(intArray0, 41, (-1530), psdImageContents0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1530
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmyk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      int int0 = dataParserCmyk0.getBasicChannelsCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      byte[] byteArray0 = new byte[8];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(0, byteArray0, (byte)0, 3, 0, 1867, (byte)57);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, (byte)0, (byte) (-1), (-2403));
+      // Undeclared exception!
+      try { 
+        dataParserCmyk0.getRGB((int[][][]) null, 0, 0, psdImageContents0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmyk", e);
+      }
+  }

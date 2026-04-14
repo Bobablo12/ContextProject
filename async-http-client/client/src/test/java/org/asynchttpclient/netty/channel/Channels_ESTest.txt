@@ -1,0 +1,166 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[8];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(true, channelHandlerArray0);
+      Channels.setDiscard(embeddedChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      // Undeclared exception!
+      try { 
+        Channels.setAttribute(channel0, channel0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      // Undeclared exception!
+      try { 
+        Channels.setActiveToken(channel0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      // Undeclared exception!
+      try { 
+        Channels.isActiveTokenSet(channel0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Channels.getAttribute((Channel) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      Channels.setAttribute(embeddedChannel0, embeddedChannel0);
+      Object object0 = Channels.getAttribute(embeddedChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      Channels.silentlyCloseChannel(embeddedChannel0);
+      Channels.silentlyCloseChannel(embeddedChannel0);
+      assertFalse(embeddedChannel0.isActive());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      Channels.silentlyCloseChannel(embeddedChannel0);
+      Channels.silentlyCloseChannel(embeddedChannel0);
+      assertFalse(embeddedChannel0.isWritable());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Channels.silentlyCloseChannel((Channel) null);
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Integer integer0 = new Integer(1);
+      Attribute<Object> attribute0 = (Attribute<Object>) mock(Attribute.class, new ViolatedAssumptionAnswer());
+      doReturn(integer0).when(attribute0).getAndSet(any());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(attribute0).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      boolean boolean0 = Channels.isActiveTokenSet(channel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      boolean boolean0 = Channels.isActiveTokenSet(embeddedChannel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      boolean boolean0 = Channels.isActiveTokenSet((Channel) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      boolean boolean0 = Channels.isChannelActive(embeddedChannel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(channel0).isActive();
+      boolean boolean0 = Channels.isChannelActive(channel0);
+      assertFalse(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      boolean boolean0 = Channels.isChannelActive((Channel) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel();
+      Object object0 = Channels.getAttribute(embeddedChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute<Delayed>) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      Object object0 = Channels.getAttribute(channel0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Attribute<FormatStyle> attribute0 = (Attribute<FormatStyle>) mock(Attribute.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(attribute0).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      Channels.setActiveToken(channel0);
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Channels channels0 = new Channels();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Channels.setDiscard((Channel) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }

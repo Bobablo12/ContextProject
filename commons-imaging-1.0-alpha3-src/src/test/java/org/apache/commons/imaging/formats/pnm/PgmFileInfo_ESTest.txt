@@ -1,0 +1,228 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte)53;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArrayInputStream0.read();
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, (byte)41);
+      int int0 = pgmFileInfo0.getRGB((InputStream) pushbackInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      byte[] byteArray0 = new byte[7];
+      byteArray0[2] = (byte)53;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArrayInputStream0.read();
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, (byte)41);
+      int int0 = pgmFileInfo0.getRGB((InputStream) pushbackInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(603, 603, true, 2898);
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = pgmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(603, 603, true, 2898);
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      int int0 = pgmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo((-768), (-768), true, 1561);
+      int int0 = pgmFileInfo0.getBitDepth();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(843, 1983, true, 1983);
+      byte[] byteArray0 = new byte[5];
+      byteArray0[3] = (byte)13;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        pgmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"\u0000\u0000\u0000\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(257, 16, true, 257);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        pgmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(0, 1973, false, 255);
+      // Undeclared exception!
+      try { 
+        pgmFileInfo0.getRGB((InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(410, 410, false, 410);
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-3316), 255);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, 1);
+      // Undeclared exception!
+      try { 
+        pgmFileInfo0.getRGB((InputStream) bufferedInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(3816, 3816, true, 3816);
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1710, 718);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, 1610);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(pushbackInputStream0, byteArrayInputStream0);
+      try { 
+        pgmFileInfo0.getRGB((InputStream) sequenceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.FileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = null;
+      try {
+        pgmFileInfo0 = new PgmFileInfo(0, 0, true, 16711680);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PGM maxVal 16711680 is out of range [1;65535]
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PgmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = null;
+      try {
+        pgmFileInfo0 = new PgmFileInfo((-49), 0, false, 0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PGM maxVal 0 is out of range [1;65535]
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PgmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      boolean boolean0 = pgmFileInfo0.hasAlpha();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      boolean boolean0 = pgmFileInfo0.hasAlpha();
+      assertEquals(1, pgmFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo((-928), 65560, false, 1694);
+      pgmFileInfo0.getColorType();
+      assertEquals(1, pgmFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      int int0 = pgmFileInfo0.getNumComponents();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      int int0 = pgmFileInfo0.getNumComponents();
+      assertEquals(1, pgmFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      pgmFileInfo0.getImageType();
+      assertEquals(1, pgmFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(3816, 3816, true, 3816);
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1710, 718);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, 1610);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader(pushbackInputStream0);
+      try { 
+        pgmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      String string0 = pgmFileInfo0.getMIMEType();
+      assertEquals(0, pgmFileInfo0.getBitDepth());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(2531, 2531, false, 2531);
+      String string0 = pgmFileInfo0.getMIMEType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(3816, 3816, true, 3816);
+      String string0 = pgmFileInfo0.getImageTypeDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      PgmFileInfo pgmFileInfo0 = new PgmFileInfo(3816, 3816, true, 3816);
+      String string0 = pgmFileInfo0.getImageTypeDescription();
+      assertEquals(1, pgmFileInfo0.getBitDepth());
+}

@@ -1,0 +1,117 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Stack<LineConvexSubset> stack0 = new Stack<LineConvexSubset>();
+      ConvexArea convexArea0 = new ConvexArea(stack0);
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D(convexArea0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(56, 56).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(true, false, true, true).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 1.0, precision_DoubleEquivalence0);
+      Ray ray0 = new Ray(line0, vector2D_Unit0);
+      stack0.add((LineConvexSubset) ray0);
+      boundarySourceLinecaster2D0.linecastFirst(line0);
+      LinecastPoint2D linecastPoint2D0 = boundarySourceLinecaster2D0.linecastFirst((LineConvexSubset) ray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D((BoundarySource2D) null);
+      // Undeclared exception!
+      try { 
+        boundarySourceLinecaster2D0.linecastFirst((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.BoundarySourceLinecaster2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D((BoundarySource2D) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      Ray ray0 = line0.rayFrom((Vector2D) vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        boundarySourceLinecaster2D0.linecast((LineConvexSubset) ray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.BoundarySourceLinecaster2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector<LineConvexSubset> vector0 = new Vector<LineConvexSubset>();
+      ConvexArea convexArea0 = new ConvexArea(vector0);
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D(convexArea0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Ray ray0 = new Ray(line0, vector2D_Unit0);
+      vector0.add((LineConvexSubset) ray0);
+      LinecastPoint2D linecastPoint2D0 = boundarySourceLinecaster2D0.linecastFirst((LineConvexSubset) ray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector<LineConvexSubset> vector0 = new Vector<LineConvexSubset>();
+      ConvexArea convexArea0 = new ConvexArea(vector0);
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D(convexArea0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false, true, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Ray ray0 = new Ray(line0, vector2D_Unit0);
+      vector0.add((LineConvexSubset) ray0);
+      List<LinecastPoint2D> list0 = boundarySourceLinecaster2D0.linecast((LineConvexSubset) lineSpanningSubset0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ArrayList<LineConvexSubset> arrayList0 = new ArrayList<LineConvexSubset>();
+      BoundaryList2D boundaryList2D0 = new BoundaryList2D(arrayList0);
+      arrayList0.add((LineConvexSubset) null);
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D(boundaryList2D0);
+      Segment segment0 = new Segment((Line) null, (Vector2D) null, (Vector2D) null);
+      // Undeclared exception!
+      try { 
+        boundarySourceLinecaster2D0.linecastFirst((LineConvexSubset) segment0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.BoundarySourceLinecaster2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector<LineConvexSubset> vector0 = new Vector<LineConvexSubset>();
+      ConvexArea convexArea0 = new ConvexArea(vector0);
+      BoundarySourceLinecaster2D boundarySourceLinecaster2D0 = new BoundarySourceLinecaster2D(convexArea0);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, 0.0, precision_DoubleEquivalence0);
+      Ray ray0 = new Ray(line0, vector2D_Unit0);
+      vector0.add((LineConvexSubset) ray0);
+      // Undeclared exception!
+      try { 
+        boundarySourceLinecaster2D0.linecast((LineConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSubset", e);
+      }
+  }

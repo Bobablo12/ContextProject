@@ -1,0 +1,279 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Properties properties0 = new Properties();
+      try { 
+        OptionConverter.substVars("G${", properties0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // \"G${\" has no closing brace. Opening brace at position 1.
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("5KB", (-1813L));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("6", (-3459L));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("gb", (-3040L));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("mb", (-2648L));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("kb", (-1L));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int int0 = OptionConverter.toInt(" DN4", 0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      String string0 = OptionConverter.convertSpecialChars("\u0002wpZZ");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      String[] stringArray0 = new String[8];
+      String string0 = "C@;@uS`_A\\u|Me^$Mu";
+      stringArray0[0] = string0;
+      String string1 = OptionConverter.convertSpecialChars(stringArray0[0]);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      String[] stringArray0 = new String[1];
+      String[] stringArray1 = new String[8];
+      String[] stringArray2 = OptionConverter.concatanateArrays(stringArray1, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Object object0 = OptionConverter.instantiateByClassName("org.apache.commons.jcs3.utils.config.OptionConverter", (Object) "org.apache.commons.jcs3.utils.config.OptionConverter");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      int int0 = OptionConverter.toInt((String) null, 0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      int int0 = OptionConverter.toInt("h3rlIgq[Kj5I9", (-438));
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize("", 0L);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Properties properties0 = new Properties();
+      String string0 = OptionConverter.substVars("", properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Properties properties0 = new Properties();
+      String string0 = OptionConverter.instantiateByKey(properties0, "4^F,i", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Object object0 = OptionConverter.instantiateByClassName("RNcF,&l~01'Oke>G'Aq", (Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      String string0 = OptionConverter.getSystemProperty("[>Vmk^/!c/nhV", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      String string0 = OptionConverter.getSystemProperty((String) null, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Properties properties0 = new Properties();
+      properties0.put("=O 4y", "");
+      String string0 = OptionConverter.findAndSubst("=O 4y", properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      String string0 = OptionConverter.convertSpecialChars("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      String[] stringArray0 = new String[0];
+      String[] stringArray1 = OptionConverter.concatanateArrays(stringArray0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      String[] stringArray0 = new String[0];
+      String[] stringArray1 = OptionConverter.concatanateArrays(stringArray0, stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Properties properties0 = new Properties();
+      // Undeclared exception!
+      try { 
+        OptionConverter.substVars((String) null, properties0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Integer integer0 = new Integer(740);
+      // Undeclared exception!
+      try { 
+        OptionConverter.instantiateByKey((Properties) null, "/@*fuf[9+A0`j", integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Properties properties0 = new Properties();
+      // Undeclared exception!
+      try { 
+        OptionConverter.findAndSubst((String) null, properties0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        OptionConverter.convertSpecialChars((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        OptionConverter.concatanateArrays((String[]) null, (String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Properties properties0 = new Properties();
+      String string0 = OptionConverter.findAndSubst("{g_@(jd.\fy3'", properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Properties properties0 = new Properties();
+      properties0.put("'i", "[4'@+qdR2-N");
+      String string0 = OptionConverter.findAndSubst("'i", properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Properties properties0 = new Properties();
+      String string0 = OptionConverter.substVars("true", properties0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Integer integer0 = new Integer((-5972));
+      Object object0 = OptionConverter.instantiateByClassName((String) null, (Object) integer0);
+      assertEquals(1, object0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      long long0 = OptionConverter.toFileSize((String) null, (-5972));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      int int0 = OptionConverter.toInt("GB", 42);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      boolean boolean0 = OptionConverter.toBoolean("false", true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      boolean boolean0 = OptionConverter.toBoolean("true", true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      boolean boolean0 = OptionConverter.toBoolean((String) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      boolean boolean0 = OptionConverter.toBoolean(" -ay", true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Properties properties0 = new Properties();
+      String string0 = OptionConverter.instantiateByKey(properties0, "'~,tbVH>@\"-(t++j", "'~,tbVH>@\"-(t++j");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Properties properties0 = new Properties();
+      properties0.put("org.apache.commons.jcs3.log.JulLogFactory", "${");
+      Object object0 = OptionConverter.instantiateByKey(properties0, "org.apache.commons.jcs3.log.JulLogFactory", (Object) "${");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      String string0 = OptionConverter.convertSpecialChars("Lep\\e)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      String string0 = OptionConverter.getSystemProperty("", "]fU");
+      ;
+}

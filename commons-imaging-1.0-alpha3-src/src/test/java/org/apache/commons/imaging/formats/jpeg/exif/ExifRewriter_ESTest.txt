@@ -1,0 +1,645 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      byte[] byteArray0 = new byte[9];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        exifRewriter0.updateExifMetadataLossy(byteArray0, (OutputStream) null, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, "");
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossy((ByteSource) byteSourceInputStream0, (OutputStream) null, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      File file0 = MockFile.createTempFile("uMNl52o\"smB", "");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0);
+      FilterOutputStream filterOutputStream0 = new FilterOutputStream(mockFileOutputStream0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossy((ByteSource) null, (OutputStream) filterOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      MockFile mockFile0 = new MockFile(":dpAsVWT6Bv`", ":dpAsVWT6Bv`");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "elZi>RPo-]],V1}");
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        exifRewriter0.updateExifMetadataLossy((ByteSource) byteSourceInputStream0, (OutputStream) mockFileOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(92);
+      StringBuffer stringBuffer0 = stringWriter0.getBuffer();
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) stringBuffer0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      File file0 = MockFile.createTempFile("org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieceSegmentExif", "org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieceSegmentExif");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(file0);
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(mockPrintStream0);
+      try { 
+        exifRewriter0.updateExifMetadataLossy((InputStream) sequenceInputStream0, (OutputStream) objectOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$1");
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossy((File) null, (OutputStream) mockPrintStream0, tiffOutputSet0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      File file0 = MockFile.createTempFile("org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieces", "cNG_)R&gx/~j?");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieces");
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0, byteOrder0);
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("/tmp/org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieces0cNG_)R&gx/~j?");
+      FileSystemHandling.shouldThrowIOException(evoSuiteFile0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossy(file0, (OutputStream) binaryOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      File file0 = MockFile.createTempFile("uVXEz2Gm", "uVXEz2Gm");
+      MockFile mockFile0 = new MockFile(file0, "uVXEz2Gm");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(2239);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossy((File) mockFile0, (OutputStream) byteArrayOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("sY)-UT*z&C\"&n;");
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossless((byte[]) null, (OutputStream) mockPrintStream0, (TiffOutputSet) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(" count: ", byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("org.apache.commons.io.file.Counters$NoopPathCounters", true);
+      try { 
+        exifRewriter0.updateExifMetadataLossless((ByteSource) byteSourceArray0, (OutputStream) mockFileOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("pH6;$+LP", false);
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossless((ByteSource) null, (OutputStream) mockFileOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(pipedInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "");
+      try { 
+        exifRewriter0.updateExifMetadataLossless((ByteSource) byteSourceInputStream0, (OutputStream) null, (TiffOutputSet) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      MockFile mockFile0 = new MockFile("(iM4X+yGd!", "!Uyr09zBjA`@G");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("3Ag^uDn5rJhOVT!W*");
+      try { 
+        exifRewriter0.updateExifMetadataLossless((ByteSource) byteSourceFile0, (OutputStream) mockPrintStream0, (TiffOutputSet) null);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, 1669);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossless((InputStream) bufferedInputStream0, (OutputStream) null, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      File file0 = MockFile.createTempFile("|*lhk*LvS|f", "|*lhk*LvS|f");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(file0);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        exifRewriter0.updateExifMetadataLossless(file0, (OutputStream) mockPrintStream0, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter((ByteOrder) null);
+      MockFile mockFile0 = new MockFile("#oU", "T&EQk\u00059hlL8.&Q");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet((ByteOrder) null);
+      try { 
+        exifRewriter0.updateExifMetadataLossless((File) mockFile0, (OutputStream) mockPrintStream0, tiffOutputSet0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFile mockFile0 = new MockFile("", ">(?OIj>");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossless((File) mockFile0, (OutputStream) byteArrayOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      byte[] byteArray0 = new byte[4];
+      MockPrintStream mockPrintStream0 = new MockPrintStream("APP1 Segment is too long: ");
+      try { 
+        exifRewriter0.removeExifMetadata(byteArray0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("F+46&}*", byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("F+46&}*");
+      try { 
+        exifRewriter0.removeExifMetadata((ByteSource) byteSourceArray0, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      // Undeclared exception!
+      try { 
+        exifRewriter0.removeExifMetadata((ByteSource) null, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-68), 100);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, " ");
+      // Undeclared exception!
+      try { 
+        exifRewriter0.removeExifMetadata((ByteSource) byteSourceInputStream0, (OutputStream) pipedOutputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFile mockFile0 = new MockFile("q<Ni<$fmYn+/MH");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream((OutputStream) null, (byte)122);
+      try { 
+        exifRewriter0.removeExifMetadata((ByteSource) byteSourceFile0, (OutputStream) bufferedOutputStream0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      MockFile mockFile0 = new MockFile("MW$!");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      try { 
+        exifRewriter0.removeExifMetadata((InputStream) sequenceInputStream0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFile mockFile0 = new MockFile((File) null, "!~+A)4s)Uh");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0, true);
+      // Undeclared exception!
+      try { 
+        exifRewriter0.removeExifMetadata((File) null, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("$~6Y#I+J0gU/$~6Y#I+J0gU");
+      FileSystemHandling.shouldThrowIOException(evoSuiteFile0);
+      MockFile mockFile0 = new MockFile("$~6Y#I+J0gU", "$~6Y#I+J0gU");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(mockPrintStream0);
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(dataOutputStream0);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(objectOutputStream0);
+      try { 
+        exifRewriter0.removeExifMetadata((File) mockFile0, (OutputStream) bufferedOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFile mockFile0 = new MockFile("trimmed exif bytes");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      try { 
+        exifRewriter0.removeExifMetadata((File) mockFile0, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream((InputStream) null, 1144);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "org.apache.commons.imaging.formats.jpeg.exif.ExifRewriter$JFIFPieces");
+      try { 
+        exifRewriter0.removeExifMetadata((ByteSource) byteSourceInputStream0, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.PushbackInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFile mockFile0 = new MockFile("?", "?");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        exifRewriter0.updateExifMetadataLossy((ByteSource) byteSourceFile0, (OutputStream) null, (TiffOutputSet) null);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      File file0 = MockFile.createTempFile("uVXEz2Gm", "uVXEz2Gm");
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(2239);
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      try { 
+        exifRewriter0.updateExifMetadataLossy(file0, (OutputStream) byteArrayOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossy((byte[]) null, (OutputStream) pipedOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pushbackInputStream0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      try { 
+        exifRewriter0.updateExifMetadataLossy((InputStream) bufferedInputStream0, (OutputStream) byteArrayOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.PushbackInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) "R9)v");
+      ByteOrder byteOrder0 = charBuffer0.order();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream(19);
+      MockFile mockFile0 = new MockFile("", "trimmed exif bytes");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      try { 
+        exifRewriter0.removeExifMetadata((InputStream) pipedInputStream0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      // Undeclared exception!
+      try { 
+        exifRewriter0.removeExifMetadata((byte[]) null, (OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      char[] charArray0 = new char[1];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("Couldn't find image data.");
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      try { 
+        exifRewriter0.updateExifMetadataLossless((InputStream) pipedInputStream0, (OutputStream) mockPrintStream0, tiffOutputSet0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("mTQI5TLN]Yw#", true);
+      // Undeclared exception!
+      try { 
+        exifRewriter0.updateExifMetadataLossless((File) null, (OutputStream) mockFileOutputStream0, (TiffOutputSet) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      ExifRewriter exifRewriter0 = new ExifRewriter(byteOrder0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream(pipedInputStream0);
+      byte[] byteArray0 = new byte[9];
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      try { 
+        exifRewriter0.updateExifMetadataLossless(byteArray0, (OutputStream) pipedOutputStream0, tiffOutputSet0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      ExifRewriter exifRewriter0 = new ExifRewriter();
+      MockFile mockFile0 = new MockFile("$~6Y#I+J0gU");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFile0);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(mockPrintStream0);
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(dataOutputStream0);
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(objectOutputStream0);
+      try { 
+        exifRewriter0.removeExifMetadata((File) mockFile0, (OutputStream) bufferedOutputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      ExifRewriter.ExifOverflowException exifRewriter_ExifOverflowException0 = new ExifRewriter.ExifOverflowException("");
+  }

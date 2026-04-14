@@ -1,0 +1,179 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-258), 1815, (-258), 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-258), 1815, (-258), 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-258), 1815, (-258), 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-258), 1815, (-258), 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[5] = (byte)2;
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment((-2687), byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment(0, 0, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1025), 2849);
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment(2849, 0, byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SofnSegment sofnSegment0 = new SofnSegment((-1), (-1), byteArrayInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byteArray0[5] = (byte) (-4);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment(1, 1, byteArrayInputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // The number of components in a SOF0Segment cannot be less than 0!
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SofnSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[5] = (byte)35;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, 65493);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment((-21), 1, sequenceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      byteArray0[5] = (byte) (-35);
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment(0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // The number of components in a SOF0Segment cannot be less than 0!
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SofnSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      SofnSegment sofnSegment0 = new SofnSegment((-292), byteArray0);
+      String string0 = sofnSegment0.getDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      SofnSegment sofnSegment0 = new SofnSegment((-292), byteArray0);
+      // Undeclared exception!
+      try { 
+        sofnSegment0.getComponents((int) (byte)3);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 3
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SofnSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[12];
+      SofnSegment sofnSegment0 = new SofnSegment((-292), byteArray0);
+      SofnSegment.Component[] sofnSegment_ComponentArray0 = sofnSegment0.getComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      SofnSegment sofnSegment0 = null;
+      try {
+        sofnSegment0 = new SofnSegment(65472, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.SofnSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-21), (-21), 1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-21), (-21), 1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-21), (-21), 1, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      SofnSegment.Component sofnSegment_Component0 = new SofnSegment.Component((-21), (-21), 1, 1);
+      ;
+}

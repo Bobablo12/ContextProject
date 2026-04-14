@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      Thread thread0 = MockThread.currentThread();
+      MockThread mockThread0 = new MockThread(thread0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      Properties properties0 = jCSCachingProvider0.getDefaultProperties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<ExpiryPolicy, Integer> mutableConfiguration0 = new MutableConfiguration<ExpiryPolicy, Integer>();
+      Cache<ExpiryPolicy, Integer> cache0 = jCSCachingManager0.createCache("XXL*gp", mutableConfiguration0);
+      CacheResolverImpl cacheResolverImpl0 = new CacheResolverImpl(cache0);
+      Cache<CacheEntryEventFilter<CacheEntryEventFilter<String, Object>, Object>, ExpiryPolicy> cache1 = cacheResolverImpl0.resolveCache((CacheInvocationContext<? extends Annotation>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CacheResolverImpl cacheResolverImpl0 = new CacheResolverImpl((Cache<?, ?>) null);
+      Cache<Integer, Delayed> cache0 = cacheResolverImpl0.resolveCache((CacheInvocationContext<? extends Annotation>) null);
+      assertNotNull(cache0);
+}

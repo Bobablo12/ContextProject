@@ -1,0 +1,207 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterConfig0).getInitParameter(anyString());
+      SparkApplication[] sparkApplicationArray0 = sparkFilter0.getApplications(filterConfig0);
+      assertNotNull(sparkApplicationArray0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(",").when(filterConfig0).getInitParameter(anyString());
+      try { 
+        sparkFilter0.getApplications(filterConfig0);
+        fail("Expecting exception: ServletException");
+      } catch(ServletException e) {
+         //
+         // There are no Spark applications configured in the filter.
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      // Undeclared exception!
+      try { 
+        sparkFilter0.getApplications((FilterConfig) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      // Undeclared exception!
+      try { 
+        sparkFilter0.getApplication((FilterConfig) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      try { 
+        sparkFilter0.getApplication("spark.servlet.SparkFilter");
+        fail("Expecting exception: ServletException");
+      } catch(ServletException e) {
+         //
+         // java.lang.ClassCastException: spark.servlet.SparkFilter cannot be cast to spark.servlet.SparkApplication
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn("applicationClass").when(httpServletRequest0).getContextPath();
+      doReturn(")$").when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        sparkFilter0.doFilter(httpServletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      httpServletRequestWrapper0.setRequest(httpServletRequestWrapper0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        sparkFilter0.doFilter(httpServletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(httpServletRequest0).getContextPath();
+      doReturn((String) null).when(httpServletRequest0).getRequestURI();
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        sparkFilter0.doFilter(httpServletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.FilterTools", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      ServletRequestWrapper servletRequestWrapper0 = new ServletRequestWrapper(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      FilterChain filterChain0 = mock(FilterChain.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        sparkFilter0.doFilter(servletRequestWrapper0, httpServletResponseWrapper0, filterChain0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // javax.servlet.ServletRequestWrapper cannot be cast to javax.servlet.http.HttpServletRequest
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      sparkFilter0.destroy();
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(",").when(filterConfig0).getInitParameter(anyString());
+      SparkFilter sparkFilter0 = new SparkFilter();
+      try { 
+        sparkFilter0.init(filterConfig0);
+        fail("Expecting exception: ServletException");
+      } catch(ServletException e) {
+         //
+         // There are no Spark applications configured in the filter.
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn("applicationClass").when(filterConfig0).getInitParameter(anyString());
+      try { 
+        sparkFilter0.init(filterConfig0);
+        fail("Expecting exception: ServletException");
+      } catch(ServletException e) {
+         //
+         // java.lang.ClassNotFoundException: Class 'applicationClass.class' should be in target project, but could not be found!
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterConfig0).getInitParameter(anyString());
+      // Undeclared exception!
+      try { 
+        sparkFilter0.init(filterConfig0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      SparkFilter sparkFilter0 = new SparkFilter();
+      FilterConfig filterConfig0 = mock(FilterConfig.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterConfig0).getInitParameter(anyString());
+      try { 
+        sparkFilter0.getApplication(filterConfig0);
+        fail("Expecting exception: ServletException");
+      } catch(ServletException e) {
+         //
+         // java.lang.NullPointerException
+         //
+         verifyException("spark.servlet.SparkFilter", e);
+      }
+  }

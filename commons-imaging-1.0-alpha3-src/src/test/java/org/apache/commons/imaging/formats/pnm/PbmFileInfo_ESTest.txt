@@ -1,0 +1,199 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-3503), (-1911), false);
+      byte[] byteArray0 = new byte[6];
+      byteArray0[2] = (byte)31;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        pbmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"\u0000\u0000\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(4671, 140, false);
+      // Undeclared exception!
+      try { 
+        pbmFileInfo0.getRGB((WhiteSpaceReader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(0, 255, false);
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), 3);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader(pushbackInputStream0);
+      // Undeclared exception!
+      try { 
+        pbmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(1, (-438), false);
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 7, (-220));
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0, (byte)1);
+      WhiteSpaceReader whiteSpaceReader0 = new WhiteSpaceReader(pushbackInputStream0);
+      try { 
+        pbmFileInfo0.getRGB(whiteSpaceReader0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-3260), 2135, true);
+      // Undeclared exception!
+      try { 
+        pbmFileInfo0.getRGB((InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(11, 0, false);
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-1), 4198);
+      // Undeclared exception!
+      try { 
+        pbmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-253), (-253), true);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      int int0 = pbmFileInfo0.getRGB((InputStream) pushbackInputStream0);
+      assertEquals(1, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-253), (-253), true);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-1);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      int int0 = pbmFileInfo0.getRGB((InputStream) pushbackInputStream0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(0, 255, true);
+      byte[] byteArray0 = new byte[18];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 0);
+      try { 
+        pbmFileInfo0.getRGB((InputStream) byteArrayInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PBM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmFileInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(3147, 3147, true);
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)109);
+      pbmFileInfo0.getRGB((InputStream) bufferedInputStream0);
+      assertEquals(1, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(3147, 3147, true);
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)109);
+      pbmFileInfo0.getRGB((InputStream) bufferedInputStream0);
+      int int0 = pbmFileInfo0.getRGB((InputStream) null);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(3147, 3147, true);
+      int int0 = pbmFileInfo0.getNumComponents();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(4671, 140, false);
+      ImageFormat imageFormat0 = pbmFileInfo0.getImageType();
+      assertNotNull(imageFormat0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-3116), (-3116), false);
+      boolean boolean0 = pbmFileInfo0.hasAlpha();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-253), (-253), true);
+      pbmFileInfo0.newline();
+      assertEquals(1, pbmFileInfo0.getNumComponents());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(0, (-1302), false);
+      int int0 = pbmFileInfo0.getBitDepth();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(3147, 3147, true);
+      String string0 = pbmFileInfo0.getMIMEType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo(4671, 140, false);
+      String string0 = pbmFileInfo0.getImageTypeDescription();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PbmFileInfo pbmFileInfo0 = new PbmFileInfo((-253), (-253), true);
+      ImageInfo.ColorType imageInfo_ColorType0 = pbmFileInfo0.getColorType();
+      assertNotNull(imageInfo_ColorType0);
+}

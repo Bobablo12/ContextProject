@@ -1,0 +1,558 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 0);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      System.setCurrentTimeMillis(0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      embeddedChannel0.deregister();
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      assertNotNull(channel0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      embeddedChannel0.deregister();
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      assertFalse(defaultChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 0);
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.removeAll((Channel) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(asyncHttpClientConfig0).getConnectionPoolCleanerPeriod();
+      doReturn(0).when(asyncHttpClientConfig0).getConnectionTtl();
+      doReturn(0).when(asyncHttpClientConfig0).getPooledConnectionIdleTimeout();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(asyncHttpClientConfig0, (Timer) null);
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.poll((Object) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(6, 6, defaultChannelPool_PoolLeaseStrategy0, timer0, 6);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.offer(embeddedChannel0, channelHandlerArray0[2]);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(asyncHttpClientConfig0).getConnectionPoolCleanerPeriod();
+      doReturn(0).when(asyncHttpClientConfig0).getConnectionTtl();
+      doReturn(0).when(asyncHttpClientConfig0).getPooledConnectionIdleTimeout();
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(asyncHttpClientConfig0, timer0);
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.offer((Channel) null, defaultChannelPool0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // channel
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 0);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      embeddedChannel0.finish();
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.getIdleChannelCountPerHost();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 0);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      // Undeclared exception!
+      try { 
+        defaultChannelPool0.flushPartitions((Predicate<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool((AsyncHttpClientConfig) null, timer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      AsyncHttpClientConfig asyncHttpClientConfig0 = mock(AsyncHttpClientConfig.class, new ViolatedAssumptionAnswer());
+      doReturn(2).when(asyncHttpClientConfig0).getConnectionPoolCleanerPeriod();
+      doReturn(1477).when(asyncHttpClientConfig0).getConnectionTtl();
+      doReturn(1270).when(asyncHttpClientConfig0).getPooledConnectionIdleTimeout();
+      TimeUnit timeUnit0 = TimeUnit.MICROSECONDS;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer(2048L, timeUnit0);
+      hashedWheelTimer0.stop();
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool(asyncHttpClientConfig0, hashedWheelTimer0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cannot be started once stopped
+         //
+         verifyException("io.netty.util.HashedWheelTimer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool(903, (-265), defaultChannelPool_PoolLeaseStrategy0, (Timer) null, 650);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer(706, timeUnit0, 706);
+      hashedWheelTimer0.stop();
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool(706, 706, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 1266);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cannot be started once stopped
+         //
+         verifyException("io.netty.util.HashedWheelTimer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool(42, 1683, (Timer) null, (-3317));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.DefaultChannelPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      hashedWheelTimer0.stop();
+      DefaultChannelPool defaultChannelPool0 = null;
+      try {
+        defaultChannelPool0 = new DefaultChannelPool(72, 58, hashedWheelTimer0, 72);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // cannot be started once stopped
+         //
+         verifyException("io.netty.util.HashedWheelTimer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 2);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 2);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      IncludeExcludeSet<DefaultChannelPool, Object> includeExcludeSet0 = new IncludeExcludeSet<DefaultChannelPool, Object>();
+      includeExcludeSet0.include(defaultChannelPool0);
+      defaultChannelPool0.flushPartitions(includeExcludeSet0);
+      assertTrue(defaultChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      defaultChannelPool0.destroy();
+      defaultChannelPool0.destroy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 31);
+      boolean boolean0 = defaultChannelPool0.isOpen();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      assertFalse(defaultChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      defaultChannelPool0.destroy();
+      boolean boolean0 = defaultChannelPool0.isOpen();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      assertNotNull(channel0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      defaultChannelPool0.destroy();
+      boolean boolean0 = defaultChannelPool0.removeAll((Channel) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      assertEquals(0, hashedWheelTimer0.pendingTimeouts());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      embeddedChannel0.finish();
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn(timeout0).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, timer0, 31);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      embeddedChannel0.finish();
+      Channel channel0 = defaultChannelPool0.poll(channelDuplexHandler0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 2);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(31, 31, defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, 2);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      defaultChannelPool0.offer(embeddedChannel0, channelDuplexHandler0);
+      boolean boolean0 = defaultChannelPool0.removeAll(embeddedChannel0);
+      defaultChannelPool0.poll(channelDuplexHandler0);
+      assertTrue(defaultChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      defaultChannelPool0.poll(channelDuplexHandler0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelDuplexHandler channelDuplexHandler0 = new ChannelDuplexHandler();
+      defaultChannelPool0.poll(channelDuplexHandler0);
+      assertEquals(1, hashedWheelTimer0.pendingTimeouts());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn((Timeout) null).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool(32768, 32768, timer0, 32768);
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[1];
+      ChannelOutboundHandlerAdapter channelOutboundHandlerAdapter0 = new ChannelOutboundHandlerAdapter();
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      ChannelInboundHandlerAdapter channelInboundHandlerAdapter0 = new ChannelInboundHandlerAdapter();
+      CombinedChannelDuplexHandler<ChannelInboundHandlerAdapter, ChannelOutboundHandlerAdapter> combinedChannelDuplexHandler0 = new CombinedChannelDuplexHandler<ChannelInboundHandlerAdapter, ChannelOutboundHandlerAdapter>(channelInboundHandlerAdapter0, channelOutboundHandlerAdapter0);
+      defaultChannelPool0.offer(embeddedChannel0, combinedChannelDuplexHandler0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, combinedChannelDuplexHandler0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      assertFalse(defaultChannelPool0.isOpen());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      defaultChannelPool0.destroy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.FIFO;
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-751), (-751), defaultChannelPool_PoolLeaseStrategy0, timer0, (-751));
+      defaultChannelPool0.destroy();
+      boolean boolean0 = defaultChannelPool0.offer((Channel) null, ">");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, defaultChannelPool_PoolLeaseStrategy0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, defaultChannelPool_PoolLeaseStrategy0);
+      defaultChannelPool0.getIdleChannelCountPerHost();
+      assertEquals(0, hashedWheelTimer0.pendingTimeouts());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, defaultChannelPool_PoolLeaseStrategy0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, defaultChannelPool_PoolLeaseStrategy0);
+      IncludeExcludeSet<DefaultChannelPool, Object> includeExcludeSet0 = new IncludeExcludeSet<DefaultChannelPool, Object>();
+      defaultChannelPool0.flushPartitions(includeExcludeSet0);
+      assertEquals(0, hashedWheelTimer0.pendingTimeouts());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      DefaultChannelPool.PoolLeaseStrategy defaultChannelPool_PoolLeaseStrategy0 = DefaultChannelPool.PoolLeaseStrategy.LIFO;
+      HashedWheelTimer hashedWheelTimer0 = new HashedWheelTimer();
+      DefaultChannelPool defaultChannelPool0 = new DefaultChannelPool((-1049), (-1049), defaultChannelPool_PoolLeaseStrategy0, hashedWheelTimer0, (-1049));
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[5];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(channelHandlerArray0);
+      boolean boolean0 = defaultChannelPool0.offer(embeddedChannel0, defaultChannelPool_PoolLeaseStrategy0);
+      IncludeExcludeSet<DefaultChannelPool, Object> includeExcludeSet0 = new IncludeExcludeSet<DefaultChannelPool, Object>();
+      defaultChannelPool0.flushPartitions(includeExcludeSet0);
+      ;
+}

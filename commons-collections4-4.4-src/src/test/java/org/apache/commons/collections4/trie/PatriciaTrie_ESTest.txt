@@ -1,0 +1,18 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PatriciaTrie<String> patriciaTrie0 = null;
+      try {
+        patriciaTrie0 = new PatriciaTrie<String>((Map<? extends String, ? extends String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.AbstractMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PatriciaTrie<Integer> patriciaTrie0 = new PatriciaTrie<Integer>();
+      PatriciaTrie<Object> patriciaTrie1 = new PatriciaTrie<Object>(patriciaTrie0);
+  }

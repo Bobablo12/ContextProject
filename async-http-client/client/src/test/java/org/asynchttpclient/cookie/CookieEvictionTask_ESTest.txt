@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ThreadSafeCookieStore threadSafeCookieStore0 = new ThreadSafeCookieStore();
+      CookieEvictionTask cookieEvictionTask0 = new CookieEvictionTask(1049L, threadSafeCookieStore0);
+      Timer timer0 = mock(Timer.class, new ViolatedAssumptionAnswer());
+      doReturn((Timeout) null).when(timer0).newTimeout(any(io.netty.util.TimerTask.class) , anyLong() , any(java.util.concurrent.TimeUnit.class));
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      doReturn(timer0).when(timeout0).timer();
+      cookieEvictionTask0.run(timeout0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CookieStore cookieStore0 = mock(CookieStore.class, new ViolatedAssumptionAnswer());
+      CookieEvictionTask cookieEvictionTask0 = new CookieEvictionTask((-1373L), cookieStore0);
+      Timeout timeout0 = mock(Timeout.class, new ViolatedAssumptionAnswer());
+      doReturn((Timer) null).when(timeout0).timer();
+      try { 
+        cookieEvictionTask0.run(timeout0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.cookie.CookieEvictionTask", e);
+      }
+  }

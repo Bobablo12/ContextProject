@@ -1,0 +1,146 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.read();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      byteArray0[2] = (byte)2;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 2, (byte)2);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.read();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)1, (byte)1);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.read();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)1, (byte)1);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.read();
+      byte[] byteArray1 = cachingInputStream0.getCache();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-793), 435);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.available();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, (-2033));
+      CachingInputStream cachingInputStream0 = new CachingInputStream(byteArrayInputStream0);
+      int int0 = cachingInputStream0.available();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CachingInputStream cachingInputStream0 = new CachingInputStream((InputStream) null);
+      // Undeclared exception!
+      try { 
+        cachingInputStream0.read();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.icc.CachingInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      CachingInputStream cachingInputStream0 = new CachingInputStream(pipedInputStream0);
+      try { 
+        cachingInputStream0.read();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CachingInputStream cachingInputStream0 = new CachingInputStream((InputStream) null);
+      // Undeclared exception!
+      try { 
+        cachingInputStream0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.icc.CachingInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream((InputStream) null);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(pushbackInputStream0);
+      try { 
+        cachingInputStream0.available();
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.PushbackInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Enumeration<FilterInputStream> enumeration0 = (Enumeration<FilterInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(sequenceInputStream0);
+      cachingInputStream0.close();
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Enumeration<FilterInputStream> enumeration0 = (Enumeration<FilterInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(sequenceInputStream0);
+      int int0 = cachingInputStream0.available();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Enumeration<FilterInputStream> enumeration0 = (Enumeration<FilterInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      CachingInputStream cachingInputStream0 = new CachingInputStream(sequenceInputStream0);
+      byte[] byteArray0 = cachingInputStream0.getCache();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      CachingInputStream cachingInputStream0 = new CachingInputStream((InputStream) null);
+      // Undeclared exception!
+      try { 
+        cachingInputStream0.available();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.icc.CachingInputStream", e);
+      }
+  }

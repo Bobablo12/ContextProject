@@ -1,0 +1,132 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      compressingSerializer0.serialize((String) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      encryptingSerializer0.setPreSharedKey("I@87JNzq\"q");
+      encryptingSerializer0.setAesCipherTransformation("I@87JNzq\"q");
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      try { 
+        encryptingSerializer0.serialize((OpenOption) standardOpenOption0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error while encrypting
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      String string0 = "yt5z<n_KA/`-'%8:\"";
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      Integer integer0 = new Integer((-3029));
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.serialize(integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ThreadPoolExecutor.DiscardOldestPolicy threadPoolExecutor_DiscardOldestPolicy0 = new ThreadPoolExecutor.DiscardOldestPolicy();
+      ScheduledThreadPoolExecutor scheduledThreadPoolExecutor0 = new ScheduledThreadPoolExecutor(2725, threadPoolExecutor_DiscardOldestPolicy0);
+      Callable<String> callable0 = (Callable<String>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(callable0).call();
+      TimeUnit timeUnit0 = TimeUnit.MICROSECONDS;
+      ScheduledFuture<String> scheduledFuture0 = scheduledThreadPoolExecutor0.schedule(callable0, 0L, timeUnit0);
+      try { 
+        encryptingSerializer0.serialize((Object) scheduledFuture0);
+        fail("Expecting exception: NotSerializableException");
+      } catch(NotSerializableException e) {
+         //
+         // java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask
+         //
+         verifyException("java.io.ObjectOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[3];
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerialize(byteArray0, classLoader0);
+        fail("Expecting exception: BufferUnderflowException");
+      } catch(BufferUnderflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.HeapByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setPreSharedKey("6K:2");
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "F(ToU$Z!EFapGkL");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      byte[] byteArray0 = encryptingSerializer0.serialize((Object) "End of stream reached");
+      encryptingSerializer0.setPreSharedKey((String) null);
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerialize(byteArray0, classLoader0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      byte[] byteArray0 = compressingSerializer0.serialize("AES/ECB/PKCS5Padding");
+      encryptingSerializer0.setPreSharedKey("AES/ECB/PKCS5Padding");
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      try { 
+        encryptingSerializer0.deSerialize(byteArray0, classLoader0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error while decrypting
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "F(ToU$Z!EFapGkL");
+      MockThread.getAllStackTraces();
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      mockThread0.setUncaughtExceptionHandler((Thread.UncaughtExceptionHandler) null);
+      encryptingSerializer0.deSerialize((byte[]) null, classLoader0);
+      String string0 = "yt5z<n_KA/`-'%8:\"";
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      encryptingSerializer0.setPreSharedKey("AES/ECB/PKCS5Padding");
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.APPEND;
+      byte[] byteArray0 = encryptingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      OpenOption openOption0 = encryptingSerializer0.deSerialize(byteArray0, classLoader0);
+      ;
+}

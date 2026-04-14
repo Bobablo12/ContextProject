@@ -1,0 +1,205 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(0, byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-32);
+      byteArray0[1] = (byte)12;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      try { 
+        myLzwDecompressor0.decompress(byteArrayInputStream0, 4093);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: -1 codes: 3 code_size: 1, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(0, byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-32);
+      myLzwDecompressor0.setTiffLZWMode();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArray0[8] = (byte)23;
+      try { 
+        myLzwDecompressor0.decompress(byteArrayInputStream0, 4093);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: 257 codes: 3 code_size: 1, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(0, byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-32);
+      byteArray0[4] = (byte) (-32);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      myLzwDecompressor0.decompress(byteArrayInputStream0, 23);
+      myLzwDecompressor0.decompress(byteArrayInputStream0, 11);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor((-1283), byteOrder0, (MyLzwDecompressor.Listener) null);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor((-1398), byteOrder0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(2, byteOrder0);
+      // Undeclared exception!
+      try { 
+        myLzwDecompressor0.decompress((InputStream) null, 845);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyBitInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor((-3361), byteOrder0);
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        myLzwDecompressor0.decompress(pushbackInputStream0, (-3361));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Negative initial size: -3361
+         //
+         verifyException("java.io.ByteArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      byte[] byteArray0 = new byte[7];
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor((byte)32, byteOrder0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-462), 4);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        myLzwDecompressor0.decompress(dataInputStream0, 3);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      MyLzwDecompressor myLzwDecompressor0 = null;
+      try {
+        myLzwDecompressor0 = new MyLzwDecompressor((-198), byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Invalid Lzw table length [4096]; entries count is [268435456]
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(1, byteOrder0);
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte) (-18);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byte[] byteArray1 = myLzwDecompressor0.decompress(byteArrayInputStream0, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(0, byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-32);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byte[] byteArray1 = myLzwDecompressor0.decompress(byteArrayInputStream0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(1, byteOrder0);
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte) (-14);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byte[] byteArray1 = myLzwDecompressor0.decompress(byteArrayInputStream0, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(0, byteOrder0);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-32);
+      myLzwDecompressor0.setTiffLZWMode();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      try { 
+        myLzwDecompressor0.decompress(byteArrayInputStream0, 4093);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: 257 codes: 3 code_size: 1, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor.Listener myLzwDecompressor_Listener0 = mock(MyLzwDecompressor.Listener.class, new ViolatedAssumptionAnswer());
+      MyLzwDecompressor myLzwDecompressor0 = new MyLzwDecompressor(3, byteOrder0, myLzwDecompressor_Listener0);
+      Enumeration<MockFileInputStream> enumeration0 = (Enumeration<MockFileInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      DataInputStream dataInputStream0 = new DataInputStream(sequenceInputStream0);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(dataInputStream0);
+      try { 
+        myLzwDecompressor0.decompress(pushbackInputStream0, 2049);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Bad Code: -1 codes: 10 code_size: 4, table: 4096
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      MyLzwDecompressor myLzwDecompressor0 = null;
+      try {
+        myLzwDecompressor0 = new MyLzwDecompressor(661, byteOrder0, (MyLzwDecompressor.Listener) null);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // Invalid Lzw table length [4096]; entries count is [8388608]
+         //
+         verifyException("org.apache.commons.imaging.common.mylzw.MyLzwDecompressor", e);
+      }
+  }

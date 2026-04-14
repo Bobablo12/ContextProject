@@ -1,0 +1,52 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      // Undeclared exception!
+      try { 
+        julLogFactory0.getLog((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      // Undeclared exception!
+      try { 
+        julLogFactory0.getLog((Class<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.log.JulLogFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      Log log0 = julLogFactory0.getLog("jul");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      julLogFactory0.shutdown();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      String string0 = julLogFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JulLogFactory julLogFactory0 = new JulLogFactory();
+      Class<String> class0 = String.class;
+      Log log0 = julLogFactory0.getLog(class0);
+      assertNotNull(log0.getName());
+}

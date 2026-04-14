@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_mk=");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        objTriangleMeshReader0.readTriangleMesh();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected OBJ keyword but found empty token followed by [_]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("OJ+A4+- g W!yp");
+      stringReader0.close();
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        objTriangleMeshReader0.readTriangleMesh();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      // Undeclared exception!
+      try { 
+        objTriangleMeshReader0.handleVertex((Vector3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Bounds3D$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("FwX s+%G@#%-q");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      AxisSequence axisSequence0 = AxisSequence.YXY;
+      Vector3D vector3D0 = axisSequence0.getAxis3();
+      objTriangleMeshReader0.readTriangleMesh();
+      // Undeclared exception!
+      try { 
+        objTriangleMeshReader0.handleVertex(vector3D0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Builder instance cannot be modified: mesh construction is complete
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.mesh.SimpleTriangleMesh$Builder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ObjTriangleMeshReader objTriangleMeshReader0 = null;
+      try {
+        objTriangleMeshReader0 = new ObjTriangleMeshReader((Reader) null, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      objTriangleMeshReader0.handleNormal(vector3D0);
+      assertFalse(vector3D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      Vector3D vector3D0 = Vector3D.NEGATIVE_INFINITY;
+      objTriangleMeshReader0.handleVertex(vector3D0);
+      TriangleMesh triangleMesh0 = objTriangleMeshReader0.readTriangleMesh();
+      assertEquals(1, triangleMesh0.getVertexCount());
+}

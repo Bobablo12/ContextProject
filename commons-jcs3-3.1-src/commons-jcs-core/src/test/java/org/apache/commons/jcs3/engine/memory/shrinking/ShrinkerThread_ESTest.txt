@@ -1,0 +1,83 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ShrinkerThread<ForkJoinTask<Integer>, Integer> shrinkerThread0 = null;
+      try {
+        shrinkerThread0 = new ShrinkerThread<ForkJoinTask<Integer>, Integer>((CompositeCache<ForkJoinTask<Integer>, Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThread", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      compositeCacheAttributes0.setMaxSpoolPerRun(1050);
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("", "org.apache.commons.jcs3:type=JCSAdminBean", elementEventQueue0);
+      compositeCache0.localUpdate(cacheElement0);
+      CompositeCache<Object, Integer> compositeCache1 = compositeCacheManager0.getCache((ICompositeCacheAttributes) compositeCacheAttributes0);
+      ShrinkerThread<Object, Integer> shrinkerThread0 = new ShrinkerThread<Object, Integer>(compositeCache1);
+      shrinkerThread0.run();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxSpoolPerRun(0);
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("org.apache.commons.jcs3:type=JCSAdminBean", "org.apache.commons.jcs3:type=JCSAdminBean", elementEventQueue0, elementAttributes0);
+      compositeCache0.localUpdate(cacheElement0);
+      ShrinkerThread<String, Object> shrinkerThread0 = new ShrinkerThread<String, Object>(compositeCache0);
+      shrinkerThread0.run();
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setMaxMemoryIdleTimeSeconds((-1867L));
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("org.apache.commons.jcs3:type=JCSAdminBean", "", elementEventQueue0, elementAttributes0);
+      compositeCache0.localUpdate(cacheElement0);
+      ShrinkerThread<String, Object> shrinkerThread0 = new ShrinkerThread<String, Object>(compositeCache0);
+      shrinkerThread0.shrink();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIdleTime((byte) (-26));
+      elementAttributes0.setIsEternal(false);
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("org.apache.commons.jcs3:type=JCSAdminBean", "", elementEventQueue0, elementAttributes0);
+      compositeCache0.localUpdate(cacheElement0);
+      ShrinkerThread<String, Object> shrinkerThread0 = new ShrinkerThread<String, Object>(compositeCache0);
+      shrinkerThread0.shrink();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementEventQueue elementEventQueue0 = new ElementEventQueue();
+      CompositeCache<String, Object> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.setIsEternal(false);
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("org.apache.commons.jcs3:type=JCSAdminBean", "org.apache.commons.jcs3:type=JCSAdminBean", elementEventQueue0, elementAttributes0);
+      compositeCache0.localUpdate(cacheElement0);
+      ShrinkerThread<String, Object> shrinkerThread0 = new ShrinkerThread<String, Object>(compositeCache0);
+      shrinkerThread0.run();
+      assertEquals(0, compositeCache0.getSize());
+}

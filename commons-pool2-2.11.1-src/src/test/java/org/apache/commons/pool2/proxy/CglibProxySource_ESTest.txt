@@ -1,0 +1,54 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      // Undeclared exception!
+      try { 
+        cglibProxySource0.resolveProxy((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.proxy.CglibProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory0);
+      // Undeclared exception!
+      try { 
+        cglibProxySource0.createProxy("CglibProxySource [superclass=class java.lang.String]", genericKeyedObjectPool0);
+        fail("Expecting exception: IncompatibleClassChangeError");
+      } catch(IncompatibleClassChangeError e) {
+         //
+         // Expected non-static field net.sf.cglib.proxy.Enhancer.serialVersionUID
+         //
+         verifyException("net.sf.cglib.proxy.Enhancer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Class<Integer> class0 = Integer.class;
+      CglibProxySource<Object> cglibProxySource0 = new CglibProxySource<Object>(class0);
+      // Undeclared exception!
+      try { 
+        cglibProxySource0.resolveProxy(class0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // java.lang.Class cannot be cast to net.sf.cglib.proxy.Factory
+         //
+         verifyException("org.apache.commons.pool2.proxy.CglibProxySource", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Class<String> class0 = String.class;
+      CglibProxySource<String> cglibProxySource0 = new CglibProxySource<String>(class0);
+      String string0 = cglibProxySource0.toString();
+      ;
+}

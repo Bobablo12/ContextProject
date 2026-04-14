@@ -1,0 +1,837 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      compositeCacheManager0.freeAuxiliaryCache("", (String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.addAuxiliaryCache("FU! ", (String) null, (AuxiliaryCache<?, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.release();
+      assertFalse(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      remoteCacheAttributes0.setName("org.apache.commons.jcs3:type=JCSAdminBean");
+      compositeCacheManager0.registryAttrPut(remoteCacheAttributes0);
+      assertNotNull(remoteCacheAttributes0.getName());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      AuxiliaryCacheFactory auxiliaryCacheFactory0 = compositeCacheManager0.registryFacGet("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCacheConfigurator compositeCacheConfigurator0 = compositeCacheManager0.newConfigurator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      boolean boolean0 = compositeCacheManager0.isInitialized();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      Properties properties0 = new Properties();
+      compositeCacheManager0.configure(properties0, false);
+      boolean boolean0 = compositeCacheManager0.isConfigured();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      String string0 = compositeCacheManager0.getStats();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0);
+      ICacheStats[] iCacheStatsArray0 = compositeCacheManager0.getStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      compositeCacheManager0.initialize();
+      ScheduledExecutorService scheduledExecutorService0 = compositeCacheManager0.getScheduledExecutorService();
+      assertNotNull(scheduledExecutorService0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      IElementEventQueue iElementEventQueue0 = compositeCacheManager0.getElementEventQueue();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      assertFalse(iElementAttributes0.getIsLateral());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      System.setCurrentTimeMillis((-732L));
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      assertEquals(1, iElementAttributes0.getIdleTime());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      System.setCurrentTimeMillis(0);
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      assertEquals(1, iElementAttributes0.getTimeToLiveSeconds());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      Properties properties0 = new Properties();
+      compositeCacheManager0.configure(properties0, false, true);
+      Properties properties1 = compositeCacheManager0.getConfigurationProperties();
+      assertTrue(properties1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      assertTrue(properties0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      CompositeCache<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> compositeCache1 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0, (IElementAttributes) null);
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      compositeCacheManager0.shutDown();
+      byte[] byteArray0 = new byte[5];
+      CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> cacheElementSerialized0 = new CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>("org.apache.commons.jcs3:type=JCSAdminBean", lateralCacheAttributes0, byteArray0, (IElementAttributes) null);
+      compositeCache1.update((ICacheElement<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>) cacheElementSerialized0, false);
+      IElementAttributes iElementAttributes0 = compositeCache1.getElementAttributes(lateralCacheAttributes0);
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      CompositeCache<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> compositeCache1 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0, (IElementAttributes) null);
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      compositeCacheManager0.shutDown();
+      byte[] byteArray0 = new byte[5];
+      CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> cacheElementSerialized0 = new CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>("org.apache.commons.jcs3:type=JCSAdminBean", lateralCacheAttributes0, byteArray0, (IElementAttributes) null);
+      compositeCache1.update((ICacheElement<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>) cacheElementSerialized0, false);
+      IElementAttributes iElementAttributes0 = compositeCache1.getElementAttributes(lateralCacheAttributes0);
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      assertNotNull(compositeCache0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      CompositeCache<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> compositeCache1 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0, (IElementAttributes) null);
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      byte[] byteArray0 = new byte[5];
+      CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> cacheElementSerialized0 = new CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>("org.apache.commons.jcs3:type=JCSAdminBean", lateralCacheAttributes0, byteArray0, (IElementAttributes) null);
+      compositeCache1.update((ICacheElement<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>) cacheElementSerialized0, false);
+      IElementAttributes iElementAttributes0 = compositeCache1.getElementAttributes(lateralCacheAttributes0);
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      CompositeCache<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> compositeCache1 = compositeCacheManager0.getCache("", iCompositeCacheAttributes0, (IElementAttributes) null);
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      byte[] byteArray0 = new byte[5];
+      CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>> cacheElementSerialized0 = new CacheElementSerialized<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>("org.apache.commons.jcs3:type=JCSAdminBean", lateralCacheAttributes0, byteArray0, (IElementAttributes) null);
+      compositeCache1.update((ICacheElement<LateralCacheAttributes, LateralCacheNoWaitFacade<Integer, CacheStats>>) cacheElementSerialized0, false);
+      IElementAttributes iElementAttributes0 = compositeCache1.getElementAttributes(lateralCacheAttributes0);
+      compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      assertNotNull(compositeCache0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+      assertNotNull(iCompositeCacheAttributes0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+      assertNotNull(compositeCache0.getCacheName());
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.shutDown();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Integer, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Integer, String>(2);
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<Integer, String> lateralCache0 = new LateralCache<Integer, String>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<Integer, String> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, String>(lateralCache0);
+      compositeCacheManager0.addCache(">v&7%m*S?", lateralCacheNoWait0);
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.shutDown();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWait cannot be cast to org.apache.commons.jcs3.engine.control.CompositeCache
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<IElementEventHandler, IElementEventHandler> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<IElementEventHandler, IElementEventHandler>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<IElementEventHandler, IElementEventHandler> lateralCache0 = new LateralCache<IElementEventHandler, IElementEventHandler>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<IElementEventHandler, IElementEventHandler> lateralCacheNoWait0 = new LateralCacheNoWait<IElementEventHandler, IElementEventHandler>(lateralCache0);
+      compositeCacheManager0.addCache("@F;KFiCBLb^og}r;O\"", lateralCacheNoWait0);
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.release();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWait cannot be cast to org.apache.commons.jcs3.engine.control.CompositeCache
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.registryFacPut((AuxiliaryCacheFactory) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.registryAttrGet((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      ArrayList<RemoteCacheNoWait<String, OpenOption>> arrayList0 = new ArrayList<RemoteCacheNoWait<String, OpenOption>>();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<UDPDiscoveryReceiver, LateralCacheAttributes> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<UDPDiscoveryReceiver, LateralCacheAttributes>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<UDPDiscoveryReceiver, LateralCacheAttributes> lateralCache0 = new LateralCache<UDPDiscoveryReceiver, LateralCacheAttributes>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      IElementSerializer iElementSerializer0 = lateralCache0.getElementSerializer();
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      RemoteCacheNoWaitFacade<String, OpenOption> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<String, OpenOption>(arrayList0, remoteCacheAttributes0, cacheEventLoggerDebugLogger0, iElementSerializer0, remoteCacheFactory0);
+      compositeCacheManager0.addCache("U83|S6ajek4", remoteCacheNoWaitFacade0);
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getStats();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacade cannot be cast to org.apache.commons.jcs3.engine.control.CompositeCache
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      ZombieCacheServiceNonLocal<Integer, Object> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<Integer, Object>((-193));
+      LateralCache<Integer, Object> lateralCache0 = new LateralCache<Integer, Object>(tCPLateralCacheAttributes0, zombieCacheServiceNonLocal0, (LateralCacheMonitor) null);
+      LateralCacheNoWait<Integer, Object> lateralCacheNoWait0 = new LateralCacheNoWait<Integer, Object>(lateralCache0);
+      compositeCacheManager0.addCache("", lateralCacheNoWait0);
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getStatistics();
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWait cannot be cast to org.apache.commons.jcs3.engine.control.CompositeCache
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("MspJ^ZgoKg+:A", (ICompositeCacheAttributes) compositeCacheAttributes0, (IElementAttributes) elementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.freeCache((String) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.freeCache((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.freeAuxiliaryCache((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.configure((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.addCache("", (ICache<?, ?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.setJmxName("1FQ3@D]1HZ#");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Too late, MBean registration is done
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      compositeCacheManager0.freeAuxiliaryCache("Configure called after the manager has been configured.  Force reconfiguration is true. Reconfiguring as best we can.");
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.shutDown();
+      compositeCacheManager0.setJmxName("<tK^_z ,;t2nc6w7-");
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance("Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<LateralCacheNoWaitFacade<Object, Integer>, UDPDiscoveryReceiver> compositeCache0 = compositeCacheManager0.getCache("GetMatching Count (port {0}) = {1}");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      compositeCacheManager0.getCache("", iCompositeCacheAttributes0, (IElementAttributes) null);
+      compositeCacheManager0.freeCache("", false);
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      compositeCacheManager0.freeCache("WFNek", false);
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      Properties properties0 = new Properties();
+      compositeCacheManager0.configure(properties0, true, true);
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      Properties properties0 = new Properties();
+      compositeCacheManager0.configure(properties0, false, true);
+      compositeCacheManager0.configure(properties0, false, false);
+      assertTrue(properties0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      compositeCacheManager0.configure((Properties) null, true, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.configure("org.apache.commons.jcs3.utils.discovery.UDPDiscoveryMessage$BroadcastType");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing");
+      assertFalse(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      boolean boolean0 = compositeCacheManager0.isInitialized();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      compositeCacheManager0.freeCache("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache((ICompositeCacheAttributes) compositeCacheAttributes0, iElementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      Properties properties0 = compositeCacheManager0.getConfigurationProperties();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      Set<String> set0 = compositeCacheManager0.getCacheNames();
+      assertEquals(0, set0.size());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      ICacheStats[] iCacheStatsArray0 = compositeCacheManager0.getStatistics();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      boolean boolean0 = compositeCacheManager0.isConfigured();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      IElementEventQueue iElementEventQueue0 = compositeCacheManager0.getElementEventQueue();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      IElementEventQueue iElementEventQueue0 = compositeCacheManager0.getElementEventQueue();
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      ScheduledExecutorService scheduledExecutorService0 = compositeCacheManager0.getScheduledExecutorService();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.registerShutdownObserver((IShutdownObserver) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.LinkedBlockingDeque", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      compositeCacheManager0.shutDown();
+      compositeCacheManager0.shutDown();
+      assertFalse(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      Properties properties0 = new Properties();
+      compositeCacheManager0.configure(properties0, false, true);
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.configure("");
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      compositeCacheManager0.configure((Properties) null);
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      compositeCacheManager0.setJmxName((String) null);
+      compositeCacheManager0.initialize();
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      compositeCacheManager0.initialize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      CompositeCacheManager.getInstance("");
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      assertNotNull(compositeCacheManager0.getCacheType());
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheManager compositeCacheManager1 = CompositeCacheManager.getInstance();
+      compositeCacheManager1.release();
+      assertTrue(compositeCacheManager1.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ArrayList<RemoteCacheNoWait<Integer, RemoteCacheAttributes>> arrayList0 = new ArrayList<RemoteCacheNoWait<Integer, RemoteCacheAttributes>>();
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer(standardSerializer0);
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      RemoteCacheNoWaitFacade<Integer, RemoteCacheAttributes> remoteCacheNoWaitFacade0 = new RemoteCacheNoWaitFacade<Integer, RemoteCacheAttributes>(arrayList0, remoteCacheAttributes0, (ICacheEventLogger) null, compressingSerializer0, remoteCacheFactory0);
+      compositeCacheManager0.addCache("", remoteCacheNoWaitFacade0);
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache("", iCompositeCacheAttributes0);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacade cannot be cast to org.apache.commons.jcs3.engine.control.CompositeCache
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.configure();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.getCache((ICompositeCacheAttributes) compositeCacheAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICacheType.CacheType iCacheType_CacheType0 = compositeCacheManager0.getCacheType();
+      assertNotNull(iCacheType_CacheType0);
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      String string0 = compositeCacheManager0.getStats();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      compositeCacheManager0.registryFacPut(remoteCacheFactory0);
+      assertNotNull(compositeCacheManager0.getCacheType());
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      ZombieCacheServiceNonLocal<LateralCacheAttributes, InputStream> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<LateralCacheAttributes, InputStream>();
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      LateralCacheMonitor lateralCacheMonitor0 = new LateralCacheMonitor(lateralTCPCacheFactory0);
+      LateralCache<LateralCacheAttributes, InputStream> lateralCache0 = new LateralCache<LateralCacheAttributes, InputStream>(lateralCacheAttributes0, zombieCacheServiceNonLocal0, lateralCacheMonitor0);
+      LateralCacheNoWait<LateralCacheAttributes, InputStream> lateralCacheNoWait0 = new LateralCacheNoWait<LateralCacheAttributes, InputStream>(lateralCache0);
+      compositeCacheManager0.addAuxiliaryCache((String) null, (String) null, lateralCacheNoWait0);
+      compositeCacheManager0.shutDown();
+      assertNotNull(compositeCacheManager0.getCacheType());
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.registryAttrPut((AuxiliaryCacheAttributes) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCacheManager", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.deregisterShutdownObserver((IShutdownObserver) null);
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.deregisterShutdownObserver((IShutdownObserver) null);
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.createInstance();
+      // Undeclared exception!
+      try { 
+        compositeCacheManager0.registryFacGet((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.getAuxiliaryCache("", "");
+      assertTrue(compositeCacheManager0.isInitialized());
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      compositeCacheManager0.getAuxiliaryCache("", "");
+      assertTrue(compositeCacheManager0.isConfigured());
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = new CompositeCacheManager();
+      AuxiliaryCacheAttributes auxiliaryCacheAttributes0 = compositeCacheManager0.registryAttrGet("Z:S)");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CompositeCacheManager.getInstance();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

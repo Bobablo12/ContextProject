@@ -1,0 +1,119 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RleWriter rleWriter0 = new RleWriter(false);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      char[] charArray0 = new char[1];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0, 0, 0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(pipedOutputStream0, byteOrder0);
+      byte[] byteArray0 = new byte[5];
+      try { 
+        rleWriter0.write(binaryOutputStream0, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      RleWriter rleWriter0 = new RleWriter(true);
+      rleWriter0.write((BinaryOutputStream) null, byteArray0);
+      // Undeclared exception!
+      try { 
+        rleWriter0.flush((BinaryOutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pcx.RleWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RleWriter rleWriter0 = new RleWriter(true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(",nz{G#*h+jweLe+", true);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0);
+      byte[] byteArray0 = new byte[5];
+      rleWriter0.write(binaryOutputStream0, byteArray0);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      try { 
+        rleWriter0.flush(binaryOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RleWriter rleWriter0 = new RleWriter(true);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(",nz{G#*h+jweLe+", true);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0);
+      byte[] byteArray0 = new byte[5];
+      byteArray0[3] = (byte)1;
+      rleWriter0.write(binaryOutputStream0, byteArray0);
+      rleWriter0.flush(binaryOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("org.apache.commons.imaging.formats.pcx.RleWriter");
+      byte[] byteArray0 = new byte[8];
+      byteArray0[7] = (byte) (-64);
+      RleWriter rleWriter0 = new RleWriter(true);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0);
+      rleWriter0.write(binaryOutputStream0, byteArray0);
+      rleWriter0.flush(binaryOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockPrintStream mockPrintStream0 = new MockPrintStream("org.apache.commons.imaging.formats.pcx.RleWriter");
+      byte[] byteArray0 = new byte[8];
+      byteArray0[5] = (byte) (-64);
+      byteArray0[7] = (byte) (-64);
+      RleWriter rleWriter0 = new RleWriter(true);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockPrintStream0);
+      rleWriter0.write(binaryOutputStream0, byteArray0);
+      assertEquals(1, binaryOutputStream0.getByteCount());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[67];
+      RleWriter rleWriter0 = new RleWriter(true);
+      // Undeclared exception!
+      try { 
+        rleWriter0.write((BinaryOutputStream) null, byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pcx.RleWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RleWriter rleWriter0 = new RleWriter(true);
+      File file0 = MockFile.createTempFile("+H2L#`", "+H2L#`");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0);
+      rleWriter0.flush(binaryOutputStream0);
+      assertEquals(0, binaryOutputStream0.getByteCount());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RleWriter rleWriter0 = new RleWriter(true);
+      File file0 = MockFile.createTempFile("+H2L#`", "+H2L#`");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0);
+      BinaryOutputStream binaryOutputStream0 = new BinaryOutputStream(mockFileOutputStream0);
+      rleWriter0.flush(binaryOutputStream0);
+      assertEquals(0, file0.length());
+}

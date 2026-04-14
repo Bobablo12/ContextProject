@@ -1,0 +1,594 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      String[] stringArray0 = psdImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      try { 
+        psdImageParser0.getXmpXml(byteSourceArray0, xmpImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid PSD File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getXmpXml(byteSourceArray0, xmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "*~6OC[k`\"DS<Y-{o\"0");
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getXmpXml(byteSourceInputStream0, xmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-608), 1069);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "' )");
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getXmpXml(byteSourceInputStream0, xmpImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, ")>");
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      try { 
+        psdImageParser0.getXmpXml(byteSourceInputStream0, xmpImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockFile mockFile0 = new MockFile("", "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      try { 
+        psdImageParser0.getXmpXml(byteSourceFile0, xmpImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageSize((ByteSource) null, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.PsdImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(dataInputStream0, 1060);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "X6$5<$Z'=@[zv-%g=");
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageSize((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-305), 76);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageSize((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "XMP");
+      try { 
+        psdImageParser0.getImageSize((ByteSource) byteSourceInputStream0, (PsdImagingParameters) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockFile mockFile0 = new MockFile("", "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      try { 
+        psdImageParser0.getImageSize((ByteSource) byteSourceFile0, psdImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) byteSourceArray0, psdImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid PSD File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) null, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.PsdImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[11];
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-975), 216);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "XMP");
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[3];
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("Caption digest");
+      FileSystemHandling.shouldThrowIOException(evoSuiteFile0);
+      FileSystemHandling.appendDataToFile(evoSuiteFile0, byteArray0);
+      MockFile mockFile0 = new MockFile("Caption digest");
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) byteSourceFile0, psdImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockFile mockFile0 = new MockFile("Rows", "Working path (not saved)");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) byteSourceFile0, psdImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getICCProfileBytes((ByteSource) null, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.PsdImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(dataInputStream0, 1060);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(bufferedInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "I7wz0=lMbFW!;=");
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-934), (byte)2);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "XMP");
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, "q<Y");
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceArray0, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true).when(enumeration0).hasMoreElements();
+      doReturn((Object) null).when(enumeration0).nextElement();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream(72);
+      SequenceInputStream sequenceInputStream1 = new SequenceInputStream(sequenceInputStream0, pipedInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream1, "u~g1,GPKM");
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.SequenceInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-661), 1060);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, ":qs");
+      PsdImagingParameters psdImagingParameters0 = new PsdImagingParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      Enumeration<SequenceInputStream> enumeration0 = (Enumeration<SequenceInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      PipedInputStream pipedInputStream0 = new PipedInputStream(72);
+      SequenceInputStream sequenceInputStream1 = new SequenceInputStream(sequenceInputStream0, pipedInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream1, "u~g1,GPKM");
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockFile mockFile0 = new MockFile(">fEns*fp", ">fEns*fp");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      try { 
+        psdImageParser0.getBufferedImage((ByteSource) byteSourceFile0, psdImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockFile mockFile0 = new MockFile("XMP", "XMP");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        psdImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        psdImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.PsdImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("w]BFVBj('xxW,f");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockPrintStream0, true);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, ")+o");
+      try { 
+        psdImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("XMP");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0, 3266);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(bufferedOutputStream0);
+      MockFile mockFile0 = new MockFile((String) null, "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        psdImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      ImageMetadata imageMetadata0 = psdImageParser0.getMetadata((ByteSource) null, psdImagingParameters0);
+      assertNotNull(imageMetadata0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      byte[] byteArray0 = new byte[34];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      try { 
+        psdImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, psdImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid PSD File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      String string0 = psdImageParser0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      byte[] byteArray0 = new byte[26];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      try { 
+        psdImageParser0.getImageSize((ByteSource) byteSourceArray0, psdImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid PSD File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      String string0 = psdImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      ImageFormat[] imageFormatArray0 = psdImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "XMP");
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        psdImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, psdImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      PsdImageParser psdImageParser0 = new PsdImageParser();
+      PsdImagingParameters psdImagingParameters0 = psdImageParser0.getDefaultParameters();
+      File file0 = MockFile.createTempFile("XMP", ")0C4*");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      try { 
+        psdImageParser0.getICCProfileBytes((ByteSource) byteSourceFile0, psdImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid PSD File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }

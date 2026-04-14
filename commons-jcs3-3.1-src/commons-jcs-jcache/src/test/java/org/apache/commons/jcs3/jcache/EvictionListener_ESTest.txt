@@ -1,0 +1,65 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      // Undeclared exception!
+      try { 
+        evictionListener0.handleElementEvent((IElementEvent<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.EvictionListener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      Object object0 = new Object();
+      ElementEventType elementEventType0 = ElementEventType.SPOOLED_DISK_NOT_AVAILABLE;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(object0, elementEventType0);
+      evictionListener0.handleElementEvent((IElementEvent<Object>) elementEvent0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      Object object0 = new Object();
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_IDLETIME_BACKGROUND;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(object0, elementEventType0);
+      evictionListener0.handleElementEvent((IElementEvent<Object>) elementEvent0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_IDLETIME_ONREQUEST;
+      ElementEvent<String> elementEvent0 = new ElementEvent<String>("org.apache.commons.jcs3.jcache.EvictionListener$1", elementEventType0);
+      evictionListener0.handleElementEvent((IElementEvent<String>) elementEvent0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND;
+      ElementEvent<String> elementEvent0 = new ElementEvent<String>("aa^My9", elementEventType0);
+      ElementEventType elementEventType1 = ElementEventType.EXCEEDED_MAXLIFE_ONREQUEST;
+      ElementEvent<Object> elementEvent1 = new ElementEvent<Object>(elementEvent0, elementEventType1);
+      evictionListener0.handleElementEvent((IElementEvent<Object>) elementEvent1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Statistics statistics0 = new Statistics();
+      EvictionListener evictionListener0 = new EvictionListener(statistics0);
+      Integer integer0 = new Integer(0);
+      ElementEventType elementEventType0 = ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND;
+      ElementEvent<Integer> elementEvent0 = new ElementEvent<Integer>(integer0, elementEventType0);
+      evictionListener0.handleElementEvent((IElementEvent<Integer>) elementEvent0);
+      ;
+}

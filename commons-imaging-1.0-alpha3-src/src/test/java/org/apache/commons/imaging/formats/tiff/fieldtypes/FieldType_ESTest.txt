@@ -1,0 +1,188 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(871, (String) null);
+      byte[] byteArray0 = new byte[9];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(911, 1596, fieldTypeRational0, 1596, 0L, byteArray0, byteOrder0, (byte)10);
+      Object object0 = fieldTypeRational0.getValue(tiffField0);
+      fieldTypeRational0.writeData(object0, byteOrder0);
+      assertEquals(0, fieldTypeRational0.getType());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(871, (String) null);
+      byte[] byteArray0 = new byte[9];
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffField tiffField0 = new TiffField(911, 1596, fieldTypeRational0, 1596, 0L, byteArray0, byteOrder0, (byte)10);
+      Object object0 = fieldTypeRational0.getValue(tiffField0);
+      fieldTypeRational0.writeData(object0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FieldTypeFloat fieldTypeFloat0 = new FieldTypeFloat(445, "");
+      byte[] byteArray0 = new byte[2];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(285, 13, fieldTypeFloat0, 1953L, 2147483647L, byteArray0, byteOrder0, 285);
+      Object object0 = fieldTypeFloat0.getValue(tiffField0);
+      fieldTypeFloat0.writeData(object0, byteOrder0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FieldTypeFloat fieldTypeFloat0 = new FieldTypeFloat(445, "");
+      byte[] byteArray0 = new byte[2];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(285, 13, fieldTypeFloat0, 1953L, 2147483647L, byteArray0, byteOrder0, 285);
+      Object object0 = fieldTypeFloat0.getValue(tiffField0);
+      fieldTypeFloat0.writeData(object0, byteOrder0);
+      assertEquals(1, fieldTypeFloat0.getType());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble(0, "");
+      int int0 = fieldTypeDouble0.getType();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble(0, "");
+      int int0 = fieldTypeDouble0.getType();
+      assertEquals(0, fieldTypeDouble0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FieldTypeByte fieldTypeByte0 = new FieldTypeByte(3, "");
+      int int0 = fieldTypeByte0.getType();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FieldTypeByte fieldTypeByte0 = new FieldTypeByte(3, "");
+      int int0 = fieldTypeByte0.getType();
+      assertEquals(1, fieldTypeByte0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(129, (String) null);
+      fieldTypeRational0.getName();
+      assertEquals(0, fieldTypeRational0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational(129, (String) null);
+      fieldTypeRational0.getName();
+      assertEquals(0, fieldTypeRational0.getType());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      FieldTypeByte fieldTypeByte0 = new FieldTypeByte(3, "");
+      fieldTypeByte0.getName();
+      assertEquals(0, fieldTypeByte0.getType());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      FieldTypeByte fieldTypeByte0 = new FieldTypeByte(3, "");
+      fieldTypeByte0.getName();
+      assertEquals(0, fieldTypeByte0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      FieldTypeDouble fieldTypeDouble0 = new FieldTypeDouble(12, "t@-wVHhg~FGyagc.y");
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      try { 
+        fieldTypeDouble0.writeData("t@-wVHhg~FGyagc.y", byteOrder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid data: t@-wVHhg~FGyagc.y (java.lang.String)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeDouble", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = FieldType.RATIONAL;
+      byte[] byteArray0 = new byte[9];
+      TiffField tiffField0 = new TiffField((-2243), 565, (FieldType) null, 565, (-21L), byteArray0, (ByteOrder) null, 657);
+      // Undeclared exception!
+      try { 
+        fieldTypeRational0.ASCII.getValue(tiffField0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffField", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      FieldType fieldType0 = FieldType.getFieldType(11);
+      int int0 = fieldType0.FLOAT.getSize();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational((-519), ".arjo3SjGS9");
+      int int0 = fieldTypeRational0.getType();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational((-519), ".arjo3SjGS9");
+      int int0 = fieldTypeRational0.getType();
+      assertEquals(1, fieldTypeRational0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      FieldType fieldType0 = FieldType.getFieldType(2);
+      byte[] byteArray0 = new byte[1];
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffField tiffField0 = new TiffField((-1757), 2, fieldType0, (-2899L), 2, byteArray0, byteOrder0, (byte)0);
+      // Undeclared exception!
+      try { 
+        fieldType0.getValue(tiffField0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      byte[] byteArray0 = new byte[0];
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffField tiffField0 = new TiffField(485, 485, fieldTypeLong0.SRATIONAL, 1L, 485, byteArray0, byteOrder0, 485);
+      // Undeclared exception!
+      try { 
+        fieldTypeLong0.getValue(tiffField0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.ByteConversions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      try { 
+        FieldType.getFieldType((-473));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Field type -473 is unsupported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.fieldtypes.FieldType", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      FieldTypeLong fieldTypeLong0 = FieldType.SLONG;
+      String string0 = fieldTypeLong0.getName();
+      ;
+}

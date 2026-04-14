@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator((Publisher<ByteBuf>) null, 0L);
+      Publisher<ByteBuf> publisher0 = reactiveStreamsBodyGenerator0.getPublisher();
+      assertNotNull(publisher0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator((Publisher<ByteBuf>) null, 0L);
+      long long0 = reactiveStreamsBodyGenerator0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator((Publisher<ByteBuf>) null, (-1954L));
+      long long0 = reactiveStreamsBodyGenerator0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Publisher<ByteBuf> publisher0 = (Publisher<ByteBuf>) mock(Publisher.class, new ViolatedAssumptionAnswer());
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator(publisher0, 1L);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      reactiveStreamsBodyGenerator0.feed(byteBuf0, false);
+      assertEquals(0, reactiveStreamsBodyGenerator0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Publisher<ByteBuf> publisher0 = (Publisher<ByteBuf>) mock(Publisher.class, new ViolatedAssumptionAnswer());
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator(publisher0, 1L);
+      Body body0 = reactiveStreamsBodyGenerator0.createBody();
+      assertEquals(1, body0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Publisher<ByteBuf> publisher0 = (Publisher<ByteBuf>) mock(Publisher.class, new ViolatedAssumptionAnswer());
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator(publisher0, 1L);
+      FeedListener feedListener0 = mock(FeedListener.class, new ViolatedAssumptionAnswer());
+      reactiveStreamsBodyGenerator0.setListener(feedListener0);
+      assertEquals(0, reactiveStreamsBodyGenerator0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Publisher<ByteBuf> publisher0 = (Publisher<ByteBuf>) mock(Publisher.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(publisher0).toString();
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator(publisher0, 1L);
+      reactiveStreamsBodyGenerator0.getPublisher();
+      assertEquals(0, reactiveStreamsBodyGenerator0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Publisher<ByteBuf> publisher0 = (Publisher<ByteBuf>) mock(Publisher.class, new ViolatedAssumptionAnswer());
+      ReactiveStreamsBodyGenerator reactiveStreamsBodyGenerator0 = new ReactiveStreamsBodyGenerator(publisher0, 1L);
+      long long0 = reactiveStreamsBodyGenerator0.getContentLength();
+      assertEquals(0, long0);
+}

@@ -1,0 +1,636 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      KeyedPooledObjectFactory<PooledObject<Integer>, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<PooledObject<Integer>, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<PooledObject<Integer>, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<PooledObject<Integer>, Object>(keyedPooledObjectFactory0);
+      DefaultPooledObject<Object> defaultPooledObject0 = new DefaultPooledObject<Object>(genericKeyedObjectPool0);
+      ChronoUnit chronoUnit0 = ChronoUnit.MILLIS;
+      Duration duration0 = chronoUnit0.getDuration();
+      genericKeyedObjectPool0.updateStatsBorrow(defaultPooledObject0, duration0);
+      genericKeyedObjectPool0.ensureMinIdle();
+      genericKeyedObjectPool0.getBorrowedCount();
+      genericKeyedObjectPool0.getFairness();
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig0, abandonedConfig1);
+      genericKeyedObjectPool1.clear("EVICTION");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.getCreationStackTrace();
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = genericKeyedObjectPool0.abandonedConfig;
+      AbandonedConfig.copy((AbandonedConfig) null);
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1, (AbandonedConfig) null);
+      KeyedPooledObjectFactory<LinkedList<DefaultPooledObjectInfo>, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<LinkedList<DefaultPooledObjectInfo>, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<LinkedList<DefaultPooledObjectInfo>, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<LinkedList<DefaultPooledObjectInfo>, String>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig0, (AbandonedConfig) null);
+      LinkedList<PooledObject<String>> linkedList0 = new LinkedList<PooledObject<String>>();
+      BaseGenericObjectPool.EvictionIterator baseGenericObjectPool_EvictionIterator0 = genericKeyedObjectPool2.new EvictionIterator(linkedList0);
+      genericKeyedObjectPool1.setMinEvictableIdle(genericKeyedObjectPoolConfig0.DEFAULT_SOFT_MIN_EVICTABLE_IDLE_DURATION);
+      genericKeyedObjectPool1.evictionIterator = baseGenericObjectPool_EvictionIterator0;
+      genericKeyedObjectPool1.getMinEvictableIdleTimeMillis();
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<Object>();
+      genericKeyedObjectPoolConfig2.setFairness(false);
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool3 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory3, genericKeyedObjectPoolConfig2);
+      genericKeyedObjectPool3.getMaxTotalPerKey();
+      KeyedPooledObjectFactory<Object, DefaultPooledObjectInfo> keyedPooledObjectFactory4 = (KeyedPooledObjectFactory<Object, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, DefaultPooledObjectInfo> genericKeyedObjectPool4 = new GenericKeyedObjectPool<Object, DefaultPooledObjectInfo>(keyedPooledObjectFactory4);
+      KeyedPooledObjectFactory<Object, DefaultPooledObjectInfo> keyedPooledObjectFactory5 = genericKeyedObjectPool4.getFactory();
+      GenericKeyedObjectPool<Object, DefaultPooledObjectInfo> genericKeyedObjectPool5 = null;
+      try {
+        genericKeyedObjectPool5 = new GenericKeyedObjectPool<Object, DefaultPooledObjectInfo>(keyedPooledObjectFactory5, (GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      KeyedPooledObjectFactory<LinkedList<Object>, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<LinkedList<Object>, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<Integer>();
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      Duration duration0 = genericKeyedObjectPoolConfig2.getMinEvictableIdleDuration();
+      duration0.compareTo(genericKeyedObjectPoolConfig0.DEFAULT_TIME_BETWEEN_EVICTION_RUNS);
+      genericKeyedObjectPoolConfig0.setMaxTotal(8);
+      genericKeyedObjectPoolConfig0.setMaxWait(duration0);
+      GenericKeyedObjectPool<LinkedList<Object>, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<LinkedList<Object>, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool0.updateStatsReturn(genericKeyedObjectPoolConfig0.DEFAULT_MAX_WAIT);
+      genericKeyedObjectPool0.getMinIdlePerKey();
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      genericKeyedObjectPool1.getTestWhileIdle();
+      genericKeyedObjectPool1.getLifo();
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig3 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig4 = genericKeyedObjectPoolConfig3.clone();
+      genericKeyedObjectPoolConfig3.setFairness(false);
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig4);
+      genericKeyedObjectPool2.getTestWhileIdle();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool3 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory3);
+      genericKeyedObjectPool3.getDestroyedCount();
+      genericKeyedObjectPool3.clear();
+      KeyedPooledObjectFactory<Object, Integer> keyedPooledObjectFactory4 = (KeyedPooledObjectFactory<Object, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Object, Integer> genericKeyedObjectPool4 = new GenericKeyedObjectPool<Object, Integer>(keyedPooledObjectFactory4, genericKeyedObjectPoolConfig2, abandonedConfig1);
+      KeyedPooledObjectFactory<Object, Integer> keyedPooledObjectFactory5 = genericKeyedObjectPool4.getFactory();
+      GenericKeyedObjectPool<Object, Integer> genericKeyedObjectPool5 = new GenericKeyedObjectPool<Object, Integer>(keyedPooledObjectFactory5);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool0.setMessagesStatistics(true);
+      int int0 = genericKeyedObjectPool0.getRemoveAbandonedTimeout();
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      KeyedPooledObjectFactory<LinkedList<Integer>, LinkedList<Object>> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<LinkedList<Integer>, LinkedList<Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<LinkedList<Object>> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<LinkedList<Object>>();
+      GenericKeyedObjectPoolConfig<LinkedList<Object>> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      genericKeyedObjectPoolConfig2.setMinEvictableIdleTime(genericKeyedObjectPoolConfig1.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      abandonedConfig0.setRequireFullStackTrace(false);
+      GenericKeyedObjectPool<LinkedList<Integer>, LinkedList<Object>> genericKeyedObjectPool1 = new GenericKeyedObjectPool<LinkedList<Integer>, LinkedList<Object>>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig2, abandonedConfig0);
+      genericKeyedObjectPool1.getCreationStackTrace();
+      DefaultPooledObject<String> defaultPooledObject0 = new DefaultPooledObject<String>("org.apache.commons.pool2.impl.DefaultEvictionPolicy");
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(defaultPooledObject0).when(keyedPooledObjectFactory2).makeObject(any());
+      abandonedConfig0.setRemoveAbandonedOnMaintenance(true);
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory2);
+      System.setCurrentTimeMillis(0);
+      genericKeyedObjectPool2.addObject(genericKeyedObjectPool1);
+      genericKeyedObjectPool0.getTestOnReturn();
+      KeyedPooledObjectFactory<Integer, String> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<Integer, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, String> genericKeyedObjectPool3 = new GenericKeyedObjectPool<Integer, String>(keyedPooledObjectFactory3);
+      genericKeyedObjectPool3.use("C");
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory4 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      abandonedConfig0.toString();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool4 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory4, genericKeyedObjectPoolConfig0, abandonedConfig1);
+      genericKeyedObjectPool4.getNumActive("z;#3_8I");
+      genericKeyedObjectPool2.getNumWaitersByKey();
+      genericKeyedObjectPool3.getNumTestsPerEvictionRun();
+      int int1 = genericKeyedObjectPool3.getRemoveAbandonedTimeout();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory0);
+      boolean boolean0 = genericKeyedObjectPool0.getLifo();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      genericKeyedObjectPoolConfig0.setTestOnReturn(true);
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      long long0 = genericKeyedObjectPool0.getMeanActiveTimeMillis();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, abandonedConfig1);
+      long long0 = genericKeyedObjectPool0.getMinEvictableIdleTimeMillis();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.getMeanBorrowWaitTimeMillis();
+      boolean boolean0 = genericKeyedObjectPool0.isAbandonedConfig();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      KeyedPooledObjectFactory<LinkedList<Object>, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<LinkedList<Object>, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      genericKeyedObjectPoolConfig0.setMaxTotal(0);
+      genericKeyedObjectPoolConfig0.toString();
+      GenericKeyedObjectPool<LinkedList<Object>, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<LinkedList<Object>, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      int int0 = genericKeyedObjectPool0.getMinIdlePerKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.evict();
+      long long0 = genericKeyedObjectPool0.getMeanBorrowWaitTimeMillis();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      genericKeyedObjectPoolConfig0.setEvictorShutdownTimeout(genericKeyedObjectPoolConfig1.DEFAULT_MIN_EVICTABLE_IDLE_DURATION);
+      genericKeyedObjectPoolConfig0.setMinIdlePerKey(8);
+      genericKeyedObjectPoolConfig1.toString();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool0.isClosed();
+      genericKeyedObjectPoolConfig1.setMaxTotal(8);
+      genericKeyedObjectPoolConfig1.setMinIdlePerKey((-1));
+      genericKeyedObjectPool0.getDestroyedByEvictorCount();
+      genericKeyedObjectPool0.isClosed();
+      KeyedPooledObjectFactory<String, Integer> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, Integer> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, Integer>(keyedPooledObjectFactory1);
+      genericKeyedObjectPool1.getNumIdle("");
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, LinkedList<Object>> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, LinkedList<Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, LinkedList<Object>> genericKeyedObjectPool2 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, LinkedList<Object>>(keyedPooledObjectFactory2);
+      genericKeyedObjectPool2.getNumWaiters();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool3 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory3, genericKeyedObjectPoolConfig2);
+      genericKeyedObjectPool3.getTestOnCreate();
+      KeyedPooledObjectFactory<String, DefaultPooledObjectInfo> keyedPooledObjectFactory4 = (KeyedPooledObjectFactory<String, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, DefaultPooledObjectInfo> genericKeyedObjectPool4 = new GenericKeyedObjectPool<String, DefaultPooledObjectInfo>(keyedPooledObjectFactory4);
+      genericKeyedObjectPool4.evict();
+      KeyedPooledObjectFactory<Integer, String> keyedPooledObjectFactory5 = (KeyedPooledObjectFactory<Integer, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, String> genericKeyedObjectPool5 = new GenericKeyedObjectPool<Integer, String>(keyedPooledObjectFactory5);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      genericKeyedObjectPoolConfig0.setTestOnBorrow(true);
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      AbandonedConfig abandonedConfig0 = genericKeyedObjectPool0.abandonedConfig;
+      AbandonedConfig.copy((AbandonedConfig) null);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, (AbandonedConfig) null);
+      genericKeyedObjectPool1.;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      genericKeyedObjectPoolConfig0.setTestOnBorrow(true);
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1);
+      AbandonedConfig abandonedConfig0 = genericKeyedObjectPool0.abandonedConfig;
+      AbandonedConfig.copy((AbandonedConfig) null);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0, (AbandonedConfig) null);
+      genericKeyedObjectPool1.getFactory();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool2 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig2, (AbandonedConfig) null);
+      genericKeyedObjectPool2.getDestroyedCount();
+      genericKeyedObjectPool2.getTestOnBorrow();
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig3 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig4 = genericKeyedObjectPoolConfig3.clone();
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool3 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory3, genericKeyedObjectPoolConfig4, (AbandonedConfig) null);
+      genericKeyedObjectPool3.clearOldest();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.setMaxTotalPerKey(5);
+      genericKeyedObjectPool0.getDestroyedByBorrowValidationCount();
+      KeyedPooledObjectFactory<LinkedList<Object>, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<LinkedList<Object>, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<LinkedList<Object>, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<LinkedList<Object>, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1, (AbandonedConfig) null);
+      genericKeyedObjectPool1.getMaxTotalPerKey();
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPoolConfig1.setMaxIdlePerKey(3);
+      DestroyMode destroyMode0 = DestroyMode.ABANDONED;
+      try { 
+        genericKeyedObjectPool2.invalidateObject(", evictionKey=", "RN|UA2~.dRAtb1wz;i", destroyMode0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      KeyedPooledObjectFactory<LinkedList<String>, Integer> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<LinkedList<String>, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Integer>();
+      genericKeyedObjectPoolConfig0.setTestWhileIdle(true);
+      GenericKeyedObjectPool<LinkedList<String>, Integer> genericKeyedObjectPool0 = new GenericKeyedObjectPool<LinkedList<String>, Integer>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      Map<String, Integer> map0 = genericKeyedObjectPool0.getNumActivePerKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, abandonedConfig1);
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      genericKeyedObjectPoolConfig2.getEvictionPolicy();
+      genericKeyedObjectPool0.setEvictionPolicy((EvictionPolicy<Object>) null);
+      genericKeyedObjectPool0.getFactory();
+      genericKeyedObjectPoolConfig1.setJmxEnabled(true);
+      genericKeyedObjectPool0.isAbandonedConfig();
+      genericKeyedObjectPool0.getBlockWhenExhausted();
+      KeyedPooledObjectFactory<LinkedList<Integer>, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<LinkedList<Integer>, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig3 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPool<LinkedList<Integer>, DefaultPooledObjectInfo> genericKeyedObjectPool1 = new GenericKeyedObjectPool<LinkedList<Integer>, DefaultPooledObjectInfo>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig3, abandonedConfig1);
+      genericKeyedObjectPool1.close();
+      KeyedPooledObjectFactory<String, Integer> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig4 = new GenericKeyedObjectPoolConfig<Integer>();
+      GenericKeyedObjectPool<String, Integer> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, Integer>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig4);
+      genericKeyedObjectPool2.setMaxTotalPerKey(0);
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool3 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory3);
+      genericKeyedObjectPool3.setMinIdlePerKey(24);
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory4 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool4 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory4);
+      long long0 = genericKeyedObjectPool4.getMaxBorrowWaitTimeMillis();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool0.setMinIdlePerKey(3);
+      genericKeyedObjectPool0.getMaxTotalPerKey();
+      KeyedPooledObjectFactory<LinkedList<Integer>, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<LinkedList<Integer>, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPool<LinkedList<Integer>, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<LinkedList<Integer>, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig2);
+      genericKeyedObjectPool1.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0);
+      boolean boolean0 = genericKeyedObjectPool0.getTestWhileIdle();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      Map<String, List<DefaultPooledObjectInfo>> map0 = genericKeyedObjectPool0.listAllObjects();
+      assertTrue(map0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.close();
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory1);
+      genericKeyedObjectPool1.setMaxTotalPerKey(100);
+      long long0 = genericKeyedObjectPool1.getReturnedCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, LinkedList<DefaultPooledObjectInfo>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, LinkedList<DefaultPooledObjectInfo>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<LinkedList<DefaultPooledObjectInfo>> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<LinkedList<DefaultPooledObjectInfo>>();
+      GenericKeyedObjectPoolConfig<LinkedList<DefaultPooledObjectInfo>> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      DefaultEvictionPolicy<LinkedList<DefaultPooledObjectInfo>> defaultEvictionPolicy0 = new DefaultEvictionPolicy<LinkedList<DefaultPooledObjectInfo>>();
+      EvictionConfig evictionConfig0 = new EvictionConfig(genericKeyedObjectPoolConfig1.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, genericKeyedObjectPoolConfig0.DEFAULT_SOFT_MIN_EVICTABLE_IDLE_DURATION, 0);
+      EvictionConfig evictionConfig1 = new EvictionConfig(genericKeyedObjectPoolConfig0.DEFAULT_MIN_EVICTABLE_IDLE_DURATION, genericKeyedObjectPoolConfig1.DEFAULT_SOFT_MIN_EVICTABLE_IDLE_DURATION, 0);
+      evictionConfig1.toString();
+      LinkedList<DefaultPooledObjectInfo> linkedList0 = new LinkedList<DefaultPooledObjectInfo>();
+      DefaultPooledObject<LinkedList<DefaultPooledObjectInfo>> defaultPooledObject0 = new DefaultPooledObject<LinkedList<DefaultPooledObjectInfo>>(linkedList0);
+      defaultPooledObject0.invalidate();
+      boolean boolean0 = defaultEvictionPolicy0.evict(evictionConfig1, defaultPooledObject0, 0);
+      genericKeyedObjectPoolConfig1.setEvictionPolicy(defaultEvictionPolicy0);
+      GenericKeyedObjectPool<Object, LinkedList<DefaultPooledObjectInfo>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, LinkedList<DefaultPooledObjectInfo>>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool0.getMinIdlePerKey();
+      genericKeyedObjectPool0.getNumActive();
+      genericKeyedObjectPool0.getRemoveAbandonedOnBorrow();
+      genericKeyedObjectPool0.getNumWaiters();
+      genericKeyedObjectPool0.getTestOnReturn();
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig2);
+      boolean boolean1 = genericKeyedObjectPool1.getTestOnCreate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool0.getMaxWaitMillis();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig3 = genericKeyedObjectPoolConfig2.clone();
+      genericKeyedObjectPoolConfig2.setJmxNamePrefix("-dh>A?6BZ!oV");
+      genericKeyedObjectPoolConfig3.setTestOnCreate(true);
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool1 = null;
+      try {
+        genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>((KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) null, genericKeyedObjectPoolConfig3);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Factory may not be null
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0);
+      boolean boolean0 = genericKeyedObjectPool0.getLogAbandoned();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      AbandonedConfig abandonedConfig0 = genericKeyedObjectPool0.abandonedConfig;
+      AbandonedConfig.copy((AbandonedConfig) null);
+      genericKeyedObjectPool0.use((Object) null);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, (AbandonedConfig) null);
+      genericKeyedObjectPool1.getNumTestsPerEvictionRun();
+      genericKeyedObjectPool0.getRemoveAbandonedOnMaintenance();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig3 = genericKeyedObjectPoolConfig2.clone();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool2 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig3);
+      long long0 = genericKeyedObjectPool2.getBorrowedCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0);
+      int int0 = genericKeyedObjectPool0.getNumTestsPerEvictionRun();
+      KeyedPooledObjectFactory<Integer, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, Object>(keyedPooledObjectFactory1);
+      int int1 = genericKeyedObjectPool1.getMaxIdlePerKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.getNumIdle();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = genericKeyedObjectPool0.abandonedConfig;
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1, (AbandonedConfig) null);
+      String string0 = genericKeyedObjectPool1.getCreationStackTrace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.appendStats("B&~L2~$z:9E\"Se&Vf");
+      genericKeyedObjectPool0.getMaxIdlePerKey();
+      KeyedPooledObjectFactory<Integer, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      AbandonedConfig abandonedConfig1 = AbandonedConfig.copy(abandonedConfig0);
+      GenericKeyedObjectPool<Integer, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1, abandonedConfig1);
+      genericKeyedObjectPool1.getNumIdle();
+      genericKeyedObjectPool1.getMaxIdlePerKey();
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig0, abandonedConfig0);
+      boolean boolean0 = genericKeyedObjectPool2.getTestOnBorrow();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.getRemoveAbandonedTimeout();
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1);
+      int int0 = genericKeyedObjectPool1.getMaxTotal();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool0.getNumWaitersByKey();
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool1 = null;
+      try {
+        genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, Object>((KeyedPooledObjectFactory<Object, Object>) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Factory may not be null
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0);
+      long long0 = genericKeyedObjectPool0.getCreatedCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      KeyedPooledObjectFactory<LinkedList<Object>, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<LinkedList<Object>, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      AbandonedConfig abandonedConfig0 = new AbandonedConfig();
+      genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<LinkedList<Object>, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<LinkedList<Object>, String>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1, abandonedConfig0);
+      genericKeyedObjectPool0.getMeanIdleTimeMillis();
+      KeyedPooledObjectFactory<Integer, Integer> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, Integer> genericKeyedObjectPool1 = null;
+      try {
+        genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, Integer>(keyedPooledObjectFactory1, (GenericKeyedObjectPoolConfig<Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.pool2.impl.GenericKeyedObjectPool", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      genericKeyedObjectPoolConfig0.getEvictionPolicy();
+      genericKeyedObjectPoolConfig0.setEvictionPolicy((EvictionPolicy<Object>) null);
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool0.setMessagesStatistics(true);
+      boolean boolean0 = genericKeyedObjectPool0.isClosed();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory1);
+      genericKeyedObjectPool1.getNumIdle();
+      genericKeyedObjectPool1.getNumIdle();
+      boolean boolean1 = genericKeyedObjectPool0.getFairness();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      KeyedPooledObjectFactory<DefaultPooledObjectInfo, String> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<DefaultPooledObjectInfo, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<DefaultPooledObjectInfo, String> genericKeyedObjectPool0 = new GenericKeyedObjectPool<DefaultPooledObjectInfo, String>(keyedPooledObjectFactory0);
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      genericKeyedObjectPoolConfig1.setTestWhileIdle(true);
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool1.getNumWaiters();
+      KeyedPooledObjectFactory<String, String> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<String, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig2 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPool<String, String> genericKeyedObjectPool2 = new GenericKeyedObjectPool<String, String>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig2);
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig3 = new GenericKeyedObjectPoolConfig<String>();
+      genericKeyedObjectPool2.setConfig(genericKeyedObjectPoolConfig3);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.appendStats("L&UK})_");
+      genericKeyedObjectPool0.setTestOnReturn(false);
+      genericKeyedObjectPool0.appendStats("L&UK})_");
+      genericKeyedObjectPool0.closed = false;
+      genericKeyedObjectPool0.getDestroyedByEvictorCount();
+      genericKeyedObjectPool0.getTimeBetweenEvictionRunsMillis();
+      StringBuilder stringBuilder0 = new StringBuilder();
+      StringBuilder stringBuilder1 = stringBuilder0.append('@');
+      // Undeclared exception!
+      try { 
+        stringBuilder1.insert(62, (-1.0));
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+         //
+         // String index out of range: 62
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      KeyedPooledObjectFactory<String, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<String, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Object> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<Object>();
+      GenericKeyedObjectPool<String, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<String, Object>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool0.getTimeBetweenEvictionRunsMillis();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig2);
+      boolean boolean0 = genericKeyedObjectPool1.getRemoveAbandonedOnMaintenance();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      KeyedPooledObjectFactory<Object, Object> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Object, Object>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<Object, Object> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Object, Object>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.setTestOnCreate(true);
+      genericKeyedObjectPool0.getDestroyedCount();
+      genericKeyedObjectPool0.getTestOnBorrow();
+      KeyedPooledObjectFactory<Object, String> keyedPooledObjectFactory1 = (KeyedPooledObjectFactory<Object, String>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<String> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<String>();
+      GenericKeyedObjectPool<Object, String> genericKeyedObjectPool1 = new GenericKeyedObjectPool<Object, String>(keyedPooledObjectFactory1, genericKeyedObjectPoolConfig0);
+      genericKeyedObjectPool1.getNumIdle();
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory2 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig2 = genericKeyedObjectPoolConfig1.clone();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool2 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory2, genericKeyedObjectPoolConfig2);
+      genericKeyedObjectPool2.setConfig(genericKeyedObjectPoolConfig1);
+      genericKeyedObjectPool2.getMaxTotalPerKey();
+      KeyedPooledObjectFactory<String, Integer> keyedPooledObjectFactory3 = (KeyedPooledObjectFactory<String, Integer>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<Integer> genericKeyedObjectPoolConfig3 = new GenericKeyedObjectPoolConfig<Integer>();
+      GenericKeyedObjectPool<String, Integer> genericKeyedObjectPool3 = new GenericKeyedObjectPool<String, Integer>(keyedPooledObjectFactory3, genericKeyedObjectPoolConfig3);
+      genericKeyedObjectPool3.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      KeyedPooledObjectFactory<LinkedList<Integer>, LinkedList<Object>> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<LinkedList<Integer>, LinkedList<Object>>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPool<LinkedList<Integer>, LinkedList<Object>> genericKeyedObjectPool0 = new GenericKeyedObjectPool<LinkedList<Integer>, LinkedList<Object>>(keyedPooledObjectFactory0);
+      genericKeyedObjectPool0.getNumWaitersByKey();
+      boolean boolean0 = genericKeyedObjectPool0.getTestOnBorrow();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo> keyedPooledObjectFactory0 = (KeyedPooledObjectFactory<Integer, DefaultPooledObjectInfo>) mock(KeyedPooledObjectFactory.class, new ViolatedAssumptionAnswer());
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig0 = new GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo>();
+      GenericKeyedObjectPoolConfig<DefaultPooledObjectInfo> genericKeyedObjectPoolConfig1 = genericKeyedObjectPoolConfig0.clone();
+      GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo> genericKeyedObjectPool0 = new GenericKeyedObjectPool<Integer, DefaultPooledObjectInfo>(keyedPooledObjectFactory0, genericKeyedObjectPoolConfig1);
+      long long0 = genericKeyedObjectPool0.getMaxBorrowWaitTimeMillis();
+      ;
+}

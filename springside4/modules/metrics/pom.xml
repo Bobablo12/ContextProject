@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.springside</groupId>
+	<artifactId>springside-metrics</artifactId>
+	<version>5.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Springside :: Module :: Metrics</name>
+	<properties>
+		<slf4j.version>1.7.22</slf4j.version>
+		<logback.version>1.1.8</logback.version>
+		<junit.version>4.12</junit.version>
+		<assertj.version>2.6.0</assertj.version>
+		<mockito.version>1.10.19</mockito.version>
+		<evosuiteVersion>1.0.6</evosuiteVersion>
+		<!-- Plugin的属性 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
+
+	<!-- 尽量少的引入依赖包，方便单独重用本模块 -->
+	<dependencies>
+		<!-- LOG -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<!-- TEST -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.evosuite</groupId>
+			<artifactId>evosuite-standalone-runtime</artifactId>
+			<version>${evosuiteVersion}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
+		<directory>${project.basedir}/${target.dir}/</directory>
+		<plugins>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.9.8</version>
+				<configuration>
+					<threads>4</threads>
+					<timeoutConstant>8000</timeoutConstant>
+					<mutators>
+						<mutator>STRONGER</mutator>
+					</mutators>
+					<avoidCallsTo>
+						<avoidCallsTo>java.*</avoidCallsTo>
+						<avoidCallsTo>org.apache.log4j</avoidCallsTo>
+						<avoidCallsTo>org.slf4j.*</avoidCallsTo>
+						<avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+					</avoidCallsTo>
+					<verbose>false</verbose>
+					<targetClasses>
+						<param>org.springside.modules.metrics.*</param>
+					</targetClasses>
+					<targetTests>
+						<param>org.springside.modules.metrics.*_ESTest*</param>
+					</targetTests>
+					<excludedTestClasses>
+						<excludedTestClass>org.springside.modules.metrics.ReportScheduler_ESTest*</excludedTestClass>
+						<excludedTestClass>org.springside.modules.metrics.exporter.JmxExporter_ESTest*</excludedTestClass>
+						<excludedTestClass>org.springside.modules.metrics.metric.Counter_ESTest*</excludedTestClass>
+						<excludedTestClass>org.springside.modules.metrics.metric.Timer_ESTest*</excludedTestClass>
+					</excludedTestClasses>
+					<fullMutationMatrix>true</fullMutationMatrix>
+					<exportLineCoverage>true</exportLineCoverage>
+					<outputFormats>XML</outputFormats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.evosuite.plugins</groupId>
+				<artifactId>evosuite-maven-plugin</artifactId>
+				<version>${evosuiteVersion}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare</goal>
+						</goals>
+						<phase>process-test-classes</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>listener</name>
+							<value>org.evosuite.runtime.InitializingListener</value>
+						</property>
+					</properties>
+				</configuration>
+			</plugin>
+			<!-- source attach plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>testID</id>
+			<activation>
+				<property>
+					<name>test.dir</name>
+				</property>
+			</activation>
+		</profile>
+		<profile>
+			<id>targetID</id>
+			<activation>
+				<property>
+					<name>target.dir</name>
+				</property>
+			</activation>
+		</profile>
+	</profiles>
+</project>

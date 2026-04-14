@@ -1,0 +1,61 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        MultiSetUtils.unmodifiableMultiSet((MultiSet<? extends Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        MultiSetUtils.synchronizedMultiSet((MultiSet<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.SynchronizedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MultiSet<Integer> multiSet0 = MultiSetUtils.emptyMultiSet();
+      // Undeclared exception!
+      try { 
+        MultiSetUtils.predicatedMultiSet(multiSet0, (Predicate<? super Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Predicate must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MultiSet<Integer> multiSet0 = MultiSetUtils.emptyMultiSet();
+      MultiSet<Object> multiSet1 = MultiSetUtils.unmodifiableMultiSet((MultiSet<?>) multiSet0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MultiSet<Integer> multiSet0 = MultiSetUtils.emptyMultiSet();
+      Predicate<Integer> predicate0 = (Predicate<Integer>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      MultiSet<Integer> multiSet1 = MultiSetUtils.predicatedMultiSet(multiSet0, (Predicate<? super Integer>) predicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MultiSet<Integer> multiSet0 = MultiSetUtils.emptyMultiSet();
+      MultiSet<Integer> multiSet1 = MultiSetUtils.synchronizedMultiSet(multiSet0);
+      Predicate<Integer> predicate0 = (Predicate<Integer>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      MultiSet<Integer> multiSet2 = MultiSetUtils.predicatedMultiSet(multiSet1, (Predicate<? super Integer>) predicate0);
+      ;
+}

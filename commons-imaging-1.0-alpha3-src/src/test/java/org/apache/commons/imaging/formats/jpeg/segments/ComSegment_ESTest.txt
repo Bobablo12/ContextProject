@@ -1,0 +1,62 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ComSegment comSegment0 = new ComSegment(0, byteArray0);
+      byte[] byteArray1 = comSegment0.getComment();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ComSegment comSegment0 = null;
+      try {
+        comSegment0 = new ComSegment(1, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.GenericSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ComSegment comSegment0 = null;
+      try {
+        comSegment0 = new ComSegment(0, 3251, (InputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ComSegment comSegment0 = null;
+      try {
+        comSegment0 = new ComSegment(65483, 65483, sequenceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(Throwable e) {
+         //
+         // Invalid Segment: insufficient data count: -1 read: 0 length: 65483
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ComSegment comSegment0 = new ComSegment(0, 0, (InputStream) null);
+      byte[] byteArray0 = comSegment0.getComment();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ComSegment comSegment0 = new ComSegment((-1220), byteArray0);
+      String string0 = comSegment0.getDescription();
+      ;
+}

@@ -1,0 +1,22 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HashMap<String, Timer> hashMap0 = new HashMap<String, Timer>();
+      GraphiteReporter graphiteReporter0 = new GraphiteReporter((InetSocketAddress) null);
+      HashMap<String, Counter> hashMap1 = new HashMap<String, Counter>();
+      // Undeclared exception!
+      try { 
+        graphiteReporter0.report((Map<String, Gauge>) null, hashMap1, (Map<String, Histogram>) null, hashMap0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.reporter.GraphiteReporter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InetSocketAddress inetSocketAddress0 = MockInetSocketAddress.createUnresolved("", 0);
+      GraphiteReporter graphiteReporter0 = new GraphiteReporter(inetSocketAddress0, "");
+      graphiteReporter0.setPrefix("");
+  }

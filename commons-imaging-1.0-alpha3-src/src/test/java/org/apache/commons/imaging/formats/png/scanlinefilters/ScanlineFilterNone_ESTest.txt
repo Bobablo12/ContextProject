@@ -1,0 +1,34 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ScanlineFilterNone scanlineFilterNone0 = new ScanlineFilterNone();
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = new byte[0];
+      scanlineFilterNone0.unfilter(byteArray0, byteArray1, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ScanlineFilterNone scanlineFilterNone0 = new ScanlineFilterNone();
+      // Undeclared exception!
+      try { 
+        scanlineFilterNone0.unfilter((byte[]) null, (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterNone", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ScanlineFilterNone scanlineFilterNone0 = new ScanlineFilterNone();
+      byte[] byteArray0 = new byte[0];
+      byte[] byteArray1 = new byte[7];
+      // Undeclared exception!
+      try { 
+        scanlineFilterNone0.unfilter(byteArray1, byteArray0, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }

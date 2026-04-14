@@ -1,0 +1,101 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Predicate<Object>[] predicateArray0 = (Predicate<Object>[]) Array.newInstance(Predicate.class, 9);
+      Predicate<Integer> predicate0 = ExceptionPredicate.exceptionPredicate();
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn(236).when(comparator0).compare(any() , any());
+      Predicate<Object> predicate1 = ComparatorPredicate.comparatorPredicate((Object) predicate0, comparator0);
+      AndPredicate<Object> andPredicate0 = new AndPredicate<Object>(predicate1, predicateArray0[5]);
+      Boolean boolean0 = Boolean.TRUE;
+      PredicateTransformer<Transformer<Object, Boolean>> predicateTransformer0 = new PredicateTransformer<Transformer<Object, Boolean>>(andPredicate0);
+      ConstantTransformer<Object, Boolean> constantTransformer0 = new ConstantTransformer<Object, Boolean>(boolean0);
+      Boolean boolean1 = predicateTransformer0.transform(constantTransformer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PredicateTransformer<String> predicateTransformer0 = new PredicateTransformer<String>((Predicate<? super String>) null);
+      Predicate<? super String> predicate0 = predicateTransformer0.getPredicate();
+      assertNotNull(predicate0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Transformer<Object, Boolean> transformer0 = ExceptionTransformer.exceptionTransformer();
+      Predicate<Object> predicate0 = TransformerPredicate.transformerPredicate((Transformer<? super Object, Boolean>) transformer0);
+      PredicateTransformer<Predicate<Object>> predicateTransformer0 = new PredicateTransformer<Predicate<Object>>(predicate0);
+      // Undeclared exception!
+      try { 
+        predicateTransformer0.transform(predicate0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // ExceptionTransformer invoked
+         //
+         verifyException("org.apache.commons.collections4.functors.ExceptionTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Predicate<Object>[] predicateArray0 = (Predicate<Object>[]) Array.newInstance(Predicate.class, 1);
+      OnePredicate<Object> onePredicate0 = new OnePredicate<Object>(predicateArray0);
+      NullIsTruePredicate<Object> nullIsTruePredicate0 = new NullIsTruePredicate<Object>(onePredicate0);
+      predicateArray0[0] = (Predicate<Object>) nullIsTruePredicate0;
+      NonePredicate<Object> nonePredicate0 = new NonePredicate<Object>(predicateArray0);
+      PredicateTransformer<Object> predicateTransformer0 = new PredicateTransformer<Object>(nonePredicate0);
+      // Undeclared exception!
+      try { 
+        predicateTransformer0.transform("g~4\u001BSR3X;F@q");
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PredicateTransformer<String> predicateTransformer0 = new PredicateTransformer<String>((Predicate<? super String>) null);
+      // Undeclared exception!
+      try { 
+        predicateTransformer0.transform("org.apache.commons.collections4.functors.PredicateTransformer");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.functors.PredicateTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PredicateTransformer.predicateTransformer((Predicate<? super Integer>) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Predicate must not be null
+         //
+         verifyException("org.apache.commons.collections4.functors.PredicateTransformer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Predicate<Object> predicate0 = NotNullPredicate.notNullPredicate();
+      Transformer<Boolean, Boolean> transformer0 = PredicateTransformer.predicateTransformer((Predicate<? super Boolean>) predicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Predicate<Object> predicate0 = TruePredicate.truePredicate();
+      PredicateTransformer<Object> predicateTransformer0 = new PredicateTransformer<Object>(predicate0);
+      Boolean boolean0 = predicateTransformer0.transform(predicate0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Predicate<Object> predicate0 = TruePredicate.truePredicate();
+      PredicateTransformer<Transformer<Object, Boolean>> predicateTransformer0 = new PredicateTransformer<Transformer<Object, Boolean>>(predicate0);
+      Predicate<? super Transformer<Object, Boolean>> predicate1 = predicateTransformer0.getPredicate();
+      ;
+}

@@ -1,0 +1,560 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(274);
+      JSONWriter jSONWriter0 = new JSONWriter(stringWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      JSONWriter jSONWriter2 = jSONWriter1.array();
+      jSONWriter1.array();
+      jSONWriter2.endArray();
+      assertNotNull(stringWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      JSONWriter jSONWriter0 = new JSONWriter(stringWriter0);
+      jSONWriter0.mode = 'C';
+      try { 
+        jSONWriter0.object();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced object.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(pipedOutputStream0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintStream0);
+      jSONWriter0.array();
+      JSONWriter jSONWriter1 = jSONWriter0.endArray();
+      jSONWriter1.mode = 't';
+      try { 
+        jSONWriter1.object();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced object.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("1");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFileOutputStream0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintWriter0);
+      jSONWriter0.array();
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      JSONWriter jSONWriter2 = jSONWriter1.key("l-;4");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MockFileWriter mockFileWriter0 = new MockFileWriter("m+<>($]7Mr1R");
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      jSONWriter0.mode = '{';
+      try { 
+        jSONWriter0.key("m+<>($]7Mr1R");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced key.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(274);
+      JSONWriter jSONWriter0 = new JSONWriter(stringWriter0);
+      jSONWriter0.mode = ',';
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced array.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("t/geSZt)>U");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      jSONWriter1.key("t/geSZt)>U");
+      JSONWriter jSONWriter2 = jSONWriter1.value(false);
+      JSONWriter jSONWriter3 = jSONWriter2.key("");
+      jSONWriter3.mode = 's';
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced array.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(274);
+      JSONWriter jSONWriter0 = new JSONWriter(stringWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      JSONWriter jSONWriter2 = jSONWriter1.value(0.0);
+      jSONWriter2.mode = '3';
+      try { 
+        jSONWriter0.value(true);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value out of sequence.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(274);
+      JSONWriter jSONWriter0 = new JSONWriter(stringWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      JSONWriter jSONWriter2 = jSONWriter0.value(true);
+      jSONWriter2.mode = 'u';
+      try { 
+        jSONWriter1.value((double) 274);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value out of sequence.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("t/geSZt)>U");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      jSONWriter1.key("t/geSZt)>U");
+      JSONWriter jSONWriter2 = jSONWriter1.value(false);
+      mockFileWriter0.close();
+      try { 
+        jSONWriter2.key("");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Stream closed
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PipedWriter pipedWriter0 = new PipedWriter();
+      BufferedWriter bufferedWriter0 = new BufferedWriter(pipedWriter0, 101);
+      JSONWriter jSONWriter0 = new JSONWriter(bufferedWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      jSONWriter1.writer = (Appendable) pipedWriter0;
+      try { 
+        jSONWriter1.endObject();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PipedWriter pipedWriter0 = new PipedWriter();
+      JSONWriter jSONWriter0 = new JSONWriter(pipedWriter0);
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Float float0 = new Float(Float.NaN);
+      try { 
+        JSONWriter.valueToString(float0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // JSON does not allow non-finite numbers.
+         //
+         verifyException("org.json.JSONObject", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      jSONWriter1.value((long) (-4515));
+      // Undeclared exception!
+      try { 
+        jSONWriter1.value(false);
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        jSONWriter1.value(object0);
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      JSONWriter jSONWriter1 = jSONWriter0.array();
+      jSONWriter1.value(false);
+      // Undeclared exception!
+      try { 
+        jSONWriter1.value((long) 'z');
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(42);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      JSONWriter jSONWriter2 = jSONWriter1.key("");
+      // Undeclared exception!
+      try { 
+        jSONWriter2.value(0.0);
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.wrap((CharSequence) "java.io.StringWriter@0000000002");
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.object();
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.object();
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JSONWriter jSONWriter0 = new JSONWriter((Appendable) null);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.object();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(1);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      // Undeclared exception!
+      try { 
+        jSONWriter1.key("");
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(1);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      jSONWriter0.object();
+      // Undeclared exception!
+      try { 
+        jSONWriter0.endObject();
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.Buffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(31);
+      CharBuffer charBuffer1 = CharBuffer.wrap((CharSequence) charBuffer0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer1);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      char[] charArray0 = new char[0];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: BufferOverflowException");
+      } catch(BufferOverflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.CharBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      JSONWriter jSONWriter0 = new JSONWriter((Appendable) null);
+      // Undeclared exception!
+      try { 
+        jSONWriter0.array();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+      String string0 = JSONWriter.valueToString(fileSystemHandling0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Byte byte0 = new Byte((byte)21);
+      String string0 = JSONWriter.valueToString(byte0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      String string0 = JSONWriter.valueToString((Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("Nesting too deep.");
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      JSONWriter jSONWriter2 = jSONWriter1.key("Nesting too deep.");
+      jSONWriter2.array();
+      jSONWriter0.value(true);
+      JSONWriter jSONWriter3 = jSONWriter0.object();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      JSONArray jSONArray0 = new JSONArray();
+      String string0 = JSONWriter.valueToString(jSONArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      JSONObject jSONObject0 = new JSONObject((Map<?, ?>) null);
+      String string0 = JSONWriter.valueToString(jSONObject0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Boolean boolean0 = new Boolean("oE6O");
+      String string0 = JSONWriter.valueToString(boolean0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      char[] charArray0 = new char[7];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      JSONWriter jSONWriter0 = new JSONWriter(charBuffer0);
+      Object object0 = new Object();
+      try { 
+        jSONWriter0.value(object0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value out of sequence.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("/eSZt)>U");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      jSONWriter1.key("/eSZt)>U");
+      JSONWriter jSONWriter2 = jSONWriter0.value((Object) null);
+      try { 
+        jSONWriter2.key("/eSZt)>U");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Duplicate key \"/eSZt)>U\"
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("t/geSZt)>U");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      try { 
+        jSONWriter0.key("t/geSZt)>U");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced key.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      File file0 = MockFile.createTempFile("java.io.StringWriter@0000000002", "java.io.StringWriter@0000000002");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintWriter0);
+      try { 
+        jSONWriter0.key((String) null);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Null key.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("t/geSZt)>U");
+      MockFileWriter mockFileWriter0 = new MockFileWriter(mockFile0, false);
+      JSONWriter jSONWriter0 = new JSONWriter(mockFileWriter0);
+      JSONWriter jSONWriter1 = jSONWriter0.object();
+      jSONWriter1.key("t/geSZt)>U");
+      JSONWriter jSONWriter2 = jSONWriter1.value(false);
+      jSONWriter2.key("");
+      JSONWriter jSONWriter3 = jSONWriter0.array();
+      JSONWriter jSONWriter4 = jSONWriter3.endArray();
+      JSONWriter jSONWriter5 = jSONWriter4.endObject();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(pipedOutputStream0, true);
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintStream0);
+      try { 
+        jSONWriter0.endObject();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced endObject.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      JSONWriter jSONWriter0 = new JSONWriter((Appendable) null);
+      try { 
+        jSONWriter0.value(0L);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value out of sequence.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("S?~yI}k");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      JSONWriter jSONWriter0 = new JSONWriter(mockPrintWriter0);
+      try { 
+        jSONWriter0.endArray();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced endArray.
+         //
+         verifyException("org.json.JSONWriter", e);
+      }
+  }

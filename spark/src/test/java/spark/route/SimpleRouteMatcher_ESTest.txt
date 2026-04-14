@@ -1,0 +1,160 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      boolean boolean0 = simpleRouteMatcher0.removeRoute("connect", "connect");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.options;
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("spark.route.SimpleRouteMatcher", (String) null, templateViewRoute0, templateEngine0);
+      simpleRouteMatcher0.add(httpMethod0, (RouteImpl) templateViewRouteImpl0);
+      boolean boolean0 = simpleRouteMatcher0.removeRoute("spark.route.SimpleRouteMatcher");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      boolean boolean0 = simpleRouteMatcher0.removeRoute("ytY|;E_XXj");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.put;
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create("#2", templateViewRoute0, templateEngine0);
+      simpleRouteMatcher0.add(httpMethod0, (RouteImpl) templateViewRouteImpl0);
+      List<RouteMatch> list0 = simpleRouteMatcher0.findTargetsForRequestedRoute(httpMethod0, "#2", "8Fw)");
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.head;
+      TemplateViewRoute templateViewRoute0 = mock(TemplateViewRoute.class, new ViolatedAssumptionAnswer());
+      TemplateEngine templateEngine0 = mock(TemplateEngine.class, new ViolatedAssumptionAnswer());
+      TemplateViewRouteImpl templateViewRouteImpl0 = TemplateViewRouteImpl.create(",e_#MMx", templateViewRoute0, templateEngine0);
+      ResponseTransformer responseTransformer0 = mock(ResponseTransformer.class, new ViolatedAssumptionAnswer());
+      ResponseTransformerRouteImpl responseTransformerRouteImpl0 = ResponseTransformerRouteImpl.create("", ";4&``K.,,", (Route) templateViewRouteImpl0, responseTransformer0);
+      simpleRouteMatcher0.add(httpMethod0, (RouteImpl) responseTransformerRouteImpl0);
+      RouteMatch routeMatch0 = simpleRouteMatcher0.findTargetForRequestedRoute(httpMethod0, "", "");
+      assertNotNull(routeMatch0.getMatchUri());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      // Undeclared exception!
+      try { 
+        simpleRouteMatcher0.removeRoute("", "");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // path cannot be null or blank
+         //
+         verifyException("spark.route.Routes", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.trace;
+      FilterImpl filterImpl0 = mock(FilterImpl.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterImpl0).toString();
+      doReturn((String) null).when(filterImpl0).getAcceptType();
+      doReturn((String) null).when(filterImpl0).getPath();
+      simpleRouteMatcher0.add(httpMethod0, filterImpl0);
+      // Undeclared exception!
+      try { 
+        simpleRouteMatcher0.removeRoute("'[{BiH!j,`5uK7e']");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.route.RouteEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.patch;
+      FilterImpl filterImpl0 = mock(FilterImpl.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterImpl0).toString();
+      doReturn((String) null).when(filterImpl0).getAcceptType();
+      doReturn((String) null).when(filterImpl0).getPath();
+      simpleRouteMatcher0.add(httpMethod0, filterImpl0);
+      // Undeclared exception!
+      try { 
+        simpleRouteMatcher0.findTargetsForRequestedRoute(httpMethod0, "jt}PfyQegAOtj)r", (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.route.RouteEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.head;
+      FilterImpl filterImpl0 = mock(FilterImpl.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(filterImpl0).toString();
+      doReturn((String) null).when(filterImpl0).getAcceptType();
+      doReturn((String) null).when(filterImpl0).getPath();
+      simpleRouteMatcher0.add(httpMethod0, filterImpl0);
+      // Undeclared exception!
+      try { 
+        simpleRouteMatcher0.findTargetForRequestedRoute(httpMethod0, "kT!DrOE[", "kT!DrOE[");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.route.RouteEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.trace;
+      List<RouteMatch> list0 = simpleRouteMatcher0.findTargetsForRequestedRoute(httpMethod0, "ytY|;E_XXj", "ytY|;E_XXj");
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      simpleRouteMatcher0.clearRoutes();
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.post;
+      simpleRouteMatcher0.parseValidateAddRoute("G", "C", httpMethod0);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      HttpMethod httpMethod0 = HttpMethod.post;
+      RouteMatch routeMatch0 = simpleRouteMatcher0.findTargetForRequestedRoute(httpMethod0, ".E=90K", "");
+      assertNotNull(routeMatch0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      SimpleRouteMatcher simpleRouteMatcher0 = new SimpleRouteMatcher();
+      // Undeclared exception!
+      try { 
+        simpleRouteMatcher0.removeRoute("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // path cannot be null or blank
+         //
+         verifyException("spark.route.Routes", e);
+      }
+  }

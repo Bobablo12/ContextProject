@@ -1,0 +1,262 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      intArray0[0] = 375;
+      JpegInputStream[] jpegInputStreamArray0 = JpegDecoder.splitByRstMarkers(intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      intArray0[0] = 255;
+      intArray0[1] = 215;
+      JpegInputStream[] jpegInputStreamArray0 = JpegDecoder.splitByRstMarkers(intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      intArray0[4] = 255;
+      intArray0[5] = 208;
+      JpegInputStream[] jpegInputStreamArray0 = JpegDecoder.splitByRstMarkers(intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[8];
+      boolean boolean0 = jpegDecoder0.visitSegment(16711680, byteArray0, 0, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[14];
+      byteArray0[1] = (byte)7;
+      jpegDecoder0.visitSOS(0, byteArray0, byteArray0);
+      assertTrue(jpegDecoder0.beginSOS());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[1];
+      jpegDecoder0.visitSOS(2497, byteArray0, byteArray0);
+      assertTrue(jpegDecoder0.beginSOS());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      List<Integer> list0 = JpegDecoder.getIntervalStartPositions(intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      // Undeclared exception!
+      try { 
+        jpegDecoder0.visitSegment(65499, (byte[]) null, 698, (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.segments.DqtSegment", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[6];
+      try { 
+        jpegDecoder0.visitSegment(65476, byteArray0, (byte)17, byteArray0, byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid JPEG File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      // Undeclared exception!
+      try { 
+        jpegDecoder0.visitSOS((-2553), (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JpegDecoder.splitByRstMarkers((int[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        JpegDecoder.getIntervalStartPositions((int[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("segmentLength", byteArray0);
+      try { 
+        jpegDecoder0.decode(byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      // Undeclared exception!
+      try { 
+        jpegDecoder0.decode((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "h'AY");
+      // Undeclared exception!
+      try { 
+        jpegDecoder0.decode(byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-982), 69);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "8`m)Jb7CNDc4");
+      // Undeclared exception!
+      try { 
+        jpegDecoder0.decode(byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, " components");
+      try { 
+        jpegDecoder0.decode(byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      MockFile mockFile0 = new MockFile((String) null, "G|nu0q");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegDecoder0.decode(byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      int[] intArray0 = new int[6];
+      intArray0[3] = 255;
+      intArray0[4] = 255;
+      JpegInputStream[] jpegInputStreamArray0 = JpegDecoder.splitByRstMarkers(intArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[0];
+      boolean boolean0 = jpegDecoder0.visitSegment(65476, byteArray0, 65476, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[0];
+      boolean boolean0 = jpegDecoder0.visitSegment(65499, byteArray0, 65499, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[18];
+      try { 
+        jpegDecoder0.visitSegment(65486, byteArray0, 65486, byteArray0, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Only sequential, baseline JPEGs are supported at the moment
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      byte[] byteArray0 = new byte[9];
+      jpegDecoder0.visitSegment(65472, byteArray0, 5, byteArray0, byteArray0);
+      byteArray0[1] = (byte)7;
+      jpegDecoder0.visitSOS(5, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JpegDecoder jpegDecoder0 = new JpegDecoder();
+      boolean boolean0 = jpegDecoder0.beginSOS();
+      assertTrue(boolean0);
+}

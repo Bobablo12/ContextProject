@@ -1,0 +1,281 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(128);
+      colorCount1.count = 128;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-273));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorCount colorCount3 = new ColorCount(255);
+      linkedList0.add(colorCount3);
+      linkedList0.push(colorCount2);
+      ColorCount colorCount4 = new ColorCount(0);
+      linkedList0.add(colorCount4);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(128);
+      colorCount1.count = 128;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-273));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorCount colorCount3 = new ColorCount(255);
+      linkedList0.add(colorCount3);
+      linkedList0.push(colorCount2);
+      ColorCount colorCount4 = new ColorCount(0);
+      linkedList0.add(colorCount4);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorCount colorCount1 = new ColorCount(255);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.add(colorGroup0);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorCount colorCount1 = new ColorCount(255);
+      linkedList0.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.add(colorGroup0);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<ColorGroup> linkedList0 = new LinkedList<ColorGroup>();
+      LinkedList<ColorCount> linkedList1 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-3253));
+      linkedList1.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount((-273));
+      linkedList1.add(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList1, true);
+      linkedList0.add(colorGroup0);
+      linkedList1.remove();
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      try { 
+        longestAxisMedianCut0.performNextMedianCut(linkedList0, false);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // empty color_group
+         //
+         verifyException("org.apache.commons.imaging.palette.ColorGroup", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(128);
+      linkedList0.add(colorCount1);
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      List<ColorGroup> list0 = linkedList1.subList(0, 0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      // Undeclared exception!
+      try { 
+        longestAxisMedianCut0.performNextMedianCut(list0, true);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      // Undeclared exception!
+      try { 
+        longestAxisMedianCut0.performNextMedianCut((List<ColorGroup>) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.LongestAxisMedianCut", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2147483584);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(127);
+      colorCount1.count = 127;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-3127));
+      colorCount2.count = 255;
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2147483584);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(127);
+      colorCount1.count = 127;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-3127));
+      colorCount2.count = 255;
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LinkedList<ColorGroup> linkedList0 = new LinkedList<ColorGroup>();
+      LinkedList<ColorCount> linkedList1 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount((-2147483639));
+      colorCount0.count = (-2147483639);
+      linkedList1.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount((-11));
+      linkedList1.push(colorCount1);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList1, true);
+      linkedList0.offerFirst(colorGroup0);
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      // Undeclared exception!
+      try { 
+        longestAxisMedianCut0.performNextMedianCut(linkedList0, false);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // toIndex = 3
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(128);
+      colorCount1.count = 128;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-273));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.add(colorCount1);
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(Integer.MIN_VALUE);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(128);
+      colorCount1.count = 128;
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-273));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.add(colorCount1);
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2147483584);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(127);
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-3127));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2147483584);
+      linkedList0.add(colorCount0);
+      ColorCount colorCount1 = new ColorCount(127);
+      linkedList0.add(colorCount1);
+      ColorCount colorCount2 = new ColorCount((-3127));
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      linkedList0.push(colorCount2);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LongestAxisMedianCut longestAxisMedianCut0 = new LongestAxisMedianCut();
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(2147483584);
+      linkedList0.add(colorCount0);
+      LinkedList<ColorGroup> linkedList1 = new LinkedList<ColorGroup>();
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      linkedList1.offerFirst(colorGroup0);
+      boolean boolean0 = longestAxisMedianCut0.performNextMedianCut(linkedList1, true);
+      ;
+}

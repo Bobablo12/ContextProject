@@ -1,0 +1,64 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(1900);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, false);
+      int[] intArray0 = new int[1];
+      colorGroup0.paletteIndex = 0;
+      MedianCutPalette medianCutPalette0 = new MedianCutPalette(colorGroup0, intArray0);
+      int int0 = medianCutPalette0.getPaletteIndex(1900);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(1900);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      int[] intArray0 = new int[1];
+      colorGroup0.paletteIndex = 939;
+      MedianCutPalette medianCutPalette0 = new MedianCutPalette(colorGroup0, intArray0);
+      int int0 = medianCutPalette0.getPaletteIndex(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      int[] intArray0 = new int[7];
+      MedianCutPalette medianCutPalette0 = new MedianCutPalette((ColorGroup) null, intArray0);
+      // Undeclared exception!
+      try { 
+        medianCutPalette0.getPaletteIndex(0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.MedianCutPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(1900);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      int[] intArray0 = new int[1];
+      MedianCutPalette medianCutPalette0 = new MedianCutPalette(colorGroup0, intArray0);
+      ColorComponent colorComponent0 = ColorComponent.BLUE;
+      ColorGroupCut colorGroupCut0 = new ColorGroupCut(colorGroup0, colorGroup0, colorComponent0, 0);
+      colorGroup0.cut = colorGroupCut0;
+      // Undeclared exception!
+      medianCutPalette0.getPaletteIndex(1900);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<ColorCount> linkedList0 = new LinkedList<ColorCount>();
+      ColorCount colorCount0 = new ColorCount(1900);
+      linkedList0.add(colorCount0);
+      ColorGroup colorGroup0 = new ColorGroup(linkedList0, true);
+      int[] intArray0 = new int[1];
+      MedianCutPalette medianCutPalette0 = new MedianCutPalette(colorGroup0, intArray0);
+      int int0 = medianCutPalette0.getPaletteIndex(0);
+      assertEquals(0, int0);
+}

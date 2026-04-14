@@ -1,0 +1,153 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte) (-28);
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)0, (byte) (-28));
+      int int0 = bitParser0.getSampleAsByte(0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      BitParser bitParser0 = new BitParser(byteArray0, 16, (byte)10);
+      try { 
+        bitParser0.getSampleAsByte((byte)0, (-1389));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: bad BitDepth: 10
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)7;
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)1, 0);
+      int int0 = bitParser0.getSample((byte)7, (-1657));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      BitParser bitParser0 = new BitParser(byteArray0, (-1116), (-1));
+      int int0 = bitParser0.getSampleAsByte(0, (-1));
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[2] = (byte) (-20);
+      BitParser bitParser0 = new BitParser(byteArray0, 1, 16);
+      int int0 = bitParser0.getSampleAsByte(1, 1);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)3;
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)1, 8);
+      int int0 = bitParser0.getSample((byte)1, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)26, (byte)26);
+      try { 
+        bitParser0.getSampleAsByte((byte)26, (-2646));
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: bad BitDepth: 26
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      BitParser bitParser0 = new BitParser(byteArray0, 16, 16);
+      // Undeclared exception!
+      try { 
+        bitParser0.getSampleAsByte(458, 16);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 948
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)1, 0);
+      // Undeclared exception!
+      try { 
+        bitParser0.getSampleAsByte((byte)1, (byte)0);
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      BitParser bitParser0 = null;
+      try {
+        bitParser0 = new BitParser((byte[]) null, 629, (-1967));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      BitParser bitParser0 = new BitParser(byteArray0, (-793), 16);
+      // Undeclared exception!
+      try { 
+        bitParser0.getSample(1677, (byte)16);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -166201
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      BitParser bitParser0 = new BitParser(byteArray0, 2435, (byte)83);
+      try { 
+        bitParser0.getSample(2435, (byte)83);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNG: bad BitDepth: 83
+         //
+         verifyException("org.apache.commons.imaging.formats.png.BitParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)0, 7);
+      int int0 = bitParser0.getSampleAsByte(7, (byte)0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[27];
+      BitParser bitParser0 = new BitParser(byteArray0, (byte)8, (byte)8);
+      int int0 = bitParser0.getSampleAsByte((byte)8, (byte)8);
+      assertEquals(1, int0);
+}

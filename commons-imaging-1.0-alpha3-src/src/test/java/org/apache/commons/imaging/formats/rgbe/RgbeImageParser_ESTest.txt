@@ -1,0 +1,371 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) null, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.rgbe.RgbeInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "f0$fKRhg^|s6[.^:x");
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1), 1993);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "U)Xk");
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, (String) null);
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      MockFile mockFile0 = new MockFile("", "");
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) byteSourceFile0, rgbeImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("org.apache.commons.io.filefilter.MagicNumberFileFilter", (byte[]) null);
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getImageSize((ByteSource) byteSourceArray0, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "ColorSpaceBlueY");
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getImageSize((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "");
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      try { 
+        rgbeImageParser0.getImageSize((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      MockFile mockFile0 = new MockFile("org.apache.commons.imaging.formats.rgbe.RgbeImageParser");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      try { 
+        rgbeImageParser0.getImageSize((ByteSource) byteSourceFile0, rgbeImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getImageInfo((ByteSource) null, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.rgbe.RgbeInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "d~.");
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "rpNPL7()-");
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      try { 
+        rgbeImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      MockFile mockFile0 = new MockFile("ki=mOL}\"k>?Td(` B", "ki=mOL}\"k>?Td(` B");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        rgbeImageParser0.getImageInfo((ByteSource) byteSourceFile0, rgbeImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        rgbeImageParser0.getBufferedImage((ByteSource) byteSourceArray0, rgbeImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a valid HDR: Incorrect Header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getBufferedImage((ByteSource) null, rgbeImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.rgbe.RgbeInfo", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-2327), (byte)32);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "IRI2dFq).fFmkRnA");
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        rgbeImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      MockFile mockFile0 = new MockFile("!?!CQ%~lTu]TH~");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      try { 
+        rgbeImageParser0.getBufferedImage((ByteSource) byteSourceFile0, rgbeImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      String string0 = rgbeImageParser0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      byte[] byteArray0 = new byte[8];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      try { 
+        rgbeImageParser0.getImageSize((ByteSource) byteSourceArray0, rgbeImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a valid HDR: Incorrect Header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "org.apache.commons.imaging.formats.rgbe.RgbeImageParser");
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      try { 
+        rgbeImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "Radiance HDR");
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      try { 
+        rgbeImageParser0.getMetadata((ByteSource) byteSourceInputStream0, rgbeImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a valid HDR: Incorrect Header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      ImageFormat[] imageFormatArray0 = rgbeImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      String string0 = rgbeImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      byte[] byteArray0 = new byte[9];
+      RgbeImagingParameters rgbeImagingParameters0 = new RgbeImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        rgbeImageParser0.getImageInfo((ByteSource) byteSourceArray0, rgbeImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a valid HDR: Incorrect Header
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      String[] stringArray0 = rgbeImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      RgbeImageParser rgbeImageParser0 = new RgbeImageParser();
+      RgbeImagingParameters rgbeImagingParameters0 = rgbeImageParser0.getDefaultParameters();
+      byte[] byteArray0 = rgbeImageParser0.getICCProfileBytes((ByteSource) null, rgbeImagingParameters0);
+      assertNotNull(byteArray0);
+}

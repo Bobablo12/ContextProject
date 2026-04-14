@@ -1,0 +1,89 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      NoWriter<ForkJoinTask<Object>, Object> noWriter0 = new NoWriter<ForkJoinTask<Object>, Object>();
+      AsyncCacheWriter<ForkJoinTask<Object>, Object> asyncCacheWriter0 = new AsyncCacheWriter<ForkJoinTask<Object>, Object>(noWriter0, 1);
+      asyncCacheWriter0.close();
+      LinkedBlockingQueue<Object> linkedBlockingQueue0 = new LinkedBlockingQueue<Object>();
+      // Undeclared exception!
+      try { 
+        asyncCacheWriter0.deleteAll(linkedBlockingQueue0);
+        fail("Expecting exception: RejectedExecutionException");
+      } catch(RejectedExecutionException e) {
+         //
+         // Task java.util.concurrent.FutureTask@512d9af1 rejected from java.util.concurrent.ThreadPoolExecutor@515cd142[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor$AbortPolicy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedBlockingQueue<String> linkedBlockingQueue0 = new LinkedBlockingQueue<String>();
+      NoWriter<Delayed, JCSCacheEntryEvent<Object, Cache.Entry<Integer, Integer>>> noWriter0 = new NoWriter<Delayed, JCSCacheEntryEvent<Object, Cache.Entry<Integer, Integer>>>();
+      AsyncCacheWriter<Delayed, JCSCacheEntryEvent<Object, Cache.Entry<Integer, Integer>>> asyncCacheWriter0 = new AsyncCacheWriter<Delayed, JCSCacheEntryEvent<Object, Cache.Entry<Integer, Integer>>>(noWriter0, 1);
+      asyncCacheWriter0.close();
+      // Undeclared exception!
+      try { 
+        asyncCacheWriter0.delete(linkedBlockingQueue0);
+        fail("Expecting exception: RejectedExecutionException");
+      } catch(RejectedExecutionException e) {
+         //
+         // Task java.util.concurrent.FutureTask@193233cb rejected from java.util.concurrent.ThreadPoolExecutor@2bc92822[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor$AbortPolicy", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      AsyncCacheWriter<Integer, ForkJoinTask<Object>> asyncCacheWriter0 = null;
+      try {
+        asyncCacheWriter0 = new AsyncCacheWriter<Integer, ForkJoinTask<Object>>((CacheWriter<Integer, ForkJoinTask<Object>>) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.extras.writer.AsyncCacheWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      NoWriter<Delayed, NoWriter<MockThread, ExpiryPolicy>> noWriter0 = new NoWriter<Delayed, NoWriter<MockThread, ExpiryPolicy>>();
+      AsyncCacheWriter<Delayed, NoWriter<MockThread, ExpiryPolicy>> asyncCacheWriter0 = null;
+      try {
+        asyncCacheWriter0 = new AsyncCacheWriter<Delayed, NoWriter<MockThread, ExpiryPolicy>>(noWriter0, (-3535));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> noWriter0 = new NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>();
+      AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> asyncCacheWriter0 = new AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>(noWriter0, 1);
+      asyncCacheWriter0.delete(noWriter0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      NoWriter<ForkJoinTask<Integer>, Cache.Entry<Integer, Integer>> noWriter0 = new NoWriter<ForkJoinTask<Integer>, Cache.Entry<Integer, Integer>>();
+      AsyncCacheWriter<ForkJoinTask<Integer>, Cache.Entry<Integer, Integer>> asyncCacheWriter0 = new AsyncCacheWriter<ForkJoinTask<Integer>, Cache.Entry<Integer, Integer>>(noWriter0, 3187);
+      CacheWriter<ForkJoinTask<Integer>, Cache.Entry<Integer, Integer>> cacheWriter0 = asyncCacheWriter0.create();
+      assertNotNull(cacheWriter0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> noWriter0 = new NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>();
+      AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> asyncCacheWriter0 = new AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>(noWriter0, 1);
+      LinkedBlockingQueue<String> linkedBlockingQueue0 = new LinkedBlockingQueue<String>();
+      asyncCacheWriter0.deleteAll(linkedBlockingQueue0);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> noWriter0 = new NoWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>();
+      AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object> asyncCacheWriter0 = new AsyncCacheWriter<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, Object>(noWriter0, 1);
+      CacheLoader<Delayed, Cache.Entry<Integer, Integer>> cacheLoader0 = (CacheLoader<Delayed, Cache.Entry<Integer, Integer>>) mock(CacheLoader.class, new ViolatedAssumptionAnswer());
+      JCSMutableEntry<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, String> jCSMutableEntry0 = new JCSMutableEntry<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, String>((Cache<CacheLoader<Delayed, Cache.Entry<Integer, Integer>>, String>) null, cacheLoader0);
+      asyncCacheWriter0.write(jCSMutableEntry0);
+  }

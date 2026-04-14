@@ -1,0 +1,3236 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isDecimalPart(787);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isIntegerPart(0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.parseError(0, 512, "x");
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.parseError(0, 512, "x");
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.parseError(0, 512, "x");
+      assertEquals(0, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.parseError(0, 512, "x");
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.parseError(0, 512, "x");
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextLine();
+      boolean boolean0 = simpleTextParser0.tryMatchIgnoreCase("PYZrO(1^ [");
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextLine();
+      boolean boolean0 = simpleTextParser0.tryMatchIgnoreCase("PYZrO(1^ [");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.core.partitioning.test.TestPoint2D");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('D', intPredicate0);
+      boolean boolean0 = simpleTextParser0.tryMatch("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.core.partitioning.test.TestPoint2D");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('D', intPredicate0);
+      boolean boolean0 = simpleTextParser0.tryMatch("");
+      assertEquals(1, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.core.partitioning.test.TestPoint2D");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('D', intPredicate0);
+      boolean boolean0 = simpleTextParser0.tryMatch("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      simpleTextParser0.next(intPredicate0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "";
+      int int0 = simpleTextParser0.tryChooseIgnoreCase(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      simpleTextParser0.next(intPredicate0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "";
+      int int0 = simpleTextParser0.tryChooseIgnoreCase(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      simpleTextParser0.next(intPredicate0);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "";
+      int int0 = simpleTextParser0.tryChooseIgnoreCase(stringArray0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      String[] stringArray0 = new String[6];
+      int int0 = simpleTextParser1.tryChooseIgnoreCase(stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      String[] stringArray0 = new String[6];
+      int int0 = simpleTextParser1.tryChooseIgnoreCase(stringArray0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.discardWithLineContinuation('z', 1958);
+      simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[9];
+      stringArray0[0] = "IntSummaryStatistics{count=0, sum=0, min=2147483647, average=0.000000, max=-2147483648}";
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.discardWithLineContinuation('z', 1958);
+      simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[9];
+      stringArray0[0] = "IntSummaryStatistics{count=0, sum=0, min=2147483647, average=0.000000, max=-2147483648}";
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      simpleTextParser1.nextLine();
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add((String) null);
+      int int0 = simpleTextParser0.tryChoose((List<String>) linkedList0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      simpleTextParser1.nextLine();
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add((String) null);
+      int int0 = simpleTextParser0.tryChoose((List<String>) linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Dg");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      int int0 = simpleTextParser1.peekChar();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Dg");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      int int0 = simpleTextParser1.peekChar();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      String string0 = simpleTextParser0.peek(intPredicate0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(0);
+      assertEquals(0, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(97);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(97);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(97);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(97);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peek(97);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextWithLineContinuation('c', (IntPredicate) null);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextWithLineContinuation('c', (IntPredicate) null);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-1031));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('i', intPredicate0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setMaxStringLength(0);
+      simpleTextParser0.nextWithLineContinuation('G', 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextWithLineContinuation('T', 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextWithLineContinuation('T', 0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-702));
+      simpleTextParser0.nextWithLineContinuation('h', (int) 'h');
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextWithLineContinuation('T', 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextWithLineContinuation('T', 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-710));
+      simpleTextParser0.nextWithLineContinuation('q', 32);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-732));
+      simpleTextParser0.nextLine();
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.discard(1189);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser1.nextLine();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.discard(1189);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser1.nextLine();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-802));
+      simpleTextParser0.nextAlphanumeric();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextAlphanumeric();
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.next(intPredicate0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.next(intPredicate0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-732));
+      simpleTextParser0.next((int) 'i');
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("r");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('<', intPredicate0);
+      simpleTextParser0.setColumnNumber(0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.matchIgnoreCase("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("r");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('<', intPredicate0);
+      simpleTextParser0.setColumnNumber(0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.matchIgnoreCase("");
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("/zop#xq,ewf=5");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      simpleTextParser1.next(15);
+      simpleTextParser0.match((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isWhitespace(9);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("bsfJ<Qh");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("bsfJ<Qh");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("bsfJ<Qh");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("bsfJ<Qh");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("bsfJ<Qh");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-802));
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.next(512);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.next(512);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('c', 46);
+      int int0 = simpleTextParser1.getCurrentTokenColumnNumber();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('c', 46);
+      int int0 = simpleTextParser1.getCurrentTokenColumnNumber();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('s', intPredicate0);
+      String string0 = simpleTextParser1.getCurrentToken();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('s', intPredicate0);
+      String string0 = simpleTextParser1.getCurrentToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('s', intPredicate0);
+      String string0 = simpleTextParser1.getCurrentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('s', intPredicate0);
+      String string0 = simpleTextParser1.getCurrentToken();
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('s', intPredicate0);
+      String string0 = simpleTextParser1.getCurrentToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextLine();
+      simpleTextParser0.setLineNumber((-16));
+      simpleTextParser0.discardWithLineContinuation('x', (IntPredicate) null);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextLine();
+      simpleTextParser0.discardWithLineContinuation('x', (IntPredicate) null);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("]");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 36);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setColumnNumber((-1));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.discardWithLineContinuation('(', intPredicate0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-710));
+      simpleTextParser0.discardWithLineContinuation('%', 4676);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('G', intPredicate0);
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate1).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.discardWithLineContinuation('G', intPredicate1);
+      simpleTextParser0.readChar();
+      // Undeclared exception!
+      try { 
+        simpleTextParser1.matchIgnoreCase("Initial buffer capacity must be greater than 0; was ");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected [Initial buffer capacity must be greater than 0; was ] but found [I]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextAlphanumeric();
+      simpleTextParser0.discardWhitespace();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextAlphanumeric();
+      simpleTextParser0.discardWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discardWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("]");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 36);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setColumnNumber((-1));
+      simpleTextParser0.discardWhitespace();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-802));
+      simpleTextParser0.discardNewLineSequence();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextLine();
+      simpleTextParser0.discardNewLineSequence();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextLine();
+      simpleTextParser0.discardNewLineSequence();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discardNewLineSequence();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.discardLineWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("jS;mUI");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setLineNumber((-590));
+      simpleTextParser0.discardLineWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discardLineWhitespace();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-892));
+      simpleTextParser0.discardLineWhitespace();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setLineNumber((-590));
+      simpleTextParser0.discardLine();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextAlphanumeric();
+      simpleTextParser0.discardLine();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.nextAlphanumeric();
+      simpleTextParser0.discardLine();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discardLine();
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Reader cannot be null");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-97));
+      simpleTextParser0.discardLine();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.discard(intPredicate0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-702));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.discard(intPredicate0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discard(intPredicate0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.discard(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      simpleTextParser1.discard(37);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextAlphanumeric();
+      simpleTextParser1.discard(37);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-892));
+      simpleTextParser0.discard(37);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber((-732));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation('h', intPredicate0, (IntConsumer) longSummaryStatistics0);
+      assertEquals(1, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.nextAlphanumeric();
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation(':', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber((-1));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.consumeWithLineContinuation('q', intPredicate0, (IntConsumer) null);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.setLineNumber((-590));
+      simpleTextParser0.consumeWithLineContinuation('=', 579, (IntConsumer) longSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextLine();
+      simpleTextParser0.setColumnNumber(0);
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation('`', 3, (IntConsumer) longSummaryStatistics0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("]");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 36);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setColumnNumber((-1));
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation(']', (-1), (IntConsumer) longSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.consume((IntPredicate) null, (IntConsumer) intSummaryStatistics0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.discardLine();
+      simpleTextParser0.setLineNumber((-802));
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser1.consume((IntPredicate) null, (IntConsumer) longSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.discardLine();
+      simpleTextParser0.setLineNumber((-802));
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser1.consume((IntPredicate) null, (IntConsumer) longSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discard(1189);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.consume((IntPredicate) null, (IntConsumer) intSummaryStatistics0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("]");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 36);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setColumnNumber((-1));
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consume(intPredicate0, (IntConsumer) longSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.consume((-2158), (IntConsumer) intSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("49hp<sq8v(JE\"bgzdyM");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextLine();
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.consume((-559), (IntConsumer) intSummaryStatistics0);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.consume((-1700), (IntConsumer) intSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.setColumnNumber((-1));
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.consume((-879), (IntConsumer) intSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[1];
+      int int0 = simpleTextParser1.chooseIgnoreCase(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[1];
+      int int0 = simpleTextParser1.chooseIgnoreCase(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[1];
+      int int0 = simpleTextParser1.chooseIgnoreCase(stringArray0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.next(512);
+      String[] stringArray0 = new String[9];
+      stringArray0[0] = ")";
+      int int0 = simpleTextParser0.choose(stringArray0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.next(512);
+      String[] stringArray0 = new String[9];
+      stringArray0[0] = ")";
+      int int0 = simpleTextParser0.choose(stringArray0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("/zop#xq,ewf=5");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      simpleTextParser1.next(15);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "/zop#xq,ewf=5";
+      int int0 = simpleTextParser1.choose(stringArray0);
+      assertTrue(simpleTextParser1.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("/zop#xq,ewf=5");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      simpleTextParser1.next(15);
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = "/zop#xq,ewf=5";
+      int int0 = simpleTextParser1.choose(stringArray0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.unexpectedToken("*1Q]5nW!g");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      stringReader0.close();
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.unexpectedToken("(");
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9@o=Mw3Tx-O@$o5*T<");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 629);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChooseIgnoreCase((String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("'U");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextWithLineContinuation('+', 3);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChooseIgnoreCase((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChoose((String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("kK[.");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1382, 1382);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.nextLine();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChoose((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Reader cannot be null");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChoose((List<String>) linkedList0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 69, 94);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.readChar();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.peekChar();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("sF?E}");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.peek((IntPredicate) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser$StringCollector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(";W3aT4g1-h");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextWithLineContinuation('P', (IntPredicate) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser$StringCollector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("@jKbR+BI/X*<z=( G;");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 544, 97);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextWithLineContinuation('Z', intPredicate0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextWithLineContinuation('q', 6);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextWithLineContinuation('8', (-1804));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Requested string length cannot be negative; was -1804
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("]");
+      stringReader0.close();
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextWithLineContinuation('G', 425);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextAlphanumeric();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.nextAlphanumeric();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("izwszW!5JK?+\u0004{");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.next((IntPredicate) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser$StringCollector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.next(0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("G");
+      stringReader0.close();
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.next(97);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.hasMoreCharactersOnLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardWithLineContinuation('o', intPredicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardWithLineContinuation('V', 76);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardWithLineContinuation('G', 3913);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardWhitespace();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&|A8M@JS!k,7iOyP");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardWhitespace();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardNewLineSequence();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardLineWhitespace();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("=4nw]+z|JB]c2dIi1G");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      stringReader0.close();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discardLine();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("ha4o");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discard((IntPredicate) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.discard(203);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consumeWithLineContinuation('~', intPredicate0, (IntConsumer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("+HA4O.;\tAnDH=So'5i");
+      stringReader0.close();
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consumeWithLineContinuation('J', intPredicate0, (IntConsumer) null);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consume(intPredicate0, (IntConsumer) intSummaryStatistics0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("reader cannot be null");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consume(74, (IntConsumer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 356, 579);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      stringReader0.close();
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consume(356, (IntConsumer) longSummaryStatistics0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.chooseIgnoreCase((String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("r");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('<', intPredicate0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.chooseIgnoreCase((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.choose((String[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = null;
+      try {
+        simpleTextParser0 = new SimpleTextParser((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isAlphanumeric(48);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isAlphanumeric(356);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isAlphanumeric((-1149));
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotNewLinePart(37);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNewLinePart(9);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNewLinePart(10);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("dRP`KLw4@qMH_-<?U");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 512);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      MockThrowable mockThrowable0 = new MockThrowable("Character index cannot be negative; was ");
+      simpleTextParser0.tokenError("", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("dRP`KLw4@qMH_-<?U");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 512);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      MockThrowable mockThrowable0 = new MockThrowable("Character index cannot be negative; was ");
+      simpleTextParser0.tokenError("", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("dRP`KLw4@qMH_-<?U");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 512);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      MockThrowable mockThrowable0 = new MockThrowable("Character index cannot be negative; was ");
+      simpleTextParser0.tokenError("", (Throwable) mockThrowable0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test188()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("dRP`KLw4@qMH_-<?U");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 512);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      MockThrowable mockThrowable0 = new MockThrowable("Character index cannot be negative; was ");
+      simpleTextParser0.tokenError("", (Throwable) mockThrowable0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test189()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("dRP`KLw4@qMH_-<?U");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 512, 512);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      MockThrowable mockThrowable0 = new MockThrowable("Character index cannot be negative; was ");
+      simpleTextParser0.tokenError("", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test190()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IllegalStateException illegalStateException0 = simpleTextParser0.parseError(0, 0, " >k5");
+      simpleTextParser0.unexpectedToken("<ar[O", (Throwable) illegalStateException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test191()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IllegalStateException illegalStateException0 = simpleTextParser0.parseError(0, 0, " >k5");
+      simpleTextParser0.unexpectedToken("<ar[O", (Throwable) illegalStateException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test192()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IllegalStateException illegalStateException0 = simpleTextParser0.parseError(0, 0, " >k5");
+      simpleTextParser0.unexpectedToken("<ar[O", (Throwable) illegalStateException0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test193()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IllegalStateException illegalStateException0 = simpleTextParser0.parseError(0, 0, " >k5");
+      simpleTextParser0.unexpectedToken("<ar[O", (Throwable) illegalStateException0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test194()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IllegalStateException illegalStateException0 = simpleTextParser0.parseError(0, 0, " >k5");
+      simpleTextParser0.unexpectedToken("<ar[O", (Throwable) illegalStateException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test195()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("+HA4O.;\tAnDH=So'5i");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate1).test(anyInt());
+      simpleTextParser0.consumeWithLineContinuation('J', intPredicate1, (IntConsumer) null);
+      simpleTextParser0.peek(intPredicate0);
+      IntPredicate intPredicate2 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate2).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('M', intPredicate2);
+      simpleTextParser0.discardLineWhitespace();
+      SimpleTextParser.isLineWhitespace('J');
+      simpleTextParser0.nextWithLineContinuation('$', 4);
+      MockThrowable mockThrowable0 = new MockThrowable();
+      simpleTextParser1.tokenError("+HA4O.;\tAnDH=So'5i", (Throwable) mockThrowable0);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test196()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("+HA4O.;\tAnDH=So'5i");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate1).test(anyInt());
+      simpleTextParser0.consumeWithLineContinuation('J', intPredicate1, (IntConsumer) null);
+      simpleTextParser0.peek(intPredicate0);
+      IntPredicate intPredicate2 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate2).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('M', intPredicate2);
+      simpleTextParser0.discardLineWhitespace();
+      SimpleTextParser.isLineWhitespace('J');
+      simpleTextParser0.nextWithLineContinuation('$', 4);
+      MockThrowable mockThrowable0 = new MockThrowable();
+      simpleTextParser1.tokenError("+HA4O.;\tAnDH=So'5i", (Throwable) mockThrowable0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test197()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("org.apache.commons.geometry.core.partitioning.test.TestPoint2D");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation('D', intPredicate0, (IntConsumer) longSummaryStatistics0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test198()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&|A8M@JS!k,7iOyP");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation('M', 59, (IntConsumer) longSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test199()  throws Throwable  {
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser((CharReadBuffer) null);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.consumeWithLineContinuation(']', 2, (IntConsumer) intSummaryStatistics0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test200()  throws Throwable  {
+      SimpleTextParser.isIntegerPart(1416);
+      StringReader stringReader0 = new StringReader("l|Bw}b)vr-Ncq +q");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.next(intPredicate0);
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate1).test(anyInt());
+      SimpleTextParser simpleTextParser2 = simpleTextParser1.discard(intPredicate1);
+      LinkedList<Locale.LanguageRange> linkedList0 = new LinkedList<Locale.LanguageRange>();
+      Locale.FilteringMode locale_FilteringMode0 = Locale.FilteringMode.EXTENDED_FILTERING;
+      List<String> list0 = Locale.filterTags((List<Locale.LanguageRange>) linkedList0, (Collection<String>) null, locale_FilteringMode0);
+      simpleTextParser2.tryChooseIgnoreCase(list0);
+      simpleTextParser2.unexpectedToken("l|Bw}b)vr-Ncq +q");
+      IllegalStateException illegalStateException0 = simpleTextParser2.tokenError("(+cJty9O+S62X");
+      IllegalStateException illegalStateException1 = simpleTextParser0.parseError(";r", (Throwable) illegalStateException0);
+      simpleTextParser2.discardLineWhitespace();
+      simpleTextParser2.unexpectedToken("9EVyy7", (Throwable) illegalStateException1);
+      IntPredicate intPredicate2 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate2).test(anyInt());
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser2.consume(intPredicate2, (IntConsumer) intSummaryStatistics0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.chooseIgnoreCase(list0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected one of [] but found [l]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test201()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("l|Bw}b)vr-Ncq +q");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(intPredicate0).test(anyInt());
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      simpleTextParser0.consume(intPredicate0, (IntConsumer) intSummaryStatistics0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test202()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("l|Bw}b)vr-Ncq +q");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      LinkedList<Locale.LanguageRange> linkedList0 = new LinkedList<Locale.LanguageRange>();
+      Locale.FilteringMode locale_FilteringMode0 = Locale.FilteringMode.EXTENDED_FILTERING;
+      List<String> list0 = Locale.filterTags((List<Locale.LanguageRange>) linkedList0, (Collection<String>) null, locale_FilteringMode0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChooseIgnoreCase(list0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test203()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isWhitespace((-1));
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test204()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test205()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test206()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test207()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(0, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test208()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getLineNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test209()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test210()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test211()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test212()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test213()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.hasMoreCharacters();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test214()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9WqZ|}Z");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getColumnNumber();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test215()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9WqZ|}Z");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getColumnNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test216()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9WqZ|}Z");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getColumnNumber();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test217()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9WqZ|}Z");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getColumnNumber();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test218()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("9WqZ|}Z");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 10, 10);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getColumnNumber();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test219()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peekChar();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test220()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peekChar();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test221()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peekChar();
+      assertEquals(1, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test222()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peekChar();
+      assertEquals(1, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test223()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.peekChar();
+      assertEquals(1, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test224()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser0.parseError((-2402), 0, "", (Throwable) mockThrowable0);
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test225()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser0.parseError((-2402), 0, "", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test226()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser0.parseError((-2402), 0, "", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test227()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser0.parseError((-2402), 0, "", (Throwable) mockThrowable0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test228()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser0.parseError((-2402), 0, "", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test229()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("+HA4O.;\tAnDH=So'5i");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true, true, true, true).when(intPredicate0).test(anyInt());
+      simpleTextParser0.setMaxStringLength(4);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.peek(intPredicate0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: string length exceeds maximum value of 4
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test230()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isDecimalPart(69);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test231()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isDecimalPart(46);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test232()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isDecimalPart(0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test233()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isDecimalPart(55);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test234()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isIntegerPart(43);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test235()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isIntegerPart(45);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test236()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isIntegerPart(56);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test237()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotAlphanumeric(0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test238()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotAlphanumeric('c');
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test239()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotNewLinePart(10);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test240()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNewLinePart(13);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test241()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextAlphanumeric();
+      simpleTextParser0.discardLineWhitespace();
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test242()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotWhitespace('x');
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test243()  throws Throwable  {
+      boolean boolean0 = SimpleTextParser.isNotWhitespace(13);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test244()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("_");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.next(1278);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Requested string length of 1278 exceeds maximum value of 1024
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test245()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('_', intPredicate0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser1.unexpectedToken("F[!", (Throwable) mockThrowable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test246()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('_', intPredicate0);
+      MockThrowable mockThrowable0 = new MockThrowable("F[!");
+      simpleTextParser1.unexpectedToken("F[!", (Throwable) mockThrowable0);
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test247()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(intPredicate0).test(anyInt());
+      simpleTextParser0.nextWithLineContinuation('i', intPredicate0);
+      LinkedList<Locale.LanguageRange> linkedList0 = new LinkedList<Locale.LanguageRange>();
+      Locale locale0 = Locale.CANADA_FRENCH;
+      Set<String> set0 = locale0.getUnicodeLocaleAttributes();
+      List<String> list0 = Locale.filterTags((List<Locale.LanguageRange>) linkedList0, (Collection<String>) set0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.chooseIgnoreCase(list0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected one of [] but found [(]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test248()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      simpleTextParser1.nextLine();
+      String[] stringArray0 = new String[9];
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test249()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      simpleTextParser1.nextLine();
+      String[] stringArray0 = new String[9];
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test250()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[9];
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test251()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.nextLine();
+      String[] stringArray0 = new String[9];
+      int int0 = simpleTextParser0.tryChoose(stringArray0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test252()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.nextLine();
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      simpleTextParser0.tryChoose((List<String>) linkedList0);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test253()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.next(intPredicate0);
+      boolean boolean0 = simpleTextParser1.tryMatchIgnoreCase("PYZrO(1^ [");
+      assertEquals(1, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test254()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.next(intPredicate0);
+      boolean boolean0 = simpleTextParser1.tryMatchIgnoreCase("PYZrO(1^ [");
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test255()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.next(intPredicate0);
+      boolean boolean0 = simpleTextParser1.tryMatchIgnoreCase("PYZrO(1^ [");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test256()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&}W}w*CN4!!zYR");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.next(8);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.match("&}W}w*CN4!!zYR");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected [&}W}w*CN4!!zYR] but found [&}W}w*CN]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test257()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      charReadBuffer0.push('');
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consumeWithLineContinuation('', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test258()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      charReadBuffer0.push('');
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consumeWithLineContinuation('', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      assertEquals(0, simpleTextParser1.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test259()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      charReadBuffer0.push('');
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consumeWithLineContinuation('', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test260()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      charReadBuffer0.push('');
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consumeWithLineContinuation('', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test261()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("xzLG");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 45);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      charReadBuffer0.push('');
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consumeWithLineContinuation('', intPredicate0, (IntConsumer) intSummaryStatistics0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test262()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('i', intPredicate0);
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      simpleTextParser1.peek(intPredicate1);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test263()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("(");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      IntPredicate intPredicate0 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(intPredicate0).test(anyInt());
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('i', intPredicate0);
+      IntPredicate intPredicate1 = mock(IntPredicate.class, new ViolatedAssumptionAnswer());
+      simpleTextParser1.peek(intPredicate1);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test264()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&}W}w*CN4!!zYR");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discardLine();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('+', 8);
+      String[] stringArray0 = new String[22];
+      stringArray0[0] = "&}W}w*CN4!!zYR";
+      int int0 = simpleTextParser1.chooseIgnoreCase(stringArray0);
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test265()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&}W}w*CN4!!zYR");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discardLine();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('+', 8);
+      String[] stringArray0 = new String[22];
+      stringArray0[0] = "&}W}w*CN4!!zYR";
+      int int0 = simpleTextParser1.chooseIgnoreCase(stringArray0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test266()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.next(2);
+      // Undeclared exception!
+      try { 
+        simpleTextParser1.choose((List<String>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test267()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test268()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test269()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test270()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test271()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test272()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasMoreCharactersOnLine();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test273()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      boolean boolean0 = simpleTextParser1.hasMoreCharactersOnLine();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test274()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      boolean boolean0 = simpleTextParser1.hasMoreCharactersOnLine();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test275()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextAlphanumeric();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.getCurrentTokenAsDouble();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected double but found [794gu]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test276()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      IntSummaryStatistics intSummaryStatistics0 = new IntSummaryStatistics();
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.consume(1176, (IntConsumer) intSummaryStatistics0);
+      simpleTextParser1.nextLine();
+      // Undeclared exception!
+      try { 
+        simpleTextParser1.getCurrentTokenAsDouble();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 6: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test277()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextAlphanumeric();
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.getCurrentTokenAsInt();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected integer but found [Requested]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test278()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("!5R49I[rLd#xe");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.discardLine();
+      simpleTextParser0.nextWithLineContinuation('b', (IntPredicate) null);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.getCurrentTokenAsInt();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 14: expected integer but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test279()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('c', 46);
+      SimpleTextParser simpleTextParser2 = simpleTextParser1.nextAlphanumeric();
+      boolean boolean0 = simpleTextParser2.hasNonEmptyToken();
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test280()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextWithLineContinuation('c', 46);
+      SimpleTextParser simpleTextParser2 = simpleTextParser1.nextAlphanumeric();
+      boolean boolean0 = simpleTextParser2.hasNonEmptyToken();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test281()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Initial buffer capacity must be greater than 0; was ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.nextWithLineContinuation('c', 46);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test282()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test283()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test284()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test285()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test286()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test287()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      boolean boolean0 = simpleTextParser0.hasNonEmptyToken();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test288()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.setMaxStringLength((-2283));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Maximum string length cannot be less than zero; was -2283
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test289()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setLineNumber(0);
+      simpleTextParser0.nextLine();
+      LongSummaryStatistics longSummaryStatistics0 = new LongSummaryStatistics();
+      simpleTextParser0.consumeWithLineContinuation('`', 1, (IntConsumer) longSummaryStatistics0);
+      assertTrue(simpleTextParser0.hasNonEmptyToken());
+}
+ @Test(timeout = 4000)
+  public void test290()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      String[] stringArray0 = new String[9];
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.choose(stringArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test291()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.unexpectedToken("q~<A!eD!+qXcG}LN+");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test292()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.unexpectedToken("q~<A!eD!+qXcG}LN+");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test293()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.unexpectedToken("q~<A!eD!+qXcG}LN+");
+      assertEquals(0, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test294()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.unexpectedToken("q~<A!eD!+qXcG}LN+");
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test295()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("2@9&udK0ow|+%^p");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.unexpectedToken("q~<A!eD!+qXcG}LN+");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test296()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PYZrO(1^ [");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryMatchIgnoreCase("PYZrO(1^ [");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test297()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.choose((List<String>) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test298()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("%a'}o*kE0Lv,q3Uz");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      simpleTextParser1.match("%a'}o*kE0Lv,q3Uz");
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test299()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("%a'}o*kE0Lv,q3Uz");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      SimpleTextParser simpleTextParser1 = simpleTextParser0.nextLine();
+      simpleTextParser1.match("%a'}o*kE0Lv,q3Uz");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test300()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test301()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.setColumnNumber(0);
+      simpleTextParser0.discard(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test302()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test303()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test304()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test305()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test306()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(")");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      int int0 = simpleTextParser0.getCurrentTokenLineNumber();
+      assertEquals(0, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test307()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("%a'}o*kE0Lv,q3Uz");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.peek((-2898));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Requested string length cannot be negative; was -2898
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test308()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K!@%>");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0, 1958);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      String[] stringArray0 = new String[9];
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChoose(stringArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test309()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Requested string length of ");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryMatch("r_aX?]d");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test310()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getCurrentTokenColumnNumber();
+      assertEquals(0, simpleTextParser0.getMaxStringLength());
+}
+ @Test(timeout = 4000)
+  public void test311()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getCurrentTokenColumnNumber();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test312()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getCurrentTokenColumnNumber();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test313()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getCurrentTokenColumnNumber();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test314()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("K]8");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      int int0 = simpleTextParser0.getCurrentTokenColumnNumber();
+      assertEquals(0, simpleTextParser0.getLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test315()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.getCurrentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test316()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.getCurrentToken();
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test317()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.getCurrentToken();
+      assertEquals(0, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test318()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.getCurrentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test319()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5F6f:*Y'>'^BeHk9>:");
+      CharReadBuffer charReadBuffer0 = new CharReadBuffer(stringReader0);
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(charReadBuffer0);
+      simpleTextParser0.getCurrentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test320()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      String[] stringArray0 = new String[6];
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.tryChooseIgnoreCase(stringArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test321()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.parseError("Reader cannot be null");
+      assertEquals(0, simpleTextParser0.getCurrentTokenLineNumber());
+}
+ @Test(timeout = 4000)
+  public void test322()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.parseError("Reader cannot be null");
+      assertEquals(1, simpleTextParser0.getColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test323()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.parseError("Reader cannot be null");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test324()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.parseError("Reader cannot be null");
+      assertEquals(1, simpleTextParser0.getCurrentTokenColumnNumber());
+}
+ @Test(timeout = 4000)
+  public void test325()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("794gu!W3CW2:or(Z");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      simpleTextParser0.parseError("Reader cannot be null");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test326()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&}W}w*CN4!!zYR");
+      SimpleTextParser simpleTextParser0 = new SimpleTextParser(stringReader0);
+      String[] stringArray0 = new String[22];
+      // Undeclared exception!
+      try { 
+        simpleTextParser0.chooseIgnoreCase(stringArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // No token has been read from the character stream
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.SimpleTextParser", e);
+      }
+  }

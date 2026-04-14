@@ -1,0 +1,62 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CallStack callStack0 = CallStackUtils.newCallStack("oew=-$.YD{+,Uoe]U3", false, true);
+      assertNotNull(callStack0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CallStackUtils.newCallStack((String) null, true, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CallStackUtils.newCallStack((String) null, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CallStackUtils.newCallStack("createSecurityManager", true);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal pattern character 'c'
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CallStackUtils.newCallStack("XR2OlT!O5wmNW", true, true);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal pattern character 'R'
+         //
+         verifyException("java.text.SimpleDateFormat", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      CallStack callStack0 = CallStackUtils.newCallStack("", true);
+      ;
+}

@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LRUMap<String, String> lRUMap0 = new LRUMap<String, String>(0);
+      boolean boolean0 = lRUMap0.shouldRemove();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LRUMap<Object, String> lRUMap0 = new LRUMap<Object, String>(1);
+      boolean boolean0 = lRUMap0.shouldRemove();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LRUMap<Object, Object> lRUMap0 = new LRUMap<Object, Object>();
+      boolean boolean0 = lRUMap0.shouldRemove();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LRUMap<Object, String> lRUMap0 = new LRUMap<Object, String>(1);
+      Object object0 = new Object();
+      lRUMap0.putIfAbsent(object0, "removing n?ode");
+      lRUMap0.putIfAbsent("removing n?ode", "removing n?ode");
+      assertTrue(lRUMap0.isEmpty());
+}

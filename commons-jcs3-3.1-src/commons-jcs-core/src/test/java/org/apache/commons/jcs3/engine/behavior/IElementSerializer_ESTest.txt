@@ -1,0 +1,2381 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      socketChannel0.configureBlocking(true);
+      socketChannel0.close();
+      classLoader0.clearAssertionStatus();
+      try { 
+        standardSerializer0.deSerializeFrom((ReadableByteChannel) socketChannel0, classLoader0);
+        fail("Expecting exception: ClosedChannelException");
+      } catch(ClosedChannelException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+      TimeUnit timeUnit0 = TimeUnit.SECONDS;
+      delayQueue0.poll((-1095L), timeUnit0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      // Undeclared exception!
+      try { 
+        compressingSerializer0.serializeTo((Delayed) null, (WritableByteChannel) fileChannel0);
+        fail("Expecting exception: NonWritableChannelException");
+      } catch(NonWritableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position(1924L);
+      try { 
+        encryptingSerializer0.deSerializeFrom((ReadableByteChannel) fileChannel1, (ClassLoader) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.NativeMockedIO", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      MockFile mockFile0 = new MockFile("xSHAK8J80");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(mockFile0);
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      compressingSerializer0.serializeTo((String) null, (WritableByteChannel) fileChannel0);
+      // Undeclared exception!
+      try { 
+        compressingSerializer0.serializeTo((String) null, (AsynchronousByteChannel) null, 1000);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.behavior.IElementSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArrayInputStream0.close();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: AssertionError");
+      } catch(AssertionError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      MockFile mockFile1 = new MockFile("Read timeout exceeded (object)", "org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      socketChannel0.close();
+      try { 
+        standardSerializer0.serializeTo((Object) mockFile0, (WritableByteChannel) socketChannel0);
+        fail("Expecting exception: ClosedChannelException");
+      } catch(ClosedChannelException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      byteArrayInputStream0.close();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: BufferUnderflowException");
+      } catch(BufferUnderflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.HeapByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Xn", false);
+      compressingSerializer0.serializeTo((OpenOption) standardOpenOption0, (OutputStream) mockFileOutputStream0);
+      Integer integer0 = new Integer(16);
+      compressingSerializer0.serialize(integer0);
+      Integer integer1 = new Integer(0);
+      try { 
+        encryptingSerializer0.serialize((OpenOption) standardOpenOption0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error while encrypting
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      String string0 = "D#ad{";
+      encryptingSerializer0.setAesCipherTransformation("D#ad{");
+      byte[] byteArray0 = new byte[16];
+      byte byte0 = (byte) (-25);
+      byteArray0[0] = (byte) (-25);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      MockThread.currentThread();
+      MockThread mockThread0 = new MockThread("D#ad{");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      String string1 = " *, *";
+      encryptingSerializer0.setAesCipherTransformation(" *, *");
+      ClassLoader classLoader1 = classLoader0.getParent();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, classLoader1);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.behavior.IElementSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      String string0 = "D#ad{";
+      encryptingSerializer0.setAesCipherTransformation("D#ad{");
+      byte[] byteArray0 = new byte[1];
+      byte byte0 = (byte) (-25);
+      byteArray0[0] = (byte) (-25);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      Thread thread0 = MockThread.currentThread();
+      MockThread mockThread0 = new MockThread(thread0, "D#ad{");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      String string1 = " *, *";
+      encryptingSerializer0.setAesCipherTransformation(" *, *");
+      ClassLoader classLoader1 = classLoader0.getParent();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, classLoader1);
+        fail("Expecting exception: AssertionError");
+      } catch(AssertionError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)59;
+      byteArray0[2] = (byte)5;
+      byteArray0[3] = (byte)110;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-675), (byte)5);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, "");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, classLoader0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[4];
+      byteArray0[2] = (byte)5;
+      byteArray0[3] = (byte)110;
+      int int0 = 347;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: AssertionError");
+      } catch(AssertionError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Xn", false);
+      compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      compressingSerializer0.serializeTo((OpenOption) standardOpenOption0, (OutputStream) mockFileOutputStream0);
+      Integer integer0 = new Integer(16);
+      compressingSerializer0.serialize(integer0);
+      Integer integer1 = new Integer(0);
+      try { 
+        encryptingSerializer0.serializeTo((OpenOption) standardOpenOption0, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Error while encrypting
+         //
+         verifyException("org.apache.commons.jcs3.utils.serialization.EncryptingSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Xn", false);
+      compressingSerializer0.serializeTo((OpenOption) standardOpenOption0, (OutputStream) mockFileOutputStream0);
+      Integer integer0 = new Integer(16);
+      byte[] byteArray0 = compressingSerializer0.serialize(integer0);
+      Integer integer1 = new Integer(0);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, (Runnable) null, "A1}X-t&");
+      ClassLoader classLoader0 = mockThread0.getContextClassLoader();
+      compressingSerializer0.deSerialize(byteArray0, classLoader0);
+      compressingSerializer0.deSerialize(byteArray0, classLoader0);
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      String string0 = null;
+      AsynchronousByteChannel asynchronousByteChannel0 = null;
+      EvoSuiteFile evoSuiteFile0 = null;
+      byte[] byteArray0 = new byte[7];
+      byte byte0 = (byte) (-97);
+      Enumeration<InputStream> enumeration0 = (Enumeration<InputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(sequenceInputStream0);
+      try { 
+        compressingSerializer0.serializeTo((FilterInputStream) bufferedInputStream0, (AsynchronousByteChannel) null, (int)  (-97));
+        fail("Expecting exception: NotSerializableException");
+      } catch(NotSerializableException e) {
+         //
+         // java.io.BufferedInputStream
+         //
+         verifyException("java.io.ObjectOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      encryptingSerializer0.setPreSharedKey(">xddzHu`a");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(">xddzHu`a", true);
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((ReadableByteChannel) fileChannel0, classLoader0);
+        fail("Expecting exception: NonReadableChannelException");
+      } catch(NonReadableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      File file0 = MockFile.createTempFile("]KQ", "]KQ");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      StandardProtocolFamily standardProtocolFamily0 = StandardProtocolFamily.INET;
+      DatagramChannel datagramChannel0 = DatagramChannel.open((ProtocolFamily) standardProtocolFamily0);
+      try { 
+        standardSerializer0.serializeTo((InputStream) mockFileInputStream0, (WritableByteChannel) datagramChannel0);
+        fail("Expecting exception: NotSerializableException");
+      } catch(NotSerializableException e) {
+         //
+         // org.evosuite.runtime.mock.java.io.MockFileInputStream
+         //
+         verifyException("java.io.ObjectOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)32;
+      byte byte0 = (byte) (-25);
+      byteArray0[1] = (byte) (-25);
+      byte byte1 = (byte)21;
+      byteArray0[2] = (byte)21;
+      byteArray0[3] = (byte)40;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      encryptingSerializer0.setPreSharedKey("");
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      encryptingSerializer0.setPreSharedKey("");
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 28);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer((-6));
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      encryptingSerializer0.setPreSharedKey("");
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 28);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      IElementSerializer iElementSerializer0 = null;
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      IElementSerializer iElementSerializer0 = null;
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte) (-74);
+      byteArray0[1] = (byte) (-71);
+      byteArray0[2] = (byte)0;
+      byte byte0 = (byte) (-55);
+      byteArray0[3] = (byte) (-55);
+      byte byte1 = (byte)0;
+      byteArray0[4] = (byte)0;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)47;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte) (-128);
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte) (-19);
+      byteArray0[6] = (byte)7;
+      byteArray0[7] = (byte) (-56);
+      byteArray0[8] = (byte)0;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)47;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte) (-128);
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte) (-19);
+      byteArray0[6] = (byte)7;
+      byteArray0[7] = (byte) (-56);
+      byteArray0[8] = (byte)0;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)47;
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte) (-128);
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte) (-19);
+      byteArray0[6] = (byte)7;
+      byteArray0[7] = (byte) (-56);
+      byteArray0[8] = (byte)0;
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      CompressingSerializer compressingSerializer1 = new CompressingSerializer(compressingSerializer0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      classLoader0.setPackageAssertionStatus("Nr^>eFfL?lWWSZI}j", false);
+      FilterInputStream filterInputStream0 = compressingSerializer1.deSerialize((byte[]) null, classLoader0);
+      String string0 = "7^=7'3R0\\nT[,";
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-97);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer((IElementSerializer) null);
+      DatagramChannel datagramChannel0 = DatagramChannel.open();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ClassLoader classLoader1 = classLoader0.getParent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      encryptingSerializer1.setAesCipherTransformation("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      encryptingSerializer1.setAesCipherTransformation("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      encryptingSerializer1.setAesCipherTransformation("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      Integer integer0 = new Integer(0);
+      byte[] byteArray0 = standardSerializer0.serialize(integer0);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      encryptingSerializer1.setAesCipherTransformation("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      int int1 = compressingSerializer0.serializeTo(linkOption0, (OutputStream) byteArrayOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      int int1 = compressingSerializer0.serializeTo(linkOption0, (OutputStream) byteArrayOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      int int1 = compressingSerializer0.serializeTo(linkOption0, (OutputStream) byteArrayOutputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      LinkOption linkOption0 = LinkOption.NOFOLLOW_LINKS;
+      int int0 = 0;
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(0);
+      int int1 = compressingSerializer0.serializeTo(linkOption0, (OutputStream) byteArrayOutputStream0);
+      assertEquals(0, int1);
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test96()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test97()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test98()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test99()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test100()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test101()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test102()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test103()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      bufferedInputStream0.mark((byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test104()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      bufferedInputStream0.mark((byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test105()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)17;
+      byteArray0[1] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, (byte)17);
+      bufferedInputStream0.close();
+      bufferedInputStream0.mark((byte)17);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test106()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test107()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test108()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test109()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test110()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test111()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      int int0 = 0;
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test112()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      int int0 = 0;
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test113()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      int int0 = 0;
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test114()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer((IElementSerializer) null);
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(compressingSerializer0);
+      Integer integer0 = new Integer(12);
+      int int0 = 0;
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test115()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test116()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      Integer integer0 = new Integer(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test117()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      Integer integer0 = new Integer(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test118()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test119()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test120()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test121()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test122()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test123()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test124()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test125()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test126()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test127()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test128()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test129()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test130()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test131()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test132()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test133()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test134()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test135()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test136()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test137()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test138()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test139()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test140()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test141()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test142()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test143()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test144()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test145()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test146()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test147()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test148()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test149()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test150()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test151()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test152()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test153()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test154()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test155()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test156()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test157()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test158()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test159()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test160()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test161()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test162()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test163()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test164()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test165()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test166()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test167()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test168()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test169()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test170()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test171()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test172()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test173()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test174()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test175()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test176()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test177()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test178()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test179()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test180()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test181()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      File file0 = MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read timeout exceeded (object)", (File) mockFile0);
+      boolean boolean0 = mockFile0.setWritable(false, false);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test182()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test183()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test184()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test185()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test186()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test187()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test188()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test189()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test190()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test191()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test192()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test193()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test194()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test195()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test196()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test197()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test198()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test199()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test200()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test201()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test202()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test203()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test204()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test205()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test206()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setAesCipherTransformation("A1}X-t&");
+      encryptingSerializer0.setPreSharedKey("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      byte[] byteArray0 = compressingSerializer0.serialize("org.apache.commons.jcs3.engine.behavior.IElementSerializer");
+      Integer integer0 = new Integer(16);
+      byte[] byteArray1 = compressingSerializer0.serialize(integer0);
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      FileChannel fileChannel0 = mockFileInputStream0.getChannel();
+      FileChannel fileChannel1 = fileChannel0.position((long) 16);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test207()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test208()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test209()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer(standardSerializer0);
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DELETE_ON_CLOSE;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test210()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test211()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test212()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test213()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-86);
+      byteArray0[1] = (byte) (-35);
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 28, (-3446));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test214()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-86);
+      byteArray0[1] = (byte) (-35);
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 28, (-3446));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test215()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-86);
+      byteArray0[1] = (byte) (-35);
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 28, (-3446));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test216()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      EncryptingSerializer encryptingSerializer1 = new EncryptingSerializer(encryptingSerializer0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-86);
+      byteArray0[1] = (byte) (-35);
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 28, (-3446));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test217()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test218()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test219()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[3];
+      byte byte0 = (byte)5;
+      byteArray0[0] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test220()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[3];
+      byte byte0 = (byte)5;
+      byteArray0[0] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test221()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[3];
+      byte byte0 = (byte)5;
+      byteArray0[0] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test222()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[3];
+      byte byte0 = (byte)5;
+      byteArray0[0] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test223()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test224()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test225()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test226()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test227()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test228()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test229()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test230()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.DSYNC;
+      byte[] byteArray0 = compressingSerializer0.serialize((OpenOption) standardOpenOption0);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 0, 0);
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test231()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test232()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      ;
+}
+ @Test(timeout = 4000)
+  public void test233()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Xn", false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test234()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      StandardOpenOption standardOpenOption0 = StandardOpenOption.READ;
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Xn", false);
+      int int0 = compressingSerializer0.serializeTo((OpenOption) standardOpenOption0, (OutputStream) mockFileOutputStream0);
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test235()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: BufferUnderflowException");
+      } catch(BufferUnderflowException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.HeapByteBuffer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test236()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte)0;
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((InputStream) byteArrayInputStream0, (ClassLoader) null);
+        fail("Expecting exception: AssertionError");
+      } catch(AssertionError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test237()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer(encryptingSerializer0);
+      ClassLoader classLoader0 = null;
+      // Undeclared exception!
+      try { 
+        compressingSerializer0.deSerializeFrom((AsynchronousByteChannel) null, 4, (ClassLoader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.behavior.IElementSerializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test238()  throws Throwable  {
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      encryptingSerializer0.setPreSharedKey("Ndl");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Ndl", true);
+      FileChannel fileChannel0 = mockFileOutputStream0.getChannel();
+      ClassLoader classLoader0 = ClassLoader.getSystemClassLoader();
+      // Undeclared exception!
+      try { 
+        encryptingSerializer0.deSerializeFrom((ReadableByteChannel) fileChannel0, classLoader0);
+        fail("Expecting exception: NonReadableChannelException");
+      } catch(NonReadableChannelException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.EvoFileChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test239()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.seri[lization.Compressingerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.seri[lization.Compressingerializer", "org.apache.commons.jcs3.utils.seri[lization.Compressingerializer");
+      String string1 = "1e:>g $}(4qBCpgv*";
+      MockFile.createTempFile("1e:>g $}(4qBCpgv*", "Read tmeout exceeded (object)", (File) mockFile0);
+      SocketChannel socketChannel0 = SocketChannel.open();
+      // Undeclared exception!
+      try { 
+        standardSerializer0.serializeTo((Object) mockFile0, (WritableByteChannel) socketChannel0);
+        fail("Expecting exception: NotYetConnectedException");
+      } catch(NotYetConnectedException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test240()  throws Throwable  {
+      StandardSerializer standardSerializer0 = new StandardSerializer();
+      String string0 = "org.apache.commons.jcs3.utils.serialization.CompressingSerializer";
+      MockFile mockFile0 = new MockFile("org.apache.commons.jcs3.utils.serialization.CompressingSerializer");
+      SocketChannel socketChannel0 = SocketChannel.open();
+      // Undeclared exception!
+      try { 
+        standardSerializer0.serializeTo((Object) mockFile0, (WritableByteChannel) socketChannel0);
+        fail("Expecting exception: NotYetConnectedException");
+      } catch(NotYetConnectedException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test241()  throws Throwable  {
+      CompressingSerializer compressingSerializer0 = new CompressingSerializer();
+      // Undeclared exception!
+      try { 
+        compressingSerializer0.serializeTo((String) null, (AsynchronousByteChannel) null, 1013);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.behavior.IElementSerializer", e);
+      }
+  }

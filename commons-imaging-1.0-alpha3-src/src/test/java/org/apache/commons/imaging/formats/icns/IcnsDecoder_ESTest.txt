@@ -1,0 +1,59 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsDecoder.decodeImage((IcnsImageParser.IcnsElement[]) null, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IcnsImageParser.IcnsElement[] icnsImageParser_IcnsElementArray0 = new IcnsImageParser.IcnsElement[0];
+      // Undeclared exception!
+      try { 
+        IcnsDecoder.decodeImage(icnsImageParser_IcnsElementArray0, 25);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 25
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IcnsDecoder.decodeAllImages((IcnsImageParser.IcnsElement[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.icns.IcnsDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IcnsImageParser.IcnsElement[] icnsImageParser_IcnsElementArray0 = new IcnsImageParser.IcnsElement[1];
+      byte[] byteArray0 = new byte[5];
+      IcnsImageParser.IcnsElement icnsImageParser_IcnsElement0 = new IcnsImageParser.IcnsElement(0, 1280, byteArray0);
+      icnsImageParser_IcnsElementArray0[0] = icnsImageParser_IcnsElement0;
+      BufferedImage bufferedImage0 = IcnsDecoder.decodeImage(icnsImageParser_IcnsElementArray0, (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IcnsImageParser.IcnsElement[] icnsImageParser_IcnsElementArray0 = new IcnsImageParser.IcnsElement[2];
+      byte[] byteArray0 = new byte[6];
+      IcnsImageParser.IcnsElement icnsImageParser_IcnsElement0 = new IcnsImageParser.IcnsElement(0, 0, byteArray0);
+      icnsImageParser_IcnsElementArray0[0] = icnsImageParser_IcnsElement0;
+      icnsImageParser_IcnsElementArray0[1] = icnsImageParser_IcnsElement0;
+      List<BufferedImage> list0 = IcnsDecoder.decodeAllImages(icnsImageParser_IcnsElementArray0);
+      assertTrue(list0.isEmpty());
+}

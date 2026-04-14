@@ -1,0 +1,36 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoByte tagInfoByte0 = null;
+      try {
+        tagInfoByte0 = new TagInfoByte((String) null, 1132, (List<FieldType>) null, tiffDirectoryType0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.ArrayList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<FieldType> linkedList0 = new LinkedList<FieldType>();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+      TagInfoByte tagInfoByte0 = new TagInfoByte("Ssd", (-10), linkedList0, tiffDirectoryType0);
+      assertTrue(tagInfoByte0.isOffset());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FieldTypeRational fieldTypeRational0 = new FieldTypeRational((-1617), (String) null);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.EXIF_DIRECTORY_GPS;
+      TagInfoByte tagInfoByte0 = new TagInfoByte((String) null, (-1617), fieldTypeRational0, tiffDirectoryType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      TagInfoByte tagInfoByte0 = new TagInfoByte("", 0, tiffDirectoryType0);
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      byte[] byteArray0 = tagInfoByte0.encodeValue(byteOrder0, (byte)0);
+      ;
+}

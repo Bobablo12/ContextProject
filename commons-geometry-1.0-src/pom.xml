@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-parent</artifactId>
+    <version>52</version>
+  </parent>
+
+  <artifactId>commons-geometry-parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>Apache Commons Geometry</name>
+  <description>The Apache Commons Geometry project provides geometric types and utilities.</description>
+  <url>https://commons.apache.org/proper/commons-geometry/</url>
+  <inceptionYear>2016</inceptionYear>
+
+  <properties>
+    <!-- Do not change: "geometry" is the name of the component even if the
+         name of the base package evolves with major release numbers
+         (see "commons.osgi.symbolicName", below). -->
+    <commons.componentid>geometry</commons.componentid>
+    <!-- OSGi -->
+    <commons.osgi.symbolicName>org.apache.commons.geometry.parent</commons.osgi.symbolicName>
+    <commons.osgi.export>org.apache.commons.geometry.parent</commons.osgi.export>
+    <!-- Java 9+ -->
+    <commons.automatic.module.name>org.apache.commons.geometry.parent</commons.automatic.module.name>
+    <!-- do not use snapshot suffix here -->
+    <commons.release.version>1.0</commons.release.version>
+    <commons.release.desc>(requires Java 8+)</commons.release.desc>
+    <commons.rc.version>RC4</commons.rc.version>
+    <commons.binary.suffix>-bin</commons.binary.suffix>
+
+    <commons.jira.id>GEOMETRY</commons.jira.id>
+    <commons.jira.pid>12321920</commons.jira.pid>
+    <commons.encoding>UTF-8</commons.encoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <geometry.pmd.version>3.14.0</geometry.pmd.version>
+    <geometry.pmd.dep.version>6.36.0</geometry.pmd.dep.version>
+    <geometry.checkstyle.version>3.1.2</geometry.checkstyle.version>
+    <geometry.checkstyle.dep.version>8.41.1</geometry.checkstyle.dep.version>
+    <geometry.mathjax.version>2.7.2</geometry.mathjax.version>
+    <geometry.antrun.version>1.8</geometry.antrun.version>
+    <!-- Workaround to avoid duplicating config files. -->
+    <geometry.parent.dir>${basedir}</geometry.parent.dir>
+
+    <commons.spotbugs.version>4.3.0</commons.spotbugs.version>
+    <!-- Required for Java 13 build -->
+    <commons.spotbugs.dep.version>4.3.0</commons.spotbugs.dep.version>
+
+    <!-- Fix to avoid JXR 3.0.0 forking the lifecycle phase 'compile' during site report
+       jxr:aggregate. If compile is forked, the dist-archive build fails when attempting
+       to collect the artifacts from other modules. -->
+    <commons.jxr.version>2.5</commons.jxr.version>
+
+    <commons.jacoco.haltOnFailure>false</commons.jacoco.haltOnFailure>
+
+    <commons.site.path>geometry</commons.site.path>
+    <commons.scmPubUrl>https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-geometry</commons.scmPubUrl>
+    <commons.scmPubCheckoutDirectory>site-content</commons.scmPubCheckoutDirectory>
+
+    <!-- Temporary fix to replace svn-based build number with git-based build number -->
+    <buildnumber.skip>true</buildnumber.skip>
+    <geometry.jgit.buildnumber.version>1.2.10</geometry.jgit.buildnumber.version>
+    <implementation.build>${git.revision}; ${maven.build.timestamp}</implementation.build>
+
+    <!--
+      Temporarily disable Clirr during beta version development since backwards compatibility is not
+      guaranteed for these versions. This check must be re-enabled once the full 1.0 release is made.
+    -->
+    <clirr.skip>true</clirr.skip>
+
+    <!-- Workaround to avoid the SVN site checkout in all modules.
+         This flag should be deactivated by child modules. -->
+    <perform.site.checkout>true</perform.site.checkout>
+
+    <!--
+        Override so that "mvn commons:download-page" will generates a web page
+        referring to the files created by the "dist-archive" module.
+        Temporary workaround?
+    -->
+    <commons.release.name>commons-geometry-${project.version}</commons.release.name>
+    <!-- Invalid flag for old javadoc versions (default to empty). -->
+    <doclint.javadoc.qualifier></doclint.javadoc.qualifier>
+
+    <!-- Dependency versions -->
+    <commons.numbers.version>1.0</commons.numbers.version>
+    <commons.rng.version>1.3</commons.rng.version>
+    <junit.version>5.8.0-M1</junit.version>
+    <evosuiteVersion>1.0.6</evosuiteVersion>
+  </properties>
+
+  <modules>
+    <module>commons-geometry-core</module>
+    <module>commons-geometry-euclidean</module>
+    <module>commons-geometry-spherical</module>
+    <module>commons-geometry-io-core</module>
+    <module>commons-geometry-io-euclidean</module>
+  </modules>
+
+  <scm>
+    <connection>scm:git:http://gitbox.apache.org/repos/asf/commons-geometry.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/commons-geometry.git</developerConnection>
+    <url>https://gitbox.apache.org/repos/asf/commons-geometry.git</url>
+  </scm>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>https://issues.apache.org/jira/browse/Geometry</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <name>Apache Commons Site</name>
+      <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-geometry/</url>
+    </site>
+  </distributionManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-core</artifactId>
+        <version>${commons.numbers.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-arrays</artifactId>
+        <version>${commons.numbers.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-angle</artifactId>
+        <version>${commons.numbers.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-fraction</artifactId>
+        <version>${commons.numbers.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-quaternion</artifactId>
+        <version>${commons.numbers.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-rng-client-api</artifactId>
+        <version>${commons.rng.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-rng-simple</artifactId>
+        <version>${commons.rng.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-rng-sampling</artifactId>
+        <version>${commons.rng.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.evosuite</groupId>
+        <artifactId>evosuite-standalone-runtime</artifactId>
+        <version>${evosuiteVersion}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+
+  </dependencyManagement>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>${evosuiteVersion}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare</goal>
+            </goals>
+            <phase>process-test-classes</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.17</version>
+        <configuration>
+          <properties>
+            <property>
+              <name>listener</name>
+              <value>org.evosuite.runtime.InitializingListener</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive combine.children="append">
+            <manifestEntries>
+              <!-- Java 9 -->
+              <Automatic-Module-Name>${commons.automatic.module.name}</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint:all,-options,-path</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!-- Fix for OpenJDK 8 now validating class-path attributes in Jar manifests. -->
+          <!-- See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=912333#63 -->
+          <useSystemClassLoader>false</useSystemClassLoader>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*AbstractTest.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-publish-plugin</artifactId>
+        <configuration>
+          <ignorePathsToDelete>
+            <ignorePathToDelete>javadocs</ignorePathToDelete>
+          </ignorePathsToDelete>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${commons.spotbugs.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>${commons.spotbugs.dep.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <threshold>Normal</threshold>
+          <effort>Default</effort>
+          <excludeFilterFile>${geometry.parent.dir}/src/main/resources/spotbugs/spotbugs-exclude-filter.xml</excludeFilterFile>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${geometry.checkstyle.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${geometry.checkstyle.dep.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          <configLocation>${geometry.parent.dir}/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+          <headerLocation>${geometry.parent.dir}/src/main/resources/checkstyle/license-header.txt</headerLocation>
+          <suppressionsLocation>${geometry.parent.dir}/src/main/resources/checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
+          <enableRulesSummary>false</enableRulesSummary>
+          <logViolationsToConsole>true</logViolationsToConsole>
+          <failOnViolation>true</failOnViolation>
+          <resourceExcludes>NOTICE.txt,LICENSE.txt,**/pom.properties,**/resolver-status.properties,**/sha512.properties</resourceExcludes>
+          <excludes>**/generated/**.java,**/jmh_generated/**.java</excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${geometry.pmd.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-core</artifactId>
+            <version>${geometry.pmd.dep.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-java</artifactId>
+            <version>${geometry.pmd.dep.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <printFailingErrors>true</printFailingErrors>
+          <!-- TODO: remove this when PMD has been fixed. -->
+          <failOnViolation>false</failOnViolation>
+          <targetJdk>${maven.compiler.target}</targetJdk>
+          <skipEmptyReport>false</skipEmptyReport>
+          <analysisCache>true</analysisCache>
+          <rulesets>
+            <ruleset>${geometry.parent.dir}/src/main/resources/pmd/pmd-ruleset.xml</ruleset>
+          </rulesets>
+          <excludeRoots>
+            <excludeRoot>target/generated-sources/annotations</excludeRoot>
+          </excludeRoots>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        <!--
+          Needed for command-line access, e.g mvn apache-rat:rat and mvn apache-rat:check
+          Below should agree with config in <reporting> section, so the site
+          gets consistent output.
+        -->
+          <excludes combine.children="append">
+            <!-- version 0.8 of apache-rat-plugin does not exclude properly
+                 some default development tools files (see RAT-126) -->
+            <exclude>.ekstazi/**</exclude>
+            <exclude>**/site-content/**</exclude>
+            <exclude>**/site-content.README</exclude>
+            <exclude>**/.classpath</exclude>
+            <exclude>**/.project</exclude>
+            <exclude>**/.settings/**</exclude>
+            <exclude>**/.checkstyle</exclude>
+            <exclude>**/target/**</exclude>
+            <exclude>src/site/resources/release-notes/RELEASE-NOTES-*.txt</exclude>
+            <exclude>src/site/resources/txt/userguide/stress/**</exclude>
+            <exclude>dist-archive/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <!-- NOTE: javadoc config must also be set under <reporting> -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <!-- Enable MathJax -->
+          <additionalOptions>${doclint.javadoc.qualifier} --allow-script-in-comments -header '&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/${geometry.mathjax.version}/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;'</additionalOptions>
+          <links>
+            <link>https://commons.apache.org/proper/commons-numbers/commons-numbers-core/javadocs/api-1.0/</link>
+            <link>https://commons.apache.org/proper/commons-numbers/commons-numbers-quaternion/javadocs/api-1.0/</link>
+          </links>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <skipAssembly>true</skipAssembly>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <configuration>
+          <!--  Should agree with apache-rat-plugin config under <build> -->
+          <excludes combine.children="append">
+            <!-- version 0.8 of apache-rat-plugin does not exclude properly
+                 some default development tools files (see RAT-126) -->
+            <exclude>.ekstazi/**</exclude>
+            <exclude>**/site-content/**</exclude>
+            <exclude>**/site-content.README</exclude>
+            <exclude>**/.classpath</exclude>
+            <exclude>**/.project</exclude>
+            <exclude>**/.settings/**</exclude>
+            <exclude>**/.checkstyle</exclude>
+            <exclude>**/target/**</exclude>
+            <exclude>src/site/resources/release-notes/RELEASE-NOTES-*.txt</exclude>
+            <exclude>src/site/resources/txt/userguide/stress/**</exclude>
+            <exclude>dist-archive/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <version>${commons.changes.version}</version>
+        <configuration>
+          <xmlPath>${basedir}/src/changes/changes.xml</xmlPath>
+          <columnNames>Fix Version,Key,Component,Summary,Type,Resolution,Status</columnNames>
+          <!-- Sort cols in natural order when using JQL for JIRA 5.1 -->
+          <sortColumnNames>Fix Version DESC,Type,Key DESC</sortColumnNames>
+          <resolutionIds>Fixed</resolutionIds>
+          <statusIds>Resolved,Closed</statusIds>
+          <!-- Don't include sub-task -->
+          <typeIds>Bug,New Feature,Task,Improvement,Wish,Test</typeIds>
+          <!-- For JIRA >= 5.1 -->
+          <useJql>true</useJql>
+          <onlyCurrentVersion>${commons.changes.onlyCurrentVersion}</onlyCurrentVersion>
+          <maxEntries>${commons.changes.maxEntries}</maxEntries>
+          <runOnlyAtExecutionRoot>${commons.changes.runOnlyAtExecutionRoot}</runOnlyAtExecutionRoot>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+              <report>jira-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${commons.spotbugs.version}</version>
+        <configuration>
+          <threshold>Normal</threshold>
+          <effort>Default</effort>
+          <excludeFilterFile>${geometry.parent.dir}/src/main/resources/spotbugs/spotbugs-exclude-filter.xml</excludeFilterFile>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${geometry.checkstyle.version}</version>
+        <configuration>
+          <configLocation>${geometry.parent.dir}/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+          <headerLocation>${geometry.parent.dir}/src/main/resources/checkstyle/license-header.txt</headerLocation>
+          <suppressionsLocation>${geometry.parent.dir}/src/main/resources/checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
+          <enableRulesSummary>false</enableRulesSummary>
+          <includeResources>false</includeResources>
+          <excludes>**/generated/**.java,**/jmh_generated/**.java</excludes>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${geometry.pmd.version}</version>
+        <configuration>
+          <verbose>false</verbose>
+          <printFailingErrors>true</printFailingErrors>
+          <targetJdk>${maven.compiler.target}</targetJdk>
+          <skipEmptyReport>false</skipEmptyReport>
+          <analysisCache>true</analysisCache>
+          <rulesets>
+            <ruleset>${geometry.parent.dir}/src/main/resources/pmd/pmd-ruleset.xml</ruleset>
+          </rulesets>
+          <excludeRoots>
+            <excludeRoot>target/generated-sources/annotations</excludeRoot>
+          </excludeRoots>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>pmd</report>
+              <report>cpd</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <!-- NOTE: javadoc config must also be set under <build> -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <!-- Enable MathJax -->
+          <additionalOptions>${doclint.javadoc.qualifier} --allow-script-in-comments -header '&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/${geometry.mathjax.version}/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;'</additionalOptions>
+          <links>
+            <link>https://commons.apache.org/proper/commons-numbers/commons-numbers-core/javadocs/api-1.0/</link>
+            <link>https://commons.apache.org/proper/commons-numbers/commons-numbers-quaternion/javadocs/api-1.0/</link>
+          </links>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>jgit-buildnumber</id>
+      <activation>
+        <file>
+          <exists>.git</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>ru.concerteza.buildnumber</groupId>
+            <artifactId>maven-jgit-buildnumber-plugin</artifactId>
+            <version>${geometry.jgit.buildnumber.version}</version>
+            <executions>
+              <execution>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>extract-buildnumber</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- Override a parent property if the SVN site checkout should not be performed.
+           This should activate for child modules. -->
+      <id>is-child-module</id>
+      <activation>
+        <file>
+          <missing>${basedir}/RELEASE-NOTES.txt</missing>
+        </file>
+      </activation>
+      <properties>
+        <perform.site.checkout>false</perform.site.checkout>
+      </properties>
+    </profile>
+    <profile>
+      <!-- Runs if the SVN site checkout does not exist.
+           This is either obtained using svn (for the parent) or an empty directory is created. -->
+      <id>setup-checkout</id>
+      <activation>
+        <file>
+          <missing>${commons.scmPubCheckoutDirectory}</missing>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>${geometry.antrun.version}</version>
+            <executions>
+              <!-- For multi-module builds, only the parent directory requires a site checkout.
+                   This task will create an empty directory as the site checkout is missing. -->
+              <execution>
+                <id>empty-checkout</id>
+                <phase>pre-site</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target name="empty-checkout" unless="${perform.site.checkout}">
+                    <mkdir dir="${commons.scmPubCheckoutDirectory}"/>
+                    <echo file="${commons.scmPubCheckoutDirectory}${file.separator}README"
+                          message="The '${commons.scmPubCheckoutDirectory}' directory is empty in child modules."/>
+                  </target>
+                </configuration>
+              </execution>
+              <!-- Checkout the top-level directory of the site using SVN. -->
+              <execution>
+                <id>prepare-checkout</id>
+                <phase>pre-site</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target name="prepare-checkout" if="${perform.site.checkout}">
+                    <!-- Top level directory -->
+                    <exec executable="svn" failifexecutionfails="false">
+                      <arg line="checkout --depth immediates ${commons.scmPubUrl} ${commons.scmPubCheckoutDirectory}" />
+                    </exec>
+                    <!-- Create the directory in the event that no svn exectuable is on the path -->
+                    <mkdir dir="${commons.scmPubCheckoutDirectory}"/>
+
+                    <echo file="${commons.scmPubCheckoutDirectory}.README">The '${commons.scmPubCheckoutDirectory}' directory is controlled by "subversion".
+Running "svn up" will download *all* the files of the live web site at
+    https://commons.apache.org/geometry
+This is avoided by creating an empty directory when svn is not available.
+                    </echo>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- Allow the SVN site checkout to be removed in the clean phase. -->
+      <id>clean-checkout</id>
+      <activation>
+        <file>
+          <exists>${commons.scmPubCheckoutDirectory}</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>${geometry.antrun.version}</version>
+            <executions>
+              <execution>
+                <id>remove-checkout</id>
+                <phase>clean</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target name="remove-checkout">
+                    <delete dir="${commons.scmPubCheckoutDirectory}" quiet="true"/>
+                    <delete file="${commons.scmPubCheckoutDirectory}.README" quiet="true"/>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- Ekstazi (www.ekstazi.org) profile to optimize regression testing -->
+    <profile>
+      <id>ekstazi</id>
+      <activation>
+        <property>
+          <name>ekstazi</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.ekstazi</groupId>
+            <artifactId>ekstazi-maven-plugin</artifactId>
+            <version>5.3.0</version>
+            <configuration>
+              <forcefailing>true</forcefailing>
+            </configuration>
+            <executions>
+              <execution>
+                <id>ekstazi</id>
+                <goals>
+                  <goal>select</goal>
+                  <goal>restore</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludesFile>${java.io.tmpdir}/${user.name}EkstaziExcludes</excludesFile>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>travis</id>
+      <activation>
+        <property>
+          <name>env.TRAVIS</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${commons.jacoco.version}</version>
+          </plugin>
+          <plugin>
+            <groupId>org.eluder.coveralls</groupId>
+            <artifactId>coveralls-maven-plugin</artifactId>
+            <version>${commons.coveralls.version}</version>
+            <configuration>
+              <timestampFormat>${commons.coveralls.timestampFormat}</timestampFormat>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+        Profiles for modules with special requirements.
+    -->
+    <profile>
+      <id>commons-geometry-examples</id>
+      <modules>
+        <module>commons-geometry-examples</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>release</id>
+      <modules>
+        <module>commons-geometry-examples</module>
+      </modules>
+    </profile>
+
+  </profiles>
+
+  <developers>
+    <developer>
+      <name>Gilles Sadowski</name>
+      <id>erans</id>
+      <email>erans at apache dot org</email>
+    </developer>
+    <developer>
+      <name>Matt Juntunen</name>
+      <id>mattjuntunen</id>
+      <email>mattjuntunen at apache dot org</email>
+    </developer>
+  </developers>
+
+  <contributors>
+  </contributors>
+
+</project>

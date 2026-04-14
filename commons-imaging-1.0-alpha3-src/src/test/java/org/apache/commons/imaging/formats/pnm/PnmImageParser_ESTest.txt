@@ -1,0 +1,657 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)116;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("oP?JH-W?\"nBg2SN}PC", byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNM file has invalid prefix byte 1
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)50;
+      byteArray0[2] = (byte)50;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      byteArray0[3] = (byte)50;
+      byteArray0[4] = (byte)32;
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)80;
+      byteArray0[6] = (byte)31;
+      byteArray0[1] = (byte)51;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid width specified.
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      String[] stringArray0 = pnmImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("oP?JH-W?\"nBg2SN}PC", byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNM file has invalid prefix byte 1
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(dataInputStream0, (byte)52);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "sdL&9z q$+>-=b[V");
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-2080), 1654);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("org.apache.commons.io.file.SimplePathVisitor", byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid PNM File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) null, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "PAM header has no TUPLTYPE");
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-854), (byte)112);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "i5My8szZs+.");
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceFile0, pnmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[3];
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNM file has invalid prefix byte 1
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) null, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-100), (byte)67);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "org.apache.commons.imaging.ImagingException");
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, pnmImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("7Bw}x");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceFile0, pnmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("PAM header has no MAXVAL");
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, ":;6g,pahaNdP$`U");
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("PAM header has no MAXVAL", "PAM header has no MAXVAL");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        pnmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid PNM File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("PAM header has no MAXVAL", "PAM header has no MAXVAL");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("PAM header has no MAXVAL");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        pnmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      ImageMetadata imageMetadata0 = pnmImageParser0.getMetadata((ByteSource) byteSourceArray0, pnmImagingParameters0);
+      assertNotNull(imageMetadata0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      ImageFormats imageFormats0 = ImageFormats.PAM;
+      pnmImagingParameters0.setSubtype(imageFormats0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("eXjjvR*4y?_H");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) bufferedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PamWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ImageFormats imageFormats0 = ImageFormats.PGM;
+      pnmImagingParameters0.setSubtype(imageFormats0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) pipedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ImageFormats imageFormats0 = ImageFormats.PBM;
+      pnmImagingParameters0.setSubtype(imageFormats0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) null, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PbmWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ImageFormats imageFormats0 = ImageFormats.PSD;
+      pnmImagingParameters0.setSubtype(imageFormats0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("G");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) bufferedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.PaletteFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("G");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) bufferedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.PaletteFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("G");
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) bufferedOutputStream0, (PnmImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.PaletteFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      byte[] byteArray0 = new byte[18];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)55;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)54;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[10];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)53;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("Hx@d^Ww\"o", byteArray0);
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[18];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)52;
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getImageInfo(byteArray0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      byte[] byteArray0 = new byte[5];
+      byteArray0[0] = (byte)80;
+      byteArray0[1] = (byte)49;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        pnmImageParser0.getBufferedImage((ByteSource) byteSourceArray0, (PnmImagingParameters) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PNM: Unexpected EOF
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.WhiteSpaceReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)80;
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      try { 
+        pnmImageParser0.getImageInfo((ByteSource) byteSourceArray0, pnmImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNM file has invalid prefix byte 2
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("Pbm-Custom");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        pnmImageParser0.getImageSize((ByteSource) byteSourceFile0, pnmImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      MockFile mockFile0 = new MockFile("7Bw}x");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      byte[] byteArray0 = pnmImageParser0.getICCProfileBytes((ByteSource) byteSourceFile0, pnmImagingParameters0);
+      assertNotNull(byteArray0);
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      String string0 = pnmImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      ImageFormat[] imageFormatArray0 = pnmImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      String string0 = pnmImageParser0.getName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      PnmImagingParameters pnmImagingParameters0 = pnmImageParser0.getDefaultParameters();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("G");
+      ImageFormats imageFormats0 = ImageFormats.PPM;
+      pnmImagingParameters0.setSubtype(imageFormats0);
+      // Undeclared exception!
+      try { 
+        pnmImageParser0.writeImage((BufferedImage) null, (OutputStream) mockPrintStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PpmWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      PnmImageParser pnmImageParser0 = new PnmImageParser();
+      File file0 = MockFile.createTempFile("Invalid PAM file header type ", "T=):z}1<t.Za*kv");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(file0);
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        pnmImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // PNM file has invalid prefix byte 1
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PnmImageParser", e);
+      }
+  }

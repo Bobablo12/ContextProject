@@ -1,0 +1,372 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(")|3I9B4L@qgv KdDGE", false);
+      DataOutputStream dataOutputStream0 = new DataOutputStream(mockFileOutputStream0);
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.updateXmpXml((byte[]) null, (OutputStream) dataOutputStream0, "-'oW");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("3iM:G}&zf7[9@`", byteArray0);
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("3iM:G}&zf7[9@`");
+      try { 
+        jpegXmpRewriter0.updateXmpXml((ByteSource) byteSourceArray0, (OutputStream) mockFileOutputStream0, "3iM:G}&zf7[9@`");
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("3/|2:W$OdO ~~9o~");
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.updateXmpXml((ByteSource) null, (OutputStream) mockPrintStream0, "3/|2:W$OdO ~~9o~");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.JpegUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "R]R$D8* ]p");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("R]R$D8* ]p");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFileOutputStream0);
+      try { 
+        jpegXmpRewriter0.updateXmpXml((ByteSource) byteSourceInputStream0, (OutputStream) mockPrintStream0, " (XZ>\"bNL@{q.Ua");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriter");
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        jpegXmpRewriter0.updateXmpXml((ByteSource) byteSourceFile0, (OutputStream) mockPrintStream0, "org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriter");
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      File file0 = MockFile.createTempFile("?D=]_CxY", "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      InputStream inputStream0 = byteSourceFile0.getInputStream();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0);
+      try { 
+        jpegXmpRewriter0.updateXmpXml(inputStream0, (OutputStream) mockFileOutputStream0, "");
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      File file0 = MockFile.createTempFile("TK8PaKKyz3P~Y I>v~N", "org.apache.commons.io.filefilter.AbstractFileFilter");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, false);
+      try { 
+        jpegXmpRewriter0.updateXmpXml(file0, (OutputStream) mockFileOutputStream0, (String) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      File file0 = MockFile.createTempFile("TK8PaKKyz3P~Y I>v~N", "org.apache.commons.io.filefilter.AbstractFileFilter");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(file0, false);
+      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("/tmp/TK8PaKKyz3P~Y I>v~N0org.apache.commons.io.filefilter.AbstractFileFilter");
+      FileSystemHandling.shouldThrowIOException(evoSuiteFile0);
+      try { 
+        jpegXmpRewriter0.updateXmpXml(file0, (OutputStream) mockFileOutputStream0, "TK8PaKKyz3P~Y I>v~N");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockFile mockFile0 = new MockFile(".Ykd/m1y&8qZ", ".Ykd/m1y&8qZ");
+      try { 
+        jpegXmpRewriter0.updateXmpXml((File) mockFile0, (OutputStream) null, ".Ykd/m1y&8qZ");
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.removeXmpXml((byte[]) null, (OutputStream) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("+01^dp5U$Gu!b", byteArray0);
+      try { 
+        jpegXmpRewriter0.removeXmpXml((ByteSource) byteSourceArray0, (OutputStream) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("#^^_Ir{5 /jAg?Y!");
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.removeXmpXml((ByteSource) byteSourceArray0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriter");
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "f");
+      try { 
+        jpegXmpRewriter0.removeXmpXml((ByteSource) byteSourceInputStream0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream((InputStream) null);
+      try { 
+        jpegXmpRewriter0.removeXmpXml((InputStream) bufferedInputStream0, (OutputStream) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      File file0 = MockFile.createTempFile("ihd>=mN)WOu;Vhx}", "ihd>=mN)WOu;Vhx}");
+      MockPrintStream mockPrintStream0 = new MockPrintStream("[long[]: ");
+      try { 
+        jpegXmpRewriter0.removeXmpXml(file0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unexpected EOF.
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      File file0 = MockFile.createTempFile("ihd>=mN)WOu;Vhx}", "ihd>=mN)WOu;Vhx}");
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("[long[]: ");
+      try { 
+        jpegXmpRewriter0.removeXmpXml(file0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Simulated IOException
+         //
+         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockFile mockFile0 = new MockFile("=Vj9&!Y9(Wn6Mre,");
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream(" V}m!}\"Ah");
+      try { 
+        jpegXmpRewriter0.removeXmpXml((File) mockFile0, (OutputStream) mockFileOutputStream0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      try { 
+        jpegXmpRewriter0.removeXmpXml((ByteSource) byteSourceFile0, (OutputStream) byteArrayOutputStream0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      byte[] byteArray0 = new byte[5];
+      MockPrintStream mockPrintStream0 = new MockPrintStream("The magic number must contain at least one byte");
+      try { 
+        jpegXmpRewriter0.updateXmpXml(byteArray0, (OutputStream) mockPrintStream0, "The magic number must contain at least one byte");
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriter");
+      MockPrintStream mockPrintStream0 = new MockPrintStream(mockFileOutputStream0, false);
+      try { 
+        jpegXmpRewriter0.updateXmpXml((InputStream) null, (OutputStream) mockPrintStream0, ",ViWf");
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      try { 
+        jpegXmpRewriter0.removeXmpXml((InputStream) byteArrayInputStream0, (OutputStream) pipedOutputStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.updateXmpXml((File) null, (OutputStream) pipedOutputStream0, "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("t+.,68*z4oo");
+      // Undeclared exception!
+      try { 
+        jpegXmpRewriter0.removeXmpXml((File) null, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceFile", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      JpegXmpRewriter jpegXmpRewriter0 = new JpegXmpRewriter();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0, true);
+      try { 
+        jpegXmpRewriter0.removeXmpXml(byteArray0, (OutputStream) mockPrintStream0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Not a Valid JPEG File: doesn't begin with 0xffd8
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }

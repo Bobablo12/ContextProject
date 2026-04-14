@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Semaphore semaphore0 = new Semaphore((-1286498783));
+      // Undeclared exception!
+      try { 
+        ReleasePermitOnComplete.wrap((AsyncHandler<AsyncCompletionHandlerBase>) null, semaphore0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.filter.ReleasePermitOnComplete", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ReleasePermitOnComplete releasePermitOnComplete0 = new ReleasePermitOnComplete();
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      AsyncHandler<AsyncCompletionHandlerBase> asyncHandler0 = (AsyncHandler<AsyncCompletionHandlerBase>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(asyncHandler0).toString();
+      Semaphore semaphore0 = new Semaphore((-1286498783));
+      AsyncHandler<AsyncCompletionHandlerBase> asyncHandler1 = ReleasePermitOnComplete.wrap((AsyncHandler<AsyncCompletionHandlerBase>) asyncHandler0, semaphore0);
+      ;
+}

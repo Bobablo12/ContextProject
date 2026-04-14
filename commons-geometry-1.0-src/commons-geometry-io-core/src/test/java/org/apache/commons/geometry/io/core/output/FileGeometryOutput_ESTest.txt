@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("N~u}-", "N~u}-");
+      Path path0 = mockFile0.toPath();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput(path0);
+      Path path1 = fileGeometryOutput0.getFile();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      Path path0 = fileGeometryOutput0.getFile();
+      assertNotNull(path0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("", "");
+      Path path0 = mockFile0.toPath();
+      Charset charset0 = Charset.defaultCharset();
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput(path0, charset0);
+      assertNotNull(fileGeometryOutput0.getFileName());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      String string0 = fileGeometryOutput0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FileGeometryOutput fileGeometryOutput0 = new FileGeometryOutput((Path) null);
+      // Undeclared exception!
+      try { 
+        fileGeometryOutput0.getOutputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.file.Files", e);
+      }
+  }

@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Integer integer0 = new Integer((-1));
+      int[] intArray0 = new int[0];
+      BlockDiskElementDescriptor<Integer> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Integer>(integer0, intArray0);
+      Integer integer1 = blockDiskElementDescriptor0.getKey();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(1);
+      int[] intArray0 = new int[7];
+      BlockDiskElementDescriptor<Object> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Object>(pipedInputStream0, intArray0);
+      int[] intArray1 = blockDiskElementDescriptor0.getBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      DataInputStream dataInputStream0 = new DataInputStream(byteArrayInputStream0);
+      int[] intArray0 = new int[0];
+      BlockDiskElementDescriptor<Object> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Object>(dataInputStream0, intArray0);
+      int[] intArray1 = blockDiskElementDescriptor0.getBlocks();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BlockDiskElementDescriptor<Object> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Object>();
+      // Undeclared exception!
+      try { 
+        blockDiskElementDescriptor0.writeExternal((ObjectOutput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskElementDescriptor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      BlockDiskElementDescriptor<String> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<String>("", intArray0);
+      String string0 = blockDiskElementDescriptor0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BlockDiskElementDescriptor<String> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<String>();
+      String string0 = blockDiskElementDescriptor0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      BlockDiskElementDescriptor<String> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<String>("", intArray0);
+      // Undeclared exception!
+      try { 
+        blockDiskElementDescriptor0.readExternal((ObjectInput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskElementDescriptor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      BlockDiskElementDescriptor<Integer> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Integer>(integer0, (int[]) null);
+      int[] intArray0 = blockDiskElementDescriptor0.getBlocks();
+      assertEquals(0, intArray0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BlockDiskElementDescriptor<String> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<String>("", (int[]) null);
+      blockDiskElementDescriptor0.setKey("z^%");
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      BlockDiskElementDescriptor<Integer> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Integer>(integer0, (int[]) null);
+      blockDiskElementDescriptor0.setBlocks((int[]) null);
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      BlockDiskElementDescriptor<String> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<String>("", (int[]) null);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream(byteArrayOutputStream0);
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(mockPrintStream0);
+      blockDiskElementDescriptor0.writeExternal(objectOutputStream0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      BlockDiskElementDescriptor<Integer> blockDiskElementDescriptor0 = new BlockDiskElementDescriptor<Integer>();
+      Integer integer0 = blockDiskElementDescriptor0.getKey();
+      assertNotNull(integer0);
+}

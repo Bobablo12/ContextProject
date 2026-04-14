@@ -1,0 +1,10 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TreeBag<String> treeBag0 = new TreeBag<String>();
+      SynchronizedSortedBag<String> synchronizedSortedBag0 = new SynchronizedSortedBag<String>(treeBag0);
+      ConstantTransformer<String, String> constantTransformer0 = new ConstantTransformer<String, String>((String) null);
+      treeBag0.add("");
+      TransformedSortedBag<String> transformedSortedBag0 = new TransformedSortedBag<String>(synchronizedSortedBag0, constantTransformer0);
+      String string0 = transformedSortedBag0.last();
+      assertNotNull(string0);
+}

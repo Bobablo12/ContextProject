@@ -1,0 +1,84 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt((-1), (-1), (-1), byteArray0);
+        fail("Expecting exception: ZipException");
+      } catch(Throwable e) {
+         //
+         // unknown compression method
+         //
+         verifyException("java.util.zip.InflaterInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt(780, 1, 168, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunk", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt(67, 67, 67, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 1
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkZtxt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[1] = (byte)15;
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt((byte)15, (byte)15, (byte)15, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG zTXt chunk has unexpected compression method: 15
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkZtxt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt((byte)118, (byte)118, (byte)118, byteArray0);
+        fail("Expecting exception: Exception");
+      } catch(Throwable e) {
+         //
+         // PNG zTXt chunk keyword is unterminated.
+         //
+         verifyException("org.apache.commons.imaging.formats.png.chunks.PngChunkZtxt", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      PngChunkZtxt pngChunkZtxt0 = null;
+      try {
+        pngChunkZtxt0 = new PngChunkZtxt((-801), 0, (-801), byteArray0);
+        fail("Expecting exception: EOFException");
+      } catch(Throwable e) {
+         //
+         // Unexpected end of ZLIB input stream
+         //
+         verifyException("java.util.zip.InflaterInputStream", e);
+      }
+  }

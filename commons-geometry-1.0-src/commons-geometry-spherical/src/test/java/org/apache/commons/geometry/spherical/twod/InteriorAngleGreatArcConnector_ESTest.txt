@@ -1,0 +1,159 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Minimize interiorAngleGreatArcConnector_Minimize0 = new InteriorAngleGreatArcConnector.Minimize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Minimize0.isBetterAngle(4599.01562287, 281.43);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Maximize interiorAngleGreatArcConnector_Maximize0 = new InteriorAngleGreatArcConnector.Maximize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Maximize0.isBetterAngle((-2195.36288), 2737);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Minimize interiorAngleGreatArcConnector_Minimize0 = new InteriorAngleGreatArcConnector.Minimize();
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc((GreatCircle) null, angularInterval_Convex0);
+      AbstractGreatArcConnector.ConnectableGreatArc abstractGreatArcConnector_ConnectableGreatArc0 = new AbstractGreatArcConnector.ConnectableGreatArc(greatArc0);
+      Vector<AbstractGreatArcConnector.ConnectableGreatArc> vector0 = new Vector<AbstractGreatArcConnector.ConnectableGreatArc>();
+      vector0.add(abstractGreatArcConnector_ConnectableGreatArc0);
+      AbstractGreatArcConnector.ConnectableGreatArc abstractGreatArcConnector_ConnectableGreatArc1 = new AbstractGreatArcConnector.ConnectableGreatArc(greatArc0);
+      // Undeclared exception!
+      try { 
+        interiorAngleGreatArcConnector_Minimize0.selectConnection(abstractGreatArcConnector_ConnectableGreatArc1, vector0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ArrayDeque<GreatArc> arrayDeque0 = new ArrayDeque<GreatArc>();
+      List<GreatArcPath> list0 = InteriorAngleGreatArcConnector.connectMinimized(arrayDeque0);
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Z;
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      GreatArc greatArc0 = greatCircle0.span();
+      List<GreatArc> list0 = greatArc0.toConvex();
+      List<GreatArcPath> list1 = InteriorAngleGreatArcConnector.connectMinimized(list0);
+      assertEquals(0, list1.size());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.from(1636.87441618, (-24.682593978311), 281.43);
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false, false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      GreatCircle greatCircle0 = new GreatCircle(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, precision_DoubleEquivalence0);
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc(greatCircle0, angularInterval_Convex0);
+      List<GreatArc> list0 = greatArc0.toConvex();
+      List<GreatArcPath> list1 = InteriorAngleGreatArcConnector.connectMaximized(list0);
+      assertEquals(1, list1.size());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector<GreatArc> vector0 = new Vector<GreatArc>();
+      List<GreatArc> list0 = vector0.subList(0, 0);
+      vector0.clear();
+      // Undeclared exception!
+      try { 
+        InteriorAngleGreatArcConnector.connectMinimized(list0);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector<GreatArc> vector0 = new Vector<GreatArc>();
+      List<GreatArc> list0 = vector0.subList(0, 0);
+      vector0.clear();
+      // Undeclared exception!
+      try { 
+        InteriorAngleGreatArcConnector.connectMaximized(list0);
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        InteriorAngleGreatArcConnector.connectMaximized((Collection<GreatArc>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.AbstractGreatArcConnector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Minimize interiorAngleGreatArcConnector_Minimize0 = new InteriorAngleGreatArcConnector.Minimize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Minimize0.isBetterAngle((-1.0), 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Minimize interiorAngleGreatArcConnector_Minimize0 = new InteriorAngleGreatArcConnector.Minimize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Minimize0.isBetterAngle(0.0, 0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Maximize interiorAngleGreatArcConnector_Maximize0 = new InteriorAngleGreatArcConnector.Maximize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Maximize0.isBetterAngle(4599.01562287, 843);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      AngularInterval.Convex angularInterval_Convex0 = AngularInterval.full();
+      GreatArc greatArc0 = new GreatArc((GreatCircle) null, angularInterval_Convex0);
+      AbstractGreatArcConnector.ConnectableGreatArc abstractGreatArcConnector_ConnectableGreatArc0 = new AbstractGreatArcConnector.ConnectableGreatArc(greatArc0);
+      InteriorAngleGreatArcConnector.Maximize interiorAngleGreatArcConnector_Maximize0 = new InteriorAngleGreatArcConnector.Maximize();
+      ArrayList<AbstractGreatArcConnector.ConnectableGreatArc> arrayList0 = new ArrayList<AbstractGreatArcConnector.ConnectableGreatArc>();
+      AbstractGreatArcConnector.ConnectableGreatArc abstractGreatArcConnector_ConnectableGreatArc1 = interiorAngleGreatArcConnector_Maximize0.selectConnection(abstractGreatArcConnector_ConnectableGreatArc0, arrayList0);
+      assertNotNull(abstractGreatArcConnector_ConnectableGreatArc1);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedHashSet<GreatArc> linkedHashSet0 = new LinkedHashSet<GreatArc>();
+      List<GreatArcPath> list0 = InteriorAngleGreatArcConnector.connectMaximized(linkedHashSet0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        InteriorAngleGreatArcConnector.connectMinimized((Collection<GreatArc>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.spherical.twod.AbstractGreatArcConnector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      InteriorAngleGreatArcConnector.Maximize interiorAngleGreatArcConnector_Maximize0 = new InteriorAngleGreatArcConnector.Maximize();
+      boolean boolean0 = interiorAngleGreatArcConnector_Maximize0.isBetterAngle(843, 843);
+      ;
+}

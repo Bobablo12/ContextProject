@@ -1,0 +1,30 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ElementEvent<String> elementEvent0 = new ElementEvent<String>(".DURf1ut5l6.ce,,[", (ElementEventType) null);
+      elementEvent0.getElementEvent();
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Object object0 = new Object();
+      ElementEventType elementEventType0 = ElementEventType.SPOOLED_DISK_AVAILABLE;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(object0, elementEventType0);
+      Object object1 = elementEvent0.getSource();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Object object0 = new Object();
+      ElementEventType elementEventType0 = ElementEventType.SPOOLED_DISK_AVAILABLE;
+      ElementEvent<Object> elementEvent0 = new ElementEvent<Object>(object0, elementEventType0);
+      ElementEventType elementEventType1 = elementEvent0.getElementEvent();
+      ElementEvent<String> elementEvent1 = null;
+      try {
+        elementEvent1 = new ElementEvent<String>((String) null, elementEventType1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // null source
+         //
+         verifyException("java.util.EventObject", e);
+      }
+  }

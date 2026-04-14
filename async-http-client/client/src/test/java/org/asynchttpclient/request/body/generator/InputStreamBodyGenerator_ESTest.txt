@@ -1,0 +1,40 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator(mockFileInputStream0, 9223372036854775807L);
+      inputStreamBodyGenerator0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator((InputStream) null, 0L);
+      long long0 = inputStreamBodyGenerator0.getContentLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator(mockFileInputStream0, 9223372036854775807L);
+      long long0 = inputStreamBodyGenerator0.getContentLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator((InputStream) null);
+      Body body0 = inputStreamBodyGenerator0.createBody();
+      assertEquals(1, body0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator((InputStream) null);
+      inputStreamBodyGenerator0.getInputStream();
+      assertEquals(0, inputStreamBodyGenerator0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      InputStreamBodyGenerator inputStreamBodyGenerator0 = new InputStreamBodyGenerator((InputStream) null);
+      long long0 = inputStreamBodyGenerator0.getContentLength();
+      assertEquals(1, long0);
+}

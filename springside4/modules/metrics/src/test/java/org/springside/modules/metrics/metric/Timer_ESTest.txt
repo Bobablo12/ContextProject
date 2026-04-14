@@ -1,0 +1,169 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      System.setCurrentTimeMillis(1129L);
+      TimerMetric timerMetric0 = timer0.calculateMetric();
+      assertNotNull(timerMetric0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      Timer.clock = null;
+      // Undeclared exception!
+      try { 
+        timer0.update(1129L);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.metric.Timer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Integer integer0 = new Integer(0);
+      Double[] doubleArray0 = new Double[6];
+      Double double0 = new Double(0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = double0;
+      doubleArray0[3] = doubleArray0[0];
+      doubleArray0[4] = doubleArray0[3];
+      doubleArray0[5] = double0;
+      Timer timer0 = new Timer(integer0, doubleArray0);
+      // Undeclared exception!
+      try { 
+        timer0.update(0);
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.springside.modules.metrics.metric.Histogram", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      Timer.clock = null;
+      // Undeclared exception!
+      try { 
+        timer0.start();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.metric.Timer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Integer integer0 = new Integer(2133);
+      Timer timer0 = null;
+      try {
+        timer0 = new Timer(integer0, (Double[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.metrics.metric.Histogram", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      timer0.update(1129L);
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Integer integer0 = new Integer((-15));
+      Double[] doubleArray0 = new Double[0];
+      Timer timer0 = new Timer(integer0, doubleArray0);
+      timer0.reset();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Double[] doubleArray0 = new Double[6];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = double0;
+      doubleArray0[4] = doubleArray0[0];
+      doubleArray0[5] = double0;
+      Timer timer0 = new Timer(doubleArray0);
+      Timer.TimerContext timer_TimerContext0 = timer0.start();
+      timer_TimerContext0.stop();
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      String string0 = timer0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Double double0 = new Double(0.0);
+      doubleArray0[0] = double0;
+      doubleArray0[1] = doubleArray0[0];
+      doubleArray0[2] = doubleArray0[1];
+      doubleArray0[3] = doubleArray0[1];
+      Timer timer0 = new Timer(doubleArray0);
+      // Undeclared exception!
+      try { 
+        timer0.calculateMetric();
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.springside.modules.metrics.metric.Counter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Double[] doubleArray0 = new Double[4];
+      Timer timer0 = null;
+      try {
+        timer0 = new Timer(doubleArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }

@@ -1,0 +1,437 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(3155, (-2636)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eqZero(anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 2208.6685478535, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((-3266.01052021452));
+      ReverseRay reverseRay1 = line1.reverseRayTo((-1518.250995968609));
+      ReverseRay reverseRay2 = reverseRay1.transform(affineTransformMatrix2D0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line1);
+      reverseRay2.getNonIntersectingSplitResult(line1, lineSpanningSubset0);
+      Split<LineConvexSubset> split0 = reverseRay2.splitOnIntersection(line1, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 2208.6685478535, precision_DoubleEquivalence1);
+      Line line2 = line1.reverse();
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((-3266.01052021452));
+      Line line3 = line2.transform(affineTransformMatrix2D0);
+      ReverseRay reverseRay1 = line3.reverseRayTo((-1518.250995968609));
+      Split<LineConvexSubset> split0 = reverseRay1.splitOnIntersection(line1, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(line0).abscissa(any(org.apache.commons.geometry.euclidean.twod.Vector2D.class));
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      double double0 = reverseRay0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-1.0), (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo(1.0);
+      double double0 = reverseRay0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 0.5, precision_DoubleEquivalence1);
+      Line line2 = line1.reverse();
+      ReverseRay reverseRay1 = line2.reverseRayTo((Vector2D) vector2D_Unit0);
+      double double0 = reverseRay1.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, Double.NEGATIVE_INFINITY, precision_DoubleEquivalence1);
+      ReverseRay reverseRay1 = line1.reverseRayTo(1.0);
+      Vector2D vector2D0 = reverseRay1.getEndPoint();
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Vector2D vector2D0 = reverseRay0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 12.0, (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Vector2D vector2D0 = reverseRay0.getEndPoint();
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 2208.6685478535, precision_DoubleEquivalence1);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((-3266.01052021452));
+      ReverseRay reverseRay1 = line1.reverseRayTo((-1518.250995968609));
+      ReverseRay reverseRay2 = reverseRay1.transform(affineTransformMatrix2D0);
+      Vector2D vector2D0 = reverseRay2.getEndPoint();
+      assertFalse(vector2D0.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-2072.2759731881), (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      double double0 = reverseRay0.closestAbscissa(6.283185307179586);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-1.0), (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo(1.0);
+      double double0 = reverseRay0.closestAbscissa((-1.0));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-2072.2759731881), (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Rotation2D rotation2D0 = Rotation2D.of(1450.0);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((Vector2D) vector2D_Unit0, rotation2D0);
+      // Undeclared exception!
+      try { 
+        reverseRay0.transform(affineTransformMatrix2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Vector2D", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(0, 0).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(true, false, true, false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      doReturn((Line) null).when(line0).transform(nullable(org.apache.commons.geometry.core.Transform.class));
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 2208.6685478535, precision_DoubleEquivalence1);
+      Line line2 = line1.reverse();
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createRotation((-3266.01052021452));
+      line2.transform(affineTransformMatrix2D0);
+      ReverseRay reverseRay1 = line1.reverseRayTo((double) 3155);
+      ReverseRay reverseRay2 = reverseRay1.transform(affineTransformMatrix2D0);
+      reverseRay2.splitOnIntersection(line1, vector2D_Unit0);
+      double double0 = (-886.47163676);
+      reverseRay1.classifyAbscissa(double0);
+      ReverseRay reverseRay3 = reverseRay0.transform(affineTransformMatrix2D0);
+      assertTrue(reverseRay3.isFull());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      ReverseRay reverseRay0 = new ReverseRay((Line) null, vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        reverseRay0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector2D vector2D0 = Vector2D.POSITIVE_INFINITY;
+      ReverseRay reverseRay0 = new ReverseRay((Line) null, vector2D0);
+      // Undeclared exception!
+      try { 
+        reverseRay0.splitOnIntersection((Line) null, vector2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      ReverseRay reverseRay0 = new ReverseRay((Line) null, vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        reverseRay0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn((Line) null).when(line0).reverse();
+      Ray ray0 = new Ray(line0, vector2D_Unit0);
+      ReverseRay reverseRay0 = ray0.reverse();
+      // Undeclared exception!
+      try { 
+        reverseRay0.closestAbscissa(2208.6685478535);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = new Line(vector2D_Unit0, 262.0, (Precision.DoubleEquivalence) null);
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      // Undeclared exception!
+      try { 
+        reverseRay0.classifyAbscissa(1234.0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      ReverseRay reverseRay0 = new ReverseRay(line0, (Vector2D) null);
+      Vector2D vector2D0 = reverseRay0.getEndPoint();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ReverseRay reverseRay0 = new ReverseRay((Line) null, (Vector2D) null);
+      // Undeclared exception!
+      try { 
+        reverseRay0.getSubspaceEnd();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.ReverseRay", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(3, (-257)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-37.806049916318635), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((-37.806049916318635));
+      Split<LineConvexSubset> split0 = reverseRay0.splitOnIntersection(line0, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(3, (-257)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-37.806049916318635), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((-37.806049916318635));
+      Split<LineConvexSubset> split0 = reverseRay0.splitOnIntersection(line0, vector2D_Unit0);
+      Split<LineConvexSubset> split1 = reverseRay0.splitOnIntersection(line0, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn((-1)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(precision_DoubleEquivalence0).when(line0).getPrecision();
+      doReturn(vector2D_Unit0, (Vector2D.Unit) null).when(line0).getDirection();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      Precision.DoubleEquivalence precision_DoubleEquivalence1 = reverseRay0.getPrecision();
+      Line line1 = new Line(vector2D_Unit0, 799.86371, precision_DoubleEquivalence1);
+      Rotation2D rotation2D0 = Rotation2D.of((-1));
+      Line line2 = line1.transform(rotation2D0);
+      Split<LineConvexSubset> split0 = reverseRay0.splitOnIntersection(line2, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(21, (-917041297)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Split<LineConvexSubset> split0 = reverseRay0.splitOnIntersection(line0, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(21, (-917041297)).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Split<LineConvexSubset> split0 = reverseRay0.splitOnIntersection(line0, vector2D_Unit0);
+      RegionLocation regionLocation0 = reverseRay0.classifyAbscissa(21);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      boolean boolean0 = reverseRay0.isFinite();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Ray ray0 = reverseRay0.reverse();
+      assertTrue(ray0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_Y;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-37.806049916318635), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((-37.806049916318635));
+      double double0 = reverseRay0.getSize();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(0.0).when(line0).abscissa(any(org.apache.commons.geometry.euclidean.twod.Vector2D.class));
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      double double0 = reverseRay0.closestAbscissa(3155);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Vector2D vector2D0 = reverseRay0.getStartPoint();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      double double0 = reverseRay0.getSubspaceStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(21).when(precision_DoubleEquivalence0).compare(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      RegionLocation regionLocation0 = reverseRay0.classifyAbscissa(21);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      boolean boolean0 = reverseRay0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Vector2D vector2D0 = reverseRay0.getCentroid();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      Bounds2D bounds2D0 = reverseRay0.getBounds();
+      assertNotNull(bounds2D0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = mock(Line.class, new ViolatedAssumptionAnswer());
+      doReturn(vector2D_Unit0).when(line0).getDirection();
+      ReverseRay reverseRay0 = new ReverseRay(line0, vector2D_Unit0);
+      String string0 = reverseRay0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.PLUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-20.292112414166454), precision_DoubleEquivalence0);
+      ReverseRay reverseRay0 = line0.reverseRayTo((Vector2D) vector2D_Unit0);
+      boolean boolean0 = reverseRay0.isInfinite();
+      assertTrue(boolean0);
+}

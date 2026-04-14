@@ -1,0 +1,35 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AuxiliaryCacheConfigurator.parseElementSerializer((Properties) null, ".cacheeventlogger");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AuxiliaryCacheConfigurator.parseCacheEventLogger((Properties) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.utils.config.OptionConverter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Properties properties0 = new Properties();
+      AuxiliaryCacheConfigurator.parseCacheEventLogger(properties0, "");
+      AuxiliaryCacheConfigurator auxiliaryCacheConfigurator0 = new AuxiliaryCacheConfigurator();
+      AuxiliaryCacheConfigurator.parseCacheEventLogger(properties0, "");
+      IElementSerializer iElementSerializer0 = AuxiliaryCacheConfigurator.parseElementSerializer(properties0, ".serializer");
+      ;
+}

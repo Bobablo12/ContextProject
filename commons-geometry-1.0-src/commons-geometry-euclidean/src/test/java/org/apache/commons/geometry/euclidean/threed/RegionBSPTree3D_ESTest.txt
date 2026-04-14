@@ -1,0 +1,309 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      RegionBSPTree3D.RegionNode3D regionBSPTree3D_RegionNode3D0 = regionBSPTree3D0.createNode();
+      RegionBSPTree3D.RegionNode3D regionBSPTree3D_RegionNode3D1 = regionBSPTree3D_RegionNode3D0.getSelf();
+      assertNotNull(regionBSPTree3D_RegionNode3D1.getLocation());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      ConvexArea convexArea0 = ConvexArea.full();
+      EmbeddedAreaPlaneConvexSubset embeddedAreaPlaneConvexSubset0 = new EmbeddedAreaPlaneConvexSubset(embeddingPlane0, convexArea0);
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertPartition((PlaneConvexSubset) embeddedAreaPlaneConvexSubset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      Plane plane0 = new Plane(vector3D_Unit0, (-1555.2458468797254), (Precision.DoubleEquivalence) null);
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertPartition(plane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      Vector3D vector3D0 = Vector3D.ZERO;
+      // Undeclared exception!
+      try { 
+        regionBSPTree3D_PartitionedRegionBuilder3D0.insertAxisAlignedPartitions(vector3D0, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 0.0, (Precision.DoubleEquivalence) null);
+      SimpleTriangle3D simpleTriangle3D0 = new SimpleTriangle3D(embeddingPlane0, vector3D_Unit0, vector3D_Unit0, vector3D_Unit0);
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertBoundary(simpleTriangle3D0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = new RegionBSPTree3D();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Z;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 3083.506521958974, (Precision.DoubleEquivalence) null);
+      Split<RegionBSPTree3D> split0 = regionBSPTree3D0.split(embeddingPlane0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from(0.0, (-1897.7288191458), 3724.8865673992645);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, 3724.8865673992645, (Precision.DoubleEquivalence) null);
+      EmbeddingPlane embeddingPlane1 = embeddingPlane0.translate(vector3D0);
+      HyperplaneConvexSubset<Vector3D> hyperplaneConvexSubset0 = embeddingPlane1.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.MINUS_INSIDE;
+      regionBSPTree3D0.insert((HyperplaneSubset<Vector3D>) hyperplaneConvexSubset0, regionCutRule0);
+      Vector3D vector3D1 = regionBSPTree3D0.project(vector3D0);
+      assertTrue(vector3D1.isNaN());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      Vector3D.Unit vector3D_Unit1 = Vector3D.Unit.from((double) 1051, (double) 1051, 3724.8865673992645);
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit1, vector3D_Unit0, 3724.8865673992645, (Precision.DoubleEquivalence) null);
+      HyperplaneConvexSubset<Vector3D> hyperplaneConvexSubset0 = embeddingPlane0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.MINUS_INSIDE;
+      regionBSPTree3D0.insert((HyperplaneSubset<Vector3D>) hyperplaneConvexSubset0, regionCutRule0);
+      Vector3D vector3D0 = regionBSPTree3D0.project((Vector3D) vector3D_Unit1);
+      assertTrue(vector3D0.isInfinite());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 3724.8865673992645, (Precision.DoubleEquivalence) null);
+      HyperplaneConvexSubset<Vector3D> hyperplaneConvexSubset0 = embeddingPlane0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.INHERIT;
+      regionBSPTree3D0.insert((HyperplaneSubset<Vector3D>) hyperplaneConvexSubset0, regionCutRule0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree3D0.project(vector3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree$BoundaryProjector", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) null, false);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      List<ConvexVolume> list0 = regionBSPTree3D0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      RegionBSPTree3D.RegionNode3D regionBSPTree3D_RegionNode3D0 = new RegionBSPTree3D.RegionNode3D(regionBSPTree3D0);
+      assertFalse(regionBSPTree3D_RegionNode3D0.isInternal());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      HashSet<EmbeddedAreaPlaneConvexSubset> hashSet0 = new HashSet<EmbeddedAreaPlaneConvexSubset>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) hashSet0);
+      Stream<PlaneConvexSubset> stream0 = regionBSPTree3D0.boundaryStream();
+      assertNotNull(stream0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      HashSet<EmbeddedAreaPlaneConvexSubset> hashSet0 = new HashSet<EmbeddedAreaPlaneConvexSubset>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) hashSet0);
+      Iterable<PlaneConvexSubset> iterable0 = regionBSPTree3D0.boundaries();
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertBoundaries(iterable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Vector3D[] vector3DArray0 = new Vector3D[3];
+      vector3DArray0[0] = vector3D0;
+      vector3DArray0[1] = vector3D0;
+      vector3DArray0[2] = vector3D0;
+      Bounds3D bounds3D0 = Bounds3D.from(vector3D0, vector3DArray0);
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertAxisAlignedGrid(bounds3D0, (-45), (Precision.DoubleEquivalence) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      RegionBSPTree3D.RegionNode3D regionBSPTree3D_RegionNode3D0 = regionBSPTree3D0.createNode();
+      ConvexVolume convexVolume0 = regionBSPTree3D_RegionNode3D0.getNodeRegion();
+      assertTrue(convexVolume0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = new RegionBSPTree3D(true);
+      boolean boolean0 = regionBSPTree3D0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      boolean boolean0 = regionBSPTree3D0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = new RegionBSPTree3D(true);
+      List<ConvexVolume> list0 = regionBSPTree3D0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      PriorityQueue<EmbeddedAreaPlaneConvexSubset> priorityQueue0 = new PriorityQueue<EmbeddedAreaPlaneConvexSubset>(1051);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.PLUS_Y;
+      EmbeddingPlane embeddingPlane0 = new EmbeddingPlane(vector3D_Unit0, vector3D_Unit0, vector3D_Unit0, 3724.8865673992645, (Precision.DoubleEquivalence) null);
+      HyperplaneConvexSubset<Vector3D> hyperplaneConvexSubset0 = embeddingPlane0.span();
+      RegionCutRule regionCutRule0 = RegionCutRule.INHERIT;
+      regionBSPTree3D0.insert((HyperplaneSubset<Vector3D>) hyperplaneConvexSubset0, regionCutRule0);
+      List<ConvexVolume> list0 = regionBSPTree3D0.toConvex();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      HashSet<EmbeddedAreaPlaneConvexSubset> hashSet0 = new HashSet<EmbeddedAreaPlaneConvexSubset>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) hashSet0);
+      List<PlaneConvexSubset> list0 = regionBSPTree3D0.getBoundaries();
+      assertEquals(1, list0.size());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      RegionBSPTree3D regionBSPTree3D1 = regionBSPTree3D0.toTree();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_Y;
+      Vector3D vector3D0 = regionBSPTree3D0.project((Vector3D) vector3D_Unit0);
+      assertNotNull(vector3D0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.full();
+      assertNotNull(regionBSPTree3D0);
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      RegionBSPTree3D regionBSPTree3D0 = new RegionBSPTree3D();
+      // Undeclared exception!
+      try { 
+        regionBSPTree3D0.split((Hyperplane<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTree", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      List<LinecastPoint3D> list0 = regionBSPTree3D0.linecast((LineConvexSubset3D) null);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      RegionBSPTree3D regionBSPTree3D1 = regionBSPTree3D0.copy();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      RegionBSPTree3D regionBSPTree3D0 = regionBSPTree3D_PartitionedRegionBuilder3D0.build();
+      assertNotNull(regionBSPTree3D0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      Vector3D vector3D0 = Vector3D.ZERO;
+      Vector3D[] vector3DArray0 = new Vector3D[3];
+      vector3DArray0[0] = vector3D0;
+      vector3DArray0[1] = vector3D0;
+      vector3DArray0[2] = vector3D0;
+      Bounds3D bounds3D0 = Bounds3D.from(vector3D0, vector3DArray0);
+      // Undeclared exception!
+      try { 
+        regionBSPTree3D_PartitionedRegionBuilder3D0.insertAxisAlignedGrid(bounds3D0, 274, (Precision.DoubleEquivalence) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.threed.Plane", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      PriorityQueue<VertexListConvexPolygon3D> priorityQueue0 = new PriorityQueue<VertexListConvexPolygon3D>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) priorityQueue0, false);
+      LinecastPoint3D linecastPoint3D0 = regionBSPTree3D0.linecastFirst((LineConvexSubset3D) null);
+      assertNotNull(linecastPoint3D0);
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      HashSet<EmbeddedAreaPlaneConvexSubset> hashSet0 = new HashSet<EmbeddedAreaPlaneConvexSubset>();
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.from((Iterable<? extends PlaneConvexSubset>) hashSet0);
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D0 = RegionBSPTree3D.partitionedRegionBuilder();
+      RegionBSPTree3D.PartitionedRegionBuilder3D regionBSPTree3D_PartitionedRegionBuilder3D1 = regionBSPTree3D_PartitionedRegionBuilder3D0.insertBoundaries((BoundarySource3D) regionBSPTree3D0);
+      ;
+}

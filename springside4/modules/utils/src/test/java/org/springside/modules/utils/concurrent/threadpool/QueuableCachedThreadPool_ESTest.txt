@@ -1,0 +1,296 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1847);
+      MockThread mockThread0 = new MockThread((Runnable) null);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null, (Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1847, 1847, 3736L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      MockThrowable mockThrowable0 = new MockThrowable((String) null);
+      queuableCachedThreadPool0.afterExecute(mockThread0, mockThrowable0);
+      queuableCachedThreadPool0.execute((Runnable) mockThread0, 3736L, timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null, (Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1684L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      SocketReceiver socketReceiver0 = new SocketReceiver();
+      queuableCachedThreadPool0.execute((Runnable) socketReceiver0);
+      int int0 = queuableCachedThreadPool0.getSubmittedCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1157);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1157, 1157, 2778L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      MockThread mockThread0 = new MockThread((Runnable) null);
+      MockException mockException0 = new MockException((Throwable) null);
+      MockThrowable mockThrowable0 = new MockThrowable("", mockException0);
+      queuableCachedThreadPool0.afterExecute(mockThread0, mockThrowable0);
+      int int0 = queuableCachedThreadPool0.getSubmittedCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(669);
+      MockThread mockThread0 = new MockThread("McK_q_Y7");
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(669, 669, 1L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_AbortPolicy0);
+      queuableCachedThreadPool0.shutdownNow();
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool0.execute((Runnable) mockThread0, 1L, timeUnit0);
+        fail("Expecting exception: RejectedExecutionException");
+      } catch(RejectedExecutionException e) {
+         //
+         // Executor not running, can't force a command into the queue
+         //
+         verifyException("org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPool$ControllableQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1165);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1165, 1165, 2778L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool0.execute((Runnable) null, (-415L), timeUnit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1847);
+      Thread thread0 = MockThread.currentThread();
+      MockThread mockThread0 = new MockThread(thread0, "Hyu~C{R");
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(thread0).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1847, 1847, 3736L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool0.execute((Runnable) mockThread0, 3736L, timeUnit0);
+        fail("Expecting exception: IllegalThreadStateException");
+      } catch(IllegalThreadStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardOldestPolicy threadPoolExecutor_DiscardOldestPolicy0 = new ThreadPoolExecutor.DiscardOldestPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 279, 2194L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardOldestPolicy0);
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool0.execute((Runnable) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(3544);
+      Thread thread0 = MockThread.currentThread();
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, thread0);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(thread0).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool0.execute((Runnable) mockThread0);
+        fail("Expecting exception: IllegalThreadStateException");
+      } catch(IllegalThreadStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = null;
+      try {
+        queuableCachedThreadPool0 = new QueuableCachedThreadPool(0, 1671, 1671, timeUnit0, (QueuableCachedThreadPool.ControllableQueue) null, threadFactory0, threadPoolExecutor_AbortPolicy0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1105);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.CallerRunsPolicy threadPoolExecutor_CallerRunsPolicy0 = new ThreadPoolExecutor.CallerRunsPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = null;
+      try {
+        queuableCachedThreadPool0 = new QueuableCachedThreadPool((-296), (-296), (-296), timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_CallerRunsPolicy0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ThreadPoolExecutor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      MockThread mockThread0 = new MockThread();
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1684L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      boolean boolean0 = queuableCachedThreadPool_ControllableQueue0.force((Runnable) mockThread0, (-341L), timeUnit0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(669);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Thread) null, (Thread) null).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(669, 669, 1L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_AbortPolicy0);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, (Runnable) null, "org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder", (-2504L));
+      queuableCachedThreadPool0.execute((Runnable) mockThread0, 1L, timeUnit0);
+      assertFalse(mockThread0.isInterrupted());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(627);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardOldestPolicy threadPoolExecutor_DiscardOldestPolicy0 = new ThreadPoolExecutor.DiscardOldestPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 181, 1, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardOldestPolicy0);
+      queuableCachedThreadPool_ControllableQueue0.setParent(queuableCachedThreadPool0);
+      assertEquals(0, queuableCachedThreadPool0.getSubmittedCount());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1684L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      int int0 = queuableCachedThreadPool0.getSubmittedCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      MockThread mockThread0 = new MockThread();
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      doReturn(mockThread0).when(threadFactory0).newThread(any(java.lang.Runnable.class));
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1684L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      SocketReceiver socketReceiver0 = new SocketReceiver();
+      queuableCachedThreadPool0.execute((Runnable) socketReceiver0);
+      boolean boolean0 = queuableCachedThreadPool_ControllableQueue0.offer((Runnable) socketReceiver0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1);
+      MockThread mockThread0 = new MockThread();
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1, 1, 1684L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      queuableCachedThreadPool0.shutdownNow();
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool_ControllableQueue0.force((Runnable) mockThread0, (-341L), timeUnit0);
+        fail("Expecting exception: RejectedExecutionException");
+      } catch(RejectedExecutionException e) {
+         //
+         // Executor not running, can't force a command into the queue
+         //
+         verifyException("org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPool$ControllableQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1157);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1157, 1157, 2778L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      queuableCachedThreadPool0.shutdown();
+      MockThread mockThread0 = new MockThread((Runnable) null);
+      // Undeclared exception!
+      try { 
+        queuableCachedThreadPool_ControllableQueue0.force((Runnable) mockThread0);
+        fail("Expecting exception: RejectedExecutionException");
+      } catch(RejectedExecutionException e) {
+         //
+         // Executor not running, can't force a command into the queue
+         //
+         verifyException("org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPool$ControllableQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(1847);
+      MockThread mockThread0 = new MockThread((Runnable) null);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.DiscardPolicy threadPoolExecutor_DiscardPolicy0 = new ThreadPoolExecutor.DiscardPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(1847, 1847, 3736L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_DiscardPolicy0);
+      MockThrowable mockThrowable0 = new MockThrowable((String) null);
+      queuableCachedThreadPool0.afterExecute(mockThread0, mockThrowable0);
+      boolean boolean0 = queuableCachedThreadPool_ControllableQueue0.add(mockThread0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      QueuableCachedThreadPool.ControllableQueue queuableCachedThreadPool_ControllableQueue0 = new QueuableCachedThreadPool.ControllableQueue(669);
+      ThreadFactory threadFactory0 = mock(ThreadFactory.class, new ViolatedAssumptionAnswer());
+      ThreadPoolExecutor.AbortPolicy threadPoolExecutor_AbortPolicy0 = new ThreadPoolExecutor.AbortPolicy();
+      QueuableCachedThreadPool queuableCachedThreadPool0 = new QueuableCachedThreadPool(669, 669, 1L, timeUnit0, queuableCachedThreadPool_ControllableQueue0, threadFactory0, threadPoolExecutor_AbortPolicy0);
+      ThreadGroup threadGroup0 = mock(ThreadGroup.class, new ViolatedAssumptionAnswer());
+      MockThread mockThread0 = new MockThread(threadGroup0, (Runnable) null, "org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder", (-2504L));
+      boolean boolean0 = queuableCachedThreadPool_ControllableQueue0.force((Runnable) mockThread0);
+      assertTrue(boolean0);
+}

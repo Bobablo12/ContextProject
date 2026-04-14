@@ -1,0 +1,50 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ThrottleRequestFilter throttleRequestFilter0 = new ThrottleRequestFilter((-391), (-391), false);
+      FilterContext<String> filterContext0 = (FilterContext<String>) mock(FilterContext.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler) null).when(filterContext0).getAsyncHandler();
+      doReturn((Request) null).when(filterContext0).getRequest();
+      try { 
+        throttleRequestFilter0.filter((FilterContext<String>) filterContext0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // No slot available for processing Request null with AsyncHandler null
+         //
+         verifyException("org.asynchttpclient.filter.ThrottleRequestFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ThrottleRequestFilter throttleRequestFilter0 = new ThrottleRequestFilter(1795);
+      FilterContext<String> filterContext0 = (FilterContext<String>) mock(FilterContext.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler) null, (AsyncHandler) null).when(filterContext0).getAsyncHandler();
+      doReturn((IOException) null).when(filterContext0).getIOException();
+      doReturn((Request) null).when(filterContext0).getRequest();
+      doReturn((HttpResponseStatus) null).when(filterContext0).getResponseStatus();
+      doReturn(false).when(filterContext0).replayRequest();
+      // Undeclared exception!
+      try { 
+        throttleRequestFilter0.filter(filterContext0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.filter.ReleasePermitOnComplete", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ThrottleRequestFilter throttleRequestFilter0 = new ThrottleRequestFilter(0, 0);
+      // Undeclared exception!
+      try { 
+        throttleRequestFilter0.filter((FilterContext<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.filter.ThrottleRequestFilter", e);
+      }
+  }

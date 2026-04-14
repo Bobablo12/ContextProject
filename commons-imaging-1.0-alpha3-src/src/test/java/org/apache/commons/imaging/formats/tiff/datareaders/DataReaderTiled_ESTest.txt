@@ -1,0 +1,630 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 0L, 408, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3250, intArray0, 408, 6, 2789);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 2506, 3);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, 3720, (-2044), intArray0, 2789, 2506, 3, 408, 408, 2506, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(6, 6, 3, 6);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(32, linkedList0, 32, 32, byteOrder0);
+      int[] intArray0 = new int[0];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(32, intArray0, 32, 6, 32, true);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[6];
+      byte[] byteArray0 = new byte[1];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data('\u0000', 6, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 32, 6);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, 6, 32, 32, intArray0, 32, 6, 5, 6, 6, 5, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData((Rectangle) null, true, true);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterBiLevel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-1), linkedList0, (-1), (-1), byteOrder0);
+      int[] intArray0 = new int[7];
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      MockFile mockFile0 = new MockFile("c3", "");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImageData.ByteSourceData tiffImageData_ByteSourceData0 = new TiffImageData.ByteSourceData(282, 3758, byteSourceFile0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_ByteSourceData0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, (-1), (-419));
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, (PhotometricInterpreter) null, (-1), 84, 530, intArray0, 282, 299, 2, (-4097), 2711, (-1979), tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Dimension dimension0 = new Dimension();
+      Rectangle rectangle0 = new Rectangle(dimension0);
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tiff: unknown/unsupported compression: -1979
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.ImageDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      CharBuffer charBuffer0 = CharBuffer.allocate(579);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      int[] intArray0 = new int[8];
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[0];
+      JpegImageData jpegImageData0 = new JpegImageData((-1409), 65536, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) jpegImageData0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, (-117), 65);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, (PhotometricInterpreter) null, 65, (-117), 65, intArray0, 579, 24, 3, 65, (-117), 16, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Polygon polygon0 = new Polygon();
+      Rectangle rectangle0 = polygon0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.ImageDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3, intArray0, 3, 3, 3);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[2];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 3, 3);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, photometricInterpreterCieLab0, 3, 3, 3, intArray0, 3, 3, 3, 3, 3, 3, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Point point0 = new Point(3, 3);
+      Rectangle rectangle0 = new Rectangle(point0);
+      rectangle0.setLocation(3, 50724);
+      Point2D.Float point2D_Float0 = new Point2D.Float(3, 0);
+      rectangle0.add((Point2D) point2D_Float0);
+      // Undeclared exception!
+      dataReaderTiled0.readRasterData(rectangle0);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 0L, 408, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3250, intArray0, 408, 6, 2789);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 2506, 2);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, (-21), (-2044), intArray0, 2789, 2506, 2, 408, 408, 2506, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Line2D.Double line2D_Double0 = new Line2D.Double();
+      Rectangle rectangle0 = line2D_Double0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 0L, 408, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3250, intArray0, 408, 6, 2789);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 2506, 3);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 0, 3720, (-2040), intArray0, 2789, 2506, 3, 0, 0, 2506, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Line2D.Double line2D_Double0 = new Line2D.Double();
+      Rectangle rectangle0 = line2D_Double0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(548, linkedList0, 0L, 0L, byteOrder0);
+      int[] intArray0 = new int[2];
+      PhotometricInterpreterLogLuv photometricInterpreterLogLuv0 = new PhotometricInterpreterLogLuv(6, intArray0, 548, 16, 16);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[5];
+      File file0 = MockFile.createTempFile("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", "org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(file0);
+      TiffImageData.ByteSourceData tiffImageData_ByteSourceData0 = new TiffImageData.ByteSourceData(0L, 0, byteSourceFile0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_ByteSourceData0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 6, 1619);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterLogLuv0, 162, 522, 6, intArray0, 548, 522, 6, 548, (-2230), 522, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Point point0 = new Point();
+      Dimension dimension0 = new Dimension(0, 0);
+      Rectangle rectangle0 = new Rectangle(point0, dimension0);
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, false);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Tiff: unknown/unsupported compression: 522
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.ImageDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-57), linkedList0, (-57), (-1045L), byteOrder0);
+      int[] intArray0 = new int[7];
+      PhotometricInterpreterYCbCr photometricInterpreterYCbCr0 = new PhotometricInterpreterYCbCr(2084, intArray0, 2723, 0, (-655));
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles((TiffElement.DataElement[]) null, 2084, 4);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterYCbCr0, 24, 1586, 4, intArray0, 0, 0, 7, (-57), 0, 0, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(48323, linkedList0, 0L, 48323, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(6, intArray0, 6, 6, 6, true);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.PLANAR;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles((TiffElement.DataElement[]) null, 60, 798);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, 48323, 48323, 4189, intArray0, 6, 6, (-128), 48323, 48323, (-594), tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(6, 48323);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, false, false);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(9, linkedList0, 3744L, 9, byteOrder0);
+      int[] intArray0 = new int[7];
+      PhotometricInterpreterCmyk photometricInterpreterCmyk0 = new PhotometricInterpreterCmyk(9, intArray0, 6, 1, 9);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 2303, 0);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCmyk0, 9, 9, 0, intArray0, (-722), 1, 534, 9, 9, 0, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle2D.Double rectangle2D_Double0 = new Rectangle2D.Double(6, 3744L, (-722), 1333.770137857247);
+      Rectangle rectangle0 = rectangle2D_Double0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, true);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-715), linkedList0, (-715), (-17L), byteOrder0);
+      int[] intArray0 = new int[9];
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb((-715), intArray0, (-715), 6, (-763));
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, (-715), 7);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterRgb0, 6, 0, 0, intArray0, 2, 0, (-860), 2, (-860), (-1912), tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Polygon polygon0 = new Polygon(intArray0, intArray0, 7);
+      Rectangle rectangle0 = polygon0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, false, false);
+        fail("Expecting exception: ArithmeticException");
+      } catch(ArithmeticException e) {
+         //
+         // / by zero
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      char[] charArray0 = new char[9];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0, 2, 0);
+      ByteOrder byteOrder0 = charBuffer0.order();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(2, linkedList0, 2, 0L, byteOrder0);
+      int[] intArray0 = new int[0];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(65535, intArray0, 63, 0, 1012);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[2];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, (-4), 3859);
+      DataReaderTiled dataReaderTiled0 = null;
+      try {
+        dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 6, (-1108), 1012, (int[]) null, 6, 65535, 2, 1012, (-683), 78, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.ImageDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-2995), linkedList0, (-3001L), (-3001L), byteOrder0);
+      int[] intArray0 = new int[3];
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[2];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 0, (-529));
+      DataReaderTiled dataReaderTiled0 = null;
+      try {
+        dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, (PhotometricInterpreter) null, 562, 562, (-1023), intArray0, 1985, (-1023), (-2995), (-2995), (-2995), 193, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.ImageDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 408, 408, byteOrder0);
+      int[] intArray0 = new int[14];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(408, intArray0, 408, 0, 408);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 408, 2);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, (-21), 408, intArray0, 408, 408, 2, 408, 408, 408, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(2, 408, (-21), 6);
+      Point2D.Double point2D_Double0 = new Point2D.Double(408L, 408);
+      rectangle0.setFrameFromDiagonal((Point2D) point2D_Double0, (Point2D) point2D_Double0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 408, 408, byteOrder0);
+      int[] intArray0 = new int[14];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(408, intArray0, 408, 0, 408);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 408, 2);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, (-21), 408, intArray0, 408, 408, 2, 408, 408, 408, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(2, 408, (-21), 6);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      int[] intArray0 = new int[4];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3, intArray0, 3, 3, 3);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.PLANAR;
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[2];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 0, 3);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, photometricInterpreterCieLab0, 3, 3, 3, intArray0, 3, 3, 3, 3, 3, 3, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData((Rectangle) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 408, 408, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(408, intArray0, 408, 0, 0);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[6];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 408, 408);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 0, 408, 408, intArray0, 408, 408, 408, 0, 0, 408, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Line2D.Double line2D_Double0 = new Line2D.Double();
+      Rectangle rectangle0 = line2D_Double0.getBounds();
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Unsupported sample format, value=408
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.DataReaderTiled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(1, linkedList0, 0L, 1, byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(3250, intArray0, 1, 6, 2789);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 3250, 3);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 1, 24, (-2044), intArray0, 2789, 2789, 3, 1, 1, 2789, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Line2D.Double line2D_Double0 = new Line2D.Double();
+      Rectangle rectangle0 = line2D_Double0.getBounds();
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readRasterData(rectangle0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Raster dimensions less than or equal to zero are not supported
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffRasterData", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 408, 408, byteOrder0);
+      int[] intArray0 = new int[14];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(408, intArray0, 408, 0, 408);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 408, 2);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, (-21), 408, intArray0, 408, 408, 2, 408, 408, 408, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      TiffRasterData tiffRasterData0 = dataReaderTiled0.readRasterData((Rectangle) null);
+      assertEquals(1, tiffRasterData0.getHeight());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(408, linkedList0, 408, 408, byteOrder0);
+      int[] intArray0 = new int[14];
+      PhotometricInterpreterCieLab photometricInterpreterCieLab0 = new PhotometricInterpreterCieLab(408, intArray0, 408, 0, 408);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[0];
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 408, 2);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterCieLab0, 408, (-21), 408, intArray0, 408, 408, 2, 408, 408, 408, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      TiffRasterData tiffRasterData0 = dataReaderTiled0.readRasterData((Rectangle) null);
+      assertEquals(1, tiffRasterData0.getWidth());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(28, intArray0, 0, 28, 28);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, photometricInterpreterRgb0, 28, (-5), 0, intArray0, (-5), 0, 0, (-5), 28, 0, tiffPlanarConfiguration0, byteOrder0, (TiffImageData.Tiles) null);
+      Dimension dimension0 = new Dimension(28, 28);
+      Rectangle rectangle0 = new Rectangle(dimension0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, false, false);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage (y+height) is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      int[] intArray0 = new int[9];
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(32, intArray0, 32, 32, 32);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.PLANAR;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, photometricInterpreterRgb0, 26, (-13), (-2253), intArray0, (-2159), 32, 1571, (-13), 3, 32, tiffPlanarConfiguration0, byteOrder0, (TiffImageData.Tiles) null);
+      Dimension dimension0 = new Dimension(32, 2678);
+      Rectangle rectangle0 = new Rectangle(dimension0);
+      Rectangle2D.Float rectangle2D_Float0 = new Rectangle2D.Float(0, (-4096.72F), (-0.204F), 200.0F);
+      rectangle0.setFrame((Rectangle2D) rectangle2D_Float0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, true);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // negative or zero subimage width
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      int[] intArray0 = new int[8];
+      PhotometricInterpreterRgb photometricInterpreterRgb0 = new PhotometricInterpreterRgb(32, intArray0, 0, 32, 32);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled((TiffDirectory) null, photometricInterpreterRgb0, 26, (-13), 32, intArray0, 0, 0, 0, (-13), 0, 0, tiffPlanarConfiguration0, byteOrder0, (TiffImageData.Tiles) null);
+      Dimension dimension0 = new Dimension(32, 32);
+      Rectangle rectangle0 = new Rectangle(dimension0);
+      rectangle0.x = 32;
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, true);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage (y+height) is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(48323, linkedList0, 0L, (-1259L), byteOrder0);
+      int[] intArray0 = new int[3];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(6, intArray0, 6, 6, 6, true);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.PLANAR;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles((TiffElement.DataElement[]) null, 60, 798);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, (-1), 48323, 4189, intArray0, 6, 6, (-128), (-1), 48323, (-594), tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(6, 48323);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, false, false);
+        fail("Expecting exception: RasterFormatException");
+      } catch(RasterFormatException e) {
+         //
+         // subimage (x+width) is outside raster
+         //
+         verifyException("org.apache.commons.imaging.common.ImageBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(32, linkedList0, 32, 32, byteOrder0);
+      int[] intArray0 = new int[1];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(32, intArray0, 32, 6, 32, true);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[6];
+      byte[] byteArray0 = new byte[1];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data('\u0000', 6, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 32, 6);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, 6, 32, 32, intArray0, 32, 6, 1, 6, 6, 1, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      try { 
+        dataReaderTiled0.readImageData((Rectangle) null, true, true);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // BitInputStream: incomplete bit read
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.datareaders.BitInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(24, linkedList0, 24, 24, byteOrder0);
+      int[] intArray0 = new int[0];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(24, intArray0, 24, 6, 24, false);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[6];
+      byte[] byteArray0 = new byte[1];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data('\u0000', 6, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 24, 6);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, 6, 24, 24, intArray0, 24, 6, 1, 6, 6, 1, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData((Rectangle) null, true, true);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterBiLevel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      LinkedList<TiffField> linkedList0 = new LinkedList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(15, linkedList0, 15, 15, byteOrder0);
+      int[] intArray0 = new int[0];
+      PhotometricInterpreterBiLevel photometricInterpreterBiLevel0 = new PhotometricInterpreterBiLevel(15, intArray0, 15, 6, 15, true);
+      TiffPlanarConfiguration tiffPlanarConfiguration0 = TiffPlanarConfiguration.CHUNKY;
+      TiffElement.DataElement[] tiffElement_DataElementArray0 = new TiffElement.DataElement[1];
+      byte[] byteArray0 = new byte[10];
+      TiffImageData.Data tiffImageData_Data0 = new TiffImageData.Data('o', 6, byteArray0);
+      tiffElement_DataElementArray0[0] = (TiffElement.DataElement) tiffImageData_Data0;
+      TiffImageData.Tiles tiffImageData_Tiles0 = new TiffImageData.Tiles(tiffElement_DataElementArray0, 15, 6);
+      DataReaderTiled dataReaderTiled0 = new DataReaderTiled(tiffDirectory0, photometricInterpreterBiLevel0, 6, 15, 15, intArray0, 15, 6, 1, 6, 6, 1, tiffPlanarConfiguration0, byteOrder0, tiffImageData_Tiles0);
+      Rectangle rectangle0 = new Rectangle(1, 6, 6, 15);
+      // Undeclared exception!
+      try { 
+        dataReaderTiled0.readImageData(rectangle0, true, true);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterBiLevel", e);
+      }
+  }

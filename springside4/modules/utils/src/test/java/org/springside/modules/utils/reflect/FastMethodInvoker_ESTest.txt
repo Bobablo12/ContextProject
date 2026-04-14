@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Class<String> class0 = String.class;
+      Class<Object> class1 = Object.class;
+      // Undeclared exception!
+      try { 
+        FastMethodInvoker.createSetter(class0, "y#dn", class1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Could not find getter method [y#dn] on target [class java.lang.String]
+         //
+         verifyException("org.springside.modules.utils.reflect.FastMethodInvoker", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FastMethodInvoker.createSetter((Class<?>) null, (String) null, (Class<?>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // class can't be null
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        FastMethodInvoker.createGetter((Class<?>) null, "p51uKl5yicXmgRqij");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // class can't be null
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FastMethodInvoker fastMethodInvoker0 = new FastMethodInvoker((FastMethod) null);
+      Object[] objectArray0 = new Object[1];
+      // Undeclared exception!
+      try { 
+        fastMethodInvoker0.invoke((Object) null, objectArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.reflect.FastMethodInvoker", e);
+      }
+  }

@@ -1,0 +1,84 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("vertex");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      PolygonObjParser.Face polygonObjParser_Face0 = objFacetDefinitionReader0.readFace();
+      assertNotNull(polygonObjParser_Face0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      ObjTriangleMeshReader objTriangleMeshReader0 = new ObjTriangleMeshReader(stringReader0, precision_DoubleEquivalence0);
+      objTriangleMeshReader0.setFailOnNonPolygonKeywords(true);
+      boolean boolean0 = objTriangleMeshReader0.isFailOnNonPolygonKeywords();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("P");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      objFacetDefinitionReader0.close();
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFace();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("vn");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 3: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("v");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFace();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 2: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("f");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        objFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 2: face must contain at least 3 vertices but found only 0
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("P");
+      ObjFacetDefinitionReader objFacetDefinitionReader0 = new ObjFacetDefinitionReader(stringReader0);
+      boolean boolean0 = objFacetDefinitionReader0.isFailOnNonPolygonKeywords();
+      assertTrue(boolean0);
+}

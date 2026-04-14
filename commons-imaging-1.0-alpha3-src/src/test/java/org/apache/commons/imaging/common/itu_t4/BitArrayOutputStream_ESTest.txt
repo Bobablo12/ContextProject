@@ -1,0 +1,145 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream();
+      bitArrayOutputStream0.writeBit((-535));
+      bitArrayOutputStream0.flush();
+      int int0 = bitArrayOutputStream0.size();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      bitArrayOutputStream0.writeBit(0);
+      // Undeclared exception!
+      try { 
+        bitArrayOutputStream0.writeBit(0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      // Undeclared exception!
+      try { 
+        bitArrayOutputStream0.write(445);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      bitArrayOutputStream0.writeBit(0);
+      // Undeclared exception!
+      try { 
+        bitArrayOutputStream0.toByteArray();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      bitArrayOutputStream0.writeBit(0);
+      // Undeclared exception!
+      try { 
+        bitArrayOutputStream0.close();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = null;
+      try {
+        bitArrayOutputStream0 = new BitArrayOutputStream((-4548));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream();
+      bitArrayOutputStream0.flush();
+      assertEquals(0, bitArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      bitArrayOutputStream0.writeBit((-1));
+      // Undeclared exception!
+      try { 
+        bitArrayOutputStream0.flush();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.common.itu_t4.BitArrayOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(1);
+      bitArrayOutputStream0.write(1);
+      bitArrayOutputStream0.writeBit(1);
+      bitArrayOutputStream0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(1);
+      int int0 = bitArrayOutputStream0.getBitsAvailableInCurrentByte();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream();
+      byte[] byteArray0 = bitArrayOutputStream0.toByteArray();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream(0);
+      bitArrayOutputStream0.close();
+      assertEquals(0, bitArrayOutputStream0.size());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream();
+      int int0 = bitArrayOutputStream0.size();
+      assertEquals(0, bitArrayOutputStream0.getBitsAvailableInCurrentByte());
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      BitArrayOutputStream bitArrayOutputStream0 = new BitArrayOutputStream();
+      int int0 = bitArrayOutputStream0.size();
+      assertEquals(0, int0);
+}

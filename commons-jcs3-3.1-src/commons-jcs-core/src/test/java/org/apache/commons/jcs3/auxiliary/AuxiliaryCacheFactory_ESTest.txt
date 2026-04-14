@@ -1,0 +1,92 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      remoteCacheFactory0.initialize();
+      remoteCacheFactory0.dispose();
+      assertNotNull(remoteCacheFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      remoteCacheFactory0.setName("*Xa:jkV6Aj3^%gB");
+      assertNotNull(remoteCacheFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      lateralTCPCacheFactory0.initialize();
+      assertNotNull(lateralTCPCacheFactory0.getName());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      remoteCacheFactory0.setName((String) null);
+      String string0 = remoteCacheFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      String string0 = remoteCacheFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      remoteCacheFactory0.setName("");
+      String string0 = remoteCacheFactory0.getName();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RemoteCacheAttributes remoteCacheAttributes0 = new RemoteCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CacheEventLoggerDebugLogger cacheEventLoggerDebugLogger0 = new CacheEventLoggerDebugLogger();
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      AuxiliaryCache<Object, ForkJoinTask<Integer>> auxiliaryCache0 = remoteCacheFactory0.createCache((AuxiliaryCacheAttributes) remoteCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0, (ICacheEventLogger) cacheEventLoggerDebugLogger0, (IElementSerializer) encryptingSerializer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      // Undeclared exception!
+      try { 
+        lateralTCPCacheFactory0.dispose();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LateralTCPCacheFactory lateralTCPCacheFactory0 = new LateralTCPCacheFactory();
+      TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+      EncryptingSerializer encryptingSerializer0 = new EncryptingSerializer();
+      try { 
+        lateralTCPCacheFactory0.createCache((AuxiliaryCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) null, (ICacheEventLogger) null, (IElementSerializer) encryptingSerializer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPCacheFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RemoteCacheFactory remoteCacheFactory0 = new RemoteCacheFactory();
+      LateralCacheAttributes lateralCacheAttributes0 = new LateralCacheAttributes();
+      try { 
+        remoteCacheFactory0.createCache((AuxiliaryCacheAttributes) lateralCacheAttributes0, (ICompositeCacheManager) null, (ICacheEventLogger) null, (IElementSerializer) null);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.auxiliary.lateral.LateralCacheAttributes cannot be cast to org.apache.commons.jcs3.auxiliary.remote.RemoteCacheAttributes
+         //
+         verifyException("org.apache.commons.jcs3.auxiliary.remote.RemoteCacheFactory", e);
+      }
+  }

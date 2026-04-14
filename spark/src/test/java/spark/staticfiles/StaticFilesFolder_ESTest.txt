@@ -1,0 +1,58 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StaticFilesFolder.localConfiguredTo("dd%XVt<C_W?'S\"^B");
+      String string0 = StaticFilesFolder.local();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StaticFilesFolder.localConfiguredTo("");
+      String string0 = StaticFilesFolder.local();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        StaticFilesFolder.externalConfiguredTo((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StaticFilesFolder.externalConfiguredTo("/");
+      String string0 = StaticFilesFolder.external();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StaticFilesFolder staticFilesFolder0 = new StaticFilesFolder();
+      assertNotNull(staticFilesFolder0.local());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      String string0 = StaticFilesFolder.external();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      String string0 = StaticFilesFolder.local();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        StaticFilesFolder.localConfiguredTo((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.StringUtils", e);
+      }
+  }

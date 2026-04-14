@@ -1,0 +1,49 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RouteMatch routeMatch0 = new RouteMatch((Object) null, "NsR!VI5c#P", "NsR!VI5c#P", "jY4AHg1");
+      Request request0 = RequestResponseFactory.create(routeMatch0, (HttpServletRequest) null);
+      assertNotNull(request0.matchedPath());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RouteMatch routeMatch0 = new RouteMatch("4 8OXZm<{4%%", ":HF G%h(S6lr0-cNQF", "4 8OXZm<{4%%", "UVK!C(s=^J#h>`");
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      // Undeclared exception!
+      try { 
+        RequestResponseFactory.create(routeMatch0, (HttpServletRequest) httpServletRequestWrapper0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Bad URI % encoding
+         //
+         verifyException("spark.utils.urldecoding.UrlDecode", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Response response0 = RequestResponseFactory.create((HttpServletResponse) null);
+      assertNotNull(response0.body());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      // Undeclared exception!
+      try { 
+        RequestResponseFactory.create((RouteMatch) null, (HttpServletRequest) httpServletRequestWrapper0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.Request", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      Request request0 = RequestResponseFactory.create((HttpServletRequest) httpServletRequestWrapper0);
+      ;
+}

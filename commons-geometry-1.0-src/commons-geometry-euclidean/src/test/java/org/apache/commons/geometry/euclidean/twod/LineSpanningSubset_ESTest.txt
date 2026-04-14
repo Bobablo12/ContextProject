@@ -1,0 +1,211 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-1050.31740348724), precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Split<LineConvexSubset> split0 = lineSpanningSubset0.splitOnIntersection(line0, vector2D_Unit0);
+      assertEquals(split0, split0.getLocation());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, (-1711.0096588968024), (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      double double0 = lineSpanningSubset0.closestAbscissa(0.0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      double double0 = lineSpanningSubset0.closestAbscissa((-3034.67296));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      AffineTransformMatrix2D affineTransformMatrix2D0 = AffineTransformMatrix2D.createShear(0.0, 0.0);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset0.transform(affineTransformMatrix2D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSpanningSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(true, true).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-1050.31740348724), precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset0.transform(rotation2D0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Line direction cannot be zero
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.Lines", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSpanningSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset0.reverse();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSpanningSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 1.0, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      double double0 = lineSpanningSubset0.getSubspaceEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      double double0 = lineSpanningSubset0.getSubspaceStart();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      Line line0 = new Line(vector2D_Unit0, (-1050.31740348724), precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Vector2D vector2D0 = lineSpanningSubset0.getCentroid();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      boolean boolean0 = lineSpanningSubset0.isFull();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 2295.2729, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Vector2D vector2D0 = lineSpanningSubset0.getEndPoint();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      double double0 = lineSpanningSubset0.closestAbscissa(Double.POSITIVE_INFINITY);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      RegionLocation regionLocation0 = lineSpanningSubset0.classifyAbscissa(Double.POSITIVE_INFINITY);
+      assertNotNull(regionLocation0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Precision.DoubleEquivalence precision_DoubleEquivalence0 = mock(Precision.DoubleEquivalence.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(precision_DoubleEquivalence0).eq(anyDouble() , anyDouble());
+      Line line0 = new Line(vector2D_Unit0, (-1050.31740348724), precision_DoubleEquivalence0);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Rotation2D rotation2D0 = Rotation2D.identity();
+      LineSpanningSubset lineSpanningSubset1 = lineSpanningSubset0.transform(rotation2D0);
+      Split<LineConvexSubset> split0 = lineSpanningSubset1.splitOnIntersection(line0, vector2D_Unit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 2295.2729, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      String string0 = lineSpanningSubset0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      boolean boolean0 = lineSpanningSubset0.isFinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_X;
+      Line line0 = new Line(vector2D_Unit0, 0.9999999999, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      boolean boolean0 = lineSpanningSubset0.isInfinite();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 2295.2729, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      Vector2D vector2D0 = lineSpanningSubset0.getStartPoint();
+      assertNotNull(vector2D0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      Line line0 = new Line(vector2D_Unit0, 2295.2729, (Precision.DoubleEquivalence) null);
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset(line0);
+      LineSpanningSubset lineSpanningSubset1 = lineSpanningSubset0.reverse();
+      assertTrue(lineSpanningSubset1.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      Vector2D.Unit vector2D_Unit0 = Vector2D.Unit.MINUS_Y;
+      // Undeclared exception!
+      try { 
+        lineSpanningSubset0.splitOnIntersection((Line) null, vector2D_Unit0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.euclidean.twod.LineSubset", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      Bounds2D bounds2D0 = lineSpanningSubset0.getBounds();
+      assertNotNull(bounds2D0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LineSpanningSubset lineSpanningSubset0 = new LineSpanningSubset((Line) null);
+      double double0 = lineSpanningSubset0.getSize();
+      ;
+}

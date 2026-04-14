@@ -1,0 +1,716 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(4);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.ZYZ;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((List<Vector3D>) linkedList0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Writer requires 3 vertices per facet; found 4
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0, true);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(byteArrayOutputStream0, true);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      textFacetDefinitionWriter0.setFacetVertexCount((-3857));
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(4);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.ZYZ;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(linkedList0, vector3D0);
+      textFacetDefinitionWriter0.write((FacetDefinition) simpleFacetDefinition0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      textFacetDefinitionWriter0.setVertexSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      textFacetDefinitionWriter0.setVertexSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      textFacetDefinitionWriter0.setVertexSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      textFacetDefinitionWriter0.setVertexSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(3549);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(3549);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.setVertexSeparator("");
+      textFacetDefinitionWriter0.getVertexSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      textFacetDefinitionWriter0.setVertexComponentSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      textFacetDefinitionWriter0.setVertexComponentSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      textFacetDefinitionWriter0.setVertexComponentSeparator((String) null);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(2128);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(2128);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      textFacetDefinitionWriter0.setVertexComponentSeparator("");
+      textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("My]Bb");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("My]Bb");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("My]Bb");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("My]Bb");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("lA^<7Gz&^T8 ", "lA^<7Gz&^T8 ");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("lA^<7Gz&^T8 ", "lA^<7Gz&^T8 ");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      assertEquals(1, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("lA^<7Gz&^T8 ", "lA^<7Gz&^T8 ");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("lA^<7Gz&^T8 ", "lA^<7Gz&^T8 ");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.writeComment("WGp^3}-h2Ow@Q$k");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat((Writer) null);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.writeBlankLine();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(4);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.XYZ;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      textFacetDefinitionWriter0.setFacetVertexCount(4);
+      SimpleFacetDefinition simpleFacetDefinition0 = new SimpleFacetDefinition(linkedList0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((FacetDefinition) simpleFacetDefinition0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Writer requires 4 vertices per facet; found 3
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("'Uu|}`~");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((PlaneConvexSubset) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((BoundarySource3D) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter((Writer) null);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((List<Vector3D>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      textFacetDefinitionWriter0.setCommentToken((String) null);
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      textFacetDefinitionWriter0.setCommentToken((String) null);
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      textFacetDefinitionWriter0.setCommentToken((String) null);
+      assertEquals(1, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      Vector3D.Unit vector3D_Unit0 = Vector3D.Unit.MINUS_X;
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      arrayList0.add((Vector3D) vector3D_Unit0);
+      textFacetDefinitionWriter0.write((List<Vector3D>) arrayList0);
+      assertNotNull(stringWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter(3549);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      ArrayList<Vector3D> arrayList0 = new ArrayList<Vector3D>();
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((List<Vector3D>) arrayList0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // At least 3 vertices are required per facet; found 0
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("; ");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      Stack<PlaneConvexSubset> stack0 = new Stack<PlaneConvexSubset>();
+      stack0.add((PlaneConvexSubset) null);
+      BoundarySource3D boundarySource3D0 = BoundarySource3D.of((Collection<PlaneConvexSubset>) stack0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write(boundarySource3D0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      textFacetDefinitionWriter0.write((BoundarySource3D) regionBSPTree3D0);
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      textFacetDefinitionWriter0.write((BoundarySource3D) regionBSPTree3D0);
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      textFacetDefinitionWriter0.write((BoundarySource3D) regionBSPTree3D0);
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      RegionBSPTree3D regionBSPTree3D0 = RegionBSPTree3D.empty();
+      textFacetDefinitionWriter0.write((BoundarySource3D) regionBSPTree3D0);
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeComment((String) null);
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeComment((String) null);
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeComment((String) null);
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeComment((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.writeComment(",");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Cannot write comment: no comment token configured
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("T:3X[~ixi?}@baY}Wl");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.setCommentToken(" ");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Comment token cannot begin with whitespace
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.setCommentToken("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Comment token cannot be empty
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      textFacetDefinitionWriter0.setCommentToken("mAeTB4_Aa2q");
+      textFacetDefinitionWriter0.writeComment("mAeTB4_Aa2q");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.setFacetVertexCount(1);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Facet vertex count must be less than 0 or greater than 2; was 1
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.setFacetVertexCount((-1));
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.setFacetVertexCount((-1));
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.setFacetVertexCount((-1));
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.setFacetVertexCount((-1));
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      String string0 = textFacetDefinitionWriter0.getCommentToken();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("SFHQN#Bk[nCZ)");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionWriter0.write((FacetDefinition) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      URI uRI0 = MockURI.aFileURI;
+      MockFile mockFile0 = new MockFile(uRI0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(mockPrintWriter0);
+      String string0 = textFacetDefinitionWriter0.getVertexComponentSeparator();
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeBlankLine();
+      assertNotNull(textFacetDefinitionWriter0.getVertexComponentSeparator());
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeBlankLine();
+      assertNotNull(textFacetDefinitionWriter0.getVertexSeparator());
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeBlankLine();
+      assertNotNull(textFacetDefinitionWriter0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = new TextFacetDefinitionWriter(stringWriter0);
+      textFacetDefinitionWriter0.writeBlankLine();
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.XZX;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      textFacetDefinitionWriter0.write((List<Vector3D>) linkedList0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      StringWriter stringWriter0 = new StringWriter();
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(stringWriter0);
+      LinkedList<Vector3D> linkedList0 = new LinkedList<Vector3D>();
+      AxisSequence axisSequence0 = AxisSequence.XZX;
+      Vector3D vector3D0 = axisSequence0.getAxis2();
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      linkedList0.add(vector3D0);
+      textFacetDefinitionWriter0.write((List<Vector3D>) linkedList0);
+      assertEquals(0, textFacetDefinitionWriter0.getFacetVertexCount());
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("; ");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("; ");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("; ");
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = TextFacetDefinitionWriter.csvFormat(mockPrintWriter0);
+      int int0 = textFacetDefinitionWriter0.getFacetVertexCount();
+      ;
+}

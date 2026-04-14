@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      DeleteCommand<Object> deleteCommand0 = new DeleteCommand<Object>("'AP,&mL6Q;Dm04VZL0");
+      // Undeclared exception!
+      try { 
+        deleteCommand0.accept((CommandVisitor<Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.sequence.DeleteCommand", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DeleteCommand<Object> deleteCommand0 = new DeleteCommand<Object>("");
+      CommandVisitor<Object> commandVisitor0 = (CommandVisitor<Object>) mock(CommandVisitor.class, new ViolatedAssumptionAnswer());
+      deleteCommand0.accept(commandVisitor0);
+  }

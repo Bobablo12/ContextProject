@@ -1,0 +1,41 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayPart byteArrayPart0 = new ByteArrayPart("", byteArray0, "", (Charset) null, "org.asynchttpclient.request.body.multipart.part.FileLikeMultipartPart", "0\tu", "0\tu");
+      ByteArrayMultipartPart byteArrayMultipartPart0 = new ByteArrayMultipartPart(byteArrayPart0, byteArray0);
+      PartVisitor.CounterPartVisitor partVisitor_CounterPartVisitor0 = new PartVisitor.CounterPartVisitor();
+      byteArrayMultipartPart0.visitDispositionHeader(partVisitor_CounterPartVisitor0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      Charset charset0 = utf8Encoder0.charset();
+      ByteArrayPart byteArrayPart0 = new ByteArrayPart("; filename=", byteArray0, "", charset0, "org.asynchttpclient.request.body.multipart.part.FileLikeMultipartPart");
+      ByteArrayMultipartPart byteArrayMultipartPart0 = new ByteArrayMultipartPart(byteArrayPart0, byteArray0);
+      // Undeclared exception!
+      try { 
+        byteArrayMultipartPart0.visitDispositionHeader((PartVisitor) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.request.body.multipart.part.MultipartPart", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      InputStreamPart inputStreamPart0 = mock(InputStreamPart.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(inputStreamPart0).getFileName();
+      doReturn((String) null).when(inputStreamPart0).getContentId();
+      doReturn((String) null).when(inputStreamPart0).getContentType();
+      doReturn((List) null).when(inputStreamPart0).getCustomHeaders();
+      doReturn((String) null).when(inputStreamPart0).getDispositionType();
+      doReturn((String) null).when(inputStreamPart0).getName();
+      doReturn((String) null).when(inputStreamPart0).getTransferEncoding();
+      InputStreamMultipartPart inputStreamMultipartPart0 = new InputStreamMultipartPart(inputStreamPart0, byteArray0);
+      ;
+}

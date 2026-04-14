@@ -1,0 +1,17 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Iterator<Integer> iterator0 = (Iterator<Integer>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(iterator0).next();
+      SkippingIterator<Integer> skippingIterator0 = new SkippingIterator<Integer>(iterator0, 0L);
+      Integer integer0 = skippingIterator0.next();
+      assertNotNull(integer0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Iterator<String> iterator0 = (Iterator<String>) mock(Iterator.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(iterator0).hasNext();
+      doReturn("").when(iterator0).next();
+      SkippingIterator<String> skippingIterator0 = new SkippingIterator<String>(iterator0, 770L);
+      String string0 = skippingIterator0.next();
+      assertNotNull(string0);
+}

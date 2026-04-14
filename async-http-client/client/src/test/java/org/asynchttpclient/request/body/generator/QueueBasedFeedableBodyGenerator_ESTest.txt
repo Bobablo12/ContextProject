@@ -1,0 +1,28 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FeedListener feedListener0 = mock(FeedListener.class, new ViolatedAssumptionAnswer());
+      UnboundedQueueFeedableBodyGenerator unboundedQueueFeedableBodyGenerator0 = new UnboundedQueueFeedableBodyGenerator();
+      unboundedQueueFeedableBodyGenerator0.setListener(feedListener0);
+      boolean boolean0 = unboundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, false);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(1);
+      BodyChunk bodyChunk0 = new BodyChunk((ByteBuf) null, false);
+      boolean boolean0 = boundedQueueFeedableBodyGenerator0.offer(bodyChunk0);
+      boolean boolean1 = boundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BoundedQueueFeedableBodyGenerator boundedQueueFeedableBodyGenerator0 = new BoundedQueueFeedableBodyGenerator(1);
+      Body body0 = boundedQueueFeedableBodyGenerator0.createBody();
+      assertEquals(1, body0.getContentLength());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      UnboundedQueueFeedableBodyGenerator unboundedQueueFeedableBodyGenerator0 = new UnboundedQueueFeedableBodyGenerator();
+      boolean boolean0 = unboundedQueueFeedableBodyGenerator0.feed((ByteBuf) null, false);
+      assertTrue(boolean0);
+}

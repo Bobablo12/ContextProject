@@ -1,0 +1,159 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("PTk}c");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, (String) null);
+      String string0 = textFacetDefinitionReader0.getCommentToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      stringReader0.close();
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "f&PE{'GW|wf|f");
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Stream closed
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TextFacetDefinitionReader textFacetDefinitionReader0 = null;
+      try {
+        textFacetDefinitionReader0 = new TextFacetDefinitionReader((Reader) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Maximum string length cannot be less than zero; was ");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = null;
+      try {
+        textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "Maximum string length cannot be less than zero; was ");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Comment token cannot contain whitespace; was [Maximum string length cannot be less than zero; was ]
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TextFacetDefinitionReader textFacetDefinitionReader0 = null;
+      try {
+        textFacetDefinitionReader0 = new TextFacetDefinitionReader((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Reader cannot be null
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "");
+      String string0 = textFacetDefinitionReader0.getCommentToken();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(" `^$HZ");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionReader0.setCommentToken(" `^$HZ");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Comment token cannot contain whitespace; was [ `^$HZ]
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Comment token cannot contain whitespace; was [");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0);
+      textFacetDefinitionReader0.setCommentToken((String) null);
+      assertNotNull(textFacetDefinitionReader0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("-2#G!B:");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 8: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("5&.2):2F");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0);
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 10: expected double but found end of content
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("O]");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "O]");
+      FacetDefinition facetDefinition0 = textFacetDefinitionReader0.readFacet();
+      assertNotNull(facetDefinition0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(" `^$HZ");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0);
+      textFacetDefinitionReader0.close();
+      assertNotNull(textFacetDefinitionReader0.getCommentToken());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("#");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "#");
+      textFacetDefinitionReader0.setCommentToken("");
+      // Undeclared exception!
+      try { 
+        textFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Parsing failed at line 1, column 1: expected double but found empty token followed by [#]
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("O]");
+      TextFacetDefinitionReader textFacetDefinitionReader0 = new TextFacetDefinitionReader(stringReader0, "O]");
+      String string0 = textFacetDefinitionReader0.getCommentToken();
+      assertNotNull(string0);
+}

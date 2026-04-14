@@ -1,0 +1,143 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ImageFormats imageFormats0 = ImageFormats.PCX;
+      ImageParser<?> imageParser0 = Util.getImageParser((ImageFormat) imageFormats0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ImageParser<?> imageParser0 = Util.getImageParser("image/vnd.wap.wbmp");
+      assertNotNull(imageParser0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.internal.Util", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1), (byte)1);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "fC-BMdIH+K;");
+      try { 
+        Util.getImageParser((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("+{\"I8l)l]f{e 5");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        Util.getImageParser((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.ImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Can't parse this format.
+         //
+         verifyException("org.apache.commons.imaging.internal.Util", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("dib", byteArray0);
+      ImageParser<?> imageParser0 = Util.getImageParser((ByteSource) byteSourceArray0);
+      assertNotNull(imageParser0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("6}[O82|A]d", byteArray0);
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unknown Extension: 6}[O82|A]d
+         //
+         verifyException("org.apache.commons.imaging.internal.Util", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Util.getImageParser("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unknown Extension: 
+         //
+         verifyException("org.apache.commons.imaging.internal.Util", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Util.getImageParser((ImageFormat) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unknown Format: null
+         //
+         verifyException("org.apache.commons.imaging.internal.Util", e);
+      }
+  }

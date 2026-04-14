@@ -1,0 +1,296 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HashMultiSet<Boolean> hashMultiSet0 = new HashMultiSet<Boolean>();
+      Predicate<Object> predicate0 = TruePredicate.truePredicate();
+      AndPredicate<Boolean> andPredicate0 = new AndPredicate<Boolean>(predicate0, predicate0);
+      PredicatedMultiSet<Boolean> predicatedMultiSet0 = new PredicatedMultiSet<Boolean>(hashMultiSet0, andPredicate0);
+      predicatedMultiSet0.setCount((Boolean) null, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HashMultiSet<Predicate<Object>> hashMultiSet0 = new HashMultiSet<Predicate<Object>>();
+      OnePredicate<Object> onePredicate0 = new OnePredicate<Object>((Predicate<? super Object>[]) null);
+      PredicatedMultiSet<Predicate<Object>> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<Predicate<Object>>) hashMultiSet0, (Predicate<? super Predicate<Object>>) onePredicate0);
+      MultiSet<Predicate<Object>> multiSet0 = predicatedMultiSet0.decorated();
+      assertNotNull(multiSet0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HashMultiSet<HashMultiSet<Object>> hashMultiSet0 = new HashMultiSet<HashMultiSet<Object>>();
+      Predicate<Predicate<Object>> predicate0 = UniquePredicate.uniquePredicate();
+      SynchronizedMultiSet<HashMultiSet<Object>> synchronizedMultiSet0 = new SynchronizedMultiSet<HashMultiSet<Object>>(hashMultiSet0, predicate0);
+      Factory<String> factory0 = ExceptionFactory.exceptionFactory();
+      Transformer<Object, String> transformer0 = FactoryTransformer.factoryTransformer((Factory<? extends String>) factory0);
+      Predicate<Object> predicate1 = ExceptionPredicate.exceptionPredicate();
+      TransformedPredicate<Object> transformedPredicate0 = new TransformedPredicate<Object>(transformer0, predicate1);
+      PredicatedMultiSet<HashMultiSet<Object>> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<HashMultiSet<Object>>) synchronizedMultiSet0, (Predicate<? super HashMultiSet<Object>>) transformedPredicate0);
+      HashMultiSet<Object> hashMultiSet1 = new HashMultiSet<Object>(hashMultiSet0);
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet0.setCount(hashMultiSet1, (-5673));
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // ExceptionFactory invoked
+         //
+         verifyException("org.apache.commons.collections4.functors.ExceptionFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HashMultiSet<Predicate<Object>> hashMultiSet0 = new HashMultiSet<Predicate<Object>>();
+      MultiSet<Predicate<Object>> multiSet0 = UnmodifiableMultiSet.unmodifiableMultiSet((MultiSet<? extends Predicate<Object>>) hashMultiSet0);
+      SynchronizedMultiSet<Predicate<Object>> synchronizedMultiSet0 = new SynchronizedMultiSet<Predicate<Object>>(multiSet0, "Go2NRZBp");
+      Predicate<Object> predicate0 = UniquePredicate.uniquePredicate();
+      PredicatedMultiSet<Predicate<Object>> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<Predicate<Object>>) synchronizedMultiSet0, (Predicate<? super Predicate<Object>>) predicate0);
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet0.setCount(predicate0, 1845);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.multiset.UnmodifiableMultiSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      HashMultiSet<String> hashMultiSet0 = new HashMultiSet<String>();
+      Predicate<Object> predicate0 = NotNullPredicate.notNullPredicate();
+      PredicatedMultiSet<String> predicatedMultiSet0 = new PredicatedMultiSet<String>(hashMultiSet0, predicate0);
+      MultiSet<String> multiSet0 = UnmodifiableMultiSet.unmodifiableMultiSet((MultiSet<? extends String>) predicatedMultiSet0);
+      PredicatedMultiSet<String> predicatedMultiSet1 = new PredicatedMultiSet<String>(multiSet0, predicate0);
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet1.remove((Object) predicate0, (-1));
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.collections4.multiset.UnmodifiableMultiSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      HashMultiSet<Integer> hashMultiSet0 = new HashMultiSet<Integer>();
+      Integer integer0 = new Integer(1996);
+      IdentityPredicate<Integer> identityPredicate0 = new IdentityPredicate<Integer>(integer0);
+      PredicatedMultiSet<Integer> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<Integer>) hashMultiSet0, (Predicate<? super Integer>) identityPredicate0);
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet0.remove((Object) integer0, (-293));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Occurrences must not be negative.
+         //
+         verifyException("org.apache.commons.collections4.multiset.AbstractMapMultiSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Predicate<Object> predicate0 = ExceptionPredicate.exceptionPredicate();
+      HashMultiSet<String> hashMultiSet0 = new HashMultiSet<String>();
+      hashMultiSet0.add("");
+      // Undeclared exception!
+      try { 
+        PredicatedMultiSet.predicatedMultiSet((MultiSet<String>) hashMultiSet0, (Predicate<? super String>) predicate0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // ExceptionPredicate invoked
+         //
+         verifyException("org.apache.commons.collections4.functors.ExceptionPredicate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Predicate<Object>[] predicateArray0 = (Predicate<Object>[]) Array.newInstance(Predicate.class, 5);
+      AllPredicate<Object> allPredicate0 = new AllPredicate<Object>(predicateArray0);
+      // Undeclared exception!
+      try { 
+        PredicatedMultiSet.predicatedMultiSet((MultiSet<String>) null, (Predicate<? super String>) allPredicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HashMultiSet<AbstractMapMultiSet.MutableInteger> hashMultiSet0 = new HashMultiSet<AbstractMapMultiSet.MutableInteger>();
+      Predicate<Object> predicate0 = IdentityPredicate.identityPredicate((Object) hashMultiSet0);
+      AbstractMapMultiSet.MutableInteger abstractMapMultiSet_MutableInteger0 = new AbstractMapMultiSet.MutableInteger((-1615));
+      hashMultiSet0.add(abstractMapMultiSet_MutableInteger0);
+      // Undeclared exception!
+      try { 
+        PredicatedMultiSet.predicatedMultiSet((MultiSet<AbstractMapMultiSet.MutableInteger>) hashMultiSet0, (Predicate<? super AbstractMapMultiSet.MutableInteger>) predicate0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot add Object 'org.apache.commons.collections4.multiset.AbstractMapMultiSet$MutableInteger@fffff9b1' - Predicate 'org.apache.commons.collections4.functors.IdentityPredicate@2' rejected it
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      HashMultiSet<String> hashMultiSet0 = new HashMultiSet<String>();
+      UniquePredicate<String> uniquePredicate0 = new UniquePredicate<String>();
+      PredicatedMultiSet<String> predicatedMultiSet0 = new PredicatedMultiSet<String>(hashMultiSet0, uniquePredicate0);
+      PredicatedMultiSet<String> predicatedMultiSet1 = new PredicatedMultiSet<String>(predicatedMultiSet0, uniquePredicate0);
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet1.add("", 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot add Object '' - Predicate 'org.apache.commons.collections4.functors.UniquePredicate@2' rejected it
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      HashMultiSet<Object> hashMultiSet0 = new HashMultiSet<Object>();
+      Predicate<Object>[] predicateArray0 = (Predicate<Object>[]) Array.newInstance(Predicate.class, 3);
+      AllPredicate<Object> allPredicate0 = new AllPredicate<Object>(predicateArray0);
+      hashMultiSet0.add((Object) allPredicate0);
+      Predicate<Object> predicate0 = NullIsFalsePredicate.nullIsFalsePredicate((Predicate<? super Object>) allPredicate0);
+      predicateArray0[0] = predicate0;
+      OnePredicate<Object> onePredicate0 = new OnePredicate<Object>(predicateArray0);
+      PredicatedMultiSet<Object> predicatedMultiSet0 = null;
+      try {
+        predicatedMultiSet0 = new PredicatedMultiSet<Object>(hashMultiSet0, onePredicate0);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Predicate<Object> predicate0 = InstanceofPredicate.instanceOfPredicate(class0);
+      PredicatedMultiSet<Predicate<Object>> predicatedMultiSet0 = null;
+      try {
+        predicatedMultiSet0 = new PredicatedMultiSet<Predicate<Object>>((MultiSet<Predicate<Object>>) null, predicate0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // Collection must not be null.
+         //
+         verifyException("org.apache.commons.collections4.collection.AbstractCollectionDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      HashMultiSet<PredicatedMultiSet<Object>> hashMultiSet0 = new HashMultiSet<PredicatedMultiSet<Object>>();
+      HashMultiSet<Predicate<Object>> hashMultiSet1 = new HashMultiSet<Predicate<Object>>();
+      SynchronizedCollection<Predicate<Object>> synchronizedCollection0 = SynchronizedCollection.synchronizedCollection((Collection<Predicate<Object>>) hashMultiSet1);
+      Predicate<Object> predicate0 = AnyPredicate.anyPredicate((Collection<? extends Predicate<? super Object>>) synchronizedCollection0);
+      HashMultiSet<Object> hashMultiSet2 = new HashMultiSet<Object>(hashMultiSet1);
+      PredicatedMultiSet<Object> predicatedMultiSet0 = new PredicatedMultiSet<Object>(hashMultiSet2, predicate0);
+      hashMultiSet0.add(predicatedMultiSet0);
+      PredicatedMultiSet<PredicatedMultiSet<Object>> predicatedMultiSet1 = null;
+      try {
+        predicatedMultiSet1 = new PredicatedMultiSet<PredicatedMultiSet<Object>>(hashMultiSet0, predicate0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot add Object 'org.apache.commons.collections4.multiset.HashMultiSet@0000000005' - Predicate 'org.apache.commons.collections4.functors.FalsePredicate@d' rejected it
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      HashMultiSet<Object> hashMultiSet0 = new HashMultiSet<Object>();
+      Predicate<Object> predicate0 = ExceptionPredicate.exceptionPredicate();
+      PredicatedMultiSet<Object> predicatedMultiSet0 = new PredicatedMultiSet<Object>(hashMultiSet0, predicate0);
+      boolean boolean0 = predicatedMultiSet0.equals(predicate0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      HashMultiSet<AbstractMapMultiSet.MutableInteger> hashMultiSet0 = new HashMultiSet<AbstractMapMultiSet.MutableInteger>();
+      Class<Object> class0 = Object.class;
+      Predicate<Object> predicate0 = InstanceofPredicate.instanceOfPredicate(class0);
+      HashMultiSet<String> hashMultiSet1 = new HashMultiSet<String>();
+      PredicatedMultiSet<String> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<String>) hashMultiSet1, (Predicate<? super String>) predicate0);
+      boolean boolean0 = predicatedMultiSet0.equals(hashMultiSet0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Predicate<Object> predicate0 = ExceptionPredicate.exceptionPredicate();
+      HashMultiSet<PredicatedMultiSet<String>> hashMultiSet0 = new HashMultiSet<PredicatedMultiSet<String>>();
+      PredicatedMultiSet<PredicatedMultiSet<String>> predicatedMultiSet0 = new PredicatedMultiSet<PredicatedMultiSet<String>>(hashMultiSet0, predicate0);
+      Integer integer0 = new Integer(1);
+      int int0 = predicatedMultiSet0.getCount(integer0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Class<Object> class0 = Object.class;
+      Predicate<Object> predicate0 = InstanceofPredicate.instanceOfPredicate(class0);
+      HashMultiSet<String> hashMultiSet0 = new HashMultiSet<String>();
+      PredicatedMultiSet<String> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<String>) hashMultiSet0, (Predicate<? super String>) predicate0);
+      predicatedMultiSet0.add("org.apache.commons.collections4.multiset.PredicatedMultiSet", 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      HashMultiSet<HashMultiSet<Object>> hashMultiSet0 = new HashMultiSet<HashMultiSet<Object>>();
+      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+      doReturn(0).when(comparator0).compare(any() , any());
+      ComparatorPredicate.Criterion comparatorPredicate_Criterion0 = ComparatorPredicate.Criterion.GREATER;
+      Predicate<Object> predicate0 = ComparatorPredicate.comparatorPredicate((Object) hashMultiSet0, comparator0, (ComparatorPredicate.Criterion) comparatorPredicate_Criterion0);
+      PredicatedMultiSet<HashMultiSet<Object>> predicatedMultiSet0 = new PredicatedMultiSet<HashMultiSet<Object>>(hashMultiSet0, predicate0);
+      HashMultiSet<Object> hashMultiSet1 = new HashMultiSet<Object>();
+      // Undeclared exception!
+      try { 
+        predicatedMultiSet0.setCount(hashMultiSet1, 0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Cannot add Object 'org.apache.commons.collections4.multiset.AbstractMultiSet$EntrySet@0000000006' - Predicate 'org.apache.commons.collections4.functors.ComparatorPredicate@2' rejected it
+         //
+         verifyException("org.apache.commons.collections4.collection.PredicatedCollection", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      HashMultiSet<HashMultiSet<Object>> hashMultiSet0 = new HashMultiSet<HashMultiSet<Object>>();
+      Predicate<Predicate<Object>> predicate0 = UniquePredicate.uniquePredicate();
+      SynchronizedMultiSet<HashMultiSet<Object>> synchronizedMultiSet0 = new SynchronizedMultiSet<HashMultiSet<Object>>(hashMultiSet0, predicate0);
+      Factory<String> factory0 = ExceptionFactory.exceptionFactory();
+      Transformer<Object, String> transformer0 = FactoryTransformer.factoryTransformer((Factory<? extends String>) factory0);
+      Predicate<Object> predicate1 = ExceptionPredicate.exceptionPredicate();
+      TransformedPredicate<Object> transformedPredicate0 = new TransformedPredicate<Object>(transformer0, predicate1);
+      PredicatedMultiSet<HashMultiSet<Object>> predicatedMultiSet0 = PredicatedMultiSet.predicatedMultiSet((MultiSet<HashMultiSet<Object>>) synchronizedMultiSet0, (Predicate<? super HashMultiSet<Object>>) transformedPredicate0);
+      predicatedMultiSet0.hashCode();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Predicate<Object> predicate0 = ExceptionPredicate.exceptionPredicate();
+      HashMultiSet<Object> hashMultiSet0 = new HashMultiSet<Object>();
+      PredicatedMultiSet<Object> predicatedMultiSet0 = new PredicatedMultiSet<Object>(hashMultiSet0, predicate0);
+      Set<MultiSet.Entry<Object>> set0 = (Set<MultiSet.Entry<Object>>)predicatedMultiSet0.entrySet();
+      assertTrue(set0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      HashMultiSet<Boolean> hashMultiSet0 = new HashMultiSet<Boolean>();
+      Predicate<Object> predicate0 = ExceptionPredicate.exceptionPredicate();
+      NullIsFalsePredicate<Boolean> nullIsFalsePredicate0 = new NullIsFalsePredicate<Boolean>(predicate0);
+      PredicatedMultiSet<Boolean> predicatedMultiSet0 = new PredicatedMultiSet<Boolean>(hashMultiSet0, nullIsFalsePredicate0);
+      Set<Boolean> set0 = predicatedMultiSet0.uniqueSet();
+      ;
+}

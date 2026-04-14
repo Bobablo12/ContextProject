@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String string0 = IdGenerator.randomBase64(69);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      String string0 = IdGenerator.randomBase64(0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        IdGenerator.randomBase64((-1998));
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.misc.IdGenerator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      // Undeclared exception!
+      IdGenerator.randomBase64(362880);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      String string0 = IdGenerator.uuid2();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IdGenerator idGenerator0 = new IdGenerator();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      String string0 = IdGenerator.uuid();
+      assertNotNull(string0);
+}

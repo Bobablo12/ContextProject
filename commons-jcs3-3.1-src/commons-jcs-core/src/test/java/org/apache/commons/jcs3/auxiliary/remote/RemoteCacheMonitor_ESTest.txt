@@ -1,0 +1,20 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      // Undeclared exception!
+      try { 
+        remoteCacheMonitor0.addManager((RemoteCacheManager) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentHashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      remoteCacheMonitor0.doWork();
+      ;
+}

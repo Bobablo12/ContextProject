@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>async-http-client-extras-parent</artifactId>
+    <groupId>org.asynchttpclient</groupId>
+    <version>2.12.3</version>
+  </parent>
+  <artifactId>async-http-client-extras-rxjava2</artifactId>
+  <name>Asynchronous Http Client RxJava2 Extras</name>
+  <description>The Async Http Client RxJava2 Extras.</description>
+
+  <properties>
+    <javaModuleName>org.asynchttpclient.extras.rxjava2</javaModuleName>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.reactivex.rxjava2</groupId>
+      <artifactId>rxjava</artifactId>
+    </dependency>
+  </dependencies>
+
+
+
+  <build>
+    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
+    <directory>${project.basedir}/${target.dir}/</directory>
+    <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.9.8</version>
+        <configuration>
+          <threads>4</threads>
+          <timeoutConstant>8000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient.extras.rxjava2*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.extras.rxjava2.*_ESTest*</param>
+          </targetTests>
+          <excludedTestClasses>
+            <excludedTestClass>org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridge_ESTest*</excludedTestClass>
+          </excludedTestClasses>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <profiles>
+    <profile>
+      <id>testID</id>
+      <activation>
+        <property>
+          <name>test.dir</name>
+        </property>
+      </activation>
+    </profile>
+    <profile>
+      <id>targetID</id>
+      <activation>
+        <property>
+          <name>target.dir</name>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
+</project>

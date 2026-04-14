@@ -1,0 +1,160 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      OrderedMapIterator<Object, String> orderedMapIterator0 = EmptyOrderedMapIterator.emptyOrderedMapIterator();
+      OrderedMapIterator<Object, String> orderedMapIterator1 = UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator((OrderedMapIterator<Object, ? extends String>) orderedMapIterator0);
+      AbstractOrderedMapIteratorDecorator<Object, String> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, String>(orderedMapIterator1);
+      OrderedMapIterator<Object, String> orderedMapIterator2 = abstractOrderedMapIteratorDecorator0.getOrderedMapIterator();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      OrderedMapIterator<String, Object> orderedMapIterator0 = EmptyOrderedMapIterator.emptyOrderedMapIterator();
+      OrderedMapIterator<String, Object> orderedMapIterator1 = UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator((OrderedMapIterator<String, ?>) orderedMapIterator0);
+      AbstractOrderedMapIteratorDecorator<String, Object> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<String, Object>(orderedMapIterator1);
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.setValue(object0);
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // setValue() is not supported
+         //
+         verifyException("org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      EmptyOrderedMapIterator<Integer, String> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<Integer, String>();
+      OrderedMapIterator<Integer, String> orderedMapIterator0 = UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator((OrderedMapIterator<Integer, ? extends String>) emptyOrderedMapIterator0);
+      AbstractOrderedMapIteratorDecorator<Integer, String> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Integer, String>(orderedMapIterator0);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.remove();
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // remove() is not supported
+         //
+         verifyException("org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      AbstractOrderedMapIteratorDecorator<Integer, Object> abstractOrderedMapIteratorDecorator0 = null;
+      try {
+        abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Integer, Object>((OrderedMapIterator<Integer, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // OrderedMapIterator must not be null
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractOrderedMapIteratorDecorator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      EmptyOrderedMapIterator<Object, Integer> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<Object, Integer>();
+      AbstractOrderedMapIteratorDecorator<Object, Integer> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, Integer>(emptyOrderedMapIterator0);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.next();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      EmptyOrderedMapIterator<String, Integer> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<String, Integer>();
+      AbstractOrderedMapIteratorDecorator<String, Integer> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<String, Integer>(emptyOrderedMapIterator0);
+      Integer integer0 = new Integer(664);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.setValue(integer0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      OrderedMapIterator<Object, String> orderedMapIterator0 = EmptyOrderedMapIterator.emptyOrderedMapIterator();
+      OrderedMapIterator<Object, Object> orderedMapIterator1 = UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator((OrderedMapIterator<Object, ?>) orderedMapIterator0);
+      AbstractOrderedMapIteratorDecorator<Object, Object> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, Object>(orderedMapIterator1);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.getKey();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      OrderedMapIterator<Object, Object> orderedMapIterator0 = EmptyOrderedMapIterator.emptyOrderedMapIterator();
+      AbstractOrderedMapIteratorDecorator<Object, Object> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, Object>(orderedMapIterator0);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.previous();
+        fail("Expecting exception: NoSuchElementException");
+      } catch(NoSuchElementException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      OrderedMapIterator<Object, Integer> orderedMapIterator0 = EmptyOrderedMapIterator.emptyOrderedMapIterator();
+      AbstractOrderedMapIteratorDecorator<Object, Integer> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, Integer>(orderedMapIterator0);
+      boolean boolean0 = abstractOrderedMapIteratorDecorator0.hasNext();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      EmptyOrderedMapIterator<String, String> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<String, String>();
+      AbstractOrderedMapIteratorDecorator<String, String> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<String, String>(emptyOrderedMapIterator0);
+      boolean boolean0 = abstractOrderedMapIteratorDecorator0.hasPrevious();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      EmptyOrderedMapIterator<Integer, String> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<Integer, String>();
+      AbstractOrderedMapIteratorDecorator<Integer, String> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Integer, String>(emptyOrderedMapIterator0);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.remove();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyIterator", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      EmptyOrderedMapIterator<Object, String> emptyOrderedMapIterator0 = new EmptyOrderedMapIterator<Object, String>();
+      AbstractOrderedMapIteratorDecorator<Object, String> abstractOrderedMapIteratorDecorator0 = new AbstractOrderedMapIteratorDecorator<Object, String>(emptyOrderedMapIterator0);
+      // Undeclared exception!
+      try { 
+        abstractOrderedMapIteratorDecorator0.getValue();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Iterator contains no elements
+         //
+         verifyException("org.apache.commons.collections4.iterators.AbstractEmptyMapIterator", e);
+      }
+  }

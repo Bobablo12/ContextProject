@@ -1,0 +1,663 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn("http", (String) null).when(request0).getVirtualHost();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((Map) null).when(realm0).getCustomLoginConfig();
+      doReturn((String) null).when(realm0).getLoginContextName();
+      doReturn((String) null).when(realm0).getPassword();
+      doReturn((String) null).when(realm0).getPrincipal();
+      doReturn((String) null).when(realm0).getRealmName();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn((String) null).when(realm0).getServicePrincipalName();
+      doReturn(false).when(realm0).isUseCanonicalHostname();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perConnectionAuthorizationHeader(request0, (ProxyServer) null, realm0);
+        fail("Expecting exception: VerifyError");
+      } catch(VerifyError e) {
+         //
+         // Bad return type
+         // Exception Details:
+         //   Location:
+         //     org/ietf/jgss/GSSManager.getInstance()Lorg/ietf/jgss/GSSManager; @10: areturn
+         //   Reason:
+         //     Type 'sun/security/jgss/GSSManagerImpl' (current frame, stack[0]) is not assignable to 'org/ietf/jgss/GSSManager' (from method signature)
+         //   Current Frame:
+         //     bci: @10
+         //     flags: { }
+         //     locals: { }
+         //     stack: { 'sun/security/jgss/GSSManagerImpl' }
+         //   Bytecode:
+         //     0x0000000: b800 18bb 001a 59b7 001b b0            
+         //
+         verifyException("org.asynchttpclient.spnego.SpnegoEngine", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Charset charset0 = Charset.defaultCharset();
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0).when(realm0).getCharset();
+      doReturn("Bsic ").when(realm0).getPassword();
+      doReturn(",b799").when(realm0).getPrincipal();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Charset charset0 = Charset.defaultCharset();
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0).when(realm0).getCharset();
+      doReturn("Bsic ").when(realm0).getPassword();
+      doReturn(",b799").when(realm0).getPrincipal();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Charset charset0 = Charset.defaultCharset();
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0).when(realm0).getCharset();
+      doReturn("netbsd").when(realm0).getPassword();
+      doReturn("Negotiate").when(realm0).getPrincipal();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Charset charset0 = Charset.defaultCharset();
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(charset0).when(realm0).getCharset();
+      doReturn("netbsd").when(realm0).getPassword();
+      doReturn("Negotiate").when(realm0).getPrincipal();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(uri0).getNonEmptyPath();
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, false, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(uri0).getNonEmptyPath();
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, false, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(request0).getMethod();
+      doReturn(uri0).when(request0).getUri();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm0).getAlgorithm();
+      doReturn((Charset) null).when(realm0).getCharset();
+      doReturn((Map<Object, Object>) null).when(realm0).getCustomLoginConfig();
+      doReturn((String) null).when(realm0).getLoginContextName();
+      doReturn((String) null).when(realm0).getNc();
+      doReturn("RarFsA", (String) null).when(realm0).getNonce();
+      doReturn((String) null).when(realm0).getNtlmDomain();
+      doReturn((String) null).when(realm0).getNtlmHost();
+      doReturn((String) null).when(realm0).getOpaque();
+      doReturn((String) null).when(realm0).getPassword();
+      doReturn((String) null).when(realm0).getPrincipal();
+      doReturn((String) null).when(realm0).getQop();
+      doReturn((String) null).when(realm0).getRealmName();
+      doReturn(realm_AuthScheme0, (Realm.AuthScheme) null).when(realm0).getScheme();
+      doReturn((String) null).when(realm0).getServicePrincipalName();
+      doReturn((Uri) null).when(realm0).getUri();
+      doReturn(false).when(realm0).isOmitQuery();
+      doReturn(false).when(realm0).isUseAbsoluteURI();
+      doReturn(false).when(realm0).isUseCanonicalHostname();
+      doReturn(true, false).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perRequestProxyAuthorizationHeader(request0, realm0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // scheme
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm0).getAlgorithm();
+      doReturn((Charset) null).when(realm0).getCharset();
+      doReturn((Map<Object, Object>) null).when(realm0).getCustomLoginConfig();
+      doReturn((String) null).when(realm0).getLoginContextName();
+      doReturn((String) null).when(realm0).getNc();
+      doReturn("z*6rRE@", (String) null).when(realm0).getNonce();
+      doReturn((String) null).when(realm0).getNtlmDomain();
+      doReturn((String) null).when(realm0).getNtlmHost();
+      doReturn((String) null).when(realm0).getOpaque();
+      doReturn((String) null).when(realm0).getPassword();
+      doReturn((String) null).when(realm0).getPrincipal();
+      doReturn((String) null).when(realm0).getQop();
+      doReturn((String) null).when(realm0).getRealmName();
+      doReturn(realm_AuthScheme0, (Realm.AuthScheme) null).when(realm0).getScheme();
+      doReturn((String) null).when(realm0).getServicePrincipalName();
+      doReturn((Uri) null).when(realm0).getUri();
+      doReturn(false).when(realm0).isOmitQuery();
+      doReturn(false).when(realm0).isUseAbsoluteURI();
+      doReturn(false).when(realm0).isUseCanonicalHostname();
+      doReturn(true, false).when(realm0).isUsePreemptiveAuth();
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(request0).getMethod();
+      doReturn((Uri) null).when(request0).getUri();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // scheme
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add((String) null);
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.getHeaderWithPrefix(stack0, "/)c8=");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.computeRealmURI((Uri) null, true, true);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.AuthenticatorUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(uri0).getQuery();
+      doReturn((String) null).when(uri0).toUrl();
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, true, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("-Dio.netty.processId: {} (user-set)");
+      String string0 = AuthenticatorUtils.getHeaderWithPrefix(stack0, "Negotiate");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm0).getNonce();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Charset charset0 = mock(Charset.class, new ViolatedAssumptionAnswer());
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((Charset) null).when(realm0).getCharset();
+      doReturn((String) null).when(realm0).getPassword();
+      doReturn((String) null).when(realm0).getPrincipal();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.KERBEROS;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.NTLM;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      String string0 = AuthenticatorUtils.perRequestAuthorizationHeader((Request) null, (Realm) null);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((Uri) null).when(request0).getUri();
+      doReturn((String) null).when(request0).getVirtualHost();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perConnectionAuthorizationHeader(request0, (ProxyServer) null, realm0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.AuthenticatorUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      ProxyServer proxyServer0 = mock(ProxyServer.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(proxyServer0).getHost();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((Map) null).when(realm0).getCustomLoginConfig();
+      doReturn((String) null).when(realm0).getLoginContextName();
+      doReturn((String) null).when(realm0).getPassword();
+      doReturn((String) null).when(realm0).getPrincipal();
+      doReturn((String) null).when(realm0).getRealmName();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn((String) null).when(realm0).getServicePrincipalName();
+      doReturn(false).when(realm0).isUseCanonicalHostname();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perConnectionAuthorizationHeader(request0, proxyServer0, realm0);
+        fail("Expecting exception: VerifyError");
+      } catch(VerifyError e) {
+         //
+         // Bad return type
+         // Exception Details:
+         //   Location:
+         //     org/ietf/jgss/GSSManager.getInstance()Lorg/ietf/jgss/GSSManager; @10: areturn
+         //   Reason:
+         //     Type 'sun/security/jgss/GSSManagerImpl' (current frame, stack[0]) is not assignable to 'org/ietf/jgss/GSSManager' (from method signature)
+         //   Current Frame:
+         //     bci: @10
+         //     flags: { }
+         //     locals: { }
+         //     stack: { 'sun/security/jgss/GSSManagerImpl' }
+         //   Bytecode:
+         //     0x0000000: b800 18bb 001a 59b7 001b b0            
+         //
+         verifyException("org.asynchttpclient.spnego.SpnegoEngine", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      ProxyServer proxyServer0 = mock(ProxyServer.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.BASIC;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionAuthorizationHeader(request0, proxyServer0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.NTLM;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionAuthorizationHeader(request0, (ProxyServer) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      ProxyType proxyType0 = ProxyType.HTTP;
+      ProxyServer proxyServer0 = new ProxyServer((String) null, 512, 512, realm0, stack0, proxyType0);
+      Realm realm1 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm1).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionAuthorizationHeader((Request) null, proxyServer0, realm1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      String string0 = AuthenticatorUtils.perConnectionAuthorizationHeader(request0, (ProxyServer) null, (Realm) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm0).getNonce();
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.KERBEROS;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.NTLM;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader((Request) null, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      String string0 = AuthenticatorUtils.perRequestProxyAuthorizationHeader((Request) null, (Realm) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.KERBEROS;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perConnectionProxyAuthorizationHeader((Request) null, realm0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.util.AuthenticatorUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      String string0 = AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, (Realm) null);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(uri0).getNonEmptyPath();
+      doReturn((String) null).when(uri0).getQuery();
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, false, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(uri0).getNonEmptyPath();
+      doReturn("lKTt-D", "lKTt-D").when(uri0).getQuery();
+      AuthenticatorUtils.computeRealmURI(uri0, false, false);
+      AuthenticatorUtils authenticatorUtils0 = new AuthenticatorUtils();
+      Uri uri1 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      String string0 = AuthenticatorUtils.NEGOTIATE;
+      AuthenticatorUtils.getHeaderWithPrefix((List<String>) null, "realm");
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm0).isUsePreemptiveAuth();
+      AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, realm0);
+      Request request1 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm realm1 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm1).isUsePreemptiveAuth();
+      AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request1, realm1);
+      Request request2 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(request2).getMethod();
+      doReturn((Uri) null).when(request2).getUri();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Realm realm2 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm2).getAlgorithm();
+      doReturn((Charset) null).when(realm2).getCharset();
+      doReturn((Map) null).when(realm2).getCustomLoginConfig();
+      doReturn((String) null).when(realm2).getLoginContextName();
+      doReturn((String) null).when(realm2).getNc();
+      doReturn("RarFsA", (String) null).when(realm2).getNonce();
+      doReturn((String) null).when(realm2).getNtlmDomain();
+      doReturn((String) null).when(realm2).getNtlmHost();
+      doReturn((String) null).when(realm2).getOpaque();
+      doReturn((String) null).when(realm2).getPassword();
+      doReturn((String) null).when(realm2).getPrincipal();
+      doReturn((String) null).when(realm2).getQop();
+      doReturn((String) null).when(realm2).getRealmName();
+      doReturn(realm_AuthScheme0, (Realm.AuthScheme) null).when(realm2).getScheme();
+      doReturn((String) null).when(realm2).getServicePrincipalName();
+      doReturn((Uri) null).when(realm2).getUri();
+      doReturn(false).when(realm2).isOmitQuery();
+      doReturn(false).when(realm2).isUseAbsoluteURI();
+      doReturn(false).when(realm2).isUseCanonicalHostname();
+      doReturn(true, false).when(realm2).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perRequestProxyAuthorizationHeader(request2, realm2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // scheme
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      Uri uri0 = new Uri("Negotiate", "Negotiate", "Negotiate", 2325, "Negotiate", "Negotiate", "Negotiate");
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, true, true);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      Uri uri0 = new Uri("Negotiate", "Negotiate", "Negotiate", 3777, "Negotiate", "Negotiate", "Negotiate");
+      String string0 = AuthenticatorUtils.computeRealmURI(uri0, true, false);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.DIGEST;
+      Utf8Encoder utf8Encoder0 = new Utf8Encoder();
+      utf8Encoder0.charset();
+      HashMap<String, String> hashMap0 = new HashMap<String, String>();
+      Uri uri1 = new Uri(", ", (String) null, "Negotiate", (-3), "u6bC", (String) null, "TT\"hYgVPbRlf2jJ");
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(realm0).isUsePreemptiveAuth();
+      AuthenticatorUtils.perRequestProxyAuthorizationHeader(request0, realm0);
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      Uri uri0 = mock(Uri.class, new ViolatedAssumptionAnswer());
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("netbsd");
+      stack0.listIterator();
+      Boolean boolean0 = new Boolean(true);
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      doReturn(stack0).when(httpHeaders0).getAll(any(java.lang.CharSequence.class));
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn(httpHeaders0).when(request0).getHeaders();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.SPNEGO;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, realm0);
+      AuthenticatorUtils authenticatorUtils0 = new AuthenticatorUtils();
+      Request request1 = mock(Request.class, new ViolatedAssumptionAnswer());
+      Realm.AuthScheme realm_AuthScheme1 = Realm.AuthScheme.DIGEST;
+      Realm realm1 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme1).when(realm1).getScheme();
+      doReturn(true).when(realm1).isUsePreemptiveAuth();
+      AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request1, realm1);
+      Request request2 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(request2).getMethod();
+      doReturn((Uri) null).when(request2).getUri();
+      Realm.AuthScheme realm_AuthScheme2 = Realm.AuthScheme.DIGEST;
+      Realm realm2 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(realm2).getAlgorithm();
+      doReturn((Charset) null).when(realm2).getCharset();
+      doReturn((Map) null).when(realm2).getCustomLoginConfig();
+      doReturn((String) null).when(realm2).getLoginContextName();
+      doReturn((String) null).when(realm2).getNc();
+      doReturn("p&Q6>s!4q", (String) null).when(realm2).getNonce();
+      doReturn((String) null).when(realm2).getNtlmDomain();
+      doReturn((String) null).when(realm2).getNtlmHost();
+      doReturn((String) null).when(realm2).getOpaque();
+      doReturn((String) null).when(realm2).getPassword();
+      doReturn((String) null).when(realm2).getPrincipal();
+      doReturn((String) null).when(realm2).getQop();
+      doReturn((String) null).when(realm2).getRealmName();
+      doReturn(realm_AuthScheme2, (Realm.AuthScheme) null).when(realm2).getScheme();
+      doReturn((String) null).when(realm2).getServicePrincipalName();
+      doReturn((Uri) null).when(realm2).getUri();
+      doReturn(false).when(realm2).isOmitQuery();
+      doReturn(false).when(realm2).isUseAbsoluteURI();
+      doReturn(false).when(realm2).isUseCanonicalHostname();
+      doReturn(true, false).when(realm2).isUsePreemptiveAuth();
+      // Undeclared exception!
+      try { 
+        AuthenticatorUtils.perRequestAuthorizationHeader(request2, realm2);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // scheme
+         //
+         verifyException("org.asynchttpclient.util.Assertions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("netbsd");
+      String string0 = AuthenticatorUtils.getHeaderWithPrefix(stack0, "netbsd");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("netbsd");
+      String string0 = AuthenticatorUtils.getHeaderWithPrefix(stack0, "netbsd");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("-Dio.netty.processId: {} (user-set)");
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      doReturn(stack0).when(httpHeaders0).getAll(any(java.lang.CharSequence.class));
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn(httpHeaders0).when(request0).getHeaders();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.NTLM;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, realm0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      Stack<String> stack0 = new Stack<String>();
+      stack0.add("-Dio.netty.processId: {} (user-set)");
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      doReturn(stack0).when(httpHeaders0).getAll(any(java.lang.CharSequence.class));
+      Request request0 = mock(Request.class, new ViolatedAssumptionAnswer());
+      doReturn(httpHeaders0).when(request0).getHeaders();
+      Realm.AuthScheme realm_AuthScheme0 = Realm.AuthScheme.NTLM;
+      Realm realm0 = mock(Realm.class, new ViolatedAssumptionAnswer());
+      doReturn(realm_AuthScheme0).when(realm0).getScheme();
+      doReturn(true).when(realm0).isUsePreemptiveAuth();
+      String string0 = AuthenticatorUtils.perConnectionProxyAuthorizationHeader(request0, realm0);
+      assertNotNull(string0);
+}

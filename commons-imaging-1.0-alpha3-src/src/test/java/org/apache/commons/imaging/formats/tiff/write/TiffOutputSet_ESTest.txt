@@ -1,0 +1,540 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-235), 1703.925538071);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees(0.0, 0.0);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getRootDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getRootDirectory();
+      assertEquals(0, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getRootDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, (TiffOutputDirectory) null, hashMap0);
+      List<TiffOutputItem> list0 = tiffOutputSet0.getOutputItems(tiffOutputSummary0);
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.addInteroperabilityDirectory();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getInteroperabilityDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.addInteroperabilityDirectory();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getInteroperabilityDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getExifDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getExifDirectory();
+      assertEquals(1, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getExifDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.getOrCreateRootDirectory();
+      List<TiffOutputDirectory> list0 = tiffOutputSet0.getDirectories();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField(2);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField(2);
+      tiffOutputField0.setSortHint(2);
+      TiffOutputField tiffOutputField1 = tiffOutputSet0.findField(tiffOutputField0.tagInfo);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField(2);
+      tiffOutputField0.setSortHint(2);
+      TiffOutputField tiffOutputField1 = tiffOutputSet0.findField(tiffOutputField0.tagInfo);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.setGPSInDegrees((-3279.416), (-3279.416));
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField(2);
+      tiffOutputField0.setSortHint(2);
+      TiffOutputField tiffOutputField1 = tiffOutputSet0.findField(2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addExifDirectory();
+      assertEquals(1, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      tiffOutputDirectory0.add((TiffOutputField) null);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.removeField((TagInfo) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffImageData.Strips tiffImageData_Strips0 = new TiffImageData.Strips((TiffElement.DataElement[]) null, (-1073741824));
+      tiffOutputDirectory0.setTiffImageData(tiffImageData_Strips0);
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.getOutputItems(tiffOutputSummary0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputSet tiffOutputSet1 = new TiffOutputSet(tiffOutputSet0.byteOrder);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet1.getOrCreateExifDirectory();
+      tiffOutputDirectory0.add((TiffOutputField) null);
+      tiffOutputSet0.addDirectory(tiffOutputDirectory0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.findField(0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      tiffOutputDirectory0.add((TiffOutputField) null);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.dump();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.getOrCreateRootDirectory();
+      try { 
+        tiffOutputSet0.addRootDirectory();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Output set already contains a directory of that type.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.addInteroperabilityDirectory();
+      try { 
+        tiffOutputSet0.addInteroperabilityDirectory();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Output set already contains a directory of that type.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.addGPSDirectory();
+      try { 
+        tiffOutputSet0.addGPSDirectory();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Output set already contains a directory of that type.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.addDirectory((TiffOutputDirectory) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      tiffOutputDirectory0.add((TiffOutputField) null);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.toString("TiffOutputSet {\nbyteOrder: LITTLE_ENDIAN\n\tdirectory 0: Root (0)\n\tdirectory 1: Exif (-2)\n\tdirectory 2: Interoperability (-4)\n}\n");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      String string0 = tiffOutputSet0.toString((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField(0);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.getOrCreateGPSDirectory();
+      tiffOutputSet0.removeField(3);
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.addRootDirectory();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.findDirectory(0);
+      assertEquals(1, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.findDirectory(6097);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      try { 
+        tiffOutputSet0.addDirectory(tiffOutputDirectory0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Output set already contains a directory of that type.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addGPSDirectory();
+      TiffOutputDirectory tiffOutputDirectory1 = tiffOutputSet0.getGPSDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      String string0 = tiffOutputSet0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      String string0 = tiffOutputSet0.toString();
+      tiffOutputSet0.setGPSInDegrees(1382.04209618, (-1318.4978516));
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes(string0, 0, (-3), tiffDirectoryType0);
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField((TagInfo) tagInfoBytes0);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      String string0 = tiffOutputSet0.toString();
+      tiffOutputSet0.setGPSInDegrees(1382.04209618, (-1318.4978516));
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoBytes tagInfoBytes0 = new TagInfoBytes(string0, 0, (-3), tiffDirectoryType0);
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField((TagInfo) tagInfoBytes0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      tiffOutputSet0.dump();
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoByte tagInfoByte0 = new TagInfoByte("TiffOutputSet {\nbyteOrder: LITTLE_ENDIAN\n\tdirectory 0: Root (0)\n\tdirectory 1: Exif (-2)\n\tdirectory 2: Interoperability (-4)\n}\n", (-4), tiffDirectoryType0);
+      TiffOutputField tiffOutputField0 = tiffOutputSet0.findField((TagInfo) tagInfoByte0);
+      assertNotNull(tiffOutputField0);
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      TiffDirectoryType tiffDirectoryType0 = TiffDirectoryType.TIFF_DIRECTORY_IFD1;
+      TagInfoFloat tagInfoFloat0 = new TagInfoFloat("TiffOutputSet {\nbyteOrder: LITTLE_ENDIAN\n\tdirectory 0: Root (0)\n\tdirectory 1: Exif (-2)\n\tdirectory 2: Gps (-3)\n\t\tfield 2: [TagInfo. tag: 0 (0x0, name: GPSVersionID]\n\t\tfield 2: [TagInfo. tag: 3 (0x3, name: GPSLongitudeRef]\n\t\tfield 2: [TagInfo. tag: 1 (0x1, name: GPSLatitudeRef]\n\t\tfield 2: [TagInfo. tag: 4 (0x4, name: GPSLongitude]\n\t\tfield 2: [TagInfo. tag: 2 (0x2, name: GPSLatitude]\n}\n", (-2), tiffDirectoryType0);
+      tiffOutputSet0.removeField((TagInfo) tagInfoFloat0);
+      assertFalse(tagInfoFloat0.isText());
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateGPSDirectory();
+      TiffOutputDirectory tiffOutputDirectory1 = tiffOutputSet0.getOrCreateGPSDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      assertEquals(0, tiffOutputDirectory0.getItemLength());
+}
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      List<TiffOutputItem> list0 = tiffOutputSet0.getOutputItems(tiffOutputSummary0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getOrCreateExifDirectory();
+      HashMap<Integer, TiffOutputDirectory> hashMap0 = new HashMap<Integer, TiffOutputDirectory>();
+      TiffOutputSummary tiffOutputSummary0 = new TiffOutputSummary(tiffOutputSet0.byteOrder, tiffOutputDirectory0, hashMap0);
+      List<TiffOutputItem> list0 = tiffOutputSet0.getOutputItems(tiffOutputSummary0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getExifDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      List<TiffOutputDirectory> list0 = tiffOutputSet0.getDirectories();
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getRootDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getInteroperabilityDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffOutputDirectory tiffOutputDirectory1 = tiffOutputSet0.getOrCreateRootDirectory();
+      assertEquals(tiffOutputDirectory0, tiffOutputDirectory1);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.addInteroperabilityDirectory();
+      TiffOutputDirectory tiffOutputDirectory1 = tiffOutputSet0.getOrCreateRootDirectory();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      tiffOutputSet0.setGPSInDegrees(16.0, 0.0);
+      try { 
+        tiffOutputSet0.addExifDirectory();
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Output set already contains a directory of that type.
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet();
+      TiffOutputDirectory tiffOutputDirectory0 = tiffOutputSet0.getGPSDirectory();
+      assertNotNull(tiffOutputDirectory0);
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      ByteOrder byteOrder0 = ByteOrder.nativeOrder();
+      TiffOutputSet tiffOutputSet0 = new TiffOutputSet(byteOrder0);
+      // Undeclared exception!
+      try { 
+        tiffOutputSet0.findField((TagInfo) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffOutputSet", e);
+      }
+  }

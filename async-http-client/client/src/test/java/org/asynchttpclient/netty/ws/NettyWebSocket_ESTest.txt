@@ -1,0 +1,1182 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Attribute<ForkJoinTask<Object>> attribute0 = (Attribute<ForkJoinTask<Object>>) mock(Attribute.class, new ViolatedAssumptionAnswer());
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(channel0).isActive();
+      doReturn(attribute0).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      CloseWebSocketFrame closeWebSocketFrame0 = new CloseWebSocketFrame((-2), "");
+      nettyWebSocket0.bufferFrame(closeWebSocketFrame0);
+      nettyWebSocket0.processBufferedFrames();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame("", false, 15);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("", "").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame("");
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("Received continuation frame without an original text or binary frame, ignoring").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame(byteBuf0, true, 0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DefaultChannelProgressivePromise defaultChannelProgressivePromise0 = new DefaultChannelProgressivePromise((Channel) null);
+      DelegatingChannelPromiseNotifier delegatingChannelPromiseNotifier0 = new DelegatingChannelPromiseNotifier(defaultChannelProgressivePromise0);
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(delegatingChannelPromiseNotifier0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[7];
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame(byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(byteBuf0).isReadable();
+      doReturn(false).when(byteBuf0).release();
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame(byteBuf0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("(\"K%]#]<yLt").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      byte[] byteArray0 = new byte[3];
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame(byteArray0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("(\"K%]#]<yLt").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame(byteBuf0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      byte[] byteArray0 = new byte[2];
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame(byteArray0, false, 0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("(\"K%]#]<yLt", "(\"K%]#]<yLt").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[0];
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame(byteArray0, true, 462);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      DefaultChannelProgressivePromise defaultChannelProgressivePromise0 = new DefaultChannelProgressivePromise((Channel) null);
+      DelegatingChannelPromiseNotifier delegatingChannelPromiseNotifier0 = new DelegatingChannelPromiseNotifier(defaultChannelProgressivePromise0);
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(delegatingChannelPromiseNotifier0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame("", true, 2225);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("~|t}bP").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame(byteBuf0, true, (-2563));
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(channel0).isOpen();
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendCloseFrame((-1918), "");
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(channel0).isOpen();
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      DefaultHttpHeaders defaultHttpHeaders0 = new DefaultHttpHeaders();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, defaultHttpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendCloseFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel((ChannelId) null);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(embeddedChannel0, combinedHttpHeaders0);
+      byte[] byteArray0 = new byte[2];
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteArray0, false, 1616);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("(\"K%]#]<yLt", "(\"K%]#]<yLt", "(\"K%]#]<yLt").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[0];
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteArray0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("Received continuation frame without an original text or binary frame, ignoring").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteBuf0, false, (int) (byte)32);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(channel0).isOpen();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      boolean boolean0 = nettyWebSocket0.isOpen();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      DefaultHttpHeaders defaultHttpHeaders0 = new DefaultHttpHeaders();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, defaultHttpHeaders0);
+      HttpHeaders httpHeaders0 = nettyWebSocket0.getUpgradeHeaders();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((SocketAddress) null).when(channel0).remoteAddress();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      SocketAddress socketAddress0 = nettyWebSocket0.getRemoteAddress();
+      assertNotNull(socketAddress0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((SocketAddress) null).when(channel0).localAddress();
+      DefaultHttpHeaders defaultHttpHeaders0 = new DefaultHttpHeaders();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, defaultHttpHeaders0);
+      SocketAddress socketAddress0 = nettyWebSocket0.getLocalAddress();
+      assertNotNull(socketAddress0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel((ChannelId) null);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(false);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(embeddedChannel0, combinedHttpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.channel.AbstractChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendTextFrame("", true, 880);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendTextFrame((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendTextFrame(byteBuf0, true, (-1680));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendTextFrame((ByteBuf) null, true, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // data
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      byte[] byteArray0 = new byte[4];
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPongFrame(byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPongFrame((ByteBuf) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.Unpooled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(byteBuf0).isReadable();
+      doReturn((ByteBuf) null).when(byteBuf0).slice();
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPongFrame(byteBuf0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // data
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPongFrame();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[0];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(false, false, channelHandlerArray0);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(embeddedChannel0, (HttpHeaders) null);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPongFrame();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // channel not registered to an event loop
+         //
+         verifyException("io.netty.channel.AbstractChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPingFrame((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.Unpooled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPingFrame(byteBuf0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPingFrame((ByteBuf) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // data
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendPingFrame();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      DefaultHttpHeaders defaultHttpHeaders0 = new DefaultHttpHeaders();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, defaultHttpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendContinuationFrame("", false, 0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendContinuationFrame(byteBuf0, true, (-2154));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendContinuationFrame((ByteBuf) null, false, (-19));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // data
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendCloseFrame((-737), "TEXT");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendCloseFrame();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      byte[] byteArray0 = new byte[3];
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendBinaryFrame(byteArray0, true, 125);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      byte[] byteArray0 = new byte[9];
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendBinaryFrame(byteArray0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      ChannelHandler[] channelHandlerArray0 = new ChannelHandler[0];
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel(false, false, channelHandlerArray0);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(embeddedChannel0, (HttpHeaders) null);
+      byte[] byteArray0 = new byte[3];
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendBinaryFrame(byteArray0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // channel not registered to an event loop
+         //
+         verifyException("io.netty.channel.AbstractChannel", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendBinaryFrame(byteBuf0, false, 1304);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendBinaryFrame((ByteBuf) null, true, (-3752));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // data
+         //
+         verifyException("io.netty.util.internal.ObjectUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      ContinuationWebSocketFrame continuationWebSocketFrame0 = new ContinuationWebSocketFrame();
+      nettyWebSocket0.bufferFrame(continuationWebSocketFrame0);
+      continuationWebSocketFrame0.release(2);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.processBufferedFrames();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0, decrement: 1
+         //
+         verifyException("io.netty.util.internal.ReferenceCountUpdater", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, (HttpHeaders) null);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.isOpen();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      PingWebSocketFrame pingWebSocketFrame0 = new PingWebSocketFrame();
+      pingWebSocketFrame0.release();
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.handleFrame(pingWebSocketFrame0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0
+         //
+         verifyException("io.netty.buffer.ByteBufUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.getRemoteAddress();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, combinedHttpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.getLocalAddress();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      ContinuationWebSocketFrame continuationWebSocketFrame0 = new ContinuationWebSocketFrame();
+      continuationWebSocketFrame0.release();
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.bufferFrame(continuationWebSocketFrame0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // refCnt: 0, increment: 1
+         //
+         verifyException("io.netty.util.internal.ReferenceCountUpdater", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.bufferFrame((WebSocketFrame) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.ws.NettyWebSocket", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.addWebSocketListener((WebSocketListener) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.concurrent.ConcurrentLinkedQueue", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      WebSocketFrame webSocketFrame0 = mock(WebSocketFrame.class, new ViolatedAssumptionAnswer());
+      nettyWebSocket0.handleFrame(webSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      ContinuationWebSocketFrame continuationWebSocketFrame0 = new ContinuationWebSocketFrame();
+      nettyWebSocket0.handleFrame(continuationWebSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = UnpooledByteBufAllocator.DEFAULT;
+      ByteBuf[] byteBufArray0 = new ByteBuf[0];
+      CompositeByteBuf compositeByteBuf0 = new CompositeByteBuf(unpooledByteBufAllocator0, false, 59, byteBufArray0);
+      CloseWebSocketFrame closeWebSocketFrame0 = new CloseWebSocketFrame(true, 1, compositeByteBuf0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.handleFrame(closeWebSocketFrame0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(channel0).isOpen();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendCloseFrame((-19), "");
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteBuf0, false, 0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      byte[] byteArray0 = new byte[2];
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteArray0, false, 2749);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      DefaultChannelProgressivePromise defaultChannelProgressivePromise0 = new DefaultChannelProgressivePromise((Channel) null);
+      DelegatingChannelPromiseNotifier delegatingChannelPromiseNotifier0 = new DelegatingChannelPromiseNotifier(defaultChannelProgressivePromise0);
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(delegatingChannelPromiseNotifier0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame("", true, 2225);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("Received continuation frame without an original text or binary frame, ignoring").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(byteBuf0).isReadable();
+      doReturn(true).when(byteBuf0).release();
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame(byteBuf0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      PongWebSocketFrame pongWebSocketFrame0 = new PongWebSocketFrame();
+      nettyWebSocket0.handleFrame(pongWebSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn("Received continuation frame without an original text or binary fame, ignoring").when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket1 = (NettyWebSocket)nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      PingWebSocketFrame pingWebSocketFrame0 = new PingWebSocketFrame();
+      nettyWebSocket1.handleFrame(pingWebSocketFrame0);
+      assertTrue(pingWebSocketFrame0.isFinalFragment());
+}
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      TextWebSocketFrame textWebSocketFrame0 = new TextWebSocketFrame(false, (byte) (-102), "");
+      nettyWebSocket0.handleFrame(textWebSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test66()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      TextWebSocketFrame textWebSocketFrame0 = new TextWebSocketFrame(false, (byte) (-102), "");
+      nettyWebSocket0.handleFrame(textWebSocketFrame0);
+      nettyWebSocket0.handleFrame(textWebSocketFrame0);
+      assertEquals(0, textWebSocketFrame0.rsv());
+}
+ @Test(timeout = 4000)
+  public void test67()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket1 = (NettyWebSocket)nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      BinaryWebSocketFrame binaryWebSocketFrame0 = new BinaryWebSocketFrame();
+      nettyWebSocket1.handleFrame(binaryWebSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test68()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      TextWebSocketFrame textWebSocketFrame0 = new TextWebSocketFrame(false, (byte) (-102), "");
+      nettyWebSocket0.handleFrame(textWebSocketFrame0);
+      BinaryWebSocketFrame binaryWebSocketFrame0 = new BinaryWebSocketFrame();
+      nettyWebSocket0.handleFrame(binaryWebSocketFrame0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test69()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn("").when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket1 = (NettyWebSocket)nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      nettyWebSocket1.onClose(1619, "!");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test70()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      WebSocketListener webSocketListener0 = mock(WebSocketListener.class, new ViolatedAssumptionAnswer());
+      WebSocket webSocket0 = nettyWebSocket0.addWebSocketListener(webSocketListener0);
+      Throwable throwable0 = mock(Throwable.class, new ViolatedAssumptionAnswer());
+      nettyWebSocket0.onError(throwable0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test71()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      UnpooledByteBufAllocator unpooledByteBufAllocator0 = UnpooledByteBufAllocator.DEFAULT;
+      UnpooledUnsafeHeapByteBuf unpooledUnsafeHeapByteBuf0 = new UnpooledUnsafeHeapByteBuf(unpooledByteBufAllocator0, 0, 0);
+      BinaryWebSocketFrame binaryWebSocketFrame0 = new BinaryWebSocketFrame(false, 0, unpooledUnsafeHeapByteBuf0);
+      nettyWebSocket0.handleFrame(binaryWebSocketFrame0);
+      assertEquals(0, binaryWebSocketFrame0.rsv());
+}
+ @Test(timeout = 4000)
+  public void test72()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      TextWebSocketFrame textWebSocketFrame0 = new TextWebSocketFrame("");
+      nettyWebSocket0.handleFrame(textWebSocketFrame0);
+      assertTrue(textWebSocketFrame0.isFinalFragment());
+}
+ @Test(timeout = 4000)
+  public void test73()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      nettyWebSocket0.processBufferedFrames();
+      boolean boolean0 = nettyWebSocket0.isReady();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test74()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((Attribute) null).when(channel0).attr(nullable(io.netty.util.AttributeKey.class));
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      CloseWebSocketFrame closeWebSocketFrame0 = new CloseWebSocketFrame((-2), "");
+      nettyWebSocket0.bufferFrame(closeWebSocketFrame0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.processBufferedFrames();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.netty.channel.Channels", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test75()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      WebSocketFrame webSocketFrame0 = mock(WebSocketFrame.class, new ViolatedAssumptionAnswer());
+      doReturn((WebSocketFrame) null).when(webSocketFrame0).retain();
+      nettyWebSocket0.bufferFrame(webSocketFrame0);
+      WebSocketFrame webSocketFrame1 = mock(WebSocketFrame.class, new ViolatedAssumptionAnswer());
+      doReturn((WebSocketFrame) null).when(webSocketFrame1).retain();
+      nettyWebSocket0.bufferFrame(webSocketFrame1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test76()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(channel0).isOpen();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendCloseFrame((int) (byte)8, "tES{&h/{1Sr");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // WebSocket close status code does NOT comply with RFC-6455: 8
+         //
+         verifyException("io.netty.handler.codec.http.websocketx.CloseWebSocketFrame", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test77()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      // Undeclared exception!
+      try { 
+        nettyWebSocket0.sendContinuationFrame((byte[]) null, true, 270);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("io.netty.buffer.Unpooled", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test78()  throws Throwable  {
+      SocketAddress socketAddress0 = mock(SocketAddress.class, new ViolatedAssumptionAnswer());
+      doReturn("org.asynchttpclient.netty.ws.NettyWebSocket$FragmentedFrameType").when(socketAddress0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(socketAddress0).when(channel0).localAddress();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      SocketAddress socketAddress1 = nettyWebSocket0.getLocalAddress();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test79()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test80()  throws Throwable  {
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket((Channel) null, httpHeaders0);
+      String string0 = nettyWebSocket0.toString();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test81()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(channel0).toString();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      NettyWebSocket nettyWebSocket1 = (NettyWebSocket)nettyWebSocket0.removeWebSocketListener((WebSocketListener) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test82()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame(byteBuf0, false, 2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test83()  throws Throwable  {
+      ChannelFuture channelFuture0 = mock(ChannelFuture.class, new ViolatedAssumptionAnswer());
+      doReturn("Received continuation frame without an original text or binary frame, ignoring", "O!").when(channelFuture0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(channelFuture0).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[6];
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame(byteArray0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test84()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(channel0).isOpen();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendCloseFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test85()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame(byteBuf0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test86()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      ByteBuf byteBuf0 = mock(ByteBuf.class, new ViolatedAssumptionAnswer());
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame(byteBuf0, false, (-2));
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test87()  throws Throwable  {
+      SocketAddress socketAddress0 = mock(SocketAddress.class, new ViolatedAssumptionAnswer());
+      doReturn("org.asynchttpclient.netty.ws.NettyWebSocket$FragmentedFrameType").when(socketAddress0).toString();
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(socketAddress0).when(channel0).remoteAddress();
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      SocketAddress socketAddress1 = nettyWebSocket0.getRemoteAddress();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test88()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendPingFrame();
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test89()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(channel0).isOpen();
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      boolean boolean0 = nettyWebSocket0.isOpen();
+      assertFalse(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test90()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      boolean boolean0 = nettyWebSocket0.isReady();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test91()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[9];
+      Future<Void> future0 = nettyWebSocket0.sendPongFrame(byteArray0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test92()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendContinuationFrame("", true, 2225);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test93()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      Future<Void> future0 = nettyWebSocket0.sendTextFrame("");
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test94()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      doReturn((ChannelFuture) null).when(channel0).writeAndFlush(any());
+      HttpHeaders httpHeaders0 = mock(HttpHeaders.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, httpHeaders0);
+      byte[] byteArray0 = new byte[9];
+      Future<Void> future0 = nettyWebSocket0.sendBinaryFrame(byteArray0);
+      assertNotNull(future0);
+}
+ @Test(timeout = 4000)
+  public void test95()  throws Throwable  {
+      Channel channel0 = mock(Channel.class, new ViolatedAssumptionAnswer());
+      NettyWebSocket nettyWebSocket0 = new NettyWebSocket(channel0, (HttpHeaders) null);
+      HttpHeaders httpHeaders0 = nettyWebSocket0.getUpgradeHeaders();
+      assertNotNull(httpHeaders0);
+}

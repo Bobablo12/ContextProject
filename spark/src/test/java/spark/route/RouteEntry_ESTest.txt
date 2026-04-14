@@ -1,0 +1,169 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.before;
+      routeEntry0.httpMethod = httpMethod0;
+      routeEntry0.path = "*/*";
+      String string0 = routeEntry0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      RouteEntry routeEntry1 = new RouteEntry(routeEntry0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.head;
+      routeEntry0.path = ":*";
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "/");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.get;
+      routeEntry0.path = "nO*qda98*";
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "/");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.before;
+      routeEntry0.httpMethod = httpMethod0;
+      routeEntry0.path = "*/*";
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "before, */*, */*");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "+/*aths";
+      HttpMethod httpMethod0 = HttpMethod.trace;
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, ":");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "*/*";
+      boolean boolean0 = routeEntry0.matches(routeEntry0.httpMethod, "+/*paths");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "+/*aths";
+      HttpMethod httpMethod0 = HttpMethod.trace;
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "+/*paths");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.head;
+      routeEntry0.path = ":*";
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, ":)");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "/";
+      HttpMethod httpMethod0 = HttpMethod.get;
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "t=dxDbQw@a.");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "/";
+      HttpMethod httpMethod0 = HttpMethod.get;
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "/");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.afterafter;
+      routeEntry0.path = "+/*paihs";
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "F6Z/");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "+/*paths";
+      HttpMethod httpMethod0 = HttpMethod.trace;
+      routeEntry0.httpMethod = httpMethod0;
+      routeEntry0.path = "*";
+      boolean boolean0 = routeEntry0.matches(httpMethod0, "");
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      routeEntry0.path = "+/*paths";
+      HttpMethod httpMethod0 = HttpMethod.after;
+      routeEntry0.httpMethod = httpMethod0;
+      boolean boolean0 = routeEntry0.matches(routeEntry0.httpMethod, (String) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      HttpMethod httpMethod0 = HttpMethod.afterafter;
+      boolean boolean0 = routeEntry0.matches(httpMethod0, (String) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      // Undeclared exception!
+      try { 
+        routeEntry0.matches(routeEntry0.httpMethod, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      RouteEntry routeEntry0 = new RouteEntry();
+      // Undeclared exception!
+      try { 
+        routeEntry0.toString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.route.RouteEntry", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      RouteEntry routeEntry0 = null;
+      try {
+        routeEntry0 = new RouteEntry((RouteEntry) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.route.RouteEntry", e);
+      }
+  }

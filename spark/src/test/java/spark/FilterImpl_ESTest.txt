@@ -1,0 +1,87 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, "WatchKey not recognized: {}", (Filter) null);
+      String string0 = filterImpl0.getPath();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create("", "", (Filter) null);
+      String string0 = filterImpl0.getPath();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create("", "", (Filter) null);
+      String string0 = filterImpl0.getAcceptType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create("", (String) null, (Filter) null);
+      Object object0 = filterImpl0.delegate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create(">!uieL4Et?", ">!uieL4Et?", (Filter) null);
+      HttpServletRequest httpServletRequest0 = mock(HttpServletRequest.class, new ViolatedAssumptionAnswer());
+      HttpServletRequestWrapper httpServletRequestWrapper0 = new HttpServletRequestWrapper(httpServletRequest0);
+      Request request0 = new Request(httpServletRequestWrapper0);
+      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+      Response response0 = new Response(httpServletResponseWrapper0);
+      try { 
+        filterImpl0.handle(request0, response0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.FilterImpl$1", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Filter filter0 = mock(Filter.class, new ViolatedAssumptionAnswer());
+      doReturn("<").when(filter0).toString();
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, (String) null, filter0);
+      Object object0 = filterImpl0.delegate();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FilterImpl filterImpl0 = FilterImpl.create("Gie", (Filter) null);
+      String string0 = filterImpl0.getPath();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Filter filter0 = mock(Filter.class, new ViolatedAssumptionAnswer());
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, (String) null, filter0);
+      String string0 = filterImpl0.getAcceptType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Filter filter0 = mock(Filter.class, new ViolatedAssumptionAnswer());
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, (String) null, filter0);
+      String string0 = filterImpl0.getAcceptType();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Filter filter0 = mock(Filter.class, new ViolatedAssumptionAnswer());
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, (String) null, filter0);
+      Request request0 = new Request();
+      Response response0 = new Response();
+      filterImpl0.handle(request0, response0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Filter filter0 = mock(Filter.class, new ViolatedAssumptionAnswer());
+      FilterImpl filterImpl0 = FilterImpl.create((String) null, (String) null, filter0);
+      FilterImpl filterImpl1 = filterImpl0.withPrefix((String) null);
+      ;
+}

@@ -1,0 +1,82 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      RateLimitedThrottleRequestFilter rateLimitedThrottleRequestFilter0 = new RateLimitedThrottleRequestFilter(Integer.MAX_VALUE, Integer.MAX_VALUE, (-1));
+      FilterContext<String> filterContext0 = (FilterContext<String>) mock(FilterContext.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler) null, (AsyncHandler) null).when(filterContext0).getAsyncHandler();
+      doReturn((IOException) null).when(filterContext0).getIOException();
+      doReturn((Request) null).when(filterContext0).getRequest();
+      doReturn((HttpResponseStatus) null).when(filterContext0).getResponseStatus();
+      doReturn(false).when(filterContext0).replayRequest();
+      // Undeclared exception!
+      try { 
+        rateLimitedThrottleRequestFilter0.filter((FilterContext<String>) filterContext0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.filter.ReleasePermitOnComplete", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      RateLimitedThrottleRequestFilter rateLimitedThrottleRequestFilter0 = null;
+      try {
+        rateLimitedThrottleRequestFilter0 = new RateLimitedThrottleRequestFilter(0, 0, (-1737));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // rate must be positive
+         //
+         verifyException("com.google.common.base.Preconditions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      RateLimitedThrottleRequestFilter rateLimitedThrottleRequestFilter0 = new RateLimitedThrottleRequestFilter((-1418), 1715.6282, (-302));
+      FilterContext<RateLimitedThrottleRequestFilter> filterContext0 = (FilterContext<RateLimitedThrottleRequestFilter>) mock(FilterContext.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler) null).when(filterContext0).getAsyncHandler();
+      doReturn((Request) null).when(filterContext0).getRequest();
+      try { 
+        rateLimitedThrottleRequestFilter0.filter((FilterContext<RateLimitedThrottleRequestFilter>) filterContext0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // No slot available for processing Request null with AsyncHandler null
+         //
+         verifyException("org.asynchttpclient.extras.guava.RateLimitedThrottleRequestFilter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      RateLimitedThrottleRequestFilter rateLimitedThrottleRequestFilter0 = new RateLimitedThrottleRequestFilter(1305, 1.0);
+      FilterContext<Integer> filterContext0 = (FilterContext<Integer>) mock(FilterContext.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler) null, (AsyncHandler) null).when(filterContext0).getAsyncHandler();
+      doReturn((IOException) null).when(filterContext0).getIOException();
+      doReturn((Request) null).when(filterContext0).getRequest();
+      doReturn((HttpResponseStatus) null).when(filterContext0).getResponseStatus();
+      doReturn(false).when(filterContext0).replayRequest();
+      // Undeclared exception!
+      try { 
+        rateLimitedThrottleRequestFilter0.filter(filterContext0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.filter.ReleasePermitOnComplete", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      RateLimitedThrottleRequestFilter rateLimitedThrottleRequestFilter0 = null;
+      try {
+        rateLimitedThrottleRequestFilter0 = new RateLimitedThrottleRequestFilter((-1), 0.0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // rate must be positive
+         //
+         verifyException("com.google.common.base.Preconditions", e);
+      }
+  }

@@ -1,0 +1,123 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      String string0 = EscapeUtil.urlEncode("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      String string0 = EscapeUtil.urlDecode("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeXml((String) null);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeXml("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeHtml((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeHtml("");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      String string0 = EscapeUtil.escapeXml((String) null);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      String string0 = EscapeUtil.escapeXml("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      String string0 = EscapeUtil.escapeHtml((String) null);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      String string0 = EscapeUtil.escapeHtml("");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        EscapeUtil.urlEncode((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URLEncoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        EscapeUtil.urlDecode((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.net.URLDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        EscapeUtil.urlDecode("jW}DejEx&%q:M$d9d!/");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // URLDecoder: Illegal hex characters in escape (%) pattern - For input string: \"q:\"
+         //
+         verifyException("java.net.URLDecoder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeHtml(":f$S0Mrg2");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      String string0 = EscapeUtil.unescapeXml(":f$S0Mrg2");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      String string0 = EscapeUtil.urlEncode(":f$S0Mrg2");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      String string0 = EscapeUtil.urlDecode(":f$S0Mrg2");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      String string0 = EscapeUtil.escapeHtml(":f$S0Mrg2");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      EscapeUtil escapeUtil0 = new EscapeUtil();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      String string0 = EscapeUtil.escapeXml(":f$S0Mrg2");
+      assertNotNull(string0);
+}

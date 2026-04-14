@@ -1,0 +1,100 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, (Properties) null);
+      MutableConfiguration<Object, Integer> mutableConfiguration0 = new MutableConfiguration<Object, Integer>();
+      Cache<Object, Integer> cache0 = jCSCachingManager0.createCache("r;", mutableConfiguration0);
+      JCSCacheMXBean<Object, Integer> jCSCacheMXBean0 = new JCSCacheMXBean<Object, Integer>(cache0);
+      boolean boolean0 = jCSCacheMXBean0.isStoreByValue();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, (Properties) null);
+      MutableConfiguration<Object, Integer> mutableConfiguration0 = new MutableConfiguration<Object, Integer>();
+      Cache<Object, Integer> cache0 = jCSCachingManager0.createCache("r;", mutableConfiguration0);
+      JCSCacheMXBean<Object, Integer> jCSCacheMXBean0 = new JCSCacheMXBean<Object, Integer>(cache0);
+      String string0 = jCSCacheMXBean0.getValueType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JCSCachingProvider jCSCachingProvider0 = new JCSCachingProvider();
+      ClassLoader classLoader0 = jCSCachingProvider0.getDefaultClassLoader();
+      Properties properties0 = new Properties();
+      JCSCachingManager jCSCachingManager0 = new JCSCachingManager(jCSCachingProvider0, jCSCachingProvider0.DEFAULT_URI, classLoader0, properties0);
+      MutableConfiguration<Delayed, ExpiryPolicy> mutableConfiguration0 = new MutableConfiguration<Delayed, ExpiryPolicy>();
+      Cache<Delayed, ExpiryPolicy> cache0 = jCSCachingManager0.createCache("q=a%yx8CNsR;A<E", mutableConfiguration0);
+      JCSCacheMXBean<Delayed, ExpiryPolicy> jCSCacheMXBean0 = new JCSCacheMXBean<Delayed, ExpiryPolicy>(cache0);
+      String string0 = jCSCacheMXBean0.getKeyType();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JCSCacheMXBean<String, Object> jCSCacheMXBean0 = new JCSCacheMXBean<String, Object>((Cache<String, Object>) null);
+      boolean boolean0 = jCSCacheMXBean0.isManagementEnabled();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JCSCacheMXBean<CacheEntryListener<Integer, Object>, Object> jCSCacheMXBean0 = new JCSCacheMXBean<CacheEntryListener<Integer, Object>, Object>((Cache<CacheEntryListener<Integer, Object>, Object>) null);
+      // Undeclared exception!
+      try { 
+        jCSCacheMXBean0.getKeyType();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JCSCacheMXBean", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JCSCacheMXBean<Configuration<ExpiryPolicy, String>, CacheEntryListener<Object, Integer>> jCSCacheMXBean0 = new JCSCacheMXBean<Configuration<ExpiryPolicy, String>, CacheEntryListener<Object, Integer>>((Cache<Configuration<ExpiryPolicy, String>, CacheEntryListener<Object, Integer>>) null);
+      boolean boolean0 = jCSCacheMXBean0.isReadThrough();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JCSCacheMXBean<String, Object> jCSCacheMXBean0 = new JCSCacheMXBean<String, Object>((Cache<String, Object>) null);
+      boolean boolean0 = jCSCacheMXBean0.isStatisticsEnabled();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JCSCacheMXBean<String, Object> jCSCacheMXBean0 = new JCSCacheMXBean<String, Object>((Cache<String, Object>) null);
+      // Undeclared exception!
+      try { 
+        jCSCacheMXBean0.getValueType();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JCSCacheMXBean", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JCSCacheMXBean<Integer, String> jCSCacheMXBean0 = new JCSCacheMXBean<Integer, String>((Cache<Integer, String>) null);
+      // Undeclared exception!
+      try { 
+        jCSCacheMXBean0.isStoreByValue();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.jcache.jmx.JCSCacheMXBean", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JCSCacheMXBean<String, ExpiryPolicy> jCSCacheMXBean0 = new JCSCacheMXBean<String, ExpiryPolicy>((Cache<String, ExpiryPolicy>) null);
+      boolean boolean0 = jCSCacheMXBean0.isWriteThrough();
+      assertTrue(boolean0);
+}

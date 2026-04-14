@@ -1,0 +1,174 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset((-2127), 1);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.length();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(1, 1);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.getPaletteIndex(1);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset((-2127), 1);
+      linkedList0.add(colorSpaceSubset0);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.getPaletteIndex(717);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      int[] intArray0 = new int[5];
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(0, 0, intArray0, intArray0);
+      colorSpaceSubset0.rgb = 0;
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 0);
+      assertEquals(0, quantizedPalette0.length());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      int[] intArray0 = new int[5];
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(0, 0, intArray0, intArray0);
+      colorSpaceSubset0.rgb = 0;
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 0);
+      int int0 = quantizedPalette0.getEntry(0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset((-2127), 1);
+      colorSpaceSubset0.rgb = (-2127);
+      linkedList0.add(colorSpaceSubset0);
+      colorSpaceSubset0.rgb = 1;
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.getEntry(1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(8, 8);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 2661);
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      linkedList0.add((ColorSpaceSubset) null);
+      QuantizedPalette quantizedPalette0 = null;
+      try {
+        quantizedPalette0 = new QuantizedPalette(linkedList0, 1168);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.QuantizedPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      QuantizedPalette quantizedPalette0 = null;
+      try {
+        quantizedPalette0 = new QuantizedPalette(linkedList0, 3093);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.QuantizedPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      int[] intArray0 = new int[2];
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(3, 2762, intArray0, intArray0);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = null;
+      try {
+        quantizedPalette0 = new QuantizedPalette(linkedList0, (-4799));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 2
+         //
+         verifyException("org.apache.commons.imaging.palette.QuantizedPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      ColorSpaceSubset colorSpaceSubset0 = new ColorSpaceSubset(1, 1);
+      linkedList0.add(colorSpaceSubset0);
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.getEntry(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette((List<ColorSpaceSubset>) null, (-70));
+      // Undeclared exception!
+      try { 
+        quantizedPalette0.getPaletteIndex((-70));
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("org.apache.commons.imaging.palette.QuantizedPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      // Undeclared exception!
+      try { 
+        quantizedPalette0.getEntry(0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // Index: 0, Size: 0
+         //
+         verifyException("java.util.LinkedList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      // Undeclared exception!
+      try { 
+        quantizedPalette0.getPaletteIndex(1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.palette.QuantizedPalette", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LinkedList<ColorSpaceSubset> linkedList0 = new LinkedList<ColorSpaceSubset>();
+      QuantizedPalette quantizedPalette0 = new QuantizedPalette(linkedList0, 1);
+      int int0 = quantizedPalette0.length();
+      assertEquals(0, int0);
+}

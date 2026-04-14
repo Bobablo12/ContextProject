@@ -1,0 +1,160 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      Class<HashMap> class0 = HashMap.class;
+      Class<Locale.Category> class1 = Locale.Category.class;
+      JavaType javaType0 = jsonMapper0.buildMapType(class0, class1, class0);
+      assertFalse(javaType0.hasHandlers());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JsonInclude.Include jsonInclude_Include0 = JsonInclude.Include.NON_DEFAULT;
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      jsonMapper0.update("f<M8+", jsonInclude_Include0);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      Class<Object> class0 = Object.class;
+      Object object0 = jsonMapper0.fromJson("\"java.util.HashMap\"", class0);
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      Class<Object> class0 = Object.class;
+      TypeBindings typeBindings0 = TypeBindings.emptyBindings();
+      ResolvedRecursiveType resolvedRecursiveType0 = new ResolvedRecursiveType(class0, typeBindings0);
+      String string0 = jsonMapper0.fromJson("\"java.lang.Object\"", (JavaType) resolvedRecursiveType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.nonNullMapper();
+      Object object0 = new Object();
+      // Undeclared exception!
+      try { 
+        jsonMapper0.update((String) null, object0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("com.fasterxml.jackson.core.JsonFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      JsonInclude.Include jsonInclude_Include0 = JsonInclude.Include.NON_DEFAULT;
+      JsonMapper jsonMapper0 = new JsonMapper(jsonInclude_Include0);
+      jsonMapper0.INSTANCE.update("", "");
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      String string0 = jsonMapper0.toJsonP((String) null, (Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      JsonInclude.Include jsonInclude_Include0 = JsonInclude.Include.NON_NULL;
+      JsonMapper jsonMapper0 = new JsonMapper(jsonInclude_Include0);
+      // Undeclared exception!
+      try { 
+        jsonMapper0.fromJson("FZpxq_oU`jU=ZD%c&", (Class<Integer>) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unrecognized Type: [null]
+         //
+         verifyException("com.fasterxml.jackson.databind.type.TypeFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      // Undeclared exception!
+      try { 
+        jsonMapper0.INSTANCE.fromJson("[", (JavaType) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      Class<LinkedList> class0 = LinkedList.class;
+      JavaType javaType0 = jsonMapper0.INSTANCE.buildCollectionType(class0, class0);
+      JavaType javaType1 = jsonMapper0.INSTANCE.fromJson("1196", javaType0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      JsonMapper jsonMapper0 = new JsonMapper((JsonInclude.Include) null);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      Class<LinkedList> class0 = LinkedList.class;
+      Class<Integer> class1 = Integer.TYPE;
+      JavaType javaType0 = jsonMapper0.INSTANCE.buildCollectionType(class0, class1);
+      Integer integer0 = jsonMapper0.fromJson((String) null, javaType0);
+      assertNotNull(integer0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      Class<Integer> class0 = Integer.class;
+      Integer integer0 = jsonMapper0.fromJson("", class0);
+      String string0 = jsonMapper0.toJson(integer0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      ObjectMapper objectMapper0 = jsonMapper0.getMapper();
+      assertEquals(0, objectMapper0.mixInCount());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      jsonMapper0.enableEnumUseToString();
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      Class<LinkedList> class0 = LinkedList.class;
+      JavaType javaType0 = jsonMapper0.INSTANCE.buildCollectionType(class0, class0);
+      LinkedList<JsonMapper> linkedList0 = jsonMapper0.INSTANCE.fromJson("BtTPL52jQ+", javaType0);
+      assertNotNull(linkedList0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.INSTANCE;
+      String string0 = jsonMapper0.toJsonP("", "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      JsonMapper jsonMapper0 = new JsonMapper();
+      // Undeclared exception!
+      try { 
+        jsonMapper0.INSTANCE.update("\"cti{3\"0R=vE", "\"cti{3\"0R=vE");
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Can not update object of type java.lang.String (by deserializer of type com.fasterxml.jackson.databind.deser.std.StringDeserializer)
+         //
+         verifyException("com.fasterxml.jackson.databind.JsonDeserializer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      JsonMapper jsonMapper0 = JsonMapper.defaultMapper();
+      Class<Integer> class0 = Integer.TYPE;
+      Integer integer0 = jsonMapper0.INSTANCE.fromJson("f<M8+", class0);
+      ;
+}

@@ -1,0 +1,62 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PpmWriter ppmWriter0 = new PpmWriter(false);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("tif");
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(2848, 1731, false);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      ppmWriter0.writeImage(bufferedImage0, mockPrintStream0, pnmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PpmWriter ppmWriter0 = new PpmWriter(false);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      try { 
+        ppmWriter0.writeImage((BufferedImage) null, pipedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedOutputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PpmWriter ppmWriter0 = new PpmWriter(false);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(80, 80, false);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(80);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ppmWriter0.writeImage(bufferedImage0, byteArrayOutputStream0, pnmImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PpmWriter ppmWriter0 = new PpmWriter(true);
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getGrayscaleBufferedImage(80, 80, true);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(80);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      ppmWriter0.writeImage(bufferedImage0, byteArrayOutputStream0, pnmImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PpmWriter ppmWriter0 = new PpmWriter(false);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      pipedOutputStream0.connect(pipedInputStream0);
+      PnmImagingParameters pnmImagingParameters0 = new PnmImagingParameters();
+      // Undeclared exception!
+      try { 
+        ppmWriter0.writeImage((BufferedImage) null, pipedOutputStream0, pnmImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.pnm.PpmWriter", e);
+      }
+  }

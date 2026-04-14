@@ -1,0 +1,62 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ScanlineFilterSub scanlineFilterSub0 = new ScanlineFilterSub(2965);
+      byte[] byteArray0 = new byte[4];
+      byte[] byteArray1 = new byte[0];
+      // Undeclared exception!
+      try { 
+        scanlineFilterSub0.unfilter(byteArray0, byteArray1, byteArray1);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterSub", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ScanlineFilterSub scanlineFilterSub0 = new ScanlineFilterSub(1);
+      byte[] byteArray0 = new byte[3];
+      byteArray0[0] = (byte) (-26);
+      scanlineFilterSub0.unfilter(byteArray0, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ScanlineFilterSub scanlineFilterSub0 = new ScanlineFilterSub(1);
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = new byte[1];
+      scanlineFilterSub0.unfilter(byteArray0, byteArray0, byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ScanlineFilterSub scanlineFilterSub0 = new ScanlineFilterSub(0);
+      // Undeclared exception!
+      try { 
+        scanlineFilterSub0.unfilter((byte[]) null, (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterSub", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ScanlineFilterSub scanlineFilterSub0 = new ScanlineFilterSub(0);
+      byte[] byteArray0 = new byte[9];
+      byte[] byteArray1 = new byte[7];
+      // Undeclared exception!
+      try { 
+        scanlineFilterSub0.unfilter(byteArray0, byteArray1, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 7
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterSub", e);
+      }
+  }

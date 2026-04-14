@@ -1,0 +1,117 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte) (-1), (byte) (-75), (byte) (-1), 3614, (byte) (-1), (-2334), (-2334), 3614, 0, (-2334), 3614, (-2334), 1538, (-1606), (byte) (-1), 3614, 2640, 16711680, 1, (-2334), (-1537), bmpHeaderInfo_ColorSpace0, 1538, (-1537), 1, 6572, 2, 16711680, 0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[2] = (byte) (-1);
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray0);
+      int int0 = pixelParserRgb0.getColorTableRGB(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte) (-1), (byte) (-75), (byte) (-1), 3614, (byte) (-1), (-2334), (-2334), 3614, 0, (-2334), 3614, (-2334), 1538, (-1606), (byte) (-1), 3614, 2640, 16711680, 1, (-2334), (-1537), bmpHeaderInfo_ColorSpace0, 1538, (-1537), 1, 6572, 2, 16711680, 0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[1] = (byte) (-1);
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray0);
+      int int0 = pixelParserRgb0.getColorTableRGB(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte) (-1), (byte) (-75), (byte) (-1), 3614, (byte) (-1), (-2334), (-2334), 3614, 0, (-2334), 3614, (-2334), 1538, (-1606), (byte) (-1), 3614, 2640, 16711680, 1, (-2334), (-1537), bmpHeaderInfo_ColorSpace0, 1538, (-1537), 1, 6572, 2, 16711680, 0);
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-75);
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray0);
+      int int0 = pixelParserRgb0.getColorTableRGB(0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte)0, (byte)0, (-383), (-383), 0, (-1074), (-1843), (-1205), 4110, (-303), (byte)0, 0, (-1843), 0, 0, 0, 0, (-640), (-303), (byte)0, 4110, bmpHeaderInfo_ColorSpace0, 4110, (-640), (-303), 0, (-640), 1402, (-1074));
+      byte[] byteArray0 = new byte[5];
+      byte[] byteArray1 = new byte[4];
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray1);
+      int int0 = pixelParserRgb0.getColorTableRGB((byte)0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte) (-1), (byte) (-75), (byte) (-1), 3614, (byte) (-1), (-2334), (-2334), 3614, 0, (-2334), 3614, (-2334), 1538, (-1606), (byte) (-1), 3614, 2640, 16711680, 1, (-2334), (-1537), bmpHeaderInfo_ColorSpace0, 1538, (-1537), 1, 6572, 2, 16711680, 0);
+      byte[] byteArray0 = new byte[4];
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray0);
+      pixelParserRgb0.processImage((ImageBuilder) null);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte) (-7), (byte) (-7), (byte) (-7), (byte) (-7), (byte) (-7), (byte) (-7), 131, 131, (byte) (-7), (-16777216), 0, (byte) (-7), 131, (-1435), 0, (-1435), (-561), 0, 131, 0, 2152, bmpHeaderInfo_ColorSpace0, (-16777216), (-3587), (-3587), (-16777216), (byte) (-7), 0, 2152);
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte) (-7);
+      PixelParserRle pixelParserRle0 = new PixelParserRle(bmpHeaderInfo0, byteArray0, byteArray0);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2557, 1000, true, true);
+      try { 
+        pixelParserRle0.processImage(imageBuilder0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // BMP RLE: bad BitsPerPixel: -16777216
+         //
+         verifyException("org.apache.commons.imaging.formats.bmp.PixelParserRle", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte)0, (byte)85, (-1273), (byte)0, (-2054), 0, (-1273), 0, (-2102), 255, 0, 255, 143, 0, 0, 0, 0, 1762, 3997, 255, 0, bmpHeaderInfo_ColorSpace0, 143, 0, 0, (-2977), 8, 0, (-162));
+      byte[] byteArray0 = new byte[3];
+      PixelParserRle pixelParserRle0 = new PixelParserRle(bmpHeaderInfo0, byteArray0, byteArray0);
+      ImageBuilder imageBuilder0 = new ImageBuilder(2, 143, true);
+      try { 
+        pixelParserRle0.processImage(imageBuilder0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // BMP: Bad RLE
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte)65, (byte)65, (byte)65, (byte)65, 0, (byte)65, (byte)65, (byte)65, 15, (byte)65, 0, 8, 527, 15, 3204, 2696, 2405, 2696, (-1886), 0, 2405, bmpHeaderInfo_ColorSpace0, 0, 0, 2405, 3204, 15, (-1), 24);
+      byte[] byteArray0 = new byte[0];
+      PixelParserBitFields pixelParserBitFields0 = new PixelParserBitFields(bmpHeaderInfo0, (byte[]) null, byteArray0);
+      // Undeclared exception!
+      try { 
+        pixelParserBitFields0.getColorTableRGB((-958));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.bmp.PixelParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      BmpHeaderInfo.ColorSpace bmpHeaderInfo_ColorSpace0 = new BmpHeaderInfo.ColorSpace();
+      BmpHeaderInfo bmpHeaderInfo0 = new BmpHeaderInfo((byte)0, (byte)0, Integer.MAX_VALUE, 16711680, (byte)0, 16711680, 1951, Integer.MAX_VALUE, (-16777216), 2485, 0, (-16777216), 0, 16711680, (-16777216), (-16777216), 1364, 2577, (-16777216), 1951, (byte)0, bmpHeaderInfo_ColorSpace0, 2577, 16711680, 0, 31, 3875, 3875, Integer.MAX_VALUE);
+      byte[] byteArray0 = new byte[5];
+      PixelParserRgb pixelParserRgb0 = new PixelParserRgb(bmpHeaderInfo0, byteArray0, byteArray0);
+      // Undeclared exception!
+      try { 
+        pixelParserRgb0.getColorTableRGB(3875);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 15500
+         //
+         verifyException("org.apache.commons.imaging.formats.bmp.PixelParser", e);
+      }
+  }

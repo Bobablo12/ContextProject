@@ -1,0 +1,256 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(228);
+      utf8StringBuilder0.appendByte((byte) (-48));
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(228);
+      utf8StringBuilder0.appendByte((byte) (-48));
+      utf8StringBuilder0.appendByte((byte) (-108));
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append("WATCH", 0, (-2803));
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // start 0, end -2803, s.length() 5
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(44);
+      utf8StringBuilder0._state = (-1537);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append('1');
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! char appended in state -1537
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(10);
+      utf8StringBuilder0.checkState();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Utf8Appendable.NotUtf8Exception utf8Appendable_NotUtf8Exception0 = new Utf8Appendable.NotUtf8Exception("vkd(y4f");
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0.append("'", 0, 0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      int int0 = utf8StringBuilder0.length();
+      assertEquals(1, int0);
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0.appendByte((byte)0);
+      int int0 = utf8StringBuilder0.length();
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0.appendByte((byte)0);
+      int int0 = utf8StringBuilder0.length();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(973);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.appendByte((byte) (-112));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! byte 90 in state 0
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(235);
+      utf8StringBuilder0.appendByte((byte) (-17));
+      utf8StringBuilder0.appendByte((byte) (-128));
+      utf8StringBuilder0._state = 1;
+      utf8StringBuilder0.appendByte((byte) (-128));
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.appendByte((byte) (-125));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.Character", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0._state = (-1);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.appendByte((byte)124);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -1
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(3033);
+      utf8StringBuilder0._state = 3033;
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append("", 3033, 463);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! char appended in state 3033
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(1020);
+      utf8StringBuilder0._state = (-706);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append((byte)53);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // -706
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      boolean boolean0 = utf8StringBuilder0.isUtf8SequenceComplete();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(185);
+      utf8StringBuilder0._state = (-865);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.checkState();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! incomplete UTF8 sequence
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(0);
+      utf8StringBuilder0.appendByte((byte) (-57));
+      boolean boolean0 = utf8StringBuilder0.isUtf8SequenceComplete();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(1021);
+      utf8StringBuilder0.appendByte((byte) (-18));
+      utf8StringBuilder0.appendByte((byte) (-128));
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(1021);
+      utf8StringBuilder0.appendByte((byte) (-18));
+      utf8StringBuilder0.appendByte((byte) (-128));
+      utf8StringBuilder0.appendByte((byte) (-128));
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(11);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append((byte) (-99));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Not valid UTF8! byte 9d in state 0
+         //
+         verifyException("spark.utils.urldecoding.Utf8Appendable", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(58163);
+      utf8StringBuilder0._state = (int) (byte)79;
+      utf8StringBuilder0.appendByte((byte)79);
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(58163);
+      // Undeclared exception!
+      try { 
+        utf8StringBuilder0.append((String) null, (int) '\uFFFD', (int) (byte)0);
+        fail("Expecting exception: IndexOutOfBoundsException");
+      } catch(IndexOutOfBoundsException e) {
+         //
+         // start 65533, end 65533, s.length() 4
+         //
+         verifyException("java.lang.AbstractStringBuilder", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(58163);
+      utf8StringBuilder0.append((byte)79);
+      assertTrue(utf8StringBuilder0.isUtf8SequenceComplete());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(10);
+      utf8StringBuilder0.append('g');
+      ;
+}
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      Utf8StringBuilder utf8StringBuilder0 = new Utf8StringBuilder(10);
+      utf8StringBuilder0.reset();
+      ;
+}

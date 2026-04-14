@@ -1,0 +1,238 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      csvBoundaryWriteHandler3D0.setLineSeparator((String) null);
+      String string0 = csvBoundaryWriteHandler3D0.getLineSeparator();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      textBoundaryWriteHandler3D0.setLineSeparator("");
+      String string0 = textBoundaryWriteHandler3D0.getLineSeparator();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("PLUS", true);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockFileOutputStream0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = csvBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+      assertNotNull(textFacetDefinitionWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("$B(.:#)M,?=>pDO");
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockPrintStream0);
+      TextFacetDefinitionWriter textFacetDefinitionWriter0 = textBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+      assertNotNull(textFacetDefinitionWriter0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      csvBoundaryWriteHandler3D0.setDoubleFormat((DoubleFunction<String>) null);
+      csvBoundaryWriteHandler3D0.getDoubleFormat();
+      assertNotNull(csvBoundaryWriteHandler3D0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      textBoundaryWriteHandler3D0.setDefaultCharset((Charset) null);
+      textBoundaryWriteHandler3D0.getDefaultCharset();
+      assertNotNull(textBoundaryWriteHandler3D0.getLineSeparator());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      Supplier<SimpleFacetDefinition> supplier0 = (Supplier<SimpleFacetDefinition>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      Stream<SimpleFacetDefinition> stream0 = Stream.generate(supplier0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.writeFacets(stream0, (GeometryOutput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      SimpleFacetDefinition simpleFacetDefinition0 = mock(SimpleFacetDefinition.class, new ViolatedAssumptionAnswer());
+      doReturn((List) null).when(simpleFacetDefinition0).getVertices();
+      Supplier<SimpleFacetDefinition> supplier0 = (Supplier<SimpleFacetDefinition>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn(simpleFacetDefinition0).when(supplier0).get();
+      Stream<SimpleFacetDefinition> stream0 = Stream.generate(supplier0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      Charset charset0 = Charset.defaultCharset();
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(pipedOutputStream0, "H!u8)_sGrde(q[4jSP2", charset0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      PriorityQueue<Plane> priorityQueue0 = new PriorityQueue<Plane>();
+      ConvexVolume convexVolume0 = ConvexVolume.fromBounds((Iterable<? extends Plane>) priorityQueue0);
+      Stream<PlaneConvexSubset> stream0 = convexVolume0.boundaryStream();
+      // Undeclared exception!
+      try { 
+        csvBoundaryWriteHandler3D0.write(stream0, (GeometryOutput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("PLUS");
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockFileOutputStream0);
+      Stream<PlaneConvexSubset> stream0 = Stream.empty();
+      csvBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+      // Undeclared exception!
+      try { 
+        csvBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // stream has already been operated upon or closed
+         //
+         verifyException("java.util.stream.AbstractPipeline", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      textBoundaryWriteHandler3D0.setFacetVertexCount(2);
+      LinkedList<PlaneConvexSubset> linkedList0 = new LinkedList<PlaneConvexSubset>();
+      BoundaryList3D boundaryList3D0 = new BoundaryList3D(linkedList0);
+      Stream<PlaneConvexSubset> stream0 = boundaryList3D0.boundaryStream();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("$LA?<^t");
+      Charset charset0 = textBoundaryWriteHandler3D0.getDefaultCharset();
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockPrintStream0, "", charset0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Facet vertex count must be less than 0 or greater than 2; was 2
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("PLUS", true);
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockFileOutputStream0);
+      FileSystemHandling.shouldAllThrowIOExceptions();
+      Stream<PlaneConvexSubset> stream0 = Stream.empty();
+      // Undeclared exception!
+      try { 
+        csvBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Simulated IOException
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.getFacetDefinitionWriter((GeometryOutput) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      textBoundaryWriteHandler3D0.setFacetVertexCount(1);
+      MockPrintStream mockPrintStream0 = new MockPrintStream(" ");
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.getFacetDefinitionWriter(streamGeometryOutput0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Facet vertex count must be less than 0 or greater than 2; was 1
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      Stream<SimpleFacetDefinition> stream0 = Stream.empty();
+      MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("Expected end string: ]", true);
+      Charset charset0 = Charset.defaultCharset();
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockFileOutputStream0, "", charset0);
+      textBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.writeFacets((Stream<? extends FacetDefinition>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // stream has already been operated upon or closed
+         //
+         verifyException("java.util.stream.AbstractPipeline", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      Supplier<PlaneConvexSubset> supplier0 = (Supplier<PlaneConvexSubset>) mock(Supplier.class, new ViolatedAssumptionAnswer());
+      doReturn((PlaneConvexSubset) null).when(supplier0).get();
+      Stream<PlaneConvexSubset> stream0 = Stream.generate(supplier0);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("/1");
+      StreamGeometryOutput streamGeometryOutput0 = new StreamGeometryOutput(mockPrintStream0);
+      // Undeclared exception!
+      try { 
+        textBoundaryWriteHandler3D0.write((Stream<? extends PlaneConvexSubset>) stream0, (GeometryOutput) streamGeometryOutput0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriter", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CsvBoundaryWriteHandler3D csvBoundaryWriteHandler3D0 = new CsvBoundaryWriteHandler3D();
+      String string0 = csvBoundaryWriteHandler3D0.getLineSeparator();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TextBoundaryWriteHandler3D textBoundaryWriteHandler3D0 = new TextBoundaryWriteHandler3D();
+      DoubleFunction<String> doubleFunction0 = textBoundaryWriteHandler3D0.getDoubleFormat();
+      textBoundaryWriteHandler3D0.setDoubleFormat(doubleFunction0);
+      assertNotNull(textBoundaryWriteHandler3D0.getLineSeparator());
+}

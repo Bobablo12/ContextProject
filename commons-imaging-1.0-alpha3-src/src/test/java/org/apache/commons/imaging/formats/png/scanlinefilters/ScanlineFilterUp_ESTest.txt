@@ -1,0 +1,54 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ScanlineFilterUp scanlineFilterUp0 = new ScanlineFilterUp();
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte) (-1);
+      scanlineFilterUp0.unfilter(byteArray0, byteArray0, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ScanlineFilterUp scanlineFilterUp0 = new ScanlineFilterUp();
+      byte[] byteArray0 = new byte[2];
+      byte[] byteArray1 = new byte[2];
+      scanlineFilterUp0.unfilter(byteArray0, byteArray0, byteArray1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ScanlineFilterUp scanlineFilterUp0 = new ScanlineFilterUp();
+      byte[] byteArray0 = new byte[2];
+      // Undeclared exception!
+      try { 
+        scanlineFilterUp0.unfilter(byteArray0, (byte[]) null, (byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUp", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ScanlineFilterUp scanlineFilterUp0 = new ScanlineFilterUp();
+      byte[] byteArray0 = new byte[6];
+      byte[] byteArray1 = new byte[9];
+      // Undeclared exception!
+      try { 
+        scanlineFilterUp0.unfilter(byteArray1, byteArray0, byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 6
+         //
+         verifyException("org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUp", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ScanlineFilterUp scanlineFilterUp0 = new ScanlineFilterUp();
+      byte[] byteArray0 = new byte[2];
+      scanlineFilterUp0.unfilter(byteArray0, byteArray0, (byte[]) null);
+      ;
+}

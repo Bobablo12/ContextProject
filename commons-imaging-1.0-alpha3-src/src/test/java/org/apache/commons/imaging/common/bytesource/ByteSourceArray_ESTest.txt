@@ -1,0 +1,146 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      long long0 = byteSourceArray0.getLength();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      String string0 = byteSourceArray0.getDescription();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock((long) (byte)0, 1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("g~Uk!", (byte[]) null);
+      byte[] byteArray0 = byteSourceArray0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("BkgJ_j7Fb", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getLength();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("g~Uk!", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getBlock(0L, (-697));
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getBlock((long) (byte)0, (int) (byte)0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("oSk&HU", byteArray0);
+      try { 
+        byteSourceArray0.getBlock(20L, (int) (byte)14);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: 20, block length: 14, data length: 20).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        byteSourceArray0.getBlock((long) (byte) (-64), (int) (byte) (-64));
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Could not read block (block start: -64, block length: -64, data length: 7).
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("oSk&HU", byteArray0);
+      byte[] byteArray1 = byteSourceArray0.getAll();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getInputStream();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("j{zJ48Fh3", byteArray0);
+      InputStream inputStream0 = byteSourceArray0.getInputStream();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[20];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("oSk&HU", byteArray0);
+      long long0 = byteSourceArray0.getLength();
+      assertEquals(1, long0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("w-]Y~7S6FmgU\"", (byte[]) null);
+      // Undeclared exception!
+      try { 
+        byteSourceArray0.getDescription();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.common.bytesource.ByteSourceArray", e);
+      }
+  }

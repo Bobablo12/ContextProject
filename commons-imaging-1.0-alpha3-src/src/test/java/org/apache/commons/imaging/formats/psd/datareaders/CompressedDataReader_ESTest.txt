@@ -1,0 +1,101 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(0, byteArray0, (byte)0, 0, (byte)0, (byte) (-126), (byte)0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, 0, (byte)0, (byte)0);
+      BinaryFileParser binaryFileParser0 = new BinaryFileParser();
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      CompressedDataReader compressedDataReader0 = new CompressedDataReader(dataParserCmyk0);
+      // Undeclared exception!
+      try { 
+        compressedDataReader0.readData(mockFileInputStream0, (BufferedImage) null, psdImageContents0, binaryFileParser0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserGrayscale dataParserGrayscale0 = new DataParserGrayscale();
+      CompressedDataReader compressedDataReader0 = new CompressedDataReader(dataParserGrayscale0);
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(113, byteArray0, (byte)0, 31, 3, (byte)0, (byte) (-111));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 4, 113, 3, (byte) (-96));
+      BinaryFileParser binaryFileParser0 = new BinaryFileParser();
+      // Undeclared exception!
+      try { 
+        compressedDataReader0.readData((InputStream) null, (BufferedImage) null, psdImageContents0, binaryFileParser0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.datareaders.CompressedDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      DataParserStub dataParserStub0 = new DataParserStub();
+      CompressedDataReader compressedDataReader0 = new CompressedDataReader(dataParserStub0);
+      byte[] byteArray0 = new byte[7];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(0, byteArray0, (byte)8, 2, (byte) (-100), (-3161), (byte) (-57));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 0, 0, (byte)0, 2119);
+      BinaryFileParser binaryFileParser0 = new BinaryFileParser();
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 3, (byte)8);
+      try { 
+        compressedDataReader0.readData(byteArrayInputStream0, (BufferedImage) null, psdImageContents0, binaryFileParser0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // PSD: bad Image Data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      DataParserCmyk dataParserCmyk0 = new DataParserCmyk();
+      CompressedDataReader compressedDataReader0 = new CompressedDataReader(dataParserCmyk0);
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0);
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      byte[] byteArray0 = new byte[5];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(9, byteArray0, 0, (-1), (byte)117, (-1), (-2362));
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, (-4294), 0, (-1124), (-4294));
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      BinaryFileParser binaryFileParser0 = new BinaryFileParser(byteOrder0);
+      // Undeclared exception!
+      try { 
+        compressedDataReader0.readData(dataInputStream0, (BufferedImage) null, psdImageContents0, binaryFileParser0);
+        fail("Expecting exception: NegativeArraySizeException");
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.datareaders.CompressedDataReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      DataParserStub dataParserStub0 = new DataParserStub();
+      byte[] byteArray0 = new byte[6];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo((byte) (-18), byteArray0, 0, 111, (byte)0, 111, (byte)0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 111, (byte)0, 111, 0);
+      BinaryFileParser binaryFileParser0 = new BinaryFileParser();
+      CompressedDataReader compressedDataReader0 = new CompressedDataReader(dataParserStub0);
+      // Undeclared exception!
+      try { 
+        compressedDataReader0.readData((InputStream) null, (BufferedImage) null, psdImageContents0, binaryFileParser0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.datareaders.CompressedDataReader", e);
+      }
+  }

@@ -1,0 +1,104 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Assert.notNull((Object) "=", "");
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.notNull((Object) null, (String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.state(false, "[Assertion failed] - this argument is required; it must not be null");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // [Assertion failed] - this argument is required; it must not be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Assert.state(true, "M");
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.notEmpty((Object[]) null, "<4x._*wU$'UPF4");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // <4x._*wU$'UPF4
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Object[] objectArray0 = new Object[3];
+      Assert.notEmpty(objectArray0, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.hasLength("", "V2mp.kwp]-");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // V2mp.kwp]-
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Assert.hasLength("8uX ,6v", "8uX ,6v");
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.notNull((Object) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // [Assertion failed] - this argument is required; it must not be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Assert.isTrue(false, "R9J$9lbH7GJ=9H");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // R9J$9lbH7GJ=9H
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Assert.isTrue(true, "M");
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Assert.notNull((Object) "M");
+  }

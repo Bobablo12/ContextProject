@@ -1,0 +1,178 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      lHMLRUMemoryCache0.setCacheAttributes(compositeCacheAttributes0);
+      LHMLRUMemoryCache.LHMSpooler lHMLRUMemoryCache_LHMSpooler0 = lHMLRUMemoryCache0.new LHMSpooler();
+      byte[] byteArray0 = new byte[2];
+      compositeCacheAttributes0.setMaxObjects((byte)0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>(" ", " ", byteArray0, elementAttributes0);
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<String, Object>(cacheElementSerialized0);
+      AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>> abstractMap_SimpleImmutableEntry0 = new AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>>(" ", memoryElementDescriptor0);
+      boolean boolean0 = lHMLRUMemoryCache_LHMSpooler0.removeEldestEntry(abstractMap_SimpleImmutableEntry0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LHMLRUMemoryCache<LRUMemoryCache<String, String>, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<LRUMemoryCache<String, String>, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      lHMLRUMemoryCache0.setCacheAttributes(compositeCacheAttributes0);
+      Map<LRUMemoryCache<String, String>, MemoryElementDescriptor<LRUMemoryCache<String, String>, Object>> map0 = lHMLRUMemoryCache0.createMap();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LHMLRUMemoryCache<MemoryElementDescriptor<String, Object>, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<MemoryElementDescriptor<String, Object>, Object>();
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache0.initialize((CompositeCache<MemoryElementDescriptor<String, Object>, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      lHMLRUMemoryCache0.setCacheAttributes(compositeCacheAttributes0);
+      compositeCacheAttributes0.setMaxObjects((byte) (-128));
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache0.createMap();
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal initial capacity: -64
+         //
+         verifyException("java.util.HashMap", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache0.createMap();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCache$LHMSpooler", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      lHMLRUMemoryCache0.setCacheAttributes(compositeCacheAttributes0);
+      LHMLRUMemoryCache.LHMSpooler lHMLRUMemoryCache_LHMSpooler0 = lHMLRUMemoryCache0.new LHMSpooler();
+      byte[] byteArray0 = new byte[2];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>(" ", " ", byteArray0, elementAttributes0);
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<String, Object>(cacheElementSerialized0);
+      AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>> abstractMap_SimpleImmutableEntry0 = new AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>>(" ", memoryElementDescriptor0);
+      boolean boolean0 = lHMLRUMemoryCache_LHMSpooler0.removeEldestEntry(abstractMap_SimpleImmutableEntry0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      lHMLRUMemoryCache0.setCacheAttributes(compositeCacheAttributes0);
+      LHMLRUMemoryCache.LHMSpooler lHMLRUMemoryCache_LHMSpooler0 = lHMLRUMemoryCache0.new LHMSpooler();
+      byte[] byteArray0 = new byte[2];
+      compositeCacheAttributes0.setMaxObjects((byte) (-128));
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>(" ", " ", byteArray0, elementAttributes0);
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<String, Object>(cacheElementSerialized0);
+      AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>> abstractMap_SimpleImmutableEntry0 = new AbstractMap.SimpleImmutableEntry<String, MemoryElementDescriptor<String, Object>>(" ", memoryElementDescriptor0);
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache_LHMSpooler0.removeEldestEntry(abstractMap_SimpleImmutableEntry0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LHMLRUMemoryCache<MemoryElementDescriptor<Integer, Object>, Integer> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<MemoryElementDescriptor<Integer, Object>, Integer>();
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache0.getStatistics();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LHMLRUMemoryCache<LRUMemoryCache<String, String>, String> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<LRUMemoryCache<String, String>, String>();
+      lHMLRUMemoryCache0.lockedRemoveAll();
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      lHMLRUMemoryCache0.dumpCacheEntries();
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LHMLRUMemoryCache<LRUMemoryCache<Object, Object>, Integer> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<LRUMemoryCache<Object, Object>, Integer>();
+      LRUMemoryCache<Object, Object> lRUMemoryCache0 = new LRUMemoryCache<Object, Object>();
+      byte[] byteArray0 = new byte[6];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<LRUMemoryCache<Object, Object>, Integer> cacheElementSerialized0 = new CacheElementSerialized<LRUMemoryCache<Object, Object>, Integer>("(`[~Gm?Kt@#f=?S\".", lRUMemoryCache0, byteArray0, elementAttributes0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, Object>, Integer> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, Object>, Integer>(cacheElementSerialized0);
+      lHMLRUMemoryCache0.lockedRemoveElement(memoryElementDescriptor0);
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LHMLRUMemoryCache<MemoryElementDescriptor<Object, Object>, Integer> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<MemoryElementDescriptor<Object, Object>, Integer>();
+      lHMLRUMemoryCache0.lockedGetElement((MemoryElementDescriptor<MemoryElementDescriptor<Object, Object>, Integer>) null);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LHMLRUMemoryCache<String, String> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<String, String>();
+      CacheElement<String, String> cacheElement0 = new CacheElement<String, String>("End of stream reached (object)", "End of stream reached (object)", "End of stream reached (object)");
+      // Undeclared exception!
+      try { 
+        lHMLRUMemoryCache0.update(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LHMLRUMemoryCache<Object, Object> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<Object, Object> compositeCache0 = new CompositeCache<Object, Object>(compositeCacheAttributes0, elementAttributes0);
+      lHMLRUMemoryCache0.initialize(compositeCache0);
+      LHMLRUMemoryCache<String, Object> lHMLRUMemoryCache1 = new LHMLRUMemoryCache<String, Object>();
+      byte[] byteArray0 = new byte[1];
+      CacheElementSerialized<Object, Object> cacheElementSerialized0 = new CacheElementSerialized<Object, Object>("P", lHMLRUMemoryCache1, byteArray0, elementAttributes0);
+      lHMLRUMemoryCache0.update(cacheElementSerialized0);
+      assertEquals(0, lHMLRUMemoryCache0.getSize());
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      LHMLRUMemoryCache<Object, LRUMemoryCache<Object, Integer>> lHMLRUMemoryCache0 = new LHMLRUMemoryCache<Object, LRUMemoryCache<Object, Integer>>();
+      int int0 = lHMLRUMemoryCache0.freeElements(0);
+      ;
+}

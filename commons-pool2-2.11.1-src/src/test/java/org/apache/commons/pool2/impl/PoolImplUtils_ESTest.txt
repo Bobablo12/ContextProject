@@ -1,0 +1,187 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      Duration duration0 = PoolImplUtils.toDuration((-1508L), timeUnit0);
+      Duration duration1 = PoolImplUtils.nonNull((Duration) null, duration0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ChronoUnit chronoUnit0 = ChronoUnit.WEEKS;
+      Duration duration0 = chronoUnit0.getDuration();
+      Duration duration1 = Duration.ofSeconds((-2315L), (-2315L));
+      Duration duration2 = PoolImplUtils.nonNull(duration0, duration1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Instant instant0 = MockInstant.now();
+      Instant instant1 = MockInstant.minusMillis(instant0, 2528L);
+      Instant instant2 = PoolImplUtils.min(instant0, instant1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Instant instant0 = MockInstant.now();
+      Instant instant1 = MockInstant.plusSeconds(instant0, (-1L));
+      Instant instant2 = PoolImplUtils.max(instant1, instant0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Class<?> class0 = PoolImplUtils.getFactoryType((Class<? extends PooledObjectFactory>) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PoolImplUtils.toDuration((-6L), (TimeUnit) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PoolImplUtils.toChronoUnit((TimeUnit) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PoolImplUtils.min((Instant) null, (Instant) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PoolImplUtils.max((Instant) null, (Instant) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PoolImplUtils.nonNull((Duration) null, (Duration) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // defaultValue
+         //
+         verifyException("java.util.Objects", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.DAYS;
+      ChronoUnit chronoUnit0 = PoolImplUtils.toChronoUnit(timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.SECONDS;
+      Duration duration0 = PoolImplUtils.toDuration(470L, timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MILLISECONDS;
+      Duration duration0 = PoolImplUtils.toDuration(470L, timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MICROSECONDS;
+      Duration duration0 = PoolImplUtils.toDuration((-992L), timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.NANOSECONDS;
+      ChronoUnit chronoUnit0 = PoolImplUtils.toChronoUnit(timeUnit0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      Instant instant0 = MockInstant.now();
+      Instant instant1 = PoolImplUtils.min(instant0, instant0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      Instant instant0 = MockInstant.now();
+      Instant instant1 = MockInstant.plusSeconds(instant0, (-992L));
+      Instant instant2 = PoolImplUtils.min(instant1, instant0);
+      Instant instant3 = PoolImplUtils.max(instant0, instant2);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      Instant instant0 = MockInstant.now();
+      Instant instant1 = PoolImplUtils.max(instant0, instant0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      Duration duration0 = Duration.ofSeconds(1057L);
+      boolean boolean0 = PoolImplUtils.isPositive(duration0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      Duration duration0 = Duration.ofSeconds((-992L));
+      boolean boolean0 = PoolImplUtils.isPositive(duration0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.MINUTES;
+      Duration duration0 = PoolImplUtils.toDuration(0L, timeUnit0);
+      boolean boolean0 = PoolImplUtils.isPositive(duration0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      boolean boolean0 = PoolImplUtils.isPositive((Duration) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      Class<PooledObjectFactory> class0 = PooledObjectFactory.class;
+      Class<?> class1 = PoolImplUtils.getFactoryType(class0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      PoolImplUtils poolImplUtils0 = new PoolImplUtils();
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TimeUnit timeUnit0 = TimeUnit.HOURS;
+      Duration duration0 = PoolImplUtils.toDuration((-992L), timeUnit0);
+      ;
+}

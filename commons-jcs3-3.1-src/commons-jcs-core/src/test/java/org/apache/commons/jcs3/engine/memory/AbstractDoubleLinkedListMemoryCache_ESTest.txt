@@ -1,0 +1,1195 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      iCompositeCacheAttributes0.setMaxObjects((-3532));
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      String string0 = "a.63w{9>aw9YzQa";
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      lRUMemoryCache0.freeElements(16);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache2.removeAll();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      compositeCacheAttributes0.setSpoolChunkSize((-275));
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      iCompositeCacheAttributes0.setMaxObjects((-3532));
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache1, object0, elementAttributes0);
+      cacheElement0.setElementAttributes(elementAttributes0);
+      lRUMemoryCache0.update(cacheElement0);
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      compositeCacheAttributes0.setMaxObjects((-3532));
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(compositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>((ICacheElement<LRUMemoryCache<Object, String>, Object>) null);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement1 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache2, object0, elementAttributes0);
+      cacheElement1.setElementAttributes(elementAttributes0);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.update(cacheElement1);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // update: last.ce is null!
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      byte[] byteArray0 = new byte[0];
+      MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> memoryElementDescriptor1 = new MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>((ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>) null);
+      DoubleLinkedListNode<ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedListNode0 = new DoubleLinkedListNode<ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>((ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>) null);
+      memoryElementDescriptor1.prev = doubleLinkedListNode0;
+      doubleLinkedList0.addFirst(memoryElementDescriptor1);
+      doubleLinkedList0.remove(memoryElementDescriptor1);
+      doubleLinkedList0.getFirst();
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.freeElements(884);
+        fail("Expecting exception: ClassCastException");
+      } catch(ClassCastException e) {
+         //
+         // org.apache.commons.jcs3.utils.struct.DoubleLinkedListNode cannot be cast to org.apache.commons.jcs3.engine.memory.util.MemoryElementDescriptor
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      iCompositeCacheAttributes0.setMaxObjects((-3532));
+      elementAttributes0.addElementEventHandlers((List<IElementEventHandler>) null);
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>((ICacheElement<LRUMemoryCache<Object, String>, Object>) null);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement1 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache2, object0, elementAttributes0);
+      cacheElement1.setElementAttributes(elementAttributes0);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.update(cacheElement1);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // update: last.ce is null!
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      iCompositeCacheAttributes0.setMaxObjects((-3532));
+      elementAttributes0.addElementEventHandlers((List<IElementEventHandler>) null);
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement1 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache2, object0, elementAttributes0);
+      cacheElement1.setElementAttributes(elementAttributes0);
+      lRUMemoryCache0.update(cacheElement1);
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList1 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList1;
+      FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>> fIFOMemoryCache3 = new FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>>();
+      fIFOMemoryCache3.createMap();
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> memoryElementDescriptor1 = new MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>((ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>) null);
+      doubleLinkedList0.addFirst(memoryElementDescriptor1);
+      CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      doubleLinkedList0.getFirst();
+      cacheElementSerialized0.setElementAttributes(elementAttributes0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).addFirst(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.freeElements(884);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // update: last.ce is null!
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.freeElements((-3532));
+      ((AbstractMemoryCache)lRUMemoryCache0).map = null;
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      iCompositeCacheAttributes0.setMaxObjects((-3532));
+      elementAttributes0.addElementEventHandlers((List<IElementEventHandler>) null);
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      lRUMemoryCache0.getStatistics();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      AtomicLong atomicLong0 = new AtomicLong(0);
+      ((AbstractMemoryCache)lRUMemoryCache1).putCnt = atomicLong0;
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache1, object0, elementAttributes0);
+      lRUMemoryCache0.update(cacheElement0);
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList1 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList1;
+      fIFOMemoryCache2.freeElements(0);
+      FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>> fIFOMemoryCache3 = new FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>>();
+      fIFOMemoryCache3.createMap();
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      System.setCurrentTimeMillis(0L);
+      MRUMemoryCache<Object, Object> mRUMemoryCache0 = new MRUMemoryCache<Object, Object>();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("", "", mRUMemoryCache0);
+      cacheElement0.getElementAttributes();
+      cacheElement0.getElementAttributes();
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).addFirst(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      doubleLinkedList0.removeAll();
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).addLast(cacheElementSerialized0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.freeElements(884);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+    Future<?> future = executor.submit(new Runnable(){ 
+            @Override public void run() { 
+        try {
+          LRUMemoryCache<IElementEventHandler, IElementEventHandler> lRUMemoryCache0 = new LRUMemoryCache<IElementEventHandler, IElementEventHandler>();
+          CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+          CompositeCacheManager.getUnconfiguredInstance();
+          CompositeCache<IElementEventHandler, IElementEventHandler> compositeCache0 = compositeCacheManager0.getCache("");
+          lRUMemoryCache0.initialize(compositeCache0);
+          IElementEventHandler iElementEventHandler0 = mock(IElementEventHandler.class, new ViolatedAssumptionAnswer());
+          lRUMemoryCache0.get(iElementEventHandler0);
+          LRUMemoryCache<Delayed, MemoryElementDescriptor<String, Integer>> lRUMemoryCache1 = new LRUMemoryCache<Delayed, MemoryElementDescriptor<String, Integer>>();
+          DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+          TCPLateralCacheAttributes tCPLateralCacheAttributes0 = new TCPLateralCacheAttributes();
+          // Undeclared exception!
+          try { 
+            LateralTCPListener.getInstance((ITCPLateralCacheAttributes) tCPLateralCacheAttributes0, (ICompositeCacheManager) compositeCacheManager0);
+            fail("Expecting exception: SecurityException");
+          } catch(SecurityException e) {
+             //
+             // Security manager blocks (\"java.net.SocketPermission\" \"localhost:0\" \"listen,resolve\")
+             // java.lang.Thread.getStackTrace(Thread.java:1559)
+             // org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:434)
+             // java.lang.SecurityManager.checkListen(SecurityManager.java:1131)
+             // sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+             // java.nio.channels.ServerSocketChannel.bind(ServerSocketChannel.java:157)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.init(LateralTCPListener.java:172)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.lambda$getInstance$0(LateralTCPListener.java:121)
+             // java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+             // org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPListener.getInstance(LateralTCPListener.java:116)
+             // sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+             // sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+             // sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+             // java.lang.reflect.Method.invoke(Method.java:498)
+             // org.evosuite.testcase.statements.MethodStatement$1.execute(MethodStatement.java:257)
+             // org.evosuite.testcase.statements.AbstractStatement.exceptionHandler(AbstractStatement.java:169)
+             // org.evosuite.testcase.statements.MethodStatement.execute(MethodStatement.java:220)
+             // org.evosuite.testcase.execution.TestRunnable.executeStatements(TestRunnable.java:307)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:213)
+             // org.evosuite.testcase.execution.TestRunnable.call(TestRunnable.java:55)
+             // java.util.concurrent.FutureTask.run(FutureTask.java:266)
+             // java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+             // java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+             // java.lang.Thread.run(Thread.java:748)
+             //
+             verifyException("org.evosuite.runtime.sandbox.MSecurityManager", e);
+          }
+        } catch(Throwable t) {
+            // Need to catch declared exceptions
+        }
+      } 
+    });
+    future.get(4000, TimeUnit.MILLISECONDS);
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      MemoryElementDescriptor<Integer, String> memoryElementDescriptor1 = (MemoryElementDescriptor<Integer, String>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      CacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElement0 = new CacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("key toString={0}", memoryElementDescriptor0, memoryElementDescriptor1);
+      MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> memoryElementDescriptor2 = new MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).lockedRemoveElement(memoryElementDescriptor2);
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      fIFOMemoryCache0.freeElements(884);
+      FIFOMemoryCache<Object, MemoryElementDescriptor<Integer, Integer>> fIFOMemoryCache1 = new FIFOMemoryCache<Object, MemoryElementDescriptor<Integer, Integer>>();
+      LRUMemoryCache<String, String> lRUMemoryCache0 = new LRUMemoryCache<String, String>();
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.remove("key toString={0}");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.freeElements((-3532));
+      ((AbstractMemoryCache)lRUMemoryCache0).map = null;
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      lRUMemoryCache0.getStatistics();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache1, object0, elementAttributes0);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.update((ICacheElement<LRUMemoryCache<Object, String>, Object>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).addFirst(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.freeElements(884);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MRUMemoryCache<Integer, Object> mRUMemoryCache0 = new MRUMemoryCache<Integer, Object>();
+      MRUMemoryCache<Delayed, Integer> mRUMemoryCache1 = new MRUMemoryCache<Delayed, Integer>();
+      MRUMemoryCache<Object, Integer> mRUMemoryCache2 = new MRUMemoryCache<Object, Integer>();
+      MRUMemoryCache<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>> mRUMemoryCache3 = new MRUMemoryCache<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>();
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>>();
+      ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache3).list = doubleLinkedList0;
+      MemoryElementDescriptor<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>> memoryElementDescriptor0 = new MemoryElementDescriptor<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>((ICacheElement<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>) null);
+      doubleLinkedList0.addLast(memoryElementDescriptor0);
+      ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache3).lockedRemoveAll();
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache3.waterfal((ICacheElement<MemoryElementDescriptor<Object, Delayed>, ForkJoinTask<Delayed>>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      FIFOMemoryCache<Integer, FIFOMemoryCache<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, FIFOMemoryCache<Integer, String>>();
+      MRUMemoryCache<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>> mRUMemoryCache0 = new MRUMemoryCache<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>>();
+      Integer integer0 = new Integer(827);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Object> cacheElement0 = new CacheElement<Object, Object>("", integer0, "", elementAttributes0);
+      MemoryElementDescriptor<Object, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<Object, Object>(cacheElement0);
+      byte[] byteArray0 = new byte[1];
+      DoubleLinkedListNode<ICacheElement<Object, Object>> doubleLinkedListNode0 = new DoubleLinkedListNode<ICacheElement<Object, Object>>(cacheElement0);
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>>>();
+      ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).list = doubleLinkedList0;
+      memoryElementDescriptor0.prev = doubleLinkedListNode0;
+      mRUMemoryCache0.createMap();
+      byteArray0[0] = (byte) (-41);
+      memoryElementDescriptor0.prev = doubleLinkedListNode0;
+      LRUMemoryCache<Object, MemoryElementDescriptor<Object, String>> lRUMemoryCache0 = new LRUMemoryCache<Object, MemoryElementDescriptor<Object, String>>();
+      CacheElementSerialized<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<Object, Object>, GroupAttrName<Object>>("AttrName.class={0}", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).addLast(cacheElementSerialized0);
+      MRUMemoryCache<MemoryElementDescriptor<Integer, Integer>, GroupAttrName<String>> mRUMemoryCache1 = new MRUMemoryCache<MemoryElementDescriptor<Integer, Integer>, GroupAttrName<String>>();
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.freeElements((-3532));
+      ((AbstractMemoryCache)lRUMemoryCache0).map = null;
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      lRUMemoryCache0.getStatistics();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache1, object0, elementAttributes0);
+      lRUMemoryCache0.update(cacheElement0);
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList1 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList1;
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache2.removeAll();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      System.setCurrentTimeMillis(1L);
+      FIFOMemoryCache<MemoryElementDescriptor<String, Integer>, GroupAttrName<String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Integer>, GroupAttrName<String>>();
+      LRUMemoryCache<Integer, Integer> lRUMemoryCache0 = new LRUMemoryCache<Integer, Integer>();
+      FIFOMemoryCache<GroupAttrName<String>, String> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<String>, String>();
+      GroupId groupId0 = new GroupId("Leq}", "Leq}");
+      GroupAttrName<String> groupAttrName0 = new GroupAttrName<String>(groupId0, "Leq}");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<GroupAttrName<String>, String> cacheElement0 = new CacheElement<GroupAttrName<String>, String>("Leq}", groupAttrName0, "Leq}", elementAttributes0);
+      cacheElement0.setElementAttributes(elementAttributes0);
+      cacheElement0.getElementAttributes();
+      MemoryElementDescriptor<GroupAttrName<String>, String> memoryElementDescriptor0 = new MemoryElementDescriptor<GroupAttrName<String>, String>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache1).lockedGetElement(memoryElementDescriptor0);
+      fIFOMemoryCache1.createMap();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LRUMemoryCache<GroupAttrName<String>, Integer> lRUMemoryCache0 = new LRUMemoryCache<GroupAttrName<String>, Integer>();
+      DoubleLinkedList<MemoryElementDescriptor<GroupAttrName<String>, Integer>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<GroupAttrName<String>, Integer>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      lRUMemoryCache0.freeElements(75);
+      FIFOMemoryCache<Integer, MemoryElementDescriptor<String, Object>> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, MemoryElementDescriptor<String, Object>>();
+      Integer integer0 = new Integer((-2137));
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, Object> cacheElementSerialized0 = new CacheElementSerialized<String, Object>("verifycache[{0}]: linked list retrieval returned null for key: {1}", "]s2", byteArray0, elementAttributes0);
+      elementAttributes0.setIsSpool(false);
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<String, Object>(cacheElementSerialized0);
+      CacheElement<Integer, MemoryElementDescriptor<String, Object>> cacheElement0 = new CacheElement<Integer, MemoryElementDescriptor<String, Object>>("verifycache[{0}]: linked list retrieval returned null for key: {1}", integer0, memoryElementDescriptor0, elementAttributes0);
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.update(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MRUMemoryCache<FIFOMemoryCache<Integer, Object>, FIFOMemoryCache<Object, Object>> mRUMemoryCache0 = new MRUMemoryCache<FIFOMemoryCache<Integer, Object>, FIFOMemoryCache<Object, Object>>();
+      MRUMemoryCache<GroupAttrName<Integer>, Integer> mRUMemoryCache1 = new MRUMemoryCache<GroupAttrName<Integer>, Integer>();
+      MRUMemoryCache<Integer, String> mRUMemoryCache2 = new MRUMemoryCache<Integer, String>();
+      String string0 = "d";
+      Integer integer0 = new Integer((-1537));
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)5;
+      byteArray0[1] = (byte)6;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Integer, String> cacheElementSerialized0 = new CacheElementSerialized<Integer, String>("ABP{V$U", (Integer) null, byteArray0, elementAttributes0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache2).addLast(cacheElementSerialized0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MRUMemoryCache<GroupAttrName<Object>, Object> mRUMemoryCache0 = new MRUMemoryCache<GroupAttrName<Object>, Object>();
+      LRUMemoryCache<MRUMemoryCache<Integer, Object>, Integer> lRUMemoryCache0 = new LRUMemoryCache<MRUMemoryCache<Integer, Object>, Integer>();
+      MRUMemoryCache<LRUMemoryCache<String, Object>, FIFOMemoryCache<Integer, String>> mRUMemoryCache1 = new MRUMemoryCache<LRUMemoryCache<String, Object>, FIFOMemoryCache<Integer, String>>();
+      LRUMemoryCache<GroupAttrName<String>, MemoryElementDescriptor<Object, String>> lRUMemoryCache1 = new LRUMemoryCache<GroupAttrName<String>, MemoryElementDescriptor<Object, String>>();
+      FIFOMemoryCache<FIFOMemoryCache<Object, Integer>, Integer> fIFOMemoryCache0 = new FIFOMemoryCache<FIFOMemoryCache<Object, Integer>, Integer>();
+      DoubleLinkedList<MemoryElementDescriptor<FIFOMemoryCache<Object, Integer>, Integer>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<FIFOMemoryCache<Object, Integer>, Integer>>();
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).addLast((ICacheElement<FIFOMemoryCache<Object, Integer>, Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, Object>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, Object>>();
+      LRUMemoryCache<Integer, MemoryElementDescriptor<Object, Object>> lRUMemoryCache0 = new LRUMemoryCache<Integer, MemoryElementDescriptor<Object, Object>>();
+      MRUMemoryCache<Integer, String> mRUMemoryCache0 = new MRUMemoryCache<Integer, String>();
+      FIFOMemoryCache<Object, String> fIFOMemoryCache1 = new FIFOMemoryCache<Object, String>();
+      MRUMemoryCache<String, FIFOMemoryCache<Object, Object>> mRUMemoryCache1 = new MRUMemoryCache<String, FIFOMemoryCache<Object, Object>>();
+      MRUMemoryCache<String, Integer> mRUMemoryCache2 = new MRUMemoryCache<String, Integer>();
+      mRUMemoryCache2.createMap();
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache2.initialize((CompositeCache<String, Integer>) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      MRUMemoryCache<Integer, LRUMemoryCache<Object, Object>> mRUMemoryCache0 = new MRUMemoryCache<Integer, LRUMemoryCache<Object, Object>>();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheManager compositeCacheManager1 = CompositeCacheManager.getUnconfiguredInstance();
+      CompositeCache<MemoryElementDescriptor<Integer, String>, LRUMemoryCache<String, Object>> compositeCache0 = compositeCacheManager1.getCache("Remote Type");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCache0.getCacheAttributes();
+      LRUMemoryCache<Object, String> lRUMemoryCache0 = new LRUMemoryCache<Object, String>();
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte)30;
+      byteArray0[1] = (byte) (-67);
+      byteArray0[2] = (byte)2;
+      byteArray0[3] = (byte)0;
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte)46;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<LRUMemoryCache<Object, String>, Integer> cacheElementSerialized0 = new CacheElementSerialized<LRUMemoryCache<Object, String>, Integer>(" jv%<$_+8>FT&A*+h*", lRUMemoryCache0, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CompositeCache<Integer, LRUMemoryCache<Object, Object>> compositeCache1 = compositeCacheManager0.getCache(iCompositeCacheAttributes0, iElementAttributes0);
+      mRUMemoryCache0.initialize(compositeCache1);
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      FIFOMemoryCache<String, MRUMemoryCache<Object, String>> fIFOMemoryCache0 = new FIFOMemoryCache<String, MRUMemoryCache<Object, String>>();
+      String string0 = "";
+      byte[] byteArray0 = null;
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<GroupAttrName<Object>, Object> compositeCache0 = new CompositeCache<GroupAttrName<Object>, Object>(compositeCacheAttributes0, elementAttributes0);
+      GroupId groupId0 = new GroupId("t;", "t;");
+      GroupAttrName<Object> groupAttrName0 = new GroupAttrName<Object>(groupId0, "");
+      try { 
+        compositeCache0.getElementAttributes(groupAttrName0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // key GAN:[groupId=t;, t;]: is not found
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.CompositeCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      MRUMemoryCache<Object, Object> mRUMemoryCache0 = new MRUMemoryCache<Object, Object>();
+      LRUMemoryCache<MRUMemoryCache<Object, Object>, String> lRUMemoryCache0 = new LRUMemoryCache<MRUMemoryCache<Object, Object>, String>();
+      MRUMemoryCache<LRUMemoryCache<String, Object>, String> mRUMemoryCache1 = new MRUMemoryCache<LRUMemoryCache<String, Object>, String>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      mRUMemoryCache1.setCacheAttributes(iCompositeCacheAttributes0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache1).lockedRemoveAll();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      FIFOMemoryCache<FIFOMemoryCache<Object, Object>, GroupAttrName<Integer>> fIFOMemoryCache0 = new FIFOMemoryCache<FIFOMemoryCache<Object, Object>, GroupAttrName<Integer>>();
+      fIFOMemoryCache0.freeElements(0);
+      FIFOMemoryCache<Object, Integer> fIFOMemoryCache1 = new FIFOMemoryCache<Object, Integer>();
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      MRUMemoryCache<Integer, GroupAttrName<Object>> mRUMemoryCache0 = new MRUMemoryCache<Integer, GroupAttrName<Object>>();
+      MRUMemoryCache<GroupAttrName<Object>, Integer> mRUMemoryCache1 = new MRUMemoryCache<GroupAttrName<Object>, Integer>();
+      MRUMemoryCache<FIFOMemoryCache<String, Integer>, GroupAttrName<Integer>> mRUMemoryCache2 = new MRUMemoryCache<FIFOMemoryCache<String, Integer>, GroupAttrName<Integer>>();
+      ((AbstractMemoryCache)mRUMemoryCache2).chunkSize = 5614;
+      mRUMemoryCache2.freeElements((-1301));
+      FIFOMemoryCache<MemoryElementDescriptor<String, String>, Integer> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, String>, Integer>();
+      fIFOMemoryCache0.createMap();
+      MRUMemoryCache<FIFOMemoryCache<String, Object>, String> mRUMemoryCache3 = new MRUMemoryCache<FIFOMemoryCache<String, Object>, String>();
+      String string0 = "";
+      byte[] byteArray0 = new byte[4];
+      byteArray0[0] = (byte) (-104);
+      byteArray0[1] = (byte)0;
+      byteArray0[2] = (byte)1;
+      byteArray0[3] = (byte)0;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<LRUMemoryCache<Object, String>, Integer> cacheElementSerialized0 = new CacheElementSerialized<LRUMemoryCache<Object, String>, Integer>((String) null, (LRUMemoryCache<Object, String>) null, byteArray0, elementAttributes0);
+      IElementAttributes iElementAttributes0 = cacheElementSerialized0.getElementAttributes();
+      CacheElement<FIFOMemoryCache<String, Object>, String> cacheElement0 = new CacheElement<FIFOMemoryCache<String, Object>, String>("", (FIFOMemoryCache<String, Object>) null, "", iElementAttributes0);
+      cacheElement0.toString();
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache3.update(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      MRUMemoryCache<String, String> mRUMemoryCache0 = new MRUMemoryCache<String, String>();
+      ZombieCacheServiceNonLocal<String, String> zombieCacheServiceNonLocal0 = new ZombieCacheServiceNonLocal<String, String>();
+      String string0 = "`bOfxu";
+      String string1 = "~J\"\"-Y";
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<String, String> cacheElement0 = new CacheElement<String, String>("`bOfxu", "`bOfxu", "~J\"\"-Y", elementAttributes0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).addFirst(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, Integer> mRUMemoryCache0 = new MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, Integer>();
+      Integer integer0 = new Integer(0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElement<Object, Integer> cacheElement0 = new CacheElement<Object, Integer>("", (Object) null, integer0, elementAttributes0);
+      MemoryElementDescriptor<Object, Integer> memoryElementDescriptor0 = new MemoryElementDescriptor<Object, Integer>(cacheElement0);
+      byte[] byteArray0 = new byte[0];
+      CacheElementSerialized<MemoryElementDescriptor<Object, Integer>, Integer> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<Object, Integer>, Integer>("", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).addFirst(cacheElementSerialized0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      LRUMemoryCache<LRUMemoryCache<Object, String>, GroupAttrName<Integer>> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, GroupAttrName<Integer>>();
+      MRUMemoryCache<FIFOMemoryCache<Integer, Integer>, String> mRUMemoryCache0 = new MRUMemoryCache<FIFOMemoryCache<Integer, Integer>, String>();
+      FIFOMemoryCache<Integer, Integer> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, Integer>();
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte)49;
+      byteArray0[1] = (byte) (-114);
+      byteArray0[2] = (byte) (-1);
+      byteArray0[3] = (byte)0;
+      byteArray0[4] = (byte) (-53);
+      byteArray0[5] = (byte)75;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<FIFOMemoryCache<Integer, Integer>, String> cacheElementSerialized0 = new CacheElementSerialized<FIFOMemoryCache<Integer, Integer>, String>((String) null, fIFOMemoryCache0, byteArray0, elementAttributes0);
+      MemoryElementDescriptor<FIFOMemoryCache<Integer, Integer>, String> memoryElementDescriptor0 = new MemoryElementDescriptor<FIFOMemoryCache<Integer, Integer>, String>(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).lockedGetElement(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      LRUMemoryCache<String, FIFOMemoryCache<Integer, Object>> lRUMemoryCache0 = new LRUMemoryCache<String, FIFOMemoryCache<Integer, Object>>();
+      FIFOMemoryCache<Integer, Object> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, Object>();
+      CacheElement<String, FIFOMemoryCache<Integer, Object>> cacheElement0 = new CacheElement<String, FIFOMemoryCache<Integer, Object>>("addNoWait > Different nodes are configured differently or region [{0}] is not yet used on this side.", "addNoWait > Different nodes are configured differently or region [{0}] is not yet used on this side.", fIFOMemoryCache0, (IElementAttributes) null);
+      MemoryElementDescriptor<String, FIFOMemoryCache<Integer, Object>> memoryElementDescriptor0 = new MemoryElementDescriptor<String, FIFOMemoryCache<Integer, Object>>(cacheElement0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).lockedGetElement(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      FIFOMemoryCache<String, GroupAttrName<Integer>> fIFOMemoryCache0 = new FIFOMemoryCache<String, GroupAttrName<Integer>>();
+      LRUMemoryCache<String, MemoryElementDescriptor<String, String>> lRUMemoryCache0 = new LRUMemoryCache<String, MemoryElementDescriptor<String, String>>();
+      MRUMemoryCache<Object, MemoryElementDescriptor<Integer, Object>> mRUMemoryCache0 = new MRUMemoryCache<Object, MemoryElementDescriptor<Integer, Object>>();
+      int int0 = 0;
+      HashMap<Object, MemoryElementDescriptor<Object, MemoryElementDescriptor<Integer, Object>>> hashMap0 = new HashMap<Object, MemoryElementDescriptor<Object, MemoryElementDescriptor<Integer, Object>>>(0);
+      String string0 = "Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing";
+      LogManager.setLogSystem("Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing");
+      MemoryElementDescriptor<Integer, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<Integer, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      CacheElement<Object, MemoryElementDescriptor<Integer, Object>> cacheElement0 = new CacheElement<Object, MemoryElementDescriptor<Integer, Object>>("Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing", "Configure called after the manager has been configured.  Force reconfiguration is false. Doing nothing", memoryElementDescriptor0);
+      MemoryElementDescriptor<Object, MemoryElementDescriptor<Integer, Object>> memoryElementDescriptor1 = new MemoryElementDescriptor<Object, MemoryElementDescriptor<Integer, Object>>(cacheElement0);
+      hashMap0.put(lRUMemoryCache0, memoryElementDescriptor1);
+      ((AbstractMemoryCache)mRUMemoryCache0).map = (Map<Object, MemoryElementDescriptor<Object, MemoryElementDescriptor<Integer, Object>>>) hashMap0;
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache0.getStatistics();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.freeElements((-3532));
+      ((AbstractMemoryCache)lRUMemoryCache0).map = null;
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheAttributes0.clone();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(iCompositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      lRUMemoryCache0.getStatistics();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList0;
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList1 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list = doubleLinkedList1;
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache2.removeAll();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      FIFOMemoryCache<String, MemoryElementDescriptor<Integer, Object>> fIFOMemoryCache0 = new FIFOMemoryCache<String, MemoryElementDescriptor<Integer, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<String, MemoryElementDescriptor<Integer, Object>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<String, MemoryElementDescriptor<Integer, Object>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.getStatistics();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      FIFOMemoryCache<FIFOMemoryCache<String, Integer>, String> fIFOMemoryCache0 = new FIFOMemoryCache<FIFOMemoryCache<String, Integer>, String>();
+      LogManager.setLogSystem("");
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.dispose();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      MRUMemoryCache<LRUMemoryCache<String, String>, GroupAttrName<Object>> mRUMemoryCache0 = new MRUMemoryCache<LRUMemoryCache<String, String>, GroupAttrName<Object>>();
+      mRUMemoryCache0.createMap();
+      LRUMemoryCache<MRUMemoryCache<Object, String>, LRUMemoryCache<Integer, String>> lRUMemoryCache0 = new LRUMemoryCache<MRUMemoryCache<Object, String>, LRUMemoryCache<Integer, String>>();
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<Object, String>, MRUMemoryCache<Object, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<Object, String>, MRUMemoryCache<Object, String>>();
+      LRUMemoryCache<String, Object> lRUMemoryCache0 = new LRUMemoryCache<String, Object>();
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.freeElements(3870);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      MRUMemoryCache<FIFOMemoryCache<String, String>, FIFOMemoryCache<String, String>> mRUMemoryCache0 = new MRUMemoryCache<FIFOMemoryCache<String, String>, FIFOMemoryCache<String, String>>();
+      MRUMemoryCache<Integer, Integer> mRUMemoryCache1 = new MRUMemoryCache<Integer, Integer>();
+      MRUMemoryCache<Object, FIFOMemoryCache<Object, Integer>> mRUMemoryCache2 = new MRUMemoryCache<Object, FIFOMemoryCache<Object, Integer>>();
+      FIFOMemoryCache<Object, Integer> fIFOMemoryCache0 = new FIFOMemoryCache<Object, Integer>();
+      CacheElement<Object, FIFOMemoryCache<Object, Integer>> cacheElement0 = new CacheElement<Object, FIFOMemoryCache<Object, Integer>>("verifycache: map contains key", "verifycache: map contains key", fIFOMemoryCache0);
+      MemoryElementDescriptor<Object, FIFOMemoryCache<Object, Integer>> memoryElementDescriptor0 = new MemoryElementDescriptor<Object, FIFOMemoryCache<Object, Integer>>(cacheElement0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache2).lockedRemoveElement(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, GroupAttrName<String>> mRUMemoryCache0 = new MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, GroupAttrName<String>>();
+      MRUMemoryCache<MemoryElementDescriptor<Integer, Integer>, String> mRUMemoryCache1 = new MRUMemoryCache<MemoryElementDescriptor<Integer, Integer>, String>();
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache1.freeElements(5000);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      MRUMemoryCache<String, Integer> mRUMemoryCache0 = new MRUMemoryCache<String, Integer>();
+      mRUMemoryCache0.freeElements((-1195));
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      MRUMemoryCache<String, String> mRUMemoryCache0 = new MRUMemoryCache<String, String>();
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte)0;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<String, String> cacheElementSerialized0 = new CacheElementSerialized<String, String>("Q*f G", "Q*f G", byteArray0, elementAttributes0);
+      MemoryElementDescriptor<String, String> memoryElementDescriptor0 = new MemoryElementDescriptor<String, String>(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)mRUMemoryCache0).lockedRemoveElement(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      MRUMemoryCache<Integer, Object> mRUMemoryCache0 = new MRUMemoryCache<Integer, Object>();
+      LRUMemoryCache<MRUMemoryCache<String, Integer>, GroupAttrName<Object>> lRUMemoryCache0 = new LRUMemoryCache<MRUMemoryCache<String, Integer>, GroupAttrName<Object>>();
+      MRUMemoryCache<String, Integer> mRUMemoryCache1 = new MRUMemoryCache<String, Integer>();
+      GroupId groupId0 = new GroupId("Abstract Disk Cache", ".attributes");
+      Integer integer0 = new Integer(1648);
+      GroupAttrName<Object> groupAttrName0 = new GroupAttrName<Object>(groupId0, integer0);
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      CacheElement<MRUMemoryCache<String, Integer>, GroupAttrName<Object>> cacheElement0 = new CacheElement<MRUMemoryCache<String, Integer>, GroupAttrName<Object>>("d4lL@B@:<a>B", mRUMemoryCache1, groupAttrName0, iElementAttributes0);
+      // Undeclared exception!
+      try { 
+        lRUMemoryCache0.update(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      MRUMemoryCache<String, Object> mRUMemoryCache0 = new MRUMemoryCache<String, Object>();
+      LRUMemoryCache<GroupAttrName<Integer>, MRUMemoryCache<String, String>> lRUMemoryCache0 = new LRUMemoryCache<GroupAttrName<Integer>, MRUMemoryCache<String, String>>();
+      MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, Object> mRUMemoryCache1 = new MRUMemoryCache<MemoryElementDescriptor<Object, Integer>, Object>();
+      CacheElement<String, String> cacheElement0 = new CacheElement<String, String>("No need to connect to failover, the primary server is back up.", "No need to connect to failover, the primary server is back up.", "No need to connect to failover, the primary server is back up.");
+      MemoryElementDescriptor<String, String> memoryElementDescriptor0 = new MemoryElementDescriptor<String, String>(cacheElement0);
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte)60;
+      byteArray0[1] = (byte) (-1);
+      byteArray0[2] = (byte)0;
+      byteArray0[3] = (byte)13;
+      byteArray0[4] = (byte)88;
+      byteArray0[5] = (byte)0;
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      elementAttributes0.clone();
+      elementAttributes0.setIdleTime((byte)0);
+      CacheElementSerialized<Object, Integer> cacheElementSerialized0 = new CacheElementSerialized<Object, Integer>("", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      Integer integer0 = new Integer((-167));
+      cacheElement0.equals(integer0);
+      MemoryElementDescriptor<Object, Integer> memoryElementDescriptor1 = new MemoryElementDescriptor<Object, Integer>(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache1.get(memoryElementDescriptor1);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      MRUMemoryCache<LRUMemoryCache<Object, Object>, String> mRUMemoryCache0 = new MRUMemoryCache<LRUMemoryCache<Object, Object>, String>();
+      LRUMemoryCache<Object, Object> lRUMemoryCache0 = new LRUMemoryCache<Object, Object>();
+      CacheElement<LRUMemoryCache<Object, Object>, String> cacheElement0 = new CacheElement<LRUMemoryCache<Object, Object>, String>((String) null, lRUMemoryCache0, (String) null, (IElementAttributes) null);
+      // Undeclared exception!
+      try { 
+        mRUMemoryCache0.update(cacheElement0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      MRUMemoryCache<String, MemoryElementDescriptor<Object, Object>> mRUMemoryCache0 = new MRUMemoryCache<String, MemoryElementDescriptor<Object, Object>>();
+      FIFOMemoryCache<Integer, Integer> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, Integer>();
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.get(integer0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<Object, Object>, String> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<Object, Object>, String>();
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> memoryElementDescriptor0 = new MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>((ICacheElement<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>) null);
+      doubleLinkedList0.addFirst(memoryElementDescriptor0);
+      // Undeclared exception!
+      try { 
+        fIFOMemoryCache0.freeElements(420);
+        fail("Expecting exception: Error");
+      } catch(Error e) {
+         //
+         // update: last.ce is null!
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      LRUMemoryCache<IElementEventHandler, IElementEventHandler> lRUMemoryCache0 = new LRUMemoryCache<IElementEventHandler, IElementEventHandler>();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<IElementEventHandler, IElementEventHandler> compositeCache0 = compositeCacheManager0.getCache("");
+      lRUMemoryCache0.initialize(compositeCache0);
+      IElementEventHandler iElementEventHandler0 = mock(IElementEventHandler.class, new ViolatedAssumptionAnswer());
+      lRUMemoryCache0.get(iElementEventHandler0);
+      DelayQueue<Delayed> delayQueue0 = new DelayQueue<Delayed>();
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("key toString={0}", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).addLast(cacheElementSerialized0);
+      cacheElementSerialized0.setElementAttributes(elementAttributes0);
+      FIFOMemoryCache<Object, MemoryElementDescriptor<Integer, Integer>> fIFOMemoryCache1 = new FIFOMemoryCache<Object, MemoryElementDescriptor<Integer, Integer>>();
+      FIFOMemoryCache<Delayed, LRUMemoryCache<String, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Delayed, LRUMemoryCache<String, Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>>();
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).list = doubleLinkedList0;
+      byte[] byteArray0 = new byte[1];
+      fIFOMemoryCache0.freeElements(884);
+      FIFOMemoryCache<Delayed, LRUMemoryCache<String, Object>> fIFOMemoryCache1 = new FIFOMemoryCache<Delayed, LRUMemoryCache<String, Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> fIFOMemoryCache0 = new FIFOMemoryCache<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>();
+      MemoryElementDescriptor<String, Object> memoryElementDescriptor0 = (MemoryElementDescriptor<String, Object>) mock(MemoryElementDescriptor.class, new ViolatedAssumptionAnswer());
+      byte[] byteArray0 = new byte[0];
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> cacheElementSerialized0 = new CacheElementSerialized<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>("WkhmU2", memoryElementDescriptor0, byteArray0, elementAttributes0);
+      MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>> memoryElementDescriptor1 = new MemoryElementDescriptor<MemoryElementDescriptor<String, Object>, MemoryElementDescriptor<Integer, String>>(cacheElementSerialized0);
+      ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).lockedGetElement(memoryElementDescriptor1);
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      IElementAttributes iElementAttributes0 = elementAttributes0.clone();
+      compositeCacheAttributes0.setMaxObjects((-3532));
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(compositeCacheAttributes0, iElementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement1 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache2, object0, elementAttributes0);
+      cacheElement1.setElementAttributes(elementAttributes0);
+      lRUMemoryCache0.update(cacheElement1);
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache1 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      compositeCacheAttributes0.setMaxObjects((-3532));
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(compositeCacheAttributes0, elementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, fIFOMemoryCache0);
+      MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object> memoryElementDescriptor0 = new MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>(cacheElement0);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).list.addLast(memoryElementDescriptor0);
+      LRUMemoryCache<Object, String> lRUMemoryCache2 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement1 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache2, object0, elementAttributes0);
+      lRUMemoryCache0.update(cacheElement1);
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      ((AbstractMemoryCache)lRUMemoryCache0).map = null;
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      compositeCacheAttributes0.setMaxObjects((-3532));
+      elementAttributes0.addElementEventHandlers((List<IElementEventHandler>) null);
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(compositeCacheAttributes0, elementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      Object object0 = new Object();
+      CacheElement<LRUMemoryCache<Object, String>, Object> cacheElement0 = new CacheElement<LRUMemoryCache<Object, String>, Object>("a.63w{9>aw9YzQa", lRUMemoryCache1, object0);
+      lRUMemoryCache0.update(cacheElement0);
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache2 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>> fIFOMemoryCache3 = new FIFOMemoryCache<GroupAttrName<Object>, GroupAttrName<Object>>();
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      FIFOMemoryCache<Integer, String> fIFOMemoryCache0 = new FIFOMemoryCache<Integer, String>();
+      LRUMemoryCache<LRUMemoryCache<Object, String>, Object> lRUMemoryCache0 = new LRUMemoryCache<LRUMemoryCache<Object, String>, Object>();
+      lRUMemoryCache0.dumpMap();
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<LRUMemoryCache<Object, String>, Object> compositeCache0 = new CompositeCache<LRUMemoryCache<Object, String>, Object>(compositeCacheAttributes0, elementAttributes0);
+      lRUMemoryCache0.initialize(compositeCache0);
+      lRUMemoryCache0.getStatistics();
+      LRUMemoryCache<Object, String> lRUMemoryCache1 = new LRUMemoryCache<Object, String>();
+      byte[] byteArray0 = new byte[7];
+      byteArray0[4] = (byte) (-40);
+      byteArray0[3] = (byte) (-40);
+      byteArray0[5] = (byte) (-40);
+      byteArray0[6] = (byte) (-40);
+      CacheElementSerialized<LRUMemoryCache<Object, String>, Object> cacheElementSerialized0 = new CacheElementSerialized<LRUMemoryCache<Object, String>, Object>("", lRUMemoryCache1, byteArray0, elementAttributes0);
+      ((AbstractDoubleLinkedListMemoryCache)lRUMemoryCache0).addLast(cacheElementSerialized0);
+      DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>> doubleLinkedList0 = new DoubleLinkedList<MemoryElementDescriptor<LRUMemoryCache<Object, String>, Object>>();
+      Object object0 = new Object();
+      lRUMemoryCache0.update(cacheElementSerialized0);
+      FIFOMemoryCache<GroupAttrName<Object>, Object> fIFOMemoryCache1 = new FIFOMemoryCache<GroupAttrName<Object>, Object>();
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      LRUMemoryCache<Object, String> lRUMemoryCache0 = new LRUMemoryCache<Object, String>();
+      FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>> fIFOMemoryCache0 = new FIFOMemoryCache<Object, FIFOMemoryCache<Object, Object>>();
+      Object object0 = new Object();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CacheElementSerialized<Object, FIFOMemoryCache<Object, Object>> cacheElementSerialized0 = new CacheElementSerialized<Object, FIFOMemoryCache<Object, Object>>("a.63w{9>aw9YzQa", object0, (byte[]) null, elementAttributes0);
+      MemoryElementDescriptor<Object, FIFOMemoryCache<Object, Object>> memoryElementDescriptor0 = new MemoryElementDescriptor<Object, FIFOMemoryCache<Object, Object>>(cacheElementSerialized0);
+      // Undeclared exception!
+      try { 
+        ((AbstractDoubleLinkedListMemoryCache)fIFOMemoryCache0).lockedRemoveElement(memoryElementDescriptor0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache", e);
+      }
+  }

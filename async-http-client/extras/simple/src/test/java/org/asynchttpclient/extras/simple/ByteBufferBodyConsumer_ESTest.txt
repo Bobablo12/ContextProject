@@ -1,0 +1,65 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect((short)324);
+      ByteBuffer byteBuffer1 = byteBuffer0.asReadOnlyBuffer();
+      ByteBufferBodyConsumer byteBufferBodyConsumer0 = new ByteBufferBodyConsumer(byteBuffer0);
+      // Undeclared exception!
+      try { 
+        byteBufferBodyConsumer0.consume(byteBuffer1);
+        fail("Expecting exception: ReadOnlyBufferException");
+      } catch(ReadOnlyBufferException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.DirectByteBufferR", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      ByteBufferBodyConsumer byteBufferBodyConsumer0 = new ByteBufferBodyConsumer((ByteBuffer) null);
+      // Undeclared exception!
+      try { 
+        byteBufferBodyConsumer0.consume((ByteBuffer) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.ByteBufferBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ByteBufferBodyConsumer byteBufferBodyConsumer0 = new ByteBufferBodyConsumer((ByteBuffer) null);
+      // Undeclared exception!
+      try { 
+        byteBufferBodyConsumer0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.simple.ByteBufferBodyConsumer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect((short)324);
+      ByteBufferBodyConsumer byteBufferBodyConsumer0 = new ByteBufferBodyConsumer(byteBuffer0);
+      byteBufferBodyConsumer0.close();
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      ByteBuffer byteBuffer0 = ByteBuffer.allocateDirect((short)324);
+      ByteBufferBodyConsumer byteBufferBodyConsumer0 = new ByteBufferBodyConsumer(byteBuffer0);
+      // Undeclared exception!
+      try { 
+        byteBufferBodyConsumer0.consume(byteBuffer0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.nio.DirectByteBuffer", e);
+      }
+  }

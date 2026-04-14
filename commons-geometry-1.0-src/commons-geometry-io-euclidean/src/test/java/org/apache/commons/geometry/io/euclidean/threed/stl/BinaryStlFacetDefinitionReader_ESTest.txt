@@ -1,0 +1,405 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte)0, 2502);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(byteArrayInputStream0, 3548);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(bufferedInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1612), 80);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(sequenceInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(pipedInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.readFacet();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getNumTriangles();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getNumTriangles();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-1909), (byte)3);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      DataInputStream dataInputStream0 = new DataInputStream(pushbackInputStream0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(dataInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getNumTriangles();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(pipedInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getNumTriangles();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(mockFileInputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // MockIOException: null
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      byte[] byteArray0 = new byte[0];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-2115), 9);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(pipedInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeader();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      Enumeration<PipedInputStream> enumeration0 = (Enumeration<PipedInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      DataInputStream dataInputStream0 = new DataInputStream(sequenceInputStream0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(dataInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeader();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-883), 1);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(byteArrayInputStream0, byteArrayInputStream0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(sequenceInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeader();
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream();
+      DataInputStream dataInputStream0 = new DataInputStream(pipedInputStream0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(dataInputStream0);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeader();
+        fail("Expecting exception: UncheckedIOException");
+      } catch(UncheckedIOException e) {
+         //
+         // IOException: Pipe not connected
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.close();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      byteArray0[43] = (byte) (-43);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      byteArray0[43] = (byte) (-43);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.getHeader();
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.readFacet();
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      byteArray0[43] = (byte) (-43);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString();
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      byteArray0[43] = (byte) (-43);
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.close();
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      Enumeration<PipedInputStream> enumeration0 = (Enumeration<PipedInputStream>) mock(Enumeration.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(enumeration0).hasMoreElements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(sequenceInputStream0);
+      Charset charset0 = Charset.defaultCharset();
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Failed to read STL header: data not available
+         //
+         verifyException("org.apache.commons.geometry.io.core.internal.GeometryIOUtils", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.getNumTriangles();
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.getHeaderAsString();
+      Charset charset0 = Charset.defaultCharset();
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+      assertEquals(0, byteArrayInputStream0.available());
+}
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      byte[] byteArray0 = new byte[84];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader(byteArrayInputStream0);
+      binaryStlFacetDefinitionReader0.getHeaderAsString();
+      Charset charset0 = Charset.defaultCharset();
+      String string0 = binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      BinaryStlFacetDefinitionReader binaryStlFacetDefinitionReader0 = new BinaryStlFacetDefinitionReader((InputStream) null);
+      Charset charset0 = Charset.defaultCharset();
+      // Undeclared exception!
+      try { 
+        binaryStlFacetDefinitionReader0.getHeaderAsString(charset0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReader", e);
+      }
+  }

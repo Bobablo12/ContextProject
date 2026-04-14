@@ -1,0 +1,237 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      MaybeEmitter<Integer> maybeEmitter0 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<Integer> asyncHandler0 = (AsyncHandler<Integer>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler.State) null).when(asyncHandler0).onStatusReceived(any(org.asynchttpclient.HttpResponseStatus.class));
+      MaybeAsyncHandlerBridge<Integer> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Integer>(maybeEmitter0, asyncHandler0);
+      maybeAsyncHandlerBridge0.onStatusReceived((HttpResponseStatus) null);
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      MaybeEmitter<ScheduledDirectTask> maybeEmitter0 = (MaybeEmitter<ScheduledDirectTask>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      ProgressAsyncHandler<ScheduledDirectTask> progressAsyncHandler0 = (ProgressAsyncHandler<ScheduledDirectTask>) mock(ProgressAsyncHandler.class, new ViolatedAssumptionAnswer());
+      ProgressAsyncMaybeEmitterBridge<ScheduledDirectTask> progressAsyncMaybeEmitterBridge0 = new ProgressAsyncMaybeEmitterBridge<ScheduledDirectTask>(maybeEmitter0, progressAsyncHandler0);
+      ProgressAsyncHandler<? extends ScheduledDirectTask> progressAsyncHandler1 = progressAsyncMaybeEmitterBridge0.delegate();
+      MaybeEmitter<Disposable> maybeEmitter1 = (MaybeEmitter<Disposable>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      ProgressAsyncMaybeEmitterBridge<Disposable> progressAsyncMaybeEmitterBridge1 = new ProgressAsyncMaybeEmitterBridge<Disposable>(maybeEmitter1, progressAsyncHandler1);
+      AsyncHandler.State asyncHandler_State0 = progressAsyncMaybeEmitterBridge1.disposed();
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      MaybeEmitter<ArrayListSupplier> maybeEmitter0 = (MaybeEmitter<ArrayListSupplier>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      ProgressAsyncHandler<ArrayListSupplier> progressAsyncHandler0 = (ProgressAsyncHandler<ArrayListSupplier>) mock(ProgressAsyncHandler.class, new ViolatedAssumptionAnswer());
+      ProgressAsyncMaybeEmitterBridge<ArrayListSupplier> progressAsyncMaybeEmitterBridge0 = new ProgressAsyncMaybeEmitterBridge<ArrayListSupplier>(maybeEmitter0, progressAsyncHandler0);
+      // Undeclared exception!
+      try { 
+        progressAsyncMaybeEmitterBridge0.onThrowable((Throwable) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridge", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      NettyRequest nettyRequest0 = mock(NettyRequest.class, new ViolatedAssumptionAnswer());
+      maybeAsyncHandlerBridge0.onRequestSend(nettyRequest0);
+      MaybeEmitter<Integer> maybeEmitter1 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter1).isDisposed();
+      AsyncHandler<Integer> asyncHandler1 = (AsyncHandler<Integer>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<Integer> maybeAsyncHandlerBridge1 = new MaybeAsyncHandlerBridge<Integer>(maybeEmitter1, asyncHandler1);
+      NettyRequest nettyRequest1 = mock(NettyRequest.class, new ViolatedAssumptionAnswer());
+      maybeAsyncHandlerBridge1.onRequestSend(nettyRequest1);
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      MaybeEmitter<Integer> maybeEmitter0 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<Integer> asyncHandler0 = (AsyncHandler<Integer>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<Integer> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Integer>(maybeEmitter0, asyncHandler0);
+      maybeAsyncHandlerBridge0.onTlsHandshakeAttempt();
+      SQLSyntaxErrorException sQLSyntaxErrorException0 = new SQLSyntaxErrorException();
+      SQLIntegrityConstraintViolationException sQLIntegrityConstraintViolationException0 = new SQLIntegrityConstraintViolationException(sQLSyntaxErrorException0);
+      maybeAsyncHandlerBridge0.onThrowable(sQLIntegrityConstraintViolationException0);
+      assertEquals(0, sQLIntegrityConstraintViolationException0.getErrorCode());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      MaybeEmitter<Void> maybeEmitter0 = (MaybeEmitter<Void>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      MaybeEmitter<Integer> maybeEmitter1 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter1).isDisposed();
+      ProgressAsyncHandler<Integer> progressAsyncHandler0 = (ProgressAsyncHandler<Integer>) mock(ProgressAsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn((Integer) null).when(progressAsyncHandler0).onCompleted();
+      ProgressAsyncMaybeEmitterBridge<Integer> progressAsyncMaybeEmitterBridge0 = new ProgressAsyncMaybeEmitterBridge<Integer>(maybeEmitter1, progressAsyncHandler0);
+      MaybeAsyncHandlerBridge<Void> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Void>(maybeEmitter0, progressAsyncMaybeEmitterBridge0);
+      maybeAsyncHandlerBridge0.onCompleted();
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      MaybeEmitter<Disposable> maybeEmitter0 = (MaybeEmitter<Disposable>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<Disposable> asyncHandler0 = (AsyncHandler<Disposable>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<Disposable> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Disposable>(maybeEmitter0, asyncHandler0);
+      SQLNonTransientException sQLNonTransientException0 = new SQLNonTransientException();
+      SQLTransactionRollbackException sQLTransactionRollbackException0 = new SQLTransactionRollbackException(sQLNonTransientException0);
+      maybeAsyncHandlerBridge0.onThrowable(sQLTransactionRollbackException0);
+      assertNotNull(sQLTransactionRollbackException0.toString());
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      ProgressAsyncHandler<ChannelDuplexHandler> progressAsyncHandler0 = (ProgressAsyncHandler<ChannelDuplexHandler>) mock(ProgressAsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null).when(progressAsyncHandler0).onCompleted();
+      ProgressAsyncMaybeEmitterBridge<ChannelDuplexHandler> progressAsyncMaybeEmitterBridge0 = new ProgressAsyncMaybeEmitterBridge<ChannelDuplexHandler>(maybeEmitter0, progressAsyncHandler0);
+      progressAsyncMaybeEmitterBridge0.onCompleted();
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      System.setCurrentTimeMillis((-3222L));
+      MaybeEmitter<Disposable> maybeEmitter0 = (MaybeEmitter<Disposable>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      MaybeEmitter<Void> maybeEmitter1 = (MaybeEmitter<Void>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter1).isDisposed();
+      MaybeAsyncHandlerBridge<Void> maybeAsyncHandlerBridge1 = new MaybeAsyncHandlerBridge<Void>(maybeEmitter1, maybeAsyncHandlerBridge0);
+      CombinedHttpHeaders combinedHttpHeaders0 = new CombinedHttpHeaders(true);
+      AsyncHandler.State asyncHandler_State0 = maybeAsyncHandlerBridge1.onHeadersReceived(combinedHttpHeaders0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false, true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      NettyRequest nettyRequest0 = mock(NettyRequest.class, new ViolatedAssumptionAnswer());
+      maybeAsyncHandlerBridge0.onRequestSend(nettyRequest0);
+      maybeAsyncHandlerBridge0.onHostnameResolutionFailure("+KEkyep", (Throwable) null);
+      AsyncHandler.State asyncHandler_State0 = maybeAsyncHandlerBridge0.onStatusReceived((HttpResponseStatus) null);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      MaybeEmitter<Integer> maybeEmitter0 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false, true, false).when(maybeEmitter0).isDisposed();
+      Integer integer0 = new Integer(2);
+      AsyncHandler.State asyncHandler_State0 = AsyncHandler.State.CONTINUE;
+      AsyncHandler<Integer> asyncHandler0 = (AsyncHandler<Integer>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn(integer0).when(asyncHandler0).onCompleted();
+      doReturn(asyncHandler_State0).when(asyncHandler0).onStatusReceived(any(org.asynchttpclient.HttpResponseStatus.class));
+      MaybeAsyncHandlerBridge<Integer> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Integer>(maybeEmitter0, asyncHandler0);
+      SQLNonTransientConnectionException sQLNonTransientConnectionException0 = new SQLNonTransientConnectionException("=]0clXOMYP", "=]0clXOMYP");
+      maybeAsyncHandlerBridge0.onCompleted();
+      maybeAsyncHandlerBridge0.onTlsHandshakeFailure(sQLNonTransientConnectionException0);
+      AsyncHandler.State asyncHandler_State1 = maybeAsyncHandlerBridge0.onStatusReceived((HttpResponseStatus) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false, true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      NettyRequest nettyRequest0 = mock(NettyRequest.class, new ViolatedAssumptionAnswer());
+      maybeAsyncHandlerBridge0.onRequestSend(nettyRequest0);
+      maybeAsyncHandlerBridge0.onHostnameResolutionFailure("+KEkyep", (Throwable) null);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, true);
+      AsyncHandler.State asyncHandler_State0 = maybeAsyncHandlerBridge0.onBodyPartReceived(lazyResponseBodyPart0);
+      assertNotNull(asyncHandler_State0);
+}
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true, false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      doReturn((AsyncHandler.State) null).when(asyncHandler0).onBodyPartReceived(any(org.asynchttpclient.HttpResponseBodyPart.class));
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      maybeAsyncHandlerBridge0.onHostnameResolutionFailure("+KEkyep", (Throwable) null);
+      LazyResponseBodyPart lazyResponseBodyPart0 = new LazyResponseBodyPart((ByteBuf) null, true);
+      maybeAsyncHandlerBridge0.onBodyPartReceived(lazyResponseBodyPart0);
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      SSLSession sSLSession0 = mock(SSLSession.class, new ViolatedAssumptionAnswer());
+      maybeAsyncHandlerBridge0.onTlsHandshakeSuccess(sSLSession0);
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      MaybeEmitter<ChannelDuplexHandler> maybeEmitter0 = (MaybeEmitter<ChannelDuplexHandler>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<ChannelDuplexHandler> asyncHandler0 = (AsyncHandler<ChannelDuplexHandler>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<ChannelDuplexHandler> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<ChannelDuplexHandler>(maybeEmitter0, asyncHandler0);
+      MaybeEmitter<Void> maybeEmitter1 = (MaybeEmitter<Void>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter1).isDisposed();
+      MaybeAsyncHandlerBridge<Void> maybeAsyncHandlerBridge1 = new MaybeAsyncHandlerBridge<Void>(maybeEmitter1, maybeAsyncHandlerBridge0);
+      maybeAsyncHandlerBridge1.onConnectionPoolAttempt();
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      MaybeEmitter<UnpooledHeapByteBuf> maybeEmitter0 = (MaybeEmitter<UnpooledHeapByteBuf>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<UnpooledHeapByteBuf> asyncHandler0 = (AsyncHandler<UnpooledHeapByteBuf>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<UnpooledHeapByteBuf> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<UnpooledHeapByteBuf>(maybeEmitter0, asyncHandler0);
+      MockInetSocketAddress mockInetSocketAddress0 = new MockInetSocketAddress(" ", 0);
+      maybeAsyncHandlerBridge0.onTcpConnectAttempt(mockInetSocketAddress0);
+      assertEquals(0, mockInetSocketAddress0.getPort());
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      MaybeEmitter<Object> maybeEmitter0 = (MaybeEmitter<Object>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      AsyncHandler<Integer> asyncHandler0 = (AsyncHandler<Integer>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<Object> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<Object>(maybeEmitter0, asyncHandler0);
+      maybeAsyncHandlerBridge0.onConnectionOffer((Channel) null);
+      maybeAsyncHandlerBridge0.onCompleted();
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      MaybeEmitter<UnpooledHeapByteBuf> maybeEmitter0 = (MaybeEmitter<UnpooledHeapByteBuf>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<UnpooledHeapByteBuf> asyncHandler0 = (AsyncHandler<UnpooledHeapByteBuf>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<UnpooledHeapByteBuf> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<UnpooledHeapByteBuf>(maybeEmitter0, asyncHandler0);
+      EmbeddedChannel embeddedChannel0 = new EmbeddedChannel((ChannelId) null);
+      maybeAsyncHandlerBridge0.onConnectionPooled(embeddedChannel0);
+      assertTrue(embeddedChannel0.isWritable());
+}
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      MaybeEmitter<Integer> maybeEmitter0 = (MaybeEmitter<Integer>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(true).when(maybeEmitter0).isDisposed();
+      ProgressAsyncHandler<Integer> progressAsyncHandler0 = (ProgressAsyncHandler<Integer>) mock(ProgressAsyncHandler.class, new ViolatedAssumptionAnswer());
+      ProgressAsyncMaybeEmitterBridge<Integer> progressAsyncMaybeEmitterBridge0 = new ProgressAsyncMaybeEmitterBridge<Integer>(maybeEmitter0, progressAsyncHandler0);
+      MockInetSocketAddress mockInetSocketAddress0 = new MockInetSocketAddress((InetAddress) null, 17);
+      progressAsyncMaybeEmitterBridge0.onTcpConnectSuccess(mockInetSocketAddress0, (Channel) null);
+      assertNotNull(mockInetSocketAddress0.toString());
+}
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      MaybeEmitter<UnpooledHeapByteBuf> maybeEmitter0 = (MaybeEmitter<UnpooledHeapByteBuf>) mock(MaybeEmitter.class, new ViolatedAssumptionAnswer());
+      doReturn(false).when(maybeEmitter0).isDisposed();
+      AsyncHandler<UnpooledHeapByteBuf> asyncHandler0 = (AsyncHandler<UnpooledHeapByteBuf>) mock(AsyncHandler.class, new ViolatedAssumptionAnswer());
+      MaybeAsyncHandlerBridge<UnpooledHeapByteBuf> maybeAsyncHandlerBridge0 = new MaybeAsyncHandlerBridge<UnpooledHeapByteBuf>(maybeEmitter0, asyncHandler0);
+      maybeAsyncHandlerBridge0.onHostnameResolutionAttempt("");
+  }

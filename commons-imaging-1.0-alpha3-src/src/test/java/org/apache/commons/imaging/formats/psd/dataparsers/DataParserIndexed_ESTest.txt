@@ -1,0 +1,27 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      DataParserIndexed dataParserIndexed0 = null;
+      try {
+        dataParserIndexed0 = new DataParserIndexed(byteArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 256
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserIndexed", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      DataParserIndexed dataParserIndexed0 = null;
+      try {
+        dataParserIndexed0 = new DataParserIndexed((byte[]) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.dataparsers.DataParserIndexed", e);
+      }
+  }

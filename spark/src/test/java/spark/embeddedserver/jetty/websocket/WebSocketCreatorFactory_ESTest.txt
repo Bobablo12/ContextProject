@@ -1,0 +1,17 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        WebSocketCreatorFactory.create((WebSocketHandlerWrapper) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.embeddedserver.jetty.websocket.WebSocketCreatorFactory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      WebSocketCreatorFactory webSocketCreatorFactory0 = new WebSocketCreatorFactory();
+  }

@@ -1,0 +1,56 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 213, 3244, 3, 1758);
+      psdImageContents0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 213, 3244, 3, 1758);
+      psdImageContents0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 213, 3244, 3, 1758);
+      psdImageContents0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, 213, 3244, 3, 1758);
+      psdImageContents0.dump();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, (-1405), 0, 0, 0);
+      CharArrayWriter charArrayWriter0 = new CharArrayWriter();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(charArrayWriter0);
+      psdImageContents0.dump((PrintWriter) mockPrintWriter0);
+      assertEquals(0, charArrayWriter0.size());
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      PsdImageContents psdImageContents0 = new PsdImageContents((PsdHeaderInfo) null, (-1405), 0, 0, 0);
+      CharArrayWriter charArrayWriter0 = new CharArrayWriter();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(charArrayWriter0);
+      psdImageContents0.dump((PrintWriter) mockPrintWriter0);
+      assertNotNull(charArrayWriter0.toString());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      PsdHeaderInfo psdHeaderInfo0 = new PsdHeaderInfo(3, byteArray0, 0, 31, 0, 2, 0);
+      PsdImageContents psdImageContents0 = new PsdImageContents(psdHeaderInfo0, 2821, 31, 0, (-127));
+      // Undeclared exception!
+      try { 
+        psdImageContents0.dump((PrintWriter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.psd.PsdImageContents", e);
+      }
+  }

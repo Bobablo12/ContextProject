@@ -1,0 +1,1007 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      RgbBufferedImageFactory rgbBufferedImageFactory0 = new RgbBufferedImageFactory();
+      BufferedImage bufferedImage0 = rgbBufferedImageFactory0.getColorBufferedImage(1, 1, true);
+      MockPrintStream mockPrintStream0 = new MockPrintStream("(%7%9byH");
+      tiffImageParser0.writeImage(bufferedImage0, (OutputStream) mockPrintStream0, tiffImagingParameters0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      String[] stringArray0 = tiffImageParser0.getAcceptedExtensions();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      SimpleBufferedImageFactory simpleBufferedImageFactory0 = new SimpleBufferedImageFactory();
+      BufferedImage bufferedImage0 = simpleBufferedImageFactory0.getGrayscaleBufferedImage(306, 306, true);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      tiffImageParser0.writeImage(bufferedImage0, (OutputStream) byteArrayOutputStream0, tiffImagingParameters0);
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getXmpXml((ByteSource) null, xmpImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-515), 1);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "7,v|");
+      XmpImagingParameters xmpImagingParameters0 = new XmpImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getXmpXml(byteSourceInputStream0, xmpImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 63, (byte)0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "T.6 compression with the uncompressed mode extension is not yet supported");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getXmpXml(byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("~OtUNCR~p", "~OtUNCR~p");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getXmpXml(byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ByteOrder byteOrder0 = ByteOrder.BIG_ENDIAN;
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getRasterData((TiffDirectory) null, byteOrder0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("DyW1z*G^NO#I)qG", byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getMetadata((ByteSource) byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("n4Hd9a&wu0f1MUQ+#I");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.getMetadata((ByteSource) byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[2];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-583), 419);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "xT[=~1ELh5_?cAfct");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getImageSize((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("For planar configuration 2, only strips-organization is supported", "f");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.getImageSize((ByteSource) byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) null, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(dataInputStream0, 1036);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "!~M");
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (byte) (-77), 6);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, "");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray((String) null, byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("rCD5x,1[3w");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) null, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, ")!=expectedColormapSize (");
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-707), (byte)23);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(byteArrayInputStream0);
+      BufferedInputStream bufferedInputStream0 = new BufferedInputStream(pushbackInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(bufferedInputStream0, "Not a Valid PSD File");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "subimage y is outside raster");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[12];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      try { 
+        tiffImageParser0.getFormatCompliance((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, (-247), 800);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(byteArrayInputStream0, (String) null);
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getFormatCompliance((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.ByteArrayInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[1];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("+]kIN[D8 3", byteArray0);
+      try { 
+        tiffImageParser0.getFormatCompliance((ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("1J%3OOG(ad&k},)??]");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        tiffImageParser0.getFormatCompliance((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      Vector<TiffField> vector0 = new Vector<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory(649, vector0, 539L, (-1254L), byteOrder0);
+      vector0.add((TiffField) null);
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getBufferedImage(tiffDirectory0, byteOrder0, (TiffImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getBufferedImage((ByteSource) null, (TiffImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("", byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getBufferedImage((ByteSource) byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("_W3G1Uxghsqd\u0001)w*A1", "!'9-");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.getBufferedImage((ByteSource) byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        tiffImageParser0.getAllBufferedImages((ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getAllBufferedImages((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream(dataInputStream0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pushbackInputStream0, "");
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      Vector<ByteArrayInputStream> vector0 = new Vector<ByteArrayInputStream>();
+      Enumeration<ByteArrayInputStream> enumeration0 = vector0.elements();
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(enumeration0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(sequenceInputStream0, (String) null);
+      try { 
+        tiffImageParser0.getAllBufferedImages((ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("TIFF does not contain an image.", "TIFF does not contain an image.");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        tiffImageParser0.getAllBufferedImages((ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      StringWriter stringWriter0 = new StringWriter((byte)0);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(stringWriter0);
+      try { 
+        tiffImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      FileDescriptor fileDescriptor0 = new FileDescriptor();
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(fileDescriptor0);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(mockFileInputStream0, "tif");
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.dumpImageFile((PrintWriter) null, (ByteSource) byteSourceInputStream0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffImageParser", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("):-3/pv");
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      StringWriter stringWriter0 = new StringWriter(33448);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(stringWriter0, true);
+      byte[] byteArray0 = new byte[0];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        tiffImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Not a Valid TIFF File
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      BufferedOutputStream bufferedOutputStream0 = new BufferedOutputStream((OutputStream) null, 1512);
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(bufferedOutputStream0, false);
+      MockFile mockFile0 = new MockFile("Qr?*DO%)]N@my65C:z", "Qr?*DO%)]N@my65C:z");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      try { 
+        tiffImageParser0.dumpImageFile((PrintWriter) mockPrintWriter0, (ByteSource) byteSourceFile0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[9];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      try { 
+        tiffImageParser0.collectRawImageData(byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "");
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.collectRawImageData(byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.collectRawImageData(byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[6];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      tiffImagingParameters0.setStrict(true);
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[3];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("k{5`{;A\"", byteArray0);
+      try { 
+        tiffImageParser0.getImageSize((ByteSource) byteSourceArray0, (TiffImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      Vector<TiffField> vector0 = new Vector<TiffField>();
+      ByteOrder byteOrder0 = tiffImageParser0.getByteOrder();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(322, vector0, 322, 322, byteOrder0);
+      try { 
+        tiffImageParser0.getRasterData(tiffDirectory0, byteOrder0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"SampleFormat\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockPrintStream mockPrintStream0 = new MockPrintStream("TIFF integer data uses unsupporteM horizont^l-differencing predictor");
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.writeImage((BufferedImage) null, (OutputStream) mockPrintStream0, (TiffImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.write.TiffImageWriterBase", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      ArrayList<TiffField> arrayList0 = new ArrayList<TiffField>();
+      TiffDirectory tiffDirectory0 = new TiffDirectory(65535, arrayList0, 65535, 65535, byteOrder0);
+      try { 
+        tiffImageParser0.getBufferedImage(tiffDirectory0, byteOrder0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"ImageWidth\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[7];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray("Tiff-Custom", byteArray0);
+      try { 
+        tiffImageParser0.getBufferedImage((ByteSource) byteSourceArray0, (TiffImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "1 V1^4p#C!dR");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getBufferedImage((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "tif");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      tiffImagingParameters0.setStrict(true);
+      try { 
+        tiffImageParser0.collectRawImageData(byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.collectRawImageData((ByteSource) null, (TiffImagingParameters) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      try { 
+        tiffImageParser0.getXmpXml(byteSourceArray0, (XmpImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      DataInputStream dataInputStream0 = new DataInputStream((InputStream) null);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(dataInputStream0, "rR?THshc!:H[{;sW");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getXmpXml(byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.DataInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      try { 
+        tiffImageParser0.getImageInfo((ByteSource) byteSourceArray0, (TiffImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(2449);
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream(pipedInputStream0, "TIFF does not contain an image.");
+      try { 
+        tiffImageParser0.getMetadata((ByteSource) byteSourceInputStream0, (TiffImagingParameters) null);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Pipe not connected
+         //
+         verifyException("java.io.PipedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getMetadata((ByteSource) null, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      TiffImagingParameters tiffImagingParameters0 = new TiffImagingParameters();
+      tiffImagingParameters0.setStrict(true);
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getImageSize((ByteSource) null, tiffImagingParameters0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test57()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ByteSourceInputStream byteSourceInputStream0 = new ByteSourceInputStream((InputStream) null, "tif");
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getImageSize((ByteSource) byteSourceInputStream0, tiffImagingParameters0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException("java.io.BufferedInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test58()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[15];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(byteArray0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      tiffImagingParameters0.setStrict(true);
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, tiffImagingParameters0);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test59()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      MockFile mockFile0 = new MockFile("$.N.gP", "d");
+      ByteSourceFile byteSourceFile0 = new ByteSourceFile(mockFile0);
+      TiffImagingParameters tiffImagingParameters0 = tiffImageParser0.getDefaultParameters();
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceFile0, tiffImagingParameters0);
+        fail("Expecting exception: FileNotFoundException");
+      } catch(FileNotFoundException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test60()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      byte[] byteArray0 = new byte[5];
+      ByteSourceArray byteSourceArray0 = new ByteSourceArray(")!=expectedColormapSize (", byteArray0);
+      try { 
+        tiffImageParser0.getICCProfileBytes((ByteSource) byteSourceArray0, (TiffImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Invalid TIFF byte order 0
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test61()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      String string0 = tiffImageParser0.getDefaultExtension();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test62()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      // Undeclared exception!
+      try { 
+        tiffImageParser0.getFormatCompliance((ByteSource) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test63()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ImageFormat[] imageFormatArray0 = tiffImageParser0.getAcceptedTypes();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test64()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      ArrayList<TiffField> arrayList0 = new ArrayList<TiffField>();
+      ByteOrder byteOrder0 = ByteOrder.LITTLE_ENDIAN;
+      TiffDirectory tiffDirectory0 = new TiffDirectory((-974), arrayList0, (-974), (-974), byteOrder0);
+      try { 
+        tiffImageParser0.getRasterData(tiffDirectory0, byteOrder0, (TiffImagingParameters) null);
+        fail("Expecting exception: Exception");
+      } catch(Exception e) {
+         //
+         // Required field \"SampleFormat\" is missing
+         //
+         verifyException("org.apache.commons.imaging.formats.tiff.TiffDirectory", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test65()  throws Throwable  {
+      TiffImageParser tiffImageParser0 = new TiffImageParser();
+      String string0 = tiffImageParser0.getName();
+      assertNotNull(string0);
+}

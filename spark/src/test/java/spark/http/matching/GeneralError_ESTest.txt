@@ -1,0 +1,44 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Body body0 = Body.create();
+      ResponseWrapper responseWrapper0 = ResponseWrapper.create();
+      ExceptionMapper exceptionMapper0 = ExceptionMapper.getServletInstance();
+      MockException mockException0 = new MockException();
+      Class<Exception> class0 = Exception.class;
+      ExceptionHandlerImpl<Exception> exceptionHandlerImpl0 = (ExceptionHandlerImpl<Exception>) mock(ExceptionHandlerImpl.class, new ViolatedAssumptionAnswer());
+      exceptionMapper0.map(class0, exceptionHandlerImpl0);
+      RequestWrapper requestWrapper0 = RequestWrapper.create();
+      // Undeclared exception!
+      try { 
+        GeneralError.modify((HttpServletRequest) null, (HttpServletResponse) null, body0, requestWrapper0, responseWrapper0, exceptionMapper0, mockException0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.http.matching.GeneralError", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Body body0 = Body.create();
+      RequestWrapper requestWrapper0 = RequestWrapper.create();
+      ResponseWrapper responseWrapper0 = ResponseWrapper.create();
+      ExceptionMapper exceptionMapper0 = new ExceptionMapper();
+      MockThrowable mockThrowable0 = new MockThrowable("2I[=QHsG(I):{");
+      MockException mockException0 = new MockException("2n=@X%P$S)XYHq,", mockThrowable0);
+      // Undeclared exception!
+      try { 
+        GeneralError.modify((HttpServletRequest) null, (HttpServletResponse) null, body0, requestWrapper0, responseWrapper0, exceptionMapper0, mockException0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("spark.http.matching.GeneralError", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GeneralError generalError0 = new GeneralError();
+  }

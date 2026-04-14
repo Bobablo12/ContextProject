@@ -1,0 +1,550 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("&vboR-0ngLMyPo6ng/e;");
+      xMLTokener0.skipPast("&quot;");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("\"fY6U$T|F");
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 9 [character 10 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("'~Le5&LTM8A");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      try { 
+        xMLTokener0.nextMeta();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 11 [character 12 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      String string0 = XMLTokener.unescapeEntity(" line ");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("zzw2F=p+f");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      try { 
+        xMLTokener0.nextEntity('2');
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Missing ';' in XML entity: &zzw2f at 6 [character 7 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("?Kj2X7Eskt^1");
+      xMLTokener0.nextContent();
+      assertFalse(xMLTokener0.end());
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      String string0 = XMLTokener.unescapeEntity("#5");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XMLTokener.unescapeEntity("#");
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        XMLTokener.unescapeEntity("#9tfjE/c=9l^lRi");
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"9tfjE/c=9l^lRi\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Unable to preserve stream position");
+      stringReader0.close();
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      // Undeclared exception!
+      try { 
+        xMLTokener0.skipPast("Unable to preserve stream position");
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Stream closed
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("n_-&f`M");
+      // Undeclared exception!
+      try { 
+        xMLTokener0.skipPast((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.XMLTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      XMLTokener xMLTokener0 = null;
+      try {
+        xMLTokener0 = new XMLTokener((String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.io.StringReader", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      XMLTokener xMLTokener0 = null;
+      try {
+        xMLTokener0 = new XMLTokener((Reader) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("xtwEN'knrl>(1a");
+      try { 
+        xMLTokener0.nextEntity('t');
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Missing ';' in XML entity: &xtwen at 6 [character 7 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("O8@i=1=jzQ;+?<v7");
+      xMLTokener0.nextMeta();
+      xMLTokener0.skipPast("O8@i=1=jzQ;+?<v7");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(":B]@$5 ");
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("?+-EBlgx?Gg#[dSpP");
+      xMLTokener0.next();
+      xMLTokener0.nextToken();
+      xMLTokener0.nextToken();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("HeQj^a^Qhq>]");
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("zzw2F=p+f");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("VC<3)1");
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad character in a name at 3 [character 4 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(">XyWM_Of\"/3[Xy");
+      xMLTokener0.nextClean();
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad character in a name at 9 [character 10 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("/Vys)okL:!E");
+      xMLTokener0.nextToken();
+      xMLTokener0.nextClean();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("&Missing ';' in XML entity: &;");
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("'~Le5&LTM8A");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Missing ';' in XML entity: &ltm8a at 11 [character 12 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("InterminatdDd/string");
+      xMLTokener0.nextToken();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("HoL\";W]");
+      xMLTokener0.nextMeta();
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 7 [character 8 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("&Y!qozJ~f&;");
+      xMLTokener0.nextMeta();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("O8@i=1=jzQ;+?<v7");
+      xMLTokener0.skipPast("O8@i=1=jzQ;+?<v7");
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped element at 16 [character 17 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("EL) e+W");
+      char[] charArray0 = new char[1];
+      stringReader0.read(charArray0);
+      stringReader0.read();
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      xMLTokener0.next();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(">w_?u");
+      xMLTokener0.nextToken();
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test30()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<O~5Zze:kh#Ql6>tp");
+      xMLTokener0.next();
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test31()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("O8@i=1=jzQ;+?<v7");
+      xMLTokener0.nextMeta();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test32()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("pNBql;l$l|<L%VPs");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      xMLTokener0.nextMeta();
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misplaced '<' at 11 [character 12 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test33()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("M{:ASw|w'KQ[5h");
+      xMLTokener0.nextMeta();
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 14 [character 15 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test34()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(" M9R.T]fD~o@$}E");
+      try { 
+        xMLTokener0.nextMeta();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 15 [character 16 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test35()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Misplaced '<'");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      xMLTokener0.nextMeta();
+      Object object0 = xMLTokener0.nextToken();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test36()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("&?Kj7Eskt^1;");
+      stringReader0.read();
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test37()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(">w?u");
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test38()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("=#*`Y&P}$");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test39()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("<");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test40()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("04A$y/");
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test41()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("04A$y/");
+      Object object0 = xMLTokener0.nextMeta();
+      Object object1 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test42()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("\"fY6U0T|F");
+      try { 
+        xMLTokener0.nextMeta();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unterminated string at 9 [character 10 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test43()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("3PzEzr!DK$Y2GA]<PY");
+      xMLTokener0.nextMeta();
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test44()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("<O~5Zze:kh#Ql6>tp");
+      xMLTokener0.skipPast("V ");
+      try { 
+        xMLTokener0.nextMeta();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Misshaped meta tag at 17 [character 18 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test45()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("Misplaced '<'");
+      char[] charArray0 = new char[9];
+      stringReader0.read(charArray0);
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextMeta();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test46()  throws Throwable  {
+      String string0 = XMLTokener.unescapeEntity("gt");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test47()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(";Za8ySqUyjI;zPIL|");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      Object object0 = xMLTokener0.nextEntity('I');
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test48()  throws Throwable  {
+      String string0 = XMLTokener.unescapeEntity((String) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test49()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("#ZP;*");
+      // Undeclared exception!
+      try { 
+        xMLTokener0.nextEntity('z');
+        fail("Expecting exception: NumberFormatException");
+      } catch(NumberFormatException e) {
+         //
+         // For input string: \"zp\"
+         //
+         verifyException("java.lang.NumberFormatException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test50()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("3PzEzr!DK$Y2GA]<PY");
+      Object object0 = xMLTokener0.nextContent();
+      assertNotNull(object0);
+}
+ @Test(timeout = 4000)
+  public void test51()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("3PzEzr!DK$Y2GA]<PY");
+      Object object0 = xMLTokener0.nextContent();
+      Object object1 = xMLTokener0.nextContent();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test52()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("3PzEzr!DK$Y2GA]<PY");
+      Object object0 = xMLTokener0.nextContent();
+      Object object1 = xMLTokener0.nextContent();
+      assertEquals(object0, object1);
+}
+ @Test(timeout = 4000)
+  public void test53()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(":B]@$5 ");
+      xMLTokener0.nextContent();
+      xMLTokener0.nextContent();
+      assertTrue(xMLTokener0.end());
+}
+ @Test(timeout = 4000)
+  public void test54()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener("-?(?:0|[1-9]d*)(?:.d+)?(?:[eE][+-]?d+)?");
+      try { 
+        xMLTokener0.nextCDATA();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Unclosed CDATA at 39 [character 40 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test55()  throws Throwable  {
+      XMLTokener xMLTokener0 = new XMLTokener(" 6f:GF(y|s/5&XZt/>i");
+      try { 
+        xMLTokener0.nextContent();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Missing ';' in XML entity: &xzt at 17 [character 18 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test56()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("#@4,'Py$79gs8/A:a=o");
+      XMLTokener xMLTokener0 = new XMLTokener(stringReader0);
+      try { 
+        xMLTokener0.nextToken();
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Bad character in a name at 5 [character 6 line 1]
+         //
+         verifyException("org.json.JSONTokener", e);
+      }
+  }

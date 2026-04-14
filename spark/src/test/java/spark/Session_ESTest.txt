@@ -1,0 +1,514 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      SessionData sessionData0 = new SessionData("STOPPED", "org.eclipse.jetty.servlet.SessionDomain", "STARTING", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = new org.eclipse.jetty.server.session.Session(sessionHandler0, sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.maxInactiveInterval(1727);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      SessionData sessionData0 = new SessionData("STOPPED", "org.eclipse.jetty.servlet.SessionDomain", "STARTING", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = new org.eclipse.jetty.server.session.Session(sessionHandler0, sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.maxInactiveInterval(1727);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("3{G)bwap6p~", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 0L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request((HttpServletRequest) null);
+      Session session1 = new Session(session0, request0);
+      long long0 = session1.lastAccessedTime();
+      assertEquals(0, long0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("3{G)bwap6p~", "org.eclipse.jetty.servlet.SessionDomain", "", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      long long0 = session1.lastAccessedTime();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      NullSessionCache nullSessionCache0 = new NullSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("request cannot be null", "request cannot be null", "STARTED", 86400L, 2583L, 2583L, 86400L);
+      org.eclipse.jetty.server.session.Session session0 = nullSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      String string0 = session1.id();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.removeAttribute("STARTED");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("STOPPED", "org.eclipse.jetty.servlet.SessionDomain", "STARTING", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      int int0 = (-984);
+      // Undeclared exception!
+      try { 
+        session1.removeAttribute((String) null);
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Not valid for write: id=STOPPED not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.invalidate();
+      // Undeclared exception!
+      try { 
+        session1.maxInactiveInterval();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.maxInactiveInterval();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.invalidate();
+      TreeSet<String> treeSet0 = new TreeSet<String>();
+      // Undeclared exception!
+      try { 
+        session1.lastAccessedTime();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Session not valid
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      StringWriter stringWriter0 = new StringWriter(0);
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.invalidate();
+      // Undeclared exception!
+      try { 
+        session1.lastAccessedTime();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Session not valid
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      defaultSessionCache0.delete("org.eclipse.jetty.servlet.SessionDomain");
+      // Undeclared exception!
+      try { 
+        session1.isNew();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.isNew();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      Object[][] objectArray0 = new Object[9][8];
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("STOPPED", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.isNew();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Invalid for read: id=STOPPED not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      String string0 = "";
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.creationTime();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("3{G)bwap6p~", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request((HttpServletRequest) null);
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.creationTime();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Invalid for read: id=3{G)bwap6p~ not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      defaultSessionCache0.delete("org.eclipse.jetty.servlet.SessionDomain");
+      // Undeclared exception!
+      try { 
+        session1.attributes();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("STOPPED", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 1050L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.attributes();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Invalid for read: id=STOPPED not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      String string0 = "";
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      NullSessionDataStore nullSessionDataStore0 = new NullSessionDataStore();
+      Request request0 = new Request();
+      SessionData sessionData0 = new SessionData("RUNNING", "STOPPED", "FAILED", 0L, 897L, 0L, 897L);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.attribute("vH", (Object) "");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Not valid for write: id=RUNNING not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.attribute("javaee_web_services_client_1_3.xsd");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("3{G)bwap6p~", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 0L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request((HttpServletRequest) null);
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.attribute("3{G)bwap6p~");
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Invalid for read: id=3{G)bwap6p~ not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      Request request0 = new Request();
+      Session session0 = null;
+      try {
+        session0 = new Session((HttpSession) null, request0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // session cannot be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      Request request0 = new Request();
+      Session session0 = null;
+      try {
+        session0 = new Session((HttpSession) null, request0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // session cannot be null
+         //
+         verifyException("spark.utils.Assert", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      SessionData sessionData0 = new SessionData("3G)Gap6p", "org.eclipse.jetty.servlet.SessionDomain", "G~#&I", 2912L, 1050L, 0L, (-1080L));
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      org.eclipse.jetty.server.Request.unwrap((ServletRequest) null);
+      Request request0 = new Request((HttpServletRequest) null);
+      Session session1 = new Session(session0, request0);
+      session1.maxInactiveInterval();
+      Long long0 = new Long(1050L);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      FileSystemHandling.setPermissions((EvoSuiteFile) null, true, true, false);
+      SessionData sessionData0 = new SessionData("org.eclipse.jetty.servlet.SessionDomain", "STOPPED", "", 10L, (-2918L), 214L, 1119L);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession(sessionData0);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.isNew();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // Invalid for read: id=org.eclipse.jetty.servlet.SessionDomain not resident
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.lastAccessedTime();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.attribute("RUNNING", (Object) session0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.invalidate();
+      // Undeclared exception!
+      try { 
+        session1.invalidate();
+        fail("Expecting exception: IllegalStateException");
+      } catch(IllegalStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      FileSessionDataStore fileSessionDataStore0 = new FileSessionDataStore();
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      // Undeclared exception!
+      try { 
+        session1.maxInactiveInterval(0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      SessionHandler sessionHandler0 = new SessionHandler();
+      DefaultSessionCache defaultSessionCache0 = new DefaultSessionCache(sessionHandler0);
+      org.eclipse.jetty.server.session.Session session0 = defaultSessionCache0.newSession((SessionData) null);
+      Request request0 = new Request();
+      Session session1 = new Session(session0, request0);
+      session1.raw();
+      // Undeclared exception!
+      try { 
+        session1.id();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.eclipse.jetty.server.session.Session", e);
+      }
+  }

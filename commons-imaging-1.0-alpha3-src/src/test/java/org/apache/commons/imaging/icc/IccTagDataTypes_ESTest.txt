@@ -1,0 +1,113 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.SIGNATURE_TYPE;
+      byte[] byteArray0 = new byte[12];
+      byteArray0[8] = (byte) (-1);
+      iccTagDataTypes0.dump("DESC_TYPE", byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IccTagDataTypes[] iccTagDataTypesArray0 = IccTagDataTypes.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.TEXT_TYPE;
+      byte[] byteArray0 = new byte[2];
+      try { 
+        iccTagDataTypes0.dump("S{]", byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // ICC: corrupt tag data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.TEXT_TYPE;
+      byte[] byteArray0 = new byte[18];
+      iccTagDataTypes0.dump("", byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.SIGNATURE_TYPE;
+      byte[] byteArray0 = new byte[1];
+      try { 
+        iccTagDataTypes0.dump("C", byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // ICC: corrupt tag data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.MULTI_LOCALIZED_UNICODE_TYPE;
+      byte[] byteArray0 = new byte[0];
+      try { 
+        iccTagDataTypes0.dump("", byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // ICC: corrupt tag data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.MULTI_LOCALIZED_UNICODE_TYPE;
+      byte[] byteArray0 = new byte[9];
+      iccTagDataTypes0.dump("", byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.DATA_TYPE;
+      byte[] byteArray0 = new byte[1];
+      try { 
+        iccTagDataTypes0.dump("Unexpected EOF", byteArray0);
+        fail("Expecting exception: IOException");
+      } catch(IOException e) {
+         //
+         // ICC: corrupt tag data
+         //
+         verifyException("org.apache.commons.imaging.common.BinaryFunctions", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.DATA_TYPE;
+      byte[] byteArray0 = new byte[4];
+      iccTagDataTypes0.dump((String) null, byteArray0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.DESC_TYPE;
+      byte[] byteArray0 = new byte[17];
+      // Undeclared exception!
+      try { 
+        iccTagDataTypes0.dump("ignore", byteArray0);
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.MULTI_LOCALIZED_UNICODE_TYPE;
+      int int0 = iccTagDataTypes0.getSignature();
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      IccTagDataTypes iccTagDataTypes0 = IccTagDataTypes.TEXT_TYPE;
+      String string0 = iccTagDataTypes0.getName();
+      assertNotNull(string0);
+}

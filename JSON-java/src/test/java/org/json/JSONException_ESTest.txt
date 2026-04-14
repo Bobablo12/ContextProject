@@ -1,0 +1,26 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      JSONException jSONException0 = null;
+      try {
+        jSONException0 = new JSONException((Throwable) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.json.JSONException", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      JSONException jSONException0 = new JSONException((String) null);
+      JSONException jSONException1 = new JSONException(jSONException0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      JSONException jSONException0 = new JSONException((String) null);
+      MockThrowable mockThrowable0 = new MockThrowable("", jSONException0);
+      JSONException jSONException1 = new JSONException((String) null, mockThrowable0);
+      ;
+}

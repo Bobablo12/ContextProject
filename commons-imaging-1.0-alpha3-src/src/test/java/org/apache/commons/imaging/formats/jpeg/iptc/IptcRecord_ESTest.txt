@@ -1,0 +1,42 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      IptcTypes iptcTypes0 = IptcTypes.RECORD_VERSION;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, (String) null);
+      String string0 = iptcRecord0.getValue();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      IptcTypes iptcTypes0 = IptcTypes.PROGRAM_VERSION;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "");
+      String string0 = iptcRecord0.getValue();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      IptcTypes iptcTypes0 = IptcTypes.REFERENCE_NUMBER;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "Source");
+      String string0 = iptcRecord0.getIptcTypeName();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      IptcTypes iptcTypes0 = IptcTypes.BYLINE_TITLE;
+      IptcRecord iptcRecord0 = new IptcRecord(iptcTypes0, "b@~Nq3/x");
+      String string0 = iptcRecord0.getValue();
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      IptcRecord iptcRecord0 = new IptcRecord((IptcType) null, "YW7Vg'd\"<>");
+      // Undeclared exception!
+      try { 
+        iptcRecord0.getIptcTypeName();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.imaging.formats.jpeg.iptc.IptcRecord", e);
+      }
+  }

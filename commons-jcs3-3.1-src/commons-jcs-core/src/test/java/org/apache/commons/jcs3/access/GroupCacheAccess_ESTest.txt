@@ -1,0 +1,283 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<GroupAttrName<Integer>, Delayed> compositeCache0 = compositeCacheManager0.getCache("", (ICompositeCacheAttributes) compositeCacheAttributes0, (IElementAttributes) elementAttributes0);
+      GroupCacheAccess<Integer, Delayed> groupCacheAccess0 = new GroupCacheAccess<Integer, Delayed>(compositeCache0);
+      Integer integer0 = new Integer(694);
+      groupCacheAccess0.removeFromGroup(integer0, "org.apache.commons.jcs3:type=JCSAdminBean");
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      GroupCacheAccess<LinkedHashSet<Object>, Integer> groupCacheAccess0 = new GroupCacheAccess<LinkedHashSet<Object>, Integer>((CompositeCache<GroupAttrName<LinkedHashSet<Object>>, Integer>) null);
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.removeFromGroup(linkedHashSet0, "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      GroupCacheAccess<ForkJoinTask<Delayed>, ForkJoinTask<String>> groupCacheAccess0 = new GroupCacheAccess<ForkJoinTask<Delayed>, ForkJoinTask<String>>((CompositeCache<GroupAttrName<ForkJoinTask<Delayed>>, ForkJoinTask<String>>) null);
+      ForkJoinPool forkJoinPool0 = ForkJoinPool.commonPool();
+      Callable<Delayed> callable0 = (Callable<Delayed>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      ForkJoinTask<Delayed> forkJoinTask0 = forkJoinPool0.submit(callable0);
+      RemoteCacheMonitor remoteCacheMonitor0 = new RemoteCacheMonitor();
+      ForkJoinTask<String> forkJoinTask1 = forkJoinPool0.submit((Runnable) remoteCacheMonitor0, "]):~BQM(:L'D~T");
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.putInGroup(forkJoinTask0, ";", forkJoinTask1, (IElementAttributes) elementAttributes0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      GroupCacheAccess<String, Delayed> groupCacheAccess0 = new GroupCacheAccess<String, Delayed>((CompositeCache<GroupAttrName<String>, Delayed>) null);
+      try { 
+        groupCacheAccess0.putInGroup((String) null, (String) null, (Delayed) null);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Key must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      GroupCacheAccess<ForkJoinTask<Object>, String> groupCacheAccess0 = new GroupCacheAccess<ForkJoinTask<Object>, String>((CompositeCache<GroupAttrName<ForkJoinTask<Object>>, String>) null);
+      Callable<String> callable0 = (Callable<String>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      ForkJoinTask<Object> forkJoinTask0 = ForkJoinTask.adapt((Callable<?>) callable0);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.putInGroup(forkJoinTask0, "Value must not be null", "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      GroupCacheAccess<Object, LinkedHashSet<Delayed>> groupCacheAccess0 = new GroupCacheAccess<Object, LinkedHashSet<Delayed>>((CompositeCache<GroupAttrName<Object>, LinkedHashSet<Delayed>>) null);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.invalidateGroup("");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<GroupAttrName<Integer>, LinkedHashSet<String>> compositeCache0 = new CompositeCache<GroupAttrName<Integer>, LinkedHashSet<String>>(compositeCacheAttributes0, (IElementAttributes) null);
+      GroupCacheAccess<Integer, LinkedHashSet<String>> groupCacheAccess0 = new GroupCacheAccess<Integer, LinkedHashSet<String>>(compositeCache0);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.invalidateGroup("");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cacheName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      GroupCacheAccess<Delayed, Integer> groupCacheAccess0 = new GroupCacheAccess<Delayed, Integer>((CompositeCache<GroupAttrName<Delayed>, Integer>) null);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.getGroupNames();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      GroupCacheAccess<Object, Delayed> groupCacheAccess0 = new GroupCacheAccess<Object, Delayed>((CompositeCache<GroupAttrName<Object>, Delayed>) null);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.getGroupKeys("Could not retrieve cache manager instance");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      GroupCacheAccess<Object, ForkJoinTask<String>> groupCacheAccess0 = new GroupCacheAccess<Object, ForkJoinTask<String>>((CompositeCache<GroupAttrName<Object>, ForkJoinTask<String>>) null);
+      Integer integer0 = new Integer(10000);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.getFromGroup(integer0, "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      CacheElement<String, Object> cacheElement0 = new CacheElement<String, Object>("", "em'\"P5", "");
+      IElementAttributes iElementAttributes0 = cacheElement0.getElementAttributes();
+      CompositeCache<GroupAttrName<LinkedHashSet<Integer>>, ForkJoinTask<String>> compositeCache0 = new CompositeCache<GroupAttrName<LinkedHashSet<Integer>>, ForkJoinTask<String>>(iCompositeCacheAttributes0, iElementAttributes0);
+      GroupCacheAccess<LinkedHashSet<Integer>, ForkJoinTask<String>> groupCacheAccess0 = new GroupCacheAccess<LinkedHashSet<Integer>, ForkJoinTask<String>>(compositeCache0);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.getFromGroup((LinkedHashSet<Integer>) null, "");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cacheName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getUnconfiguredInstance();
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      CompositeCache<GroupAttrName<LinkedHashSet<Object>>, Integer> compositeCache0 = new CompositeCache<GroupAttrName<LinkedHashSet<Object>>, Integer>(compositeCacheAttributes0, iElementAttributes0);
+      GroupCacheAccess<LinkedHashSet<Object>, Integer> groupCacheAccess0 = new GroupCacheAccess<LinkedHashSet<Object>, Integer>(compositeCache0);
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      Integer integer0 = new Integer(0);
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.putInGroup(linkedHashSet0, "org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache", integer0, iElementAttributes0);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cacheName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      GroupCacheAccess<GroupAttrName<String>, ForkJoinTask<Object>> groupCacheAccess0 = new GroupCacheAccess<GroupAttrName<String>, ForkJoinTask<Object>>((CompositeCache<GroupAttrName<GroupAttrName<String>>, ForkJoinTask<Object>>) null);
+      GroupId groupId0 = new GroupId("Invalid server descriptor: {0}", "");
+      GroupAttrName<String> groupAttrName0 = new GroupAttrName<String>(groupId0, "");
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      IElementAttributes iElementAttributes0 = compositeCacheManager0.getDefaultElementAttributes();
+      try { 
+        groupCacheAccess0.putInGroup(groupAttrName0, "", (ForkJoinTask<Object>) null, iElementAttributes0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Value must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      GroupCacheAccess<Object, ForkJoinTask<Integer>> groupCacheAccess0 = new GroupCacheAccess<Object, ForkJoinTask<Integer>>((CompositeCache<GroupAttrName<Object>, ForkJoinTask<Integer>>) null);
+      Callable<Integer> callable0 = (Callable<Integer>) mock(Callable.class, new ViolatedAssumptionAnswer());
+      ForkJoinTask<Integer> forkJoinTask0 = ForkJoinTask.adapt((Callable<? extends Integer>) callable0);
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      try { 
+        groupCacheAccess0.putInGroup((Object) null, "parseAuxiliary {0}", forkJoinTask0, (IElementAttributes) elementAttributes0);
+        fail("Expecting exception: RuntimeException");
+      } catch(RuntimeException e) {
+         //
+         // Key must not be null
+         //
+         verifyException("org.apache.commons.jcs3.access.GroupCacheAccess", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      CompositeCache<GroupAttrName<Integer>, String> compositeCache0 = compositeCacheManager0.getCache("org.apache.commons.jcs3.engine.stats.CacheStats@0000000033", iCompositeCacheAttributes0);
+      GroupCacheAccess<Integer, String> groupCacheAccess0 = new GroupCacheAccess<Integer, String>(compositeCache0);
+      Integer integer0 = new Integer((byte) (-29));
+      String string0 = groupCacheAccess0.getFromGroup(integer0, "jcs.auxiliary.");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      ICompositeCacheAttributes iCompositeCacheAttributes0 = compositeCacheManager0.getDefaultCacheAttributes();
+      CompositeCache<GroupAttrName<Delayed>, ForkJoinTask<Delayed>> compositeCache0 = compositeCacheManager0.getCache(iCompositeCacheAttributes0);
+      GroupCacheAccess<Delayed, ForkJoinTask<Delayed>> groupCacheAccess0 = new GroupCacheAccess<Delayed, ForkJoinTask<Delayed>>(compositeCache0);
+      groupCacheAccess0.invalidateGroup("org.apache.commons.jcs3:type=JCSAdminBean");
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCache<GroupAttrName<LinkedHashSet<Delayed>>, Object> compositeCache0 = compositeCacheManager0.getCache("");
+      GroupCacheAccess<LinkedHashSet<Delayed>, Object> groupCacheAccess0 = new GroupCacheAccess<LinkedHashSet<Delayed>, Object>(compositeCache0);
+      LinkedHashSet<Delayed> linkedHashSet0 = new LinkedHashSet<Delayed>();
+      groupCacheAccess0.putInGroup(linkedHashSet0, "", (Object) compositeCache0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<GroupAttrName<String>, Object> compositeCache0 = compositeCacheManager0.getCache("PoCW*x/>r__", (ICompositeCacheAttributes) compositeCacheAttributes0, (IElementAttributes) elementAttributes0);
+      GroupCacheAccess<String, Object> groupCacheAccess0 = new GroupCacheAccess<String, Object>(compositeCache0);
+      Set<String> set0 = groupCacheAccess0.getGroupNames();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      CompositeCacheManager compositeCacheManager0 = CompositeCacheManager.getInstance("");
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      CompositeCache<GroupAttrName<GroupAttrName<String>>, Integer> compositeCache0 = compositeCacheManager0.getCache("jcs.remotecache.customrmisocketfactory", (ICompositeCacheAttributes) compositeCacheAttributes0);
+      GroupCacheAccess<GroupAttrName<String>, Integer> groupCacheAccess0 = new GroupCacheAccess<GroupAttrName<String>, Integer>(compositeCache0);
+      Set<GroupAttrName<String>> set0 = groupCacheAccess0.getGroupKeys("'-8hT0");
+      assertEquals(1, set0.size());
+}
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      CompositeCacheAttributes compositeCacheAttributes0 = new CompositeCacheAttributes();
+      ElementAttributes elementAttributes0 = new ElementAttributes();
+      CompositeCache<GroupAttrName<LinkedHashSet<Object>>, String> compositeCache0 = new CompositeCache<GroupAttrName<LinkedHashSet<Object>>, String>(compositeCacheAttributes0, elementAttributes0);
+      GroupCacheAccess<LinkedHashSet<Object>, String> groupCacheAccess0 = new GroupCacheAccess<LinkedHashSet<Object>, String>(compositeCache0);
+      LinkedHashSet<Object> linkedHashSet0 = new LinkedHashSet<Object>();
+      // Undeclared exception!
+      try { 
+        groupCacheAccess0.removeFromGroup(linkedHashSet0, "TIvR^oyV");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // cacheName must not be null.
+         //
+         verifyException("org.apache.commons.jcs3.engine.control.group.GroupId", e);
+      }
+  }

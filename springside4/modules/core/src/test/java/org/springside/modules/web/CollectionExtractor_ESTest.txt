@@ -1,0 +1,378 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add("");
+      String string0 = CollectionExtractor.convertToString((Collection) linkedList0, "Qz5Q])J(\"", "");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      String string0 = CollectionExtractor.extractToString(linkedList0, "hJ", "");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add("");
+      String string0 = CollectionExtractor.convertToString((Collection) linkedList0, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      String string0 = CollectionExtractor.convertToString((Collection) linkedList0, "s7uleJlM-8$]FeY");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      Object object0 = new Object();
+      linkedList0.add(object0);
+      List<Object> list0 = linkedList0.subList(1, 1);
+      linkedList0.pop();
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToString(list0, "org.springside.modules.web.CollectionExtractor", "hCT/%s6{>cQQhRRU$z8");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList1.add((Object) linkedList0);
+      linkedList0.add((Object) linkedList1);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToString(linkedList1, ":\"Bl=_w_Cs#pf22", (String) null);
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      Object object0 = new Object();
+      linkedList0.add(object0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToString(linkedList0, (String) null, "set");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // fieldName can't be blank
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      linkedList0.add((Object) "Y:9~( Q%d,VEYN7JTN");
+      List<Object> list0 = linkedList0.subList(0, 0);
+      linkedList0.retainAll(list0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToMap(list0, "org.springside.modules.web.CollectionExtractor", "org.springside.modules.web.CollectionExtractor");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      List<Object> list0 = linkedList0.subList(0, 0);
+      linkedList0.add((Object) list0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToMap(linkedList0, "j6", "j6");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToMap((Collection) null, "u?&i/|v8y", "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.web.CollectionExtractor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add((String) null);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToMap(linkedList0, "nullnullnull", (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.reflect.ReflectionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      List<String> list0 = linkedList0.subList(0, 0);
+      linkedList0.add("f<\":I3N@t'{c^");
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList(list0, "");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      List<Object> list0 = linkedList0.subList(0, 0);
+      linkedList0.add((Object) list0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList(linkedList0, "s7uleJlM-8$]FeY");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList1.add((Object) linkedList0);
+      linkedList0.add((Object) linkedList1);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList(linkedList0, ", '");
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test14()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList((Collection) null, (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.web.CollectionExtractor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test15()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      linkedList0.add((Object) null);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList(linkedList0, "K$&72$zDIE4pI7zy");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.utils.reflect.ReflectionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test16()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      List<String> list0 = linkedList0.subList(0, 0);
+      linkedList0.add("");
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.convertToString((Collection) list0, (String) null, "rI");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test17()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList1.add((Object) linkedList0);
+      linkedList0.add((Object) linkedList1);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.convertToString((Collection) linkedList0, "n", ":\"Bl=_w_Cs#pf22");
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test18()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.convertToString((Collection) null, (String) null, "");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.web.CollectionExtractor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test19()  throws Throwable  {
+      LinkedList<Integer> linkedList0 = new LinkedList<Integer>();
+      List<Integer> list0 = linkedList0.subList(0, 0);
+      Integer integer0 = new Integer((-2286));
+      linkedList0.add(integer0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.convertToString((Collection) list0, ".uC{u=nJ;EZ6\"^k");
+        fail("Expecting exception: ConcurrentModificationException");
+      } catch(ConcurrentModificationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.util.SubList", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test20()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      Object object0 = new Object();
+      linkedList0.add(object0);
+      LinkedList<Object> linkedList1 = new LinkedList<Object>();
+      linkedList1.add((Object) linkedList0);
+      linkedList0.add((Object) linkedList1);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.convertToString((Collection) linkedList0, "");
+        fail("Expecting exception: StackOverflowError");
+      } catch(StackOverflowError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+ @Test(timeout = 4000)
+  public void test21()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add("");
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToList(linkedList0, "");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // fieldName can't be blank
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test22()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      String string0 = CollectionExtractor.convertToString((Collection) linkedList0, "V.K)Y*", ":\"Bl=_w_Cs#pf22");
+      assertNotNull(string0);
+}
+ @Test(timeout = 4000)
+  public void test23()  throws Throwable  {
+      LinkedList<Object> linkedList0 = new LinkedList<Object>();
+      linkedList0.add((Object) linkedList0);
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToString(linkedList0, ":\"Bl=_w_Cs#pf22", (String) null);
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // Could not find field [:\"Bl=_w_Cs#pf22] on target [[(this Collection)]]
+         //
+         verifyException("org.springside.modules.utils.reflect.ReflectionUtil", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test24()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      List<Object> list0 = CollectionExtractor.extractToList(linkedList0, "-<Ks6gt*xI");
+      assertTrue(list0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test25()  throws Throwable  {
+      LinkedList<String> linkedList0 = new LinkedList<String>();
+      linkedList0.add("^wbX>@8\"q");
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToMap(linkedList0, "", "B6QF}^JQqpul");
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // fieldName can't be blank
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test26()  throws Throwable  {
+      LinkedList<Integer> linkedList0 = new LinkedList<Integer>();
+      Map<Object, Object> map0 = CollectionExtractor.extractToMap(linkedList0, "{}", "org.springside.modules.web.CollectionExtractor");
+      assertTrue(map0.isEmpty());
+}
+ @Test(timeout = 4000)
+  public void test27()  throws Throwable  {
+      CollectionExtractor collectionExtractor0 = new CollectionExtractor();
+  }
+ @Test(timeout = 4000)
+  public void test28()  throws Throwable  {
+      String string0 = CollectionExtractor.convertToString((Collection) null, "");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test29()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        CollectionExtractor.extractToString((Collection) null, "I2x,2HF-BPa&/", "I2x,2HF-BPa&/");
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.springside.modules.web.CollectionExtractor", e);
+      }
+  }
